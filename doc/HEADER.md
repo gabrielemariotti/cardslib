@@ -95,7 +95,7 @@ If you want a `CardHeader` with the expand/collapse button you can use this simp
 
 ![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/CardsDemo/images/header/expand.png)
 
-If you want to customize the expand area you can simply extend `CardExpand` class. See this [page](https://github.com/gabrielemariotti/cardslib/tree/master/EXPAND.md) for more information.
+If you want to customize the expand area you can simply extend `CardExpand` class. See this [page](https://github.com/gabrielemariotti/cardslib/tree/master/doc/EXPAND.md) for more information.
 
 ``` java
         //This provides a simple (and useless) expand area
