@@ -84,7 +84,7 @@ If you want a `CardHeader` with the expand/collapse button you can use this simp
         //Add Header to card
         card.addCardHeader(header);
 
-        //This provide a simple (and useless) expand area
+        //This provides a simple (and useless) expand area
         CardExpand expand = new CardExpand(getContext());
 
         //Set inner title in Expand Area
@@ -98,7 +98,7 @@ If you want a `CardHeader` with the expand/collapse button you can use this simp
 If you want to customize the expand area you can simply extend `CardExpand` class. See this [page](https://github.com/gabrielemariotti/cardslib/tree/master/EXPAND.md) for more information.
 
 ``` java
-        //This provide a simple (and useless) expand area
+        //This provides a simple (and useless) expand area
         CustomExpandCard expand = new CustomExpandCard(getContext());
 
         //Add Expand Area to a Card
@@ -111,7 +111,7 @@ If you want to customize the expand area you can simply extend `CardExpand` clas
 
 `CardHeader` provides an 'other button' features.
 
-You can use it for any action.
+You can use it for any actions.
 
 you can use this simple code:
 
@@ -226,7 +226,7 @@ You can see `res/layout/carddemo_example_card1_layout.xml`.
    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                  xmlns:card="http://schemas.android.com/apk/res-auto"
 
-             ......
+             
          <it.gmariotti.cardslib.library.view.component.CardHeaderView
              style="@style/card.header_outer_layout"
              android:id="@+id/card_header_layout"
@@ -234,7 +234,7 @@ You can see `res/layout/carddemo_example_card1_layout.xml`.
              card:card_header_layout_resourceID="@layout/carddemo_example_card1_header_layout"
              android:layout_height="wrap_content"/>
 
-             .....
+             
 
    </LinearLayout>
 ```
@@ -321,8 +321,8 @@ To change overflow button:
 To change pressed expand button:
 
 * you can copy ic_menu_expand_card_dark_pressed.png in your project and change it.
-* you can modify the selector  card_menu_button_expand.xml
-* you can modify the style `card.header_button_base.expand`
+* or you can copy and modify the selector  card_menu_button_expand.xml
+* or you can copy and modify the style `card.header_button_base.expand`
 
 ``` xml
    <selector xmlns:android="http://schemas.android.com/apk/res/android">
