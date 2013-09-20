@@ -225,7 +225,7 @@ The `Card` class provides some listeners to handle callbacks.
 * `OnCollapseAnimatorEndListener` : invoked when the collapse animation ends
 * `OnLongCardClickListener` : invoked when the card is long clicked
 
-See [Card Header:](https://github.com/gabrielemariotti/cardslib/tree/master/HEADER.md) for Header listeners.
+See [Card Header:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/HEADER.md) for Header listeners.
 
 ### Card with a swipe action
 
