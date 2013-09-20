@@ -72,7 +72,7 @@ If you want to load an image from an url:
 
 ### Customize Thumbnail
 
-If you want to customize your Thumbnail you can your style files.
+If you want to customize your Thumbnail you can use your style files.
 The quickest way to start with this would be to copy the specific style or resources in your project and
 change them.
 
