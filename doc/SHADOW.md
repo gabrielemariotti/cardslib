@@ -12,7 +12,7 @@ There are many ways you can customize the card shadow.
 
 ### Hidden Shadow
 
-If you want a card with shadow  you can use this simple code:
+If you want a card without shadow  you can use this simple code:
 
 ``` java
         //Create a Card
