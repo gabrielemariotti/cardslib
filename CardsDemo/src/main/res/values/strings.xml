@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /*******************************************************************************
+  ~   Copyright (c) 2013 Gabriele Mariotti.
+  ~
+  ~   Licensed under the Apache License, Version 2.0 (the "License");
+  ~   you may not use this file except in compliance with the License.
+  ~   You may obtain a copy of the License at
+  ~
+  ~   http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~   Unless required by applicable law or agreed to in writing, software
+  ~   distributed under the License is distributed on an "AS IS" BASIS,
+  ~   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~   See the License for the specific language governing permissions and
+  ~   limitations under the License.
+  ~  ******************************************************************************/
+  -->
+
+<resources>
+
+    <!--App name -->
+    <string name="app_name">CardsLibDemo</string>
+
+    <!-- About -->
+    <string name="title_about">About</string>
+    <string name="about_ok">OK</string>
+    <string name="about_body"><![CDATA[
+        <b>CardLib Library & Demo</b><br>
+        Version %s<br><br>
+        <a href="https://github.com/gabrielemariotti/cardslib">Source</a><br><br>
+        <a href="https://plus.google.com/114432517923423045208">By Gabriele Mariotti</a><br><br>
+
+    ]]></string>
+
+    <!--Menu -->
+    <string name="action_menu_about">About</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Misc -->
+    <string name="hello_world">Hello world!</string>
+
+    <!-- Title -->
+    <string name="carddemo_title_header">Card Header</string>
+    <string name="carddemo_title_shadow">Card Shadow</string>
+    <string name="carddemo_title_thumbnail">Card Thumbnail</string>
+    <string name="carddemo_title_card">Card</string>
+    <string name="carddemo_title_gplay">Google Play</string>
+    <string name="carddemo_title_gnow">Google Now</string>
+    <string name="carddemo_title_gplus">Misc</string>
+    <string name="carddemo_title_birthday_card">BirthDay Card</string>
+    <string name="carddemo_title_stock_card">Google Now Stock</string>
+    <string name="carddemo_title_play_card">Google Play</string>
+    <string name="carddemo_title_misc_card">Misc</string>
+
+    <!-- Section -->
+    <string name="demo_section_header_standard">Standard Header without buttons</string>
+    <string name="demo_section_header_overflow">Standard Header with overflow button</string>
+    <string name="demo_section_header_expand">Standard Header with expand/collapse button</string>
+    <string name="demo_section_header_expand_custom_area">Standard Header with expand/collapse button and custom expand Area</string>
+    <string name="demo_section_header_otherButton">Standard Header with custom button</string>
+    <string name="demo_section_header_otherButton_programmatically">Standard Header with custom button programmatically</string>
+    <string name="demo_section_header_inner">Customize the innerContent Header Layout</string>
+    <string name="demo_section_header_layout">Customizing the HeaderLayout</string>
+
+    <string name="demo_section_shadow_no">Card without shadow</string>
+    <string name="demo_section_shadow_customizing">Customizing shadow</string>
+    <string name="demo_section_shadow_layout">Customizing the ShadowLayout</string>
+
+    <string name="demo_section_thumb_id">Thumbnail from resource ID</string>
+    <string name="demo_section_thumb_url">Thumbnail from resource URL</string>
+    <string name="demo_section_thumb_style">Styling your Thumbnail card</string>
+
+    <string name="demo_section_card_title">Card with simple title</string>
+    <string name="demo_section_card_inner">Card with custom inner layout</string>
+    <string name="demo_section_card_example">Extending card</string>
+    <string name="demo_section_card_example_swipe">Custom card with swipe</string>
+    <string name="demo_section_card_example_clickable">Custom card clickable</string>
+    <string name="demo_section_card_example_partial_listeners">Custom card with partial areas clickable</string>
+
+    <!-- Header Examples -->
+    <string name="demo_header_basetitle">Card Header Title</string>
+    <string name="demo_expand_basetitle">Card Expand Title</string>
+    <string name="demo_header_exampletitle1">This is my inner layout title</string>
+    <string name="demo_header_exampletitle2">Short subtitle example</string>
+    <string name="demo_header_example1_text">Suggested communities</string>
+
+    <!-- Shadow Examples -->
+
+
+    <!-- Expand Example -->
+    <string name="demo_expand_customtitle1">Lorem ipsum dolor sit amet, consectetur adipisici elit...</string>
+    <string name="demo_expand_customtitle2">Quis aute iure reprehenderit in voluptate velit esse cillum ..</string>
+
+    <!-- Card Examples -->
+    <string name="demo_card_basetitle">My Inner Text</string>
+    <string name="demo_custom_card_google_maps">Google Maps</string>
+    <string name="demo_custom_card_googleinc">Google Inc.</string>
+    <string name="demo_custom_shorttitle">Header</string>
+    <string name="demo_card_shorttitle">Content</string>
+
+    <!-- You may know card -->
+    <string name="may_know_card_title">You may know</string>
+    <string name="may_know_card_subtitle">To see posts from friends and family, add them.</string>
+    <string name="may_know_card_add">Add</string>
+    <string name="may_know_card_inner_title">Gabriele Mariotti</string>
+    <string name="may_know_card_inner_subtitle">178 in common</string>
+
+    <!-- Suggested communities -->
+    <string name="demo_suggested_header">Suggested communities</string>
+    <string name="demo_suggested_title">Android</string>
+    <string name="demo_suggested_member">199990 members</string>
+    <string name="demo_suggested_subtitle">Brought to you by Android Central......</string>
+    <string name="demo_suggested_community">View community</string>
+
+
+</resources>

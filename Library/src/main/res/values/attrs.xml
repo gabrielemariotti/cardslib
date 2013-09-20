@@ -1,0 +1,37 @@
+<!--
+  ~ /*******************************************************************************
+  ~   Copyright (c) 2013 Gabriele Mariotti.
+  ~
+  ~   Licensed under the Apache License, Version 2.0 (the "License");
+  ~   you may not use this file except in compliance with the License.
+  ~   You may obtain a copy of the License at
+  ~
+  ~   http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~   Unless required by applicable law or agreed to in writing, software
+  ~   distributed under the License is distributed on an "AS IS" BASIS,
+  ~   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~   See the License for the specific language governing permissions and
+  ~   limitations under the License.
+  ~  ******************************************************************************/
+  -->
+
+<resources>
+    <declare-styleable name="card_options">
+
+        <!-- Layout to build a card. Default value is  @layout/card_base_layout -->
+        <attr name="card_layout_resourceID" format="reference"/>
+
+        <!-- Layout to build a shadow. Default value is @layout/base_shadow_layout -->
+        <attr name="card_shadow_layout_resourceID" format="reference"/>
+
+        <!-- Layout to build a Header. Default value is @layout/base_header_layout -->
+        <attr name="card_header_layout_resourceID" format="reference"/>
+
+        <!-- Layout to build a Thumbnail. Default value is @layout/base_thumbnail_layout -->
+        <attr name="card_thumbnail_layout_resourceID" format="reference"/>
+
+
+    </declare-styleable>
+
+</resources>

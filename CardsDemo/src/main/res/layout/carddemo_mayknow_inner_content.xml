@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ /*******************************************************************************
+  ~   Copyright (c) 2013 Gabriele Mariotti.
+  ~
+  ~   Licensed under the Apache License, Version 2.0 (the "License");
+  ~   you may not use this file except in compliance with the License.
+  ~   You may obtain a copy of the License at
+  ~
+  ~   http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~   Unless required by applicable law or agreed to in writing, software
+  ~   distributed under the License is distributed on an "AS IS" BASIS,
+  ~   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~   See the License for the specific language governing permissions and
+  ~   limitations under the License.
+  ~  ******************************************************************************/
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content">
+
+
+    <TextView
+        android:id="@+id/carddemo_mayknow_main_inner_title"
+        style="@style/carddemo_mayknow_main_inner_title"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/card_mayknow_margin_top"
+        android:layout_alignParentLeft="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/carddemo_mayknow_main_inner_subtitle"
+        style="@style/carddemo_mayknow_main_inner_title.sub"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/carddemo_mayknow_main_inner_title"
+        android:layout_marginBottom="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+    <TextView
+        android:id="@+id/carddemo_mayknow_main_inner_button"
+        style="@style/carddemo_mayknow_main_inner_title"
+        android:textSize="14sp"
+        android:layout_marginRight="30dp"
+        android:textColor="#FFF"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        android:background="@drawable/carddemo_mayknow_add"
+        android:text="@string/may_know_card_add"
+        android:layout_centerInParent="true"
+        android:layout_width="48dp"
+        android:layout_height="32dp"/>
+
+</RelativeLayout>
