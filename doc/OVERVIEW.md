@@ -10,7 +10,7 @@ A `CardView` has a global layout with some parts:
 * Shadow
 * Expand Area
 
-This library provide 2 global layout:
+This library provides 2 global layout:
 
 * `res/layout/card_layout.xml` (default)
 * `res/layout/card_thumbnail_layout.xml`
