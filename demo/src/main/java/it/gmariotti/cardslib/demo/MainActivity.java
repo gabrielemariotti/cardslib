@@ -241,7 +241,7 @@ public class MainActivity extends Activity {
             if (prev != null) {
                 ft.remove(prev);
             }
-            ft.addToBackStack(null);
+            //ft.addToBackStack(null);
 
             dialogStandardFragment.show(ft, "carddemo_dialog");
         }
@@ -253,7 +253,7 @@ public class MainActivity extends Activity {
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
             fragmentTransaction.replace(R.id.fragment_main, baseFragment);
-            fragmentTransaction.addToBackStack(null);
+            //fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
             mCurrentTitle = baseFragment.getTitleResourceId();
         }
