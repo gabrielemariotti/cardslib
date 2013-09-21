@@ -86,7 +86,7 @@ The built-in content inner layout is quite useless, and provides a simple title.
       cardView.setCard(card);
 ```
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/CardsDemo/images/card/title.png)
+![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/card/title.png)
 
 Surely you have to custom this area.
 
@@ -129,7 +129,7 @@ This is the layout:
     </RelativeLayout>
 ```
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/CardsDemo/images/card/inner_content.png)
+![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/card/inner_content.png)
 
 ### Extending Card class
 
@@ -213,7 +213,7 @@ Then you can simply do:
         cardView.setCard(card);
 ```
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/CardsDemo/images/card/mycard.png)
+![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/card/mycard.png)
 
 ### Listeners
 
@@ -275,7 +275,7 @@ If you want a clickable card, enable a `Card.OnCardClickListener`
         CardView cardView = (CardView) getActivity().findViewById(R.id.carddemo_example_card3);
         cardView.setCard(card);
 ```
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/CardsDemo/images/card/clickable.png)
+![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/card/clickable.png)
 
 ### ClickListener on a specific area
 
@@ -309,5 +309,5 @@ If you want to set only a part (or more parts) as clickable you can use this cod
         });
 ```
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/CardsDemo/images/card/partial_listeners.png)
+![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/card/partial_listeners.png)
 

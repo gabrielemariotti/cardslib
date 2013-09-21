@@ -2,7 +2,7 @@
 
 A `CardView` has a global layout with some parts:
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/CardsDemo/images/model.png)
+![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/model.png)
 
 * Header
 * Thumbnail

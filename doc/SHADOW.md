@@ -26,7 +26,7 @@ If you want a card without shadow  you can use this simple code:
         cardView.setCard(card);
 ```
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/CardsDemo/images/shadow/noshadow.png)
+![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/shadow/noshadow.png)
 
 ### Customizing Shadow
 
@@ -58,7 +58,7 @@ Otherwise you can simply copy `res/drawable/card_shadow.xml` in your project and
 
 ```
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/CardsDemo/images/shadow/style.png)
+![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/shadow/style.png)
 
 ### Customizing the ShadowLayout
 
@@ -110,4 +110,4 @@ You can see an exmple in `res/layout/carddemo_example_card2_shadow_layout.xml`
         />
 ```
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/CardsDemo/images/shadow/layout_shadow.png)
+![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/shadow/layout_shadow.png)

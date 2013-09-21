@@ -44,7 +44,7 @@ If you want to load an image from a resource ID:
         cardView.setCard(card);
 ```
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/CardsDemo/images/thumb/resourceId.png)
+![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/thumb/resourceId.png)
 
 ### Thumbnail from Resource URL
 
@@ -68,7 +68,7 @@ If you want to load an image from an url:
         cardView.setCard(card);
 ```
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/CardsDemo/images/thumb/resourceURL.png)
+![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/thumb/resourceURL.png)
 
 ### Customize Thumbnail
 
@@ -112,4 +112,4 @@ Otherwise you can extend your `CardThumbmail` and override the `setupInnerViewEl
     }
 ```
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/CardsDemo/images/thumb/thumb_style.png)
+![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/thumb/thumb_style.png)

@@ -39,7 +39,7 @@ If you want a `CardHeader` without buttons you can use this simple code:
         card.addCardHeader(header);
 ```
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/CardsDemo/images/header/nobotton.png)
+![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/header/nobotton.png)
 
 ### Standard Header with the overflow botton and Popup Menu
 
@@ -65,7 +65,7 @@ If you want a `CardHeader` with the overflow button you can use this simple code
 You can use the listener  `CardHeader.OnClickCardHeaderPopupMenuListener` to listen callback when an item menu is clicked.
 
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/CardsDemo/images/header/overflow.png)
+![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/header/overflow.png)
 
 ### Standard Header with the expand/collpase button
 
@@ -93,7 +93,7 @@ If you want a `CardHeader` with the expand/collapse button you can use this simp
         card.addCardExpand(expand);
 ```
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/CardsDemo/images/header/expand.png)
+![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/header/expand.png)
 
 If you want to customize the expand area you can simply extend `CardExpand` class. See this [page](https://github.com/gabrielemariotti/cardslib/tree/master/doc/EXPAND.md) for more information.
 
@@ -105,7 +105,7 @@ If you want to customize the expand area you can simply extend `CardExpand` clas
         card.addCardExpand(expand);
 ```
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/CardsDemo/images/header/expandCustom.png)
+![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/header/expandCustom.png)
 
 ### Standard Header with custom button
 
@@ -150,7 +150,7 @@ The easiest way is to copy this style in your project and use your custom drawab
 
 You can use the listener  `CardHeader.OnClickCardHeaderOtherButtonListener` to listen callback when the other button is clicked.
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/CardsDemo/images/header/otherButton.png)
+![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/header/otherButton.png)
 
 If you want to set the other button programmatically you can use the same code above and add:
 
@@ -159,7 +159,7 @@ If you want to set the other button programmatically you can use the same code a
         header.setOtherButtonDrawable(R.drawable.card_menu_button_other_add);
 ```
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/CardsDemo/images/header/otherButtonAdd.png)
+![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/header/otherButtonAdd.png)
 
 ### Customizing the innerContent Header Layout
 
@@ -210,7 +210,7 @@ Then you can add this custom `CustomHeaderInnerCard` to your `Card`:
         cardView.setCard(card);
 ```
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/CardsDemo/images/header/inner.png)
+![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/header/inner.png)
 
 ### Customizing the HeaderLayout
 
@@ -270,7 +270,7 @@ You can see an exmple in `res/layout/carddemo_example_card1_header_layout.xml`
 
 Finally you can extend `CardHeader` and popolate your elements as above.
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/CardsDemo/images/header/layout.png)
+![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/header/layout.png)
 
 ### Style
 
@@ -298,7 +298,7 @@ Example to change header title color:
    <color name="card_text_color_header">#990066</color>
 ```
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/CardsDemo/images/header/title_color.png)
+![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/header/title_color.png)
 
 **drawable/selector properties**:
 
@@ -316,7 +316,7 @@ To change overflow button:
     </style>
 ```
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/CardsDemo/images/header/button_overflow.png)
+![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/header/button_overflow.png)
 
 To change pressed expand button:
 
@@ -337,4 +337,4 @@ To change pressed expand button:
    </selector>
 ```
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/CardsDemo/images/header/expand_red.png)
+![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/header/expand_red.png)

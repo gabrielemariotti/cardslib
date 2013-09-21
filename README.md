@@ -2,7 +2,7 @@
 
 Card Library provides an easy way to display a UI Card in your Android app.
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/CardsDemo/images/screen.png)
+![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/screen.png)
 
 
 ---

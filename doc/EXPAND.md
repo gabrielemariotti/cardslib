@@ -38,7 +38,7 @@ If you want a standard `CardExpand` you can use this simple code:
         card.addCardExpand(expand);
 ```
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/CardsDemo/images/header/expand.png)
+![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/header/expand.png)
 
 
 ### Custom Expand inflating your inner layout
@@ -88,7 +88,7 @@ Then you can add this custom `CustomExpandCard` to your `Card`:
         card.addCardExpand(expand);
 ```
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/CardsDemo/images/header/expandCustom.png)
+![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/header/expandCustom.png)
 
 You can use these listeners to listen any callbacks when animations end.
 
