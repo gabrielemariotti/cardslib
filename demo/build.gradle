@@ -24,7 +24,7 @@ android {
 
 dependencies {
     // Cards Library
-    compile project(':Library')
+    compile project(':library')
     // Support Libraries
     compile 'com.android.support:support-v4:18.0.0'
 }
