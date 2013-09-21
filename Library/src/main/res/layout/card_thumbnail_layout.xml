@@ -36,7 +36,7 @@
         <!-- Compound view for Header Card
              If you want to customize this element use attr card:card_header_layout_resourceID
              You can also use your CardHeader subclass-->
-        <it.gmariotti.cardslib.library.view.component.CardHeaderView
+        <it.gmariotti.cardslib.view.component.CardHeaderView
             style="@style/card.header_outer_layout"
             android:id="@+id/card_header_layout"
             android:layout_width="match_parent"
@@ -47,7 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <it.gmariotti.cardslib.library.view.component.CardThumbnailView
+            <it.gmariotti.cardslib.view.component.CardThumbnailView
                 style="@style/card_thumbnail_outer_layout"
                 android:id="@+id/card_thumbnail_layout"
                 android:layout_width="wrap_content"
@@ -66,7 +66,7 @@
 
     <!-- Compound view for Shadow
          If you want to customize this element use attr card:card_shadow_layout_resourceID -->
-    <it.gmariotti.cardslib.library.view.component.CardShadowView
+    <it.gmariotti.cardslib.view.component.CardShadowView
         style="@style/card.shadow_outer_layout"
         android:id="@+id/card_shadow_layout"
         android:layout_width="match_parent"
