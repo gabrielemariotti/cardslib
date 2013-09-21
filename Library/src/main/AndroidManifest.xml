@@ -17,7 +17,7 @@
   -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="it.gmariotti.cardslib.library"
+    package="it.gmariotti.cardslib"
     android:versionCode="1"
     android:versionName="1.0">
 

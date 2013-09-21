@@ -1,0 +1,377 @@
+/*
+ * ******************************************************************************
+ *   Copyright (c) 2013 Gabriele Mariotti.
+ *
+ *   Licensed under the Apache License, Version 2.0 (the "License");
+ *   you may not use this file except in compliance with the License.
+ *   You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *   Unless required by applicable law or agreed to in writing, software
+ *   distributed under the License is distributed on an "AS IS" BASIS,
+ *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *   See the License for the specific language governing permissions and
+ *   limitations under the License.
+ *  *****************************************************************************
+ */
+
+package it.gmariotti.cardslib.view.component;
+
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.res.TypedArray;
+import android.os.Build;
+import android.util.AttributeSet;
+import android.view.LayoutInflater;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageButton;
+import android.widget.PopupMenu;
+
+import it.gmariotti.cardslib.R;
+import it.gmariotti.cardslib.internal.CardHeader;
+import it.gmariotti.cardslib.view.base.CardViewInterface;
+
+/**
+ * Compound View for Header Component.
+ * It is built with base_header_layout xml file.
+ * </p>
+ * The base layout has two elements:
+ * <ul>
+ * <li><i>card_header_inner_frame</i>: frame which contains custom content.</li>
+ * <li><i>card_header_button_frame</i>: frame which contains button.</li>
+ * </ul>
+ * </p>
+ * You can populate and customize this layout using your CardHeader class.
+ * See {@link CardHeader} for more info.
+ * </p>
+ * <b>You can use a custom layout for Header Component in your xml layout.</b>
+ * <pre>
+ *  <it.gmariotti.cardslib.library.view.component.CardHeaderView
+ *       android:id="@+id/card_header_layout"
+ *       android:layout_width="match_parent"
+ *       android:layout_height="wrap_content"
+ *       card:card_header_layout_resourceID="@layout/my_header_layout" />
+ * </pre>
+ * </p>
+ *
+ * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
+ */
+public class CardHeaderView extends FrameLayout implements CardViewInterface {
+
+    //--------------------------------------------------------------------------
+    // Custom Layout
+    //--------------------------------------------------------------------------
+    /**
+     * Header Layout
+     */
+    protected int card_header_layout_resourceID = R.layout.base_header_layout;
+
+    //--------------------------------------------------------------------------
+    // View
+    //--------------------------------------------------------------------------
+    /**
+     * Compound View for this Component
+     */
+    protected View mInternalOuterView;
+
+    /**
+     * Inner View.
+     */
+    protected View mInternalInnerView;
+
+    //--------------------------------------------------------------------------
+    // Frame
+    //--------------------------------------------------------------------------
+    /**
+     * InnerContent Frame
+     */
+    protected ViewGroup mFrameInner;
+
+    /**
+     * Button Frame
+     */
+    protected ViewGroup mFrameButton;
+
+    //--------------------------------------------------------------------------
+    // Button
+    //--------------------------------------------------------------------------
+    /**
+     * Overflow
+     */
+    protected ImageButton mImageButtonOverflow;
+
+    /**
+     * Expand/Collapse button
+     */
+    protected ImageButton mImageButtonExpand;
+
+    /**
+     * Other Button
+     */
+    protected ImageButton mImageButtonOther;
+
+    /**
+     * Card Model *
+     */
+    protected CardHeader mCardHeader;
+
+    /**
+     * Listener invoked when expand/collapse button is clicked
+     */
+    protected OnClickListener mOnClickExpandCollapseActionListener;
+
+    //--------------------------------------------------------------------------
+    // Constructors
+    //--------------------------------------------------------------------------
+
+    public CardHeaderView(Context context) {
+        super(context);
+        init(null, 0);
+    }
+
+    public CardHeaderView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        init(attrs, 0);
+    }
+
+    public CardHeaderView(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+        init(attrs, defStyle);
+    }
+
+    //--------------------------------------------------------------------------
+    // Init
+    //--------------------------------------------------------------------------
+
+    /**
+     * Initializes component
+     *
+     * @param attrs
+     * @param defStyle
+     */
+    protected void init(AttributeSet attrs, int defStyle) {
+        //Init attrs
+        initAttrs(attrs, defStyle);
+
+        //Init View
+        if (!isInEditMode())
+            initView();
+    }
+
+    /**
+     * Init custom attrs.
+     *
+     * @param attrs
+     * @param defStyle
+     */
+    protected void initAttrs(AttributeSet attrs, int defStyle) {
+
+        TypedArray a = getContext().getTheme().obtainStyledAttributes(
+                attrs, R.styleable.card_options, defStyle, defStyle);
+
+        try {
+            card_header_layout_resourceID = a.getResourceId(R.styleable.card_options_card_header_layout_resourceID, card_header_layout_resourceID);
+        } finally {
+            a.recycle();
+        }
+    }
+
+    /**
+     * Inits view
+     */
+    protected void initView() {
+
+        //Inflate the root view (outerView)
+        LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        mInternalOuterView = inflater.inflate(card_header_layout_resourceID, this, true);
+
+        //Get buttons from layout
+        mImageButtonExpand = (ImageButton) findViewById(R.id.card_header_button_expand);
+        mImageButtonOverflow = (ImageButton) findViewById(R.id.card_header_button_overflow);
+        mImageButtonOther = (ImageButton) findViewById(R.id.card_header_button_other);
+
+        //Get frames
+        mFrameInner = (FrameLayout) findViewById(R.id.card_header_inner_frame);
+        mFrameButton = (FrameLayout) findViewById(R.id.card_header_button_frame);
+
+    }
+
+    @Override
+    public View getInternalOuterView() {
+        return mInternalOuterView;
+    }
+
+    /**
+     * Adds a {@link CardHeader}.
+     * <b>It is important to set all header values before launch this method</b>
+     *
+     * @param cardHeader CardHeader model
+     */
+    public void addCardHeader(CardHeader cardHeader) {
+        //Set header
+        mCardHeader = cardHeader;
+        //build ui
+        buildUI();
+    }
+
+    /**
+     * This method builds UI.
+     * If you are using standard base layout it sets up buttons and innerView.
+     * If you are using your custom layout it sets your elements.
+     */
+    protected void buildUI() {
+        if (mCardHeader == null) return;
+
+        //Set button visibility
+        setupButtons();
+
+        //Setup InnerView
+        setupInnerView();
+    }
+
+    /**
+     * Sets Buttons visibility
+     */
+    @SuppressWarnings("deprecation")
+    @SuppressLint("NewApi")
+    protected void setupButtons() {
+
+        if (mCardHeader.isButtonOverflowVisible()) {
+            visibilityButtonHelper(VISIBLE, GONE, GONE);
+            //Add popup
+            addPopup();
+        } else {
+
+            if (mCardHeader.isButtonExpandVisible()) {
+                visibilityButtonHelper(GONE, VISIBLE, GONE);
+            } else {
+
+                if (mCardHeader.isOtherButtonVisible() && mImageButtonOther != null) {
+                    visibilityButtonHelper(GONE, GONE, VISIBLE);
+                    //Check if button is not null
+                    if (mImageButtonOther != null) {
+                        if (mCardHeader.getOtherButtonDrawable() > 0) {
+                            if (Build.VERSION.SDK_INT >= 16) {
+                                mImageButtonOther.setBackground(getResources().getDrawable(mCardHeader.getOtherButtonDrawable()));
+                            } else {
+                                mImageButtonOther.setBackgroundDrawable(getResources().getDrawable(mCardHeader.getOtherButtonDrawable()));
+                            }
+                        }
+                        addOtherListener();
+                    }
+                } else {
+                    visibilityButtonHelper(GONE, GONE, GONE);
+                }
+            }
+        }
+    }
+
+    /**
+     * Sets listener for OtherButtonAction
+     */
+    protected void addOtherListener() {
+
+        if (mCardHeader.getOtherButtonClickListener() != null) {
+            if (mImageButtonOther != null) {
+                mImageButtonOther.setOnClickListener(new OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        mCardHeader.getOtherButtonClickListener().onButtonItemClick(mCardHeader.getParentCard(), v);
+                    }
+                });
+            }
+        }
+    }
+
+    /**
+     * Sets the inner view.
+     */
+    protected void setupInnerView() {
+        if (mFrameInner != null) {
+            mInternalInnerView = mCardHeader.getInnerView(getContext(), mFrameInner);
+        }
+    }
+
+
+    /**
+     * Helper method to setup buttons visibility
+     *
+     * @param overflowButtonVisibility <code>VISIBLE</code> to make visibile this button , otherwise <code>GONE</code>
+     * @param expandButtonVisibility   <code>VISIBLE</code> to make visibile this button , otherwise <code>GONE</code>
+     * @param otherButtonVisibility    <code>VISIBLE</code> to make visibile this button , otherwise <code>GONE</code>
+     */
+    protected void visibilityButtonHelper(int overflowButtonVisibility, int expandButtonVisibility, int otherButtonVisibility) {
+
+        if (overflowButtonVisibility == VISIBLE || overflowButtonVisibility == GONE) {
+            if (mImageButtonOverflow != null)
+                mImageButtonOverflow.setVisibility(overflowButtonVisibility);
+        }
+        if (expandButtonVisibility == VISIBLE || expandButtonVisibility == GONE) {
+            if (mImageButtonExpand != null)
+                mImageButtonExpand.setVisibility(expandButtonVisibility);
+        }
+        if (otherButtonVisibility == VISIBLE || otherButtonVisibility == GONE) {
+            if (mImageButtonOther != null)
+                mImageButtonOther.setVisibility(otherButtonVisibility);
+        }
+    }
+
+    /**
+     * Adds Popup menu
+     */
+    protected void addPopup() {
+
+        if (mCardHeader.getPopupMenu() > -1 && mImageButtonOverflow != null) {
+
+            //Add a PopupMenu and its listener
+            mImageButtonOverflow.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    PopupMenu popup = new PopupMenu(getContext(), mImageButtonOverflow);
+                    MenuInflater inflater = popup.getMenuInflater();
+                    inflater.inflate(mCardHeader.getPopupMenu(), popup.getMenu());
+                    popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                        @Override
+                        public boolean onMenuItemClick(MenuItem item) {
+                            if (mCardHeader.getPopupMenu() > 0 && mCardHeader.getPopupMenuListener() != null) {
+                                // This individual card has it unique menu
+                                mCardHeader.getPopupMenuListener().onMenuItemClick(mCardHeader, item);
+                            }
+                            return false;
+                        }
+                    });
+                    popup.show();
+                }
+            });
+
+        } else {
+            if (mImageButtonOverflow != null)
+                mImageButtonOverflow.setVisibility(GONE);
+        }
+    }
+
+    /**
+     * Returns Listener invoked when expand/collpse button is clicked
+     *
+     * @return listener
+     */
+    public OnClickListener getOnClickExpandCollapseActionListener() {
+        return mOnClickExpandCollapseActionListener;
+    }
+
+    /**
+     * Attaches Listener to expand/collapse button
+     *
+     * @param onClickExpandCollapseActionListener listener
+     */
+    public void setOnClickExpandCollapseActionListener(OnClickListener onClickExpandCollapseActionListener) {
+        this.mOnClickExpandCollapseActionListener = onClickExpandCollapseActionListener;
+        if (mImageButtonExpand != null)
+            mImageButtonExpand.setOnClickListener(onClickExpandCollapseActionListener);
+    }
+}
