@@ -76,6 +76,14 @@ Here you can find some pages to customize this tag.
 
 ---
 
+## Gradle
+
+Card Library is now pushed to Maven Central as a AAR, so you just need to add the following dependency to your `build.gradle`.
+
+    dependencies {
+        compile 'com.github.gabrielemariotti.cards:library:0.2.0'
+    }
+
 Credits
 -------
 
