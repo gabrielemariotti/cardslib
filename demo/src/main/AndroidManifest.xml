@@ -18,9 +18,7 @@
   -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="it.gmariotti.cardslib.demo"
-          android:versionCode="2"
-          android:versionName="0.1.1">
+          package="it.gmariotti.cardslib.demo" >
 
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 
