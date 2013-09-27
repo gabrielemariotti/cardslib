@@ -19,8 +19,12 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 18
+        versionName project.VERSION_NAME
+        versionCode Integer.parseInt(project.VERSION_CODE)
     }
 }
 
 dependencies {
 }
+
+apply from: '../maven_push.gradle'
