@@ -19,3 +19,8 @@ The Demo contains some drafts to customize your card and some more complete exam
 ![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/demo/misc.png)
 
 
+
+
+---
+
+Google and the Google Maps logo are registered trademarks of Google Inc., used with permission.

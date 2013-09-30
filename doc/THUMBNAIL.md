@@ -113,3 +113,9 @@ Otherwise you can extend your `CardThumbmail` and override the `setupInnerViewEl
 ```
 
 ![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/thumb/thumb_style.png)
+
+
+
+---
+
+Google and the Google Maps logo are registered trademarks of Google Inc.
