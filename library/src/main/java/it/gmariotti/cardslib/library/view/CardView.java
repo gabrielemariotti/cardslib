@@ -95,13 +95,28 @@ public class CardView extends BaseCardView {
     protected View mInternalContentLayout;
 
     /**
+     * Inner View.
+     */
+    protected View mInternalInnerView;
+
+    /**
      *  Hidden layout used by expand/collapse action
      */
     protected View mInternalExpandLayout;
 
+    /**
+     * Expand Inner view
+     */
+    protected View mInternalExpandInnerView;
+
 
     /** Animator to expand/collapse */
     protected Animator mExpandAnimator;
+
+    /**
+     * Listener invoked when Expand Animator starts
+     */
+    protected OnExpandListAnimatorListener mOnExpandListAnimatorListener;
 
     //--------------------------------------------------------------------------
     // Constructor
@@ -165,10 +180,15 @@ public class CardView extends BaseCardView {
         }
 
         //Retrieve all IDs
-        retrieveLayoutIDs();
+        if (!isRecycle()){
+            retrieveLayoutIDs();
+        }
 
         buildUI();
     }
+
+
+
 
     @Override
     protected void buildUI() {
@@ -228,6 +248,8 @@ public class CardView extends BaseCardView {
 
             if (mInternalHeaderLayout !=null){
 
+                //Set recycle value (very important in a ListView)
+                mInternalHeaderLayout.setRecycle(isRecycle());
                 //Add Header View
                 mInternalHeaderLayout.addCardHeader(mCardHeader);
 
@@ -270,7 +292,24 @@ public class CardView extends BaseCardView {
      */
     protected void setupMainView(){
         if (mInternalContentLayout !=null){
-            mCard.getInnerView(getContext(), (ViewGroup) mInternalContentLayout);
+
+            ViewGroup mParentGroup=null;
+            try{
+                mParentGroup = (ViewGroup) mInternalContentLayout;
+            }catch (Exception e){
+                setRecycle(false);
+            }
+
+            //Check if view can be recycled
+            //It can happen in a listView, and improves performances
+            if (!isRecycle()){
+                mInternalInnerView=mCard.getInnerView(getContext(), (ViewGroup) mInternalContentLayout);
+            }else{
+                //View can be recycled.
+                //Only setup Inner Elements
+                if (mCard.getInnerLayout()>-1)
+                    mCard.setupInnerViewElements(mParentGroup,mInternalInnerView);
+            }
         }
     }
 
@@ -279,10 +318,12 @@ public class CardView extends BaseCardView {
      */
     protected void setupThumbnailView() {
         if (mInternalThumbnailLayout!=null){
-            if (mCardThumbnail!=null)
+            if (mCardThumbnail!=null){
+                mInternalThumbnailLayout.setRecycle(isRecycle());
                 mInternalThumbnailLayout.addCardThumbnail(mCardThumbnail);
-            else
+            }else{
                 mInternalThumbnailLayout.setVisibility(GONE);
+            }
         }
     }
 
@@ -422,7 +463,17 @@ public class CardView extends BaseCardView {
      */
     protected void setupExpandView(){
         if (mInternalExpandLayout!=null && mCardExpand!=null){
-            mCardExpand.getInnerView(getContext(),(ViewGroup) mInternalExpandLayout);
+
+            //Check if view can be recycled
+            //It can happen in a listView, and improves performances
+            if (!isRecycle()){
+                mInternalExpandInnerView=mCardExpand.getInnerView(getContext(),(ViewGroup) mInternalExpandLayout);
+            }else{
+                //View can be recycled.
+                //Only setup Inner Elements
+                if (mCardExpand.getInnerLayout()>-1)
+                    mCardExpand.setupInnerViewElements((ViewGroup)mInternalExpandLayout,mInternalExpandInnerView);
+            }
         }
     }
 
@@ -457,49 +508,65 @@ public class CardView extends BaseCardView {
          */
         private void animateExpanding() {
 
-            mContentParent.setVisibility(View.VISIBLE);
-            mExpandAnimator.addListener(new AnimatorListenerAdapter() {
-                @Override
-                public void onAnimationEnd(Animator animation) {
-                    //Callback
-                    if (mCard.getOnExpandAnimatorEndListener()!=null)
-                        mCard.getOnExpandAnimatorEndListener().onExpandEnd(mCard);
-                }
-            });
-            mExpandAnimator.start();
+            if (getOnExpandListAnimatorListener()!=null){
+                //List Animator
+                getOnExpandListAnimatorListener().onExpandStart(mCard.getCardView(), mContentParent);
+            }else{
+                //Std animator
+                mContentParent.setVisibility(View.VISIBLE);
+                mExpandAnimator.addListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        //Callback
+                        if (mCard.getOnExpandAnimatorEndListener()!=null)
+                            mCard.getOnExpandAnimatorEndListener().onExpandEnd(mCard);
+                    }
+                });
+                mExpandAnimator.start();
+            }
         }
 
         /**
          * Collapse animator
          */
         private void animateCollapsing() {
-            int origHeight = mContentParent.getHeight();
 
-            ValueAnimator animator = createSlideAnimator(origHeight, 0);
-            animator.addListener(new Animator.AnimatorListener() {
-                @Override
-                public void onAnimationStart(Animator animator) {
-                }
+            if (getOnExpandListAnimatorListener()!=null){
+                //There is a List Animator.
+                getOnExpandListAnimatorListener().onCollapseStart(mCard.getCardView(), mContentParent);
+            }else{
+                //Std animator
+                int origHeight = mContentParent.getHeight();
 
-                @Override
-                public void onAnimationEnd(Animator animator) {
-                    mContentParent.setVisibility(View.GONE);
-                    //Callback
-                    if (mCard.getOnCollapseAnimatorEndListener()!=null)
-                        mCard.getOnCollapseAnimatorEndListener().onCollapseEnd(mCard);
-                }
+                ValueAnimator animator = createSlideAnimator(origHeight, 0);
+                animator.addListener(new Animator.AnimatorListener() {
+                    @Override
+                    public void onAnimationStart(Animator animator) {
+                    }
 
-                @Override
-                public void onAnimationCancel(Animator animator) {
-                }
+                    @Override
+                    public void onAnimationEnd(Animator animator) {
+                        mContentParent.setVisibility(View.GONE);
+                        //Callback
+                        if (mCard.getOnCollapseAnimatorEndListener()!=null)
+                            mCard.getOnCollapseAnimatorEndListener().onCollapseEnd(mCard);
+                    }
 
-                @Override
-                public void onAnimationRepeat(Animator animator) {
-                }
-            });
-            animator.start();
+                    @Override
+                    public void onAnimationCancel(Animator animator) {
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animator animator) {
+                    }
+                });
+                animator.start();
+            }
         }
     }
+
+
+
 
     /**
      * Create the Slide Animator invoked when the expand/collapse button is clicked
@@ -519,5 +586,57 @@ public class CardView extends BaseCardView {
         });
         return animator;
     }
+
+    /**
+     * Refreshes the card content (except layouts)
+     *
+     * @param card
+     */
+    public void refreshCard(Card card) {
+        mIsRecycle=true;
+        setCard(card);
+        mIsRecycle=false;
+    }
+
+
+    // -------------------------------------------------------------
+    //  OnExpandListAnimator Interface and Listener
+    // -------------------------------------------------------------
+
+    /**
+     * Interface to listen any callbacks when expand/collapse animation starts
+     */
+    public interface OnExpandListAnimatorListener {
+        public void onExpandStart(CardView viewCard,View expandingLayout);
+        public void onCollapseStart(CardView viewCard,View expandingLayout);
+    }
+
+    /**
+     * Returns the listener invoked when expand/collpase animation starts
+     *
+     * @return listener
+     */
+    public OnExpandListAnimatorListener getOnExpandListAnimatorListener() {
+        return mOnExpandListAnimatorListener;
+    }
+
+    /**
+     * Sets the listener invoked when expand/collapse animation starts
+     *
+     * @param onExpandListAnimatorListener listener
+     */
+    public void setOnExpandListAnimatorListener(OnExpandListAnimatorListener onExpandListAnimatorListener) {
+        this.mOnExpandListAnimatorListener = onExpandListAnimatorListener;
+    }
+
+
+    // -------------------------------------------------------------
+    //  Getter and Setter
+    // -------------------------------------------------------------
+
+    public View getmInternalExpandLayout() {
+        return mInternalExpandLayout;
+    }
+
 
 }

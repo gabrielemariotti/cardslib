@@ -125,6 +125,11 @@ public class CardHeaderView extends FrameLayout implements CardViewInterface {
      */
     protected OnClickListener mOnClickExpandCollapseActionListener;
 
+    /**
+     * Used to recycle ui elements.
+     */
+    protected boolean mIsRecycle=false;
+
     //--------------------------------------------------------------------------
     // Constructors
     //--------------------------------------------------------------------------
@@ -293,7 +298,17 @@ public class CardHeaderView extends FrameLayout implements CardViewInterface {
      */
     protected void setupInnerView() {
         if (mFrameInner != null) {
-            mInternalInnerView = mCardHeader.getInnerView(getContext(), mFrameInner);
+            //Check if view can be recycled
+            //It can happen in a listView to improve performances or while refreshing a card
+            if (!isRecycle()){
+                //Inflate inner view
+                mInternalInnerView = mCardHeader.getInnerView(getContext(), mFrameInner);
+            }else{
+                //View can be recycled.
+                //Only setup Inner Elements
+                if (mCardHeader.getInnerLayout()>-1)
+                    mCardHeader.setupInnerViewElements(mFrameInner,mInternalInnerView);
+            }
         }
     }
 
@@ -373,5 +388,13 @@ public class CardHeaderView extends FrameLayout implements CardViewInterface {
         this.mOnClickExpandCollapseActionListener = onClickExpandCollapseActionListener;
         if (mImageButtonExpand != null)
             mImageButtonExpand.setOnClickListener(onClickExpandCollapseActionListener);
+    }
+
+    public boolean isRecycle() {
+        return mIsRecycle;
+    }
+
+    public void setRecycle(boolean isRecycle) {
+        this.mIsRecycle = isRecycle;
     }
 }

@@ -31,6 +31,8 @@
         <!-- Layout to build a Thumbnail. Default value is @layout/base_thumbnail_layout -->
         <attr name="card_thumbnail_layout_resourceID" format="reference"/>
 
+        <!-- Layout used by card in a ListView. Default value is  @layout/list_card_layout -->
+        <attr name="list_card_layout_resourceID" format="reference"/>
 
     </declare-styleable>
 

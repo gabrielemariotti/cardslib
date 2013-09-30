@@ -80,6 +80,12 @@ public class CardThumbnailView extends FrameLayout implements CardViewInterface 
      */
     protected LruCache<String, Bitmap> mMemoryCache;
 
+    /**
+     * Used to recycle ui elements.
+     */
+    protected boolean mIsRecycle=false;
+
+
 
     //--------------------------------------------------------------------------
     // Constructors
@@ -511,5 +517,13 @@ public class CardThumbnailView extends FrameLayout implements CardViewInterface 
     @Override
     public View getInternalOuterView() {
         return null;
+    }
+
+    public boolean isRecycle() {
+        return mIsRecycle;
+    }
+
+    public void setRecycle(boolean isRecycle) {
+        this.mIsRecycle = isRecycle;
     }
 }

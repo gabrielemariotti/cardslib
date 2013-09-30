@@ -77,6 +77,12 @@ public class BaseCardView extends LinearLayout implements CardViewInterface {
      */
     protected CardThumbnailView mInternalThumbnailLayout;
 
+    /**
+     * Used to recycle ui elements.
+     */
+    protected boolean mIsRecycle=false;
+
+
     //--------------------------------------------------------------------------
     // Constructor
     //--------------------------------------------------------------------------
@@ -161,6 +167,7 @@ public class BaseCardView extends LinearLayout implements CardViewInterface {
 
     /**
      * Builds UI
+     *
      */
     protected void buildUI() {
 
@@ -229,5 +236,13 @@ public class BaseCardView extends LinearLayout implements CardViewInterface {
 
     public void setInternalThumbnailLayout(CardThumbnailView internalThumbnailLayout) {
         mInternalThumbnailLayout = internalThumbnailLayout;
+    }
+
+    public boolean isRecycle() {
+        return mIsRecycle;
+    }
+
+    public void setRecycle(boolean isRecycle) {
+        this.mIsRecycle = isRecycle;
     }
 }

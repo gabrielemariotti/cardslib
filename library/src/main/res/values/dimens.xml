@@ -72,6 +72,11 @@
     <dimen name="card_expand_simple_title_text_size">14sp</dimen>
 
 
+    <!-- List -->
+    <dimen name="list_card_padding_left">8dp</dimen>
+    <dimen name="list_card_padding_right">8dp</dimen>
+    <dimen name="list_card_padding_bottom">6dp</dimen>
+    <dimen name="list_card_padding_top">2dp</dimen>
 
 
 
