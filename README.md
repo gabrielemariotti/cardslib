@@ -72,7 +72,7 @@ Last get a reference to the `CardView` from your code, and set your `Card`.
 
 ## CardList Usage
 
-To Create a `CardListView` , first, you need an XML layout that will display the `CardListView`.
+To create a `CardListView` , first, you need an XML layout that will display the `CardListView`.
 
 ``` xml
     <it.gmariotti.cardslib.library.view.CardListView

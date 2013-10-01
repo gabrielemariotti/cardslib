@@ -47,7 +47,7 @@ This `CardListView` uses for each row the row-list layout `res/layout/list_card_
 Card Library provides 2 built-in row-list layouts.
 
 * `res/layout/list_card_layout.xml`.
-* `res/layout/list_card_layout.xml`.
+* `res/layout/list_card_thumbnail_layout.xml`.
 
 You can customize the layout used for each item in ListView using the attr: `card:list_card_layout_resourceID="@layout/my_layout`
 
@@ -74,3 +74,8 @@ Example `list_card_thumbnail_layout.xml`:
         />
 ```
 
+You can build your layout, but need to have:
+
+ 1. a `CardView` with the ID `list_cardId`
+
+![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/demo/list_gplay.png)

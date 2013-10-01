@@ -18,6 +18,9 @@
   ~  ******************************************************************************/
   -->
 
+<!-- You can customize this layout.
+     You need to have in your layout a `CardView` with the ID `list_cardId` -->
+
 <it.gmariotti.cardslib.library.view.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card="http://schemas.android.com/apk/res-auto"
