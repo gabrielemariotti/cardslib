@@ -31,8 +31,25 @@ import it.gmariotti.cardslib.library.internal.base.BaseCard;
 
 /**
  * Main Card Model
- * <p/>
- * FIXME
+ * </p>
+  * You can customize this component. See https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARD.md for more information.
+ * </p>
+ * You can easily extend and customize this class providing your inner layout and
+ * setting your values with {@link #setupInnerViewElements(android.view.ViewGroup, android.view.View)} method.
+ * </p>
+ * Usage:
+ * <pre><code>
+ *
+ *     //Create a Card
+ *     Card card = new Card(getContext());
+ *
+ *     //Create a CardHeader
+ *     CardHeader header = new CardHeader(getContext());
+ *
+ *     //Add Header to card
+ *     card.addCardHeader(header);
+ *
+ * </code></pre>
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
@@ -79,6 +96,10 @@ public class Card extends BaseCard {
      */
     protected CardExpand mCardExpand;
 
+    /**
+     * Indicates if card is expanded or collapsed
+     */
+    protected boolean mIsExpanded=false;
 
     // Listeners
 
@@ -650,5 +671,21 @@ public class Card extends BaseCard {
         return mMultipleOnClickListener = new HashMap<Integer, OnCardClickListener>();
     }
 
+    /**
+     * Indicates if the card is expanded or collapsed
+     *
+     * @return <code>true</code> if card is ExpandLayout is visible, otherwise returns <code>false</code>
+     */
+    public boolean isExpanded() {
+        return mIsExpanded;
+    }
 
+    /**
+     * Set the card as expanded or collapsed
+     *
+     * @param expanded <code>true</code> to indicates that the card is expanded
+     */
+    public void setExpanded(boolean expanded) {
+        mIsExpanded = expanded;
+    }
 }

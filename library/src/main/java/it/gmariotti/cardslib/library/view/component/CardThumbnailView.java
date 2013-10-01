@@ -514,15 +514,29 @@ public class CardThumbnailView extends FrameLayout implements CardViewInterface 
         }
     }
 
+    //--------------------------------------------------------------------------
+    // Getters and Setters
+    //--------------------------------------------------------------------------
+
     @Override
     public View getInternalOuterView() {
         return null;
     }
 
+    /**
+     * Indicates if view can recycle ui elements.
+     *
+     * @return <code>true</code> if views can recycle ui elements
+     */
     public boolean isRecycle() {
         return mIsRecycle;
     }
 
+    /**
+     * Sets if view can recycle ui elements
+     *
+     * @param isRecycle  <code>true</code> to recycle
+     */
     public void setRecycle(boolean isRecycle) {
         this.mIsRecycle = isRecycle;
     }

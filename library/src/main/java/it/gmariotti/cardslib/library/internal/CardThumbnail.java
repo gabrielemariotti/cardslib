@@ -27,13 +27,46 @@ import it.gmariotti.cardslib.library.internal.base.BaseCard;
 /**
  * Card Thumbnail model.
  * </p>
+ * You can customize this component. See https://github.com/gabrielemariotti/cardslib/tree/master/doc/THUMBNAIL.md for more information.
+ * </p>
  * Load a image from a Resource ID or an URL.
  * </p>
  * <b>Usage:</b>
  * <pre><code>
+ *        //Create thumbnail
+ *        CardThumbnail thumb = new CardThumbnail(getActivity().getApplicationContext());
  *
+ *        //Set resource
+ *        thumb.setDrawableResource(R.drawable.carddemo_ic_gmaps_large);
+ *
+ *        //Add thumbnail to a card
+ *        card.addCardThumbnail(thumb);
+ * </code></pre>
+ * or
+ *  * <pre><code>
+ *        //Set resource
+ *        thumb.setUrlResource("https://mydomain.com/photo.jpg");
  * </code></pre>
  *
+ * You can easily extend and customize this class providing your inner layout and
+ * setting your values with {@link #setupInnerViewElements(android.view.ViewGroup, android.view.View)} method.
+ * <pre><code>
+ *
+ *     public class CustomThumbCard extends CardThumbnail {
+ *
+ *         public CustomThumbCard(Context context) {
+ *           super(context);
+ *         }
+ *
+ *         @Override
+ *         public void setupInnerViewElements(ViewGroup parent, View viewImage) {
+ *            if (viewImage!=null){
+ *                viewImage.getLayoutParams().width=250;
+ *                viewImage.getLayoutParams().height=250;
+ *            }
+ *         }
+ *    }
+ * </code></pre>
  * </p>
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */

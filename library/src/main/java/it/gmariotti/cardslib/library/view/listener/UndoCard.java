@@ -24,6 +24,9 @@ import android.os.Parcelable;
 /**
  * FIXME
  *
+ * Please note that this is currently in a preview state.
+ * Don't use it.
+ *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
 public class UndoCard implements  Parcelable{

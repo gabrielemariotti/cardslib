@@ -1,6 +1,6 @@
 package it.gmariotti.cardslib.library.view.listener;
 
-/* Copyright 2012 Roman Nurik
+/* Copyright 2013 Roman Nurik
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,6 +31,9 @@ import it.gmariotti.cardslib.library.R;
  * It is based on Roman Nurik code.
  * See this link for original code:
  * https://code.google.com/p/romannurik-code/source/browse/#git%2Fmisc%2Fundobar
+ *
+ * Please note that this is currently in a preview state.
+ * Don't use it.
  *
  */
 public class UndoBarController {

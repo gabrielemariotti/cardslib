@@ -45,11 +45,25 @@ import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
 
 /**
  * Card List View.
- * It uses an ArrayAdapter
- *
- * Please note that this is currently in a preview state.
- * Don't use it.
- *
+ * It uses an {@link CardArrayAdapter} to populate items.
+ * </p>
+ * Usage:
+ * <pre><code>
+ *    <it.gmariotti.cardslib.library.view.CardListView
+ *      android:layout_width="match_parent"
+ *      android:layout_height="match_parent"
+ *      android:id="@+id/listId"
+ *      card:list_card_layout_resourceID="@layout/list_card_thumbnail_layout" /> *
+ * </code></pre>
+ * It provides a default layout id for each row @layout/list_card_layout
+ * Use can easily customize it using card:list_card_layout_resourceID attr in your xml layout.
+ * </p>
+ * Use this code to populate the list view
+ * <pre><code>
+ * CardListView listView = (CardListView) getActivity().findViewById(R.id.listId);
+ * listView.setAdapter(mCardArrayAdapter);
+ * </code></pre>
+ * </p>
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
@@ -118,6 +132,7 @@ public class CardListView extends ListView implements CardView.OnExpandListAnima
 
         //Set divider to 0dp
         setDividerHeight(0);
+
     }
 
 
@@ -147,6 +162,7 @@ public class CardListView extends ListView implements CardView.OnExpandListAnima
 
     /**
      * Forces to use a {@link CardArrayAdapter}
+     *
      * @param adapter
      */
     @Override
@@ -166,12 +182,13 @@ public class CardListView extends ListView implements CardView.OnExpandListAnima
      */
     public void setAdapter(CardArrayAdapter adapter) {
         super.setAdapter(adapter);
+
         //Set Layout used by items
         adapter.setRowLayoutId(list_card_layout_resourceID);
+
         adapter.setCardListView(this);
         mAdapter=adapter;
     }
-
 
     //--------------------------------------------------------------------------
     // Expand and Collapse animator
@@ -324,7 +341,7 @@ public class CardListView extends ListView implements CardView.OnExpandListAnima
                 s.addListener(new AnimatorListenerAdapter() {
                     @Override
                     public void onAnimationEnd(Animator animation) {
-                        //card.setExpanded(true);
+                        view.setExpanded(true);//card.setExpanded(true);
                         setEnabled(true);
                         setClickable(true);
                         if (mViewsToDraw.size() > 0) {
@@ -367,7 +384,7 @@ public class CardListView extends ListView implements CardView.OnExpandListAnima
      *    animation process.
      */
 
-    private void prepareCollapseView(final View view,final View expandingLayout) {
+    private void prepareCollapseView(final CardView view,final View expandingLayout) {
         final Card card = (Card)getItemAtPosition(getPositionForView
                 (view));
 
@@ -388,7 +405,7 @@ public class CardListView extends ListView implements CardView.OnExpandListAnima
 
         /* Update the layout so the extra content becomes invisible.*/
         view.setLayoutParams(new AbsListView.LayoutParams(AbsListView.LayoutParams.MATCH_PARENT,
-                expandingLayout.getHeight()));
+                view.getCollapsedHeight()));
 
          /* Add an onPreDraw listener. */
         final ViewTreeObserver observer = getViewTreeObserver();
@@ -517,7 +534,7 @@ public class CardListView extends ListView implements CardView.OnExpandListAnima
                         expandingLayout.setVisibility(View.GONE);
                         view.setLayoutParams(new AbsListView.LayoutParams(AbsListView
                                 .LayoutParams.MATCH_PARENT, AbsListView.LayoutParams.WRAP_CONTENT));
-
+                        view.setExpanded(false);
                         setEnabled(true);
                         setClickable(true);
                         /* Note that alpha must be set back to 1 in case this view is reused

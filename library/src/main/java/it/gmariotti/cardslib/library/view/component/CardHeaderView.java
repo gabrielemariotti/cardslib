@@ -286,9 +286,14 @@ public class CardHeaderView extends FrameLayout implements CardViewInterface {
                 mImageButtonOther.setOnClickListener(new OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        mCardHeader.getOtherButtonClickListener().onButtonItemClick(mCardHeader.getParentCard(), v);
+                        if (mCardHeader.getOtherButtonClickListener()!=null)
+                            mCardHeader.getOtherButtonClickListener().onButtonItemClick(mCardHeader.getParentCard(), v);
                     }
                 });
+            }
+        }else{
+            if (mImageButtonOther != null) {
+                mImageButtonOther.setClickable(false);
             }
         }
     }
@@ -370,6 +375,10 @@ public class CardHeaderView extends FrameLayout implements CardViewInterface {
         }
     }
 
+    //--------------------------------------------------------------------------
+    // Getters and Setters
+    //--------------------------------------------------------------------------
+
     /**
      * Returns Listener invoked when expand/collpse button is clicked
      *
@@ -390,11 +399,50 @@ public class CardHeaderView extends FrameLayout implements CardViewInterface {
             mImageButtonExpand.setOnClickListener(onClickExpandCollapseActionListener);
     }
 
+    /**
+     * Indicates if view can recycle ui elements.
+     *
+     * @return <code>true</code> if views can recycle ui elements
+     */
     public boolean isRecycle() {
         return mIsRecycle;
     }
 
+    /**
+     * Sets if view can recycle ui elements
+     *
+     * @param isRecycle  <code>true</code> to recycle
+     */
     public void setRecycle(boolean isRecycle) {
         this.mIsRecycle = isRecycle;
     }
+
+    /**
+     * Returns the {@link ImageButton} used for overflow menu
+     *
+     * @return {@link ImageButton}
+     */
+    public ImageButton getImageButtonOverflow() {
+        return mImageButtonOverflow;
+    }
+
+    /**
+     * Returns the {@link ImageButton} used for expand/collapse
+     *
+     * @return {@link ImageButton}
+     */
+    public ImageButton getImageButtonExpand() {
+        return mImageButtonExpand;
+    }
+
+    /*
+     *Returns the {@link ImageButton} used for other Button
+     *
+     * @return {@link ImageButton}
+     */
+    public ImageButton getImageButtonOther() {
+        return mImageButtonOther;
+    }
+
+
 }

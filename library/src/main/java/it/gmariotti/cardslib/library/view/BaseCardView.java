@@ -186,8 +186,12 @@ public class BaseCardView extends LinearLayout implements CardViewInterface {
      */
     protected void setupShadowView() {
         if (mInternalShadowLayout != null) {
-            if (mCard != null && !mCard.isShadow()) {
-                mInternalShadowLayout.setVisibility(GONE);
+            if (mCard != null) {
+                if (!mCard.isShadow()) {
+                    mInternalShadowLayout.setVisibility(GONE);
+                } else {
+                    mInternalShadowLayout.setVisibility(VISIBLE);
+                }
             }
         }
     }
@@ -210,38 +214,56 @@ public class BaseCardView extends LinearLayout implements CardViewInterface {
         return mInternalOuterView;
     }
 
+    /**
+     * Returns {@link Card} model
+     *
+     * @return  {@link Card} model
+     */
     public Card getCard() {
         return mCard;
     }
 
+    /**
+     * Returns the view used for Shadow
+     *
+     * @return {@link CardShadowView}
+     */
     public CardShadowView getInternalShadowLayout() {
         return mInternalShadowLayout;
     }
 
-    public void setInternalShadowLayout(CardShadowView internalShadowLayout) {
-        mInternalShadowLayout = internalShadowLayout;
-    }
-
+    /**
+     * Returns the view used for Header
+     *
+     * @return {@link CardHeaderView}
+     */
     public CardHeaderView getInternalHeaderLayout() {
         return mInternalHeaderLayout;
     }
 
-    public void setInternalHeaderLayout(CardHeaderView internalHeaderLayout) {
-        mInternalHeaderLayout = internalHeaderLayout;
-    }
-
+    /**
+     * Returns the view used by Thumbnail
+     *
+     * @return {@link CardThumbnailView}
+     */
     public CardThumbnailView getInternalThumbnailLayout() {
         return mInternalThumbnailLayout;
     }
 
-    public void setInternalThumbnailLayout(CardThumbnailView internalThumbnailLayout) {
-        mInternalThumbnailLayout = internalThumbnailLayout;
-    }
-
+    /**
+     * Indicates if view can recycle ui elements.
+     *
+     * @return <code>true</code> if views can recycle ui elements
+     */
     public boolean isRecycle() {
         return mIsRecycle;
     }
 
+    /**
+     * Sets if view can recycle ui elements
+     *
+     * @param isRecycle  <code>true</code> to recycle
+     */
     public void setRecycle(boolean isRecycle) {
         this.mIsRecycle = isRecycle;
     }

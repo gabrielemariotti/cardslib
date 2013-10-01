@@ -31,7 +31,7 @@ import it.gmariotti.cardslib.library.internal.base.BaseCard;
 /**
  * Card Header Model.
  * </p>
- * You can customize this component. See https://github.com/gabrielemariotti/cardslib/tree/master/HEADER.md for more information.
+ * You can customize this component. See https://github.com/gabrielemariotti/cardslib/tree/master/doc/HEADER.md for more information.
  * </p>
  * You can fully customize this component with:
  * <ul>
