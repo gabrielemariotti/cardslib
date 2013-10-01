@@ -121,6 +121,12 @@ Card Library is now pushed to Maven Central as a AAR, so you just need to add th
         compile 'com.github.gabrielemariotti.cards:library:0.3.0'
     }
 
+ChangeLog
+-------
+
+* [Changelog:](https://github.com/gabrielemariotti/cardslib/tree/master/CHANGELOG.md)
+
+
 Credits
 -------
 
