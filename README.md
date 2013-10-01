@@ -8,7 +8,14 @@ Card Library provides an easy way to display a UI Card in your Android app.
 ---
 ## Feature
 
-Card Library provides a custom tag `CardView` to display a UI Card.
+Card Library provides 2 custom tags:
+
+*  `CardView` to display a UI Card.
+*  `CardListView` to display a List Card.
+
+**It requires API 14+**
+
+`CardView`  displays a UI Card.
 
 * It provides different parts as a Header, a Thumbnail, a Shadow, a MainContentArea where you can inflate your custom layout
 * You can customize the global layout as you like
@@ -16,11 +23,16 @@ Card Library provides a custom tag `CardView` to display a UI Card.
 * `CardHeader` provides an overflow button with a PopupMenuListener, a button to expand/collapse an area, or a customizable button with its listener.
 * `CardThumbnail` load a Bitmap with a resource ID or with a URL using `LRUCache` and an `AsyncTask`
 
-* It requires API 14+
+
+`CardListView` displays a List Card.
+
+* It uses `CardView` tag and all its properties.
+* It works with an `CardArrayAdapter`
+
 
 Please note that this is currently in a preview state. This means that the API is not fixed and you should expect changes between releases.
 
-## Usage
+## Card Usage
 
 Create a `Card` is is pretty simple.
 
@@ -49,7 +61,7 @@ Then create a model:
       card.addCardHeader(header);
 ```
 
-Last get a reference to the `CardView` from your code, and set your `Card.
+Last get a reference to the `CardView` from your code, and set your `Card`.
 
 ``` java
        //Set card in the cardView
@@ -58,17 +70,42 @@ Last get a reference to the `CardView` from your code, and set your `Card.
        cardView.setCard(card);
 ```
 
+## CardList Usage
+
+To Create a `CardListView` , first, you need an XML layout that will display the `CardListView`.
+
+``` xml
+    <it.gmariotti.cardslib.library.view.CardListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/myList"/>
+```
+
+Then create an array of `Card`s and build a `CardArrayAdapter`
+
+``` java
+        ArrayList<Card> cards = new ArrayList<Card>();
+        CardArrayAdapter mCardArrayAdapter = new CardArrayAdapter(context,cards);
+```
+
+Last get a reference to the `CardListView` from your code, and set your adapter:
+
+``` java
+        CardListView listView = (CardListView) getActivity().findViewById(R.id.myList);
+        listView.setAdapter(mCardArrayAdapter);
+```
 
 ## Customization
 
 Here you can find some pages to customize this tag.
 
 * [Overview:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/OVERVIEW.md)
-* [Card Header:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/HEADER.md)
-* [Card Shadow:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/SHADOW.md)
-* [Card Expand:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/EXPAND.md)
-* [Card Thumbnail:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/THUMBNAIL.md)
-* [Card:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARD.md)
+* [Card Header:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/HEADER.md) How to customize all header features
+* [Card Shadow:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/SHADOW.md) How to customize the shadow
+* [Card Expand:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/EXPAND.md) How to use an expandable/collapsible built-in feature
+* [Card Thumbnail:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/THUMBNAIL.md) How to display a thumbnail
+* [Card:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARD.md) How to customize all card features
+* [CardList:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARDLIST.md) How to work with the `CardListView`
 
 ## Examples
 
@@ -81,7 +118,7 @@ Here you can find some pages to customize this tag.
 Card Library is now pushed to Maven Central as a AAR, so you just need to add the following dependency to your `build.gradle`.
 
     dependencies {
-        compile 'com.github.gabrielemariotti.cards:library:0.2.0'
+        compile 'com.github.gabrielemariotti.cards:library:0.3.0'
     }
 
 Credits

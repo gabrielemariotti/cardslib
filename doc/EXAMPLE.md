@@ -18,6 +18,13 @@ The Demo contains some drafts to customize your card and some more complete exam
 
 ![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/demo/misc.png)
 
+### Expandable cards list example
+
+![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/demo/list_expand.png)
+
+### Google play cards list example
+
+![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/demo/list_gplay.png)
 
 
 

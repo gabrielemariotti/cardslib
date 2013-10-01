@@ -38,7 +38,7 @@ Last get a reference to the `CardView` from your code, and set your `Card.
 
 ### Use your custom card-layout
 
-Card Library provides 2 built-in layout card.
+Card Library provides 2 built-in card layouts.
 
 * `res/layout/card_layout.xml`
 * `res/layout/card_thumbnail_layout.xml`
@@ -311,3 +311,28 @@ If you want to set only a part (or more parts) as clickable you can use this cod
 
 ![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/card/partial_listeners.png)
 
+
+### Refresh a card
+
+If you need to change same value in a card, you can use your `Card` model:
+
+``` java
+    card.setTitle("New title");
+
+    //Change Header
+    card.getCardHeader().setTitle("New image");
+
+    //Change Thumbnail
+    card.getCardThumbnail().setDrawableResource(R.drawable.ic_std_launcher);
+
+    //Remove click listener
+    card.setOnClickListener(null);
+    card.setClickable(false);
+```
+and then call `refreshCard` method on `cardView`:
+
+``` java
+    //Call refresh
+    cardView = (CardView) getActivity().findViewById(R.id.carddemo_card_changevalue_id);
+    cardView.refreshCard(card);
+```

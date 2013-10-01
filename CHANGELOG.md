@@ -1,6 +1,17 @@
 Change Log
 ===============================================================================
 
+Version 0.3.0 *(2013-10-01)*
+----------------------------
+
+ * LIB: Added `CardListView` with a `CardArrayAdapter`
+ * LIB: Added a method to refresh card: `cardView.refreshCard(card)`
+ * DEMO: Added a card refresh example
+ * DEMO: Added a simple list example
+ * DEMO: Added a list with expandable and collapsible cards
+ * DEMO: Added a list of Cards as Google Play
+
+
 Version 0.2.0 *(2013-09-26)*
 ----------------------------
 
