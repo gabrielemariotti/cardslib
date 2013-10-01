@@ -37,7 +37,7 @@ import it.gmariotti.cardslib.library.internal.base.BaseCard;
 import it.gmariotti.cardslib.library.view.CardListView;
 
 /**
- * Card Shadow Examples
+ * List base example
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
@@ -112,7 +112,7 @@ public class ListBaseFragment extends BaseFragment {
             setOnClickListener(new OnCardClickListener() {
                 @Override
                 public void onClick(Card card, View view) {
-                    Toast.makeText(getContext(), "Click Listener card=" + mTitleHeader, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), "Click Listener card=" + mTitleHeader, Toast.LENGTH_SHORT).show();
                 }
             });
 

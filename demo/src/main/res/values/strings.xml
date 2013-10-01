@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ /*******************************************************************************
+  ~ *******************************************************************************
   ~   Copyright (c) 2013 Gabriele Mariotti.
   ~
   ~   Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,7 +14,7 @@
   ~   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   ~   See the License for the specific language governing permissions and
   ~   limitations under the License.
-  ~  ******************************************************************************/
+  ~  *****************************************************************************
   -->
 
 <resources>
@@ -34,6 +34,8 @@
         Google and the Google Maps logo are registered trademarks of Google Inc.
 
     ]]></string>
+
+    <string name="demo_trademark">Google and the Google Maps logo are registered trademarks of Google Inc.</string>
 
     <!--Menu -->
     <string name="action_menu_about">About</string>

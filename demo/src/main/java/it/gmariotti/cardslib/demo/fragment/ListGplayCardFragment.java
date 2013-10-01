@@ -69,6 +69,16 @@ public class ListGplayCardFragment extends BaseFragment {
             card.setTitle("Application example "+i);
             card.setSecondaryTitle("A company inc..."+i);
             card.setRating((float)(Math.random()*(5.0)));
+            card.count=i;
+
+            //Only for test, change some icons
+            if ((i>10 && i<15) || (i>35 && i<45)){
+                card.setResourceIdThumbnail(R.drawable.ic_launcher);
+            }
+
+
+            card.init();
+
             cards.add(card);
         }
 
@@ -91,6 +101,8 @@ public class ListGplayCardFragment extends BaseFragment {
         protected TextView mTitle;
         protected TextView mSecondaryTitle;
         protected RatingBar mRatingBar;
+        protected int resourceIdThumbnail;
+        protected int count;
 
         protected String title;
         protected String secondaryTitle;
@@ -103,23 +115,64 @@ public class ListGplayCardFragment extends BaseFragment {
 
         public GooglePlaySmallCard(Context context, int innerLayout) {
             super(context, innerLayout);
-            init();
+            //init();
         }
 
         private void init() {
 
             //Add thumbnail
             CardThumbnail cardThumbnail = new CardThumbnail(mContext);
-            cardThumbnail.setDrawableResource(R.drawable.ic_std_launcher);
+
+            if (resourceIdThumbnail==0)
+                cardThumbnail.setDrawableResource(R.drawable.ic_std_launcher);
+            else{
+                cardThumbnail.setDrawableResource(resourceIdThumbnail);
+            }
+
             addCardThumbnail(cardThumbnail);
 
-            //Add ClickListener
-            setOnClickListener(new OnCardClickListener() {
-                @Override
-                public void onClick(Card card, View view) {
-                    Toast.makeText(getContext(), "Click Listener card=" + title, Toast.LENGTH_LONG).show();
-                }
-            });
+            //Only for test, some cards have different clickListeners
+            if (count==12){
+
+                setTitle(title + " No Click");
+                setClickable(false);
+
+            }else if (count==20){
+
+                setTitle(title + " Partial Click");
+                addPartialOnClickListener(Card.CLICK_LISTENER_CONTENT_VIEW,new OnCardClickListener() {
+                    @Override
+                    public void onClick(Card card, View view) {
+                        Toast.makeText(getContext(), "Partial click Listener card=" + title, Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+            }else{
+
+                //Add ClickListener
+                setOnClickListener(new OnCardClickListener() {
+                    @Override
+                    public void onClick(Card card, View view) {
+                        Toast.makeText(getContext(), "Click Listener card=" + title, Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+            }
+
+
+            //Swipe
+            if (count>5 && count<13){
+
+                setTitle(title + " Swipe enabled");
+                setSwipeable(true);
+                setOnSwipeListener(new OnSwipeListener() {
+                    @Override
+                    public void onSwipe(Card card) {
+                        Toast.makeText(getContext(), "Removed card=" + title, Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+
         }
 
         @Override
@@ -168,6 +221,14 @@ public class ListGplayCardFragment extends BaseFragment {
 
         public void setRating(float rating) {
             this.rating = rating;
+        }
+
+        public int getResourceIdThumbnail() {
+            return resourceIdThumbnail;
+        }
+
+        public void setResourceIdThumbnail(int resourceIdThumbnail) {
+            this.resourceIdThumbnail = resourceIdThumbnail;
         }
     }
 

@@ -1,5 +1,5 @@
 <!--
-  ~ /*******************************************************************************
+  ~ *******************************************************************************
   ~   Copyright (c) 2013 Gabriele Mariotti.
   ~
   ~   Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,7 +13,7 @@
   ~   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   ~   See the License for the specific language governing permissions and
   ~   limitations under the License.
-  ~  ******************************************************************************/
+  ~  *****************************************************************************
   -->
 
 <resources>
@@ -45,6 +45,14 @@
         <item name="android:layout_marginTop">@dimen/demo_title_section_margin_top</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/demo_title_section_textcolor</item>
+    </style>
+
+    <style name="AppTheme.TrademarkText">
+        <item name="android:textSize">12dp</item>
+        <item name="android:layout_marginLeft">@dimen/demo_title_section_margin</item>
+        <item name="android:layout_marginRight">@dimen/demo_title_section_margin</item>
+        <item name="android:layout_marginBottom">@dimen/demo_title_section_margin_bottom</item>
+        <item name="android:textColor">@android:color/darker_gray</item>
     </style>
 
     <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++   -->
@@ -191,6 +199,8 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@android:color/black</item>
     </style>
+
+
 
 
 </resources>

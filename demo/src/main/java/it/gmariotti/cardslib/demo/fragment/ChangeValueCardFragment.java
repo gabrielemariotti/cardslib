@@ -32,6 +32,7 @@ import android.widget.Toast;
 import it.gmariotti.cardslib.demo.R;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardHeader;
+import it.gmariotti.cardslib.library.internal.CardThumbnail;
 import it.gmariotti.cardslib.library.internal.base.BaseCard;
 import it.gmariotti.cardslib.library.view.CardView;
 
@@ -43,8 +44,12 @@ import it.gmariotti.cardslib.library.view.CardView;
 public class ChangeValueCardFragment extends BaseFragment {
 
     protected ScrollView mScrollView;
-    private CardExample card;
-    private CardView cardView;
+    private CardExample card1;
+    private CardExample2 card2;
+
+    private CardView cardView1;
+    private CardView cardView2;
+
 
 
     @Override
@@ -83,7 +88,8 @@ public class ChangeValueCardFragment extends BaseFragment {
         switch (item.getItemId()) {
 
             case R.id.menu_refresh:
-                changeCard();
+                changeCard1();
+                changeCard2();
                 return true;
             default:
                 break;
@@ -91,14 +97,19 @@ public class ChangeValueCardFragment extends BaseFragment {
         return false;
     }
 
+
     /**
      * Init the initial card
      */
     private void initCards() {
 
-        card = new CardExample(getActivity(),"Header", "Title");
-        cardView = (CardView) getActivity().findViewById(R.id.carddemo_card_changevalue_id);
-        cardView.setCard(card);
+        card1 = new CardExample(getActivity(),"Header", "Title");
+        cardView1 = (CardView) getActivity().findViewById(R.id.carddemo_card_changevalue_id);
+        cardView1.setCard(card1);
+
+        card2 = new CardExample2(getActivity(),"Header", "Title");
+        cardView2 = (CardView) getActivity().findViewById(R.id.carddemo_card_changevalue_id2);
+        cardView2.setCard(card2);
 
     }
 
@@ -106,23 +117,42 @@ public class ChangeValueCardFragment extends BaseFragment {
     /**
      * Change same values
      */
-    private void changeCard() {
+    private void changeCard1() {
 
         //Change Header
-        card.getCardHeader().setTitle("New header");
+        card1.getCardHeader().setTitle("New header");
 
         //Change main
-        card.setTitle("New title");
+        card1.setTitle("New title");
 
         //Remove click listener
-        card.setOnClickListener(null);
-        card.setClickable(false);
+        card1.setOnClickListener(null);
+        card1.setClickable(false);
 
         //Remove shadow
-        card.setShadow(false);
+        card1.setShadow(false);
 
         //Call refresh
-        cardView.refreshCard(card);
+        cardView1.refreshCard(card1);
+
+    }
+
+
+    /**
+     * Change same values
+     */
+    private void changeCard2() {
+
+        //Change Header
+        card2.getCardHeader().setTitle("New image");
+
+        card2.getCardThumbnail().setDrawableResource(R.drawable.ic_std_launcher);
+
+        //Call refresh
+        cardView2.refreshCard(card2);
+    }
+
+    private void changeCard3() {
 
     }
 
@@ -155,6 +185,46 @@ public class ChangeValueCardFragment extends BaseFragment {
                 }
             });
             addCardHeader(header);
+
+            //Add ClickListener
+            setOnClickListener(new OnCardClickListener() {
+                @Override
+                public void onClick(Card card, View view) {
+                    Toast.makeText(getContext(), "Click Listener card=" + mTitleHeader, Toast.LENGTH_LONG).show();
+                }
+            });
+
+            //Set the card inner text
+            setTitle(mTitleMain);
+        }
+
+    }
+
+
+    public class CardExample2 extends Card{
+
+        protected String mTitleHeader;
+        protected String mTitleMain;
+
+        public CardExample2(Context context,String titleHeader,String titleMain) {
+            super(context);
+            this.mTitleHeader=titleHeader;
+            this.mTitleMain=titleMain;
+            init();
+        }
+
+        private void init(){
+
+            //Create a CardHeader
+            CardHeader header = new CardHeader(getActivity().getApplicationContext());
+
+            //Set the header title
+            header.setTitle(mTitleHeader);
+            addCardHeader(header);
+
+            CardThumbnail thumb = new CardThumbnail(getActivity().getApplicationContext());
+            thumb.setDrawableResource(R.drawable.ic_launcher);
+            addCardThumbnail(thumb);
 
             //Add ClickListener
             setOnClickListener(new OnCardClickListener() {
