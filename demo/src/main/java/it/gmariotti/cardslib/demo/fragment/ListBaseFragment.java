@@ -66,7 +66,7 @@ public class ListBaseFragment extends BaseFragment {
     private void initCards() {
 
         ArrayList<Card> cards = new ArrayList<Card>();
-        for (int i=0;i<1000;i++){
+        for (int i=0;i<200;i++){
             CardExample card = new CardExample(getActivity(),"My title "+i,"Inner text "+i);
             cards.add(card);
         }

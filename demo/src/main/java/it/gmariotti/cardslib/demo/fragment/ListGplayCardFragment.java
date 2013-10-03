@@ -64,7 +64,7 @@ public class ListGplayCardFragment extends BaseFragment {
 
         //Init an array of Cards
         ArrayList<Card> cards = new ArrayList<Card>();
-        for (int i=0;i<1000;i++){
+        for (int i=0;i<200;i++){
             GooglePlaySmallCard card = new GooglePlaySmallCard(this.getActivity());
             card.setTitle("Application example "+i);
             card.setSecondaryTitle("A company inc..."+i);

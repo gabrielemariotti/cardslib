@@ -61,7 +61,7 @@ public class ListExpandCardFragment extends BaseFragment {
 
         //Init an array of Cards
         ArrayList<Card> cards = new ArrayList<Card>();
-        for (int i=0;i<1000;i++){
+        for (int i=0;i<200;i++){
             Card card = init_standard_header_with_expandcollapse_button_custom_area("Header "+i);
             cards.add(card);
         }
