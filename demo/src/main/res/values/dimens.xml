@@ -37,5 +37,6 @@
     <dimen name="card_birth_width">350dp</dimen>
     <dimen name="card_mayknow_margin_top">3dp</dimen>
 
+    <dimen name="grid_column_size">378dp</dimen>
 
 </resources>

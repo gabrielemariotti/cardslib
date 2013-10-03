@@ -39,6 +39,7 @@ import android.widget.ListView;
 import it.gmariotti.cardslib.demo.fragment.BaseFragment;
 import it.gmariotti.cardslib.demo.fragment.BirthDayCardFragment;
 import it.gmariotti.cardslib.demo.fragment.CardFragment;
+import it.gmariotti.cardslib.demo.fragment.CardGridFragment;
 import it.gmariotti.cardslib.demo.fragment.ChangeValueCardFragment;
 import it.gmariotti.cardslib.demo.fragment.GPlayCardFragment;
 import it.gmariotti.cardslib.demo.fragment.HeaderFragment;
@@ -71,9 +72,10 @@ public class MainActivity extends Activity {
     private static final int CASE_STOCK = 6;
     private static final int CASE_MISC = 7;
     private static final int CASE_CHG_VALUE = 8;
-    private static final int CASE_LIST_BASE = 9;
-    private static final int CASE_LIST_EXPAND = 10;
-    private static final int CASE_LIST_GPLAY = 11;
+    private static final int CASE_CARD_GRID = 9;
+    private static final int CASE_LIST_BASE = 10;
+    private static final int CASE_LIST_EXPAND = 11;
+    private static final int CASE_LIST_GPLAY = 12;
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -236,6 +238,9 @@ public class MainActivity extends Activity {
             case CASE_CHG_VALUE:
                 baseFragment = new ChangeValueCardFragment();
                 break;
+            case CASE_CARD_GRID:
+                baseFragment = new CardGridFragment();
+                break;
             case CASE_LIST_BASE:
                 baseFragment = new ListBaseFragment();
                 break;
@@ -290,6 +295,7 @@ public class MainActivity extends Activity {
             "Google Stock",
             "Misc",
             "Refresh Card",
+            "CardGrid",
             "List base",
             "List and expandable card",
             "List Google Play"
