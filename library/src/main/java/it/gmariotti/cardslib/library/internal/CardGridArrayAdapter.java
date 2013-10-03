@@ -28,48 +28,21 @@ import java.util.List;
 
 import it.gmariotti.cardslib.library.R;
 import it.gmariotti.cardslib.library.internal.base.BaseCardArrayAdapter;
-import it.gmariotti.cardslib.library.view.CardListView;
+import it.gmariotti.cardslib.library.view.CardGridView;
 import it.gmariotti.cardslib.library.view.CardView;
 import it.gmariotti.cardslib.library.view.listener.SwipeDismissListViewTouchListener;
 
 /**
  * Array Adapter for {@link Card} model
- * <p/>
- * Usage:
- * <pre><code>
- * ArrayList<Card> cards = new ArrayList<Card>();
- * for (int i=0;i<1000;i++){
- *     CardExample card = new CardExample(getActivity(),"My title "+i,"Inner text "+i);
- *     cards.add(card);
- * }
  *
- * CardArrayAdapter mCardArrayAdapter = new CardArrayAdapter(getActivity(),cards);
- *
- * CardListView listView = (CardListView) getActivity().findViewById(R.id.listId);
- * listView.setAdapter(mCardArrayAdapter); *
- * </code></pre>
- * It provides a default layout id for each row @layout/list_card_layout
- * Use can easily customize it using card:list_card_layout_resourceID attr in your xml layout:
- * <pre><code>
- *    <it.gmariotti.cardslib.library.view.CardListView
- *      android:layout_width="match_parent"
- *      android:layout_height="match_parent"
- *      android:id="@+id/carddemo_list_gplaycard"
- *      card:list_card_layout_resourceID="@layout/list_card_thumbnail_layout" />
- * </code></pre>
- * or:
- * <pre><code>
- * adapter.setRowLayoutId(list_card_layout_resourceID);
- * </code></pre>
- * </p>
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public class CardArrayAdapter extends BaseCardArrayAdapter {
+public class CardGridArrayAdapter extends BaseCardArrayAdapter {
 
     /**
-     * {@link CardListView}
+     * {@link CardGridView}
      */
-    protected CardListView mCardListView;
+    protected CardGridView mCardGridView;
 
     /**
      * Listener invoked when a card is swiped
@@ -87,7 +60,7 @@ public class CardArrayAdapter extends BaseCardArrayAdapter {
      * @param context The current context.
      * @param cards   The cards to represent in the ListView.
      */
-    public CardArrayAdapter(Context context, List<Card> cards) {
+    public CardGridArrayAdapter(Context context, List<Card> cards) {
         super(context, cards);
     }
 
@@ -128,11 +101,7 @@ public class CardArrayAdapter extends BaseCardArrayAdapter {
                 //Save original swipeable to prevent cardSwipeListener (listView requires another cardSwipeListener)
                 boolean origianlSwipeable = mCard.isSwipeable();
                 mCard.setSwipeable(false);
-
                 mCardView.setCard(mCard);
-
-                //Set originalValue
-                mCard.setSwipeable(origianlSwipeable);
 
                 //If card has an expandable button override animation
                 if (mCard.getCardHeader() != null && mCard.getCardHeader().isButtonExpandVisible()) {
@@ -141,7 +110,6 @@ public class CardArrayAdapter extends BaseCardArrayAdapter {
 
                 //Setup swipeable animation
                 setupSwipeableAnimation(mCard, mCardView);
-
             }
         }
 
@@ -149,37 +117,26 @@ public class CardArrayAdapter extends BaseCardArrayAdapter {
     }
 
     /**
-     * Sets SwipeAnimation on List
+     * Removes SwipeAnimation on Grid
      *
      * @param card {@link Card}
      * @param cardView {@link CardView}
      */
     protected void setupSwipeableAnimation(final Card card, CardView cardView) {
 
-        if (card.isSwipeable()){
-            if (mOnTouchListener == null){
-                mOnTouchListener = new SwipeDismissListViewTouchListener(mCardListView, mCallback);
-                // Setting this scroll listener is required to ensure that during
-                // ListView scrolling, we don't look for swipes.
-                mCardListView.setOnScrollListener(mOnTouchListener.makeScrollListener());
-            }
+        cardView.setOnTouchListener(null);
 
-            cardView.setOnTouchListener(mOnTouchListener);
-        }else{
-            //prevent issue with recycle view
-            cardView.setOnTouchListener(null);
-        }
     }
 
     /**
      * Overrides the default collapse/expand animation in a List
      *
-     * @param cardView {@link CardView}
+     * @param cardView {@link it.gmariotti.cardslib.library.view.CardView}
      */
     protected void setupExpandCollapseListAnimation(CardView cardView) {
 
         if (cardView == null) return;
-        cardView.setOnExpandListAnimatorListener(mCardListView);
+        cardView.setOnExpandListAnimatorListener(mCardGridView);
     }
 
     // -------------------------------------------------------------
@@ -212,18 +169,18 @@ public class CardArrayAdapter extends BaseCardArrayAdapter {
     // -------------------------------------------------------------
 
     /**
-     * @return {@link CardListView}
+     * @return {@link CardGridView}
      */
-    public CardListView getCardListView() {
-        return mCardListView;
+    public CardGridView getCardGridView() {
+        return mCardGridView;
     }
 
     /**
-     * Sets the {@link CardListView}
+     * Sets the {@link CardGridView}
      *
-     * @param cardListView cardListView
+     * @param cardGridView cardGridView
      */
-    public void setCardListView(CardListView cardListView) {
-        this.mCardListView = cardListView;
+    public void setCardGridView(CardGridView cardGridView) {
+        this.mCardGridView = cardGridView;
     }
 }
