@@ -34,6 +34,30 @@
         <!-- Layout used by card in a ListView. Default value is  @layout/list_card_layout -->
         <attr name="list_card_layout_resourceID" format="reference"/>
 
+        <!-- Number of columns in the CardGridView. Default value is auto_fit -->
+        <attr name="num_of_columns" format="integer">
+            <enum name="auto_fit" value="-1" />
+        </attr>
+
+        <!-- Horizontal spacing between the columns -->
+        <attr name="horizontal_spacing" format="dimension" />
+
+        <!-- Vertical spacing between the columns-->
+        <attr name="vertical_spacing" format="dimension" />
+
+        <!-- The selected method to fill space. -->
+        <attr name="stretch_mode">
+            <!-- Stretching is disabled. -->
+            <enum name="none" value="0" />
+            <!-- The spacing between each column is stretched. -->
+            <enum name="spacing_width" value="1" />
+            <!-- Each column is stretched equally. -->
+            <enum name="column_width" value="2" />
+        </attr>
+
+        <!-- The width of the column. -->
+        <attr name="column_width" format="dimension" />
+
     </declare-styleable>
 
 </resources>

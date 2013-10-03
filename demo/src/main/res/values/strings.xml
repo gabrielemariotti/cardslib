@@ -58,6 +58,7 @@
     <string name="carddemo_title_play_card">Google Play</string>
     <string name="carddemo_title_misc_card">Misc</string>
     <string name="carddemo_title_card_changevalue">Refresh card</string>
+    <string name="carddemo_title_cardgrid">Card Grid</string>
     <string name="carddemo_title_list_base">List Base</string>
     <string name="carddemo_title_list_expand">List with expandable card</string>
     <string name="carddemo_title_list_gplaycard">List Google Play</string>

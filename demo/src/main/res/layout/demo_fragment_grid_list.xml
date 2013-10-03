@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    android:id="@+id/card_scrollview"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <it.gmariotti.cardslib.library.view.CardGridView
+        android:id="@+id/card_grid_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        card:column_width="@dimen/grid_column_size"
+        card:horizontal_spacing="12dp"
+        card:num_of_columns="auto_fit"
+        card:stretch_mode="spacing_width"
+        card:vertical_spacing="6dp" />
+
+</ScrollView>
