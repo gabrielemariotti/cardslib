@@ -21,12 +21,9 @@ package it.gmariotti.cardslib.demo.fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RatingBar;
 import android.widget.ScrollView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -36,7 +33,6 @@ import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardGridArrayAdapter;
 import it.gmariotti.cardslib.library.internal.CardHeader;
 import it.gmariotti.cardslib.library.internal.CardThumbnail;
-import it.gmariotti.cardslib.library.internal.base.BaseCard;
 import it.gmariotti.cardslib.library.view.CardGridView;
 
 /**
@@ -70,106 +66,74 @@ public class GridBaseFragment extends BaseFragment {
 
         ArrayList<Card> cards = new ArrayList<Card>();
         for (int i=0;i<200;i++){
-            GplayGridCard card = new GplayGridCard(getActivity());
+            GdriveGridCard card = new GdriveGridCard(getActivity());
 
-            card.headerTitle="App example "+i;
-            card.secondaryTitle="Some text here "+i;
-            card.rating=(float)(Math.random()*(5.0));
-
-            //Only for test, change some icons
-            if ((i%6==0)){
-                card.resourceIdThumbnail=R.drawable.ic_ic_dh_bat;
-            }else if ((i%6==1)){
-                card.resourceIdThumbnail=R.drawable.ic_ic_dh_net;
-            }else if ((i%6==2)){
-                card.resourceIdThumbnail=R.drawable.ic_tris;
-            }else if ((i%6==3)){
-                card.resourceIdThumbnail=R.drawable.ic_info;
-            }else if ((i%6==4)){
-                card.resourceIdThumbnail=R.drawable.ic_smile;
-            }
-
+            card.headerTitle="Folder "+i;
             card.init();
             cards.add(card);
         }
 
         CardGridArrayAdapter mCardArrayAdapter = new CardGridArrayAdapter(getActivity(),cards);
 
-        CardGridView listView = (CardGridView) getActivity().findViewById(R.id.carddemo_grid_base1);
-        if (listView!=null){
-            listView.setAdapter(mCardArrayAdapter);
+        CardGridView gridView = (CardGridView) getActivity().findViewById(R.id.carddemo_grid_base);
+        if (gridView!=null){
+            gridView.setAdapter(mCardArrayAdapter);
         }
     }
 
 
-    public class GplayGridCard extends Card {
-
-        protected TextView mTitle;
-        protected TextView mSecondaryTitle;
-        protected RatingBar mRatingBar;
-        protected int resourceIdThumbnail=-1;
-        protected int count;
+    public class GdriveGridCard extends Card {
 
         protected String headerTitle;
-        protected String secondaryTitle;
-        protected float rating;
 
-        public GplayGridCard(Context context) {
-            super(context, R.layout.carddemo_gplay_inner_content);
-        }
-
-        public GplayGridCard(Context context, int innerLayout) {
-            super(context, innerLayout);
+        public GdriveGridCard(Context context) {
+            super(context);
         }
 
         private void init() {
-            CardHeader header = new CardHeader(getContext());
-            header.setButtonOverflowVisible(true);
+            CardHeader header = new CardHeader(getContext(),R.layout.carddemo_gdrive_header_inner);
             header.setTitle(headerTitle);
-            header.setPopupMenu(R.menu.popupmain, new CardHeader.OnClickCardHeaderPopupMenuListener() {
+            header.setOtherButtonVisible(true);
+
+            //Add a callback
+            header.setOtherButtonClickListener(new CardHeader.OnClickCardHeaderOtherButtonListener() {
                 @Override
-                public void onMenuItemClick(BaseCard card, MenuItem item) {
-                    Toast.makeText(getContext(), "Item " + item.getTitle(), Toast.LENGTH_SHORT).show();
+                public void onButtonItemClick(Card card, View view) {
+                    Toast.makeText(getActivity(), "Click on Other Button", Toast.LENGTH_SHORT).show();
                 }
             });
 
+            //Use this code to set your drawable
+            header.setOtherButtonDrawable(R.drawable.card_menu_button_expand);
+
             addCardHeader(header);
 
-            GplayGridThumb thumbnail = new GplayGridThumb(getContext());
-            if (resourceIdThumbnail>-1)
-                thumbnail.setDrawableResource(resourceIdThumbnail);
-            else
-                thumbnail.setDrawableResource(R.drawable.ic_ic_launcher_web);
+            GdriveGridThumb thumbnail = new GdriveGridThumb(getContext());
+            thumbnail.setDrawableResource(R.drawable.ic_action_folder_closed);
             addCardThumbnail(thumbnail);
+
+            setOnClickListener(new OnCardClickListener() {
+                @Override
+                public void onClick(Card card, View view) {
+                    Toast.makeText(getContext(), "Click Listener card=" + headerTitle, Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            setSwipeable(true);
+
+
         }
 
-        @Override
-        public void setupInnerViewElements(ViewGroup parent, View view) {
+        class GdriveGridThumb extends CardThumbnail {
 
-            TextView title = (TextView) view.findViewById(R.id.carddemo_gplay_main_inner_title);
-            title.setText("FREE");
-
-            TextView subtitle = (TextView) view.findViewById(R.id.carddemo_gplay_main_inner_subtitle);
-            subtitle.setText(secondaryTitle);
-
-            RatingBar mRatingBar = (RatingBar) parent.findViewById(R.id.carddemo_gplay_main_inner_ratingBar);
-
-            mRatingBar.setNumStars(5);
-            mRatingBar.setMax(5);
-            mRatingBar.setStepSize(0.5f);
-            mRatingBar.setRating(rating);
-        }
-
-        class GplayGridThumb extends CardThumbnail {
-
-            public GplayGridThumb(Context context) {
+            public GdriveGridThumb(Context context) {
                 super(context);
             }
 
             @Override
             public void setupInnerViewElements(ViewGroup parent, View viewImage) {
-                viewImage.getLayoutParams().width = 196;
-                viewImage.getLayoutParams().height = 196;
+                viewImage.getLayoutParams().width = 32;
+                viewImage.getLayoutParams().height = 32;
 
             }
         }

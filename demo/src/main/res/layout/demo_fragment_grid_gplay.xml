@@ -29,13 +29,11 @@
        android:layout_height="match_parent"
        android:columnWidth="190dp"
        android:numColumns="auto_fit"
-       android:verticalSpacing="6dp"
+       android:verticalSpacing="3dp"
        android:horizontalSpacing="2dp"
-       android:stretchMode="spacingWidth"
-       android:layout_marginLeft="2dp"
-       android:layout_marginRight="2dp"
+       android:stretchMode="columnWidth"
        android:gravity="center"
-       card:list_card_layout_resourceID="@layout/carddemo_grid_base"
-       android:id="@+id/carddemo_grid_base"/>
+       card:list_card_layout_resourceID="@layout/carddemo_grid_gplay"
+       android:id="@+id/carddemo_grid_base1"/>
 
 </LinearLayout>

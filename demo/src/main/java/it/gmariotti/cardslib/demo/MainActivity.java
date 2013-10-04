@@ -42,6 +42,7 @@ import it.gmariotti.cardslib.demo.fragment.CardFragment;
 import it.gmariotti.cardslib.demo.fragment.ChangeValueCardFragment;
 import it.gmariotti.cardslib.demo.fragment.GPlayCardFragment;
 import it.gmariotti.cardslib.demo.fragment.GridBaseFragment;
+import it.gmariotti.cardslib.demo.fragment.GridGplayFragment;
 import it.gmariotti.cardslib.demo.fragment.HeaderFragment;
 import it.gmariotti.cardslib.demo.fragment.ListBaseFragment;
 import it.gmariotti.cardslib.demo.fragment.ListExpandCardFragment;
@@ -76,6 +77,7 @@ public class MainActivity extends Activity {
     private static final int CASE_LIST_EXPAND = 10;
     private static final int CASE_LIST_GPLAY = 11;
     private static final int CASE_GRID_BASE = 12;
+    private static final int CASE_GRID_GPLAY = 13;
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -250,6 +252,9 @@ public class MainActivity extends Activity {
             case CASE_GRID_BASE:
                 baseFragment = new GridBaseFragment();
                 break;
+            case CASE_GRID_GPLAY:
+                baseFragment = new GridGplayFragment();
+                break;
             default:
                 break;
         }
@@ -298,7 +303,8 @@ public class MainActivity extends Activity {
             "List base",
             "List and expandable card",
             "List Google Play",
-            "Grid base"
+            "Grid base",
+            "Grid Google Play"
     };
 
 

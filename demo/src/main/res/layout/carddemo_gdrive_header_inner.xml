@@ -19,23 +19,25 @@
   -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:card="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
+              style="@style/card"
+              android:layout_gravity="center_vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="48dp">
 
-   <it.gmariotti.cardslib.library.view.CardGridView
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:columnWidth="190dp"
-       android:numColumns="auto_fit"
-       android:verticalSpacing="6dp"
-       android:horizontalSpacing="2dp"
-       android:stretchMode="spacingWidth"
-       android:layout_marginLeft="2dp"
-       android:layout_marginRight="2dp"
-       android:gravity="center"
-       card:list_card_layout_resourceID="@layout/carddemo_grid_base"
-       android:id="@+id/carddemo_grid_base"/>
+    <!-- This is the base Inner View inside a CardHeader.
+         You can customize it with your layout xml file and your CardHeader.
+         You can popolate your element with CardHeader#setupInnerViewElements() method -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/card_header_inner_simple_title"
+        android:textSize="13sp"
+        android:layout_marginLeft="8dp"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+        android:textColor="#000"
+        />
 
 </LinearLayout>
+

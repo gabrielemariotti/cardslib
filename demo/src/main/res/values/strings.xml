@@ -62,6 +62,7 @@
     <string name="carddemo_title_list_expand">List with expandable card</string>
     <string name="carddemo_title_list_gplaycard">List Google Play</string>
     <string name="carddemo_title_grid_base">Grid Base</string>
+    <string name="carddemo_title_grid_gplay">Grid Google Play</string>
 
     <!-- Section -->
     <string name="demo_section_header_standard">Standard Header without buttons</string>
