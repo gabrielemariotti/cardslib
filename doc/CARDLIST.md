@@ -78,4 +78,8 @@ You can build your layout, but need to have:
 
  1. a `CardView` with the ID `list_cardId`
 
+
+ Currently you have to use the same inner layouts for each card in `CardListView`
+
+
 ![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/demo/list_gplay.png)
