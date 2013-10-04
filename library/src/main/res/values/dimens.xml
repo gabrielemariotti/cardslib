@@ -78,7 +78,11 @@
     <dimen name="list_card_padding_bottom">6dp</dimen>
     <dimen name="list_card_padding_top">2dp</dimen>
 
-
+    <!-- Grid -->
+    <dimen name="grid_card_padding_left">2dp</dimen>
+    <dimen name="grid_card_padding_right">2dp</dimen>
+    <dimen name="grid_card_padding_bottom">2dp</dimen>
+    <dimen name="grid_card_padding_top">2dp</dimen>
 
 
 </resources>

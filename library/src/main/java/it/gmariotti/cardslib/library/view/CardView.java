@@ -320,7 +320,9 @@ public class CardView extends BaseCardView {
                                     final int heightSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
                                     mInternalExpandLayout.measure(widthSpec, heightSpec);
 
-                                    mCollapsedHeight = mInternalExpandLayout.getMeasuredHeight();
+                                    final int widthSpecCard = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
+                                    final int heightSpecCard = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
+                                    mCollapsedHeight = getMeasuredHeight();
 
                                     mExpandAnimator = createSlideAnimator(0, mInternalExpandLayout.getMeasuredHeight());
                                     return true;

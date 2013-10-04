@@ -139,7 +139,7 @@ public class CardGridView extends GridView implements CardView.OnExpandListAnima
     //--------------------------------------------------------------------------
 
     /**
-     * Forces to use a {@link it.gmariotti.cardslib.library.internal.CardArrayAdapter}
+     * Forces to use a {@link CardGridArrayAdapter}
      *
      * @param adapter
      */
@@ -154,9 +154,9 @@ public class CardGridView extends GridView implements CardView.OnExpandListAnima
     }
 
     /**
-     * Set {@link it.gmariotti.cardslib.library.internal.CardGridArrayAdapter} and layout used by items in ListView
+     * Set {@link CardGridArrayAdapter} and layout used by items in ListView
      *
-     * @param adapter {@link it.gmariotti.cardslib.library.internal.CardGridArrayAdapter}
+     * @param adapter {@link CardGridArrayAdapter}
      */
     public void setAdapter(CardGridArrayAdapter adapter) {
         super.setAdapter(adapter);
@@ -170,16 +170,20 @@ public class CardGridView extends GridView implements CardView.OnExpandListAnima
 
     //--------------------------------------------------------------------------
     // Expand and Collapse animator
+    // Don't use this animator in a grid.
+    // All cells in the same row should expand/collapse a hidden area of same dimensions.
     //--------------------------------------------------------------------------
 
     @Override
     public void onExpandStart(CardView viewCard,View expandingLayout) {
-        prepareExpandView(viewCard,expandingLayout);
+        //do nothing. Don't use this kind of animation in a grid
+        //prepareExpandView(viewCard,expandingLayout);
     }
 
     @Override
     public void onCollapseStart(CardView viewCard,View expandingLayout) {
-        prepareCollapseView(viewCard,expandingLayout);
+        //do nothing. Don't use this kind of animation in a grid
+        //prepareCollapseView(viewCard,expandingLayout);
     }
 
     private void prepareExpandView(final CardView view,final View expandingLayout) {
@@ -277,6 +281,8 @@ public class CardGridView extends GridView implements CardView.OnExpandListAnima
                 ArrayList<Animator> animations = new ArrayList<Animator>();
 
                 int index = indexOfChild(view);
+                int numOfColumns = getNumColumns();
+                int rowOfSelectedItem = (int) index/numOfColumns;
 
                 /* Loop through all the views that were on the screen before the cell was
                 *  expanded. Some cells will still be children of the ListView while
@@ -295,7 +301,8 @@ public class CardGridView extends GridView implements CardView.OnExpandListAnima
                     } else {
                         int i = indexOfChild(v);
                         if (v != view) {
-                            int delta = i > index ? yTranslateBottom : -yTranslateTop;
+                            int rowOfv= (int) i/numOfColumns;
+                            int delta = ( i > index && rowOfv > rowOfSelectedItem) ? yTranslateBottom : -yTranslateTop;
                             animations.add(getAnimation(v, delta, delta));
                         }
                         v.setHasTransientState(false);
@@ -447,6 +454,9 @@ public class CardGridView extends GridView implements CardView.OnExpandListAnima
                 int yTranslateBottom = mTranslate[1];
 
                 int index = indexOfChild(view);
+                int numOfColumns = getNumColumns();
+                int rowOfSelectedItem = (int) index/numOfColumns;
+
                 int childCount = getChildCount();
                 for (int i = 0; i < childCount; i++) {
                     View v = getChildAt(i);
@@ -463,7 +473,8 @@ public class CardGridView extends GridView implements CardView.OnExpandListAnima
                         /* If the cell is present in the ListView after the collapse but
                          * not before the collapse then the bounds are calculated using
                          * the bottom and top translation of the collapsing cell.*/
-                        int delta = i > index ? yTranslateBottom : -yTranslateTop;
+                        int rowOfv= (int) i/numOfColumns;
+                        int delta = ( i > index && rowOfv>rowOfSelectedItem) ? yTranslateBottom : -yTranslateTop;
                         v.setTop(v.getTop() + delta);
                         v.setBottom(v.getBottom() + delta);
                     }

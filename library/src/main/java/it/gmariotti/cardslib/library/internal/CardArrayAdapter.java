@@ -22,7 +22,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
+import android.widget.AbsListView;
 
 import java.util.List;
 
@@ -196,7 +196,7 @@ public class CardArrayAdapter extends BaseCardArrayAdapter {
         }
 
         @Override
-        public void onDismiss(ListView listView, int[] reverseSortedPositions) {
+        public void onDismiss(AbsListView listView, int[] reverseSortedPositions) {
             for (int position : reverseSortedPositions) {
                 Card card = getItem(position);
                 if (card.getOnSwipeListener() != null)

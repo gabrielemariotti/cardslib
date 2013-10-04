@@ -22,7 +22,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 
 import java.util.List;
 
@@ -33,7 +32,8 @@ import it.gmariotti.cardslib.library.view.CardView;
 import it.gmariotti.cardslib.library.view.listener.SwipeDismissListViewTouchListener;
 
 /**
- * Array Adapter for {@link Card} model
+ * Array Adapter for {@link Card} model.
+ * Use it with a {@link CardGridView}.
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
@@ -102,6 +102,7 @@ public class CardGridArrayAdapter extends BaseCardArrayAdapter {
                 boolean origianlSwipeable = mCard.isSwipeable();
                 mCard.setSwipeable(false);
                 mCardView.setCard(mCard);
+                //mCard.setSwipeable(origianlSwipeable);
 
                 //If card has an expandable button override animation
                 if (mCard.getCardHeader() != null && mCard.getCardHeader().isButtonExpandVisible()) {
@@ -125,6 +126,19 @@ public class CardGridArrayAdapter extends BaseCardArrayAdapter {
     protected void setupSwipeableAnimation(final Card card, CardView cardView) {
 
         cardView.setOnTouchListener(null);
+        /*if (card.isSwipeable()){
+            if (mOnTouchListener == null){
+                mOnTouchListener = new SwipeDismissListViewTouchListener(mCardGridView, mCallback);
+                // Setting this scroll listener is required to ensure that during
+                // ListView scrolling, we don't look for swipes.
+                mCardGridView.setOnScrollListener(mOnTouchListener.makeScrollListener());
+            }
+
+            cardView.setOnTouchListener(mOnTouchListener);
+        }else{
+            //prevent issue with recycle view
+            cardView.setOnTouchListener(null);
+        }*/
 
     }
 
@@ -145,6 +159,7 @@ public class CardGridArrayAdapter extends BaseCardArrayAdapter {
     /**
      * Listener invoked when a card is swiped
      */
+    /*
     SwipeDismissListViewTouchListener.DismissCallbacks mCallback = new SwipeDismissListViewTouchListener.DismissCallbacks() {
 
         @Override
@@ -162,7 +177,7 @@ public class CardGridArrayAdapter extends BaseCardArrayAdapter {
             }
             notifyDataSetChanged();
         }
-    };
+    };*/
 
     // -------------------------------------------------------------
     //  Getters and Setters
