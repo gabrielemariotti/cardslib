@@ -15,17 +15,20 @@ package it.gmariotti.cardslib.library.view.listener;
  * limitations under the License.
  */
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import android.view.View;
-import android.view.ViewPropertyAnimator;
 import android.widget.TextView;
 
+import com.nineoldandroids.animation.Animator;
+import com.nineoldandroids.animation.AnimatorListenerAdapter;
+import com.nineoldandroids.view.ViewPropertyAnimator;
+
 import it.gmariotti.cardslib.library.R;
+
+import static com.nineoldandroids.view.ViewPropertyAnimator.animate;
 
 /**
  * It is based on Roman Nurik code.
@@ -55,7 +58,7 @@ public class UndoBarController {
 
     public UndoBarController(View undoBarView, UndoListener undoListener) {
         mBarView = undoBarView;
-        mBarAnimator = mBarView.animate();
+        mBarAnimator = animate(mBarView);
         mUndoListener = undoListener;
 
         mMessageView = (TextView) mBarView.findViewById(R.id.undobar_message);
