@@ -15,18 +15,20 @@ package it.gmariotti.cardslib.library.view.listener;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ValueAnimator;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 
+import com.nineoldandroids.animation.Animator;
+import com.nineoldandroids.animation.AnimatorListenerAdapter;
+import com.nineoldandroids.animation.ValueAnimator;
+
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.view.CardView;
+
+import static com.nineoldandroids.view.ViewPropertyAnimator.animate;
 
 /**
  * It is based on Roman Nurik code.
@@ -162,7 +164,7 @@ public class SwipeDismissViewTouchListener implements View.OnTouchListener {
                 if (dismiss) {
                     // dismiss
 
-                    mCardView.animate()
+                    animate(mCardView)
                             .translationX(dismissRight ? mViewWidth : -mViewWidth)
                             .alpha(0).setDuration(mAnimationTime)
                             .setListener(new AnimatorListenerAdapter() {

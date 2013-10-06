@@ -30,7 +30,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
-import android.widget.PopupMenu;
+import android.support.v7.widget.PopupMenu;
 
 import it.gmariotti.cardslib.library.R;
 import it.gmariotti.cardslib.library.internal.CardHeader;

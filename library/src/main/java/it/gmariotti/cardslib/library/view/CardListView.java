@@ -18,17 +18,21 @@
 
 package it.gmariotti.cardslib.library.view;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
-import android.animation.PropertyValuesHolder;
+import com.nineoldandroids.animation.Animator;
+import com.nineoldandroids.animation.AnimatorListenerAdapter;
+import com.nineoldandroids.animation.AnimatorSet;
+import com.nineoldandroids.animation.ObjectAnimator;
+import com.nineoldandroids.animation.PropertyValuesHolder;
+import com.nineoldandroids.util.Property;
+import com.nineoldandroids.util.FloatProperty;
+
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
+
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.AbsListView;
@@ -203,6 +207,17 @@ public class CardListView extends ListView implements CardView.OnExpandListAnima
     public void onCollapseStart(CardView viewCard,View expandingLayout) {
         prepareCollapseView(viewCard,expandingLayout);
     }
+    public static final Property<View, Float> ALPHA = new FloatProperty<View>("alpha") {
+        @Override
+        public void setValue(View object, float value) {
+            object.setAlpha(value);
+        }
+
+        @Override
+        public Float get(View object) {
+            return object.getAlpha();
+        }
+    };
 
     private void prepareExpandView(final CardView view,final View expandingLayout) {
         final Card card = (Card)getItemAtPosition(getPositionForView
@@ -329,7 +344,7 @@ public class CardListView extends ListView implements CardView.OnExpandListAnima
 
                 /* Adds an animation for fading in the extra content. */
                 animations.add(ObjectAnimator.ofFloat(expandingLayout,
-                        View.ALPHA, 0, 1));
+                        ALPHA, 0, 1));
 
                 /* Disabled the ListView for the duration of the animation.*/
                 setEnabled(false);
@@ -519,7 +534,7 @@ public class CardListView extends ListView implements CardView.OnExpandListAnima
                 animations.add(getAnimation(view, yTranslateTop, -yTranslateBottom));
 
                 /* Adds an animation for fading out the extra content. */
-                animations.add(ObjectAnimator.ofFloat(expandingLayout, View.ALPHA, 1, 0));
+                animations.add(ObjectAnimator.ofFloat(expandingLayout, ALPHA, 1, 0));
 
                 /* Disabled the ListView for the duration of the animation.*/
                 setEnabled(false);
