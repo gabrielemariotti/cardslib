@@ -43,9 +43,34 @@ import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardGridArrayAdapter;
 
 /**
- *
- *
- *
+ * Card Grid View.
+ * It uses an {@link it.gmariotti.cardslib.library.internal.CardGridArrayAdapter} to populate items.
+ * </p>
+ * Usage:
+ * <pre><code>
+ *    <it.gmariotti.cardslib.library.view.CardGridView
+ *     android:layout_width="match_parent"
+ *     android:layout_height="match_parent"
+ *     android:columnWidth="190dp"
+ *     android:numColumns="auto_fit"
+ *     android:verticalSpacing="3dp"
+ *     android:horizontalSpacing="2dp"
+ *     android:stretchMode="columnWidth"
+ *     android:gravity="center"
+ *     android:id="@+id/carddemo_grid_base1"/>
+ * </code></pre>
+ * It provides a default layout id for each row @layout/list_card_layout
+ * Use can easily customize it using card:list_card_layout_resourceID attr in your xml layout.
+ * </p>
+ * Use this code to populate the grid view
+ * <pre><code>
+ * CardGridView gridView = (CardGridView) getActivity().findViewById(R.id.gridId);
+ * gridView.setAdapter(mCardGridArrayAdapter);
+ * </code></pre>
+ * This type of view, doesn't support swipe and collapse/expand actions.
+ * </p>
+ * Currently you have to use the same inner layout for each card in gridView.
+ * </p>
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
 public class CardGridView extends GridView implements CardView.OnExpandListAnimatorListener {
