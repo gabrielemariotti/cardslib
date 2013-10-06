@@ -27,7 +27,7 @@
    <it.gmariotti.cardslib.library.view.CardGridView
        android:layout_width="match_parent"
        android:layout_height="match_parent"
-       android:columnWidth="185dp"
+       android:columnWidth="175dp"
        android:numColumns="auto_fit"
        android:verticalSpacing="6dp"
        android:horizontalSpacing="2dp"

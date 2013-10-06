@@ -22,7 +22,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card="http://schemas.android.com/apk/res-auto"
     android:id="@+id/list_cardId"
-    android:layout_width="185dp"
+    android:layout_width="@dimen/carddemo_base_grid_columnwidth"
     android:layout_height="wrap_content"
     card:card_layout_resourceID="@layout/carddemo_gdrive_layout"
     />
