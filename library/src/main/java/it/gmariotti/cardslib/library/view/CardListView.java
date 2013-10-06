@@ -64,7 +64,8 @@ import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
  * listView.setAdapter(mCardArrayAdapter);
  * </code></pre>
  * </p>
- *
+ * Currently you have to use the same inner layout for each card in listView.
+ * </p>
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
 public class CardListView extends ListView implements CardView.OnExpandListAnimatorListener {
