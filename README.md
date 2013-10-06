@@ -4,14 +4,16 @@ Card Library provides an easy way to display a UI Card in your Android app.
 
 ![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/screen.png)
 
+You can display single cards, list of cards and a grid of Cards.
 
 ---
 ## Feature
 
-Card Library provides 2 custom tags:
+Card Library provides 3 custom tags:
 
 *  `CardView` to display a UI Card.
 *  `CardListView` to display a List Card.
+*  `CardGridView` to display a Grid Card.
 
 **It requires API 14+**
 
@@ -28,6 +30,11 @@ Card Library provides 2 custom tags:
 
 * It uses `CardView` tag and all its properties.
 * It works with an `CardArrayAdapter`
+
+`CardGridView` displays a Grid Card.
+
+* It uses `CardView` tag and some its properties.
+* It works with an `CardGridArrayAdapter
 
 
 Please note that this is currently in a preview state. This means that the API is not fixed and you should expect changes between releases.
@@ -70,30 +77,8 @@ Last get a reference to the `CardView` from your code, and set your `Card`.
        cardView.setCard(card);
 ```
 
-## CardList Usage
+* [See this page for a complete list of usage:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/USAGR.md)
 
-To create a `CardListView` , first, you need an XML layout that will display the `CardListView`.
-
-``` xml
-    <it.gmariotti.cardslib.library.view.CardListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/myList"/>
-```
-
-Then create an array of `Card`s and build a `CardArrayAdapter`
-
-``` java
-        ArrayList<Card> cards = new ArrayList<Card>();
-        CardArrayAdapter mCardArrayAdapter = new CardArrayAdapter(context,cards);
-```
-
-Last get a reference to the `CardListView` from your code, and set your adapter:
-
-``` java
-        CardListView listView = (CardListView) getActivity().findViewById(R.id.myList);
-        listView.setAdapter(mCardArrayAdapter);
-```
 
 ## Customization
 
@@ -106,31 +91,50 @@ Here you can find some pages to customize this tag.
 * [Card Thumbnail:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/THUMBNAIL.md) How to display a thumbnail
 * [Card:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARD.md) How to customize all card features
 * [CardList:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARDLIST.md) How to work with the `CardListView`
+* [CardGrid:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARDGRID.md) How to work with the `CardGridView`
 
 ## Examples
+
+Try out the apk with the [sample application](https://github.com/gabrielemariotti/cardslib/tree/master/apk/demo040.apk) or browse the [source code of the sample application](https://github.com/gabrielemariotti/cardslib/tree/master/demo) for a complete example of use.
 
 * [Example:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/EXAMPLE.md)
 
 ---
 
-## Gradle
+## Including in your project
 
-Card Library is now pushed to Maven Central as a AAR, so you just need to add the following dependency to your `build.gradle`.
+Card Library is pushed to Maven Central as a AAR, so you just need to add the following dependency to your `build.gradle`.
 
     dependencies {
-        compile 'com.github.gabrielemariotti.cards:library:0.3.0'
+        compile 'com.github.gabrielemariotti.cards:library:0.4.0'
     }
 
 ChangeLog
 -------
 
-* [Changelog:](https://github.com/gabrielemariotti/cardslib/tree/master/CHANGELOG.md)
+* [Changelog:](https://github.com/gabrielemariotti/cardslib/tree/master/CHANGELOG.md) A complete changelog
+
+
+Acknowledgements
+--------------------
+
+* Thanks to [Roman Nurik][1] for [Android-SwipeToDismiss][2] classes
 
 
 Credits
 -------
 
 Author: Gabriele Mariotti (gabri.mariotti@gmail.com)
+
+<a href="https://plus.google.com/u/0/114432517923423045208">
+  <img alt="Follow me on Google+"
+       src="https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/g+64.png" />
+</a>
+<a href="https://twitter.com/GabMarioPower">
+  <img alt="Follow me on Twitter"
+       src="https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/twitter64.png" />
+</a>
+
 
 License
 -------
@@ -153,3 +157,6 @@ License
 ---
 
 Google and the Google Maps logo are registered trademarks of Google Inc., used with permission.
+
+ [1]: https://plus.google.com/u/0/+RomanNurik/about
+ [2]: https://github.com/romannurik/Android-SwipeToDismiss

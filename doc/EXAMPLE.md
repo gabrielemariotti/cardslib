@@ -2,32 +2,33 @@
 
 The Demo contains some drafts to customize your card and some more complete examples.
 
-### BirthDay Card
+### BirthDay Card [source](https://github.com/gabrielemariotti/cardslib/raw/master/demo/src/main/java/it/gmariotti/cardslib/demo/fragment/BirthDayCardFragment.java)
 
 ![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/demo/birthday.png)
 
-### Google Play Card
+### Google Play Card [source](https://github.com/gabrielemariotti/cardslib/raw/master/demo/src/main/java/it/gmariotti/cardslib/demo/fragment/GPlayCardFragment.java)
 
 ![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/demo/gplay.png)
 
-### Google Now Stock Card
+### Google Now Stock Card [source](https://github.com/gabrielemariotti/cardslib/raw/master/demo/src/main/java/it/gmariotti/cardslib/demo/fragment/StockCardFragment.java)
 
 ![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/demo/gnow.png)
 
-### Misc Card
+### Misc Card [source](https://github.com/gabrielemariotti/cardslib/raw/master/demo/src/main/java/it/gmariotti/cardslib/demo/fragment/MiscCardFragment.java)
 
 ![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/demo/misc.png)
 
-### Expandable cards list example
+### Expandable cards list example [source](https://github.com/gabrielemariotti/cardslib/raw/master/demo/src/main/java/it/gmariotti/cardslib/demo/fragment/ListExpandCardFragment.java)
 
 ![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/demo/list_expand.png)
 
-### Google play cards list example
+### Google play cards list example [source](https://github.com/gabrielemariotti/cardslib/raw/master/demo/src/main/java/it/gmariotti/cardslib/demo/fragment/ListGplayCardFragment.java)
 
 ![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/demo/list_gplay.png)
 
+### Google play cards grid example [source](https://github.com/gabrielemariotti/cardslib/raw/master/demo/src/main/java/it/gmariotti/cardslib/demo/fragment/GridGplayCardFragment.java)
 
-
+![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/demo/grid_gplay.png)
 ---
 
 Google and the Google Maps logo are registered trademarks of Google Inc., used with permission.

@@ -1,6 +1,14 @@
 Change Log
 ===============================================================================
 
+Version 0.4.0 *(2013-10-06)*
+----------------------------
+
+ * LIB: Added `CardGridView` with a `CardGridArrayAdapter`
+ * DEMO: Added a simple Grid View
+ * DEMO: Added a grid of Cards as Google Play
+
+
 Version 0.3.0 *(2013-10-01)*
 ----------------------------
 
