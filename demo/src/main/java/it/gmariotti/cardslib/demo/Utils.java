@@ -32,9 +32,9 @@ import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.text.Html;
-import android.text.SpannableStringBuilder;
 import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.TextView;
 
 
@@ -82,19 +82,24 @@ public class Utils {
             }
 
             // Build the about body view and append the link to see OSS licenses
-            SpannableStringBuilder aboutBody = new SpannableStringBuilder();
-            aboutBody.append(Html.fromHtml(getString(R.string.about_body, versionName)));
+            //SpannableStringBuilder aboutBody = new SpannableStringBuilder();
+            //aboutBody.append(Html.fromHtml(getString(R.string.about_body, versionName)));
 
 
-            LayoutInflater layoutInflater = (LayoutInflater) getActivity().getSystemService(
-                    Context.LAYOUT_INFLATER_SERVICE);
-            TextView aboutBodyView = (TextView) layoutInflater.inflate(R.layout.demo_dialog_about, null);
-            aboutBodyView.setText(aboutBody);
+            LayoutInflater layoutInflater = getActivity().getLayoutInflater();
+            View rootView = layoutInflater.inflate(R.layout.demo_dialog_about, null);
+            TextView nameAndVersionView = (TextView) rootView.findViewById(
+                    R.id.app_name_and_version);
+            nameAndVersionView.setText(Html.fromHtml(
+                    getString(R.string.title_about, versionName)));
+
+            TextView aboutBodyView = (TextView) rootView.findViewById(R.id.about_body);
+            aboutBodyView.setText(Html.fromHtml(getString(R.string.about_body)));
             aboutBodyView.setMovementMethod(new LinkMovementMethod());
 
             return new AlertDialog.Builder(getActivity())
-                    .setTitle(R.string.title_about)
-                    .setView(aboutBodyView)
+                    //.setTitle(R.string.title_about)
+                    .setView(rootView)
                     .setPositiveButton(R.string.about_ok,
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int whichButton) {

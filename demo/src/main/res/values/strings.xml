@@ -23,14 +23,20 @@
     <string name="app_name">CardsLibDemo</string>
 
     <!-- About -->
-    <string name="title_about">About</string>
+    <string name="title_about"><![CDATA[
+        <b>CardLib</b>&nbsp;<font color="#888888">v%1$s</font>
+    ]]></string>
     <string name="about_ok">OK</string>
     <string name="about_body"><![CDATA[
-        <b>CardLib Library & Demo</b><br>
-        Version %s<br><br>
-        <a href="https://github.com/gabrielemariotti/cardslib">Source</a><br><br>
-        <a href="https://plus.google.com/114432517923423045208">By Gabriele Mariotti</a><br><br>
+        <b>Library & Demo</b><br>
+        <br>
+        <a href="https://github.com/gabrielemariotti/cardslib">Source and doc</a><br><br>
+        Author: <a href="https://plus.google.com/114432517923423045208">Gabriele Mariotti</a><br><br>
         <br><br>
+        Many thanks to these open source tools:<br>
+        <b><a href="https://github.com/romannurik/Android-SwipeToDismiss">SwipeToDismiss</a></b><br>
+        <i>by Roman Nurik</i><br><br>
+        <br><br><br>
         Google and the Google Maps logo are registered trademarks of Google Inc.
 
     ]]></string>

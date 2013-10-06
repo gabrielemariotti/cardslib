@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ *******************************************************************************
   ~   Copyright (c) 2013 Gabriele Mariotti.
   ~
@@ -16,12 +15,39 @@
   ~   limitations under the License.
   ~  *****************************************************************************
   -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:divider="?android:dividerVertical"
+    android:showDividers="middle">
 
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-          android:id="@android:id/text1"
-          android:layout_width="match_parent"
-          android:layout_height="match_parent"
-          android:padding="16dp"
-          android:textSize="@dimen/text_size_medium"
-          android:background="@android:color/white"
-          android:textColor="@android:color/black" />
+    <TextView android:id="@+id/app_name_and_version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_launcher"
+        android:drawablePadding="8dp"
+        android:gravity="center_vertical"
+        android:fontFamily="sans-serif-condensed"
+        android:textSize="24sp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="8dp" />
+
+    <ScrollView android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1">
+
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/about_body"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:textSize="@dimen/text_size_medium"
+        android:background="@android:color/white"
+        android:textColor="@android:color/black" />
+
+    </ScrollView>
+
+</LinearLayout>
