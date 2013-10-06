@@ -43,9 +43,9 @@ import it.gmariotti.cardslib.library.view.listener.SwipeDismissListViewTouchList
  *     CardExample card = new CardExample(getActivity(),"My title "+i,"Inner text "+i);
  *     cards.add(card);
  * }
- *
+ * <p/>
  * CardGridArrayAdapter mCardArrayAdapter = new CardGridArrayAdapter(getActivity(),cards);
- *
+ * <p/>
  * CardGridView gridView = (CardGridView) getActivity().findViewById(R.id.gridId);
  * gridView.setAdapter(mCardArrayAdapter); *
  * </code></pre>
@@ -143,12 +143,12 @@ public class CardGridArrayAdapter extends BaseCardArrayAdapter {
 
                 //mCard.setSwipeable(origianlSwipeable);
                 if (origianlSwipeable)
-                    Log.d(TAG,"Swipe action not enabled in this type of view");
+                    Log.d(TAG, "Swipe action not enabled in this type of view");
 
                 //If card has an expandable button override animation
                 if (mCard.getCardHeader() != null && mCard.getCardHeader().isButtonExpandVisible()) {
                     setupExpandCollapseListAnimation(mCardView);
-                    Log.d(TAG,"Expand action not enabled in this type of view");
+                    Log.d(TAG, "Expand action not enabled in this type of view");
                 }
 
                 //Setup swipeable animation
@@ -162,7 +162,7 @@ public class CardGridArrayAdapter extends BaseCardArrayAdapter {
     /**
      * Removes SwipeAnimation on Grid
      *
-     * @param card {@link Card}
+     * @param card     {@link Card}
      * @param cardView {@link CardView}
      */
     protected void setupSwipeableAnimation(final Card card, CardView cardView) {
