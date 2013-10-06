@@ -1,6 +1,6 @@
 package it.gmariotti.cardslib.library.view.listener;
 
-/* Copyright 2013 Roman Nurik
+/* Copyright 2013 Roman Nurik, Gabriele Mariotti
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.

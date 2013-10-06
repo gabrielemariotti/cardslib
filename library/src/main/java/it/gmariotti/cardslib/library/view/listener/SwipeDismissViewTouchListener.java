@@ -1,7 +1,7 @@
 
 package it.gmariotti.cardslib.library.view.listener;
 
-/* Copyright 2013 Roman Nurik
+/* Copyright 2013 Roman Nurik, Gabriele Mariotti
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,8 +31,9 @@ import it.gmariotti.cardslib.library.view.CardView;
 /**
  * It is based on Roman Nurik code.
  * See this link for original code https://github.com/romannurik/Android-SwipeToDismiss
+ *
  * </p>
- * It provides a SwipeDismissViewTouchListener for a single Card. *
+ * It provides a SwipeDismissViewTouchListener for a single Card.
  * </p>
  * If you are using a list, see {@link SwipeDismissListViewTouchListener}
  * </p>
