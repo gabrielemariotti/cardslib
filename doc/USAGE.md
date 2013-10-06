@@ -89,7 +89,7 @@ Then create an array of `Card`s and build a `CardGridArrayAdapter`
         CardGridArrayAdapter mCardArrayAdapter = new CardGridArrayAdapter(context,cards);
 ```
 
-Last get a reference to the `CardListView` from your code, and set your adapter:
+Last get a reference to the `CardGridView` from your code, and set your adapter:
 
 ``` java
         CardGridView gridView = (CardGridView) getActivity().findViewById(R.id.myGrid);

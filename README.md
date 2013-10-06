@@ -2,9 +2,9 @@
 
 Card Library provides an easy way to display a UI Card in your Android app.
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/screen.png)
-
 You can display single cards, list of cards and a grid of Cards.
+
+![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/screen.png)
 
 ---
 ## Feature
@@ -17,6 +17,7 @@ Card Library provides 3 custom tags:
 
 **It requires API 14+**
 
+
 `CardView`  displays a UI Card.
 
 * It provides different parts as a Header, a Thumbnail, a Shadow, a MainContentArea where you can inflate your custom layout
@@ -26,10 +27,13 @@ Card Library provides 3 custom tags:
 * `CardThumbnail` load a Bitmap with a resource ID or with a URL using `LRUCache` and an `AsyncTask`
 
 
+
 `CardListView` displays a List Card.
 
 * It uses `CardView` tag and all its properties.
 * It works with an `CardArrayAdapter`
+
+
 
 `CardGridView` displays a Grid Card.
 
@@ -39,7 +43,7 @@ Card Library provides 3 custom tags:
 
 Please note that this is currently in a preview state. This means that the API is not fixed and you should expect changes between releases.
 
-## Card Usage
+## Usage
 
 Create a `Card` is is pretty simple.
 
@@ -77,7 +81,7 @@ Last get a reference to the `CardView` from your code, and set your `Card`.
        cardView.setCard(card);
 ```
 
-* [See this page for a complete list of usage:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/USAGR.md)
+* [See this page for a complete list of use](https://github.com/gabrielemariotti/cardslib/tree/master/doc/USAGE.md).
 
 
 ## Customization
@@ -97,7 +101,7 @@ Here you can find some pages to customize this tag.
 
 Try out the apk with the [sample application](https://github.com/gabrielemariotti/cardslib/tree/master/apk/demo040.apk) or browse the [source code of the sample application](https://github.com/gabrielemariotti/cardslib/tree/master/demo) for a complete example of use.
 
-* [Example:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/EXAMPLE.md)
+* [Example:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/EXAMPLE.md) How to realize simple and nice cards.
 
 ---
 
@@ -155,6 +159,7 @@ License
 
 
 ---
+
 
 Google and the Google Maps logo are registered trademarks of Google Inc., used with permission.
 

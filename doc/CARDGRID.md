@@ -34,7 +34,7 @@ Then create an Array of `Card`s:
       cards.add(card);
 ```
 
-Last create a `CardGridArrayAdapter`, get a reference to the `CardListView` from your code and set your adapter.
+Last create a `CardGridArrayAdapter`, get a reference to the `CardGridView` from your code and set your adapter.
 
 ``` java
         CardGridArrayAdapter mCardArrayAdapter = new CardGridArrayAdapter(context,cards);
@@ -91,7 +91,7 @@ You can build your layout, but need to have:
  1. a `CardView` with the ID `list_cardId`
 
 
-This kind of View, doesn't support this `Card` features:
+This kind of View, doesn't support these `Card` features:
 
  1. swipe action
  2. collapse/expand action
