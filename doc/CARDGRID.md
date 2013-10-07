@@ -1,6 +1,6 @@
 # Cards Library: CardGrid
 
-Create a `CardGridView` is is pretty simple.
+Creating a `CardGridView` is pretty simple.
 
 First, you need an XML layout that will display the `CardListView`.
 

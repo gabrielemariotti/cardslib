@@ -1,6 +1,6 @@
 # Cards Library: Expand
 
-Create a base `CardExpand` is pretty simple.
+Creating a base `CardExpand` is pretty simple.
 
 ``` java
         //This provide a simple (and useless) expand area

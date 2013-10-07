@@ -1,6 +1,6 @@
 # Cards Library: Thumbnail
 
-Create a base `CardThumbnail` is pretty simple.
+Creating a base `CardThumbnail` is pretty simple.
 
 ``` java
         //Create thumbnail

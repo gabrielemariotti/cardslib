@@ -1,6 +1,6 @@
 # Cards Library: Header
 
-Create a base `CardHeader` is pretty simple.
+Creating a base `CardHeader` is pretty simple.
 
 ``` java
   //Create a Card
