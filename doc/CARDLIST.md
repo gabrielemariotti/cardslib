@@ -1,6 +1,6 @@
 # Cards Library: CardList
 
-Create a `CardListView` is is pretty simple.
+Creating a `CardListView` is pretty simple.
 
 First, you need an XML layout that will display the `CardListView`.
 
