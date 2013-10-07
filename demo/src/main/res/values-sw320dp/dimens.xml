@@ -18,5 +18,8 @@
   -->
 
 <resources>
-    <dimen name="carddemo_gplay_grid_columnwidth">140dp</dimen>
+    <dimen name="carddemo_base_grid_columnwidth">175dp</dimen>
+    <dimen name="carddemo_base_grid_columnwidth_card">175dp</dimen>
+    <dimen name="carddemo_gplay_grid_columnwidth">175dp</dimen>
+    <dimen name="carddemo_gplay_grid_columnwidth_card">175dp</dimen>
 </resources>

@@ -23,4 +23,8 @@
     <dimen name="card_birth_width">400dp</dimen>
     <dimen name="card_mayknow_margin_top">10dp</dimen>
 
+    <dimen name="carddemo_base_grid_columnwidth">185dp</dimen>
+    <dimen name="carddemo_base_grid_columnwidth_card">185dp</dimen>
+    <dimen name="carddemo_gplay_grid_columnwidth">190dp</dimen>
+    <dimen name="carddemo_gplay_grid_columnwidth_card">190dp</dimen>
 </resources>

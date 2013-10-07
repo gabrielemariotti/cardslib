@@ -27,11 +27,11 @@
    <it.gmariotti.cardslib.library.view.CardGridView
        android:layout_width="match_parent"
        android:layout_height="match_parent"
-       android:columnWidth="175dp"
+       android:columnWidth="@dimen/carddemo_base_grid_columnwidth"
        android:numColumns="auto_fit"
        android:verticalSpacing="6dp"
        android:horizontalSpacing="2dp"
-       android:stretchMode="spacingWidth"
+       android:stretchMode="columnWidth"
        android:layout_marginLeft="2dp"
        android:layout_marginRight="2dp"
        android:gravity="center"
