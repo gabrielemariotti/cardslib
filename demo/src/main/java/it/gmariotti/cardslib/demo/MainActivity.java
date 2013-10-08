@@ -47,6 +47,7 @@ import it.gmariotti.cardslib.demo.fragment.HeaderFragment;
 import it.gmariotti.cardslib.demo.fragment.ListBaseFragment;
 import it.gmariotti.cardslib.demo.fragment.ListExpandCardFragment;
 import it.gmariotti.cardslib.demo.fragment.ListGplayCardFragment;
+import it.gmariotti.cardslib.demo.fragment.ListGplayUndoCardFragment;
 import it.gmariotti.cardslib.demo.fragment.MiscCardFragment;
 import it.gmariotti.cardslib.demo.fragment.ShadowFragment;
 import it.gmariotti.cardslib.demo.fragment.StockCardFragment;
@@ -59,6 +60,7 @@ public class MainActivity extends Activity {
     private CustomActionBarDrawerToggle mDrawerToggle;
     private int mCurrentTitle;
     private int mSelectedFragment;
+    private BaseFragment mBaseFragment;
 
     //Used in savedInstanceState
     private static String BUNDLE_SELECTEDFRAGMENT = "BDL_SELFRG";
@@ -76,8 +78,9 @@ public class MainActivity extends Activity {
     private static final int CASE_LIST_BASE = 9;
     private static final int CASE_LIST_EXPAND = 10;
     private static final int CASE_LIST_GPLAY = 11;
-    private static final int CASE_GRID_BASE = 12;
-    private static final int CASE_GRID_GPLAY = 13;
+    private static final int CASE_LIST_GPLAY_UNDO = 12;
+    private static final int CASE_GRID_BASE = 13;
+    private static final int CASE_GRID_GPLAY = 14;
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -102,15 +105,16 @@ public class MainActivity extends Activity {
         mDrawer.setDrawerListener(mDrawerToggle);
 
         //-----------------------------------------------------------------
-        BaseFragment baseFragment = null;
+        //BaseFragment baseFragment = null;
         if (savedInstanceState != null) {
             mSelectedFragment = savedInstanceState.getInt(BUNDLE_SELECTEDFRAGMENT);
-            baseFragment = selectFragment(mSelectedFragment);
+            if (mBaseFragment==null)
+                mBaseFragment = selectFragment(mSelectedFragment);
         } else {
-            baseFragment = new HeaderFragment();
+            mBaseFragment = new HeaderFragment();
         }
-        if (baseFragment != null)
-            openFragment(baseFragment);
+        if (mBaseFragment != null)
+            openFragment(mBaseFragment);
         //-----------------------------------------------------------------
     }
 
@@ -195,14 +199,15 @@ public class MainActivity extends Activity {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position,
                                 long id) {
+
             // Highlight the selected item, update the title, and close the drawer
             // update selected item and title, then close the drawer
             mDrawerList.setItemChecked(position, true);
-            BaseFragment baseFragment = selectFragment(position);
+            mBaseFragment = selectFragment(position);
             mSelectedFragment = position;
 
-            if (baseFragment != null)
-                openFragment(baseFragment);
+            if (mBaseFragment != null)
+                openFragment(mBaseFragment);
             mDrawer.closeDrawer(mDrawerList);
         }
     }
@@ -248,6 +253,9 @@ public class MainActivity extends Activity {
                 break;
             case CASE_LIST_GPLAY:
                 baseFragment = new ListGplayCardFragment();
+                break;
+            case CASE_LIST_GPLAY_UNDO:
+                baseFragment = new ListGplayUndoCardFragment();
                 break;
             case CASE_GRID_BASE:
                 baseFragment = new GridBaseFragment();
@@ -303,6 +311,7 @@ public class MainActivity extends Activity {
             "List base",
             "List and expandable card",
             "List Google Play",
+            "List with swipe and undo",
             "Grid base",
             "Grid Google Play"
     };
