@@ -83,3 +83,56 @@ Currently you have to use the same inner layouts for each card in `CardListView`
 
 
 ![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/demo/list_gplay.png)
+
+
+### Swipe and Undo in `CardListView`
+
+If you want to enable the swipe action with an Undo Action you have to:
+
+1. enable the swipe action on the single Cards
+
+``` java
+        //Create a Card
+        Card card = new CustomCard(getActivity().getApplicationContext());
+
+        //Enable a swipe action
+        card.setSwipeable(true);
+```
+
+2. provide a id for each card
+
+``` java
+        card.setId("xxxx");
+```
+
+3. enable the undo action on the List
+
+``` java
+        CardArrayAdapter mCardArrayAdapter = new CardArrayAdapter(getActivity(),cards);
+
+        //Enable undo controller!
+        mCardArrayAdapter.setEnableUndo(true);
+ ```
+
+It is not mandatory. You can set a `Card.OnSwipeListener` to listen the swipe action.
+
+``` java
+        //You can set a SwipeListener.
+        card.setOnSwipeListener(new Card.OnSwipeListener() {
+            @Override
+            public void onSwipe(Card card) {
+                //Do something
+            }
+        });
+```
+
+Then you can set a `Card.OnUndoSwipeListListener` to listen the undo action.
+
+``` java
+            card.setOnUndoSwipeListListener(new OnUndoSwipeListListener() {
+                @Override
+                public void onUndoSwipe(Card card) {
+                    //Do something
+                }
+            });
+```

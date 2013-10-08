@@ -243,7 +243,7 @@ If you want to enable the swipe action on a `Card` is very simple:
         cardView.setCard(card);
 ```
 
-It is not mandatory. You can set a SwipeListener to listen the swipe action.
+It is not mandatory. You can set a `Card.OnSwipeListener` to listen the swipe action.
 
 ``` java
         //You can set a SwipeListener.
