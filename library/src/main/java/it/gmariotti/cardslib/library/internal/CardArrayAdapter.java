@@ -18,6 +18,7 @@
 
 package it.gmariotti.cardslib.library.internal;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Parcelable;
@@ -192,12 +193,12 @@ public class CardArrayAdapter extends BaseCardArrayAdapter implements UndoBarCon
 
             //Set undo controller
             if (isEnableUndo()){
-                if (mUndoBarController==null){
-                    View undobar = mCardListView.getRootView().findViewById(R.id.list_card_undobar);
-                    if (undobar!=null){
-                        mUndoBarController = new UndoBarController(mCardListView.getRootView().findViewById(R.id.list_card_undobar),this);
-                    }
-                }
+                //if (mUndoBarController==null){
+                //    View undobar = mCardListView.getRootView().findViewById(R.id.list_card_undobar);
+                //    if (undobar!=null){
+                //       mUndoBarController = new UndoBarController(mCardListView.getRootView().findViewById(R.id.list_card_undobar),this);
+                //    }
+                //}
             }
         }else{
             //prevent issue with recycle view
@@ -350,6 +351,16 @@ public class CardArrayAdapter extends BaseCardArrayAdapter implements UndoBarCon
                 Card card = getItem(i);
                 mInternalObjects.put(card.getId(), card);
             }
+
+            //Create a UndoController
+            if (mUndoBarController==null){
+                View undobar = ((Activity)mContext).findViewById(R.id.list_card_undobar);
+                if (undobar != null) {
+                    mUndoBarController = new UndoBarController(undobar, this);
+                }
+            }
+        }else{
+            mUndoBarController=null;
         }
     }
 

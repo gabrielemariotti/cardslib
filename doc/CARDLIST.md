@@ -114,6 +114,34 @@ If you want to enable the swipe action with an Undo Action you have to:
         mCardArrayAdapter.setEnableUndo(true);
  ```
 
+4. include the undo bar in your layout. You can use the build-in layout `res/layout/list_card_undo_message.xml'.
+
+``` xml
+  <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+               xmlns:card="http://schemas.android.com/apk/res-auto"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent">
+
+      <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">
+
+          <!-- You can customize this layout.
+           You need to have in your layout a `CardView` with the ID `list_cardId` -->
+          <it.gmariotti.cardslib.library.view.CardListView
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:id="@+id/carddemo_list_gplaycard"
+              card:list_card_layout_resourceID="@layout/list_card_thumbnail_layout"/>
+
+      </RelativeLayout>
+
+      <!-- Include undo message layout -->
+      <include layout="@layout/list_card_undo_message"/>
+
+  </FrameLayout>
+```
+
 It is not mandatory. You can set a `Card.OnSwipeListener` to listen the swipe action.
 
 ``` java
@@ -136,3 +164,35 @@ Then you can set a `Card.OnUndoSwipeListListener` to listen the undo action.
                 }
             });
 ```
+
+You can also manage the Undo Message Bar calling `mUndoBarController.onRestoreInstanceState(savedInstanceState)` and `mUndoBarController.onSaveInstanceState(outState)`
+
+``` java
+    UndoBarController mUndoBarController;
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        initCards();
+
+        if (mUndoBarController==null){
+            mUndoBarController= mCardArrayAdapter.getUndoBarController();
+        }
+
+        if (mUndoBarController!=null){
+            mUndoBarController.onRestoreInstanceState(savedInstanceState);
+        }
+    }
+
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        if (mUndoBarController!=null)
+            mUndoBarController.onSaveInstanceState(outState);
+    }
+```
+
+You can customize the undo bar. The easiest way is to copy the styles inside `res/values/styles_undo.xml` in your project.

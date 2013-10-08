@@ -34,6 +34,7 @@ import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
 import it.gmariotti.cardslib.library.internal.CardThumbnail;
 import it.gmariotti.cardslib.library.view.CardListView;
+import it.gmariotti.cardslib.library.view.listener.UndoBarController;
 
 /**
  * List of Google Play cards Example with Undo Controller
@@ -43,6 +44,7 @@ import it.gmariotti.cardslib.library.view.CardListView;
 public class ListGplayUndoCardFragment extends BaseFragment {
 
     CardArrayAdapter mCardArrayAdapter;
+    UndoBarController mUndoBarController;
 
     @Override
     public int getTitleResourceId() {
@@ -60,16 +62,21 @@ public class ListGplayUndoCardFragment extends BaseFragment {
 
         initCards();
 
-        if (mCardArrayAdapter!=null && mCardArrayAdapter.getUndoBarController()!=null)
-            mCardArrayAdapter.getUndoBarController().onRestoreInstanceState(savedInstanceState);
+        if (mUndoBarController==null){
+            mUndoBarController= mCardArrayAdapter.getUndoBarController();
+        }
+
+        if (mUndoBarController!=null)
+            mUndoBarController.onRestoreInstanceState(savedInstanceState);
 
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        if (mCardArrayAdapter!=null && mCardArrayAdapter.getUndoBarController()!=null)
-            mCardArrayAdapter.getUndoBarController().onSaveInstanceState(outState);
+
+        if (mUndoBarController!=null)
+            mUndoBarController.onSaveInstanceState(outState);
     }
 
 
