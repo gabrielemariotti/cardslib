@@ -63,6 +63,11 @@ public abstract class BaseCard implements CardUIInferface {
      */
     protected String mTitle;
 
+    /**
+     * Id Card
+     */
+    protected String mId=null;
+
     // -------------------------------------------------------------
     //  Constructors
     // -------------------------------------------------------------
@@ -143,25 +148,60 @@ public abstract class BaseCard implements CardUIInferface {
         mInnerLayout = innerLayout;
     }
 
-
+    /*
+     * Returns the title card
+     */
     public String getTitle() {
         return mTitle;
     }
 
+    /**
+     * Sets the title card
+     * @param title
+     */
     public void setTitle(String title) {
         mTitle = title;
     }
 
-
+    /**
+     * Set the linked {@link CardView}
+     * @param cardView {@link CardView}
+     */
     public void setCardView(CardView cardView) {
         mCardView = cardView;
     }
 
+    /**
+     * Returns the parent Card of each component
+     * @return
+     */
     public Card getParentCard() {
         return mParentCard;
     }
 
+    /**
+     * Set the parent Card
+     * @param parentCard
+     */
     public void setParentCard(Card parentCard) {
         mParentCard = parentCard;
+    }
+
+    /**
+     * Retrieves the card id
+     *
+     * @return id
+     */
+    public String getId() {
+        return mId;
+    }
+
+    /**
+     * Set the card id
+     *
+     * @param id
+     */
+    public void setId(String id) {
+        mId = id;
     }
 }
