@@ -1,6 +1,7 @@
 package it.gmariotti.cardslib.library.view.listener;
 
-/* Copyright 2013 Roman Nurik
+/*
+ * Copyright 2013 Roman Nurik, Gabriele Mariotti
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,8 +33,6 @@ import it.gmariotti.cardslib.library.R;
  * See this link for original code:
  * https://code.google.com/p/romannurik-code/source/browse/#git%2Fmisc%2Fundobar
  *
- * Please note that this is currently in a preview state.
- * Don't use it.
  *
  */
 public class UndoBarController {
@@ -49,8 +48,14 @@ public class UndoBarController {
     private Parcelable mUndoToken;
     private CharSequence mUndoMessage;
 
+    /**
+     * Interface to listen the undo controller actions
+     */
     public interface UndoListener {
-        void onUndo(Parcelable token);
+        /*
+         *  Called when you undo the action
+         */
+        void onUndo(Parcelable undoToken);
     }
 
     public UndoBarController(View undoBarView, UndoListener undoListener) {
@@ -58,8 +63,8 @@ public class UndoBarController {
         mBarAnimator = mBarView.animate();
         mUndoListener = undoListener;
 
-        mMessageView = (TextView) mBarView.findViewById(R.id.undobar_message);
-        mBarView.findViewById(R.id.undobar_button)
+        mMessageView = (TextView) mBarView.findViewById(R.id.list_card_undobar_message);
+        mBarView.findViewById(R.id.list_card_undobar_button)
                 .setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -72,13 +77,14 @@ public class UndoBarController {
     }
 
     public void showUndoBar(boolean immediate, CharSequence message, Parcelable undoToken) {
+
         mUndoToken = undoToken;
         mUndoMessage = message;
         mMessageView.setText(mUndoMessage);
 
         mHideHandler.removeCallbacks(mHideRunnable);
         mHideHandler.postDelayed(mHideRunnable,
-                mBarView.getResources().getInteger(R.integer.undobar_hide_delay));
+                mBarView.getResources().getInteger(R.integer.list_card_undobar_hide_delay));
 
         mBarView.setVisibility(View.VISIBLE);
         if (immediate) {

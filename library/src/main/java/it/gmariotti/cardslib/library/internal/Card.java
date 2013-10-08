@@ -152,6 +152,11 @@ public class Card extends BaseCard {
      */
     public static final int CLICK_LISTENER_CONTENT_VIEW = 10;
 
+    /**
+     * Listener invoked when the user undo a swipe action in a List
+     */
+    protected OnUndoSwipeListListener mOnUndoSwipeListListener;
+
     // -------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------
@@ -352,6 +357,44 @@ public class Card extends BaseCard {
         else
             mIsSwipeable = false;
         this.mOnSwipeListener = onSwipeListener;
+    }
+
+    // -------------------------------------------------------------
+    // On Undo Action
+    // -------------------------------------------------------------
+
+    /**
+     * Interface to listen for any callbacks when card is swiped in a List
+     */
+    public interface OnUndoSwipeListListener {
+        public void onUndoSwipe(Card card);
+    }
+
+    /**
+     * Called when user undo a swipe action
+     */
+    public void onUndoSwipeListCard() {
+        if (isSwipeable() && mOnUndoSwipeListListener != null) {
+            mOnUndoSwipeListListener.onUndoSwipe(this);
+        }
+    }
+
+    /**
+     * Returns listener invoked when user undo a swipe action
+     *
+     * @return listener
+     */
+    public OnUndoSwipeListListener getOnUndoSwipeListListener() {
+        return mOnUndoSwipeListListener;
+    }
+
+    /**
+     * Sets listener invoked when user undo a swipe action
+     *
+     * @param onUndoSwipeListListener listener
+     */
+    public void setOnUndoSwipeListListener(OnUndoSwipeListListener onUndoSwipeListListener) {
+        this.mOnUndoSwipeListListener = onUndoSwipeListListener;
     }
 
 

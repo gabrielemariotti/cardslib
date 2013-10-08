@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <!--
-  ~ /*******************************************************************************
+  ~ *******************************************************************************
   ~   Copyright (c) 2013 Gabriele Mariotti.
   ~
   ~   Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,21 +14,21 @@
   ~   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   ~   See the License for the specific language governing permissions and
   ~   limitations under the License.
-  ~  ******************************************************************************/
+  ~  *****************************************************************************
   -->
-
+<!-- Use this layout for a default undo message -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:id="@+id/undobar"
+              android:id="@+id/list_card_undobar"
               style="@style/list_card_UndoBar"
               android:orientation="horizontal">
 
     <TextView
-        android:id="@+id/undobar_message"
+        android:id="@+id/list_card_undobar_message"
         style="@style/list_card_UndoBarMessage"/>
 
     <Button
-        android:id="@+id/undobar_button"
+        android:id="@+id/list_card_undobar_button"
         style="@style/list_card_UndoBarButton"/>
-</LinearLayout>
 
+</LinearLayout>

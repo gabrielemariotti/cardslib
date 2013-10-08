@@ -19,11 +19,15 @@
 package it.gmariotti.cardslib.library.internal;
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.os.Parcelable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import java.util.HashMap;
 import java.util.List;
 
 import it.gmariotti.cardslib.library.R;
@@ -31,6 +35,8 @@ import it.gmariotti.cardslib.library.internal.base.BaseCardArrayAdapter;
 import it.gmariotti.cardslib.library.view.CardListView;
 import it.gmariotti.cardslib.library.view.CardView;
 import it.gmariotti.cardslib.library.view.listener.SwipeDismissListViewTouchListener;
+import it.gmariotti.cardslib.library.view.listener.UndoBarController;
+import it.gmariotti.cardslib.library.view.listener.UndoCard;
 
 /**
  * Array Adapter for {@link Card} model
@@ -64,7 +70,9 @@ import it.gmariotti.cardslib.library.view.listener.SwipeDismissListViewTouchList
  * </p>
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public class CardArrayAdapter extends BaseCardArrayAdapter {
+public class CardArrayAdapter extends BaseCardArrayAdapter implements UndoBarController.UndoListener {
+
+    protected static String TAG = "CardArrayAdapter";
 
     /**
      * {@link CardListView}
@@ -75,6 +83,22 @@ public class CardArrayAdapter extends BaseCardArrayAdapter {
      * Listener invoked when a card is swiped
      */
     protected SwipeDismissListViewTouchListener mOnTouchListener;
+
+    /**
+     * Used to enable an undo message after a swipe action
+     */
+    protected boolean mEnableUndo=false;
+
+    /**
+     * Undo Controller
+     */
+    protected UndoBarController mUndoBarController;
+
+    /**
+     * Internal Map with all Cards.
+     * It uses the card id value as key.
+     */
+    protected HashMap<String /* id */,Card>  mInternalObjects;
 
 
     // -------------------------------------------------------------
@@ -165,6 +189,16 @@ public class CardArrayAdapter extends BaseCardArrayAdapter {
             }
 
             cardView.setOnTouchListener(mOnTouchListener);
+
+            //Set undo controller
+            if (isEnableUndo()){
+                if (mUndoBarController==null){
+                    View undobar = mCardListView.getRootView().findViewById(R.id.list_card_undobar);
+                    if (undobar!=null){
+                        mUndoBarController = new UndoBarController(mCardListView.getRootView().findViewById(R.id.list_card_undobar),this);
+                    }
+                }
+            }
         }else{
             //prevent issue with recycle view
             cardView.setOnTouchListener(null);
@@ -183,7 +217,7 @@ public class CardArrayAdapter extends BaseCardArrayAdapter {
     }
 
     // -------------------------------------------------------------
-    //  SwipeListener
+    //  SwipeListener and undo action
     // -------------------------------------------------------------
     /**
      * Listener invoked when a card is swiped
@@ -197,15 +231,82 @@ public class CardArrayAdapter extends BaseCardArrayAdapter {
 
         @Override
         public void onDismiss(ListView listView, int[] reverseSortedPositions) {
+
+            int[] itemPositions=new int[reverseSortedPositions.length];
+            String[] itemIds=new String[reverseSortedPositions.length];
+            int i=0;
+
+            //Remove cards and notifyDataSetChanged
             for (int position : reverseSortedPositions) {
                 Card card = getItem(position);
-                if (card.getOnSwipeListener() != null)
-                    card.getOnSwipeListener().onSwipe(card);
+                itemPositions[i]=position;
+                itemIds[i]=card.getId();
+                i++;
+
                 remove(card);
+                if (card.getOnSwipeListener() != null){
+                        card.getOnSwipeListener().onSwipe(card);
+                }
             }
             notifyDataSetChanged();
+
+            //Check for a undo message to confirm
+            if (isEnableUndo() && mUndoBarController!=null){
+
+                //Show UndoBar
+                UndoCard itemUndo=new UndoCard(itemPositions,itemIds);
+
+                if (getContext()!=null){
+                    Resources res = getContext().getResources();
+                    if (res!=null){
+                        String messageUndoBar = res.getQuantityString(R.plurals.list_card_undo_items, reverseSortedPositions.length, reverseSortedPositions.length);
+
+                        mUndoBarController.showUndoBar(
+                                false,
+                                messageUndoBar,
+                                itemUndo);
+                    }
+                }
+
+            }
         }
     };
+
+    // -------------------------------------------------------------
+    //  Undo Default Listener
+    // -------------------------------------------------------------
+
+    @Override
+    public void onUndo(Parcelable token) {
+        //Restore items in lists (use reverseSortedOrder)
+        if (token != null) {
+
+            UndoCard item = (UndoCard) token;
+            int[] itemPositions = item.itemPosition;
+            String[] itemIds = item.itemId;
+
+            if (itemPositions != null) {
+                int end = itemPositions.length;
+
+                for (int i = end - 1; i >= 0; i--) {
+                    int itemPosition = itemPositions[i];
+                    String id= itemIds[i];
+
+                    if (id==null){
+                        Log.w(TAG, "You have to set a id value to use the undo action");
+                    }else{
+                        Card card = mInternalObjects.get(id);
+                        if (card!=null){
+                            insert(card, itemPosition);
+                            notifyDataSetChanged();
+                            if (card.getOnUndoSwipeListListener()!=null)
+                                card.getOnUndoSwipeListListener().onUndoSwipe(card);
+                        }
+                    }
+                }
+            }
+        }
+    }
 
     // -------------------------------------------------------------
     //  Getters and Setters
@@ -225,5 +326,39 @@ public class CardArrayAdapter extends BaseCardArrayAdapter {
      */
     public void setCardListView(CardListView cardListView) {
         this.mCardListView = cardListView;
+    }
+
+    /**
+     * Indicates if the undo message is enabled after a swipe action
+     *
+     * @return <code>true</code> if the undo message is enabled
+     */
+    public boolean isEnableUndo() {
+        return mEnableUndo;
+    }
+
+    /**
+     * Enables an undo message after a swipe action
+     *
+     * @param enableUndo <code>true</code> to enable an undo message
+     */
+    public void setEnableUndo(boolean enableUndo) {
+        mEnableUndo = enableUndo;
+        if (enableUndo) {
+            mInternalObjects = new HashMap<String, Card>();
+            for (int i=0;i<getCount();i++) {
+                Card card = getItem(i);
+                mInternalObjects.put(card.getId(), card);
+            }
+        }
+    }
+
+    /**
+     * Return the UndoBarController for undo action
+     *
+     * @return {@link UndoBarController}
+     */
+    public UndoBarController getUndoBarController() {
+        return mUndoBarController;
     }
 }

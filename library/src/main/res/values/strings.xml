@@ -23,9 +23,10 @@
 
     <!-- Undo Controller-->
 
-    <string name="undo">Undo</string>
-    <string name="undo_card">Card removed</string>
-    <plurals name="undo_items">
+    <string name="list_card_undo_title">Undo</string>
+    <!--<string name="undo_card">Card removed</string>-->
+
+    <plurals name="list_card_undo_items">
         <item quantity="one">1 card removed</item>
         <item quantity="other">%d cards removed</item>
     </plurals>
