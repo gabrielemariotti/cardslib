@@ -108,13 +108,18 @@ public class MainActivity extends Activity {
         //BaseFragment baseFragment = null;
         if (savedInstanceState != null) {
             mSelectedFragment = savedInstanceState.getInt(BUNDLE_SELECTEDFRAGMENT);
-            if (mBaseFragment==null)
+
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            if (fragmentManager.findFragmentById(R.id.fragment_main)==null)
                 mBaseFragment = selectFragment(mSelectedFragment);
+            //if (mBaseFragment==null)
+            //    mBaseFragment = selectFragment(mSelectedFragment);
         } else {
             mBaseFragment = new HeaderFragment();
-        }
-        if (mBaseFragment != null)
             openFragment(mBaseFragment);
+        }
+
         //-----------------------------------------------------------------
     }
 
