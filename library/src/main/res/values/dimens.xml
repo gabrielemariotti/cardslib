@@ -21,6 +21,7 @@
 
     <!-- Card -->
     <dimen name="card_base_empty_height">96dp</dimen>
+    <dimen name="card_background_default_radius">2dip</dimen>
 
     <!-- Main -->
     <dimen name="card_main_layout_view_margin_top">0dp</dimen>

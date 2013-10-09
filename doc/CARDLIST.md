@@ -165,34 +165,4 @@ Then you can set a `Card.OnUndoSwipeListListener` to listen the undo action.
             });
 ```
 
-You can also manage the Undo Message Bar calling `mUndoBarController.onRestoreInstanceState(savedInstanceState)` and `mUndoBarController.onSaveInstanceState(outState)`
-
-``` java
-    UndoBarController mUndoBarController;
-
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-
-        initCards();
-
-        if (mUndoBarController==null){
-            mUndoBarController= mCardArrayAdapter.getUndoBarController();
-        }
-
-        if (mUndoBarController!=null){
-            mUndoBarController.onRestoreInstanceState(savedInstanceState);
-        }
-    }
-
-
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-
-        if (mUndoBarController!=null)
-            mUndoBarController.onSaveInstanceState(outState);
-    }
-```
-
 You can customize the undo bar. The easiest way is to copy the styles inside `res/values/styles_undo.xml` in your project.

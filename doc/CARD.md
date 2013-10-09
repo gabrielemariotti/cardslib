@@ -336,3 +336,39 @@ and then call `refreshCard` method on `cardView`:
     cardView = (CardView) getActivity().findViewById(R.id.carddemo_card_changevalue_id);
     cardView.refreshCard(card);
 ```
+
+### Customize Card background
+
+The quickest way to customize the card background would be to copy the styles/drawables in your project.
+
+Default cards use `res/drawable/card_selector.xml`.
+
+``` xml
+    <selector xmlns:android="http://schemas.android.com/apk/res/android"
+              android:exitFadeDuration="@android:integer/config_mediumAnimTime">
+        <item android:state_pressed="true" android:drawable="@drawable/pressed_background_card"/>
+        <item android:drawable="@drawable/card_background"/>
+    </selector>
+```
+
+In `res/drawable/card_background.xml` and `res/drawable/pressed_background_card.xml` you can easy customize the color and shape.
+
+``` xml
+    <shape xmlns:android="http://schemas.android.com/apk/res/android"
+           android:shape="rectangle">
+        <solid android:color="@color/card_background"/>
+        <corners android:radius="@dimen/card_background_default_radius"/>
+    </shape>
+```
+
+If you want to change the color, the quickest way would be to customize this value in your project:
+
+``` xml
+    <color name="card_background">#FFF</color>
+```
+
+If you want to change the rounded corners, the quickest way would be to customize this value in your project:
+
+``` xml
+    <dimen name="card_background_default_radius">2dip</dimen>
+```
