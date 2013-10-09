@@ -43,8 +43,12 @@ import it.gmariotti.cardslib.library.view.listener.UndoBarController;
  */
 public class ListGplayUndoCardFragment extends BaseFragment {
 
-    CardArrayAdapter mCardArrayAdapter;
-    UndoBarController mUndoBarController;
+    private CardArrayAdapter mCardArrayAdapter;
+    private UndoBarController mUndoBarController;
+    private CardListView mListView;
+    private String[] mCardIds;
+    private static final String BUNDLE_IDS="BUNDLE_IDS";
+    private static final String BUNDLE_IDS_UNDO="BUNDLE_IDS_UNDO";
 
     @Override
     public int getTitleResourceId() {
@@ -60,40 +64,25 @@ public class ListGplayUndoCardFragment extends BaseFragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        mListView = (CardListView) getActivity().findViewById(R.id.carddemo_list_gplaycard);
         initCards();
-
-        if (mUndoBarController==null){
-            mUndoBarController= mCardArrayAdapter.getUndoBarController();
-        }
-
-        if (mUndoBarController!=null)
-            mUndoBarController.onRestoreInstanceState(savedInstanceState);
-
     }
-
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-
-        if (mUndoBarController!=null)
-            mUndoBarController.onSaveInstanceState(outState);
-    }
-
 
 
     private void initCards() {
 
         //Init an array of Cards
         ArrayList<Card> cards = new ArrayList<Card>();
+
         for (int i=0;i<100;i++){
             GooglePlaySmallCard card = new GooglePlaySmallCard(this.getActivity());
-            card.setTitle("Application example "+i);
-            card.setSecondaryTitle("A company inc..."+i);
-            card.setRating((float)(Math.random()*(5.0)));
-            card.setId(""+i);
+            card.setTitle("Application example " + i);
+            card.setSecondaryTitle("A company inc..." + i);
+            card.setRating((float) (Math.random() * (5.0)));
+            card.setId("" + i);
 
             //Only for test, change some icons
-            if ((i>10 && i<15) || (i>35 && i<45)){
+            if ((i > 10 && i < 15) || (i > 35 && i < 45)) {
                 card.setResourceIdThumbnail(R.drawable.ic_launcher);
             }
 
@@ -106,9 +95,9 @@ public class ListGplayUndoCardFragment extends BaseFragment {
         //Enable undo controller!
         mCardArrayAdapter.setEnableUndo(true);
 
-        CardListView listView = (CardListView) getActivity().findViewById(R.id.carddemo_list_gplaycard);
-        if (listView!=null){
-            listView.setAdapter(mCardArrayAdapter);
+        //CardListView listView = (CardListView) getActivity().findViewById(R.id.carddemo_list_gplaycard);
+        if (mListView!=null){
+            mListView.setAdapter(mCardArrayAdapter);
         }
     }
 
