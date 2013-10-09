@@ -147,4 +147,8 @@ public class UndoBarController {
             hideUndoBar(false);
         }
     };
+
+    public Parcelable getUndoToken(){
+        return mUndoToken;
+    }
 }
