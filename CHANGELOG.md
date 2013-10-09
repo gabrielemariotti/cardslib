@@ -6,6 +6,7 @@ Version 0.X.X *(2013-XX-XX)*
 
  * LIB: Added an Undo Action on swipe in `CardArrayAdapter` [You can read the section 'Swipe and Undo' in this page](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARDLIST.md)
  * LIB: Added a `id` field in the `Card` model.
+ * LIB: Changed the card background. Now cards have a default corner radius = 2dp. You can customize it easily . [You can read the section 'Customize Card background' in this page](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARD.md)
  * DEMO: Added an example with undo action
 
 
