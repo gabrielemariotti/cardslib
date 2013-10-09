@@ -21,6 +21,8 @@
           package="it.gmariotti.cardslib.demo" >
 
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <uses-sdk
         android:minSdkVersion="14"

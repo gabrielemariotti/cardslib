@@ -18,14 +18,22 @@
 
 package it.gmariotti.cardslib.demo.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ScrollView;
+import android.widget.ShareActionProvider;
+
+import java.io.File;
 
 import it.gmariotti.cardslib.demo.R;
 import it.gmariotti.cardslib.demo.cards.GoogleNowBirthCard;
+import it.gmariotti.cardslib.library.utils.BitmapUtils;
 import it.gmariotti.cardslib.library.view.CardView;
 
 /**
@@ -36,10 +44,20 @@ import it.gmariotti.cardslib.library.view.CardView;
 public class BirthDayCardFragment extends BaseFragment {
 
     protected ScrollView mScrollView;
+    private CardView cardView;
+    private GoogleNowBirthCard birthCard;
+    private ShareActionProvider mShareActionProvider;
+    private File photofile;
 
     @Override
     public int getTitleResourceId() {
         return R.string.carddemo_title_birthday_card;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
     }
 
     @Override
@@ -52,10 +70,35 @@ public class BirthDayCardFragment extends BaseFragment {
         super.onActivityCreated(savedInstanceState);
 
         mScrollView = (ScrollView) getActivity().findViewById(R.id.card_scrollview);
-
         initCard();
     }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.sharemenu, menu);
+
+        // Locate MenuItem with ShareActionProvider
+        MenuItem item = menu.findItem(R.id.carddemo_menu_item_share);
+
+        // Fetch and store ShareActionProvider
+        mShareActionProvider = (ShareActionProvider) item.getActionProvider();
+        mShareActionProvider.setShareIntent(getShareIntent());
+
+        super.onCreateOptionsMenu(menu,inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+
+            case R.id.menu_refresh:
+                doShare();
+                return true;
+            default:
+                break;
+        }
+        return false;
+    }
 
     /**
      * This method builds a simple card
@@ -63,14 +106,39 @@ public class BirthDayCardFragment extends BaseFragment {
     private void initCard() {
 
         //Create a Card
-        GoogleNowBirthCard birthCard= new GoogleNowBirthCard(getActivity().getApplicationContext());
+        birthCard= new GoogleNowBirthCard(getActivity().getApplicationContext());
 
         //Set card in the cardView
-        CardView cardView = (CardView) getActivity().findViewById(R.id.carddemo_cardBirth);
+        cardView = (CardView) getActivity().findViewById(R.id.carddemo_cardBirth);
         cardView.setCard(birthCard);
     }
 
 
+    private void doShare(){
+        if (mShareActionProvider != null) {
 
+            photofile = BitmapUtils.createFileFromBitmap(cardView.createBitmap());
+            getActivity().invalidateOptionsMenu();
+        }
+    }
+
+    private Intent getShareIntent(){
+        if (photofile!=null){
+            return BitmapUtils.createIntentFromImage(photofile);
+        }else{
+            return getDefaultIntent();
+        }
+    }
+
+    /** Defines a default (dummy) share intent to initialze the action provider.
+     * However, as soon as the actual content to be used in the intent
+     * is known or changes, you must update the share intent by again calling
+     * mShareActionProvider.setShareIntent()
+     */
+    private Intent getDefaultIntent() {
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("image/*");
+        return intent;
+    }
 
 }
