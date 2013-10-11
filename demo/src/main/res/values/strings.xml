@@ -66,6 +66,7 @@
     <string name="carddemo_title_misc_card">Misc</string>
     <string name="carddemo_title_card_changevalue">Refresh card</string>
     <string name="carddemo_title_list_base">List Base</string>
+    <string name="carddemo_title_list_base_different_inner">List base with different Inner Layouts</string>
     <string name="carddemo_title_list_expand">List with expandable card</string>
     <string name="carddemo_title_list_gplaycard">List Google Play</string>
     <string name="carddemo_title_grid_base">Grid Base</string>
@@ -133,7 +134,6 @@
     <string name="demo_suggested_member">199990 members</string>
     <string name="demo_suggested_subtitle">Brought to you by Android Central......</string>
     <string name="demo_suggested_community">View community</string>
-
 
 
 </resources>

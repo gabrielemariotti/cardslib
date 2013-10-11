@@ -27,6 +27,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import it.gmariotti.cardslib.demo.R;
@@ -37,7 +38,7 @@ import it.gmariotti.cardslib.library.internal.base.BaseCard;
 import it.gmariotti.cardslib.library.view.CardView;
 
 /**
- * Refresh card value example
+ * Refresh/Replace card value example
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
@@ -46,9 +47,11 @@ public class ChangeValueCardFragment extends BaseFragment {
     protected ScrollView mScrollView;
     private CardExample card1;
     private CardExample2 card2;
+    private CardExample3 card3;
 
     private CardView cardView1;
     private CardView cardView2;
+    private CardView cardView3;
 
 
 
@@ -90,6 +93,7 @@ public class ChangeValueCardFragment extends BaseFragment {
             case R.id.menu_refresh:
                 changeCard1();
                 changeCard2();
+                changeCard3();
                 return true;
             default:
                 break;
@@ -110,6 +114,10 @@ public class ChangeValueCardFragment extends BaseFragment {
         card2 = new CardExample2(getActivity(),"Header", "Title");
         cardView2 = (CardView) getActivity().findViewById(R.id.carddemo_card_changevalue_id2);
         cardView2.setCard(card2);
+
+        card3 = new CardExample3(getActivity(),"Header", "Title");
+        cardView3 = (CardView) getActivity().findViewById(R.id.carddemo_card_changevalue_id3);
+        cardView3.setCard(card3);
 
     }
 
@@ -152,8 +160,14 @@ public class ChangeValueCardFragment extends BaseFragment {
         cardView2.refreshCard(card2);
     }
 
+    /**
+     * Replace inner layout
+     */
     private void changeCard3() {
 
+        card3.setInnerLayout(R.layout.carddemo_suggested_inner_content);
+        card3.force=true;
+        cardView3.replaceCard(card3);
     }
 
 
@@ -236,6 +250,64 @@ public class ChangeValueCardFragment extends BaseFragment {
 
             //Set the card inner text
             setTitle(mTitleMain);
+        }
+
+    }
+
+    public class CardExample3 extends Card{
+
+        protected String mTitleHeader;
+        protected String mTitleMain;
+        protected boolean force=false;
+
+        public CardExample3(Context context,String titleHeader,String titleMain) {
+            super(context);
+            this.mTitleHeader=titleHeader;
+            this.mTitleMain=titleMain;
+            init();
+        }
+
+        private void init(){
+
+            //Create a CardHeader
+            CardHeader header = new CardHeader(getActivity().getApplicationContext());
+
+            //Set the header title
+            header.setTitle(mTitleHeader);
+            addCardHeader(header);
+
+            CardThumbnail thumb = new CardThumbnail(getActivity().getApplicationContext());
+            thumb.setDrawableResource(R.drawable.ic_launcher);
+            addCardThumbnail(thumb);
+
+            //Set the card inner text
+            setTitle(mTitleMain);
+        }
+
+        @Override
+        public void setupInnerViewElements(ViewGroup parent, View view) {
+
+            if (force){
+                TextView title = (TextView) view.findViewById(R.id.carddemo_suggested_title);
+                TextView member = (TextView) view.findViewById(R.id.carddemo_suggested_memeber);
+                TextView subtitle = (TextView) view.findViewById(R.id.carddemo_suggested_subtitle);
+                TextView community = (TextView) view.findViewById(R.id.carddemo_suggested_community);
+                if (title!=null && member!=null && subtitle!=null && community!=null){
+                    if (title != null)
+                        title.setText(R.string.demo_suggested_title);
+
+                    if (member != null)
+                        member.setText(R.string.demo_suggested_member);
+
+                    if (subtitle != null)
+                        subtitle.setText(R.string.demo_suggested_subtitle);
+
+                    if (community != null)
+                        community.setText(R.string.demo_suggested_community);
+                }
+            }else{
+                super.setupInnerViewElements(parent,view);
+            }
         }
 
     }

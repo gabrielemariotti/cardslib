@@ -45,6 +45,7 @@ import it.gmariotti.cardslib.demo.fragment.GridBaseFragment;
 import it.gmariotti.cardslib.demo.fragment.GridGplayFragment;
 import it.gmariotti.cardslib.demo.fragment.HeaderFragment;
 import it.gmariotti.cardslib.demo.fragment.ListBaseFragment;
+import it.gmariotti.cardslib.demo.fragment.ListDifferentInnerBaseFragment;
 import it.gmariotti.cardslib.demo.fragment.ListExpandCardFragment;
 import it.gmariotti.cardslib.demo.fragment.ListGplayCardFragment;
 import it.gmariotti.cardslib.demo.fragment.ListGplayUndoCardFragment;
@@ -76,11 +77,12 @@ public class MainActivity extends Activity {
     private static final int CASE_MISC = 7;
     private static final int CASE_CHG_VALUE = 8;
     private static final int CASE_LIST_BASE = 9;
-    private static final int CASE_LIST_EXPAND = 10;
-    private static final int CASE_LIST_GPLAY = 11;
-    private static final int CASE_LIST_GPLAY_UNDO = 12;
-    private static final int CASE_GRID_BASE = 13;
-    private static final int CASE_GRID_GPLAY = 14;
+    private static final int CASE_LIST_BASE_INNER = 10;
+    private static final int CASE_LIST_EXPAND = 11;
+    private static final int CASE_LIST_GPLAY = 12;
+    private static final int CASE_LIST_GPLAY_UNDO = 13;
+    private static final int CASE_GRID_BASE = 14;
+    private static final int CASE_GRID_GPLAY = 15;
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -253,6 +255,9 @@ public class MainActivity extends Activity {
             case CASE_LIST_BASE:
                 baseFragment = new ListBaseFragment();
                 break;
+            case CASE_LIST_BASE_INNER:
+                baseFragment = new ListDifferentInnerBaseFragment();
+                break;
             case CASE_LIST_EXPAND:
                 baseFragment = new ListExpandCardFragment();
                 break;
@@ -314,6 +319,7 @@ public class MainActivity extends Activity {
             "Misc",
             "Refresh Card",
             "List base",
+            "List base with different Inner Layouts" ,
             "List and expandable card",
             "List Google Play",
             "List with swipe and undo",

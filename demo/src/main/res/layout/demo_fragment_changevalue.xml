@@ -58,6 +58,14 @@
                 android:layout_marginRight="12dp"
                 android:layout_marginTop="12dp"/>
 
+            <it.gmariotti.cardslib.library.view.CardView
+                android:id="@+id/carddemo_card_changevalue_id3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                card:card_layout_resourceID="@layout/card_thumbnail_layout"
+                android:layout_marginRight="12dp"
+                android:layout_marginTop="12dp"/>
 
 
             <!-- Empty view-->
