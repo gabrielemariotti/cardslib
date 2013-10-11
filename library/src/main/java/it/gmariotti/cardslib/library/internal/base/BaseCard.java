@@ -68,6 +68,12 @@ public abstract class BaseCard implements CardUIInferface {
      */
     protected String mId=null;
 
+    /**
+     * Type card.
+     * You can use this value in yourAdapter
+     */
+    protected int type=0;
+
     // -------------------------------------------------------------
     //  Constructors
     // -------------------------------------------------------------
@@ -203,5 +209,23 @@ public abstract class BaseCard implements CardUIInferface {
      */
     public void setId(String id) {
         mId = id;
+    }
+
+    /**
+     * Return type card
+     * @return
+     */
+    public int getType() {
+        return type;
+    }
+
+    /**
+     * Sets the card type
+     * It is used in Adapter.
+     *
+     * @param type
+     */
+    public void setType(int type) {
+        this.type = type;
     }
 }

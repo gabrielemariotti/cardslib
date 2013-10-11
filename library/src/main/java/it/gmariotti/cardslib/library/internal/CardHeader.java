@@ -242,6 +242,7 @@ public class CardHeader extends BaseCard {
      */
     @Override
     public View getInnerView(Context context, ViewGroup parent) {
+
         View view= super.getInnerView(context, parent);
 
         //This provide a simple implementation with a single title

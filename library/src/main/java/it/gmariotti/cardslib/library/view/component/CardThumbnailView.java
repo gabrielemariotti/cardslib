@@ -85,7 +85,10 @@ public class CardThumbnailView extends FrameLayout implements CardViewInterface 
      */
     protected boolean mIsRecycle=false;
 
-
+    /**
+     * Used to replace inner layout elements.
+     */
+    protected boolean mForceReplaceInnerLayout =false;
 
     //--------------------------------------------------------------------------
     // Constructors
@@ -540,4 +543,24 @@ public class CardThumbnailView extends FrameLayout implements CardViewInterface 
     public void setRecycle(boolean isRecycle) {
         this.mIsRecycle = isRecycle;
     }
+
+    /**
+     * Indicates if inner layout have to be replaced
+     *
+     * @return <code>true</code> if inner layout can be recycled
+     */
+    public boolean isForceReplaceInnerLayout() {
+        return mForceReplaceInnerLayout;
+    }
+
+    /**
+     * Sets if inner layout have to be replaced
+     *
+     * @param forceReplaceInnerLayout  <code>true</code> to recycle
+     */
+    public void setForceReplaceInnerLayout(boolean forceReplaceInnerLayout) {
+        this.mForceReplaceInnerLayout = forceReplaceInnerLayout;
+    }
+
+
 }

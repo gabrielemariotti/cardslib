@@ -34,6 +34,7 @@ public interface CardUIInferface {
      * This method will be called runtime by UI components.
      *
      * @param context  context
+     * @param parent parent view
      * @return   layout view
      */
     public View getInnerView(Context context,ViewGroup parent);

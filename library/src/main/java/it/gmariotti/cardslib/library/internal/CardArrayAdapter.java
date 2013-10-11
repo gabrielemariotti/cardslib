@@ -147,6 +147,9 @@ public class CardArrayAdapter extends BaseCardArrayAdapter implements UndoBarCon
             //Setup card
             mCardView = (CardView) view.findViewById(R.id.list_cardId);
             if (mCardView != null) {
+                //It is important to set recycle value for inner layout elements
+                mCardView.setForceReplaceInnerLayout(Card.equalsInnerLayout(mCardView.getCard(),mCard));
+
                 //It is important to set recycle value for performance issue
                 mCardView.setRecycle(recycle);
 
@@ -173,6 +176,8 @@ public class CardArrayAdapter extends BaseCardArrayAdapter implements UndoBarCon
         return view;
     }
 
+
+
     /**
      * Sets SwipeAnimation on List
      *
@@ -191,15 +196,6 @@ public class CardArrayAdapter extends BaseCardArrayAdapter implements UndoBarCon
 
             cardView.setOnTouchListener(mOnTouchListener);
 
-            //Set undo controller
-            if (isEnableUndo()){
-                //if (mUndoBarController==null){
-                //    View undobar = mCardListView.getRootView().findViewById(R.id.list_card_undobar);
-                //    if (undobar!=null){
-                //       mUndoBarController = new UndoBarController(mCardListView.getRootView().findViewById(R.id.list_card_undobar),this);
-                //    }
-                //}
-            }
         }else{
             //prevent issue with recycle view
             cardView.setOnTouchListener(null);

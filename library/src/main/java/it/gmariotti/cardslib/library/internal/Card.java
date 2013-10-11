@@ -203,6 +203,7 @@ public class Card extends BaseCard {
      */
     @Override
     public View getInnerView(Context context, ViewGroup parent) {
+
         View view = super.getInnerView(context, parent);
 
         //This provides a simple implementation with a single title
@@ -730,5 +731,59 @@ public class Card extends BaseCard {
      */
     public void setExpanded(boolean expanded) {
         mIsExpanded = expanded;
+    }
+
+
+    /**
+     * Check if 2 cards have the same innerLayouts
+     * It can be used to force inner layout redraw
+     *
+     * @param oldCard
+     * @param newCard
+     * @return
+     */
+    public static boolean equalsInnerLayout(Card oldCard,Card newCard){
+        if (oldCard==null || newCard==null) return false;
+
+        //Check inner Layout
+        if (oldCard.getInnerLayout()!=newCard.getInnerLayout()) return true;
+
+        //Check inner layout of CardHeader
+        if (oldCard.getCardHeader()!=null){
+            if (newCard.getCardHeader()==null)
+                return true;
+            else
+            if (oldCard.getCardHeader().getInnerLayout()!=newCard.getCardHeader().getInnerLayout())
+                return true;
+        }else{
+            if (newCard.getCardHeader()!=null)
+                return true;
+        }
+
+        //Check inner layout of CardThumbnail
+        if (oldCard.getCardThumbnail()!=null){
+            if (newCard.getCardThumbnail()==null)
+                return true;
+            else
+            if (oldCard.getCardThumbnail().getInnerLayout()!=newCard.getCardThumbnail().getInnerLayout())
+                return true;
+        }else{
+            if (newCard.getCardThumbnail()!=null)
+                return true;
+        }
+
+        //Check inner layout of CardExpand
+        if (oldCard.getCardExpand()!=null){
+            if (newCard.getCardExpand()==null)
+                return true;
+            else
+            if (oldCard.getCardExpand().getInnerLayout()!=newCard.getCardExpand().getInnerLayout())
+                return true;
+        }else{
+            if (newCard.getCardExpand()!=null)
+                return true;
+        }
+
+        return false;
     }
 }

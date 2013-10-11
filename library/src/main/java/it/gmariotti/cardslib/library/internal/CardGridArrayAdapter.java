@@ -132,6 +132,9 @@ public class CardGridArrayAdapter extends BaseCardArrayAdapter {
             //Setup card
             mCardView = (CardView) view.findViewById(R.id.list_cardId);
             if (mCardView != null) {
+                //It is important to set recycle value for inner layout elements
+                mCardView.setForceReplaceInnerLayout(Card.equalsInnerLayout(mCardView.getCard(),mCard));
+
                 //It is important to set recycle value for performance issue
                 mCardView.setRecycle(recycle);
 

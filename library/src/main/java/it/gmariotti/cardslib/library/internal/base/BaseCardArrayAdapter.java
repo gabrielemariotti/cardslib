@@ -43,6 +43,8 @@ public abstract class BaseCardArrayAdapter extends ArrayAdapter<Card> {
      */
     protected int mRowLayoutId = R.layout.list_card_layout;
 
+    protected int innerviewTypeCount=1;
+
     // -------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------
@@ -64,7 +66,13 @@ public abstract class BaseCardArrayAdapter extends ArrayAdapter<Card> {
 
     @Override
     public int getViewTypeCount() {
-        return 1;
+        return innerviewTypeCount;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        Card card = (Card) getItem(position);
+        return card.getType();
     }
 
     @Override
@@ -99,4 +107,8 @@ public abstract class BaseCardArrayAdapter extends ArrayAdapter<Card> {
         this.mRowLayoutId = rowLayoutId;
     }
 
+
+    public void setInnerViewTypeCount(int viewTypeCount) {
+        this.innerviewTypeCount = viewTypeCount;
+    }
 }

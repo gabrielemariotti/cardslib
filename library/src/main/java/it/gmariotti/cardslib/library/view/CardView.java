@@ -239,6 +239,17 @@ public class CardView extends BaseCardView {
         mIsRecycle=false;
     }
 
+    /**
+     * Refreshes the card content and replaces the inner layout elements (it inflates layouts again!)
+     *
+     * @param card
+     */
+    public void replaceCard(Card card) {
+        mForceReplaceInnerLayout=true;
+        refreshCard(card);
+        mForceReplaceInnerLayout=false;
+    }
+
     //--------------------------------------------------------------------------
     // Setup methods
     //--------------------------------------------------------------------------
@@ -300,9 +311,11 @@ public class CardView extends BaseCardView {
         if (mCardHeader!=null){
 
             if (mInternalHeaderLayout !=null){
+                mInternalHeaderLayout.setVisibility(VISIBLE);
 
                 //Set recycle value (very important in a ListView)
                 mInternalHeaderLayout.setRecycle(isRecycle());
+                mInternalHeaderLayout.setForceReplaceInnerLayout(isForceReplaceInnerLayout());
                 //Add Header View
                 mInternalHeaderLayout.addCardHeader(mCardHeader);
 
@@ -340,6 +353,11 @@ public class CardView extends BaseCardView {
             if (mInternalHeaderLayout !=null){
                 mInternalHeaderLayout.setVisibility(GONE);
                 mInternalExpandLayout.setVisibility(View.GONE);
+
+                if (isForceReplaceInnerLayout()){
+                    mInternalHeaderLayout.addCardHeader(null);
+                    //mInternalHeaderLayout.removeAllViews();
+                }
             }
         }
     }
@@ -359,7 +377,11 @@ public class CardView extends BaseCardView {
 
             //Check if view can be recycled
             //It can happen in a listView, and improves performances
-            if (!isRecycle()){
+            if (!isRecycle() || isForceReplaceInnerLayout()){
+
+                if (isForceReplaceInnerLayout() && mInternalContentLayout!=null && mInternalInnerView!=null)
+                    ((ViewGroup)mInternalContentLayout).removeView(mInternalInnerView);
+
                 mInternalInnerView=mCard.getInnerView(getContext(), (ViewGroup) mInternalContentLayout);
             }else{
                 //View can be recycled.
@@ -376,7 +398,9 @@ public class CardView extends BaseCardView {
     protected void setupThumbnailView() {
         if (mInternalThumbnailLayout!=null){
             if (mCardThumbnail!=null){
+                mInternalThumbnailLayout.setVisibility(VISIBLE);
                 mInternalThumbnailLayout.setRecycle(isRecycle());
+                mInternalThumbnailLayout.setForceReplaceInnerLayout(isForceReplaceInnerLayout());
                 mInternalThumbnailLayout.addCardThumbnail(mCardThumbnail);
             }else{
                 mInternalThumbnailLayout.setVisibility(GONE);
@@ -580,7 +604,11 @@ public class CardView extends BaseCardView {
 
             //Check if view can be recycled
             //It can happen in a listView, and improves performances
-            if (!isRecycle()){
+            if (!isRecycle() || isForceReplaceInnerLayout()){
+
+                if (isForceReplaceInnerLayout() && mInternalExpandLayout!=null && mInternalExpandInnerView!=null)
+                    ((ViewGroup)mInternalExpandLayout).removeView(mInternalExpandInnerView);
+
                 mInternalExpandInnerView=mCardExpand.getInnerView(getContext(),(ViewGroup) mInternalExpandLayout);
             }else{
                 //View can be recycled.
@@ -741,6 +769,9 @@ public class CardView extends BaseCardView {
         this.mOnExpandListAnimatorListener = onExpandListAnimatorListener;
     }
 
+    // -------------------------------------------------------------
+    //  Bitmap export
+    // -------------------------------------------------------------
 
     /**
      * Create a {@link android.graphics.Bitmap} from CardView
