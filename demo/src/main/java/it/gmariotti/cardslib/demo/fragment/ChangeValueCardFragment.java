@@ -103,7 +103,7 @@ public class ChangeValueCardFragment extends BaseFragment {
 
 
     /**
-     * Init the initial card
+     * Inits the initial card
      */
     private void initCards() {
 
@@ -123,7 +123,7 @@ public class ChangeValueCardFragment extends BaseFragment {
 
 
     /**
-     * Change same values
+     * Changes same values
      */
     private void changeCard1() {
 
@@ -147,7 +147,7 @@ public class ChangeValueCardFragment extends BaseFragment {
 
 
     /**
-     * Change same values
+     * Changes same values
      */
     private void changeCard2() {
 
@@ -161,7 +161,7 @@ public class ChangeValueCardFragment extends BaseFragment {
     }
 
     /**
-     * Replace inner layout
+     * Replaces inner layout
      */
     private void changeCard3() {
 

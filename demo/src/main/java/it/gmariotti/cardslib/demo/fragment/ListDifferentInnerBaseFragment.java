@@ -83,14 +83,21 @@ public class ListDifferentInnerBaseFragment extends BaseFragment {
             cards.add(cardx);
 
             MayKnowCard card2= new MayKnowCard(getActivity().getApplicationContext());
-            card2.setType(2);
+            card2.setType(2); //Very important with different inner layout
             card2.setSwipeable(true);
             cards.add(card2);
 
         }
 
-        //Provide a custom adapter
-        MyCardArrayAdapter mCardArrayAdapter = new MyCardArrayAdapter(getActivity(),cards);
+        // Provide a custom adapter.
+        // It is important to set the viewTypeCount
+        // You have to provide in your card the type value with {@link Card#setType(int)} method.
+        CardArrayAdapter mCardArrayAdapter = new CardArrayAdapter(getActivity(),cards);
+        mCardArrayAdapter.setInnerViewTypeCount(3);
+
+        // An alternative is to write a own CardArrayAdapter
+        // MyCardArrayAdapter mCardArrayAdapter = new MyCardArrayAdapter(getActivity(),cards);
+
 
         CardListView listView = (CardListView) getActivity().findViewById(R.id.carddemo_list_base1);
         if (listView!=null){
@@ -99,8 +106,9 @@ public class ListDifferentInnerBaseFragment extends BaseFragment {
     }
 
     /**
-     *  With multiple inner layouts you have to provide your CardArrayAdapter
-     *  where you have to override this method:
+     *  With multiple inner layouts you have to set the viewTypeCount with {@link CardArrayAdapter#setInnerViewTypeCount(int)}.
+     *  </p>
+     *  An alternative is to provide your CardArrayAdapter  where you have to override this method:
      *  </p>
      *  public int getViewTypeCount() {}
      *  </p>
@@ -172,8 +180,10 @@ public class ListDifferentInnerBaseFragment extends BaseFragment {
             setSwipeable(true);
         }
 
+
         @Override
         public int getType() {
+            //Very important with different inner layouts
             return 0;
         }
     }
@@ -238,6 +248,7 @@ public class ListDifferentInnerBaseFragment extends BaseFragment {
 
         @Override
         public int getType() {
+            //Very important with different inner layouts
             return 1;
         }
     }

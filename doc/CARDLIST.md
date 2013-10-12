@@ -84,13 +84,72 @@ Currently you have to use the same inner layouts for each card in `CardListView`
 
 ![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/demo/list_gplay.png)
 
+### Cards with different inner layouts
+
+If you want to use cards with different inner layouts you have to:
+
+1. set the number of different cards in your adapter with `mCardArrayAdapter.setInnerViewTypeCount`
+``` java
+    // Provide a custom adapter.
+    // It is important to set the viewTypeCount
+    // You have to provide in your card the type value with {@link Card#setType(int)} method.
+    CardArrayAdapter mCardArrayAdapter = new CardArrayAdapter(getActivity(),cards);
+    mCardArrayAdapter.setInnerViewTypeCount(3);
+```
+2. set the type inside your cards with `card.setType`
+``` java
+    MyCard card2= new MyCard(getActivity().getApplicationContext());
+    card2.setType(2); //Very important with different inner layout
+``` java
+
+You can also override the `setType` method in your `Card`.
+``` java
+    public class CardExample extends Card{
+        @Override
+        public int getType() {
+            //Very important with different inner layouts
+            return 2;
+        }
+    }
+```
+Moreover you can extend `CardArrayAdapter` and provide your logic.
+``` java
+    /**
+     *  With multiple inner layouts you have to set the viewTypeCount with {@link CardArrayAdapter#setInnerViewTypeCount(int)}.
+     *  </p>
+     *  An alternative is to provide your CardArrayAdapter  where you have to override this method:
+     *  </p>
+     *  public int getViewTypeCount() {}
+     *  </p>
+     *  You have to provide in your card the type value with {@link Card#setType(int)} method.
+     *
+     */
+    public class MyCardArrayAdapter extends CardArrayAdapter{
+
+        /**
+         * Constructor
+         *
+         * @param context The current context.
+         * @param cards   The cards to represent in the ListView.
+         */
+        public MyCardArrayAdapter(Context context, List<Card> cards) {
+            super(context, cards);
+        }
+
+        @Override
+        public int getViewTypeCount() {
+            return 3;
+        }
+    }
+```
+You can see the example in 'ListDifferentInnerBaseFragment'.
+
 
 ### Swipe and Undo in `CardListView`
 
 If you want to enable the swipe action with an Undo Action you have to:
 
 1. enable the swipe action on the single Cards
-
 ``` java
         //Create a Card
         Card card = new CustomCard(getActivity().getApplicationContext());
@@ -98,24 +157,18 @@ If you want to enable the swipe action with an Undo Action you have to:
         //Enable a swipe action
         card.setSwipeable(true);
 ```
-
 2. provide a id for each card
-
 ``` java
         card.setId("xxxx");
 ```
-
 3. enable the undo action on the List
-
 ``` java
         CardArrayAdapter mCardArrayAdapter = new CardArrayAdapter(getActivity(),cards);
 
         //Enable undo controller!
         mCardArrayAdapter.setEnableUndo(true);
  ```
-
 4. include the undo bar in your layout. You can use the build-in layout `res/layout/list_card_undo_message.xml'.
-
 ``` xml
   <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
                xmlns:card="http://schemas.android.com/apk/res-auto"
@@ -166,3 +219,5 @@ Then you can set a `Card.OnUndoSwipeListListener` to listen the undo action.
 ```
 
 You can customize the undo bar. The easiest way is to copy the styles inside `res/values/styles_undo.xml` in your project.
+You can see the example in 'ListGplayUndoCardFragment'.
+

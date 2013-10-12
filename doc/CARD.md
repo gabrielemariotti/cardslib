@@ -336,6 +336,23 @@ and then call `refreshCard` method on `cardView`:
     cardView = (CardView) getActivity().findViewById(R.id.carddemo_card_changevalue_id);
     cardView.refreshCard(card);
 ```
+You can see the example in 'ChangeValueCardFragment'.
+
+
+### Replace inner layout in a card
+
+If you need to replace the inner layout in a card, you can use your `Card` model and call `refreshCard` method on `cardView`:
+
+``` java
+    //Call replace
+    card3.setInnerLayout(R.layout.carddemo_suggested_inner_content);
+    cardView3 = (CardView) getActivity().findViewById(R.id.carddemo_card_changevalue_id3);
+    cardView3.replaceCard(card3);
+```
+
+In your `setupInnerViewElements()` method you should provide the correct way to put values in your ui elements according to the layout.
+You can see the example in 'ChangeValueCardFragment'.
+
 
 ### Customize Card background
 

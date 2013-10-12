@@ -43,6 +43,9 @@ public abstract class BaseCardArrayAdapter extends ArrayAdapter<Card> {
      */
     protected int mRowLayoutId = R.layout.list_card_layout;
 
+    /**
+     * Used to set the viewTypeCount
+     */
     protected int innerviewTypeCount=1;
 
     // -------------------------------------------------------------
@@ -107,7 +110,12 @@ public abstract class BaseCardArrayAdapter extends ArrayAdapter<Card> {
         this.mRowLayoutId = rowLayoutId;
     }
 
-
+    /**
+     * Sets the viewTypeCount inside the adapter.
+     * It is very important in a adapter with different inner layouts
+     *
+     * @param viewTypeCount
+     */
     public void setInnerViewTypeCount(int viewTypeCount) {
         this.innerviewTypeCount = viewTypeCount;
     }
