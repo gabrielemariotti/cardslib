@@ -389,3 +389,26 @@ If you want to change the rounded corners, the quickest way would be to customiz
 ``` xml
     <dimen name="card_background_default_radius">2dip</dimen>
 ```
+
+### Export card as bitmap
+
+Now you can export your `Card` as a Bitmap.
+
+It is very simple.
+
+``` java
+    CardView cardView = (CardView) getActivity().findViewById(R.id.myCard);
+    Bitmap bitmap = cardView.createBitmap();
+```
+
+[todo:image]
+
+
+You can use this bitmap for your scopes.
+
+In `BitmapUtils` class there are some built-in methods:
+
+1. You can use `File photofile= BitmapUtils.createFileFromBitmap(bitmap)` to save image in `Environment.DIRECTORY_PICTURES` folder.
+2. You can use `Intent intent = BitmapUtils.createIntentFromImage(photofile)` to put as `EXTRA_STREAM` in a `Intent`.
+
+You can see the example in `BirthDayCardFragment` and `StockCardFragment` where you can share the card as a bitmap.

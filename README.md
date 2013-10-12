@@ -24,7 +24,7 @@ Card Library provides 3 custom tags:
 * You can customize the global layout as you like
 * You can have some built-in features as OnClickListener, OnSwipeListener , OnLongClickListener
 * `CardHeader` provides an overflow button with a PopupMenuListener, a button to expand/collapse an area, or a customizable button with its listener.
-* `CardThumbnail` load a Bitmap with a resource ID or with a URL using `LRUCache` and an `AsyncTask`
+* `CardThumbnail` loads a Bitmap with a resource ID or with a URL using `LRUCache` and an `AsyncTask`
 
 
 
@@ -110,7 +110,7 @@ Try out the apk with the [sample application](https://github.com/gabrielemariott
 Card Library is pushed to Maven Central as a AAR, so you just need to add the following dependency to your `build.gradle`.
 
     dependencies {
-        compile 'com.github.gabrielemariotti.cards:library:0.4.0'
+        compile 'com.github.gabrielemariotti.cards:library:0.5.0'
     }
 
 ChangeLog

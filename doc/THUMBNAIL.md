@@ -115,6 +115,43 @@ Otherwise you can extend your `CardThumbmail` and override the `setupInnerViewEl
 ![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/thumb/thumb_style.png)
 
 
+### Broadcast to know when the download is finished
+
+The `CardThumbnail` loads a Bitmap with a resource ID or with a URL using `LRUCache` and an `AsyncTask`.
+If you would like to know when the image is downloaded and attached to ImageView you can create a Broadcast Receiver that listens for
+`Constants.IntentManager.INTENT_ACTION_IMAGE_DOWNLOADED` Broadcast Intents, as shown:
+
+``` java
+        activity.registerReceiver(mReceiver,new IntentFilter(Constants.IntentManager.INTENT_ACTION_IMAGE_DOWNLOADED));
+```
+
+This Intent includes extras that provide additional details:
+
+1. `Constants.IntentManager.INTENT_ACTION_IMAGE_DOWNLOADED_EXTRA_RESULT` is a boolean. It is `true` when the image is downloaded and attached successfully
+2. `Constants.IntentManager.INTENT_ACTION_IMAGE_DOWNLOADED_EXTRA_CARD_ID` contains the card id which contains the imageView.
+
+``` java
+    /**
+     * Broadcast for image downloaded by CardThumbnail
+     */
+    private class ImageBroadcastReceiver extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Bundle extras = intent.getExtras();
+            if (extras!=null){
+                boolean result = extras.getBoolean(Constants.IntentManager.INTENT_ACTION_IMAGE_DOWNLOADED_EXTRA_RESULT);
+                String id = extras.getString(Constants.IntentManager.INTENT_ACTION_IMAGE_DOWNLOADED_EXTRA_CARD_ID);
+                if (result){
+                    if (id!=null && id.equalsIgnoreCase(cardGmap.getId())){
+                        updateIntentToShare();
+                    }
+                }
+            }
+        }
+    }
+```
+
 
 ---
 

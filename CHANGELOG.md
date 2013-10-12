@@ -4,12 +4,15 @@ Change Log
 Version 0.5.0 *(2013-XX-XX)*
 ----------------------------
 
+ * LIB: Now you can export your card as Bitmap [You can read the section 'Export card as bitmap' in this page](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARD.md)
  * LIB: Now adapters support cards with different Inner Layouts [You can read the section 'Cards with different inner layouts' in this page](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARDLIST.md)
  * LIB: Added an Undo Action on swipe in `CardArrayAdapter` [You can read the section 'Swipe and Undo' in this page](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARDLIST.md)
  * LIB: Added a method to replace the inner layout in a card: `cardView.replaceCard(Card card)`. - [You can read the section 'Replace inner layout in a card' in this page](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARD.md)
  * LIB: Added a `id` field in the `Card` model.
  * LIB: Added a `type` field in the `Card` model. It can be useful with adapters.
  * LIB: Changed the card background. Now cards have a default corner radius = 2dp. You can customize it easily . [You can read the section 'Customize Card background' in this page](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARD.md)
+ * LIB: Added Broadcast to know when the download is finished and image is attached to ImageView through CardViewThumbnail [You can read the section 'Broadcast when images are attached' in this page](https://github.com/gabrielemariotti/cardslib/tree/master/doc/THUMBNAIL.md)
+ * DEMO: Added the share action in `BirthDayCardFragment` and `StockCardFragment` to export a card in a bitmap format.
  * DEMO: Added a list with different inner layouts.
  * DEMO: Added an example with undo action.
  * DEMO: Added an example with "replace inner layout" in Refresh card example.

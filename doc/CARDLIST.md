@@ -143,6 +143,7 @@ Moreover you can extend `CardArrayAdapter` and provide your logic.
     }
 ```
 You can see the example in 'ListDifferentInnerBaseFragment'.
+[todo:image]
 
 
 ### Swipe and Undo in `CardListView`
@@ -221,3 +222,4 @@ Then you can set a `Card.OnUndoSwipeListListener` to listen the undo action.
 You can customize the undo bar. The easiest way is to copy the styles inside `res/values/styles_undo.xml` in your project.
 You can see the example in 'ListGplayUndoCardFragment'.
 
+[todo:image]
