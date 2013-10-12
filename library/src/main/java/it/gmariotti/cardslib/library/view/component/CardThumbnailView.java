@@ -40,9 +40,9 @@ import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.net.URL;
 
+import it.gmariotti.cardslib.library.Constants;
 import it.gmariotti.cardslib.library.R;
 import it.gmariotti.cardslib.library.internal.CardThumbnail;
-import it.gmariotti.cardslib.library.utils.BitmapUtils;
 import it.gmariotti.cardslib.library.view.base.CardViewInterface;
 
 /**
@@ -533,10 +533,10 @@ public class CardThumbnailView extends FrameLayout implements CardViewInterface 
     protected void sendBroadcast(){
 
         Intent intent = new Intent();
-        intent.setAction(BitmapUtils.INTENT_ACTION_IMAGE_DOWNLOADED);
-        intent.putExtra(BitmapUtils.INTENT_ACTION_IMAGE_DOWNLOADED_EXTRA_RESULT,true);
+        intent.setAction(Constants.IntentManager.INTENT_ACTION_IMAGE_DOWNLOADED);
+        intent.putExtra(Constants.IntentManager.INTENT_ACTION_IMAGE_DOWNLOADED_EXTRA_RESULT,true);
         if (mCardThumbnail!=null && mCardThumbnail.getParentCard()!=null)
-            intent.putExtra(BitmapUtils.INTENT_ACTION_IMAGE_DOWNLOADED_EXTRA_CARD_ID,mCardThumbnail.getParentCard().getId());
+            intent.putExtra(Constants.IntentManager.INTENT_ACTION_IMAGE_DOWNLOADED_EXTRA_CARD_ID,mCardThumbnail.getParentCard().getId());
         if (getContext()!=null)
             getContext().sendBroadcast(intent);
 
