@@ -18,7 +18,11 @@
 
 package it.gmariotti.cardslib.demo.fragment;
 
+import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -33,11 +37,12 @@ import java.io.File;
 
 import it.gmariotti.cardslib.demo.R;
 import it.gmariotti.cardslib.demo.cards.GoogleNowBirthCard;
+import it.gmariotti.cardslib.library.Constants;
 import it.gmariotti.cardslib.library.utils.BitmapUtils;
 import it.gmariotti.cardslib.library.view.CardView;
 
 /**
- * Card Examples
+ * Card Examples.
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
@@ -46,8 +51,11 @@ public class BirthDayCardFragment extends BaseFragment {
     protected ScrollView mScrollView;
     private CardView cardView;
     private GoogleNowBirthCard birthCard;
+
     private ShareActionProvider mShareActionProvider;
     private File photofile;
+    private ImageBroadcastReceiver mReceiver;
+
 
     @Override
     public int getTitleResourceId() {
@@ -74,6 +82,22 @@ public class BirthDayCardFragment extends BaseFragment {
     }
 
     @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        if (mReceiver==null)
+            mReceiver = new ImageBroadcastReceiver();
+        activity.registerReceiver(mReceiver,new IntentFilter(Constants.IntentManager.INTENT_ACTION_IMAGE_DOWNLOADED));
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        if (mReceiver!=null)
+            getActivity().unregisterReceiver(mReceiver);
+    }
+
+
+    @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.sharemenu, menu);
 
@@ -87,19 +111,6 @@ public class BirthDayCardFragment extends BaseFragment {
         super.onCreateOptionsMenu(menu,inflater);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-
-            case R.id.menu_refresh:
-                doShare();
-                return true;
-            default:
-                break;
-        }
-        return false;
-    }
-
     /**
      * This method builds a simple card
      */
@@ -107,6 +118,7 @@ public class BirthDayCardFragment extends BaseFragment {
 
         //Create a Card
         birthCard= new GoogleNowBirthCard(getActivity().getApplicationContext());
+        birthCard.setId("myId");
 
         //Set card in the cardView
         cardView = (CardView) getActivity().findViewById(R.id.carddemo_cardBirth);
@@ -114,7 +126,7 @@ public class BirthDayCardFragment extends BaseFragment {
     }
 
 
-    private void doShare(){
+    private void updateIntentToShare(){
         if (mShareActionProvider != null) {
 
             photofile = BitmapUtils.createFileFromBitmap(cardView.createBitmap());
@@ -139,6 +151,27 @@ public class BirthDayCardFragment extends BaseFragment {
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("image/*");
         return intent;
+    }
+
+
+    /**
+     * Broadcast for image downloaded by CardThumbnail
+     */
+    private class ImageBroadcastReceiver extends BroadcastReceiver{
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Bundle extras = intent.getExtras();
+            if (extras!=null){
+                boolean result = extras.getBoolean(Constants.IntentManager.INTENT_ACTION_IMAGE_DOWNLOADED_EXTRA_RESULT);
+                String id = extras.getString(Constants.IntentManager.INTENT_ACTION_IMAGE_DOWNLOADED_EXTRA_CARD_ID);
+                if (result){
+                    if (id!=null && id.equalsIgnoreCase(birthCard.getId())){
+                        updateIntentToShare();
+                    }
+                }
+            }
+        }
     }
 
 }

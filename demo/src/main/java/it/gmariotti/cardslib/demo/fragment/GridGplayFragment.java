@@ -142,6 +142,13 @@ public class GridGplayFragment extends BaseFragment {
             else
                 thumbnail.setDrawableResource(R.drawable.ic_ic_launcher_web);
             addCardThumbnail(thumbnail);
+
+            setOnClickListener(new OnCardClickListener() {
+                @Override
+                public void onClick(Card card, View view) {
+                    //Do something
+                }
+            });
         }
 
         @Override

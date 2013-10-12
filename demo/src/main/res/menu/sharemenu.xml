@@ -25,10 +25,11 @@
           android:orderInCategory="1"
           android:actionProviderClass="android.widget.ShareActionProvider" />
 
-    <item
+  <!--  <item
         android:id="@+id/menu_refresh"
         android:title="@string/action_menu_refresh"
         android:icon="@drawable/action_refresh"
         android:orderInCategory="2"
         android:showAsAction="ifRoom"/>
+        -->
 </menu>
