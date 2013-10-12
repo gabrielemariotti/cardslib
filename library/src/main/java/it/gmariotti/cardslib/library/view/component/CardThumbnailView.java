@@ -19,6 +19,7 @@
 package it.gmariotti.cardslib.library.view.component;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
@@ -41,6 +42,7 @@ import java.net.URL;
 
 import it.gmariotti.cardslib.library.R;
 import it.gmariotti.cardslib.library.internal.CardThumbnail;
+import it.gmariotti.cardslib.library.utils.BitmapUtils;
 import it.gmariotti.cardslib.library.view.base.CardViewInterface;
 
 /**
@@ -244,6 +246,7 @@ public class CardThumbnailView extends FrameLayout implements CardViewInterface 
 
         if (bitmap != null) {
             imageView.setImageBitmap(bitmap);
+            sendBroadcast();
         } else {
             if (cancelPotentialWork(resId, imageView)) {
                 final BitmapWorkerTask task = new BitmapWorkerTask(imageView);
@@ -261,6 +264,7 @@ public class CardThumbnailView extends FrameLayout implements CardViewInterface 
 
         if (bitmap != null){
             imageView.setImageBitmap(bitmap);
+            sendBroadcast();
         }else{
             if (cancelPotentialWork(url, imageView)) {
                 final BitmapWorkerUrlTask task = new BitmapWorkerUrlTask(imageView);
@@ -443,6 +447,7 @@ public class CardThumbnailView extends FrameLayout implements CardViewInterface 
                         getBitmapWorkerTask(imageView);
                 if (this == bitmapWorkerTask && imageView != null) {
                     imageView.setImageBitmap(bitmap);
+                    sendBroadcast();
                 }
             }
         }
@@ -481,6 +486,7 @@ public class CardThumbnailView extends FrameLayout implements CardViewInterface 
                         getBitmapWorkerUrlTask(imageView);
                 if (this == bitmapWorkerTask && imageView != null) {
                     imageView.setImageBitmap(bitmap);
+                    sendBroadcast();
                 }
             }
         }
@@ -515,6 +521,25 @@ public class CardThumbnailView extends FrameLayout implements CardViewInterface 
         public BitmapWorkerUrlTask getBitmapWorkerUrlTask() {
             return bitmapWorkerTaskReference.get();
         }
+    }
+
+    //--------------------------------------------------------------------------
+    // Broadcast
+    //--------------------------------------------------------------------------
+
+    /**
+     * Send a broadcast when image is downloaded
+     */
+    protected void sendBroadcast(){
+
+        Intent intent = new Intent();
+        intent.setAction(BitmapUtils.INTENT_ACTION_IMAGE_DOWNLOADED);
+        intent.putExtra(BitmapUtils.INTENT_ACTION_IMAGE_DOWNLOADED_EXTRA_RESULT,true);
+        if (mCardThumbnail!=null && mCardThumbnail.getParentCard()!=null)
+            intent.putExtra(BitmapUtils.INTENT_ACTION_IMAGE_DOWNLOADED_EXTRA_CARD_ID,mCardThumbnail.getParentCard().getId());
+        if (getContext()!=null)
+            getContext().sendBroadcast(intent);
+
     }
 
     //--------------------------------------------------------------------------

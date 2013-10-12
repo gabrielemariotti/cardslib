@@ -778,6 +778,13 @@ public class CardView extends BaseCardView {
      * @return
      */
     public Bitmap createBitmap(){
+
+        if (getWidth()<=0 && getHeight()<=0){
+            int spec = MeasureSpec.makeMeasureSpec( 0,MeasureSpec.UNSPECIFIED);
+            measure(spec,spec);
+            layout(0, 0, getMeasuredWidth(), getMeasuredHeight());
+        }
+
         Bitmap b = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_8888);
         Canvas c = new Canvas(b);
         draw(c);

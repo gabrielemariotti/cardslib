@@ -30,9 +30,14 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 /**
+ * Utility class
+ *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
 public class BitmapUtils {
+
+    private static final String TAG="BitmapUtils";
+
 
     /**
      * Creates a File from a Bitmap
@@ -45,20 +50,22 @@ public class BitmapUtils {
 
         if (bitmap == null) return null;
 
-        File photoFile;
+        File photoFile=null;
 
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
-        File photostorage = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
-        photoFile = new File(photostorage, (System.currentTimeMillis()) + ".jpg");
-        try {
-            //f.createNewFile();
-            FileOutputStream fo = new FileOutputStream(photoFile);
-            fo.write(bytes.toByteArray());
-            fo.flush();
-            fo.close();
-        } catch (IOException e) {
-            Log.e("BirthDayCard", "error", e);
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, bytes);
+        File photoStorage = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+        if (photoStorage!=null){
+            photoFile = new File(photoStorage, (System.currentTimeMillis()) + ".png");
+            try {
+                //f.createNewFile();
+                FileOutputStream fo = new FileOutputStream(photoFile);
+                fo.write(bytes.toByteArray());
+                fo.flush();
+                fo.close();
+            } catch (IOException e) {
+                Log.e(TAG, "Error saving image ", e);
+            }
         }
 
         return photoFile;
