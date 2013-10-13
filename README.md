@@ -2,9 +2,11 @@
 
 Card Library provides an easy way to display a UI Card in your Android app.
 
-You can display single cards, list of cards and a grid of Cards.
+You can display **single cards**, **list** of cards and a **grid** of Cards.
 
 ![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/screen.png)
+
+![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/screen2.png)
 
 ---
 ## Feature
@@ -17,6 +19,7 @@ Card Library provides 3 custom tags:
 
 **It requires API 14+**
 
+---------------------------------------
 
 `CardView`  displays a UI Card.
 
@@ -26,14 +29,14 @@ Card Library provides 3 custom tags:
 * `CardHeader` provides an overflow button with a PopupMenuListener, a button to expand/collapse an area, or a customizable button with its listener.
 * `CardThumbnail` loads a Bitmap with a resource ID or with a URL using `LRUCache` and an `AsyncTask`
 
-
+---------------------------------------
 
 `CardListView` displays a List Card.
 
 * It uses `CardView` tag and all its properties.
 * It works with an `CardArrayAdapter`
 
-
+---------------------------------------
 
 `CardGridView` displays a Grid Card.
 
@@ -99,7 +102,7 @@ Here you can find some pages to customize this tag.
 
 ## Examples
 
-Try out the apk with the [sample application](https://github.com/gabrielemariotti/cardslib/tree/master/apk/demo040.apk) or browse the [source code of the sample application](https://github.com/gabrielemariotti/cardslib/tree/master/demo) for a complete example of use.
+Try out the apk with the [sample application](https://github.com/gabrielemariotti/cardslib/blob/master/apk/demo-0.5.0.apk?raw=true) or browse the [source code of the sample application](https://github.com/gabrielemariotti/cardslib/tree/master/demo) for a complete example of use.
 
 * [Example:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/EXAMPLE.md) How to realize simple and nice cards.
 
@@ -122,7 +125,7 @@ ChangeLog
 Acknowledgements
 --------------------
 
-* Thanks to [Roman Nurik][1] for [Android-SwipeToDismiss][2] classes
+* Thanks to [Roman Nurik][1] for [Android-SwipeToDismiss][2] classes and [UndoBarController][3]
 
 
 Credits
@@ -138,7 +141,10 @@ Author: Gabriele Mariotti (gabri.mariotti@gmail.com)
   <img alt="Follow me on Twitter"
        src="https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/twitter64.png" />
 </a>
-
+<a href="http://it.linkedin.com/in/gabrielemariotti">
+  <img alt="Follow me on LinkedIn"
+       src="https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/linkedin.png" />
+</a>
 
 License
 -------
@@ -165,3 +171,4 @@ Google and the Google Maps logo are registered trademarks of Google Inc., used w
 
  [1]: https://plus.google.com/u/0/+RomanNurik/about
  [2]: https://github.com/romannurik/Android-SwipeToDismiss
+ [3]: https://code.google.com/p/romannurik-code/source/browse/#git%2Fmisc%2Fundobar

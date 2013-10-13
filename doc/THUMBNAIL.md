@@ -122,7 +122,7 @@ If you would like to know when the image is downloaded and attached to ImageView
 `Constants.IntentManager.INTENT_ACTION_IMAGE_DOWNLOADED` Broadcast Intents, as shown:
 
 ``` java
-        activity.registerReceiver(mReceiver,new IntentFilter(Constants.IntentManager.INTENT_ACTION_IMAGE_DOWNLOADED));
+    activity.registerReceiver(mReceiver,new IntentFilter(Constants.IntentManager.INTENT_ACTION_IMAGE_DOWNLOADED));
 ```
 
 This Intent includes extras that provide additional details:
@@ -151,6 +151,7 @@ This Intent includes extras that provide additional details:
         }
     }
 ```
+
 
 
 ---

@@ -1,7 +1,7 @@
 Change Log
 ===============================================================================
 
-Version 0.5.0 *(2013-XX-XX)*
+Version 0.5.0 *(2013-10-13)*
 ----------------------------
 
  * LIB: Now you can export your card as Bitmap [You can read the section 'Export card as bitmap' in this page](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARD.md)
