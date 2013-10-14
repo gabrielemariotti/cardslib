@@ -43,7 +43,7 @@ import it.gmariotti.cardslib.library.internal.base.BaseCard;
  *        card.addCardThumbnail(thumb);
  * </code></pre>
  * or
- *  * <pre><code>
+ * <pre><code>
  *        //Set resource
  *        thumb.setUrlResource("https://mydomain.com/photo.jpg");
  * </code></pre>
@@ -81,6 +81,11 @@ public class CardThumbnail extends BaseCard {
      * Resource Drawable URL
      */
     protected String urlResource;
+
+    /**
+     *  Uses an external library to load image
+     */
+    protected boolean mExternalUsage=false;
 
     // -------------------------------------------------------------
     // Constructors
@@ -152,5 +157,23 @@ public class CardThumbnail extends BaseCard {
      */
     public void setUrlResource(String urlResource) {
         this.urlResource = urlResource;
+    }
+
+    /**
+     * Indicates if CardThumbnail will use an external library to load image
+     *
+     * @return
+     */
+    public boolean isExternalUsage() {
+        return mExternalUsage;
+    }
+
+    /**
+     * Sets <code>true</code> to use an external library to load image
+     *
+     * @param externalUsage <code>true</code> to use an external library to load image
+     */
+    public void setExternalUsage(boolean externalUsage) {
+        this.mExternalUsage = externalUsage;
     }
 }

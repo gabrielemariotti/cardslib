@@ -229,11 +229,12 @@ public class CardThumbnailView extends FrameLayout implements CardViewInterface 
             mCardThumbnail.setupInnerViewElements((ViewGroup)mInternalOuterView,mImageView);
 
         //Load bitmap
-        if(mCardThumbnail.getDrawableResource()>0)
-            loadBitmap(mCardThumbnail.getDrawableResource(), mImageView);
-        else
-            loadBitmap(mCardThumbnail.getUrlResource(), mImageView);
-
+        if (!mCardThumbnail.isExternalUsage()){
+            if(mCardThumbnail.getDrawableResource()>0)
+                loadBitmap(mCardThumbnail.getDrawableResource(), mImageView);
+            else
+                loadBitmap(mCardThumbnail.getUrlResource(), mImageView);
+        }
     }
 
     //--------------------------------------------------------------------------
