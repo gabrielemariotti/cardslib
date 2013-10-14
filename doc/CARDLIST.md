@@ -89,6 +89,7 @@ Currently you have to use the same inner layouts for each card in `CardListView`
 If you want to use cards with different inner layouts you have to:
 
 1. set the number of different cards in your adapter with `mCardArrayAdapter.setInnerViewTypeCount`
+
 ``` java
     // Provide a custom adapter.
     // It is important to set the viewTypeCount
@@ -97,12 +98,14 @@ If you want to use cards with different inner layouts you have to:
     mCardArrayAdapter.setInnerViewTypeCount(3);
 ```
 2. set the type inside your cards with `card.setType`
+
 ``` java
     MyCard card2= new MyCard(getActivity().getApplicationContext());
     card2.setType(2); //Very important with different inner layout
-``` java
+``` 
 
 You can also override the `setType` method in your `Card`.
+
 ``` java
     public class CardExample extends Card{
         @Override
