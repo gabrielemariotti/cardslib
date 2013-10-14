@@ -1,0 +1,69 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.6.+'
+    }
+}
+apply plugin: 'android'
+
+repositories {
+    mavenCentral()
+}
+
+android {
+    compileSdkVersion 18
+    buildToolsVersion "18.0.1"
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 18
+        versionName project.VERSION_NAME
+        versionCode Integer.parseInt(project.VERSION_CODE)
+    }
+
+    signingConfigs {
+        release
+    }
+
+    buildTypes {
+        if (isReleaseBuild()) {
+            release {
+                signingConfig signingConfigs.release
+            }
+        }
+    }
+}
+
+dependencies {
+    // Cards Library
+    compile project(':library')
+    // Support Libraries
+    compile 'com.android.support:support-v4:18.0.0'
+}
+
+
+def Properties props = new Properties()
+def propFile = file('../signing.properties')
+if (propFile.canRead()){
+    props.load(new FileInputStream(propFile))
+
+    if (props!=null && props.containsKey('STORE_FILE') && props.containsKey('STORE_PASSWORD') &&
+            props.containsKey('KEY_ALIAS') && props.containsKey('KEY_PASSWORD')) {
+
+        println 'RELEASE BUILD SIGNING'
+
+        android.signingConfigs.release.storeFile = file(props['STORE_FILE'])
+        android.signingConfigs.release.storePassword = props['STORE_PASSWORD']
+        android.signingConfigs.release.keyAlias = props['KEY_ALIAS']
+        android.signingConfigs.release.keyPassword = props['KEY_PASSWORD']
+    } else {
+        println 'RELEASE BUILD NOT FOUND SIGNING PROPERTIES'
+
+        android.buildTypes.release.signingConfig = null
+    }
+}else {
+    println 'RELEASE BUILD NOT FOUND SIGNING FILE'
+    android.buildTypes.release.signingConfig = null
+}

@@ -125,7 +125,7 @@ ChangeLog
 Acknowledgements
 --------------------
 
-* Thanks to [Roman Nurik][1] for [Android-SwipeToDismiss][2] classes and [UndoBarController][3]
+* Thanks to [Roman Nurik][1] for [Android-SwipeToDismiss][2] classes and [UndoBarController] classes[3]
 
 
 Credits
