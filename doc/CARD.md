@@ -36,7 +36,7 @@ Last get a reference to the `CardView` from your code, and set your `Card.
        cardView.setCard(card);
 ```
 
-### Use your custom card-layout
+#### Use your custom card-layout
 
 Card Library provides 2 built-in card layouts.
 
@@ -67,7 +67,7 @@ If you want to preserve built-in features you have to use the same IDs for Compo
 Each component (view or frame) can be easily customize with style/drawable resources or inflating custom inner layout.(See doc about Header,Shadow,Thumbnail,Expand).
 
 
-### Use your content inner layout
+#### Use your content inner layout
 
 Each Card has a content Frame area, where you can display your custom info.
 
@@ -131,7 +131,7 @@ This is the layout:
 
 ![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/card/inner_content.png)
 
-### Extending Card class
+#### Extending Card class
 
 The layout above is quite simple, and doesn't need to set values.
 
@@ -215,7 +215,7 @@ Then you can simply do:
 
 ![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/card/mycard.png)
 
-### Listeners
+#### Listeners
 
 The `Card` class provides some listeners to handle callbacks.
 
@@ -227,7 +227,7 @@ The `Card` class provides some listeners to handle callbacks.
 
 See [Card Header:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/HEADER.md) for Header listeners.
 
-### Card with a swipe action
+#### Card with a swipe action
 
 If you want to enable the swipe action on a `Card` is very simple:
 
@@ -255,7 +255,7 @@ It is not mandatory. You can set a `Card.OnSwipeListener` to listen the swipe ac
         });
 ```
 
-### Clickable card
+#### Clickable card
 
 If you want a clickable card, enable a `Card.OnCardClickListener`
 
@@ -277,7 +277,7 @@ If you want a clickable card, enable a `Card.OnCardClickListener`
 ```
 ![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/card/clickable.png)
 
-### ClickListener on a specific area
+#### ClickListener on a specific area
 
 With `OnCardClickListener` you can set your card as clickable.
 
@@ -312,7 +312,7 @@ If you want to set only a part (or more parts) as clickable you can use this cod
 ![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/card/partial_listeners.png)
 
 
-### Refresh a card
+#### Refresh a card
 
 If you need to change same value in a card, you can use your `Card` model:
 
@@ -339,7 +339,7 @@ and then call `refreshCard` method on `cardView`:
 You can see the example in 'ChangeValueCardFragment'.
 
 
-### Replace inner layout in a card
+#### Replace inner layout in a card
 
 If you need to replace the inner layout in a card, you can use your `Card` model and call `refreshCard` method on `cardView`:
 
@@ -354,7 +354,7 @@ In your `setupInnerViewElements()` method you should provide the correct way to 
 You can see the example in `ChangeValueCardFragment`.
 
 
-### Customize Card background
+#### Customize Card background
 
 The quickest way to customize the card background would be to copy the styles/drawables in your project.
 
@@ -390,7 +390,7 @@ If you want to change the rounded corners, the quickest way would be to customiz
     <dimen name="card_background_default_radius">2dip</dimen>
 ```
 
-### Export card as bitmap
+#### Export card as bitmap
 
 You can export your `Card` as a Bitmap.
 
