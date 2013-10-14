@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ /*******************************************************************************
+  ~ *******************************************************************************
   ~   Copyright (c) 2013 Gabriele Mariotti.
   ~
   ~   Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,17 +14,14 @@
   ~   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   ~   See the License for the specific language governing permissions and
   ~   limitations under the License.
-  ~  ******************************************************************************/
+  ~  *****************************************************************************
   -->
 
 <resources>
+    <dimen name="drawer_width_extras">320dp</dimen>
+    <dimen name="text_size_medium">14sp</dimen>
 
-    <color name="demo_title_section_textcolor">#2a84a5</color>
-
-    <!-- customize header standard title
-    <color name="card_text_color_header">#990066</color>
-    -->
-
-    <color name="carddemo_googlenowbirth_title">@android:color/holo_blue_dark</color>
+    <!-- Card -->
+    <dimen name="card_extras_birth_width">400dp</dimen>
 
 </resources>

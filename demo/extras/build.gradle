@@ -41,6 +41,8 @@ dependencies {
     compile project(':library')
     // Support Libraries
     compile 'com.android.support:support-v4:18.0.0'
+    //Picasso
+    compile 'com.squareup.picasso:picasso:2.1.1'
 }
 
 

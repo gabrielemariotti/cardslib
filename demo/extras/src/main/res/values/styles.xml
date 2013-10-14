@@ -1,0 +1,100 @@
+<!--
+  ~ *******************************************************************************
+  ~   Copyright (c) 2013 Gabriele Mariotti.
+  ~
+  ~   Licensed under the Apache License, Version 2.0 (the "License");
+  ~   you may not use this file except in compliance with the License.
+  ~   You may obtain a copy of the License at
+  ~
+  ~   http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~   Unless required by applicable law or agreed to in writing, software
+  ~   distributed under the License is distributed on an "AS IS" BASIS,
+  ~   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~   See the License for the specific language governing permissions and
+  ~   limitations under the License.
+  ~  *****************************************************************************
+  -->
+
+<resources>
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="Theme.Carddemo">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
+
+    <!-- Text for sections -->
+    <style name="AppTheme.TitleText">
+        <item name="android:textSize">@dimen/demo_title_section_textsize</item>
+        <item name="android:layout_marginLeft">@dimen/demo_title_section_margin</item>
+        <item name="android:layout_marginRight">@dimen/demo_title_section_margin</item>
+        <item name="android:layout_marginBottom">@dimen/demo_title_section_margin_bottom</item>
+        <item name="android:layout_marginTop">@dimen/demo_title_section_margin_top</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/demo_title_section_textcolor</item>
+    </style>
+
+    <style name="AppTheme.TrademarkText">
+        <item name="android:textSize">12dp</item>
+        <item name="android:layout_marginLeft">@dimen/demo_title_section_margin</item>
+        <item name="android:layout_marginRight">@dimen/demo_title_section_margin</item>
+        <item name="android:layout_marginBottom">@dimen/demo_title_section_margin_bottom</item>
+        <item name="android:textColor">@android:color/darker_gray</item>
+    </style>
+
+
+    <!-- Google Now -->
+
+    <style name="Now_extras"></style>
+
+    <style name="Now_extras.card_expand_inner_layout">
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">32dp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="Now_extras.card_expand_inner_layout.light_gray">
+        <item name="android:background">#515254</item>
+        <item name="android:textColor">#B3B2B2</item>
+    </style>
+
+    <style name="Now_extras.card_expand_inner_layout.light_gray.bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Now_extras.card_expand_inner_layout.dark">
+        <item name="android:background">#4A4B4D</item>
+        <item name="android:textColor">#FFF</item>
+    </style>
+
+    <style name="Now_extras.card_expand_inner_layout.dark.bold" parent="@style/Now_extras.card_expand_inner_layout.dark">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+    <style name="Birth_extras.card.content_outer_layout" parent="@style/card.content_outer_layout">
+        <!--Style for Content View-->
+        <item name="android:minHeight">60dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginTop">@dimen/card_content_outer_view_margin_top</item>
+        <item name="android:layout_marginBottom">@dimen/card_content_outer_view_margin_bottom</item>
+        <item name="android:layout_marginLeft">@dimen/card_content_outer_view_margin_left</item>
+        <item name="android:layout_marginRight">@dimen/card_content_outer_view_margin_right</item>
+    </style>
+
+</resources>
