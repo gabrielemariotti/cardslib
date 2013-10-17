@@ -17,19 +17,25 @@
   ~   limitations under the License.
   ~  *****************************************************************************
   -->
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:card="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_marginLeft="3dp"
+              android:gravity="center_vertical"
+              android:layout_height="96dp">
 
-    <!-- You can customize this layout.
-     You need to have in your layout a `CardView` with the ID `list_cardId` -->
-    <it.gmariotti.cardslib.library.view.CardListView
+    <TextView
+        android:id="@+id/carddemo_extra_picasso_main_inner_title"
+        style="@style/carddemo_extra_base_main_inner_title"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/carddemo_extra_list_picasso"
-        card:list_card_layout_resourceID="@layout/list_card_thumbnail_layout"/>
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/carddemo_extra_picasso_main_inner_secondaryTitle"
+        style="@style/carddemo_extra_base_main_inner_secondarytitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 
 </LinearLayout>

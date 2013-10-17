@@ -37,7 +37,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import it.gmariotti.cardslib.demo.extras.fragment.BaseFragment;
+import it.gmariotti.cardslib.demo.extras.fragment.IonFragment;
 import it.gmariotti.cardslib.demo.extras.fragment.PicassoFragment;
+import it.gmariotti.cardslib.demo.extras.fragment.UniversalImageLoaderFragment;
 
 
 public class MainActivity extends Activity {
@@ -54,6 +56,8 @@ public class MainActivity extends Activity {
 
     private static final int CASE_STD = 0;
     private static final int CASE_PICASSO = 0;
+    private static final int CASE_ION = 1;
+    private static final int CASE_UNILOADER = 2;
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -199,6 +203,12 @@ public class MainActivity extends Activity {
             case CASE_PICASSO:
                 baseFragment= new PicassoFragment();
                 break;
+            case CASE_ION:
+                baseFragment= new IonFragment();
+                break;
+            case CASE_UNILOADER:
+                baseFragment= new UniversalImageLoaderFragment();
+                break;
             default:
                 break;
         }
@@ -235,7 +245,10 @@ public class MainActivity extends Activity {
 
 
     public static final String[] options = {
-            "Thumbnail with Picasso"
+            "Thumbnail with Picasso",
+            "Thumbnail with Ion",
+            "Thumbnail with Universal-Image-Loader"
+
     };
 
 

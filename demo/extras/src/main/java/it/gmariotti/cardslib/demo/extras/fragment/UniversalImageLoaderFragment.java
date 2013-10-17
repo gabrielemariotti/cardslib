@@ -23,25 +23,35 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.nostra13.universalimageloader.cache.memory.impl.LruMemoryCache;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.display.SimpleBitmapDisplayer;
+import com.nostra13.universalimageloader.utils.StorageUtils;
+
+import java.io.File;
 import java.util.ArrayList;
 
 import it.gmariotti.cardslib.demo.extras.R;
-import it.gmariotti.cardslib.demo.extras.cards.PicassoCard;
+import it.gmariotti.cardslib.demo.extras.cards.UniversalImageLoaderCard;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
 import it.gmariotti.cardslib.library.view.CardListView;
 
 /**
- * This example uses a list card with Thumbnail loaded with built-in method and Picasso library
- * Please refer to https://github.com/square/picasso for full doc
+ * This example uses a list card with Thumbnail loaded with built-in method and Android-Universal-Image-Loader library
+ * https://github.com/nostra13/Android-Universal-Image-Loader
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public class PicassoFragment extends BaseFragment {
+public class UniversalImageLoaderFragment extends BaseFragment {
+
+    DisplayImageOptions options;
 
     @Override
     public int getTitleResourceId() {
-        return R.string.carddemo_extras_title_picasso;
+        return R.string.carddemo_extras_title_universal_image_loader;
     }
 
 
@@ -54,8 +64,36 @@ public class PicassoFragment extends BaseFragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        initUniversalImageLoaderLibrary();
         initCard();
     }
+
+    /**
+     * Android-Universal-Image-Loader config.
+     *
+     * DON'T COPY THIS CODE TO YOUR REAL PROJECT!     *
+     * I would recommend doing it in an overloaded Application.onCreate().
+     * It is just for test purpose
+     *
+     *
+     */
+    private void initUniversalImageLoaderLibrary(){
+
+        File cacheDir = StorageUtils.getCacheDirectory(getActivity());
+        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(getActivity())
+                .memoryCache(new LruMemoryCache(2 * 1024 * 1024))
+                .defaultDisplayImageOptions(DisplayImageOptions.createSimple())
+                .writeDebugLogs()
+                .build();
+
+        ImageLoader.getInstance().init(config);
+
+        options = new DisplayImageOptions.Builder()
+                .cacheInMemory(true)
+                .displayer(new SimpleBitmapDisplayer())
+                .build();
+    }
+
 
     /**
      * This method builds a simple card
@@ -65,8 +103,8 @@ public class PicassoFragment extends BaseFragment {
         //Init an array of Cards
         ArrayList<Card> cards = new ArrayList<Card>();
         for (int i = 0; i < 200; i++) {
-            PicassoCard card = new PicassoCard(this.getActivity());
-            card.setTitle("A simple card loaded with Picasso " + i);
+            UniversalImageLoaderCard card = new UniversalImageLoaderCard(this.getActivity(),options);
+            card.setTitle("A simple card loaded with Universal-Image-Loader " + i);
             card.setSecondaryTitle("Simple text..." + i);
             card.setCount(i);
             cards.add(card);

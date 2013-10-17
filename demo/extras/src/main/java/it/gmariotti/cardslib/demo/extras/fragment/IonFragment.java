@@ -26,22 +26,22 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 
 import it.gmariotti.cardslib.demo.extras.R;
-import it.gmariotti.cardslib.demo.extras.cards.PicassoCard;
+import it.gmariotti.cardslib.demo.extras.cards.IonCard;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
 import it.gmariotti.cardslib.library.view.CardListView;
 
 /**
- * This example uses a list card with Thumbnail loaded with built-in method and Picasso library
- * Please refer to https://github.com/square/picasso for full doc
+ * This example uses a list card with Thumbnail loaded with built-in method and Ion library
+ * Please refer to https://github.com/koush/ion for full doc
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public class PicassoFragment extends BaseFragment {
+public class IonFragment extends BaseFragment {
 
     @Override
     public int getTitleResourceId() {
-        return R.string.carddemo_extras_title_picasso;
+        return R.string.carddemo_extras_title_ion;
     }
 
 
@@ -65,8 +65,8 @@ public class PicassoFragment extends BaseFragment {
         //Init an array of Cards
         ArrayList<Card> cards = new ArrayList<Card>();
         for (int i = 0; i < 200; i++) {
-            PicassoCard card = new PicassoCard(this.getActivity());
-            card.setTitle("A simple card loaded with Picasso " + i);
+            IonCard card = new IonCard(this.getActivity());
+            card.setTitle("A simple card loaded with Ion " + i);
             card.setSecondaryTitle("Simple text..." + i);
             card.setCount(i);
             cards.add(card);

@@ -41,8 +41,14 @@ dependencies {
     compile project(':library')
     // Support Libraries
     compile 'com.android.support:support-v4:18.0.0'
+    //OkHttp
+    compile 'com.squareup.okhttp:okhttp:1.2.1'
     //Picasso
     compile 'com.squareup.picasso:picasso:2.1.1'
+    //Ion
+    compile 'com.koushikdutta.ion:ion:1.1.8'
+    //universal-image-loader
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.8.6'
 }
 
 
