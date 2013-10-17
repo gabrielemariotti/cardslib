@@ -1,5 +1,17 @@
 # Cards Library: Thumbnail
 
+In this page you can find info about:
+
+* [Basic usage](#basic-usage)
+* [Thumbnail from Resource ID](#thumbnail-from-resource-id)
+* [Thumbnail from Resource URL](#thumbnail-from-resource-url)
+* [Customize Thumbnail](#customize-tThumbnail)
+* [Broadcast to know when the download is finished](#broadcast-to-know-when-the-download-is-finished)
+* [Using external library](#using-external-library)
+
+
+### Basic usage
+
 Creating a base `CardThumbnail` is pretty simple.
 
 ``` java
@@ -152,6 +164,45 @@ This Intent includes extras that provide additional details:
     }
 ```
 
+### Using external library
+
+The `CardThumbnail` loads a Bitmap with a built-in feature which uses `LRUCache` and an `AsyncTask`.
+
+If you want to improve this feature using your favorite networking library you can do this:
+
+First you need to set  `thumbnail.setExternalUsage(true);`
+
+``` java
+        Card mCard= new Card(getContext());
+
+        //Add Thumbnail
+        MyThumbnail thumbnail = new MyThumbnail(getContext());
+        //You need to set true to use an external library
+        thumbnail.setExternalUsage(true);
+        addCardThumbnail(thumbnail);
+```
+
+Then you have to implement your logic in `setupInnerViewElements(ViewGroup parent, View viewImage)` method:
+
+``` java
+        public class MyThumbnail extends CardThumbnail {
+
+        @Override
+        public void setupInnerViewElements(ViewGroup parent, View viewImage) {
+
+            //Here you have to set your image with an external library
+            Picasso.with(getContext())
+                   .load(myUrl)
+                   .into((ImageView)viewImage);
+
+            viewImage.getLayoutParams().width = 250;
+            viewImage.getLayoutParams().height = 250;
+        }
+```
+
+In Demo/Extra you can find 3 example with Picasso, Ion and Android-Universal-Image-Loader libraries.
+
+You can see `PicassoCard` , `IonCard` , `UniversalImageLoaderCard`.
 
 
 ---

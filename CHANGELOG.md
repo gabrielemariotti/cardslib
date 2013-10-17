@@ -1,6 +1,15 @@
 Change Log
 ===============================================================================
 
+Version 0.6.0 *(2013-xx-xx)*
+----------------------------
+
+ * LIB: CardThumbnail can load image with your favorite library [(doc)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/THUMBNAIL.md#using-external-library)
+ * DEMO: Added an extra demo with an integration with Picasso library in CardThumbnail
+ * DEMO: Added an extra demo with an integration with Ion library in CardThumbnail
+ * DEMO: Added an extra demo with an integration with Android-Universal-Image-Loader in CardThumbnail
+
+
 Version 0.5.0 *(2013-10-13)*
 ----------------------------
 
