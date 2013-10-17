@@ -23,8 +23,9 @@
         AppBaseTheme from BOTH res/values/styles.xml and
         res/values-v11/styles.xml on API 14+ devices.
     -->
-    <style name="AppBaseTheme" parent="Theme.Carddemo">
+    <style name="AppBaseTheme" parent="Theme.Carddemo_extra">
         <!-- API 14 theme customizations can go here. -->
+        <item name="android:scrollbarThumbVertical">@drawable/scrollbar_vertical_thumb</item>
     </style>
 
     <!-- Text for sections -->
