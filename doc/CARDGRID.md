@@ -1,5 +1,13 @@
 # Cards Library: CardGrid
 
+In this page you can find info about:
+
+* [Creating a base CardGrid](#creating-a-base-cardgrid)
+* [Use your custom layout for each row](#use-your-custom-layout-for-each-row)
+
+
+### Creating a base CardGrid
+
 Creating a `CardGridView` is pretty simple.
 
 First, you need an XML layout that will display the `CardListView`.

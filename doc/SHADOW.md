@@ -1,5 +1,15 @@
 # Cards Library: Shadow
 
+In this page you can find info about:
+
+* [Built-in shadow](#built-in-shadow)
+* [Hidden Shadow](#hidden-shadow)
+* [Customizing Shadow](#customizing-shadow)
+* [Customizing the ShadowLayout](#customizing-the-shadowLayout)
+
+
+### Built-in shadow
+
 Your card has a built-in shadow.
 
 The built-in Shadow Layout provides these features:

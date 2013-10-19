@@ -1,5 +1,14 @@
 # Cards Library: Expand
 
+In this page you can find info about:
+
+* [Creating a base CardExpand](#creating-a-base-cardexpand)
+* [Standard Expand](#standard-expand)
+* [Custom Expand inflating your inner layout](#custom-expand-inflating-your-inner-layout)
+
+
+### Creating a base CardExpand
+
 Creating a base `CardExpand` is pretty simple.
 
 ``` java

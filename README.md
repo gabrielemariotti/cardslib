@@ -102,7 +102,11 @@ Here you can find some pages to customize this tag.
 
 ## Examples
 
-Try out the apk with the [sample application](https://github.com/gabrielemariotti/cardslib/blob/master/apk/demo-0.5.0.apk?raw=true) or browse the [source code of the sample application](https://github.com/gabrielemariotti/cardslib/tree/master/demo) for a complete example of use.
+Try out:
+
+* the apk with the [sample application](https://github.com/gabrielemariotti/cardslib/blob/master/apk/demo-0.6.0.apk?raw=true)
+* the apk with the [extras examples](https://github.com/gabrielemariotti/cardslib/blob/master/apk/demo-extras-0.6.0.apk?raw=true)
+* browse the [source code of the sample application](https://github.com/gabrielemariotti/cardslib/tree/master/demo) for a complete example of use.
 
 * [Example:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/EXAMPLE.md) How to realize simple and nice cards.
 
@@ -113,7 +117,7 @@ Try out the apk with the [sample application](https://github.com/gabrielemariott
 Card Library is pushed to Maven Central as a AAR, so you just need to add the following dependency to your `build.gradle`.
 
     dependencies {
-        compile 'com.github.gabrielemariotti.cards:library:0.5.0'
+        compile 'com.github.gabrielemariotti.cards:library:0.6.0'
     }
 
 ChangeLog
