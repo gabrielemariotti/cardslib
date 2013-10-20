@@ -2,7 +2,7 @@
 
 There are two sample applications:
 
-* the **stock sample** which uses the standard library [Screenshots:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/EXAMPLE.md)
+* the **stock sample** which uses the standard library [(Screenshots:)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/EXAMPLE.md)
 * the **extras sample** which uses the library integrated with other libraries as Picasso, Ion, Android-Universal-Image-Loader.
 
 Demos require minSdkVersion of 14.
@@ -17,7 +17,7 @@ Try out:
 Acknowledgements
 --------------------
 
-Extras demo uses this open source libraries:
+Extras demo uses these open source libraries:
 
 * [Picasso][1] by [Square, Inc][2]
 * [Ion][3] by [Koushik Dutta][4]

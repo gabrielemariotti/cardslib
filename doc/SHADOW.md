@@ -5,7 +5,7 @@ In this page you can find info about:
 * [Built-in shadow](#built-in-shadow)
 * [Hidden Shadow](#hidden-shadow)
 * [Customizing Shadow](#customizing-shadow)
-* [Customizing the ShadowLayout](#customizing-the-shadowLayout)
+* [Customizing the ShadowLayout](#customizing-the-shadowlayout)
 
 
 ### Built-in shadow

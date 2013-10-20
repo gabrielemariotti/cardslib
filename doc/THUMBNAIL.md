@@ -5,7 +5,7 @@ In this page you can find info about:
 * [Basic usage](#basic-usage)
 * [Thumbnail from Resource ID](#thumbnail-from-resource-id)
 * [Thumbnail from Resource URL](#thumbnail-from-resource-url)
-* [Customize Thumbnail](#customize-tThumbnail)
+* [Customize Thumbnail](#customize-thumbnail)
 * [Broadcast to know when the download is finished](#broadcast-to-know-when-the-download-is-finished)
 * [Using external library](#using-external-library)
 

@@ -7,6 +7,7 @@ In this page you can find info about:
 * [CardGrid Usage](#cardgrid-usage)
 
 
+## Card Usage
 
 Creating a `Card` is pretty simple.
 
