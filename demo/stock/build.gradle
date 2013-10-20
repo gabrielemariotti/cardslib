@@ -45,7 +45,7 @@ dependencies {
 
 
 def Properties props = new Properties()
-def propFile = file('../signing.properties')
+def propFile = file('../../signing.properties')
 if (propFile.canRead()){
     props.load(new FileInputStream(propFile))
 
