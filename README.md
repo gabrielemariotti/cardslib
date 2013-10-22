@@ -120,6 +120,9 @@ Card Library is pushed to Maven Central as a AAR, so you just need to add the fo
         compile 'com.github.gabrielemariotti.cards:library:0.6.0'
     }
 
+[See this page for more info](https://github.com/gabrielemariotti/cardslib/tree/master/doc/BUILD.md).
+
+
 ChangeLog
 -------
 
