@@ -49,6 +49,8 @@ dependencies {
     compile 'com.koushikdutta.ion:ion:1.1.8'
     //universal-image-loader
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.8.6'
+    //Actionbar pull to refresh
+    compile 'com.github.chrisbanes.actionbarpulltorefresh:library:0.8'
 }
 
 

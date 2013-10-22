@@ -36,10 +36,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import it.gmariotti.cardslib.demo.extras.fragment.ActionbarpullFragment;
 import it.gmariotti.cardslib.demo.extras.fragment.BaseFragment;
 import it.gmariotti.cardslib.demo.extras.fragment.IonFragment;
 import it.gmariotti.cardslib.demo.extras.fragment.PicassoFragment;
 import it.gmariotti.cardslib.demo.extras.fragment.UniversalImageLoaderFragment;
+import uk.co.senab.actionbarpulltorefresh.library.PullToRefreshAttacher;
 
 
 public class MainActivity extends Activity {
@@ -51,6 +53,8 @@ public class MainActivity extends Activity {
     private int mSelectedFragment;
     private BaseFragment mBaseFragment;
 
+    private PullToRefreshAttacher mPullToRefreshAttacher;
+
     //Used in savedInstanceState
     private static String BUNDLE_SELECTEDFRAGMENT = "BDL_SELFRG";
 
@@ -58,6 +62,7 @@ public class MainActivity extends Activity {
     private static final int CASE_PICASSO = 0;
     private static final int CASE_ION = 1;
     private static final int CASE_UNILOADER = 2;
+    private static final int CASE_ACTIONPULL = 3;
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -68,6 +73,9 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.demo_extras_activity_main);
+
+        // The attacher should always be created in the Activity's onCreate
+        mPullToRefreshAttacher = PullToRefreshAttacher.get(this);
 
         // enable ActionBar app icon to behave as action to toggle nav drawer
         getActionBar().setDisplayHomeAsUpEnabled(true);
@@ -209,6 +217,9 @@ public class MainActivity extends Activity {
             case CASE_UNILOADER:
                 baseFragment= new UniversalImageLoaderFragment();
                 break;
+            case CASE_ACTIONPULL:
+                baseFragment= new ActionbarpullFragment();
+                break;
             default:
                 break;
         }
@@ -247,7 +258,8 @@ public class MainActivity extends Activity {
     public static final String[] options = {
             "Thumbnail with Picasso",
             "Thumbnail with Ion",
-            "Thumbnail with Universal-Image-Loader"
+            "Thumbnail with Universal-Image-Loader",
+            "ActionBar-PullToRefresh"
 
     };
 
@@ -262,6 +274,10 @@ public class MainActivity extends Activity {
             mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
         }
 
+    }
+
+    public PullToRefreshAttacher getPullToRefreshAttacher() {
+        return mPullToRefreshAttacher;
     }
 
 

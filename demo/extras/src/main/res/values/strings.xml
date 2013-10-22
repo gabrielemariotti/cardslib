@@ -59,6 +59,7 @@
     <string name="carddemo_extras_title_picasso">Thumbnail with Picasso</string>
     <string name="carddemo_extras_title_ion">Thumbnail with Ion</string>
     <string name="carddemo_extras_title_universal_image_loader">Thumbnail with Universal-Image-Loader </string>
+    <string name="carddemo_extras_title_actionbar_pull_to_refresh">ActionBar-PullToRefresh</string>
 
 
 </resources>
