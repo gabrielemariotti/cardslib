@@ -19,7 +19,7 @@ Card Library provides 3 custom tags:
 
 **It requires API 14+**
 
----------------------------------------
+--------------------------------------
 
 `CardView`  displays a UI Card.
 
@@ -48,7 +48,7 @@ Please note that this is currently in a preview state. This means that the API i
 
 ## Usage
 
-Create a `Card` is is pretty simple.
+Creating a `Card` is is pretty simple.
 
 First, you need an XML layout that will display the `Card`.
 
@@ -89,7 +89,7 @@ Last get a reference to the `CardView` from your code, and set your `Card`.
 
 ## Customization
 
-Here you can find some pages to customize this tag.
+Here you can find some pages to customize these tags.
 
 * [Overview:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/OVERVIEW.md)
 * [Card Header:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/HEADER.md) How to customize all header features
