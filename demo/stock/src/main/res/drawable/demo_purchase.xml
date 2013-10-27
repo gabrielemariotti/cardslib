@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <!--
   ~ /*******************************************************************************
   ~   Copyright (c) 2013 Gabriele Mariotti.
@@ -17,18 +18,7 @@
   ~  ******************************************************************************/
   -->
 
-<resources>
-
-    <color name="demo_title_section_textcolor">#2a84a5</color>
-
-    <!-- customize header standard title
-    <color name="card_text_color_header">#990066</color>
-    -->
-
-    <color name="carddemo_googlenowbirth_title">@android:color/holo_blue_dark</color>
-
-    <!-- Purchase -->
-    <color name="demo_purchase_normal">#ececec</color>
-    <color name="demo_purchase_pressed">#CC2A84A5</color>
-
-</resources>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true" android:drawable="@color/demo_purchase_pressed" />
+    <item android:drawable="@color/demo_purchase_normal" />
+</selector>
