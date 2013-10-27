@@ -1,7 +1,7 @@
 Change Log
 ===============================================================================
 
-Version 0.6.0 *(2013-xx-xx)*
+Version 0.6.0 *(2013-10-20)*
 ----------------------------
 
  * LIB: CardThumbnail can load image with your favorite library [(doc)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/THUMBNAIL.md#using-external-library)
