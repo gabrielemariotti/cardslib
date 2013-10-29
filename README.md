@@ -46,6 +46,17 @@ Card Library provides 3 custom tags:
 
 Please note that this is currently in a preview state. This means that the API is not fixed and you should expect changes between releases.
 
+## Examples
+
+Try out:
+
+* Get sample application on Google Play [![Get it on Google Play](http://www.android.com/images/brand/get_it_on_play_logo_small.png)](https://play.google.com/store/apps/details?id=it.gmariotti.cardslib.demo)
+* the apk with the [extras examples](https://github.com/gabrielemariotti/cardslib/blob/master/apk/demo-extras-0.6.0.apk?raw=true)
+* browse the [source code of the sample application](https://github.com/gabrielemariotti/cardslib/tree/master/demo) for a complete example of use.
+
+* [Example:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/EXAMPLE.md) How to realize simple and nice cards.
+
+
 ## Usage
 
 Creating a `Card` is is pretty simple.
@@ -100,15 +111,6 @@ Here you can find some pages to customize these tags.
 * [CardList:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARDLIST.md) How to work with the `CardListView`
 * [CardGrid:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARDGRID.md) How to work with the `CardGridView`
 
-## Examples
-
-Try out:
-
-* the apk with the [sample application](https://github.com/gabrielemariotti/cardslib/blob/master/apk/demo-0.6.0.apk?raw=true)
-* the apk with the [extras examples](https://github.com/gabrielemariotti/cardslib/blob/master/apk/demo-extras-0.6.0.apk?raw=true)
-* browse the [source code of the sample application](https://github.com/gabrielemariotti/cardslib/tree/master/demo) for a complete example of use.
-
-* [Example:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/EXAMPLE.md) How to realize simple and nice cards.
 
 ---
 
