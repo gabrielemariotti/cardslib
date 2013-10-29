@@ -48,6 +48,7 @@
     <string name="action_settings">Settings</string>
     <string name="action_menu_refresh">Refresh</string>
     <string name="action_share">Share</string>
+    <string name="action_menu_beer">Pay me a beer</string>
 
     <!-- Misc -->
     <string name="hello_world">Hello world!</string>
@@ -134,6 +135,16 @@
     <string name="demo_suggested_member">199990 members</string>
     <string name="demo_suggested_subtitle">Brought to you by Android Central......</string>
     <string name="demo_suggested_community">View community</string>
+
+    <!-- Purchase -->
+    <string name="demo_purchase"><![CDATA[
+        <b>Buy me a beer</b>
+    ]]></string>
+    <string name="purchase_cancel">Cancel</string>
+    <string name="demo_item_small_beer">Buy me a small beer</string>
+    <string name="demo_item_medium_beer">Buy me a medium beer</string>
+    <string name="demo_item_large_beer">Buy me a large beer</string>
+
 
 
 </resources>

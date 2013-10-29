@@ -20,6 +20,9 @@
 <resources>
     <dimen name="drawer_width">320dp</dimen>
     <dimen name="text_size_medium">14sp</dimen>
+    <dimen name="text_size_large">18sp</dimen>
+    <dimen name="purchase_text_size_large">18sp</dimen>
+
     <dimen name="card_birth_width">400dp</dimen>
     <dimen name="card_mayknow_margin_top">10dp</dimen>
 
