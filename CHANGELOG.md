@@ -1,6 +1,17 @@
 Change Log
 ===============================================================================
 
+Version 0.7.0 *(2013-XX-XX)*
+----------------------------
+
+ * LIB: Added errorResourceId in CardThumbnail [(doc)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/THUMBNAIL.md#error-resource-id)
+ * LIB: Improved Broadcast when the download is finished/cancelled in CardViewThumbnail [(doc)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/THUMBNAIL.md#broadcast-to-know-when-the-download-is-finished)
+ * DEMO-extras: Added an example with [ActionBar-PullToRefresh by Chris Banes](https://github.com/chrisbanes/ActionBar-PullToRefresh) [(doc)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/OTHERLIBRARIES.md#using-card-with-actionbar-pulltorefresh)
+ * LIB: Improved caching in CardThumbnail
+ * DEMO: Fixed issues on Google Stock Card (NPE) and NavigationDrawer (Resources$NotFoundException)
+
+
+
 Version 0.6.0 *(2013-10-20)*
 ----------------------------
 

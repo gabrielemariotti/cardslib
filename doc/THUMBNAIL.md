@@ -5,6 +5,7 @@ In this page you can find info about:
 * [Basic usage](#basic-usage)
 * [Thumbnail from Resource ID](#thumbnail-from-resource-id)
 * [Thumbnail from Resource URL](#thumbnail-from-resource-url)
+* [Error resource id](#error-resource-id)
 * [Customize Thumbnail](#customize-thumbnail)
 * [Broadcast to know when the download is finished](#broadcast-to-know-when-the-download-is-finished)
 * [Using external library](#using-external-library)
@@ -82,6 +83,26 @@ If you want to load an image from an url:
 
 ![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/thumb/resourceURL.png)
 
+### Error Resource Id
+
+You can set a drawable resource Id to display when the image can be attached to ImageView (for example there is an error occurs while downloading).
+
+``` java
+        //Create thumbnail
+        CustomThumbCard thumb = new CustomThumbCard(getActivity().getApplicationContext());
+
+        //Set URL resource
+        thumb.setUrlResource(myUrl);
+
+        //Error Resource ID
+        thumb.setErrorResource(R.drawable.ic_error_loading);
+
+        //Add thumbnail to a card
+        card.addCardThumbnail(thumb);
+```
+
+![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/thumb/errorID.png)
+
 ### Customize Thumbnail
 
 If you want to customize your Thumbnail you can use your style files.
@@ -139,8 +160,9 @@ If you would like to know when the image is downloaded and attached to ImageView
 
 This Intent includes extras that provide additional details:
 
-1. `Constants.IntentManager.INTENT_ACTION_IMAGE_DOWNLOADED_EXTRA_RESULT` is a boolean. It is `true` when the image is downloaded and attached successfully
+1. `Constants.IntentManager.INTENT_ACTION_IMAGE_DOWNLOADED_EXTRA_RESULT` is a boolean. It is `true` when the image is downloaded and attached successfully, `false` otherwise.
 2. `Constants.IntentManager.INTENT_ACTION_IMAGE_DOWNLOADED_EXTRA_CARD_ID` contains the card id which contains the imageView.
+3. `Constants.IntentManager.INTENT_ACTION_IMAGE_DOWNLOADED_EXTRA_ERROR_LOADING` is a boolean. It is `true` when the error image is attached.
 
 ``` java
     /**
@@ -154,6 +176,7 @@ This Intent includes extras that provide additional details:
             if (extras!=null){
                 boolean result = extras.getBoolean(Constants.IntentManager.INTENT_ACTION_IMAGE_DOWNLOADED_EXTRA_RESULT);
                 String id = extras.getString(Constants.IntentManager.INTENT_ACTION_IMAGE_DOWNLOADED_EXTRA_CARD_ID);
+                boolean processError = extras.getBoolean(Constants.IntentManager.INTENT_ACTION_IMAGE_DOWNLOADED_EXTRA_ERROR_LOADING);
                 if (result){
                     if (id!=null && id.equalsIgnoreCase(cardGmap.getId())){
                         updateIntentToShare();
