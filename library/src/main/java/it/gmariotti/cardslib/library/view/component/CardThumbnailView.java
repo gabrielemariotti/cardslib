@@ -291,7 +291,7 @@ public class CardThumbnailView extends FrameLayout implements CardViewInterface 
 
 
     protected void addBitmapToMemoryCache(String key, Bitmap bitmap) {
-        if (getBitmapFromMemCache(key) == null) {
+        if (!mLoadingErrorResource && getBitmapFromMemCache(key) == null) {
             if (key!=null && bitmap!=null){
                 mMemoryCache.put(key, bitmap);
             }
