@@ -113,6 +113,7 @@ public class IonCard extends Card {
 
                 Ion.with((ImageView) viewImage)
                         .resize(96, 96)
+                        .error(R.drawable.ic_error_loadingsmall)
                         .centerInside()
                         .load("https://plus.google.com/s2/photos/profile/114432517923423045208?sz=96");
 

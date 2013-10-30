@@ -60,7 +60,7 @@ public class UniversalImageLoaderCard extends Card {
     private void init() {
 
         //Add thumbnail
-        PicassoCardThumbnail cardThumbnail = new PicassoCardThumbnail(mContext);
+        UniversalCardThumbnail cardThumbnail = new UniversalCardThumbnail(mContext);
         cardThumbnail.setExternalUsage(true);
         addCardThumbnail(cardThumbnail);
 
@@ -95,9 +95,9 @@ public class UniversalImageLoaderCard extends Card {
      * This method is called before built-in method.
      * If {@link it.gmariotti.cardslib.library.internal.CardThumbnail#isExternalUsage()} is false it uses the built-in method.
      */
-    class PicassoCardThumbnail extends CardThumbnail {
+    class UniversalCardThumbnail extends CardThumbnail {
 
-        public PicassoCardThumbnail(Context context) {
+        public UniversalCardThumbnail(Context context) {
             super(context);
         }
 

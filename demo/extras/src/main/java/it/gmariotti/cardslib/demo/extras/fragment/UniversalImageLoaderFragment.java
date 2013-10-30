@@ -91,6 +91,7 @@ public class UniversalImageLoaderFragment extends BaseFragment {
         options = new DisplayImageOptions.Builder()
                 .cacheInMemory(true)
                 .displayer(new SimpleBitmapDisplayer())
+                .showImageOnFail(R.drawable.ic_error_loadingsmall)
                 .build();
     }
 

@@ -97,7 +97,7 @@ public class ActionbarpullFragment extends BaseFragment implements PullToRefresh
             card.setTitle("A simple card loaded with Picasso " + i);
             card.setSecondaryTitle("Simple text..." + i);
             card.setCount(i);
-            //card.setSwipeable(true);
+            card.setSwipeable(true);
             cards.add(card);
         }
 

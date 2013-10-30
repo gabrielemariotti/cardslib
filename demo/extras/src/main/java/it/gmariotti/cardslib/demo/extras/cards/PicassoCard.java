@@ -114,6 +114,7 @@ public class PicassoCard extends Card {
                 Picasso.with(getContext()).setDebugging(true);  //only for debug tests
                 Picasso.with(getContext())
                         .load("https://plus.google.com/s2/photos/profile/114432517923423045208?sz=96")
+                        .error(R.drawable.ic_error_loadingsmall)
                         .into((ImageView) viewImage);
             } else {
                 Picasso.with(getContext()).setDebugging(true);  //only for debug tests
