@@ -56,6 +56,7 @@ public class MayKnowCard extends Card {
         //Add Thumbnail
         CardThumbnail thumbnail = new CardThumbnail(getContext());
         thumbnail.setUrlResource("https://plus.google.com/s2/photos/profile/114432517923423045208?sz=72");
+        thumbnail.setErrorResource(R.drawable.ic_error_loadingsmall);
         addCardThumbnail(thumbnail);
 
         OnCardClickListener clickListener = new OnCardClickListener() {

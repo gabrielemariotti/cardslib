@@ -72,6 +72,7 @@ public class GoogleNowBirthCard extends Card {
         //Add Thumbnail
         GoogleNowBirthThumb thumbnail = new GoogleNowBirthThumb(getContext());
         thumbnail.setUrlResource("https://plus.google.com/s2/photos/profile/114432517923423045208?sz=250");
+        thumbnail.setErrorResource(R.drawable.ic_ic_error_loading);
         addCardThumbnail(thumbnail);
     }
 

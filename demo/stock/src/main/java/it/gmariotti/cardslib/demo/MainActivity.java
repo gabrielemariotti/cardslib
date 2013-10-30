@@ -64,7 +64,7 @@ public class MainActivity extends Activity {
     private ListView mDrawerList;
     private DrawerLayout mDrawer;
     private CustomActionBarDrawerToggle mDrawerToggle;
-    private int mCurrentTitle;
+    private int mCurrentTitle=R.string.app_name;
     private int mSelectedFragment;
     private BaseFragment mBaseFragment;
 
@@ -342,7 +342,8 @@ public class MainActivity extends Activity {
             fragmentTransaction.replace(R.id.fragment_main, baseFragment);
             //fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
-            mCurrentTitle = baseFragment.getTitleResourceId();
+            if (baseFragment.getTitleResourceId()>0)
+                mCurrentTitle = baseFragment.getTitleResourceId();
         }
     }
 

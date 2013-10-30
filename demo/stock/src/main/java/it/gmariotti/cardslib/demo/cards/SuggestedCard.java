@@ -63,6 +63,7 @@ public class SuggestedCard extends Card {
         //Add thumbnail
         CardThumbnail thumb = new SuggestedCardThumb(getContext());
         thumb.setUrlResource("https://lh5.googleusercontent.com/-N8bz9q4Kz0I/AAAAAAAAAAI/AAAAAAAAAAs/Icl2bQMyK7c/s265-c-k-no/photo.jpg");
+        thumb.setErrorResource(R.drawable.ic_error_loadingorangesmall);
         addCardThumbnail(thumb);
     }
 

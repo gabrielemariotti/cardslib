@@ -85,6 +85,12 @@ public class StockCardFragment extends BaseFragment {
         mScrollView = (ScrollView) getActivity().findViewById(R.id.card_scrollview);
 
         initCard();
+
+        if (photofile==null){
+            if (mShareActionProvider != null) {
+                getActivity().invalidateOptionsMenu();
+            }
+        }
     }
 
 
@@ -102,9 +108,13 @@ public class StockCardFragment extends BaseFragment {
     }
 
     private Intent getShareIntent(){
-        photofile = BitmapUtils.createFileFromBitmap(cardView.createBitmap());
-        if (photofile!=null){
-            return BitmapUtils.createIntentFromImage(photofile);
+        if (cardView!=null){
+            photofile = BitmapUtils.createFileFromBitmap(cardView.createBitmap());
+            if (photofile!=null){
+                return BitmapUtils.createIntentFromImage(photofile);
+            }else{
+                return getDefaultIntent();
+            }
         }else{
             return getDefaultIntent();
         }

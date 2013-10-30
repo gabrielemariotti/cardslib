@@ -119,6 +119,9 @@ public class ThumbnailFragment extends BaseFragment {
         //Set URL resource
         thumb.setUrlResource("https://lh5.googleusercontent.com/-N8bz9q4Kz0I/AAAAAAAAAAI/AAAAAAAAAAs/Icl2bQMyK7c/s265-c-k-no/photo.jpg");
 
+        //Error Resource ID
+        thumb.setErrorResource(R.drawable.ic_error_loadingorangesmall);
+
         //Add thumbnail to a card
         card.addCardThumbnail(thumb);
 
@@ -148,6 +151,9 @@ public class ThumbnailFragment extends BaseFragment {
 
         //Set URL resource
         thumb.setUrlResource("https://lh5.googleusercontent.com/-N8bz9q4Kz0I/AAAAAAAAAAI/AAAAAAAAAAs/Icl2bQMyK7c/s265-c-k-no/photo.jpg");
+
+        //Error Resource ID
+        thumb.setErrorResource(R.drawable.ic_error_loadingorangesmall);
 
         //Add thumbnail to a card
         card.addCardThumbnail(thumb);

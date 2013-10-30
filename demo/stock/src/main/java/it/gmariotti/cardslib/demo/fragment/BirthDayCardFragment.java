@@ -165,6 +165,7 @@ public class BirthDayCardFragment extends BaseFragment {
             if (extras!=null){
                 boolean result = extras.getBoolean(Constants.IntentManager.INTENT_ACTION_IMAGE_DOWNLOADED_EXTRA_RESULT);
                 String id = extras.getString(Constants.IntentManager.INTENT_ACTION_IMAGE_DOWNLOADED_EXTRA_CARD_ID);
+                boolean processError = extras.getBoolean(Constants.IntentManager.INTENT_ACTION_IMAGE_DOWNLOADED_EXTRA_ERROR_LOADING);
                 if (result){
                     if (id!=null && id.equalsIgnoreCase(birthCard.getId())){
                         updateIntentToShare();
