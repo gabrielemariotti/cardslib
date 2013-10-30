@@ -87,6 +87,16 @@ public class CardThumbnail extends BaseCard {
      */
     protected boolean mExternalUsage=false;
 
+    /**
+     * Placeholder
+     */
+    protected int placeholderResourceId=0;
+
+    /**
+     * errorResourceId: image used if an error occurs while downloading file
+     */
+    protected int errorResourceId=0;
+
     // -------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------
@@ -175,5 +185,23 @@ public class CardThumbnail extends BaseCard {
      */
     public void setExternalUsage(boolean externalUsage) {
         this.mExternalUsage = externalUsage;
+    }
+
+    /**
+     * Returns image used if an error occurs while downloading file
+     *
+     * @return
+     */
+    public int getErrorResourceId() {
+        return errorResourceId;
+    }
+
+    /**
+     * Sets image used if an error occurs while downloading file
+     *
+     * @param errorResourceId
+     */
+    public void setErrorResource(int errorResourceId) {
+        this.errorResourceId = errorResourceId;
     }
 }

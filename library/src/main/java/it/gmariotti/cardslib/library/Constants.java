@@ -19,9 +19,17 @@ public class Constants {
         public static final String INTENT_ACTION_IMAGE_DOWNLOADED_EXTRA_RESULT  = "ExtraResult";
 
         /**
+         * Extra for download process
+         */
+        public static final String INTENT_ACTION_IMAGE_DOWNLOADED_EXTRA_ERROR_LOADING  = "ExtraErrorLoading";
+
+        /**
          * Extra for {@link it.gmariotti.cardslib.library.internal.Card} id
          */
         public static final String INTENT_ACTION_IMAGE_DOWNLOADED_EXTRA_CARD_ID  = "ExtraCardId";
+
+
+
 
     }
 
