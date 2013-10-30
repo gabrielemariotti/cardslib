@@ -62,7 +62,7 @@ afterEvaluate { project ->
         source = android.sourceSets.main.allJava
     }
 
-    task androidJavadocsJar(type: Jar) {
+    task androidJavadocsJar(type: Jar, dependsOn:javadoc) {
         classifier = 'javadoc'
         //basename = artifact_id
         from androidJavadocs.destinationDir
