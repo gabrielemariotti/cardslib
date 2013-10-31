@@ -34,9 +34,9 @@
     </style>
 
     <style name="ActionBar.Solid.Carddemo_extra" parent="@android:style/Widget.Holo.Light.ActionBar.Solid">
-        <item name="android:background">@drawable/ab_solid_carddemo_extra</item>
+        <item name="android:background">@drawable/ab_background_textured_carddemo_extra</item>
         <item name="android:backgroundStacked">@drawable/ab_stacked_solid_carddemo_extra</item>
-        <item name="android:backgroundSplit">@drawable/ab_bottom_solid_carddemo_extra</item>
+        <item name="android:backgroundSplit">@drawable/ab_background_textured_carddemo_extra</item>
         <item name="android:progressBarStyle">@style/ProgressBar.Carddemo_extra</item>
     </style>
 

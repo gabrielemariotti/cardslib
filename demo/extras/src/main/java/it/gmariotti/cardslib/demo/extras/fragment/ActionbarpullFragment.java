@@ -28,7 +28,7 @@ import java.util.ArrayList;
 
 import it.gmariotti.cardslib.demo.extras.MainActivity;
 import it.gmariotti.cardslib.demo.extras.R;
-import it.gmariotti.cardslib.demo.extras.cards.PicassoCard;
+import it.gmariotti.cardslib.demo.extras.cards.ColorCard;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
 import it.gmariotti.cardslib.library.view.CardListView;
@@ -92,12 +92,28 @@ public class ActionbarpullFragment extends BaseFragment implements PullToRefresh
 
         //Init an array of Cards
         ArrayList<Card> cards = new ArrayList<Card>();
-        for (int i = 0; i < 200; i++) {
-            PicassoCard card = new PicassoCard(this.getActivity());
-            card.setTitle("A simple card loaded with Picasso " + i);
-            card.setSecondaryTitle("Simple text..." + i);
+        for (int i = 0; i < 5; i++) {
+            ColorCard card = new ColorCard(this.getActivity());
+            card.setTitle("A simple colored card " + i);
             card.setCount(i);
-            card.setSwipeable(true);
+            switch (i) {
+                case 0:
+                    card.setBackgroundResourceId(R.drawable.demoextra_card_selector_color1);
+                    break;
+                case 1:
+                    card.setBackgroundResourceId(R.drawable.demoextra_card_selector_color2);
+                    break;
+                case 2:
+                    card.setBackgroundResourceId(R.drawable.demoextra_card_selector_color3);
+                    break;
+                case 3:
+                    card.setBackgroundResourceId(R.drawable.demoextra_card_selector_color4);
+                    break;
+                case 4:
+                    card.setBackgroundResourceId(R.drawable.demoextra_card_selector_color5);
+                    break;
+            }
+
             cards.add(card);
         }
 

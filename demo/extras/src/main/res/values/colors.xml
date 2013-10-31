@@ -27,4 +27,12 @@
 
     <color name="carddemo_extras_googlenowbirth_title">@android:color/holo_blue_dark</color>
 
+    <!-- color card -->
+    <color name="demoextra_card_background_color1">#FFBB33</color>
+    <color name="demoextra_card_background_color2">#98CC00</color>
+    <color name="demoextra_card_background_color3">#A966CC</color>
+    <color name="demoextra_card_background_color4">#33B4E4</color>
+    <color name="demoextra_card_background_color5">#FF4343</color>
+
+
 </resources>

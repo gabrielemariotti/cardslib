@@ -35,8 +35,9 @@
         <it.gmariotti.cardslib.library.view.CardListView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
             android:id="@+id/carddemo_extra_list_actionbarpulltorefresh"
-            card:list_card_layout_resourceID="@layout/list_card_thumbnail_layout"/>
+            card:list_card_layout_resourceID="@layout/list_card_layout"/>
 
     </uk.co.senab.actionbarpulltorefresh.library.PullToRefreshLayout>
 
