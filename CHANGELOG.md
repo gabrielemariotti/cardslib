@@ -1,7 +1,7 @@
 Change Log
 ===============================================================================
 
-Version 0.7.0 *(2013-XX-XX)*
+Version 0.7.0 *(2013-11-01)*
 ----------------------------
 
  * DEMO-extras: Added an example with [ActionBar-PullToRefresh by Chris Banes](https://github.com/chrisbanes/ActionBar-PullToRefresh) [(doc)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/OTHERLIBRARIES.md#using-card-with-actionbar-pulltorefresh)
