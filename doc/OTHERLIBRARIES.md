@@ -133,7 +133,7 @@ You can find an example in demo-extras in `ActionbarpullFragment`. [(source)](ht
 
 The proper way to integrate this library is to use `PullToRefreshLayout` in your layout:
 
-[You can see more info at:](https://github.com/chrisbanes/ActionBar-PullToRefresh#pulltorefreshlayout)
+[You can see more info about `PullToRefreshLayout` at:](https://github.com/chrisbanes/ActionBar-PullToRefresh#pulltorefreshlayout)
 
 ``` xml
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -166,7 +166,8 @@ The proper way to integrate this library is to use `PullToRefreshLayout` in your
         mPullToRefreshAttacher = ((MainActivity) getActivity()).getPullToRefreshAttacher();
 
         // Retrieve the PullToRefreshLayout from the content view
-        PullToRefreshLayout ptrLayout = (PullToRefreshLayout) getActivity().findViewById(R.id.carddemo_extra_ptr_layout);
+        PullToRefreshLayout ptrLayout = (PullToRefreshLayout) getActivity()
+                                          .findViewById(R.id.carddemo_extra_ptr_layout);
 
         // Give the PullToRefreshAttacher to the PullToRefreshLayout, along with a refresh listener.
         ptrLayout.setPullToRefreshAttacher(mPullToRefreshAttacher, this);

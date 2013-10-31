@@ -6,11 +6,13 @@ There are two sample applications:
 
 * the **stock sample** which uses the standard library and provides a showcase of the functionality of the library [(Screenshots:)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/EXAMPLE.md)
 * the **extras sample** which uses the library integrated with other libraries:
-1. Picasso
-2. Ion
-3. Android-Universal-Image-Loader
-4. ActionBar-PullToRefresh
-[(See this page for more info)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/OTHERLIBRARIES.md)
+
+1. [Picasso][1]
+2. [Ion][3]
+3. [Android-Universal-Image-Loader][5]
+4. [ActionBar-PullToRefresh][7]
+
+[(See this page for more info about integration)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/OTHERLIBRARIES.md)
 
 
 Demos require minSdkVersion of 14.
@@ -19,7 +21,7 @@ Demos require minSdkVersion of 14.
 Try out:
 
 * Get sample application on Google Play [![Get it on Google Play](http://www.android.com/images/brand/get_it_on_play_logo_small.png)](https://play.google.com/store/apps/details?id=it.gmariotti.cardslib.demo).<br/>The demo is a showcase of the functionality of the library.
-* Get the apk with the [extras examples](https://github.com/gabrielemariotti/cardslib/blob/master/apk/demo-extras-0.6.0.apk?raw=true)
+* Get the apk with the [extras examples](https://github.com/gabrielemariotti/cardslib/blob/master/apk/demo-extras-0.7.0.apk?raw=true)
 
 
 Acknowledgements
@@ -30,7 +32,7 @@ Extras demo uses these open source libraries:
 * [Picasso][1] by [Square, Inc][2]
 * [Ion][3] by [Koushik Dutta][4]
 * [Android-Universal-Image-Loader c) 2011-2013][5] by [Sergey Tarasevich][6]
-* [ActionBar-PullToRefresh][7] by Chris Banes[8]
+* [ActionBar-PullToRefresh][7] by [Chris Banes][8]
 * [okhttp][9] by [Square, Inc][2]
 
 Credits

@@ -15,8 +15,9 @@ Try out:
 
 ![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/demo_gplay.png)
 
-* Get sample application on Google Play [![Get it on Google Play](http://www.android.com/images/brand/get_it_on_play_logo_small.png)](https://play.google.com/store/apps/details?id=it.gmariotti.cardslib.demo).<br/>The demo is a showcase of the functionality of the library.
-* Get the apk with the [extras examples](https://github.com/gabrielemariotti/cardslib/blob/master/apk/demo-extras-0.6.0.apk?raw=true)<br/>The demo-extras contains some examples of integration with other libraries.
+* Get **sample application** on Google Play [![Get it on Google Play](http://www.android.com/images/brand/get_it_on_play_logo_small.png)](https://play.google.com/store/apps/details?id=it.gmariotti.cardslib.demo).<br/>The demo is a showcase of the functionality of the library.
+* Get the apk with the [extras examples](https://github.com/gabrielemariotti/cardslib/blob/master/apk/demo-extras-0.7.0.apk?raw=true)<br/>The demo-extras contains some examples of integration with other libraries.
+
 * Browse the [source code of the sample application](https://github.com/gabrielemariotti/cardslib/tree/master/demo) for a complete example of use.
 
 * [Example:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/EXAMPLE.md) How to realize simple and nice cards.
@@ -57,7 +58,6 @@ Card Library provides 3 custom tags:
 * It works with an `CardGridArrayAdapter
 
 
-Please note that this is currently in a preview state. This means that the API is not fixed and you should expect changes between releases.
 
 ## Usage
 
@@ -112,7 +112,7 @@ Here you can find some pages to customize these tags.
 * [Card:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARD.md) How to customize all card features
 * [CardList:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARDLIST.md) How to work with the `CardListView`
 * [CardGrid:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARDGRID.md) How to work with the `CardGridView`
-
+* [Integration with other libraries](https://github.com/gabrielemariotti/cardslib/tree/master/doc/OTHERLIBRARIES.md)
 
 ---
 

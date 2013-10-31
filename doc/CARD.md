@@ -427,10 +427,10 @@ Example:
 ``` xml
     <selector xmlns:android="http://schemas.android.com/apk/res/android"
                          android:exitFadeDuration="@android:integer/config_mediumAnimTime">
-    <item android:state_pressed="true" android:drawable="@drawable/pressed_background_card"/>
-    <item android:drawable="@drawable/demo_card_background_color1"/>
+        <item android:state_pressed="true" android:drawable="@drawable/pressed_background_card"/>
+        <item android:drawable="@drawable/demo_card_background_color1"/>
     </selector>
-``` xml
+```
 
 You can see this example:  Colored cards example [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/ListColorFragment.java).
 

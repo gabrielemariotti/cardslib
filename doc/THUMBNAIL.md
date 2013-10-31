@@ -85,7 +85,7 @@ If you want to load an image from an url:
 
 ### Error Resource Id
 
-You can set a drawable resource Id to display when the image can be attached to ImageView (for example there is an error occurs while downloading).
+You can set a drawable resource Id to display when the image can't be attached to ImageView (for example an error occurs while downloading).
 
 ``` java
         //Create thumbnail
@@ -225,7 +225,9 @@ Then you have to implement your logic in `setupInnerViewElements(ViewGroup paren
 
 In Demo/Extra you can find 3 example with Picasso, Ion and Android-Universal-Image-Loader libraries.
 
-You can see `PicassoCard` , `IonCard` , `UniversalImageLoaderCard`.
+You can see `PicassoCard` , `IonCard` , `UniversalImageLoaderCard` sources in demo-extras.
+
+[You can read more info in this page](https://github.com/gabrielemariotti/cardslib/tree/master/doc/OTHERLIBRARIES.md).
 
 
 ---
