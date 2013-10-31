@@ -11,7 +11,7 @@ In this page you can find info about:
 
 [Picasso][1] is provided by [Square, inc][2].
 
-You can find an example in demo-extras in `PicassoCard`.
+You can find an example in demo-extras in `PicassoCard` [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/fragment/PicassoFragment.java).
 
 First you need to set  `thumbnail.setExternalUsage(true);`
 
@@ -47,7 +47,7 @@ Then you have to implement your logic in `setupInnerViewElements(ViewGroup paren
 
 [Ion][3] is provided by [Koushik Dutta][4].
 
-You can find an example in demo-extras in `IonCard`.
+You can find an example in demo-extras in `IonCard`  [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/fragment/IonFragment.java).
 
 First you need to set  `thumbnail.setExternalUsage(true);`
 
@@ -84,7 +84,7 @@ Then you have to implement your logic in `setupInnerViewElements(ViewGroup paren
 
 [Android-Universal-Image-Loader][5] is provided by [Sergey Tarasevich][6].
 
-You can find an example in demo-extras in `UniversalImageLoaderCard`.
+You can find an example in demo-extras in `UniversalImageLoaderCard`  [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/fragment/UniversalImageLoaderFragment.java) .
 
 First you need to set  `thumbnail.setExternalUsage(true);`
 
@@ -129,7 +129,7 @@ Then you have to implement your logic in `setupInnerViewElements(ViewGroup paren
 
 [ActionBar PullToRefresh][7] is provided by [Chris Banes][8].
 
-You can find an example in demo-extras in `ActionbarpullFragment`.
+You can find an example in demo-extras in `ActionbarpullFragment`. [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/fragment/ActionbarpullFragment.java)
 
 The proper way to integrate this library is to use `PullToRefreshLayout` in your layout:
 

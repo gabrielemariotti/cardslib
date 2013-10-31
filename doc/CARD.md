@@ -13,6 +13,7 @@ In this page you can find info about:
 * [Refresh a card](#refresh-a-card)
 * [Replace inner layout in a card](#replace-inner-layout-in-a-card)
 * [Customize Card background](#customize-card-background)
+* [Change Dynamically card background](#change-dynamically-card-background)
 * [Export card as bitmap](#export-card-as-bitmap)
 
 
@@ -407,6 +408,35 @@ If you want to change the rounded corners, the quickest way would be to customiz
 ``` xml
     <dimen name="card_background_default_radius">2dip</dimen>
 ```
+
+#### Change dynamically Card background
+
+If you need to change dynamically the card background you can use this code:
+
+``` java
+    ColorCard card = new ColorCard(this.getActivity());
+
+    //Set Background resource
+    card.setBackgroundResourceId(R.drawable.demo_card_selector_color1);
+```
+
+Where R.drawable.demo_card_selector_color1 can be a selector or a drawable.
+
+Example:
+
+``` xml
+    <selector xmlns:android="http://schemas.android.com/apk/res/android"
+                         android:exitFadeDuration="@android:integer/config_mediumAnimTime">
+    <item android:state_pressed="true" android:drawable="@drawable/pressed_background_card"/>
+    <item android:drawable="@drawable/demo_card_background_color1"/>
+    </selector>
+``` xml
+
+You can see this example:  Colored cards example [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/ListColorFragment.java).
+
+![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/demo/colors.png)
+
+
 
 #### Export card as bitmap
 
