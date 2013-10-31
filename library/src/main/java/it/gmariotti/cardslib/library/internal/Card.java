@@ -157,6 +157,14 @@ public class Card extends BaseCard {
      */
     protected OnUndoSwipeListListener mOnUndoSwipeListListener;
 
+    /**
+     * It identifies the background resource of view with this id:
+     * android:id="@+id/card_main_layout"
+     * <p/>
+     * In a standard card it identifies the main background.
+     */
+    private int mBackgroundResourceId =0;
+
     // -------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------
@@ -591,7 +599,7 @@ public class Card extends BaseCard {
     }
 
     /**
-     * Return <code>true</code> if the card is clickable
+     * Returns <code>true</code> if the card is clickable
      * If card hasn't a {@link OnCardClickListener} or any partial Listener return <code>true</code> in any cases.
      *
      * @return
@@ -649,7 +657,7 @@ public class Card extends BaseCard {
     }
 
     /**
-     * Set the card as longClickable
+     * Sets the card as longClickable
      *
      * @param isLongClickable
      */
@@ -658,7 +666,7 @@ public class Card extends BaseCard {
     }
 
     /**
-     * Add a clickListener on a specific area
+     * Adds a clickListener on a specific area
      * </p>
      * You can use one of these values:
      * {@link Card#CLICK_LISTENER_ALL_VIEW}
@@ -735,7 +743,7 @@ public class Card extends BaseCard {
 
 
     /**
-     * Check if 2 cards have the same innerLayouts
+     * Checks if 2 cards have the same innerLayouts
      * It can be used to force inner layout redraw
      *
      * @param oldCard
@@ -786,4 +794,35 @@ public class Card extends BaseCard {
 
         return false;
     }
+
+    /**
+     * Sets the background drawable resource to override the style of MainLayout (card.main_layout)
+     *
+     * @param drawableResourceId drawable resource Id
+     */
+    public void setBackgroundResourceId(int drawableResourceId) {
+        this.mBackgroundResourceId = drawableResourceId;
+    }
+
+    /**
+     * Retrieves the background drawable resource
+     *
+     * @return
+     */
+    public int getBackgroundResourceId() {
+        return mBackgroundResourceId;
+    }
+
+    /**
+     * Changes dynamically the drawable resource to override the style of MainLayout.
+     *
+     * @param drawableResourceId   drawable resource Id
+     */
+    public void changeBackgroundResourceId(int drawableResourceId){
+        if (mCardView!=null){
+            mCardView.changeBackgroundResourceId(drawableResourceId);
+        }
+    }
+
+
 }

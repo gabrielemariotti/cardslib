@@ -275,8 +275,10 @@ public class CardView extends BaseCardView {
 
         //Setup Listeners
         setupListeners();
-    }
 
+        //Setup Drawable Resources
+        setupDrawableResources();
+    }
 
 
     /**
@@ -404,6 +406,19 @@ public class CardView extends BaseCardView {
                 mInternalThumbnailLayout.addCardThumbnail(mCardThumbnail);
             }else{
                 mInternalThumbnailLayout.setVisibility(GONE);
+            }
+        }
+    }
+
+    /**
+     * Setup Drawable Resources
+     */
+    protected void setupDrawableResources() {
+
+        //Card
+        if (mCard!=null){
+            if (mCard.getBackgroundResourceId()!=0){
+                changeBackgroundResourceId(mCard.getBackgroundResourceId());
             }
         }
     }
@@ -618,7 +633,6 @@ public class CardView extends BaseCardView {
             }
         }
     }
-
 
 
     /**
@@ -842,4 +856,31 @@ public class CardView extends BaseCardView {
             mCard.setExpanded(expanded);
         }
     }
+
+    /**
+     * Retrieves the InternalMainCardGlobalLayout.
+     * Background style is applied here.
+     *
+     * @return
+     */
+    public View getInternalMainCardLayout() {
+        return mInternalMainCardLayout;
+    }
+
+    /**
+     * Changes dynamically the drawable resource to override the style of MainLayout.
+     *
+     * @param drawableResourceId drawable resource Id
+     */
+    public void changeBackgroundResourceId(int drawableResourceId) {
+        if (drawableResourceId!=0){
+            if (mInternalMainCardLayout!=null){
+                mInternalMainCardLayout.setBackgroundResource(drawableResourceId);
+            }
+        }
+    }
+
+
+
+
 }
