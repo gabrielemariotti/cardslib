@@ -28,8 +28,7 @@ import it.gmariotti.cardslib.demo.extras.R;
 import it.gmariotti.cardslib.library.internal.Card;
 
 /**
- * This class provides a simple card with Thumbnail loaded with built-in method and Picasso library
- * Please refer to https://github.com/square/picasso for full doc
+ * Simple colored card
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
@@ -53,7 +52,7 @@ public class ColorCard extends Card {
         setOnClickListener(new OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
-                Toast.makeText(getContext(), "Click Listener card=", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Click Listener card="+count, Toast.LENGTH_SHORT).show();
             }
         });
     }
