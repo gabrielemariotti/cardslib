@@ -121,7 +121,7 @@ Here you can find some pages to customize these tags.
 Card Library is pushed to Maven Central as a AAR, so you just need to add the following dependency to your `build.gradle`.
 
     dependencies {
-        compile 'com.github.gabrielemariotti.cards:library:0.7.0'
+        compile 'com.github.gabrielemariotti.cards:library:0.8.0'
     }
 
 [See this page for more info](https://github.com/gabrielemariotti/cardslib/tree/master/doc/BUILD.md).

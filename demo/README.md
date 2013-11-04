@@ -11,6 +11,7 @@ There are two sample applications:
 2. [Ion][3]
 3. [Android-Universal-Image-Loader][5]
 4. [ActionBar-PullToRefresh][7]
+5. [ListViewAnimations][11]
 
 [(See this page for more info about integration)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/OTHERLIBRARIES.md)
 
@@ -34,6 +35,7 @@ Extras demo uses these open source libraries:
 * [Android-Universal-Image-Loader c) 2011-2013][5] by [Sergey Tarasevich][6]
 * [ActionBar-PullToRefresh][7] by [Chris Banes][8]
 * [okhttp][9] by [Square, Inc][2]
+* [ListViewAnimations][11] by [Niek Haarman][10]
 
 Credits
 -------
@@ -83,4 +85,6 @@ License
  [7]: https://github.com/chrisbanes/ActionBar-PullToRefresh
  [8]: http://chris.banes.me/
  [9]: https://github.com/square/okhttp
+ [10]: https://plus.google.com/+NiekHaarman
+ [11]: https://github.com/nhaarman/ListViewAnimations
 

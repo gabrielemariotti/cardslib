@@ -6,6 +6,7 @@ In this page you can find info about:
 * [Using card with Ion](#using-card-with-ion)
 * [Using card with Android-Universal-Image-Loader](#using-card-with-android-universal-image-loader)
 * [Using card with ActionBar-PullToRefresh](#using-card-with-actionbar-pulltorefresh)
+* [Using card with ListViewAnimations](#using-card-with-listviewanimations)
 
 ## Using card with Picasso
 
@@ -173,6 +174,22 @@ The proper way to integrate this library is to use `PullToRefreshLayout` in your
         ptrLayout.setPullToRefreshAttacher(mPullToRefreshAttacher, this);
 ```
 
+### Using card with ListViewAnimations
+
+[ListViewAnimations][9] is provided by [Niek Haarman][10].
+
+You can find an example in demo-extras in `ListViewAnimationsFragment`. [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/fragment/ListViewAnimationsFragment.java)
+
+``` java
+        CardArrayAdapter mCardArrayAdapter = new CardArrayAdapter(getActivity(), cards);
+        CardListView mListView = (CardListView) getActivity().findViewById(R.id.carddemo_extra_list_viewanimations);
+
+        AnimationAdapter animCardArrayAdapter = new AlphaInAnimationAdapter(mCardArrayAdapter);
+        animCardArrayAdapter.setAbsListView(mListView);
+        mListView.setExternalAdapter(animCardArrayAdapter,mCardArrayAdapter);
+```
+
+
 
 
  [1]: https://github.com/square/picasso
@@ -183,3 +200,5 @@ The proper way to integrate this library is to use `PullToRefreshLayout` in your
  [6]: http://nostra13android.blogspot.it/
  [7]: https://github.com/chrisbanes/ActionBar-PullToRefresh
  [8]: http://chris.banes.me/
+ [9]: https://github.com/nhaarman/ListViewAnimations
+ [10]: https://plus.google.com/+NiekHaarman
