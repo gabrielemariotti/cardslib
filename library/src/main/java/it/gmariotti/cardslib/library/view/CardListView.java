@@ -172,7 +172,7 @@ public class CardListView extends ListView implements CardView.OnExpandListAnima
             setAdapter((CardArrayAdapter)adapter);
         }else{
             Log.e(TAG,"The CardListView only accepts CardArrayAdapters" );
-            super.setAdapter(null);
+            super.setAdapter(adapter);
         }
     }
 
@@ -190,6 +190,22 @@ public class CardListView extends ListView implements CardView.OnExpandListAnima
         adapter.setCardListView(this);
         mAdapter=adapter;
     }
+
+    /**
+     * You can use this method, if you are using external adapters.
+     *
+     * @param adapter {@link ListAdapter} generic adapter
+     * @param cardArrayAdapter    {@link CardArrayAdapter} cardArrayAdapter
+     */
+    public void setExternalAdapter(ListAdapter adapter, CardArrayAdapter cardArrayAdapter) {
+
+        setAdapter(adapter);
+
+        mAdapter=cardArrayAdapter;
+        mAdapter.setCardListView(this);
+        mAdapter.setRowLayoutId(list_card_layout_resourceID);
+    }
+
 
     //--------------------------------------------------------------------------
     // Expand and Collapse animator
