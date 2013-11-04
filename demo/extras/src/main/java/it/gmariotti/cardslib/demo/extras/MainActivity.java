@@ -39,6 +39,7 @@ import android.widget.ListView;
 import it.gmariotti.cardslib.demo.extras.fragment.ActionbarpullFragment;
 import it.gmariotti.cardslib.demo.extras.fragment.BaseFragment;
 import it.gmariotti.cardslib.demo.extras.fragment.IonFragment;
+import it.gmariotti.cardslib.demo.extras.fragment.ListViewAnimationsFragment;
 import it.gmariotti.cardslib.demo.extras.fragment.PicassoFragment;
 import it.gmariotti.cardslib.demo.extras.fragment.UniversalImageLoaderFragment;
 import uk.co.senab.actionbarpulltorefresh.library.PullToRefreshAttacher;
@@ -63,6 +64,7 @@ public class MainActivity extends Activity {
     private static final int CASE_ION = 1;
     private static final int CASE_UNILOADER = 2;
     private static final int CASE_ACTIONPULL = 3;
+    private static final int CASE_LISTVIEWANIMATOR = 4;
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -198,6 +200,17 @@ public class MainActivity extends Activity {
 
             if (mBaseFragment != null)
                 openFragment(mBaseFragment);
+            mDrawer.setDrawerListener(
+                    new DrawerLayout.SimpleDrawerListener()
+                    {
+                        @Override
+                        public void onDrawerClosed(View drawerView)
+                        {
+                            super.onDrawerClosed(drawerView);
+                            if (mBaseFragment != null)
+                                openFragment(mBaseFragment);
+                        }
+                    });
             mDrawer.closeDrawer(mDrawerList);
         }
     }
@@ -219,6 +232,9 @@ public class MainActivity extends Activity {
                 break;
             case CASE_ACTIONPULL:
                 baseFragment= new ActionbarpullFragment();
+                break;
+            case CASE_LISTVIEWANIMATOR:
+                baseFragment= new ListViewAnimationsFragment();
                 break;
             default:
                 break;
@@ -259,7 +275,8 @@ public class MainActivity extends Activity {
             "Thumbnail with Picasso",
             "Thumbnail with Ion",
             "Thumbnail with Universal-Image-Loader",
-            "ActionBar-PullToRefresh"
+            "ActionBar-PullToRefresh",
+            "ListViewAnimations"
 
     };
 

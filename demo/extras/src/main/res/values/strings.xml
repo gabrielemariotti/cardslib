@@ -44,6 +44,8 @@
         <i>by Chris Banses</i><br><br>
         <b><a href="https://github.com/square/okhttp">Okhttp</a></b><br>
         <i>by Square, Inc.</i><br><br>
+        <b><a href="https://github.com/nhaarman/ListViewAnimations">ListViewAnimations</a></b><br>
+        <i>by Niek Haarman</i><br><br>
         <br><br><br>
 
     ]]></string>
@@ -64,6 +66,7 @@
     <string name="carddemo_extras_title_ion">Thumbnail with Ion</string>
     <string name="carddemo_extras_title_universal_image_loader">Thumbnail with Universal-Image-Loader </string>
     <string name="carddemo_extras_title_actionbar_pull_to_refresh">ActionBar-PullToRefresh</string>
+    <string name="carddemo_extras_title_listviewanimations">ListViewAnimations</string>
 
 
 </resources>
