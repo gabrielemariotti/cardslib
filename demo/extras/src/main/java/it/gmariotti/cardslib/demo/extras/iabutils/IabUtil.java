@@ -59,11 +59,15 @@ public class IabUtil {
     private HashMap<String, DonationEntry> items;
     private static IabUtil sInstance;
 
+    String p1="1.00€";
+    String p2="2.00€";
+    String p3="5.00€";
+
     private IabUtil() {
         items = new HashMap<String, DonationEntry>();
-        items.put(SMALL_BEER_SKU, new DonationEntry(SMALL_BEER_SKU, R.string.demo_item_small_beer, "1 €"));
-        items.put(MEDIUM_BEER_SKU, new DonationEntry(MEDIUM_BEER_SKU, R.string.demo_item_medium_beer, "2 €"));
-        items.put(LARGE_BEER_SKU, new DonationEntry(LARGE_BEER_SKU, R.string.demo_item_large_beer, "5 €"));
+        items.put(SMALL_BEER_SKU, new DonationEntry(SMALL_BEER_SKU, R.string.demo_item_small_beer, p1));
+        items.put(MEDIUM_BEER_SKU, new DonationEntry(MEDIUM_BEER_SKU, R.string.demo_item_medium_beer, p2));
+        items.put(LARGE_BEER_SKU, new DonationEntry(LARGE_BEER_SKU, R.string.demo_item_large_beer, p3));
     }
 
     public static IabUtil getInstance() {
@@ -116,9 +120,6 @@ public class IabUtil {
                     // handle error
                     return;
                 }
-                String p1="1.00€";
-                String p2="2.00€";
-                String p3="5.00€";
 
                 boolean b1=false;
                 boolean b2=false;
@@ -159,7 +160,7 @@ public class IabUtil {
                         items.put(SMALL_BEER_SKU, itemSmall);
                         //Log.i(TAG,"Price = "+p1);
                         if (b1) {
-                            if (mHelper!=null)
+                            if (mHelper!=null && inventory!=null)
                                 consumeItem(mHelper,SMALL_BEER_SKU,inventory.getPurchase(SMALL_BEER_SKU));
                         }
                     }
@@ -171,7 +172,7 @@ public class IabUtil {
                         items.put(MEDIUM_BEER_SKU, itemMedium);
 
                         if (b2) {
-                            if (mHelper!=null)
+                            if (mHelper!=null  && inventory!=null)
                                 consumeItem(mHelper,MEDIUM_BEER_SKU,inventory.getPurchase(MEDIUM_BEER_SKU));
                         }
                     }
@@ -183,7 +184,7 @@ public class IabUtil {
                         items.put(LARGE_BEER_SKU, itemLarge);
 
                         if (b3) {
-                            if (mHelper!=null)
+                            if (mHelper!=null  && inventory!=null)
                                  consumeItem(mHelper,LARGE_BEER_SKU,inventory.getPurchase(LARGE_BEER_SKU));
                         }
 
@@ -199,6 +200,7 @@ public class IabUtil {
         } catch(IllegalStateException il){
             Log.e("Purchase","Error ",il);
         } catch(NullPointerException ne){
+            //it is bad, but it is due to a bug in IabHelper
             Log.e("Purchase","Error ",ne);
         }
     }
