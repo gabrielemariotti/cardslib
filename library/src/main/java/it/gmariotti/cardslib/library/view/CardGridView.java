@@ -173,8 +173,8 @@ public class CardGridView extends GridView implements CardView.OnExpandListAnima
         if (adapter instanceof CardGridArrayAdapter){
             setAdapter((CardGridArrayAdapter)adapter);
         }else{
-            Log.e(TAG,"The CardListView only accepts CardArrayAdapters" );
-            super.setAdapter(null);
+            Log.w(TAG,"You are using a generic adapter. Pay attention: your adapter has to call cardGridArrayAdapter#getView method." );
+            super.setAdapter(adapter);
         }
     }
 
@@ -191,6 +191,22 @@ public class CardGridView extends GridView implements CardView.OnExpandListAnima
 
         adapter.setCardGridView(this);
         mAdapter=adapter;
+    }
+
+    /**
+     * You can use this method, if you are using external adapters.
+     * Pay attention. The generic adapter#getView() method has to call the cardArrayAdapter#getView() method to work.
+     *
+     * @param adapter {@link ListAdapter} generic adapter
+     * @param cardGridArrayAdapter    {@link it.gmariotti.cardslib.library.internal.CardGridArrayAdapter} cardGridArrayAdapter
+     */
+    public void setExternalAdapter(ListAdapter adapter, CardGridArrayAdapter cardGridArrayAdapter) {
+
+        setAdapter(adapter);
+
+        mAdapter=cardGridArrayAdapter;
+        mAdapter.setCardGridView(this);
+        mAdapter.setRowLayoutId(list_card_layout_resourceID);
     }
 
     //--------------------------------------------------------------------------

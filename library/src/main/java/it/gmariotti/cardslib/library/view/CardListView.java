@@ -171,7 +171,7 @@ public class CardListView extends ListView implements CardView.OnExpandListAnima
         if (adapter instanceof CardArrayAdapter){
             setAdapter((CardArrayAdapter)adapter);
         }else{
-            Log.e(TAG,"The CardListView only accepts CardArrayAdapters" );
+            Log.e(TAG,"You are using a generic adapter. Pay attention: your adapter has to call cardArrayAdapter#getView method" );
             super.setAdapter(adapter);
         }
     }
@@ -193,6 +193,7 @@ public class CardListView extends ListView implements CardView.OnExpandListAnima
 
     /**
      * You can use this method, if you are using external adapters.
+     * Pay attention. The generic adapter#getView() method has to call the cardArrayAdapter#getView() method to work.
      *
      * @param adapter {@link ListAdapter} generic adapter
      * @param cardArrayAdapter    {@link CardArrayAdapter} cardArrayAdapter
