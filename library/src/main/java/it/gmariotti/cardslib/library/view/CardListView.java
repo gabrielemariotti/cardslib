@@ -337,7 +337,9 @@ public class CardListView extends ListView implements CardView.OnExpandListAnima
                             int delta = i > index ? yTranslateBottom : -yTranslateTop;
                             animations.add(getAnimation(v, delta, delta));
                         }
-                        v.setHasTransientState(false);
+                        if (Build.VERSION.SDK_INT >= 16){
+                            v.setHasTransientState(false);
+                        }
                     }
                 }
 
