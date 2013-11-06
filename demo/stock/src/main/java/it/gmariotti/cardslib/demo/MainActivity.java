@@ -132,6 +132,9 @@ public class MainActivity extends Activity {
                     Log.d(TAG, "Problem setting up In-app Billing: " + result);
                 }
 
+                // Have we been disposed of in the meantime? If so, quit.
+                if (mHelper == null) return;
+
                 // Hooray, IAB is fully set up!
                 IabUtil.getInstance().retrieveData(mHelper);
             }

@@ -21,10 +21,6 @@ package it.gmariotti.cardslib.demo.iabutils;
 import android.text.TextUtils;
 import android.util.Log;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-
 import java.security.InvalidKeyException;
 import java.security.KeyFactory;
 import java.security.NoSuchAlgorithmException;
@@ -52,7 +48,7 @@ public class Security {
     /**
      * Verifies that the data was signed with the given signature, and returns
      * the verified purchase. The data is in JSON format and signed
-     * with a private key. The data also contains the {@link PurchaseState}
+     * with a private key. The data also contains the
      * and product ID of the purchase.
      * @param base64PublicKey the base64-encoded public key to use for verifying.
      * @param signedData the signed JSON string (signed, not encrypted)

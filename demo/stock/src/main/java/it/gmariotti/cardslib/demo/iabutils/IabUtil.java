@@ -108,24 +108,43 @@ public class IabUtil {
                 mQueryFinishedListener = new IabHelper.QueryInventoryFinishedListener() {
             public void onQueryInventoryFinished(IabResult result, Inventory inventory) {
 
-                if (result.isFailure()) {
+                // Have we been disposed of in the meantime? If so, quit.
+                if (mHelper == null) return;
+
+                if (result==null || result.isFailure()) {
                     //Log.e(TAG,"Error refreshing items " +result);
                     // handle error
                     return;
                 }
 
-                SkuDetails d1 = inventory.getSkuDetails(SMALL_BEER_SKU);
-                String p1 = d1.getPrice();
-                boolean b1 = inventory.hasPurchase(SMALL_BEER_SKU);
+                String p1="1.00€";
+                String p2="2.00€";
+                String p3="5.00€";
 
-                SkuDetails d2 = inventory.getSkuDetails(MEDIUM_BEER_SKU);
-                String p2 = d2.getPrice();
-                boolean b2 = inventory.hasPurchase(MEDIUM_BEER_SKU);
+                boolean b1=false;
+                boolean b2=false;
+                boolean b3=false;
 
-                SkuDetails d3 = inventory.getSkuDetails(LARGE_BEER_SKU);
-                String p3 = d3.getPrice();
-                boolean b3 = inventory.hasPurchase(LARGE_BEER_SKU);
+                if (inventory!=null){
+                    SkuDetails d1 = inventory.getSkuDetails(SMALL_BEER_SKU);
+                    if (d1!=null)
+                        p1 = d1.getPrice();
+                    b1 = inventory.hasPurchase(SMALL_BEER_SKU);
+                }
 
+                if (inventory!=null){
+                    SkuDetails d2 = inventory.getSkuDetails(MEDIUM_BEER_SKU);
+                    if (d2!=null)
+                        p2 = d2.getPrice();
+                    b2 = inventory.hasPurchase(MEDIUM_BEER_SKU);
+                }
+
+                if (inventory!=null){
+                    SkuDetails d3 = inventory.getSkuDetails(LARGE_BEER_SKU);
+                    if (d3!=null)
+                        p3 = d3.getPrice();
+                    b3 = inventory.hasPurchase(LARGE_BEER_SKU);
+                }
 
                 // update data
                 IabUtil iabutil = getInstance();
@@ -137,7 +156,8 @@ public class IabUtil {
                         items.put(SMALL_BEER_SKU, itemSmall);
                         //Log.i(TAG,"Price = "+p1);
                         if (b1) {
-                            consumeItem(mHelper,SMALL_BEER_SKU,inventory.getPurchase(SMALL_BEER_SKU));
+                            if (mHelper!=null)
+                                consumeItem(mHelper,SMALL_BEER_SKU,inventory.getPurchase(SMALL_BEER_SKU));
                         }
                     }
 
@@ -148,7 +168,8 @@ public class IabUtil {
                         items.put(MEDIUM_BEER_SKU, itemMedium);
 
                         if (b2) {
-                            consumeItem(mHelper,MEDIUM_BEER_SKU,inventory.getPurchase(MEDIUM_BEER_SKU));
+                            if (mHelper!=null)
+                                consumeItem(mHelper,MEDIUM_BEER_SKU,inventory.getPurchase(MEDIUM_BEER_SKU));
                         }
                     }
 
@@ -159,7 +180,8 @@ public class IabUtil {
                         items.put(LARGE_BEER_SKU, itemLarge);
 
                         if (b3) {
-                            consumeItem(mHelper,LARGE_BEER_SKU,inventory.getPurchase(LARGE_BEER_SKU));
+                            if (mHelper!=null)
+                                  consumeItem(mHelper,LARGE_BEER_SKU,inventory.getPurchase(LARGE_BEER_SKU));
                         }
 
 
