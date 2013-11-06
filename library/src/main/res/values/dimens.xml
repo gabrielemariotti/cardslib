@@ -58,9 +58,9 @@
     <!-- Shadow -->
     <dimen name="card_shadow_height">3dp</dimen>
     <dimen name="card_shadow_view_margin_top">0dp</dimen>
-    <dimen name="card_shadow_view_margin_left">0dp</dimen>
+    <dimen name="card_shadow_view_margin_left">@dimen/card_background_default_radius</dimen>
     <dimen name="card_shadow_view_margin_bottom">0dp</dimen>
-    <dimen name="card_shadow_view_margin_right">0dp</dimen>
+    <dimen name="card_shadow_view_margin_right">@dimen/card_background_default_radius</dimen>
 
     <!-- Thumbnail -->
     <dimen name="card_thumbnail_width">72dp</dimen>
