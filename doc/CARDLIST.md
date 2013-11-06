@@ -6,6 +6,7 @@ In this page you can find info about:
 * [Use your custom layout for each row](#use-your-custom-layout-for-each-row)
 * [Cards with different inner layouts](#cards-with-different-inner-layouts)
 * [Swipe and Undo in `CardListView`](#swipe-and-undo-in-cardlistview)
+* [How to use an external adapter](#how-to-use-an-external-adapter)
 
 
 ### Creating a base CardList
@@ -238,3 +239,16 @@ You can customize the undo bar. The easiest way is to copy the styles inside `re
 You can see the example in `ListGplayUndoCardFragment`.
 
 ![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/card/cardWithUndo.png)
+
+
+### How to use an external adapter
+
+Some libraries use a own adapter as [ListViewAnimations](https://github.com/gabrielemariotti/cardslib/tree/master/doc/OTHERLIBRARIES.md#using-card-with-listviewanimations)
+
+In this case you can use this code:
+
+``` java
+         mListView.setExternalAdapter(ownAdapter,mCardArrayAdapter);
+```
+
+Pay attention. You can use this method, if your ownAdapter calls the mCardArrayAdapter#getView() method.

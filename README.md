@@ -23,6 +23,13 @@ Try out:
 * [Example:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/EXAMPLE.md) How to realize simple and nice cards.
 
 
+* [Feature](#feature)
+* [Usage](#usage)
+* [Customization](#customization)
+* [Including in your project and building](#including-in-your-project)
+* [Changelog](#changelog)
+
+
 ## Feature
 
 Card Library provides 3 custom tags:
@@ -112,7 +119,7 @@ Here you can find some pages to customize these tags.
 * [Card:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARD.md) How to customize all card features
 * [CardList:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARDLIST.md) How to work with the `CardListView`
 * [CardGrid:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARDGRID.md) How to work with the `CardGridView`
-* [Integration with other libraries](https://github.com/gabrielemariotti/cardslib/tree/master/doc/OTHERLIBRARIES.md)
+* [Integration with other libraries:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/OTHERLIBRARIES.md) How to work with other main libraries
 
 ---
 
@@ -124,10 +131,10 @@ Card Library is pushed to Maven Central as a AAR, so you just need to add the fo
         compile 'com.github.gabrielemariotti.cards:library:0.8.0'
     }
 
-[See this page for more info](https://github.com/gabrielemariotti/cardslib/tree/master/doc/BUILD.md).
+[To build the library and demo locally you can see this page for more info](https://github.com/gabrielemariotti/cardslib/tree/master/doc/BUILD.md).
 
 
-ChangeLog
+## ChangeLog
 -------
 
 * [Changelog:](https://github.com/gabrielemariotti/cardslib/tree/master/CHANGELOG.md) A complete changelog

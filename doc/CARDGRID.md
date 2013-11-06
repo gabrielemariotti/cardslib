@@ -108,5 +108,16 @@ This kind of View, doesn't support these `Card` features:
 Currently you have to use the same inner layouts for each card in `CardGridView`
 
 
-
 ![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/demo/grid_gplay.png)
+
+### How to use an external adapter
+
+Some libraries use a own adapter as [ListViewAnimations](https://github.com/gabrielemariotti/cardslib/tree/master/doc/OTHERLIBRARIES.md#using-card-with-listviewanimations)
+
+In this case you can use this code:
+
+``` java
+         mGridView.setExternalAdapter(ownAdapter,mCardGridArrayAdapter);
+```
+
+Pay attention. You can use this method, if your ownAdapter calls the mCardGridArrayAdapter#getView() method.

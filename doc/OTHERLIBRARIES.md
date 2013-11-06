@@ -189,6 +189,17 @@ You can find an example in demo-extras in `ListViewAnimationsFragment`. [(source
         mListView.setExternalAdapter(animCardArrayAdapter,mCardArrayAdapter);
 ```
 
+You can find another example in demo-extras in `ListViewGridAnimationsFragment`. [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/fragment/ListViewGridAnimationsFragment.java)
+
+``` java
+        CardGridArrayAdapter mCardArrayAdapter = new CardGridArrayAdapter(getActivity(), cards);
+        CardGridView mListView = (CardGridView) getActivity().findViewById(R.id.carddemo_extra_grid_viewanimations);
+
+        AnimationAdapter animCardArrayAdapter = new AlphaInAnimationAdapter(mCardArrayAdapter);
+        animCardArrayAdapter.setAbsListView(mListView);
+        mListView.setExternalAdapter(animCardArrayAdapter,mCardArrayAdapter);
+```
+
 
 
 

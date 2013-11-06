@@ -5,8 +5,10 @@ Version 0.8.0 *(2013-11-XX)*
 ----------------------------
 
  * DEMO-extras: Added an example with [ListViewAnimations by Niek Haarman](https://github.com/nhaarman/ListViewAnimations) [(doc)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/OTHERLIBRARIES.md#using-card-with-listviewanimations)
- * LIB: Added a new method to add external adapter different from CardArrayAdapter. (see example above)
-
+ * DEMO-extras: Added an example with grid and ListViewAnimations
+ * LIB: Added a new method to add external adapter different from CardArrayAdapter. [(doc)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARDLIST.md#how-to-use-an-external-adapter)
+ * LIB: Fixed margin on shadow according to rounded corners
+ * Migrated library and demo to sdk 19 (updated gradle files)
 
 Version 0.7.0 *(2013-11-01)*
 ----------------------------
