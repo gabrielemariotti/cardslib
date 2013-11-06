@@ -68,4 +68,16 @@
         <item name="android:fontFamily">sans-serif-condensed</item>
     </style>
 
+
+    <style name="carddemo_extras_myapps_main_inner_secondarytitle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@android:color/darker_gray</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+    </style>
+
+    <style name="carddemo_extras_myapps_main_inner_title">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+    </style>
 </resources>

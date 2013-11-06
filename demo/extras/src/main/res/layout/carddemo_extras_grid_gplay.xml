@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <!--
   ~ *******************************************************************************
   ~   Copyright (c) 2013 Gabriele Mariotti.
@@ -17,14 +18,12 @@
   ~  *****************************************************************************
   -->
 
-<resources>
-    <dimen name="drawer_width_extras">320dp</dimen>
-    <dimen name="text_size_medium">14sp</dimen>
-
-    <!-- Card -->
-    <dimen name="card_extras_birth_width">400dp</dimen>
-
-    <dimen name="carddemo_extras_gplay_grid_columnwidth">190dp</dimen>
-    <dimen name="carddemo_extras_gplay_grid_columnwidth_card">190dp</dimen>
-
-</resources>
+<it.gmariotti.cardslib.library.view.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/list_cardId"
+    android:layout_width="@dimen/carddemo_extras_gplay_grid_columnwidth_card"
+    android:layout_height="wrap_content"
+    style="@style/grid_card"
+    card:card_layout_resourceID="@layout/carddemo_extras_googleplay_layout"
+    />

@@ -67,6 +67,7 @@
     <string name="carddemo_extras_title_universal_image_loader">Thumbnail with Universal-Image-Loader </string>
     <string name="carddemo_extras_title_actionbar_pull_to_refresh">ActionBar-PullToRefresh</string>
     <string name="carddemo_extras_title_listviewanimations">ListViewAnimations</string>
+    <string name="carddemo_extras_title_listviewgridanimations">GridViewAnimations</string>
 
 
 </resources>

@@ -18,13 +18,7 @@
   -->
 
 <resources>
-    <dimen name="drawer_width_extras">320dp</dimen>
-    <dimen name="text_size_medium">14sp</dimen>
 
-    <!-- Card -->
-    <dimen name="card_extras_birth_width">400dp</dimen>
-
-    <dimen name="carddemo_extras_gplay_grid_columnwidth">190dp</dimen>
-    <dimen name="carddemo_extras_gplay_grid_columnwidth_card">190dp</dimen>
-
+    <dimen name="carddemo_extras_gplay_grid_columnwidth">175dp</dimen>
+    <dimen name="carddemo_extras_gplay_grid_columnwidth_card">175dp</dimen>
 </resources>

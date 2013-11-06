@@ -17,14 +17,9 @@
   ~  *****************************************************************************
   -->
 
-<resources>
-    <dimen name="drawer_width_extras">320dp</dimen>
-    <dimen name="text_size_medium">14sp</dimen>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@android:id/background" android:drawable="@drawable/rate_star_small_off_holo_dark" />
+    <item android:id="@android:id/secondaryProgress" android:drawable="@drawable/rate_star_small_half_holo_dark" />
+    <item android:id="@android:id/progress" android:drawable="@drawable/rate_star_small_on_holo_dark" />
+</layer-list>
 
-    <!-- Card -->
-    <dimen name="card_extras_birth_width">400dp</dimen>
-
-    <dimen name="carddemo_extras_gplay_grid_columnwidth">190dp</dimen>
-    <dimen name="carddemo_extras_gplay_grid_columnwidth_card">190dp</dimen>
-
-</resources>

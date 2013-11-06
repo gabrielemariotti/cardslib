@@ -111,4 +111,36 @@
         <item name="android:layout_marginTop">2dp</item>
     </style>
 
+
+    <style name="Play.card.content_outer_layout" parent="@style/card.content_outer_layout">
+        <!--Style for Content View-->
+        <item name="android:minHeight">60dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginTop">@dimen/card_content_outer_view_margin_top</item>
+        <item name="android:layout_marginBottom">@dimen/card_content_outer_view_margin_bottom</item>
+        <item name="android:layout_marginLeft">@dimen/card_content_outer_view_margin_left</item>
+        <item name="android:layout_marginRight">@dimen/card_content_outer_view_margin_right</item>
+    </style>
+
+    <style name="carddemo_extras_myapps_main_inner_ratingbar"  >
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/ratingbar_extras_small_holo_dark</item>
+        <item name="android:indeterminateDrawable">@drawable/ratingbar_extras_small_holo_dark</item>
+        <item name="android:minHeight">12dip</item>
+        <item name="android:maxHeight">12dip</item>
+        <item name="android:thumb">@null</item>
+        <item name="android:isIndicator">true</item>
+    </style>
+
+    <style name="carddemo_extras_myapps_main_inner_secondarytitle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@android:color/darker_gray</item>
+    </style>
+
+    <style name="carddemo_extras_myapps_main_inner_title">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:layout_marginTop">2dp</item>
+    </style>
+
 </resources>

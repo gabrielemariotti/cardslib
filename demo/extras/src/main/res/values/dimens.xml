@@ -37,5 +37,7 @@
     <dimen name="card_base_empty_height">72dp</dimen>
     <dimen name="card_extras_birth_width">350dp</dimen>
 
+    <dimen name="carddemo_extras_gplay_grid_columnwidth">140dp</dimen>
+    <dimen name="carddemo_extras_gplay_grid_columnwidth_card">125dp</dimen>
 
 </resources>
