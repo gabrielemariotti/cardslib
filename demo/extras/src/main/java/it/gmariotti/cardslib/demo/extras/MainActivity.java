@@ -23,11 +23,13 @@ import android.app.DialogFragment;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -43,6 +45,9 @@ import it.gmariotti.cardslib.demo.extras.fragment.ListViewAnimationsFragment;
 import it.gmariotti.cardslib.demo.extras.fragment.ListViewGridAnimationsFragment;
 import it.gmariotti.cardslib.demo.extras.fragment.PicassoFragment;
 import it.gmariotti.cardslib.demo.extras.fragment.UniversalImageLoaderFragment;
+import it.gmariotti.cardslib.demo.extras.iabutils.IabHelper;
+import it.gmariotti.cardslib.demo.extras.iabutils.IabResult;
+import it.gmariotti.cardslib.demo.extras.iabutils.IabUtil;
 import uk.co.senab.actionbarpulltorefresh.library.PullToRefreshAttacher;
 
 
@@ -56,6 +61,9 @@ public class MainActivity extends Activity {
     private BaseFragment mBaseFragment;
 
     private PullToRefreshAttacher mPullToRefreshAttacher;
+
+    private static String TAG= "MainActivity";
+    private IabHelper mHelper;
 
     //Used in savedInstanceState
     private static String BUNDLE_SELECTEDFRAGMENT = "BDL_SELFRG";
@@ -93,6 +101,28 @@ public class MainActivity extends Activity {
         mDrawerToggle = new CustomActionBarDrawerToggle(this, mDrawer);
         mDrawer.setDrawerListener(mDrawerToggle);
 
+        // ---------------------------------------------------------------
+        // ...
+        String base64EncodedPublicKey= IabUtil.key;
+
+        // compute your public key and store it in base64EncodedPublicKey
+        mHelper = new IabHelper(this, base64EncodedPublicKey);
+        mHelper.enableDebugLogging(true);
+
+        mHelper.startSetup(new IabHelper.OnIabSetupFinishedListener() {
+            public void onIabSetupFinished(IabResult result) {
+                if (!result.isSuccess()) {
+                    // Oh noes, there was a problem.
+                    Log.d(TAG, "Problem setting up In-app Billing: " + result);
+                }
+
+                // Have we been disposed of in the meantime? If so, quit.
+                if (mHelper == null) return;
+
+                // Hooray, IAB is fully set up!
+                IabUtil.getInstance().retrieveData(mHelper);
+            }
+        });
         //-----------------------------------------------------------------
         //BaseFragment baseFragment = null;
         if (savedInstanceState != null) {
@@ -110,6 +140,13 @@ public class MainActivity extends Activity {
         }
 
         //-----------------------------------------------------------------
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (mHelper != null) mHelper.dispose();
+        mHelper = null;
     }
 
     @Override
@@ -154,6 +191,9 @@ public class MainActivity extends Activity {
             //About
             case R.id.menu_about:
                 Utils.showAbout(this);
+                return true;
+            case R.id.menu_beer:
+                IabUtil.showBeer(this, mHelper);
                 return true;
             default:
                 break;
@@ -271,7 +311,8 @@ public class MainActivity extends Activity {
             fragmentTransaction.replace(R.id.fragment_main_extras, baseFragment);
             //fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
-            mCurrentTitle = baseFragment.getTitleResourceId();
+            if (baseFragment.getTitleResourceId()>0)
+                mCurrentTitle = baseFragment.getTitleResourceId();
         }
     }
 
@@ -303,6 +344,24 @@ public class MainActivity extends Activity {
         return mPullToRefreshAttacher;
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.d(TAG, "onActivityResult(" + requestCode + "," + resultCode + "," + data);
 
+        // Pass on the activity result to the helper for handling
+        if (!mHelper.handleActivityResult(requestCode, resultCode, data)) {
+            // not handled, so handle it ourselves (here's where you'd
+            // perform any handling of activity results not related to in-app
+            // billing...
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+        else {
+            Log.d(TAG, "onActivityResult handled by IABUtil.");
+        }
+    }
+
+    public IabHelper getHelper() {
+        return mHelper;
+    }
 }
 

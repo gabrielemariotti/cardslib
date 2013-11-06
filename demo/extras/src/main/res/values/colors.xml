@@ -34,5 +34,9 @@
     <color name="demoextra_card_background_color4">#33B4E4</color>
     <color name="demoextra_card_background_color5">#FF4343</color>
 
+    <!-- Purchase -->
+    <color name="demo_extras_purchase_normal">#ececec</color>
+    <color name="demo_extras_purchase_pressed">#CCDF9F51</color>
+
 
 </resources>
