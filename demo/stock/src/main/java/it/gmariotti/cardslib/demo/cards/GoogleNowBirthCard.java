@@ -95,8 +95,10 @@ public class GoogleNowBirthCard extends Card {
 
         @Override
         public void setupInnerViewElements(ViewGroup parent, View viewImage) {
+            /*
             viewImage.getLayoutParams().width = 250;
             viewImage.getLayoutParams().height = 250;
+            */
         }
     }
 

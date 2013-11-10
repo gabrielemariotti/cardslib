@@ -55,6 +55,7 @@
                 android:layout_width="0dp"
                 android:paddingTop="2dp"
                 android:layout_gravity="right"
+                card:card_thumbnail_layout_resourceID="@layout/carddemo_googlenowbirth_thumbnail_layout"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"/>
 

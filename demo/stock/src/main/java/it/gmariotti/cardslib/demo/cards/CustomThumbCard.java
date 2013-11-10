@@ -19,6 +19,7 @@
 package it.gmariotti.cardslib.demo.cards;
 
 import android.content.Context;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -41,8 +42,20 @@ public class CustomThumbCard extends CardThumbnail {
     @Override
     public void setupInnerViewElements(ViewGroup parent, View viewImage) {
         if (viewImage != null) {
-            viewImage.getLayoutParams().width = 250;
-            viewImage.getLayoutParams().height = 250;
+
+            if (parent!=null && parent.getResources()!=null){
+                DisplayMetrics metrics=parent.getResources().getDisplayMetrics();
+
+                int base = 125;
+
+                if (metrics!=null){
+                    viewImage.getLayoutParams().width = (int)(base*metrics.density);
+                    viewImage.getLayoutParams().height = (int)(base*metrics.density);
+                }else{
+                    viewImage.getLayoutParams().width = 250;
+                    viewImage.getLayoutParams().height = 250;
+                }
+            }
         }
     }
 }

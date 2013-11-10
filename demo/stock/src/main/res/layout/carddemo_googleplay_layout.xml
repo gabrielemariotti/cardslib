@@ -38,6 +38,7 @@
             android:id="@+id/card_thumbnail_layout"
             android:layout_width="match_parent"
             android:layout_weight="1"
+            card:card_thumbnail_layout_resourceID="@layout/carddemo_grid_gplay_thumbnail_layout"
             android:layout_height="wrap_content"/>
 
         <it.gmariotti.cardslib.library.view.component.CardHeaderView
