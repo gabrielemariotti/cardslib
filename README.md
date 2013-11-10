@@ -20,10 +20,12 @@ Try out:
 * Get **extras** on Google Play [![Get it on Google Play](http://www.android.com/images/brand/get_it_on_play_logo_small.png)](https://play.google.com/store/apps/details?id=it.gmariotti.cardslib.demo.extras).<br/>The demo-extras contains some examples of integration with other libraries.
   [See this page for more info](https://github.com/gabrielemariotti/cardslib/tree/master/demo/README.md)
 
-* Browse the [source code of the sample application](https://github.com/gabrielemariotti/cardslib/tree/master/demo) for a complete example of use.
 
+* Browse the [source code of the sample application](https://github.com/gabrielemariotti/cardslib/tree/master/demo) for a complete example of use.
 * [Example:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/EXAMPLE.md) How to realize simple and nice cards.
 
+
+--------------------------------------
 
 * [Feature](#feature)
 * [Usage](#usage)

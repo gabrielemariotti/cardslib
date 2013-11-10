@@ -4,6 +4,7 @@ In this page you can find info about:
 
 * [Creating a base CardGrid](#creating-a-base-cardgrid)
 * [Use your custom layout for each row](#use-your-custom-layout-for-each-row)
+* [How to use an external adapter](#How-to-use-an-external-adapter)
 
 
 ### Creating a base CardGrid
