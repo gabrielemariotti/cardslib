@@ -16,7 +16,9 @@ Try out:
 ![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/demo_gplay.png)
 
 * Get **sample application** on Google Play [![Get it on Google Play](http://www.android.com/images/brand/get_it_on_play_logo_small.png)](https://play.google.com/store/apps/details?id=it.gmariotti.cardslib.demo).<br/>The demo is a showcase of the functionality of the library.
-* Get the apk with the [extras examples](https://github.com/gabrielemariotti/cardslib/blob/master/apk/demo-extras-0.7.0.apk?raw=true)<br/>The demo-extras contains some examples of integration with other libraries.
+
+* Get **extras** on Google Play [![Get it on Google Play](http://www.android.com/images/brand/get_it_on_play_logo_small.png)](https://play.google.com/store/apps/details?id=it.gmariotti.cardslib.demo.extras).<br/>The demo-extras contains some examples of integration with other libraries.
+  [See this page for more info](https://github.com/gabrielemariotti/cardslib/tree/master/demo/README.md)
 
 * Browse the [source code of the sample application](https://github.com/gabrielemariotti/cardslib/tree/master/demo) for a complete example of use.
 

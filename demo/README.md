@@ -22,7 +22,7 @@ Demos require minSdkVersion of 14.
 Try out:
 
 * Get sample application on Google Play [![Get it on Google Play](http://www.android.com/images/brand/get_it_on_play_logo_small.png)](https://play.google.com/store/apps/details?id=it.gmariotti.cardslib.demo).<br/>The demo is a showcase of the functionality of the library.
-* Get the apk with the [extras examples](https://github.com/gabrielemariotti/cardslib/blob/master/apk/demo-extras-0.7.0.apk?raw=true)
+* Get extras on Google Play [![Get it on Google Play](http://www.android.com/images/brand/get_it_on_play_logo_small.png)](https://play.google.com/store/apps/details?id=it.gmariotti.cardslib.demo.extras)
 
 
 Acknowledgements
