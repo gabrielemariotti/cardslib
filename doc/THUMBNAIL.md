@@ -9,6 +9,7 @@ In this page you can find info about:
 * [Customize Thumbnail](#customize-thumbnail)
 * [Broadcast to know when the download is finished](#broadcast-to-know-when-the-download-is-finished)
 * [Using external library](#using-external-library)
+* [Using with a Bitmap](#using-with-a-bitmap)
 
 
 ### Basic usage
@@ -228,6 +229,31 @@ In Demo/Extra you can find 3 example with Picasso, Ion and Android-Universal-Ima
 You can see `PicassoCard` , `IonCard` , `UniversalImageLoaderCard` sources in demo-extras.
 
 [You can read more info in this page](https://github.com/gabrielemariotti/cardslib/tree/master/doc/OTHERLIBRARIES.md).
+
+
+### Using with a Bitmap
+
+If you want to use the CardThumbnail with a Bitamp or other DrawableResource you can use the method above:
+
+``` java
+        Card mCard= new Card(getContext());
+
+        //Add Thumbnail
+        MyThumbnail thumbnail = new MyThumbnail(getContext());
+        //You need to set true to use an external library
+        thumbnail.setExternalUsage(true);
+        addCardThumbnail(thumbnail);
+
+        public class MyThumbnail extends CardThumbnail {
+
+        @Override
+        public void setupInnerViewElements(ViewGroup parent, View viewImage) {
+
+            ImageView image= (ImageView)viewImage ;
+
+            //...
+        }
+```
 
 
 ---

@@ -29,6 +29,7 @@ If you would like to build the demo-stock you have to do these additional steps:
 
 - import the demo-code in your workspace
 - mark java(*) folder as source
+- mark aidl(*) folder as source
 - add support library v4 rel.18 ( click -> Android Tools -> Add support library , or just copy android-support-v4.jar in libs folder)
 - add Library as dependency ( click -> Properties -> Android -> Add library)
 - The demo-stock targets SDK 19 and works with minSdk=14. In any cases you need to use API>=16 to compile it
