@@ -176,8 +176,8 @@ public class GridGplayFragment extends BaseFragment {
 
             @Override
             public void setupInnerViewElements(ViewGroup parent, View viewImage) {
-                viewImage.getLayoutParams().width = 196;
-                viewImage.getLayoutParams().height = 196;
+                //viewImage.getLayoutParams().width = 196;
+                //viewImage.getLayoutParams().height = 196;
 
             }
         }

@@ -19,6 +19,7 @@
 package it.gmariotti.cardslib.demo.cards;
 
 import android.content.Context;
+import android.util.DisplayMetrics;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -92,8 +93,25 @@ public class GplayCard extends Card {
 
         @Override
         public void setupInnerViewElements(ViewGroup parent, View viewImage) {
-            viewImage.getLayoutParams().width = 196;
-            viewImage.getLayoutParams().height = 196;
+
+
+            //viewImage.getLayoutParams().width = 196;
+            //viewImage.getLayoutParams().height = 196;
+            if (viewImage != null) {
+                if (parent!=null && parent.getResources()!=null){
+                    DisplayMetrics metrics=parent.getResources().getDisplayMetrics();
+
+                    int base = 98;
+
+                    if (metrics!=null){
+                        viewImage.getLayoutParams().width = (int)(base*metrics.density);
+                        viewImage.getLayoutParams().height = (int)(base*metrics.density);
+                    }else{
+                        viewImage.getLayoutParams().width = 196;
+                        viewImage.getLayoutParams().height = 196;
+                    }
+                }
+            }
 
         }
     }
