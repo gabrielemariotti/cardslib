@@ -123,9 +123,10 @@ public class PicassoCard extends Card {
                         .resize(96, 96)
                         .into((ImageView) viewImage);
             }
-
+            /*
             viewImage.getLayoutParams().width = 96;
             viewImage.getLayoutParams().height = 96;
+            */
         }
     }
 

@@ -29,7 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/carddemo_extra_list_picasso"
-        card:list_card_layout_resourceID="@layout/list_card_thumbnail_layout"/>
+        card:list_card_layout_resourceID="@layout/carddemo_extras_list_card_thumbnail_layout"/>
 
 
 </LinearLayout>

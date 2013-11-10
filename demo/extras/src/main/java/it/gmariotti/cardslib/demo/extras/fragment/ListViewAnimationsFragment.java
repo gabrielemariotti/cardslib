@@ -67,9 +67,22 @@ public class ListViewAnimationsFragment extends BaseFragment implements
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        populateNavigationList();
-
         initCard();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        populateNavigationList();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        getActivity().getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
+
     }
 
 

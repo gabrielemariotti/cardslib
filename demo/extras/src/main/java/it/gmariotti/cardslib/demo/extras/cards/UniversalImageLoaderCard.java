@@ -123,8 +123,10 @@ public class UniversalImageLoaderCard extends Card {
                 imageLoader.displayImage("drawable://" + R.drawable.ic_tris, (ImageView) viewImage,options);
             }
 
+            /*
             viewImage.getLayoutParams().width = 96;
             viewImage.getLayoutParams().height = 96;
+            */
         }
     }
 

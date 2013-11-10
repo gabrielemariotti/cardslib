@@ -74,11 +74,23 @@ public class ListViewGridAnimationsFragment extends BaseFragment implements
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        populateNavigationList();
-
         initCard();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        populateNavigationList();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        getActivity().getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
+
+    }
 
     private void populateNavigationList() {
 
@@ -277,8 +289,10 @@ public class ListViewGridAnimationsFragment extends BaseFragment implements
 
             @Override
             public void setupInnerViewElements(ViewGroup parent, View viewImage) {
+                /*
                 viewImage.getLayoutParams().width = 196;
                 viewImage.getLayoutParams().height = 196;
+                */
 
             }
         }

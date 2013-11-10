@@ -29,9 +29,10 @@
     <string name="about_ok">OK</string>
     <string name="about_body_extras"><![CDATA[
         <b>Library & Demo Extras</b><br>
+        Author: <a href="https://plus.google.com/114432517923423045208">Gabriele Mariotti</a><br>
         <br>
-        <a href="https://github.com/gabrielemariotti/cardslib">Source and doc</a><br><br>
-        Author: <a href="https://plus.google.com/114432517923423045208">Gabriele Mariotti</a><br><br>
+        Get: <a href="https://github.com/gabrielemariotti/cardslib">Source and doc</a><br>
+        Get on Google Play: <a href="https://play.google.com/store/apps/details?id=it.gmariotti.cardslib.demo">Cardslib Demo Stock</a><br>
         <br><br>
         Many thanks to these open source tools:<br>
         <b><a href="https://github.com/square/picasso">Picasso</a></b><br>
@@ -46,7 +47,7 @@
         <i>by Square, Inc.</i><br><br>
         <b><a href="https://github.com/nhaarman/ListViewAnimations">ListViewAnimations</a></b><br>
         <i>by Niek Haarman</i><br><br>
-        <br><br><br>
+        <br>
 
     ]]></string>
 

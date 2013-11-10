@@ -123,9 +123,10 @@ public class IonCard extends Card {
                 setDrawableResource(R.drawable.ic_tris);
             }
 
-
+            /*
             viewImage.getLayoutParams().width = 96;
             viewImage.getLayoutParams().height = 96;
+            */
         }
     }
 

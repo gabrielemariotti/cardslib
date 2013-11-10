@@ -37,8 +37,17 @@ public abstract class BaseFragment extends Fragment {
         setTitle();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        setTitle();
+    }
+
     protected void setTitle(){
-        getActivity().setTitle(getTitleResourceId());
+        if (getActivity()!=null){
+            getActivity().setTitle(getTitleResourceId());
+            getActivity().getActionBar().setTitle(getTitleResourceId());
+        }
     }
 
     public abstract int getTitleResourceId();
