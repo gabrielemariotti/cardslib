@@ -11,7 +11,6 @@ You can display **single cards**, **list** of cards and a **grid** of Cards.
 ---
 ## Examples
 
-Try out:
 
 ![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/demo_gplay.png)
 
@@ -23,6 +22,9 @@ Try out:
 
 * Browse the [source code of the sample application](https://github.com/gabrielemariotti/cardslib/tree/master/demo) for a complete example of use.
 * [Example:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/EXAMPLE.md) How to realize simple and nice cards.
+
+
+*If you would like, you can support my work, donating through the demo app.*
 
 
 --------------------------------------
