@@ -338,6 +338,7 @@ public class CardListView extends ListView implements CardView.OnExpandListAnima
                             animations.add(getAnimation(v, delta, delta));
                         }
                         if (Build.VERSION.SDK_INT >= 16){
+                            //I should use ViewCompat.setHasTransientState(v,false);
                             v.setHasTransientState(false);
                         }
                     }
@@ -591,6 +592,9 @@ public class CardListView extends ListView implements CardView.OnExpandListAnima
      * full contents are visible. Lastly, this behaviour varies slightly near the bottom
      * of the listview in order to account for the fact that the bottom bounds of the actual
      * listview cannot be modified.
+     *
+     * Fixes found in https://gist.github.com/jgilfelt/7342135.
+     *
      */
     private int[] getTopAndBottomTranslations(int top, int bottom, int yDelta,
                                               boolean isExpanding) {
@@ -618,8 +622,9 @@ public class CardListView extends ListView implements CardView.OnExpandListAnima
 
             boolean isCollapsingBelowBottom = (yTranslateBottom > leftoverExtent);
             boolean isCellCompletelyDisappearing = bottom - yTranslateBottom < 0;
+            boolean isExtentBeyondRange = leftoverExtent < 0; //fix
 
-            if (isCollapsingBelowBottom) {
+            if (isCollapsingBelowBottom && !isExtentBeyondRange) {
                 yTranslateTop = yTranslateBottom - leftoverExtent;
                 yTranslateBottom = yDelta - yTranslateTop;
             } else if (isCellCompletelyDisappearing) {
