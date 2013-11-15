@@ -48,6 +48,7 @@ import it.gmariotti.cardslib.demo.fragment.GridGplayFragment;
 import it.gmariotti.cardslib.demo.fragment.HeaderFragment;
 import it.gmariotti.cardslib.demo.fragment.ListBaseFragment;
 import it.gmariotti.cardslib.demo.fragment.ListColorFragment;
+import it.gmariotti.cardslib.demo.fragment.ListCursorCardFragment;
 import it.gmariotti.cardslib.demo.fragment.ListDifferentInnerBaseFragment;
 import it.gmariotti.cardslib.demo.fragment.ListExpandCardFragment;
 import it.gmariotti.cardslib.demo.fragment.ListGplayCardFragment;
@@ -94,6 +95,7 @@ public class MainActivity extends Activity {
     private static final int CASE_GRID_BASE = 14;
     private static final int CASE_GRID_GPLAY = 15;
     private static final int CASE_LIST_COLORS = 16;
+    private static final int CASE_CURSOR_LIST = 17;
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -320,6 +322,9 @@ public class MainActivity extends Activity {
             case CASE_LIST_COLORS:
                 baseFragment = new ListColorFragment();
                 break;
+            case CASE_CURSOR_LIST:
+                baseFragment = new ListCursorCardFragment();
+                break;
             default:
                 break;
         }
@@ -373,7 +378,8 @@ public class MainActivity extends Activity {
             "List with swipe and undo",
             "Grid base",
             "Grid Google Play",
-            "List colored cards"
+            "List colored cards",
+            "List with Cursor"
     };
 
 
