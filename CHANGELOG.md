@@ -1,6 +1,10 @@
 Change Log
 ===============================================================================
 
+Version 0.9.0 *(2013-XX-XX)*
+ * LIB: Added a CardCursorAdapter
+ * LIB: Fixed issue collapsing cards when you don't have enough items to fill the screen.
+
 Version 0.8.0 *(2013-11-11)*
 ----------------------------
 
