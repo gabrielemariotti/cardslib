@@ -40,6 +40,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import it.gmariotti.cardslib.library.R;
+import it.gmariotti.cardslib.library.internal.CardCursorAdapter;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
 
@@ -76,6 +77,11 @@ public class CardListView extends ListView implements CardView.OnExpandListAnima
      *  Card Array Adapter
      */
     protected CardArrayAdapter mAdapter;
+
+    /**
+     * Card Cursor Adapter
+     */
+    protected CardCursorAdapter mCursorAdapter;
 
     //--------------------------------------------------------------------------
     // Fields for expand/collapse animation
@@ -162,7 +168,9 @@ public class CardListView extends ListView implements CardView.OnExpandListAnima
     //--------------------------------------------------------------------------
 
     /**
-     * Forces to use a {@link CardArrayAdapter}
+     * Set the adapter. You can provide a {@link CardArrayAdapter}, or a {@link it.gmariotti.cardslib.library.internal.CardCursorAdapter}
+     * or a generic adapter.
+     * Pay attention: your generic adapter has to call {@link CardArrayAdapter#getView} method
      *
      * @param adapter
      */
@@ -170,7 +178,9 @@ public class CardListView extends ListView implements CardView.OnExpandListAnima
     public void setAdapter(ListAdapter adapter) {
         if (adapter instanceof CardArrayAdapter){
             setAdapter((CardArrayAdapter)adapter);
-        }else{
+        }else if (adapter instanceof CardCursorAdapter){
+            setAdapter((CardCursorAdapter)adapter);
+        }else {
             Log.e(TAG,"You are using a generic adapter. Pay attention: your adapter has to call cardArrayAdapter#getView method" );
             super.setAdapter(adapter);
         }
@@ -192,6 +202,21 @@ public class CardListView extends ListView implements CardView.OnExpandListAnima
     }
 
     /**
+     * Set {@link CardCursorAdapter} and layout used by items in ListView
+     *
+     * @param adapter {@link CardCursorAdapter}
+     */
+    public void setAdapter(CardCursorAdapter adapter) {
+        super.setAdapter(adapter);
+
+        //Set Layout used by items
+        adapter.setRowLayoutId(list_card_layout_resourceID);
+
+        adapter.setCardListView(this);
+        mCursorAdapter=adapter;
+    }
+
+    /**
      * You can use this method, if you are using external adapters.
      * Pay attention. The generic adapter#getView() method has to call the cardArrayAdapter#getView() method to work.
      *
@@ -205,6 +230,22 @@ public class CardListView extends ListView implements CardView.OnExpandListAnima
         mAdapter=cardArrayAdapter;
         mAdapter.setCardListView(this);
         mAdapter.setRowLayoutId(list_card_layout_resourceID);
+    }
+
+    /**
+     * You can use this method, if you are using external adapters.
+     * Pay attention. The generic adapter#getView() method has to call the cardCursorAdapter#getView() method to work.
+     *
+     * @param adapter {@link ListAdapter} generic adapter
+     * @param cardCursorAdapter    {@link CardCursorAdapter} cardArrayAdapter
+     */
+    public void setExternalAdapter(ListAdapter adapter, CardCursorAdapter cardCursorAdapter) {
+
+        setAdapter(adapter);
+
+        mCursorAdapter=cardCursorAdapter;
+        mCursorAdapter.setCardListView(this);
+        mCursorAdapter.setRowLayoutId(list_card_layout_resourceID);
     }
 
 
