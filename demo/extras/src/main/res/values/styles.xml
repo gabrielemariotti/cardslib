@@ -143,4 +143,21 @@
         <item name="android:layout_marginTop">2dp</item>
     </style>
 
+    <!--Style for Crouton View-->
+    <style name="card.content_outer_crouton_layout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:minHeight">32dp</item>
+        <item name="android:layout_marginTop">@dimen/card_content_outer_view_margin_top</item>
+        <item name="android:layout_marginBottom">@dimen/card_content_outer_view_margin_bottom</item>
+        <item name="android:layout_marginLeft">@dimen/card_content_outer_view_margin_left</item>
+        <item name="android:layout_marginRight">@dimen/card_content_outer_view_margin_right</item>
+    </style>
+
+    <style name="card_thumbnail_crouton_image">
+        <item name="android:layout_width">16dp</item>
+        <item name="android:layout_height">16dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
 </resources>

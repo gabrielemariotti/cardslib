@@ -70,6 +70,9 @@
     <string name="carddemo_extras_title_actionbar_pull_to_refresh">ActionBar-PullToRefresh</string>
     <string name="carddemo_extras_title_listviewanimations">ListViewAnimations</string>
     <string name="carddemo_extras_title_listviewgridanimations">GridViewAnimations</string>
+    <string name="carddemo_extras_title_crouton">Crouton</string>
+
+    <string name="carddemo_extras_simpletext">Simple Text</string>
 
     <!-- Purchase -->
     <string name="demo_purchase"><![CDATA[
@@ -79,5 +82,6 @@
     <string name="demo_item_small_beer">Buy me a coffee</string>
     <string name="demo_item_medium_beer">Buy me a toast</string>
     <string name="demo_item_large_beer">Buy me a pizza</string>
+
 
 </resources>
