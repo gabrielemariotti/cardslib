@@ -62,6 +62,7 @@ Card Library provides 3 custom tags:
 
 * It uses `CardView` tag and all its properties.
 * It works with an `CardArrayAdapter`
+* It works with an `CardCursorAdapter`
 
 ---------------------------------------
 
@@ -134,7 +135,7 @@ Here you can find some pages to customize these tags.
 Card Library is pushed to Maven Central as a AAR, so you just need to add the following dependency to your `build.gradle`.
 
     dependencies {
-        compile 'com.github.gabrielemariotti.cards:library:0.8.0'
+        compile 'com.github.gabrielemariotti.cards:library:0.9.0'
     }
 
 [To build the library and demo locally you can see this page for more info](https://github.com/gabrielemariotti/cardslib/tree/master/doc/BUILD.md).

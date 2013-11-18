@@ -7,6 +7,8 @@ In this page you can find info about:
 * [Using card with Android-Universal-Image-Loader](#using-card-with-android-universal-image-loader)
 * [Using card with ActionBar-PullToRefresh](#using-card-with-actionbar-pulltorefresh)
 * [Using card with ListViewAnimations](#using-card-with-listviewanimations)
+* [Using card as a Crouton](#using-card-as-a-crouton)
+
 
 ## Using card with Picasso
 
@@ -162,16 +164,19 @@ The proper way to integrate this library is to use `PullToRefreshLayout` in your
 ```
 
 ``` java
-        // Now get the PullToRefresh attacher from the Activity. An exercise to the reader
-        // is to create an implicit interface instead of casting to the concrete Activity
-        mPullToRefreshAttacher = ((MainActivity) getActivity()).getPullToRefreshAttacher();
 
         // Retrieve the PullToRefreshLayout from the content view
-        PullToRefreshLayout ptrLayout = (PullToRefreshLayout) getActivity()
-                                          .findViewById(R.id.carddemo_extra_ptr_layout);
+        mPullToRefreshLayout = (PullToRefreshLayout) getActivity().findViewById(R.id.carddemo_extra_ptr_layout);
 
-        // Give the PullToRefreshAttacher to the PullToRefreshLayout, along with a refresh listener.
-        ptrLayout.setPullToRefreshAttacher(mPullToRefreshAttacher, this);
+       // Now setup the PullToRefreshLayout
+       ActionBarPullToRefresh.from(this.getActivity())
+               // Mark All Children as pullable
+               .allChildrenArePullable()
+               // Set the OnRefreshListener
+               .listener(this)
+               // Finally commit the setup to our PullToRefreshLayout
+               .setup(mPullToRefreshLayout);
+
 ```
 
 ### Using card with ListViewAnimations
@@ -201,6 +206,30 @@ You can find another example in demo-extras in `ListViewGridAnimationsFragment`.
 ```
 
 
+### Using card as a Crouton
+
+[Crouton][11] is provided by [Benjamin Weiss][12].
+
+You can find an example in demo-extras in `CroutonFragment`. [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/fragment/CroutonFragment.java)
+
+``` java
+
+    CardView cardView= (CardView)view.findViewById(R.id.carddemo_card_crouton_id);
+
+    Card card = new Card(getActivity().getApplicationContext());
+    card.setTitle("Crouton Card");
+    card.setBackgroundResourceId(R.color.demoextra_card_background_color2);
+
+    CardThumbnail thumb = new CardThumbnail(getActivity().getApplicationContext());
+    thumb.setDrawableResource(R.drawable.ic_action_bulb);
+    card.addCardThumbnail(thumb);
+
+    cardView.setCard(card);
+
+    Crouton.make(getActivity(), cardView).show();
+
+```
+
 
 
  [1]: https://github.com/square/picasso
@@ -213,3 +242,5 @@ You can find another example in demo-extras in `ListViewGridAnimationsFragment`.
  [8]: http://chris.banes.me/
  [9]: https://github.com/nhaarman/ListViewAnimations
  [10]: https://plus.google.com/+NiekHaarman
+ [11]: https://github.com/keyboardsurfer/Crouton
+ [12]: https://plus.google.com/u/0/117509657298845443204

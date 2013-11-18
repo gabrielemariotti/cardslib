@@ -7,6 +7,7 @@ In this page you can find info about:
 * [Cards with different inner layouts](#cards-with-different-inner-layouts)
 * [Swipe and Undo in `CardListView`](#swipe-and-undo-in-cardlistview)
 * [How to use an external adapter](#how-to-use-an-external-adapter)
+* [Using a cursor adapter](#using-a-cursor-adapter)
 
 
 ### Creating a base CardList
@@ -89,8 +90,6 @@ You can build your layout, but need to have:
 
  1. a `CardView` with the ID `list_cardId`
 
-
-Currently you have to use the same inner layouts for each card in `CardListView`
 
 
 ![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/demo/list_gplay.png)
@@ -252,3 +251,67 @@ In this case you can use this code:
 ```
 
 Pay attention. You can use this method, if your ownAdapter calls the mCardArrayAdapter#getView() method.
+
+
+### Using a cursor adapter
+
+Creating a `CardListView` is pretty simple.
+
+First, you need an XML layout that will display the `CardListView`.
+
+``` xml
+    <it.gmariotti.cardslib.library.view.CardListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/myList"/>
+```
+
+Then create your `CardCursorAdapter`.
+
+You have to extend the `CardCursorAdapter` and override the `getCardFromCursor` method.
+
+``` java
+      public class MyCursorCardAdapter extends CardCursorAdapter {
+
+          public MyCursorCardAdapter(Context context) {
+              super(context);
+          }
+
+          @Override
+          protected Card getCardFromCursor(Cursor cursor) {
+              MyCursorCard card = new MyCursorCard(super.getContext());
+              setCardFromCursor(card,cursor);
+
+              //Create a CardHeader
+              CardHeader header = new CardHeader(getActivity().getApplicationContext());
+              //Set the header title
+
+              header.setTitle(card.mainHeader);
+
+              //Add Header to card
+              card.addCardHeader(header);
+
+              return card;
+          }
+
+          private void setCardFromCursor(MyCursorCard card,Cursor cursor) {
+
+              card.mainTitle=cursor.getString(CardCursorContract.CardCursor.IndexColumns.TITLE_COLUMN);
+              card.secondaryTitle=cursor.getString(CardCursorContract.CardCursor.IndexColumns.SUBTITLE_COLUMN);
+              card.mainHeader=cursor.getString(CardCursorContract.CardCursor.IndexColumns.HEADER_COLUMN);
+              card.setId(""+cursor.getInt(CardCursorContract.CardCursor.IndexColumns.ID_COLUMN));
+          }
+      }
+
+```
+
+Last create your `MyCursorCardAdapter` instance, get a reference to the `CardListView` from your code and set your adapter.
+
+``` java
+        MyCursorCardAdapter mAdapter = new MyCursorCardAdapter(getActivity());
+
+        CardListView mListView = (CardListView) getActivity().findViewById(R.id.carddemo_list_cursor);
+        if (mListView != null) {
+            mListView.setAdapter(mAdapter);
+        }
+```

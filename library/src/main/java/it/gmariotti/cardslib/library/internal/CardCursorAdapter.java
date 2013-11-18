@@ -198,7 +198,7 @@ public abstract class CardCursorAdapter extends BaseCardCursorAdapter implements
         @Override
         public void onDismiss(ListView listView, int[] reverseSortedPositions) {
 
-            /*
+
             int[] itemPositions=new int[reverseSortedPositions.length];
             String[] itemIds=new String[reverseSortedPositions.length];
             int i=0;
@@ -210,13 +210,13 @@ public abstract class CardCursorAdapter extends BaseCardCursorAdapter implements
                 itemIds[i]=card.getId();
                 i++;
 
-                remove(card);
                 if (card.getOnSwipeListener() != null){
                         card.getOnSwipeListener().onSwipe(card);
                 }
             }
-            notifyDataSetChanged();
+            //notifyDataSetChanged();
 
+            /*
             //Check for a undo message to confirm
             if (isEnableUndo() && mUndoBarController!=null){
 

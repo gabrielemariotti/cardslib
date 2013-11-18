@@ -32,8 +32,8 @@ import android.widget.TextView;
 import it.gmariotti.cardslib.demo.R;
 import it.gmariotti.cardslib.demo.cards.CustomExpandCard;
 import it.gmariotti.cardslib.demo.db.CardCursorContract;
-import it.gmariotti.cardslib.library.internal.CardCursorAdapter;
 import it.gmariotti.cardslib.library.internal.Card;
+import it.gmariotti.cardslib.library.internal.CardCursorAdapter;
 import it.gmariotti.cardslib.library.internal.CardHeader;
 import it.gmariotti.cardslib.library.internal.CardThumbnail;
 import it.gmariotti.cardslib.library.view.CardListView;
@@ -133,13 +133,25 @@ public class ListCursorCardFragment extends BaseFragment implements LoaderManage
             thumb.setDrawableResource(card.resourceIdThumb);
             card.addCardThumbnail(thumb);
 
+
+            card.setSwipeable(true);
+            card.setOnSwipeListener(new Card.OnSwipeListener() {
+                @Override
+                public void onSwipe(Card card) {
+                    removeCard(card);
+
+                }
+            });
+
             return card;
         }
 
         private void setCardFromCursor(MyCursorCard card,Cursor cursor) {
+
             card.mainTitle=cursor.getString(CardCursorContract.CardCursor.IndexColumns.TITLE_COLUMN);
             card.secondaryTitle=cursor.getString(CardCursorContract.CardCursor.IndexColumns.SUBTITLE_COLUMN);
             card.mainHeader=cursor.getString(CardCursorContract.CardCursor.IndexColumns.HEADER_COLUMN);
+            card.setId(""+cursor.getInt(CardCursorContract.CardCursor.IndexColumns.ID_COLUMN));
 
             int thumb = cursor.getInt(CardCursorContract.CardCursor.IndexColumns.THUMBNAIL_COLUMN);
             switch (thumb){
@@ -161,6 +173,21 @@ public class ListCursorCardFragment extends BaseFragment implements LoaderManage
             }
 
         }
+    }
+
+    private void removeCard(Card card) {
+
+        //Use this code to delete items on DB
+
+        /*
+        ContentResolver resolver = getActivity().getContentResolver();
+        long noDeleted = resolver.delete
+                (CardCursorContract.CardCursor.CONTENT_URI,
+                        CardCursorContract.CardCursor.KeyColumns.KEY_ID + " = ? ",
+        new String[]{card.getId()});
+
+        mAdapter.notifyDataSetChanged();
+        */
     }
 
     public class MyCursorCard extends Card {

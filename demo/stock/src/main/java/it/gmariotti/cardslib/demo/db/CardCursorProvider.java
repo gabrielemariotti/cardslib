@@ -226,6 +226,12 @@ public class CardCursorProvider extends ContentProvider {
 
         // If this is a row URI, limit the deletion to the specified row.
         switch (uriMatcher.match(uri)) {
+            case CardCursor_ALLROWS:
+                deleteCount = db.delete(
+                        CardCursorSQLiteOpenHelper.Tables.CardCursor,
+                        selection,
+                        selectionArgs);
+                break;
             case CardCursor_SINGLE_ROW :
                 rowID = uri.getPathSegments().get(1);
                 selection = CardCursorContract.CardCursor.KeyColumns.KEY_ID + "=" + rowID
