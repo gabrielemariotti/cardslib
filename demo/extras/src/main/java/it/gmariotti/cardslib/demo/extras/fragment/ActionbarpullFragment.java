@@ -26,14 +26,14 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
-import it.gmariotti.cardslib.demo.extras.MainActivity;
 import it.gmariotti.cardslib.demo.extras.R;
 import it.gmariotti.cardslib.demo.extras.cards.ColorCard;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
 import it.gmariotti.cardslib.library.view.CardListView;
-import uk.co.senab.actionbarpulltorefresh.library.PullToRefreshAttacher;
+import uk.co.senab.actionbarpulltorefresh.library.ActionBarPullToRefresh;
 import uk.co.senab.actionbarpulltorefresh.library.PullToRefreshLayout;
+import uk.co.senab.actionbarpulltorefresh.library.listeners.OnRefreshListener;
 
 /**
  * This example uses ActionBar-PullToRefresh
@@ -41,11 +41,11 @@ import uk.co.senab.actionbarpulltorefresh.library.PullToRefreshLayout;
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public class ActionbarpullFragment extends BaseFragment implements PullToRefreshAttacher.OnRefreshListener {
-
-    private PullToRefreshAttacher mPullToRefreshAttacher;
+public class ActionbarpullFragment extends BaseFragment implements OnRefreshListener {
 
     private CardListView listView;
+
+    PullToRefreshLayout mPullToRefreshLayout;
 
     public static final int SIMULATED_REFRESH_LENGTH = 5000;
 
@@ -71,17 +71,17 @@ public class ActionbarpullFragment extends BaseFragment implements PullToRefresh
 
         initCard();
 
-
-        // Now get the PullToRefresh attacher from the Activity. An exercise to the reader
-        // is to create an implicit interface instead of casting to the concrete Activity
-        mPullToRefreshAttacher = ((MainActivity) getActivity())
-                .getPullToRefreshAttacher();
-
         // Retrieve the PullToRefreshLayout from the content view
-        PullToRefreshLayout ptrLayout = (PullToRefreshLayout) getActivity().findViewById(R.id.carddemo_extra_ptr_layout);
+        mPullToRefreshLayout = (PullToRefreshLayout) getActivity().findViewById(R.id.carddemo_extra_ptr_layout);
 
-        // Give the PullToRefreshAttacher to the PullToRefreshLayout, along with a refresh listener.
-        ptrLayout.setPullToRefreshAttacher(mPullToRefreshAttacher, this);
+        // Now setup the PullToRefreshLayout
+        ActionBarPullToRefresh.from(this.getActivity())
+                // Mark All Children as pullable
+                .allChildrenArePullable()
+                // Set the OnRefreshListener
+                .listener(this)
+                // Finally commit the setup to our PullToRefreshLayout
+                .setup(mPullToRefreshLayout);
 
     }
 
@@ -147,7 +147,7 @@ public class ActionbarpullFragment extends BaseFragment implements PullToRefresh
                 super.onPostExecute(result);
 
                 // Notify PullToRefreshAttacher that the refresh has finished
-                mPullToRefreshAttacher.setRefreshComplete();
+                mPullToRefreshLayout.setRefreshComplete();
             }
         }.execute();
     }

@@ -20,11 +20,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/menu_refresh"
-        android:title="@string/action_menu_refresh"
-        android:icon="@drawable/action_refresh"
+        android:id="@+id/menu_crouton1"
+        android:title="@string/action_menu_crouton1"
         android:orderInCategory="1"
-        android:showAsAction="ifRoom"/>
+        android:showAsAction="always"/>
 
+    <item
+        android:id="@+id/menu_crouton2"
+        android:title="@string/action_menu_crouton2"
+        android:orderInCategory="2"
+        android:showAsAction="always"/>
 
 </menu>

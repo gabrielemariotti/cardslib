@@ -50,7 +50,7 @@ dependencies {
     //universal-image-loader
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.8.6'
     //Actionbar pull to refresh
-    compile 'com.github.chrisbanes.actionbarpulltorefresh:library:0.8'
+    compile 'com.github.chrisbanes.actionbarpulltorefresh:library:0.9.1'
     //list-viewanimations
     compile fileTree(dir: 'libs', include: '*.jar')
     compile 'com.nineoldandroids:library:2.4.0'

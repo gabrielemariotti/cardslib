@@ -34,8 +34,8 @@ import it.gmariotti.cardslib.library.internal.CardThumbnail;
 import it.gmariotti.cardslib.library.view.CardView;
 
 /**
- * This example uses a list card with Thumbnail loaded with built-in method and Picasso library
- * Please refer to https://github.com/square/picasso for full doc
+ * Crouton card
+ * Please refer to https://github.com/keyboardsurfer/Crouton for full doc
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
@@ -68,8 +68,11 @@ public class CroutonFragment extends BaseFragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
 
-            case R.id.menu_refresh:
-                crouton();
+            case R.id.menu_crouton1:
+                crouton1();
+                return true;
+            case R.id.menu_crouton2:
+                crouton2();
                 return true;
             default:
                 break;
@@ -86,7 +89,33 @@ public class CroutonFragment extends BaseFragment {
     /**
      * This method builds a simple card
      */
-    private void crouton() {
+    private void crouton1() {
+
+        LayoutInflater mInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View view = mInflater.inflate(R.layout.carddemo_extras_crouton_card, null);
+
+        CardView cardView= (CardView)view.findViewById(R.id.carddemo_card_crouton_id);
+
+        Card card = new Card(getActivity().getApplicationContext());
+        card.setTitle("Crouton Card");
+        card.setBackgroundResourceId(R.color.demoextra_card_background_color2);
+
+        CardThumbnail thumb = new CardThumbnail(getActivity().getApplicationContext());
+        thumb.setDrawableResource(R.drawable.ic_action_bulb);
+        card.addCardThumbnail(thumb);
+
+        cardView.setCard(card);
+
+        final Crouton crouton;
+        crouton = Crouton.make(getActivity(), view);
+        crouton.show();
+
+    }
+
+    /**
+     * This method builds a simple card
+     */
+    private void crouton2() {
 
         LayoutInflater mInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = mInflater.inflate(R.layout.carddemo_extras_crouton_card, null);
@@ -97,7 +126,7 @@ public class CroutonFragment extends BaseFragment {
         card.setTitle("Crouton Card");
 
         CardThumbnail thumb = new CardThumbnail(getActivity().getApplicationContext());
-        thumb.setDrawableResource(R.drawable.ic_error_loadingsmall);
+        thumb.setDrawableResource(R.drawable.ic_action_halt);
         card.addCardThumbnail(thumb);
 
         cardView.setCard(card);

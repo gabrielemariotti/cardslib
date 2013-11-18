@@ -59,6 +59,9 @@
     <string name="action_menu_refresh">Refresh</string>
     <string name="action_share">Share</string>
     <string name="action_menu_beer">Donate</string>
+    <string name="action_menu_crouton1">Crouton1</string>
+    <string name="action_menu_crouton2">Crouton2</string>
+
 
     <!-- Misc -->
     <string name="hello_world">Hello world!</string>

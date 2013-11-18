@@ -21,8 +21,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/card_thumbnail_image"
     android:scaleType="centerCrop"
-    android:layout_width="16dp"
-    android:layout_height="16dp"
+    android:layout_width="24dp"
+    android:layout_height="24dp"
     style="@style/card_thumbnail_crouton_image"/>
 
 

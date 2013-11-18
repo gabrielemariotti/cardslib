@@ -153,19 +153,25 @@ public class ListViewAnimationsFragment extends BaseFragment implements
     private void setAlphaAdapter() {
         AnimationAdapter animCardArrayAdapter = new AlphaInAnimationAdapter(mCardArrayAdapter);
         animCardArrayAdapter.setAbsListView(mListView);
-        mListView.setExternalAdapter(animCardArrayAdapter,mCardArrayAdapter);
+        if (mListView != null) {
+          mListView.setExternalAdapter(animCardArrayAdapter,mCardArrayAdapter);
+        }
     }
 
     private void setLeftAdapter() {
         AnimationAdapter animCardArrayAdapter = new SwingLeftInAnimationAdapter(mCardArrayAdapter);
         animCardArrayAdapter.setAbsListView(mListView);
-        mListView.setExternalAdapter(animCardArrayAdapter,mCardArrayAdapter);
+        if (mListView != null) {
+            mListView.setExternalAdapter(animCardArrayAdapter,mCardArrayAdapter);
+        }
     }
 
     private void setRightAdapter() {
         AnimationAdapter animCardArrayAdapter = new SwingRightInAnimationAdapter(mCardArrayAdapter);
         animCardArrayAdapter.setAbsListView(mListView);
-        mListView.setExternalAdapter(animCardArrayAdapter,mCardArrayAdapter);
+        if (mListView != null) {
+            mListView.setExternalAdapter(animCardArrayAdapter,mCardArrayAdapter);
+        }
     }
 
     private void setBottomAdapter() {
@@ -177,13 +183,17 @@ public class ListViewAnimationsFragment extends BaseFragment implements
     private void setBottomRightAdapter() {
         AnimationAdapter animCardArrayAdapter = new SwingBottomInAnimationAdapter(new SwingRightInAnimationAdapter(mCardArrayAdapter));
         animCardArrayAdapter.setAbsListView(mListView);
-        mListView.setExternalAdapter(animCardArrayAdapter,mCardArrayAdapter);
+        if (mListView != null) {
+            mListView.setExternalAdapter(animCardArrayAdapter,mCardArrayAdapter);
+        }
     }
 
     private void setScaleAdapter() {
         AnimationAdapter animCardArrayAdapter = new ScaleInAnimationAdapter(mCardArrayAdapter);
         animCardArrayAdapter.setAbsListView(mListView);
-        mListView.setExternalAdapter(animCardArrayAdapter,mCardArrayAdapter);
+        if (mListView != null) {
+            mListView.setExternalAdapter(animCardArrayAdapter,mCardArrayAdapter);
+        }
     }
 
     @Override

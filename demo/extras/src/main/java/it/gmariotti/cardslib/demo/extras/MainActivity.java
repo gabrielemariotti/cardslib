@@ -49,7 +49,6 @@ import it.gmariotti.cardslib.demo.extras.fragment.UniversalImageLoaderFragment;
 import it.gmariotti.cardslib.demo.extras.iabutils.IabHelper;
 import it.gmariotti.cardslib.demo.extras.iabutils.IabResult;
 import it.gmariotti.cardslib.demo.extras.iabutils.IabUtil;
-import uk.co.senab.actionbarpulltorefresh.library.PullToRefreshAttacher;
 
 
 public class MainActivity extends Activity {
@@ -57,11 +56,10 @@ public class MainActivity extends Activity {
     private ListView mDrawerList;
     private DrawerLayout mDrawer;
     private CustomActionBarDrawerToggle mDrawerToggle;
-    private int mCurrentTitle;
+    private int mCurrentTitle=R.string.app_name;
     private int mSelectedFragment;
     private BaseFragment mBaseFragment;
 
-    private PullToRefreshAttacher mPullToRefreshAttacher;
 
     private static String TAG= "MainActivity";
     private IabHelper mHelper;
@@ -89,7 +87,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.demo_extras_activity_main);
 
         // The attacher should always be created in the Activity's onCreate
-        mPullToRefreshAttacher = PullToRefreshAttacher.get(this);
+        //mPullToRefreshAttacher = PullToRefreshAttacher.get(this);
 
         // enable ActionBar app icon to behave as action to toggle nav drawer
         getActionBar().setDisplayHomeAsUpEnabled(true);
@@ -346,9 +344,6 @@ public class MainActivity extends Activity {
 
     }
 
-    public PullToRefreshAttacher getPullToRefreshAttacher() {
-        return mPullToRefreshAttacher;
-    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

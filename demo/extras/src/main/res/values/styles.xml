@@ -154,8 +154,8 @@
     </style>
 
     <style name="card_thumbnail_crouton_image">
-        <item name="android:layout_width">16dp</item>
-        <item name="android:layout_height">16dp</item>
+        <item name="android:layout_width">24dp</item>
+        <item name="android:layout_height">24dp</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:gravity">center</item>
         <item name="android:scaleType">centerCrop</item>
