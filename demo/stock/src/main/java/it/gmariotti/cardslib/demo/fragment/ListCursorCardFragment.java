@@ -19,6 +19,7 @@
 package it.gmariotti.cardslib.demo.fragment;
 
 import android.app.LoaderManager;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.CursorLoader;
 import android.content.Loader;
@@ -178,16 +179,14 @@ public class ListCursorCardFragment extends BaseFragment implements LoaderManage
     private void removeCard(Card card) {
 
         //Use this code to delete items on DB
-
-        /*
         ContentResolver resolver = getActivity().getContentResolver();
         long noDeleted = resolver.delete
                 (CardCursorContract.CardCursor.CONTENT_URI,
                         CardCursorContract.CardCursor.KeyColumns.KEY_ID + " = ? ",
         new String[]{card.getId()});
 
-        mAdapter.notifyDataSetChanged();
-        */
+        //mAdapter.notifyDataSetChanged();
+
     }
 
     public class MyCursorCard extends Card {

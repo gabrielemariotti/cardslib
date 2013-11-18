@@ -1,7 +1,7 @@
 Change Log
 ===============================================================================
 
-Version 0.9.0 *(2013-XX-XX)*
+Version 0.9.0 *(2013-11-XX)*
  * LIB: Added a CardCursorAdapter [(doc)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARDLIST.md#using-a-cursor-adapter)
  * LIB: Fixed issue collapsing cards when you don't have enough items to fill the screen.
  * DEMO: Added an example with CardCursorAdapter [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/ListCursorCardFragment.java)
