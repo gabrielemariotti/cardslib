@@ -20,11 +20,10 @@ package it.gmariotti.cardslib.library.internal;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.os.Parcelable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 
 import java.util.HashMap;
 
@@ -32,8 +31,6 @@ import it.gmariotti.cardslib.library.R;
 import it.gmariotti.cardslib.library.internal.base.BaseCardCursorAdapter;
 import it.gmariotti.cardslib.library.view.CardListView;
 import it.gmariotti.cardslib.library.view.CardView;
-import it.gmariotti.cardslib.library.view.listener.SwipeDismissListViewTouchListener;
-import it.gmariotti.cardslib.library.view.listener.UndoBarController;
 
 /**
  * Cursor Adapter for {@link it.gmariotti.cardslib.library.internal.Card} model
@@ -42,7 +39,7 @@ import it.gmariotti.cardslib.library.view.listener.UndoBarController;
  * </p>
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public abstract class CardCursorAdapter extends BaseCardCursorAdapter implements UndoBarController.UndoListener {
+public abstract class CardCursorAdapter extends BaseCardCursorAdapter  {
 
     protected static String TAG = "CardCursorAdapter";
 
@@ -54,7 +51,7 @@ public abstract class CardCursorAdapter extends BaseCardCursorAdapter implements
     /**
      * Listener invoked when a card is swiped
      */
-    protected SwipeDismissListViewTouchListener mOnTouchListener;
+    //protected SwipeDismissListViewTouchListener mOnTouchListener;
 
     /**
      * Used to enable an undo message after a swipe action
@@ -131,7 +128,9 @@ public abstract class CardCursorAdapter extends BaseCardCursorAdapter implements
                 mCardView.setCard(mCard);
 
                 //Set originalValue
-                mCard.setSwipeable(origianlSwipeable);
+                //mCard.setSwipeable(origianlSwipeable);
+                if (origianlSwipeable)
+                    Log.d(TAG, "Swipe action not enabled in this type of view");
 
                 //If card has an expandable button override animation
                 if (mCard.getCardHeader() != null && mCard.getCardHeader().isButtonExpandVisible()) {
@@ -155,6 +154,8 @@ public abstract class CardCursorAdapter extends BaseCardCursorAdapter implements
      */
     protected void setupSwipeableAnimation(final Card card, CardView cardView) {
 
+        cardView.setOnTouchListener(null);
+        /*
         if (card.isSwipeable()){
             if (mOnTouchListener == null){
                 mOnTouchListener = new SwipeDismissListViewTouchListener(mCardListView, mCallback);
@@ -168,7 +169,7 @@ public abstract class CardCursorAdapter extends BaseCardCursorAdapter implements
         }else{
             //prevent issue with recycle view
             cardView.setOnTouchListener(null);
-        }
+        }*/
     }
 
     /**
@@ -188,7 +189,7 @@ public abstract class CardCursorAdapter extends BaseCardCursorAdapter implements
     /**
      * Listener invoked when a card is swiped
      */
-    SwipeDismissListViewTouchListener.DismissCallbacks mCallback = new SwipeDismissListViewTouchListener.DismissCallbacks() {
+    /*SwipeDismissListViewTouchListener.DismissCallbacks mCallback = new SwipeDismissListViewTouchListener.DismissCallbacks() {
 
         @Override
         public boolean canDismiss(int position, Card card) {
@@ -235,15 +236,15 @@ public abstract class CardCursorAdapter extends BaseCardCursorAdapter implements
                     }
                 }
 
-            }*/
+            }
         }
-    };
+    };*/
 
     // -------------------------------------------------------------
     //  Undo Default Listener
     // -------------------------------------------------------------
 
-    @Override
+    /*@Override
     public void onUndo(Parcelable token) {
         /*
         //Restore items in lists (use reverseSortedOrder)
@@ -273,8 +274,8 @@ public abstract class CardCursorAdapter extends BaseCardCursorAdapter implements
                     }
                 }
             }
-        }*/
-    }
+        }*
+    }*/
 
     // -------------------------------------------------------------
     //  Getters and Setters

@@ -306,7 +306,7 @@ public class CardCursorProvider extends ContentProvider {
 
         public CardCursorSQLiteOpenHelper(Context context, String name,
                                      SQLiteDatabase.CursorFactory factory, int version) {
-            super(context, context.getExternalFilesDir(null).getAbsolutePath() + "/" + name, factory, version);
+            super(context, name, factory, version);
         }
 
         // Called when no database exists in disk and the helper class needs

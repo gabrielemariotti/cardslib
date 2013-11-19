@@ -29,6 +29,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import it.gmariotti.cardslib.demo.R;
 import it.gmariotti.cardslib.demo.cards.CustomExpandCard;
@@ -134,15 +135,13 @@ public class ListCursorCardFragment extends BaseFragment implements LoaderManage
             thumb.setDrawableResource(card.resourceIdThumb);
             card.addCardThumbnail(thumb);
 
-
-            card.setSwipeable(true);
-            card.setOnSwipeListener(new Card.OnSwipeListener() {
+            card.setOnClickListener(new Card.OnCardClickListener() {
                 @Override
-                public void onSwipe(Card card) {
-                    removeCard(card);
-
+                public void onClick(Card card, View view) {
+                    Toast.makeText(getContext(),"Card id="+card.getId()+ " Title="+card.getTitle(),Toast.LENGTH_SHORT).show();
                 }
             });
+
 
             return card;
         }

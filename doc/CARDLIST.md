@@ -315,3 +315,5 @@ Last create your `MyCursorCardAdapter` instance, get a reference to the `CardLis
             mListView.setAdapter(mAdapter);
         }
 ```
+
+With the this type of cursor, currently you can't use the swipe and undo actions.
