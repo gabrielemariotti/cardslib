@@ -70,6 +70,9 @@ Last get a reference to the `CardListView` from your code, and set your adapter:
         listView.setAdapter(mCardArrayAdapter);
 ```
 
+Also the `CardListView` can work with a `CardCursorAdapter`.
+
+
 See this [page](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARDLIST.md) for more info.
 
 

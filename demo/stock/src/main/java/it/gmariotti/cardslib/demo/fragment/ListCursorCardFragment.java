@@ -26,18 +26,19 @@ import android.content.Loader;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import it.gmariotti.cardslib.demo.R;
-import it.gmariotti.cardslib.demo.cards.CustomExpandCard;
 import it.gmariotti.cardslib.demo.db.CardCursorContract;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardCursorAdapter;
 import it.gmariotti.cardslib.library.internal.CardHeader;
 import it.gmariotti.cardslib.library.internal.CardThumbnail;
+import it.gmariotti.cardslib.library.internal.base.BaseCard;
 import it.gmariotti.cardslib.library.view.CardListView;
 
 /**
@@ -119,17 +120,17 @@ public class ListCursorCardFragment extends BaseFragment implements LoaderManage
             //Set the header title
 
             header.setTitle(card.mainHeader);
-
-            //Set visible the expand/collapse button
-            header.setButtonExpandVisible(true);
+            header.setPopupMenu(R.menu.popupmain, new CardHeader.OnClickCardHeaderPopupMenuListener() {
+                @Override
+                public void onMenuItemClick(BaseCard card, MenuItem item) {
+                    Toast.makeText(getContext(), "Click on card menu" + ((MyCursorCard)card).mainTitle +" item=" +  item.getTitle(), Toast.LENGTH_SHORT).show();
+                }
+            });
 
             //Add Header to card
             card.addCardHeader(header);
 
-            //This provides a simple (and useless) expand area
-            CustomExpandCard expand = new CustomExpandCard(getActivity().getApplicationContext());
-            //Add Expand Area to Card
-            card.addCardExpand(expand);
+
 
             CardThumbnail thumb = new CardThumbnail(getActivity().getApplicationContext());
             thumb.setDrawableResource(card.resourceIdThumb);
@@ -138,7 +139,7 @@ public class ListCursorCardFragment extends BaseFragment implements LoaderManage
             card.setOnClickListener(new Card.OnCardClickListener() {
                 @Override
                 public void onClick(Card card, View view) {
-                    Toast.makeText(getContext(),"Card id="+card.getId()+ " Title="+card.getTitle(),Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Card id=" + card.getId() + " Title=" + card.getTitle(), Toast.LENGTH_SHORT).show();
                 }
             });
 

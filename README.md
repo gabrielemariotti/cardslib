@@ -75,7 +75,7 @@ Card Library provides 3 custom tags:
 
 ## Usage
 
-Creating a `Card` is is pretty simple.
+Creating a `Card` is pretty simple.
 
 First, you need an XML layout that will display the `Card`.
 
