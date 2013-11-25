@@ -19,6 +19,7 @@
 package it.gmariotti.cardslib.library.internal;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -164,6 +165,14 @@ public class Card extends BaseCard {
      * In a standard card it identifies the main background.
      */
     private int mBackgroundResourceId =0;
+
+    /**
+     * It identifies the background resource of view with this id:
+     * android:id="@+id/card_main_layout"
+     * <p/>
+     * In a standard card it identifies the main background.
+     */
+    private Drawable mBackgroundResource =null;
 
     // -------------------------------------------------------------
     // Constructors
@@ -814,6 +823,24 @@ public class Card extends BaseCard {
     }
 
     /**
+     * Retrieves the background drawable resource
+     *
+     * @return
+     */
+    public Drawable getBackgroundResource() {
+        return mBackgroundResource;
+    }
+
+    /**
+     * Sets the background drawable resource to override the style of MainLayout (card.main_layout)
+     *
+     * @param drawableResource drawable resource
+     */
+    public void setBackgroundResource(Drawable drawableResource) {
+        this.mBackgroundResource = drawableResource;
+    }
+
+    /**
      * Changes dynamically the drawable resource to override the style of MainLayout.
      *
      * @param drawableResourceId   drawable resource Id
@@ -821,6 +848,17 @@ public class Card extends BaseCard {
     public void changeBackgroundResourceId(int drawableResourceId){
         if (mCardView!=null){
             mCardView.changeBackgroundResourceId(drawableResourceId);
+        }
+    }
+
+    /**
+     * Changes dynamically the drawable resource to override the style of MainLayout.
+     *
+     * @param drawableResource   drawable resource
+     */
+    public void changeBackgroundResource(Drawable drawableResource){
+        if (mCardView!=null){
+            mCardView.changeBackgroundResource(drawableResource);
         }
     }
 

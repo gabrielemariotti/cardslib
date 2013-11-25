@@ -26,6 +26,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
@@ -419,6 +420,8 @@ public class CardView extends BaseCardView {
         if (mCard!=null){
             if (mCard.getBackgroundResourceId()!=0){
                 changeBackgroundResourceId(mCard.getBackgroundResourceId());
+            }else if (mCard.getBackgroundResource()!=null){
+                changeBackgroundResource(mCard.getBackgroundResource());
             }
         }
     }
@@ -876,6 +879,22 @@ public class CardView extends BaseCardView {
         if (drawableResourceId!=0){
             if (mInternalMainCardLayout!=null){
                 mInternalMainCardLayout.setBackgroundResource(drawableResourceId);
+            }
+        }
+    }
+
+    /**
+     * Changes dynamically the drawable resource to override the style of MainLayout.
+     *
+     * @param drawableResource drawable resource
+     */
+    public void changeBackgroundResource(Drawable drawableResource) {
+        if (drawableResource!=null){
+            if (mInternalMainCardLayout!=null){
+                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)
+                    mInternalMainCardLayout.setBackground(drawableResource);
+                else
+                    mInternalMainCardLayout.setBackgroundDrawable(drawableResource);
             }
         }
     }
