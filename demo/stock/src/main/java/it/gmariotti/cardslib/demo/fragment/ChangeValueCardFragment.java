@@ -19,6 +19,7 @@
 package it.gmariotti.cardslib.demo.fragment;
 
 import android.content.Context;
+import android.graphics.drawable.StateListDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -31,6 +32,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import it.gmariotti.cardslib.demo.R;
+import it.gmariotti.cardslib.demo.cards.ColorCard;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardHeader;
 import it.gmariotti.cardslib.library.internal.CardThumbnail;
@@ -48,10 +50,12 @@ public class ChangeValueCardFragment extends BaseFragment {
     private CardExample card1;
     private CardExample2 card2;
     private CardExample3 card3;
+    private ColorCard card4;
 
     private CardView cardView1;
     private CardView cardView2;
     private CardView cardView3;
+    private CardView cardView4;
 
 
 
@@ -94,6 +98,7 @@ public class ChangeValueCardFragment extends BaseFragment {
                 changeCard1();
                 changeCard2();
                 changeCard3();
+                changeCard4();
                 return true;
             default:
                 break;
@@ -119,6 +124,17 @@ public class ChangeValueCardFragment extends BaseFragment {
         cardView3 = (CardView) getActivity().findViewById(R.id.carddemo_card_changevalue_id3);
         cardView3.setCard(card3);
 
+        card4 = new ColorCard(getActivity());
+        card4.setTitle("A simple car");
+        cardView4 = (CardView) getActivity().findViewById(R.id.carddemo_card_changevalue_id4);
+
+        StateListDrawable initDrawable = new StateListDrawable();
+        initDrawable.addState(new int[]{android.R.attr.state_pressed},
+                getResources().getDrawable(R.drawable.pressed_background_card));
+        initDrawable.addState(new int[] {}, getResources().getDrawable(R.drawable.demo_card_background_color1));
+        card4.setBackgroundResource(initDrawable);
+
+        cardView4.setCard(card4);
     }
 
 
@@ -170,6 +186,20 @@ public class ChangeValueCardFragment extends BaseFragment {
         cardView3.replaceCard(card3);
     }
 
+    /**
+     * Change background dinamically
+     */
+    private void changeCard4() {
+
+        StateListDrawable newDrawable = new StateListDrawable();
+        newDrawable.addState(new int[]{android.R.attr.state_pressed},
+                getResources().getDrawable(R.drawable.pressed_background_card));
+        newDrawable.addState(new int[] {}, getResources().getDrawable(R.drawable.demo_card_background_color2));
+
+        card4.setBackgroundResource(newDrawable);
+        cardView4.refreshCard(card4);
+
+    }
 
     public class CardExample extends Card{
 
