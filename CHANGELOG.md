@@ -1,10 +1,17 @@
 Change Log
 ===============================================================================
 
+Version 1.0.0 *(2013-XX-XX)*
+----------------------------
+* LIB: Fixed an issue on CardHeader.OnClickCardHeaderPopupMenuListener. [(You can see this page to fix your code)](https://github.com/gabrielemariotti/cardslib/issues/35)
+* LIB: Added a new method to change dynamically the card background with a Drawable object. [(doc)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARD.md#change-dynamically-card-background-with-a-drawable-object)
+* DEMO: Added an example to change dynamically the card background
+
+
 Version 0.9.0 *(2013-11-19)*
 ----------------------------
  * LIB: Added a CardCursorAdapter [(doc)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARDLIST.md#using-a-cursor-adapter)
- * LIB: Fixed issue collapsing cards when you don't have enough items to fill the screen.
+ * LIB: Fixed an issue collapsing cards when you don't have enough items to fill the screen.
  * DEMO: Added an example with CardCursorAdapter [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/ListCursorCardFragment.java)
  * DEMO-extras: Added an example with [Crouton by  Benjamin Weiss](https://github.com/keyboardsurfer/Crouton) [(doc)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/OTHERLIBRARIES.md#using-card-as-a-crouton)
  * DEMO-extras: Updated ActionBar-PullToRefresh example to new API (0.9.1)

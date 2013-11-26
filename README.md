@@ -132,7 +132,7 @@ Here you can find some pages to customize these tags.
 
 ## Including in your project
 
-Card Library is pushed to Maven Central as a AAR, so you just need to add the following dependency to your `build.gradle`.
+Card Library is pushed to Maven Central as an AAR, so you just need to add the following dependency to your `build.gradle`.
 
     dependencies {
         compile 'com.github.gabrielemariotti.cards:library:0.9.0'
