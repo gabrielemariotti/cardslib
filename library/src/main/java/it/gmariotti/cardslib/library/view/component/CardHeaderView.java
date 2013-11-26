@@ -369,7 +369,7 @@ public class CardHeaderView extends FrameLayout implements CardViewInterface {
                         public boolean onMenuItemClick(MenuItem item) {
                             if (mCardHeader.getPopupMenu() > 0 && mCardHeader.getPopupMenuListener() != null) {
                                 // This individual card has it unique menu
-                                mCardHeader.getPopupMenuListener().onMenuItemClick(mCardHeader, item);
+                                mCardHeader.getPopupMenuListener().onMenuItemClick(mCardHeader.getParentCard(), item);
                             }
                             return false;
                         }

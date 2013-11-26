@@ -123,7 +123,7 @@ public class ListCursorCardFragment extends BaseFragment implements LoaderManage
             header.setPopupMenu(R.menu.popupmain, new CardHeader.OnClickCardHeaderPopupMenuListener() {
                 @Override
                 public void onMenuItemClick(BaseCard card, MenuItem item) {
-                    Toast.makeText(getContext(), "Click on item=" +  item.getTitle(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Click on card="+card.getId()+" item=" +  item.getTitle(), Toast.LENGTH_SHORT).show();
                 }
             });
 
