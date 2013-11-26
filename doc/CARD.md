@@ -14,6 +14,7 @@ In this page you can find info about:
 * [Replace inner layout in a card](#replace-inner-layout-in-a-card)
 * [Customize Card background](#customize-card-background)
 * [Change Dynamically card background](#change-dynamically-card-background)
+* [Change dynamically Card background with a Drawable object](#change-dynamically-card-background-with-a-drawable-object)
 * [Export card as bitmap](#export-card-as-bitmap)
 
 
@@ -435,6 +436,22 @@ Example:
 You can see this example:  Colored cards example [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/ListColorFragment.java).
 
 ![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/demo/colors.png)
+
+
+#### Change dynamically Card background with a Drawable object
+
+Also you can customize your background using a Drawable object:
+
+``` java
+     StateListDrawable newDrawable = new StateListDrawable();
+     newDrawable.addState(new int[]{android.R.attr.state_pressed},
+            getResources().getDrawable(R.drawable.pressed_background_card));
+     newDrawable.addState(new int[] {}, getResources().getDrawable(R.drawable.demo_card_background_color2));
+
+     card4setBackgroundResource(newDrawable);
+```
+
+You can see this example:  [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/ChangeValueCardFragment.java#L122à).
 
 
 
