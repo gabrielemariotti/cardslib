@@ -76,6 +76,7 @@
     <string name="carddemo_title_list_gplaycard_undo">List with undo</string>
     <string name="carddemo_title_list_color">Colored cards</string>
     <string name="carddemo_title_list_cursor">List with Cursor</string>
+    <string name="carddemo_title_grid_cursor">Grid with Cursor</string>
 
     <!-- Section -->
     <string name="demo_section_header_standard">Standard Header without buttons</string>
@@ -147,6 +148,7 @@
     <string name="demo_item_small_beer">Buy me a coffee</string>
     <string name="demo_item_medium_beer">Buy me a toast</string>
     <string name="demo_item_large_beer">Buy me a pizza</string>
+
 
 
 </resources>

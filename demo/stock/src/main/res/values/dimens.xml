@@ -43,4 +43,6 @@
     <dimen name="carddemo_gplay_grid_columnwidth">140dp</dimen>
     <dimen name="carddemo_gplay_grid_columnwidth_card">125dp</dimen>
 
+    <dimen name="carddemo_gricursor_width">125dp</dimen>
+
 </resources>
