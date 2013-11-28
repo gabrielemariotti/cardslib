@@ -41,6 +41,7 @@ import java.util.List;
 import it.gmariotti.cardslib.library.R;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardGridArrayAdapter;
+import it.gmariotti.cardslib.library.internal.CardGridCursorAdapter;
 
 /**
  * Card Grid View.
@@ -81,6 +82,11 @@ public class CardGridView extends GridView implements CardView.OnExpandListAnima
      *  Card Grid Array Adapter
      */
     protected CardGridArrayAdapter mAdapter;
+
+    /**
+     * Card Cursor Adapter
+     */
+    protected CardGridCursorAdapter mCursorAdapter;
 
     //--------------------------------------------------------------------------
     // Fields for expand/collapse animation
@@ -172,6 +178,8 @@ public class CardGridView extends GridView implements CardView.OnExpandListAnima
     public void setAdapter(ListAdapter adapter) {
         if (adapter instanceof CardGridArrayAdapter){
             setAdapter((CardGridArrayAdapter)adapter);
+        }else if (adapter instanceof CardGridCursorAdapter){
+            setAdapter((CardGridCursorAdapter)adapter);
         }else{
             Log.w(TAG,"You are using a generic adapter. Pay attention: your adapter has to call cardGridArrayAdapter#getView method." );
             super.setAdapter(adapter);
@@ -194,6 +202,21 @@ public class CardGridView extends GridView implements CardView.OnExpandListAnima
     }
 
     /**
+     * Set {@link it.gmariotti.cardslib.library.internal.CardGridCursorAdapter} and layout used by items in ListView
+     *
+     * @param adapter {@link it.gmariotti.cardslib.library.internal.CardGridCursorAdapter}
+     */
+    public void setAdapter(CardGridCursorAdapter adapter) {
+        super.setAdapter(adapter);
+
+        //Set Layout used by items
+        adapter.setRowLayoutId(list_card_layout_resourceID);
+
+        adapter.setCardGridView(this);
+        mCursorAdapter=adapter;
+    }
+
+    /**
      * You can use this method, if you are using external adapters.
      * Pay attention. The generic adapter#getView() method has to call the cardArrayAdapter#getView() method to work.
      *
@@ -207,6 +230,22 @@ public class CardGridView extends GridView implements CardView.OnExpandListAnima
         mAdapter=cardGridArrayAdapter;
         mAdapter.setCardGridView(this);
         mAdapter.setRowLayoutId(list_card_layout_resourceID);
+    }
+
+    /**
+     * You can use this method, if you are using external adapters.
+     * Pay attention. The generic adapter#getView() method has to call the cardCursorAdapter#getView() method to work.
+     *
+     * @param adapter {@link ListAdapter} generic adapter
+     * @param cardCursorAdapter    {@link it.gmariotti.cardslib.library.internal.CardCursorAdapter} cardArrayAdapter
+     */
+    public void setExternalAdapter(ListAdapter adapter, CardGridCursorAdapter cardCursorAdapter) {
+
+        setAdapter(adapter);
+
+        mCursorAdapter=cardCursorAdapter;
+        mCursorAdapter.setCardGridView(this);
+        mCursorAdapter.setRowLayoutId(list_card_layout_resourceID);
     }
 
     //--------------------------------------------------------------------------

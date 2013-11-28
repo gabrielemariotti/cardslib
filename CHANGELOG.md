@@ -3,9 +3,12 @@ Change Log
 
 Version 1.0.0 *(2013-XX-XX)*
 ----------------------------
-* LIB: Fixed an issue on CardHeader.OnClickCardHeaderPopupMenuListener. [(You can see this page to fix your code)](https://github.com/gabrielemariotti/cardslib/issues/35)
+* LIB: Added a CardGridCursorAdapter [(doc)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARDGRID.md#using-a-cursor-adapter)
 * LIB: Added a new method to change dynamically the card background with a Drawable object. [(doc)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARD.md#change-dynamically-card-background-with-a-drawable-object)
+* LIB: Fixed an issue on CardHeader.OnClickCardHeaderPopupMenuListener. [(You can see this page to fix your code)](https://github.com/gabrielemariotti/cardslib/issues/35)
 * DEMO: Added an example to change dynamically the card background
+* DEMO: Added an example with CardGridCursorAdapter [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/GridCursorCardFragment.java)
+
 
 
 Version 0.9.0 *(2013-11-19)*

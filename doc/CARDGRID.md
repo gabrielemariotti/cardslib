@@ -5,6 +5,7 @@ In this page you can find info about:
 * [Creating a base CardGrid](#creating-a-base-cardgrid)
 * [Use your custom layout for each row](#use-your-custom-layout-for-each-row)
 * [How to use an external adapter](#How-to-use-an-external-adapter)
+* [Using a cursor adapter](#using-a-cursor-adapter)
 
 
 ### Creating a base CardGrid
@@ -122,3 +123,75 @@ In this case you can use this code:
 ```
 
 Pay attention. You can use this method, if your ownAdapter calls the mCardGridArrayAdapter#getView() method.
+
+### Using a cursor adapter
+
+Creating a `CardGridView` is pretty simple.
+
+First, you need an XML layout that will display the `CardListView`.
+
+``` xml
+    <it.gmariotti.cardslib.library.view.CardGridView
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:numColumns="auto_fit"
+           android:columnWidth="100dp"
+           android:verticalSpacing="3dp"
+           android:horizontalSpacing="2dp"
+           android:stretchMode="columnWidth"
+           android:gravity="center"
+           card:list_card_layout_resourceID="@layout/carddemo_grid_cursor_layout"
+           android:id="@+id/carddemo_grid_cursor"/>
+```
+
+Then create your `CardGridCursorAdapter`.
+
+You have to extend the `CardGridCursorAdapter` and override the `getCardFromCursor` method.
+
+``` java
+      public class MyCursorCardAdapter extends CardGridCursorAdapter {
+
+          public MyCursorCardAdapter(Context context) {
+              super(context);
+          }
+
+          @Override
+          protected Card getCardFromCursor(Cursor cursor) {
+              MyCursorCard card = new MyCursorCard(super.getContext());
+              setCardFromCursor(card,cursor);
+
+              //Create a CardHeader
+              CardHeader header = new CardHeader(getActivity().getApplicationContext());
+              //Set the header title
+
+              header.setTitle(card.mainHeader);
+
+              //Add Header to card
+              card.addCardHeader(header);
+
+              return card;
+          }
+
+          private void setCardFromCursor(MyCursorCard card,Cursor cursor) {
+
+              card.mainTitle=cursor.getString(CardCursorContract.CardCursor.IndexColumns.TITLE_COLUMN);
+              card.secondaryTitle=cursor.getString(CardCursorContract.CardCursor.IndexColumns.SUBTITLE_COLUMN);
+              card.mainHeader=cursor.getString(CardCursorContract.CardCursor.IndexColumns.HEADER_COLUMN);
+              card.setId(""+cursor.getInt(CardCursorContract.CardCursor.IndexColumns.ID_COLUMN));
+          }
+      }
+
+```
+
+Last create your `MyCursorCardAdapter` instance, get a reference to the `CardGridView` from your code and set your adapter.
+
+``` java
+        MyCursorCardAdapter mAdapter = new MyCursorCardAdapter(getActivity());
+
+        CardGridView mGridView = (CardGridView) getActivity().findViewById(R.id.carddemo_grid_cursor);
+        if (mGridView != null) {
+            mGridView.setAdapter(mAdapter);
+        }
+```
+
+With the this type of cursor, currently you can't use the swipe and undo actions.
