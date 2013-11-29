@@ -26,7 +26,7 @@ The Demo contains some drafts to customize your card and some more complete exam
 
 ![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/demo/list_gplay.png)
 
-### Google play cards grid example [source](https://github.com/gabrielemariotti/cardslib/tree/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/GridGplayCardFragment.java)
+### Google play cards grid example [source](https://github.com/gabrielemariotti/cardslib/blob/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/GridGplayFragment.java)
 
 ![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/demo/grid_gplay.png)
 
