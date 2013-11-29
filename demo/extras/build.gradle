@@ -59,6 +59,9 @@ dependencies {
     compile ('de.keyboardsurfer.android.widget:crouton:1.8.1') {
         exclude module: 'support-v4'
     }
+
+    //StickyListHeaders
+    compile ('se.emilsjolander:stickylistheaders:2.1.3')
 }
 
 

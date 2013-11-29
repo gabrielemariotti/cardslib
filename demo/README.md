@@ -13,6 +13,7 @@ There are two sample applications:
 4. [ActionBar-PullToRefresh][7]
 5. [ListViewAnimations][11]
 6. [Crouton][12]
+7. [StickyListHeaders][14]
 
 [(See this page for more info about integration)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/OTHERLIBRARIES.md)
 
@@ -37,7 +38,8 @@ Extras demo uses these open source libraries:
 * [ActionBar-PullToRefresh][7] by [Chris Banes][8]
 * [okhttp][9] by [Square, Inc][2]
 * [ListViewAnimations][11] by [Niek Haarman][10]
-* [Crouton][12] by [https://plus.google.com/u/0/117509657298845443204?rel=authorBenjamin Weiss][13]
+* [Crouton][12] by [Benjamin Weiss][13]
+* [StickyListHeaders][14] by [Emil Sjölander][15]
 
 Credits
 -------
@@ -91,5 +93,6 @@ License
  [11]: https://github.com/nhaarman/ListViewAnimations
  [12]: https://github.com/keyboardsurfer/Crouton
  [13]: https://plus.google.com/u/0/117509657298845443204
-
+ [14]: https://github.com/emilsjolander/StickyListHeaders
+ [15]: http://emilsjolander.se/
 

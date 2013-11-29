@@ -38,5 +38,8 @@
     <color name="demo_extras_purchase_normal">#ececec</color>
     <color name="demo_extras_purchase_pressed">#CCDF9F51</color>
 
+    <color name="demoextra_sticky_header_normal">#ffe74c3c</color>
+    <color name="demoextra_sticky_header_pressed">#ffc0392b</color>
+
 
 </resources>

@@ -45,6 +45,7 @@ import it.gmariotti.cardslib.demo.extras.fragment.IonFragment;
 import it.gmariotti.cardslib.demo.extras.fragment.ListViewAnimationsFragment;
 import it.gmariotti.cardslib.demo.extras.fragment.ListViewGridAnimationsFragment;
 import it.gmariotti.cardslib.demo.extras.fragment.PicassoFragment;
+import it.gmariotti.cardslib.demo.extras.fragment.StickyListHeadersFragment;
 import it.gmariotti.cardslib.demo.extras.fragment.UniversalImageLoaderFragment;
 import it.gmariotti.cardslib.demo.extras.iabutils.IabHelper;
 import it.gmariotti.cardslib.demo.extras.iabutils.IabResult;
@@ -75,6 +76,7 @@ public class MainActivity extends Activity {
     private static final int CASE_LISTVIEWANIMATOR = 4;
     private static final int CASE_GRIDVIEWANIMATOR = 5;
     private static final int CASE_CROUTON = 6;
+    private static final int CASE_STKHDR = 7;
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -284,6 +286,9 @@ public class MainActivity extends Activity {
             case CASE_CROUTON:
                 baseFragment= new CroutonFragment();
                 break;
+            case CASE_STKHDR:
+                baseFragment= new StickyListHeadersFragment();
+                break;
             default:
                 break;
         }
@@ -327,7 +332,8 @@ public class MainActivity extends Activity {
             "ActionBar-PullToRefresh",
             "ListViewAnimations",
             "GridViewAnimations",
-            "Crouton"
+            "Crouton",
+            "StickyListHeaders"
 
     };
 

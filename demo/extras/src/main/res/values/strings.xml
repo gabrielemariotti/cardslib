@@ -49,6 +49,8 @@
         <i>by Niek Haarman</i><br><br>
         <b><a href="https://github.com/keyboardsurfer/Crouton">Crouton</a></b><br>
         <i>by Benjamin Weiss</i><br><br>
+        <b><a href="https://github.com/emilsjolander/StickyListHeaders">StickyListHeaders</a></b><br>
+        <i>by Emil Sjölander</i><br><br>
         <br>
 
     ]]></string>
@@ -76,6 +78,7 @@
     <string name="carddemo_extras_title_listviewanimations">ListViewAnimations</string>
     <string name="carddemo_extras_title_listviewgridanimations">GridViewAnimations</string>
     <string name="carddemo_extras_title_crouton">Crouton</string>
+    <string name="carddemo_extras_title_stkhdr">StickyListHeaders</string>
 
     <string name="carddemo_extras_simpletext">Simple Text</string>
 
@@ -87,6 +90,7 @@
     <string name="demo_item_small_beer">Buy me a coffee</string>
     <string name="demo_item_medium_beer">Buy me a toast</string>
     <string name="demo_item_large_beer">Buy me a pizza</string>
+
 
 
 </resources>
