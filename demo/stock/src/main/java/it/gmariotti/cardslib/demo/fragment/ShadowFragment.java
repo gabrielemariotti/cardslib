@@ -69,10 +69,10 @@ public class ShadowFragment extends BaseFragment {
     private void init_card_without_shadow() {
 
         //Create a Card
-        Card card = new Card(getActivity().getApplicationContext());
+        Card card = new Card(getActivity());
 
         //Create a CardHeader
-        CardHeader header = new CardHeader(getActivity().getApplicationContext());
+        CardHeader header = new CardHeader(getActivity());
 
         //Set the header title
         header.setTitle(getString(R.string.demo_header_basetitle));
@@ -97,10 +97,10 @@ public class ShadowFragment extends BaseFragment {
     private void init_card_custom_shadow_layout() {
 
         //Create a Card
-        Card card = new Card(getActivity().getApplicationContext());
+        Card card = new Card(getActivity());
 
         //Create a CardHeader
-        CardHeader header = new CardHeader(getActivity().getApplicationContext());
+        CardHeader header = new CardHeader(getActivity());
 
         //Set the header title
         header.setTitle(getString(R.string.demo_header_basetitle));

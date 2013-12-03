@@ -94,7 +94,7 @@ public class ListBaseFragment extends BaseFragment {
         private void init(){
 
             //Create a CardHeader
-            CardHeader header = new CardHeader(getActivity().getApplicationContext());
+            CardHeader header = new CardHeader(getActivity());
 
             //Set the header title
             header.setTitle(mTitleHeader);
@@ -103,7 +103,7 @@ public class ListBaseFragment extends BaseFragment {
             header.setPopupMenu(R.menu.popupmain, new CardHeader.OnClickCardHeaderPopupMenuListener() {
                 @Override
                 public void onMenuItemClick(BaseCard card, MenuItem item) {
-                    Toast.makeText(getActivity().getApplicationContext(), "Click on card menu" + mTitleHeader +" item=" +  item.getTitle(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Click on card menu" + mTitleHeader +" item=" +  item.getTitle(), Toast.LENGTH_SHORT).show();
                 }
             });
             addCardHeader(header);

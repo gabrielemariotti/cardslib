@@ -72,14 +72,14 @@ public class MiscCardFragment extends BaseFragment {
     private void initCardMayKnow() {
 
         //Create a Card
-        MayKnowCard card= new MayKnowCard(getActivity().getApplicationContext());
+        MayKnowCard card= new MayKnowCard(getActivity());
         card.setShadow(false);
 
         //Set card in the cardView
         CardView cardView = (CardView) getActivity().findViewById(R.id.carddemo_MayKnow);
         cardView.setCard(card);
 
-        MayKnowCard card2 = new MayKnowCard(getActivity().getApplicationContext());
+        MayKnowCard card2 = new MayKnowCard(getActivity());
         card2.addCardHeader(null);
         card2.setShadow(true);
         CardView mayView2 = (CardView) getActivity().findViewById(R.id.carddemo_MayKnow2);
@@ -92,7 +92,7 @@ public class MiscCardFragment extends BaseFragment {
      */
     private void initCardSuggested() {
 
-        SuggestedCard card = new SuggestedCard(getActivity().getApplicationContext());
+        SuggestedCard card = new SuggestedCard(getActivity());
         CardView cardView = (CardView) getActivity().findViewById(R.id.carddemo_suggested);
         cardView.setCard(card);
     }

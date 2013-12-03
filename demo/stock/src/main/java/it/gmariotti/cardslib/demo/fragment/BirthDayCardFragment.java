@@ -117,7 +117,7 @@ public class BirthDayCardFragment extends BaseFragment {
     private void initCard() {
 
         //Create a Card
-        birthCard= new GoogleNowBirthCard(getActivity().getApplicationContext());
+        birthCard= new GoogleNowBirthCard(getActivity());
         birthCard.setId("myId");
 
         //Set card in the cardView

@@ -110,7 +110,7 @@ If you want to use cards with different inner layouts you have to:
 2. set the type inside your cards with `card.setType`
 
 ``` java
-    MyCard card2= new MyCard(getActivity().getApplicationContext());
+    MyCard card2= new MyCard(getActivity());
     card2.setType(2); //Very important with different inner layout
 ``` 
 
@@ -167,7 +167,7 @@ If you want to enable the swipe action with an Undo Action you have to:
 1. enable the swipe action on the single Cards
 ``` java
         //Create a Card
-        Card card = new CustomCard(getActivity().getApplicationContext());
+        Card card = new CustomCard(getActivity());
 
         //Enable a swipe action
         card.setSwipeable(true);
@@ -283,7 +283,7 @@ You have to extend the `CardCursorAdapter` and override the `getCardFromCursor` 
               setCardFromCursor(card,cursor);
 
               //Create a CardHeader
-              CardHeader header = new CardHeader(getActivity().getApplicationContext());
+              CardHeader header = new CardHeader(getActivity());
               //Set the header title
 
               header.setTitle(card.mainHeader);

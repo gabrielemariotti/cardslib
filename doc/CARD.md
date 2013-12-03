@@ -226,7 +226,7 @@ Then you can simply do:
 
 ``` java
         //Create a Card
-        Card card = new CustomCard(getActivity().getApplicationContext());
+        Card card = new CustomCard(getActivity());
 
         //Set card in the cardView
         CardView cardView = (CardView) getActivity().findViewById(R.id.carddemo_example_card3);
@@ -253,7 +253,7 @@ If you want to enable the swipe action on a `Card` is very simple:
 
 ``` java
         //Create a Card
-        Card card = new CustomCard(getActivity().getApplicationContext());
+        Card card = new CustomCard(getActivity());
 
         //Enable a swipe action
         card.setSwipeable(true);
@@ -281,13 +281,13 @@ If you want a clickable card, enable a `Card.OnCardClickListener`
 
 ``` java
         //Create a Card
-        Card card = new CustomCard(getActivity().getApplicationContext());
+        Card card = new CustomCard(getActivity());
 
         //Set onClick listener
         card.setOnClickListener(new Card.OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
-                Toast.makeText(getActivity().getApplicationContext(),"Clickable card", Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(),"Clickable card", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -308,7 +308,7 @@ If you want to set only a part (or more parts) as clickable you can use this cod
         card1.addPartialOnClickListener(Card.CLICK_LISTENER_CONTENT_VIEW, new Card.OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
-                Toast.makeText(getActivity().getApplicationContext(),"Click on Content Area", Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(),"Click on Content Area", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -316,7 +316,7 @@ If you want to set only a part (or more parts) as clickable you can use this cod
         card2.addPartialOnClickListener(Card.CLICK_LISTENER_HEADER_VIEW, new Card.OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
-                Toast.makeText(getActivity().getApplicationContext(),"Click on Header Area", Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(),"Click on Header Area", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -324,7 +324,7 @@ If you want to set only a part (or more parts) as clickable you can use this cod
         card3.addPartialOnClickListener(Card.CLICK_LISTENER_THUMBNAIL_VIEW, new Card.OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
-                Toast.makeText(getActivity().getApplicationContext(),"Click on Thumbnail", Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(),"Click on Thumbnail", Toast.LENGTH_LONG).show();
             }
         });
 ```

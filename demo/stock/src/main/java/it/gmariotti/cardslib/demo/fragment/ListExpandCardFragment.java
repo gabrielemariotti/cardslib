@@ -81,10 +81,10 @@ public class ListExpandCardFragment extends BaseFragment {
     private Card init_standard_header_with_expandcollapse_button_custom_area(String titleHeader) {
 
         //Create a Card
-        Card card = new Card(getActivity().getApplicationContext());
+        Card card = new Card(getActivity());
 
         //Create a CardHeader
-        CardHeader header = new CardHeader(getActivity().getApplicationContext());
+        CardHeader header = new CardHeader(getActivity());
 
         //Set the header title
         header.setTitle(titleHeader);
@@ -96,7 +96,7 @@ public class ListExpandCardFragment extends BaseFragment {
         card.addCardHeader(header);
 
         //This provides a simple (and useless) expand area
-        CustomExpandCard expand = new CustomExpandCard(getActivity().getApplicationContext());
+        CustomExpandCard expand = new CustomExpandCard(getActivity());
         //Add Expand Area to Card
         card.addCardExpand(expand);
 

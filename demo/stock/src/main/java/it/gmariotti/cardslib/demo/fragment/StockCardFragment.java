@@ -100,7 +100,7 @@ public class StockCardFragment extends BaseFragment {
     private void initCard() {
 
         //Create a Card
-        GoogleNowStockCard card= new GoogleNowStockCard(getActivity().getApplicationContext());
+        GoogleNowStockCard card= new GoogleNowStockCard(getActivity());
 
         //Set card in the cardView
         cardView = (CardView) getActivity().findViewById(R.id.carddemo_GoogleNowStock);

@@ -120,7 +120,7 @@ public class GPlayCardFragment extends BaseFragment {
     private void initCardSmallCard() {
 
         //Create a Card
-        cardGmap= new GooglePlaySmallCard(getActivity().getApplicationContext());
+        cardGmap= new GooglePlaySmallCard(getActivity());
         cardGmap.setId("gplaysmall");
 
         //Set card in the cardView
@@ -135,22 +135,22 @@ public class GPlayCardFragment extends BaseFragment {
     private void initCardGooglePlay() {
 
         //Create a Card
-        GplayCard card= new GplayCard(getActivity().getApplicationContext());
+        GplayCard card= new GplayCard(getActivity());
 
         //Set card in the cardView
         CardView cardView = (CardView) getActivity().findViewById(R.id.carddemo_Gplay1);
         cardView.setCard(card);
 
         //Create a Card
-        GplayCard card2= new GplayCard(getActivity().getApplicationContext());
+        GplayCard card2= new GplayCard(getActivity());
 
         //Set card in the cardView
         CardView cardView2 = (CardView) getActivity().findViewById(R.id.carddemo_Gplay2);
         cardView2.setCard(card2);
 
-        if (Utils.isTablet(getActivity().getApplicationContext())){
+        if (Utils.isTablet(getActivity())){
             //Create a Card
-            GplayCard card3= new GplayCard(getActivity().getApplicationContext());
+            GplayCard card3= new GplayCard(getActivity());
 
             //Set card in the cardView
             CardView cardView3 = (CardView) getActivity().findViewById(R.id.carddemo_Gplay3);

@@ -96,11 +96,11 @@ public class CroutonFragment extends BaseFragment {
 
         CardView cardView= (CardView)view.findViewById(R.id.carddemo_card_crouton_id);
 
-        Card card = new Card(getActivity().getApplicationContext());
+        Card card = new Card(getActivity());
         card.setTitle("Crouton Card");
         card.setBackgroundResourceId(R.color.demoextra_card_background_color2);
 
-        CardThumbnail thumb = new CardThumbnail(getActivity().getApplicationContext());
+        CardThumbnail thumb = new CardThumbnail(getActivity());
         thumb.setDrawableResource(R.drawable.ic_action_bulb);
         card.addCardThumbnail(thumb);
 
@@ -122,10 +122,10 @@ public class CroutonFragment extends BaseFragment {
 
         CardView cardView= (CardView)view.findViewById(R.id.carddemo_card_crouton_id);
 
-        Card card = new Card(getActivity().getApplicationContext());
+        Card card = new Card(getActivity());
         card.setTitle("Crouton Card");
 
-        CardThumbnail thumb = new CardThumbnail(getActivity().getApplicationContext());
+        CardThumbnail thumb = new CardThumbnail(getActivity());
         thumb.setDrawableResource(R.drawable.ic_action_halt);
         card.addCardThumbnail(thumb);
 

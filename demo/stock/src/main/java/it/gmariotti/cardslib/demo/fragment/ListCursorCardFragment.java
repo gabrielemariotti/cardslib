@@ -116,7 +116,7 @@ public class ListCursorCardFragment extends BaseFragment implements LoaderManage
             setCardFromCursor(card,cursor);
 
             //Create a CardHeader
-            CardHeader header = new CardHeader(getActivity().getApplicationContext());
+            CardHeader header = new CardHeader(getActivity());
             //Set the header title
 
             header.setTitle(card.mainHeader);
@@ -132,7 +132,7 @@ public class ListCursorCardFragment extends BaseFragment implements LoaderManage
 
 
 
-            CardThumbnail thumb = new CardThumbnail(getActivity().getApplicationContext());
+            CardThumbnail thumb = new CardThumbnail(getActivity());
             thumb.setDrawableResource(card.resourceIdThumb);
             card.addCardThumbnail(thumb);
 

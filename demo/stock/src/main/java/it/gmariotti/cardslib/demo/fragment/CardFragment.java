@@ -79,10 +79,10 @@ public class CardFragment extends BaseFragment {
     private void init_simple_card() {
 
         //Create a Card
-        Card card = new Card(getActivity().getApplicationContext());
+        Card card = new Card(getActivity());
 
         //Create a CardHeader
-        CardHeader header = new CardHeader(getActivity().getApplicationContext());
+        CardHeader header = new CardHeader(getActivity());
 
         //Set the header title
         header.setTitle(getString(R.string.demo_header_basetitle));
@@ -103,10 +103,10 @@ public class CardFragment extends BaseFragment {
     private void init_card_inner_layout() {
 
         //Create a Card
-        Card card = new Card(getActivity().getApplicationContext(),R.layout.carddemo_example_inner_content);
+        Card card = new Card(getActivity(),R.layout.carddemo_example_inner_content);
 
         //Create a CardHeader
-        CardHeader header = new CardHeader(getActivity().getApplicationContext());
+        CardHeader header = new CardHeader(getActivity());
 
         //Set the header title
         header.setTitle(getString(R.string.demo_header_basetitle));
@@ -127,7 +127,7 @@ public class CardFragment extends BaseFragment {
     private void init_custom_card() {
 
         //Create a Card
-        Card card = new CustomCard(getActivity().getApplicationContext());
+        Card card = new CustomCard(getActivity());
 
         //Set card in the cardView
         CardView cardView = (CardView) getActivity().findViewById(R.id.carddemo_example_card3);
@@ -140,7 +140,7 @@ public class CardFragment extends BaseFragment {
     private void init_custom_card_swipe() {
 
         //Create a Card
-        CustomCard card = new CustomCard(getActivity().getApplicationContext());
+        CustomCard card = new CustomCard(getActivity());
 
         //Enable a swipe action
         card.setSwipeable(true);
@@ -165,13 +165,13 @@ public class CardFragment extends BaseFragment {
     private void init_custom_card_clickable() {
 
         //Create a Card
-        CustomCard card = new CustomCard(getActivity().getApplicationContext());
+        CustomCard card = new CustomCard(getActivity());
 
         //Set onClick listener
         card.setOnClickListener(new Card.OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
-                Toast.makeText(getActivity().getApplicationContext(),"Clickable card", Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(),"Clickable card", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -186,9 +186,9 @@ public class CardFragment extends BaseFragment {
     private void init_custom_card_partial_listener() {
 
         //Create a Card
-        Card card1 = new Card(getActivity().getApplicationContext(),R.layout.carddemo_example_inner_content);
+        Card card1 = new Card(getActivity(),R.layout.carddemo_example_inner_content);
 
-        CardHeader header1 = new CardHeader(getActivity().getApplicationContext());
+        CardHeader header1 = new CardHeader(getActivity());
         header1.setTitle(getString(R.string.demo_custom_shorttitle));
 
         card1.addCardHeader(header1);
@@ -201,7 +201,7 @@ public class CardFragment extends BaseFragment {
         card1.addPartialOnClickListener(Card.CLICK_LISTENER_CONTENT_VIEW, new Card.OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
-                Toast.makeText(getActivity().getApplicationContext(),"Click on Content Area", Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(),"Click on Content Area", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -211,9 +211,9 @@ public class CardFragment extends BaseFragment {
 
         //----------------------------------------------------------------------------------
         //Create a Card
-        Card card2 = new Card(getActivity().getApplicationContext(),R.layout.carddemo_example_inner_content);
+        Card card2 = new Card(getActivity(),R.layout.carddemo_example_inner_content);
 
-        CardHeader header2 = new CardHeader(getActivity().getApplicationContext());
+        CardHeader header2 = new CardHeader(getActivity());
         header2.setTitle(getString(R.string.demo_custom_shorttitle));
 
         card2.addCardHeader(header2);
@@ -226,7 +226,7 @@ public class CardFragment extends BaseFragment {
         card2.addPartialOnClickListener(Card.CLICK_LISTENER_HEADER_VIEW, new Card.OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
-                Toast.makeText(getActivity().getApplicationContext(),"Click on Header Area", Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(),"Click on Header Area", Toast.LENGTH_LONG).show();
             }
         });
 

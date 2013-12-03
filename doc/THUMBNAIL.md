@@ -18,7 +18,7 @@ Creating a base `CardThumbnail` is pretty simple.
 
 ``` java
         //Create thumbnail
-        CardThumbnail thumb = new CardThumbnail(getActivity().getApplicationContext());
+        CardThumbnail thumb = new CardThumbnail(getActivity());
 
         //Set resource
         thumb.setDrawableResource(R.drawable.carddemo_ic_gmaps_large);
@@ -42,10 +42,10 @@ If you want to load an image from a resource ID:
 
 ``` java
         //Create a Card
-        Card card = new Card(getActivity().getApplicationContext());
+        Card card = new Card(getActivity());
 
         //Create thumbnail
-        CardThumbnail thumb = new CardThumbnail(getActivity().getApplicationContext());
+        CardThumbnail thumb = new CardThumbnail(getActivity());
 
         //Set ID resource
         thumb.setDrawableResource(R.drawable.carddemo_ic_gmaps_large);
@@ -66,10 +66,10 @@ If you want to load an image from an url:
 
 ``` java
          //Create a Card
-         Card card = new Card(getActivity().getApplicationContext());
+         Card card = new Card(getActivity());
 
         //Create thumbnail
-        CardThumbnail thumb = new CardThumbnail(getActivity().getApplicationContext());
+        CardThumbnail thumb = new CardThumbnail(getActivity());
 
         //Set URL resource
         thumb.setUrlResource("https://lh5.googleusercontent.com/-N8bz9q4Kz0I/AAAAAAAAAAI/AAAAAAAAAAs/Icl2bQMyK7c/s265-c-k-no/photo.jpg");
@@ -90,7 +90,7 @@ You can set a drawable resource Id to display when the image can't be attached t
 
 ``` java
         //Create thumbnail
-        CustomThumbCard thumb = new CustomThumbCard(getActivity().getApplicationContext());
+        CustomThumbCard thumb = new CustomThumbCard(getActivity());
 
         //Set URL resource
         thumb.setUrlResource(myUrl);

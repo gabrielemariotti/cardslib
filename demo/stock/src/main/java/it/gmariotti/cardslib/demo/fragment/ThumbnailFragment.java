@@ -72,10 +72,10 @@ public class ThumbnailFragment extends BaseFragment {
     private void init_card_thumb_resourceId() {
 
         //Create a Card
-        Card card = new Card(getActivity().getApplicationContext());
+        Card card = new Card(getActivity());
 
         //Create a CardHeader
-        CardHeader header = new CardHeader(getActivity().getApplicationContext());
+        CardHeader header = new CardHeader(getActivity());
 
         //Set the header title
         header.setTitle(getString(R.string.demo_header_basetitle));
@@ -84,7 +84,7 @@ public class ThumbnailFragment extends BaseFragment {
         card.addCardHeader(header);
 
         //Create thumbnail
-        CardThumbnail thumb = new CardThumbnail(getActivity().getApplicationContext());
+        CardThumbnail thumb = new CardThumbnail(getActivity());
 
         //Set ID resource
         thumb.setDrawableResource(R.drawable.carddemo_ic_gmaps_large);
@@ -103,10 +103,10 @@ public class ThumbnailFragment extends BaseFragment {
     private void init_card_thumb_resourceURL() {
 
         //Create a Card
-        Card card = new Card(getActivity().getApplicationContext());
+        Card card = new Card(getActivity());
 
         //Create a CardHeader
-        CardHeader header = new CardHeader(getActivity().getApplicationContext());
+        CardHeader header = new CardHeader(getActivity());
 
         //Set the header title
         header.setTitle(getString(R.string.demo_header_basetitle));
@@ -114,7 +114,7 @@ public class ThumbnailFragment extends BaseFragment {
         card.addCardHeader(header);
 
         //Create thumbnail
-        CardThumbnail thumb = new CardThumbnail(getActivity().getApplicationContext());
+        CardThumbnail thumb = new CardThumbnail(getActivity());
 
         //Set URL resource
         thumb.setUrlResource("https://lh5.googleusercontent.com/-N8bz9q4Kz0I/AAAAAAAAAAI/AAAAAAAAAAs/Icl2bQMyK7c/s265-c-k-no/photo.jpg");
@@ -136,10 +136,10 @@ public class ThumbnailFragment extends BaseFragment {
     private void init_card_thumb_resourceURL_style() {
 
         //Create a Card
-        Card card = new Card(getActivity().getApplicationContext());
+        Card card = new Card(getActivity());
 
         //Create a CardHeader
-        CardHeader header = new CardHeader(getActivity().getApplicationContext());
+        CardHeader header = new CardHeader(getActivity());
 
         //Set the header title
         header.setTitle(getString(R.string.demo_header_basetitle));
@@ -147,7 +147,7 @@ public class ThumbnailFragment extends BaseFragment {
         card.addCardHeader(header);
 
         //Create thumbnail
-        CustomThumbCard thumb = new CustomThumbCard(getActivity().getApplicationContext());
+        CustomThumbCard thumb = new CustomThumbCard(getActivity());
 
         //Set URL resource
         thumb.setUrlResource("https://lh5.googleusercontent.com/-N8bz9q4Kz0I/AAAAAAAAAAI/AAAAAAAAAAs/Icl2bQMyK7c/s265-c-k-no/photo.jpg");

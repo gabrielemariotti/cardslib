@@ -82,7 +82,7 @@ public class ListDifferentInnerBaseFragment extends BaseFragment {
             cardx.count=i;
             cards.add(cardx);
 
-            MayKnowCard card2= new MayKnowCard(getActivity().getApplicationContext());
+            MayKnowCard card2= new MayKnowCard(getActivity());
             card2.setType(2); //Very important with different inner layout
             card2.setSwipeable(true);
             cards.add(card2);
@@ -152,7 +152,7 @@ public class ListDifferentInnerBaseFragment extends BaseFragment {
         private void init(){
 
             //Create a CardHeader
-            CardHeader header = new CardHeader(getActivity().getApplicationContext());
+            CardHeader header = new CardHeader(getActivity());
 
             //Set the header title
             header.setTitle(mTitleHeader);
@@ -161,7 +161,7 @@ public class ListDifferentInnerBaseFragment extends BaseFragment {
             header.setPopupMenu(R.menu.popupmain, new CardHeader.OnClickCardHeaderPopupMenuListener() {
                 @Override
                 public void onMenuItemClick(BaseCard card, MenuItem item) {
-                    Toast.makeText(getActivity().getApplicationContext(), "Click on card menu" + mTitleHeader +" item=" +  item.getTitle(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Click on card menu" + mTitleHeader +" item=" +  item.getTitle(), Toast.LENGTH_SHORT).show();
                 }
             });
             addCardHeader(header);
@@ -209,7 +209,7 @@ public class ListDifferentInnerBaseFragment extends BaseFragment {
         private void init(){
 
             //Create a CardHeader
-            CardHeader header = new CardHeader(getActivity().getApplicationContext());
+            CardHeader header = new CardHeader(getActivity());
             addCardHeader(header);
 
             //Add ClickListener

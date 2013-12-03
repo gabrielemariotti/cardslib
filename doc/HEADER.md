@@ -70,7 +70,7 @@ If you want a `CardHeader` with the overflow button you can use this simple code
         header.setPopupMenu(R.menu.popupmain, new CardHeader.onClickCardHeaderPopupMenuListener(){
             @Override
             public void onMenuItemClick(BaseCard card, MenuItem item) {
-                Toast.makeText(getActivity().getApplicationContext(), "Click on "+item.getTitle(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Click on "+item.getTitle(), Toast.LENGTH_SHORT).show();
             }
         });
         card.addCardHeader(header);
@@ -210,7 +210,7 @@ Then you can add this custom `CustomHeaderInnerCard` to your `Card`:
 
 ``` java
         //Create a Card
-        Card card = new Card(getActivity().getApplicationContext());
+        Card card = new Card(getActivity());
 
         //Create a CardHeader
         CustomHeaderInnerCard header = new CustomHeaderInnerCard(getContext());

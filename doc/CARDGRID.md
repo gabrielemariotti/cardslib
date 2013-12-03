@@ -161,7 +161,7 @@ You have to extend the `CardGridCursorAdapter` and override the `getCardFromCurs
               setCardFromCursor(card,cursor);
 
               //Create a CardHeader
-              CardHeader header = new CardHeader(getActivity().getApplicationContext());
+              CardHeader header = new CardHeader(getActivity());
               //Set the header title
 
               header.setTitle(card.mainHeader);

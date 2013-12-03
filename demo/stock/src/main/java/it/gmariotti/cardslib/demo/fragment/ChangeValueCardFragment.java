@@ -216,7 +216,7 @@ public class ChangeValueCardFragment extends BaseFragment {
         private void init(){
 
             //Create a CardHeader
-            CardHeader header = new CardHeader(getActivity().getApplicationContext());
+            CardHeader header = new CardHeader(getActivity());
 
             //Set the header title
             header.setTitle(mTitleHeader);
@@ -225,7 +225,7 @@ public class ChangeValueCardFragment extends BaseFragment {
             header.setPopupMenu(R.menu.popupmain, new CardHeader.OnClickCardHeaderPopupMenuListener() {
                 @Override
                 public void onMenuItemClick(BaseCard card, MenuItem item) {
-                    Toast.makeText(getActivity().getApplicationContext(), "Click on card menu" + mTitleHeader +" item=" +  item.getTitle(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Click on card menu" + mTitleHeader +" item=" +  item.getTitle(), Toast.LENGTH_SHORT).show();
                 }
             });
             addCardHeader(header);
@@ -260,13 +260,13 @@ public class ChangeValueCardFragment extends BaseFragment {
         private void init(){
 
             //Create a CardHeader
-            CardHeader header = new CardHeader(getActivity().getApplicationContext());
+            CardHeader header = new CardHeader(getActivity());
 
             //Set the header title
             header.setTitle(mTitleHeader);
             addCardHeader(header);
 
-            CardThumbnail thumb = new CardThumbnail(getActivity().getApplicationContext());
+            CardThumbnail thumb = new CardThumbnail(getActivity());
             thumb.setDrawableResource(R.drawable.ic_launcher);
             addCardThumbnail(thumb);
 
@@ -300,13 +300,13 @@ public class ChangeValueCardFragment extends BaseFragment {
         private void init(){
 
             //Create a CardHeader
-            CardHeader header = new CardHeader(getActivity().getApplicationContext());
+            CardHeader header = new CardHeader(getActivity());
 
             //Set the header title
             header.setTitle(mTitleHeader);
             addCardHeader(header);
 
-            CardThumbnail thumb = new CardThumbnail(getActivity().getApplicationContext());
+            CardThumbnail thumb = new CardThumbnail(getActivity());
             thumb.setDrawableResource(R.drawable.ic_launcher);
             addCardThumbnail(thumb);
 

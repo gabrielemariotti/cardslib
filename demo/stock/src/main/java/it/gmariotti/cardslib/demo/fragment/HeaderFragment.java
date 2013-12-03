@@ -82,10 +82,10 @@ public class HeaderFragment extends BaseFragment {
     private void init_standard_header_without_buttons() {
 
         //Create a Card
-        Card card = new Card(getActivity().getApplicationContext());
+        Card card = new Card(getActivity());
 
         //Create a CardHeader
-        CardHeader header = new CardHeader(getActivity().getApplicationContext());
+        CardHeader header = new CardHeader(getActivity());
 
         //Set the header title
         header.setTitle(getString(R.string.demo_header_basetitle));
@@ -104,10 +104,10 @@ public class HeaderFragment extends BaseFragment {
     private void init_standard_header_with_overflow_button() {
 
         //Create a Card
-        Card card = new Card(getActivity().getApplicationContext());
+        Card card = new Card(getActivity());
 
         //Create a CardHeader
-        CardHeader header = new CardHeader(getActivity().getApplicationContext());
+        CardHeader header = new CardHeader(getActivity());
 
         //Set the header title
         header.setTitle(getString(R.string.demo_header_basetitle));
@@ -116,7 +116,7 @@ public class HeaderFragment extends BaseFragment {
         header.setPopupMenu(R.menu.popupmain, new CardHeader.OnClickCardHeaderPopupMenuListener() {
             @Override
             public void onMenuItemClick(BaseCard card, MenuItem item) {
-                Toast.makeText(getActivity().getApplicationContext(), "Click on " + item.getTitle(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Click on " + item.getTitle(), Toast.LENGTH_SHORT).show();
             }
         });
         card.addCardHeader(header);
@@ -133,10 +133,10 @@ public class HeaderFragment extends BaseFragment {
     private void init_standard_header_with_expandcollapse_button() {
 
         //Create a Card
-        Card card = new Card(getActivity().getApplicationContext());
+        Card card = new Card(getActivity());
 
         //Create a CardHeader
-        CardHeader header = new CardHeader(getActivity().getApplicationContext());
+        CardHeader header = new CardHeader(getActivity());
 
         //Set the header title
         header.setTitle(getString(R.string.demo_header_basetitle));
@@ -148,7 +148,7 @@ public class HeaderFragment extends BaseFragment {
         card.addCardHeader(header);
 
         //This provides a simple (and useless) expand area
-        CardExpand expand = new CardExpand(getActivity().getApplicationContext());
+        CardExpand expand = new CardExpand(getActivity());
         //Set inner title in Expand Area
         expand.setTitle(getString(R.string.demo_expand_basetitle));
         card.addCardExpand(expand);
@@ -164,10 +164,10 @@ public class HeaderFragment extends BaseFragment {
     private void init_standard_header_with_expandcollapse_button_custom_area() {
 
         //Create a Card
-        Card card = new Card(getActivity().getApplicationContext());
+        Card card = new Card(getActivity());
 
         //Create a CardHeader
-        CardHeader header = new CardHeader(getActivity().getApplicationContext());
+        CardHeader header = new CardHeader(getActivity());
 
         //Set the header title
         header.setTitle(getString(R.string.demo_header_basetitle));
@@ -179,7 +179,7 @@ public class HeaderFragment extends BaseFragment {
         card.addCardHeader(header);
 
         //This provides a simple (and useless) expand area
-        CustomExpandCard expand = new CustomExpandCard(getActivity().getApplicationContext());
+        CustomExpandCard expand = new CustomExpandCard(getActivity());
         //Add Expand Area to Card
         card.addCardExpand(expand);
 
@@ -203,10 +203,10 @@ public class HeaderFragment extends BaseFragment {
     private void init_standard_header_with_custom_other_button() {
 
         //Create a Card
-        Card card = new Card(getActivity().getApplicationContext());
+        Card card = new Card(getActivity());
 
         //Create a CardHeader
-        CardHeader header = new CardHeader(getActivity().getApplicationContext());
+        CardHeader header = new CardHeader(getActivity());
 
         //Set the header title
         header.setTitle(getString(R.string.demo_header_basetitle));
@@ -238,10 +238,10 @@ public class HeaderFragment extends BaseFragment {
     private void init_standard_header_with_custom_other_button_programmatically() {
 
         //Create a Card
-        Card card = new Card(getActivity().getApplicationContext());
+        Card card = new Card(getActivity());
 
         //Create a CardHeader
-        CardHeader header = new CardHeader(getActivity().getApplicationContext());
+        CardHeader header = new CardHeader(getActivity());
 
         //Set the header title
         header.setTitle(getString(R.string.demo_header_basetitle));
@@ -277,10 +277,10 @@ public class HeaderFragment extends BaseFragment {
     private void init_header_with_custom_inner_layout() {
 
         //Create a Card
-        Card card = new Card(getActivity().getApplicationContext());
+        Card card = new Card(getActivity());
 
         //Create a CardHeader
-        CustomHeaderInnerCard header = new CustomHeaderInnerCard(getActivity().getApplicationContext());
+        CustomHeaderInnerCard header = new CustomHeaderInnerCard(getActivity());
 
         //Add Header to card
         card.addCardHeader(header);
@@ -297,10 +297,10 @@ public class HeaderFragment extends BaseFragment {
     private void init_header_with_custom_layout() {
 
         //Create a Card
-        Card card = new Card(getActivity().getApplicationContext());
+        Card card = new Card(getActivity());
 
         //Create a CardHeader
-        CustomHeaderExample1 header = new CustomHeaderExample1(getActivity().getApplicationContext());
+        CustomHeaderExample1 header = new CustomHeaderExample1(getActivity());
 
         //Add Header to card
         card.addCardHeader(header);
