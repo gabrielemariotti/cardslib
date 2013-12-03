@@ -63,12 +63,12 @@ public class Card extends BaseCard {
     /**
      * Used to enable a onClick Action on card
      */
-    protected boolean mIsClickable = true;
+    protected boolean mIsClickable = false;
 
     /**
      * Used to enable a onLongClick Action on card
      */
-    protected boolean mIsLongClickable = true;
+    protected boolean mIsLongClickable = false;
 
     /**
      * Used to enable a swipe gesture and its listener {@link Card#setOnClickListener(OnCardClickListener)}
