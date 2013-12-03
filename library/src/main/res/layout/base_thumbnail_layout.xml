@@ -20,7 +20,6 @@
 <ImageView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/card_thumbnail_image"
-    android:scaleType="centerCrop"
     style="@style/card_thumbnail_image"/>
 
 
