@@ -1,7 +1,7 @@
 Change Log
 ===============================================================================
 
-Version 1.0.0 *(2013-XX-XX)*
+Version 1.0.0 *(2013-12-02)*
 ----------------------------
 * LIB: Added a CardGridCursorAdapter [(doc)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARDGRID.md#using-a-cursor-adapter)
 * LIB: Added a new method to change dynamically the card background with a Drawable object. [(doc)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARD.md#change-dynamically-card-background-with-a-drawable-object)

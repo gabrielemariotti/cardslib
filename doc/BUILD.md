@@ -10,7 +10,7 @@ You can add this library to your project adding a dependency to your `build.grad
 Card Library is pushed to Maven Central as a AAR, so you just need to add the following dependency to your `build.gradle`.
 
     dependencies {
-        compile 'com.github.gabrielemariotti.cards:library:0.9.0'
+        compile 'com.github.gabrielemariotti.cards:library:1.0.0'
     }
 
 

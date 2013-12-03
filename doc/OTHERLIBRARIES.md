@@ -8,6 +8,7 @@ In this page you can find info about:
 * [Using card with ActionBar-PullToRefresh](#using-card-with-actionbar-pulltorefresh)
 * [Using card with ListViewAnimations](#using-card-with-listviewanimations)
 * [Using card as a Crouton](#using-card-as-a-crouton)
+* [Using card with StickyListHeaders](#using-card-with-stickylistheaders)
 
 
 ## Using card with Picasso
@@ -230,6 +231,61 @@ You can find an example in demo-extras in `CroutonFragment`. [(source)](https://
 
 ```
 
+### Using card with StickyListHeaders
+
+[StickyListHeaders][13] is provided by [Emil Sjölander][14].
+
+You can find an example in demo-extras in `StickyListHeadersFragment`. [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/fragment/StickyListHeadersFragment.java)
+
+In order to use this library you have to:
+
+  1. Extend your `CardArrayAdapter` and implement `StickyListHeadersAdapter`.
+  2. Use or extend the `StickyCardListView` provided in this demo [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/stickylist/StickyCardListView.java)
+  3. Provide a layout with a `StickyCardListView`.
+
+  The `StickyCardListView` extends the standard `StickyListHeadersListView` merged with the `CardListView` methods.
+
+
+In this example:
+
+``` java
+     public class StickyCardArrayAdapter extends CardArrayAdapter implements StickyListHeadersAdapter {
+
+        @Override
+        public View getHeaderView(int position, View convertView, ViewGroup viewGroup) {
+           // return your header view.
+        }
+
+        @Override
+        public long getHeaderId(int position) {
+           // use your logic
+        }
+
+    }
+
+
+    StickyCardArrayAdapter adapter = new StickyCardArrayAdapter(getActivity(), cards);
+
+    StickyCardListView stickyList = (StickyCardListView) getActivity().findViewById(R.id.carddemo_extra_sticky_list);
+    //stickyList.setAreHeadersSticky(false);
+    if (stickyList != null) {
+        stickyList.setAdapter(adapter);
+    }
+```
+
+``` xml
+    <it.gmariotti.cardslib.demo.extras.stickylist.StickyCardListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/carddemo_extra_sticky_list"
+        card:list_card_layout_resourceID="@layout/carddemo_extras_list_card_thumbnail_layout">
+    </it.gmariotti.cardslib.demo.extras.stickylist.StickyCardListView>
+
+```
+
+You can see a [video](http://youtu.be/3d4Tvb9FPuM)
+
+
 
 
  [1]: https://github.com/square/picasso
@@ -244,3 +300,6 @@ You can find an example in demo-extras in `CroutonFragment`. [(source)](https://
  [10]: https://plus.google.com/+NiekHaarman
  [11]: https://github.com/keyboardsurfer/Crouton
  [12]: https://plus.google.com/u/0/117509657298845443204
+ [13]: https://github.com/emilsjolander/StickyListHeaders
+ [14]: http://emilsjolander.se/
+
