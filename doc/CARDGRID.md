@@ -12,7 +12,7 @@ In this page you can find info about:
 
 Creating a `CardGridView` is pretty simple.
 
-First, you need an XML layout that will display the `CardListView`.
+First, you need an XML layout that will display the `CardGridView`.
 
 ``` xml
     <it.gmariotti.cardslib.library.view.CardGridView
