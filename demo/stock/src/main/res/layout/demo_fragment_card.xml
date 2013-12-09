@@ -143,6 +143,21 @@
 
             </LinearLayout>
 
+            <!-- CAB card -->
+            <TextView
+                style="@style/AppTheme.TitleText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/demo_section_card_example_cab"/>
+
+            <it.gmariotti.cardslib.library.view.CardView
+                android:id="@+id/carddemo_example_card_cab"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_marginTop="12dp"/>
+
             <!-- Empty view-->
             <View
                 android:layout_width="match_parent"

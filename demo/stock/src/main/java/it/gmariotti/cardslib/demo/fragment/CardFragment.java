@@ -19,7 +19,11 @@
 package it.gmariotti.cardslib.demo.fragment;
 
 import android.os.Bundle;
+import android.view.ActionMode;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ScrollView;
@@ -42,6 +46,10 @@ public class CardFragment extends BaseFragment {
     protected ScrollView mScrollView;
     protected TextView mTextViewSwipe;
 
+    protected ActionMode mActionMode;
+    protected Card mCardCab;
+    protected CardView cardViewCab;
+
     @Override
     public int getTitleResourceId() {
         return R.string.carddemo_title_card;
@@ -63,6 +71,12 @@ public class CardFragment extends BaseFragment {
         initCards();
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (mActionMode!=null)
+            mActionMode.finish();
+    }
 
     private void initCards() {
         init_simple_card();
@@ -71,6 +85,7 @@ public class CardFragment extends BaseFragment {
         init_custom_card_swipe();
         init_custom_card_clickable();
         init_custom_card_partial_listener();
+        init_cab();
     }
 
     /**
@@ -237,5 +252,89 @@ public class CardFragment extends BaseFragment {
 
 
     }
+
+    /**
+     * Card with a CAB
+     */
+    private void init_cab(){
+
+        //Create a Card
+        mCardCab = new Card(getActivity());
+
+        //Create a CardHeader
+        CardHeader header = new CardHeader(getActivity());
+
+        //Set the header title
+        header.setTitle(getString(R.string.demo_title_cab1));
+
+        mCardCab.addCardHeader(header);
+
+        //Set the card inner text
+        mCardCab.setTitle(getString(R.string.demo_card_basetitle));
+
+        //Set onClick listener
+        mCardCab.setOnLongClickListener(new Card.OnLongCardClickListener() {
+            @Override
+            public boolean onLongClick(Card card, View view) {
+                if (mActionMode != null) {
+                    return false;
+                }
+                // Start the CAB using the ActionMode.Callback defined above
+                mActionMode = getActivity().startActionMode(mActionModeCallback);
+                view.setSelected(true);
+                return true;
+            }
+        });
+
+        //Set card in the cardView
+        cardViewCab = (CardView) getActivity().findViewById(R.id.carddemo_example_card_cab);
+        cardViewCab.setCard(mCardCab);
+    }
+
+
+    private ActionMode.Callback mActionModeCallback = new ActionMode.Callback() {
+
+        // Called when the action mode is created; startActionMode() was called
+        @Override
+        public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+            // Inflate a menu resource providing context menu items
+            MenuInflater inflater = mode.getMenuInflater();
+            inflater.inflate(R.menu.carddemo_cab_example, menu);
+            return true;
+        }
+
+        // Called each time the action mode is shown. Always called after onCreateActionMode, but
+        // may be called multiple times if the mode is invalidated.
+        @Override
+        public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+            return false; // Return false if nothing is done
+        }
+
+        // Called when the user selects a contextual menu item
+        @Override
+        public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.carddemo_toast:
+                    Toast.makeText(getActivity(), "Change Text",
+                            Toast.LENGTH_LONG).show();
+                    if (mCardCab!=null && cardViewCab!=null){
+                        mCardCab.setTitle(getString(R.string.demo_title_cab2));
+                        cardViewCab.refreshCard(mCardCab);
+                    }
+                    mode.finish(); // Action picked, so close the CAB
+                    return true;
+                default:
+                    return false;
+            }
+        }
+
+        // Called when the user exits the action mode
+        @Override
+        public void onDestroyActionMode(ActionMode mode) {
+            mActionMode = null;
+            if (mCardCab!=null)
+                cardViewCab.setSelected(false);
+        }
+    };
 
 }

@@ -102,6 +102,7 @@
     <string name="demo_section_card_example_swipe">Custom card with swipe</string>
     <string name="demo_section_card_example_clickable">Custom card clickable</string>
     <string name="demo_section_card_example_partial_listeners">Custom card with partial areas clickable</string>
+    <string name="demo_section_card_example_cab">Contextual action mode</string>
 
     <string name="demo_section_card_changevalue_title">Click Refresh Icon to refresh card</string>
 
@@ -150,5 +151,6 @@
     <string name="demo_item_large_beer">Buy me a pizza</string>
 
 
-
+    <string name="demo_title_cab1">Long Click to enable CAB</string>
+    <string name="demo_title_cab2">Text Changed!</string>
 </resources>
