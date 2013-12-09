@@ -74,7 +74,9 @@ public class HeaderFragment extends BaseFragment {
         init_standard_header_with_custom_other_button_programmatically();
         init_header_with_custom_inner_layout();
         init_header_with_custom_layout();
+        init_header_buttonleft();
     }
+
 
     /**
      * This method builds a standard header without buttons
@@ -310,4 +312,34 @@ public class HeaderFragment extends BaseFragment {
 
         cardView.setCard(card);
     }
+
+    /**
+     * This method builds a header with full custom layout, with buttons on the left
+     */
+    private void init_header_buttonleft(){
+
+        //Create a Card
+        Card card = new Card(getActivity());
+
+        //Create a CardHeader
+        CardHeader header = new CardHeader(getActivity(),R.layout.carddemo_buttonleft_inner_header);
+        //Set the header title
+        header.setTitle(getString(R.string.demo_header_basetitle));
+
+        header.setOtherButtonVisible(true);
+        header.setOtherButtonClickListener(new CardHeader.OnClickCardHeaderOtherButtonListener() {
+            @Override
+            public void onButtonItemClick(Card card, View view) {
+                //Example to change dinamically the button resources
+                card.getCardHeader().setOtherButtonDrawable(R.drawable.card_menu_button_other_add);
+                card.getCardView().refreshCard(card);
+            }
+        });
+        card.addCardHeader(header);
+
+        //Set card in the cardView
+        CardView cardView = (CardView) getActivity().findViewById(R.id.carddemo_header_buttonleft);
+        cardView.setCard(card);
+    }
+
 }

@@ -87,6 +87,7 @@
     <string name="demo_section_header_otherButton_programmatically">Standard Header with custom button programmatically</string>
     <string name="demo_section_header_inner">Customize the innerContent Header Layout</string>
     <string name="demo_section_header_layout">Customizing the HeaderLayout</string>
+    <string name="demo_section_header_buttonleft_layout">Header with button on the left</string>
 
     <string name="demo_section_shadow_no">Card without shadow</string>
     <string name="demo_section_shadow_customizing">Customizing shadow</string>

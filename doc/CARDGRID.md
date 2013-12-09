@@ -128,7 +128,7 @@ Pay attention. You can use this method, if your ownAdapter calls the mCardGridAr
 
 Creating a `CardGridView` is pretty simple.
 
-First, you need an XML layout that will display the `CardListView`.
+First, you need an XML layout that will display the `CardGridView`.
 
 ``` xml
     <it.gmariotti.cardslib.library.view.CardGridView
@@ -194,4 +194,4 @@ Last create your `MyCursorCardAdapter` instance, get a reference to the `CardGri
         }
 ```
 
-With the this type of cursor, currently you can't use the swipe and undo actions.
+With the this type of adapter, currently you can't use the swipe and undo actions.

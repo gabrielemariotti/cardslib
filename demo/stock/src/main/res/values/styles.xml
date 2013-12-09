@@ -69,6 +69,33 @@
         <item name="android:background">@drawable/card_menu_button_other</item>
     </style>
 
+    <!-- Button Base in Header on the left-->
+    <style name="card.header_button_base.left">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:paddingLeft">@dimen/card_header_button_padding_left</item>
+        <item name="android:focusable">false</item>
+        <item name="android:focusableInTouchMode">false</item>
+        <item name="android:clickable">true</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
+    <!-- Button Overflow in Header -->
+    <style name="card.header_button_base.left.overflow" >
+        <item name="android:background">@drawable/card_menu_button_overflow</item>
+    </style>
+
+    <!-- Button to Expand/Collapse in Header -->
+    <style name="card.header_button_base.left.expand">
+        <item name="android:background">@drawable/card_menu_button_expand</item>
+    </style>
+
+    <!-- Other Button in Header -->
+    <style name="card.header_button_base.left.other">
+
+    </style>
+
 
     <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++   -->
 

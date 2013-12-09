@@ -6,10 +6,12 @@ In this page you can find info about:
 * [Thumbnail from Resource ID](#thumbnail-from-resource-id)
 * [Thumbnail from Resource URL](#thumbnail-from-resource-url)
 * [Error resource id](#error-resource-id)
+* [Customizing the Thumbnail Layout](#customizing-the-thumbnail-layout)
 * [Customize Thumbnail](#customize-thumbnail)
 * [Broadcast to know when the download is finished](#broadcast-to-know-when-the-download-is-finished)
 * [Using external library](#using-external-library)
 * [Using with a Bitmap](#using-with-a-bitmap)
+
 
 
 ### Basic usage
@@ -104,6 +106,58 @@ You can set a drawable resource Id to display when the image can't be attached t
 
 ![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/thumb/errorID.png)
 
+
+### Customizing the Thumbnail Layout
+
+You can fully customize your thumbnail layout.
+
+You can set your thumbnail layout, customizing card layout and inflating your thumbnail xml layout file.
+
+First of all you have to provide your card layout .The quickest way to start with this would be to copy the `res/layout/card_layout.xml` or `res/layout/card_thumbnail_layout.xml`
+
+You can see `res/layout/carddemo_googlenownbirth_layout.xml`.
+
+``` xml
+   <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                 xmlns:card="http://schemas.android.com/apk/res-auto"
+
+
+         ...
+
+         <it.gmariotti.cardslib.library.view.component.CardThumbnailView
+                style="@style/card_thumbnail_outer_layout"
+                android:id="@+id/card_thumbnail_layout"
+                android:layout_width="0dp"
+                android:paddingTop="2dp"
+                android:layout_gravity="right"
+                card:card_thumbnail_layout_resourceID="@layout/carddemo_googlenowbirth_thumbnail_layout"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"/>
+
+
+
+   </LinearLayout>
+```
+
+When you use a custom card layout or compound layout is important to use the **same IDs** to preserve built-in features. When you use a custom inner layout you can change everything.
+
+You can specify your thumbnail layout (compound layout) using this attr:`card:card_thumbnail_layout_resourceID="@layout/carddemo_googlenowbirth_thumbnail_layout"`.
+
+Then you have to define your thumbnail layout:
+
+You can see an exmple in `res/layout/carddemo_googlenowbirth_thumbnail_layout`
+
+``` xml
+<ImageView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/card_thumbnail_image"
+    android:layout_width="125dp"
+    android:layout_height="125dp"
+    style="@style/card_thumbnail_image"/>
+```
+
+
+
 ### Customize Thumbnail
 
 If you want to customize your Thumbnail you can use your style files.
@@ -139,8 +193,12 @@ Otherwise you can extend your `CardThumbmail` and override the `setupInnerViewEl
         @Override
         public void setupInnerViewElements(ViewGroup parent, View viewImage) {
             if (viewImage!=null){
-                viewImage.getLayoutParams().width=250;
-                viewImage.getLayoutParams().height=250;
+                //viewImage.getLayoutParams().width=250;
+                //viewImage.getLayoutParams().height=250;
+
+                DisplayMetrics metrics=parent.getResources().getDisplayMetrics();
+                viewImage.getLayoutParams().width= (int)(250*metrics.density);
+                viewImage.getLayoutParams().height = (int)(250*metrics.density);
             }
         }
     }
@@ -233,7 +291,7 @@ You can see `PicassoCard` , `IonCard` , `UniversalImageLoaderCard` sources in de
 
 ### Using with a Bitmap
 
-If you want to use the CardThumbnail with a Bitamp or other DrawableResource you can use the method above:
+If you want to use the CardThumbnail with a Bitamp or other DrawableResource you can use the method above `thumbnail.setExternalUsage(true);` and use the ImageView in `setupInnerViewElements` method:
 
 ``` java
         Card mCard= new Card(getContext());
@@ -251,7 +309,8 @@ If you want to use the CardThumbnail with a Bitamp or other DrawableResource you
 
             ImageView image= (ImageView)viewImage ;
 
-            //...
+            //...image.setImageBitmap();
+            //...image.setImageDrawable();
         }
 ```
 

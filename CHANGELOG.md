@@ -1,6 +1,13 @@
 Change Log
 ===============================================================================
 
+Version 1.1.0 *(2013-XX-XX)*
+----------------------------
+* LIB: Added state_selected in default card_selector
+* DEMO: Added an example with a Card with contextual action mode [(doc)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARD.md#using-card-with-contextual-action-mode)
+* DEMO: Added an example with Header with buttons on the left
+
+
 Version 1.0.0 *(2013-12-03)*
 ----------------------------
 * DEMO-extras: Added an example with [StickyListHeaders by Emil Sjölander](https://github.com/emilsjolander/StickyListHeaders) [(doc)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/OTHERLIBRARIES.md#using-card-with-stickylistheaders)

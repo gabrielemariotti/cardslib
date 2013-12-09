@@ -16,6 +16,7 @@ In this page you can find info about:
 * [Change Dynamically card background](#change-dynamically-card-background)
 * [Change dynamically Card background with a Drawable object](#change-dynamically-card-background-with-a-drawable-object)
 * [Export card as bitmap](#export-card-as-bitmap)
+* [Using Card with contextual action mode](#using-card-with-contextual-action-mode)
 
 
 ### Creating a base Card
@@ -477,3 +478,84 @@ In `BitmapUtils` class there are some built-in methods:
 2. You can use `Intent intent = BitmapUtils.createIntentFromImage(photofile)` to put the image as `EXTRA_STREAM` in a `Intent`.
 
 You can see the example in `BirthDayCardFragment` and `StockCardFragment` where you can share the card as a bitmap.
+
+
+#### Using Card with contextual action mode
+
+If you would like to use a card with  you can use a code like this:
+
+``` java
+
+        ActionMode mActionMode;
+
+        //Create a Card
+        Card mCardCab = new Card(getActivity());
+
+        //Set the card inner text
+        mCardCab.setTitle(getString(R.string.demo_card_basetitle));
+
+        //Set onClick listener
+        mCardCab.setOnLongClickListener(new Card.OnLongCardClickListener() {
+            @Override
+            public boolean onLongClick(Card card, View view) {
+                if (mActionMode != null) {
+                    return false;
+                }
+                // Start the CAB using the ActionMode.Callback defined below
+                mActionMode = getActivity().startActionMode(mActionModeCallback);
+                view.setSelected(true);
+                return true;
+            }
+        });
+
+        //Set card in the cardView
+        cardViewCab = (CardView) getActivity().findViewById(R.id.carddemo_example_card_cab);
+        cardViewCab.setCard(mCardCab);
+    }
+
+
+    private ActionMode.Callback mActionModeCallback = new ActionMode.Callback() {
+
+        // Called when the action mode is created; startActionMode() was called
+        @Override
+        public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+            // Inflate a menu resource providing context menu items
+            MenuInflater inflater = mode.getMenuInflater();
+            inflater.inflate(R.menu.carddemo_cab_example, menu);
+            return true;
+        }
+
+        // Called each time the action mode is shown. Always called after onCreateActionMode, but
+        // may be called multiple times if the mode is invalidated.
+        @Override
+        public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+            return false; // Return false if nothing is done
+        }
+
+        // Called when the user selects a contextual menu item
+        @Override
+        public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.carddemo_toast:
+                    Toast.makeText(getActivity(), "Change Text",
+                            Toast.LENGTH_LONG).show();
+                    if (mCardCab!=null && cardViewCab!=null){
+                        //Example to change dinamically your card
+                        mCardCab.setTitle(getString(R.string.demo_title_cab2));
+                        cardViewCab.refreshCard(mCardCab);
+                    }
+                    mode.finish(); // Action picked, so close the CAB
+                    return true;
+                default:
+                    return false;
+            }
+        }
+
+        // Called when the user exits the action mode
+        @Override
+        public void onDestroyActionMode(ActionMode mode) {
+            mActionMode = null;
+            if (mCardCab!=null)
+                cardViewCab.setSelected(false);
+        }
+    };
