@@ -174,6 +174,11 @@ public class Card extends BaseCard {
      */
     private Drawable mBackgroundResource =null;
 
+    /**
+     * Used to enable a onLongClick Action on multichoiceAdapter
+     */
+    private boolean mCheckable= true;
+
     // -------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------
@@ -862,5 +867,21 @@ public class Card extends BaseCard {
         }
     }
 
+    /**
+     * Indicates if the card is clickable on a MultiChoiceAdapter
+     *
+     * @return <code>true</code> if card is clickable
+     */
+    public boolean isCheckable() {
+        return mCheckable;
+    }
 
+    /**
+     * Set the card as clickable in a MultiChoiceAdapter
+     *
+     * @param checkable <code>true</code> to indicates that the card is clickable
+     */
+    public void setCheckable(boolean checkable) {
+        mCheckable = checkable;
+    }
 }

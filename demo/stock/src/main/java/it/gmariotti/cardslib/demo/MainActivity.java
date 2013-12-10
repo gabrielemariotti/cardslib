@@ -30,6 +30,7 @@ import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
+import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -71,6 +72,8 @@ public class MainActivity extends Activity {
     private int mCurrentTitle=R.string.app_name;
     private int mSelectedFragment;
     private BaseFragment mBaseFragment;
+
+    protected ActionMode mActionMode;
 
     private IabHelper mHelper;
 
@@ -367,6 +370,7 @@ public class MainActivity extends Activity {
             fragmentTransaction.commit();
             if (baseFragment.getTitleResourceId()>0)
                 mCurrentTitle = baseFragment.getTitleResourceId();
+
         }
     }
 

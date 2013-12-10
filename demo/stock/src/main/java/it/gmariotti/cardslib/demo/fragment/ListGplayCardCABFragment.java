@@ -20,6 +20,7 @@ package it.gmariotti.cardslib.demo.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.SparseBooleanArray;
 import android.view.ActionMode;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -34,13 +35,13 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import it.gmariotti.cardslib.demo.R;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardArrayMultiChoiceAdapter;
 import it.gmariotti.cardslib.library.internal.CardThumbnail;
 import it.gmariotti.cardslib.library.view.CardListView;
+import it.gmariotti.cardslib.library.view.CardView;
 
 /**
  * List of Google Play cards Example
@@ -50,6 +51,8 @@ import it.gmariotti.cardslib.library.view.CardListView;
 public class ListGplayCardCABFragment extends BaseFragment {
 
     MyCardArrayMultiChoiceAdapter mCardArrayAdapter;
+    CardListView listView;
+    ActionMode actionMode;
 
     @Override
     public int getTitleResourceId() {
@@ -65,23 +68,38 @@ public class ListGplayCardCABFragment extends BaseFragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         initCards(savedInstanceState);
+
+        mCardArrayAdapter.restoreSelectionFromSavedInstanceState(savedInstanceState);
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (actionMode!=null)
+            actionMode.finish();
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        if (mCardArrayAdapter!=null)
+            mCardArrayAdapter.save(outState);
+    }
 
     private void initCards(Bundle savedInstanceState) {
 
         //Init an array of Cards
         ArrayList<Card> cards = new ArrayList<Card>();
-        for (int i=0;i<200;i++){
+        for (int i = 0; i < 200; i++) {
             GooglePlaySmallCard card = new GooglePlaySmallCard(this.getActivity());
-            card.setTitle("Application example "+i);
-            card.setSecondaryTitle("A company inc..."+i);
-            card.setRating((float)(Math.random()*(5.0)));
-            card.count=i;
-            card.setId(""+i);
+            card.setTitle("Application example " + i);
+            card.setSecondaryTitle("A company inc..." + i);
+            card.setRating((float) (Math.random() * (5.0)));
+            card.count = i;
+            card.setId("" + i);
 
             //Only for test, change some icons
-            if ((i>10 && i<15) || (i>35 && i<45)){
+            if ((i > 10 && i < 15) || (i > 35 && i < 45)) {
                 card.setResourceIdThumbnail(R.drawable.ic_launcher);
             }
             card.init();
@@ -89,26 +107,29 @@ public class ListGplayCardCABFragment extends BaseFragment {
         }
 
 
-        MyCardArrayMultiChoiceAdapter mCardArrayAdapter = new MyCardArrayMultiChoiceAdapter(savedInstanceState,getActivity(), cards);
-        CardListView listView = (CardListView) getActivity().findViewById(R.id.carddemo_list_gplaycard_cab);
-        if (listView!=null){
-            listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
+        mCardArrayAdapter = new MyCardArrayMultiChoiceAdapter(savedInstanceState, getActivity(), cards);
+        listView = (CardListView) getActivity().findViewById(R.id.carddemo_list_gplaycard_cab);
+        if (listView != null) {
             listView.setAdapter(mCardArrayAdapter);
-
+            listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
         }
     }
 
     /**
      *
      */
-    public class MyCardArrayMultiChoiceAdapter extends  CardArrayMultiChoiceAdapter{
+    public class MyCardArrayMultiChoiceAdapter extends CardArrayMultiChoiceAdapter {
 
         public MyCardArrayMultiChoiceAdapter(Bundle savedInstanceState, Context context, List<Card> cards) {
-            super(savedInstanceState, context, cards);
+            super(context, cards);
         }
 
         @Override
         public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+            super.onCreateActionMode(mode, menu);
+            actionMode=mode;
+            if (mTitleSelected!=null)
+                actionMode.setTitle(mTitleSelected);
             MenuInflater inflater = mode.getMenuInflater();
             inflater.inflate(R.menu.carddemo_multichoice, menu);
             return true;
@@ -122,28 +143,46 @@ public class ListGplayCardCABFragment extends BaseFragment {
         @Override
         public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
             if (item.getItemId() == R.id.menu_share) {
-                Toast.makeText(getContext(), "Share", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Share;" + formatCheckedCard(), Toast.LENGTH_SHORT).show();
                 return true;
             }
             if (item.getItemId() == R.id.menu_discard) {
-                discardSelectedItems();
+                discardSelectedItems(mode);
                 return true;
             }
             return false;
         }
 
-        private void discardSelectedItems() {
-            Set<Long> selection = getCheckedCards();
-            Card[] items = new Card[selection.size()];
-            int i = 0;
-            for (long position : selection) {
-                items[i++] = getItem((int)position);
+        @Override
+        protected void onItemCheckedStateChanged(ActionMode mode, int position, long id, boolean checked, CardView cardView, Card card) {
+            Toast.makeText(getContext(), "Click;" + position + " - " + checked, Toast.LENGTH_SHORT).show();
+        }
+
+        private void discardSelectedItems(ActionMode mode) {
+            SparseBooleanArray checked = mCardListView.getCheckedItemPositions();
+            Card[] items = new Card[checked.size()];
+            for (int i = 0; i < checked.size(); i++) {
+                if (checked.valueAt(i) == true) {
+                    items[i++] = getItem((int) checked.keyAt(i));
+                }
             }
             for (Card item : items) {
                 remove(item);
             }
-            finishActionMode();
+            mode.finish();
         }
+
+        private String formatCheckedCard() {
+            SparseBooleanArray checked = mCardListView.getCheckedItemPositions();
+            StringBuffer sb = new StringBuffer();
+            for (int i = 0; i < checked.size(); i++) {
+                if (checked.valueAt(i) == true) {
+                    sb.append("\nPosition=" + checked.keyAt(i));
+                }
+            }
+            return sb.toString();
+        }
+
     }
 
 
@@ -179,55 +218,25 @@ public class ListGplayCardCABFragment extends BaseFragment {
             //Add thumbnail
             CardThumbnail cardThumbnail = new CardThumbnail(mContext);
 
-            if (resourceIdThumbnail==0)
+            if (resourceIdThumbnail == 0)
                 cardThumbnail.setDrawableResource(R.drawable.ic_std_launcher);
-            else{
+            else {
                 cardThumbnail.setDrawableResource(resourceIdThumbnail);
             }
 
             addCardThumbnail(cardThumbnail);
 
             //Only for test, some cards have different clickListeners
-            if (count==12){
-
-                setTitle(title + " No Click");
-                setClickable(false);
-
-            }else if (count==20){
-
-                setTitle(title + " Partial Click");
-                addPartialOnClickListener(Card.CLICK_LISTENER_CONTENT_VIEW,new OnCardClickListener() {
-                    @Override
-                    public void onClick(Card card, View view) {
-                        Toast.makeText(getContext(), "Partial click Listener card=" + title, Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-            }else{
-
-                //Add ClickListener
-                setOnClickListener(new OnCardClickListener() {
-                    @Override
-                    public void onClick(Card card, View view) {
-                        Toast.makeText(getContext(), "Click Listener card=" + title, Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-            }
 
 
-            //Swipe
-            if (count>5 && count<13){
+            //Add ClickListener
+            setOnClickListener(new OnCardClickListener() {
+                @Override
+                public void onClick(Card card, View view) {
+                    Toast.makeText(getContext(), "Click=" + title, Toast.LENGTH_SHORT).show();
+                }
+            });
 
-                setTitle(title + " Swipe enabled");
-                setSwipeable(true);
-                setOnSwipeListener(new OnSwipeListener() {
-                    @Override
-                    public void onSwipe(Card card) {
-                        Toast.makeText(getContext(), "Removed card=" + title, Toast.LENGTH_SHORT).show();
-                    }
-                });
-            }
 
         }
 

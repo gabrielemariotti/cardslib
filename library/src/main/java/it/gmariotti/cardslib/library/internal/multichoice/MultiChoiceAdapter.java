@@ -18,16 +18,15 @@
 
 package it.gmariotti.cardslib.library.internal.multichoice;
 
-import android.os.Bundle;
 import android.view.View;
-
-import java.util.Set;
+import android.widget.AdapterView;
 
 /**
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
 public interface MultiChoiceAdapter {
 
+    /*
     void save(Bundle outState);
 
     void setCardChecked(long position, boolean checked);
@@ -37,8 +36,11 @@ public interface MultiChoiceAdapter {
     int getCheckedCardCount();
 
     boolean isChecked(long position);
-
+*/
     boolean isCardCheckable(int position);
 
-    boolean onItemLongClick(View view, int position, long id);
+
+    boolean isActionModeStarted();
+
+    void onItemClick(AdapterView<?> parent, View view, int position, long id);
 }
