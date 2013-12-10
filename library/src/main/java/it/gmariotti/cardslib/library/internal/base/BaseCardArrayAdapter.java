@@ -25,6 +25,7 @@ import java.util.List;
 
 import it.gmariotti.cardslib.library.R;
 import it.gmariotti.cardslib.library.internal.Card;
+import it.gmariotti.cardslib.library.view.CardView;
 
 /**
  * Base Array Adapter
@@ -86,6 +87,15 @@ public abstract class BaseCardArrayAdapter extends ArrayAdapter<Card> {
             return true;
         else
             return false;
+    }
+
+    /**
+     * This method is used in with multichoice
+     * @param mCard
+     * @param mCardView
+     */
+    protected void setupMultichoice(Card mCard,CardView mCardView,long position){
+        //empty
     }
 
     // -------------------------------------------------------------
