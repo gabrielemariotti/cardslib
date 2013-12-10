@@ -51,6 +51,11 @@
     <string name="action_share">Share</string>
     <string name="action_menu_beer">Donate</string>
 
+    <string name="menu_select_all">Select all</string>
+    <string name="menu_reset_list">Reset list</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_discard">Discard</string>
+
     <!-- Misc -->
     <string name="hello_world">Hello world!</string>
 

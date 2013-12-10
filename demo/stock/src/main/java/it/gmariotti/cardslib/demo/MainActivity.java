@@ -52,6 +52,7 @@ import it.gmariotti.cardslib.demo.fragment.ListColorFragment;
 import it.gmariotti.cardslib.demo.fragment.ListCursorCardFragment;
 import it.gmariotti.cardslib.demo.fragment.ListDifferentInnerBaseFragment;
 import it.gmariotti.cardslib.demo.fragment.ListExpandCardFragment;
+import it.gmariotti.cardslib.demo.fragment.ListGplayCardCABFragment;
 import it.gmariotti.cardslib.demo.fragment.ListGplayCardFragment;
 import it.gmariotti.cardslib.demo.fragment.ListGplayUndoCardFragment;
 import it.gmariotti.cardslib.demo.fragment.MiscCardFragment;
@@ -98,6 +99,7 @@ public class MainActivity extends Activity {
     private static final int CASE_LIST_COLORS = 16;
     private static final int CASE_CURSOR_LIST = 17;
     private static final int CASE_CURSOR_GRID = 18;
+    private static final int CASE_LIST_GPLAY_CAB = 19;
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -330,6 +332,9 @@ public class MainActivity extends Activity {
             case CASE_CURSOR_GRID:
                 baseFragment = new GridCursorCardFragment();
                 break;
+            case CASE_LIST_GPLAY_CAB:
+                baseFragment = new ListGplayCardCABFragment();
+                break;
             default:
                 break;
         }
@@ -385,7 +390,8 @@ public class MainActivity extends Activity {
             "Grid Google Play",
             "List colored cards",
             "List with Cursor",
-            "Grid with Cursor"
+            "Grid with Cursor",
+            "List with MultiChoice"
     };
 
 
