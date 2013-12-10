@@ -23,8 +23,12 @@ You can display **single cards**, **list** of cards and a **grid** of Cards.
 * Browse the [source code of the sample application](https://github.com/gabrielemariotti/cardslib/tree/master/demo) for a complete example of use.
 * [Example:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/EXAMPLE.md) How to realize simple and nice cards.
 
+--------------------------------------
 
-*If you would like, you can support my work, donating through the demo app.*
+**[You can join the G+ Community:](https://plus.google.com/u/0/communities/111800040690738372803)** a place to discuss the library, share screenshots, ask for tips....﻿
+
+
+**If you would like, you can support my work, donating through the demo app.**
 
 
 --------------------------------------
@@ -69,7 +73,8 @@ Card Library provides 3 custom tags:
 `CardGridView` displays a Grid Card.
 
 * It uses `CardView` tag and some its properties.
-* It works with an `CardGridArrayAdapter
+* It works with an `CardGridArrayAdapter`
+* It works with an `CardGridCursorAdapter`
 
 
 
