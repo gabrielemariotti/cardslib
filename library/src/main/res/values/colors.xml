@@ -27,7 +27,7 @@
 
     <!-- Used by selector -->
     <color name="card_pressed">#7E0099CC</color>
-    <color name="card_selected">#7E0099CC</color>
+    <color name="card_activated">#CFE9F3</color>
 
 
 </resources>
