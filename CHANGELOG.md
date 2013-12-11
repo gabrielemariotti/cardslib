@@ -3,9 +3,11 @@ Change Log
 
 Version 1.1.0 *(2013-XX-XX)*
 ----------------------------
-* LIB: Added state_selected in default card_selector
-* DEMO: Added an example with a Card with contextual action mode [(doc)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARD.md#using-card-with-contextual-action-mode)
-* DEMO: Added an example with Header with buttons on the left
+* LIB: Added a method to modify your bitmap before it is attached to the image View. In this way you can build rounded or circular images[(doc)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/THUMBNAIL.md#how-to-modify-bitmap-and-create-circular-or-rounded-images)
+* LIB: Added state_activated in default card_selector
+* DEMO: Added examples with circular and rounded images (in Misc and Google Birthday page)
+* DEMO: Added an example with a Card with contextual action mode in Card page [(doc)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARD.md#using-card-with-contextual-action-mode)
+* DEMO: Added an example with Header with buttons on the left (in Header page)
 
 
 Version 1.0.0 *(2013-12-03)*

@@ -21,8 +21,7 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android"
           android:exitFadeDuration="@android:integer/config_mediumAnimTime">
 
-    <item android:state_activated="true" android:drawable="@drawable/selected_background_card"/>
-    <item android:state_selected="true" android:drawable="@drawable/selected_background_card"/>
+    <item android:state_activated="true" android:drawable="@drawable/activated_background_card"/>
     <item android:state_pressed="true" android:drawable="@drawable/pressed_background_card"/>
     <item android:drawable="@drawable/card_background"/>
 </selector>

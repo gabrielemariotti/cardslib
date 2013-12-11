@@ -277,11 +277,13 @@ public class CardFragment extends BaseFragment {
             @Override
             public boolean onLongClick(Card card, View view) {
                 if (mActionMode != null) {
+                    view.setActivated(false);
+                    mActionMode.finish();
                     return false;
                 }
                 // Start the CAB using the ActionMode.Callback defined above
                 mActionMode = getActivity().startActionMode(mActionModeCallback);
-                view.setSelected(true);
+                view.setActivated(true);
                 return true;
             }
         });
@@ -333,7 +335,7 @@ public class CardFragment extends BaseFragment {
         public void onDestroyActionMode(ActionMode mode) {
             mActionMode = null;
             if (mCardCab!=null)
-                cardViewCab.setSelected(false);
+                cardViewCab.setActivated(false);
         }
     };
 

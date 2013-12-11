@@ -11,6 +11,7 @@ In this page you can find info about:
 * [Broadcast to know when the download is finished](#broadcast-to-know-when-the-download-is-finished)
 * [Using external library](#using-external-library)
 * [Using with a Bitmap](#using-with-a-bitmap)
+* [How to modify the bitmap and create circular or rounded images](#how-to-modify-bitmap-and-create-circular-or-rounded-images)
 
 
 
@@ -113,7 +114,7 @@ You can fully customize your thumbnail layout.
 
 You can set your thumbnail layout, customizing card layout and inflating your thumbnail xml layout file.
 
-First of all you have to provide your card layout .The quickest way to start with this would be to copy the `res/layout/card_layout.xml` or `res/layout/card_thumbnail_layout.xml`
+First of all you have to provide your card layout .The quickest way to start with this would be to copy the `res/layout/card_thumbnail_layout.xml`
 
 You can see `res/layout/carddemo_googlenownbirth_layout.xml`.
 
@@ -122,7 +123,6 @@ You can see `res/layout/carddemo_googlenownbirth_layout.xml`.
                  xmlns:card="http://schemas.android.com/apk/res-auto"
 
 
-         ...
 
          <it.gmariotti.cardslib.library.view.component.CardThumbnailView
                 style="@style/card_thumbnail_outer_layout"
@@ -313,6 +313,40 @@ If you want to use the CardThumbnail with a Bitamp or other DrawableResource you
             //...image.setImageDrawable();
         }
 ```
+
+### How to modify the bitmap and create circular or rounded images
+
+You can modify your bitmap before it is attached to the ImageView.
+
+You need to override the  `thumbnail#applyBitmap` method.
+
+``` java
+
+  public class CardThumbnailCircle extends CardThumbnail{
+
+
+      @Override
+      public boolean applyBitmap(View imageView, Bitmap bitmap) {
+
+         //Put your code here
+         //Return true if your callback attaches the bitmap to the ImageView, false otherwise
+
+         // Example:
+         CircleDrawable circle = new CircleDrawable(bitmap);
+         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)
+             imageView.setBackground(circle);
+         else
+             imageView.setBackgroundDrawable(circle);
+         return true;
+
+      }
+
+  }
+```
+
+You can see an example [here](https://github.com/gabrielemariotti/cardslib/tree/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/BirthDayCardFragment.java)
+
+![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/thumb/circle.png)
 
 
 ---
