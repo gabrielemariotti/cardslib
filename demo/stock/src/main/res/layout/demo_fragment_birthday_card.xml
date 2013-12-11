@@ -44,6 +44,25 @@
                 card:card_layout_resourceID="@layout/carddemo_googlenowbirth_layout"
                 android:layout_marginTop="12dp"/>
 
+            <it.gmariotti.cardslib.library.view.CardView
+                android:id="@+id/carddemo_cardBirth2"
+                android:layout_width="@dimen/card_birth_width"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                card:card_layout_resourceID="@layout/carddemo_googlenowbirth_layout"
+                android:layout_marginTop="12dp"/>
+
+            <it.gmariotti.cardslib.library.view.CardView
+                android:id="@+id/carddemo_cardBirth3"
+                android:layout_width="@dimen/card_birth_width"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                card:card_layout_resourceID="@layout/carddemo_googlenowbirth_layout"
+                android:layout_marginTop="12dp"/>
 
             <!-- Empty view-->
             <View

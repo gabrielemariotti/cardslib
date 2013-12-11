@@ -19,6 +19,8 @@
 package it.gmariotti.cardslib.demo.cards;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.os.Build;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +28,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import it.gmariotti.cardslib.demo.R;
+import it.gmariotti.cardslib.demo.drawable.CircleDrawable;
+import it.gmariotti.cardslib.demo.drawable.RoundCornersDrawable;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardExpand;
 import it.gmariotti.cardslib.library.internal.CardHeader;
@@ -37,6 +41,8 @@ import it.gmariotti.cardslib.library.internal.CardThumbnail;
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
 public class GoogleNowBirthCard extends Card {
+
+    public int USE_VIGNETTE=0;
 
     public GoogleNowBirthCard(Context context) {
         super(context);
@@ -71,7 +77,9 @@ public class GoogleNowBirthCard extends Card {
 
         //Add Thumbnail
         GoogleNowBirthThumb thumbnail = new GoogleNowBirthThumb(getContext());
-        thumbnail.setUrlResource("https://plus.google.com/s2/photos/profile/114432517923423045208?sz=250");
+        float density = getContext().getResources().getDisplayMetrics().density;
+        int size= (int)(125*density);
+        thumbnail.setUrlResource("https://plus.google.com/s2/photos/profile/114432517923423045208?sz="+size);
         thumbnail.setErrorResource(R.drawable.ic_ic_error_loading);
         addCardThumbnail(thumbnail);
     }
@@ -99,6 +107,39 @@ public class GoogleNowBirthCard extends Card {
             viewImage.getLayoutParams().width = 250;
             viewImage.getLayoutParams().height = 250;
             */
+        }
+
+        @Override
+        public boolean applyBitmap(View imageView, Bitmap bitmap) {
+            switch (USE_VIGNETTE){
+                case  0:
+                    return false;
+                case 1:
+                    //RounderImage
+                    int CORNER_RADIUS = 12; // dips
+                    //int MARGIN = 12; // dips
+
+                    float density = getContext().getResources().getDisplayMetrics().density;
+                    int mCornerRadius = (int) (CORNER_RADIUS * density + 0.5f);
+                    int mMargin = 0;
+
+                    RoundCornersDrawable round = new RoundCornersDrawable(bitmap,mCornerRadius , mMargin);
+                    if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)
+                        imageView.setBackground(round);
+                    else
+                        imageView.setBackgroundDrawable(round);
+                    return true;
+                case 2:
+
+                    CircleDrawable circle = new CircleDrawable(bitmap);
+                    if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)
+                        imageView.setBackground(circle);
+                    else
+                        imageView.setBackgroundDrawable(circle);
+                    return true;
+                default:
+                    return false;
+            }
         }
     }
 

@@ -18,6 +18,9 @@
 
 package it.gmariotti.cardslib.demo.fragment;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,6 +30,9 @@ import android.widget.ScrollView;
 import it.gmariotti.cardslib.demo.R;
 import it.gmariotti.cardslib.demo.cards.MayKnowCard;
 import it.gmariotti.cardslib.demo.cards.SuggestedCard;
+import it.gmariotti.cardslib.demo.drawable.CircleDrawable;
+import it.gmariotti.cardslib.library.internal.Card;
+import it.gmariotti.cardslib.library.internal.CardThumbnail;
 import it.gmariotti.cardslib.library.view.CardView;
 
 /**
@@ -61,6 +67,7 @@ public class MiscCardFragment extends BaseFragment {
 
         initCardMayKnow();
         initCardSuggested();
+        initCircleCard();
 
     }
 
@@ -97,5 +104,42 @@ public class MiscCardFragment extends BaseFragment {
         cardView.setCard(card);
     }
 
+
+    private void initCircleCard(){
+
+        Card card = new Card(getActivity());
+        card.setTitle("Title");
+        card.setBackgroundResourceId(R.color.demo_card_background_color1);
+        CardThumbnailCircle thumb = new CardThumbnailCircle(getActivity());
+        card.addCardThumbnail(thumb);
+
+        CardView cardView = (CardView) getActivity().findViewById(R.id.carddemo_circleleft);
+        cardView.setCard(card);
+
+    }
+
+    public class CardThumbnailCircle extends CardThumbnail{
+
+        public CardThumbnailCircle(Context context) {
+            super(context);
+
+            float density = getContext().getResources().getDisplayMetrics().density;
+            int size = (int) (70*density);
+            setUrlResource("https://plus.google.com/s2/photos/profile/114432517923423045208?sz="+size);
+            setErrorResource(R.drawable.ic_ic_error_loading);
+        }
+
+        @Override
+        public boolean applyBitmap(View imageView, Bitmap bitmap) {
+
+            CircleDrawable circle = new CircleDrawable(bitmap);
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)
+                imageView.setBackground(circle);
+            else
+                imageView.setBackgroundDrawable(circle);
+            return true;
+
+        }
+    }
 
 }

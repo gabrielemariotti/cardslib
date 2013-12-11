@@ -43,6 +43,7 @@
                 android:layout_marginRight="12dp"
                 card:card_layout_resourceID="@layout/card_thumbnail_layout"
                 android:layout_marginTop="12dp"/>
+
             <it.gmariotti.cardslib.library.view.CardView
                 android:id="@+id/carddemo_MayKnow2"
                 android:layout_width="match_parent"
@@ -59,6 +60,15 @@
                 android:layout_marginLeft="12dp"
                 android:layout_marginRight="12dp"
                 card:card_layout_resourceID="@layout/carddemo_suggested_layout"
+                android:layout_marginTop="12dp"/>
+
+            <it.gmariotti.cardslib.library.view.CardView
+                android:id="@+id/carddemo_circleleft"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                card:card_layout_resourceID="@layout/carddemo_example_circleleft"
                 android:layout_marginTop="12dp"/>
 
             <!-- Empty view-->

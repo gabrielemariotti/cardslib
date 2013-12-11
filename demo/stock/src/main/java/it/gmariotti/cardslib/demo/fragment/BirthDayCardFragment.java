@@ -115,7 +115,13 @@ public class BirthDayCardFragment extends BaseFragment {
      * This method builds a simple card
      */
     private void initCard() {
+        init1();
+        init2();
+        init3();
+    }
 
+
+    private void init1(){
         //Create a Card
         birthCard= new GoogleNowBirthCard(getActivity());
         birthCard.setId("myId");
@@ -123,6 +129,27 @@ public class BirthDayCardFragment extends BaseFragment {
         //Set card in the cardView
         cardView = (CardView) getActivity().findViewById(R.id.carddemo_cardBirth);
         cardView.setCard(birthCard);
+    }
+
+    private void init2(){
+        GoogleNowBirthCard card2 = new GoogleNowBirthCard(getActivity());
+        card2.setId("myId2");
+        card2.USE_VIGNETTE=1;
+
+        //Set card in the cardView
+        CardView cardView2 = (CardView) getActivity().findViewById(R.id.carddemo_cardBirth2);
+        cardView2.setCard(card2);
+
+    }
+
+    private void init3(){
+        GoogleNowBirthCard card3 = new GoogleNowBirthCard(getActivity());
+        card3.setId("myId3");
+        card3.USE_VIGNETTE=2;
+
+        //Set card in the cardView
+        CardView cardView3 = (CardView) getActivity().findViewById(R.id.carddemo_cardBirth3);
+        cardView3.setCard(card3);
     }
 
 
