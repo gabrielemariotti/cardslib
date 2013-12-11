@@ -258,7 +258,8 @@ public class CardThumbnailView extends FrameLayout implements CardViewInterface 
         final Bitmap bitmap = getBitmapFromMemCache(imageKey);
 
         if (bitmap != null) {
-            imageView.setImageBitmap(bitmap);
+            if (!mCardThumbnail.applyBitmap(imageView,bitmap))
+                imageView.setImageBitmap(bitmap);
             sendBroadcast();
         } else {
             if (cancelPotentialWork(resId, imageView)) {
@@ -276,7 +277,8 @@ public class CardThumbnailView extends FrameLayout implements CardViewInterface 
         final Bitmap bitmap = getBitmapFromMemCache(imageKey);
 
         if (bitmap != null){
-            imageView.setImageBitmap(bitmap);
+            if (!mCardThumbnail.applyBitmap(imageView,bitmap))
+                imageView.setImageBitmap(bitmap);
             sendBroadcast();
         }else{
             if (cancelPotentialWork(url, imageView)) {
@@ -469,7 +471,8 @@ public class CardThumbnailView extends FrameLayout implements CardViewInterface 
                 final BitmapWorkerTask bitmapWorkerTask =
                         getBitmapWorkerTask(imageView);
                 if (this == bitmapWorkerTask && imageView != null) {
-                    imageView.setImageBitmap(bitmap);
+                    if (!mCardThumbnail.applyBitmap(imageView,bitmap))
+                        imageView.setImageBitmap(bitmap);
                     sendBroadcast();
                     mLoadingErrorResource=false;
                 }
@@ -521,7 +524,8 @@ public class CardThumbnailView extends FrameLayout implements CardViewInterface 
                 final BitmapWorkerUrlTask bitmapWorkerTask =
                         getBitmapWorkerUrlTask(imageView);
                 if (this == bitmapWorkerTask && imageView != null) {
-                    imageView.setImageBitmap(bitmap);
+                    if (!mCardThumbnail.applyBitmap(imageView,bitmap))
+                        imageView.setImageBitmap(bitmap);
                     sendBroadcast();
                     mLoadingErrorResource=false;
                 }

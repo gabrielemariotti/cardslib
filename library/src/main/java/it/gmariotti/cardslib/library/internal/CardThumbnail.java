@@ -19,6 +19,7 @@
 package it.gmariotti.cardslib.library.internal;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -132,6 +133,20 @@ public class CardThumbnail extends BaseCard {
     @Override
     public void setupInnerViewElements(ViewGroup parent, View imageView) {
         return;
+    }
+
+
+    /**
+     * You can override this method to transform the bitmap before
+     * is attached to ImageView.
+     *
+     *
+     * @param imageView  imageView
+     * @param bitmap     bitmap
+     * @return true if the callback has already been attached the bitmap to imageView , false otherwise.
+     */
+    public boolean applyBitmap(View imageView, Bitmap bitmap){
+        return false;
     }
 
     /**
