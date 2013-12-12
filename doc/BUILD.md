@@ -32,12 +32,12 @@ Card Library is pushed to Maven Central as a AAR, so you just need to add the fo
  ```
 
  - clone a copy of this repository inside your project in a libraries folder.
- - modify your settings.gradle
+ - modify your `settings.gradle`
  ```
  include ':MyModule', ':libraries:cardslib:library'
  ```
 
- - modify MyModule/build.gradle
+ - modify `MyModule/build.gradle`
  ```
   dependencies {
       // Cards Library
@@ -45,7 +45,7 @@ Card Library is pushed to Maven Central as a AAR, so you just need to add the fo
   }
  ```
 
- - remove libraries/cardslib/build.gradle (pay attention, I am not referring to libraries/cardslib/library/build.gradle).
+ - remove `libraries/cardslib/build.gradle` (pay attention, I am not referring to `libraries/cardslib/library/build.gradle`).
  This is my main gradle file, but you don't use it.
  With this file you can have an error while building the project (compileReleaseAidl FAILED).
 

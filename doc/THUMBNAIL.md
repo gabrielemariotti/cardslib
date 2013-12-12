@@ -11,7 +11,7 @@ In this page you can find info about:
 * [Broadcast to know when the download is finished](#broadcast-to-know-when-the-download-is-finished)
 * [Using external library](#using-external-library)
 * [Using with a Bitmap](#using-with-a-bitmap)
-* [How to modify the bitmap and create circular or rounded images](#how-to-modify-bitmap-and-create-circular-or-rounded-images)
+* [How to modify the bitmap and create circular or rounded images](#how-to-modify-the-bitmap-and-create-circular-or-rounded-images)
 
 
 
