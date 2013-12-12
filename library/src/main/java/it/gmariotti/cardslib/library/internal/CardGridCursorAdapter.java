@@ -30,7 +30,6 @@ import java.util.HashMap;
 import it.gmariotti.cardslib.library.R;
 import it.gmariotti.cardslib.library.internal.base.BaseCardCursorAdapter;
 import it.gmariotti.cardslib.library.view.CardGridView;
-import it.gmariotti.cardslib.library.view.CardListView;
 import it.gmariotti.cardslib.library.view.CardView;
 
 /**
@@ -80,6 +79,16 @@ public abstract class CardGridCursorAdapter extends BaseCardCursorAdapter  {
 
     public CardGridCursorAdapter(Context context) {
         super(context, null, false);
+        mContext= context;
+    }
+
+    protected CardGridCursorAdapter(Context context, Cursor c, boolean autoRequery) {
+        super(context, c, autoRequery);
+        mContext= context;
+    }
+
+    protected CardGridCursorAdapter(Context context, Cursor c, int flags) {
+        super(context, c, flags);
         mContext= context;
     }
 

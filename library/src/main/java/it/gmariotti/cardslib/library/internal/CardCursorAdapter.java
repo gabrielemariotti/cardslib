@@ -82,6 +82,16 @@ public abstract class CardCursorAdapter extends BaseCardCursorAdapter  {
         mContext= context;
     }
 
+    protected CardCursorAdapter(Context context, Cursor c, boolean autoRequery) {
+        super(context, c, autoRequery);
+        mContext= context;
+    }
+
+    protected CardCursorAdapter(Context context, Cursor c, int flags) {
+        super(context, c, flags);
+        mContext= context;
+    }
+
     // -------------------------------------------------------------
     // Views
     // -------------------------------------------------------------
