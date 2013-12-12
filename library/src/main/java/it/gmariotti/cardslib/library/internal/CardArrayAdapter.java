@@ -171,7 +171,7 @@ public class CardArrayAdapter extends BaseCardArrayAdapter implements UndoBarCon
                 setupSwipeableAnimation(mCard, mCardView);
 
                 //setupMultiChoice
-                setupMultichoice(mCard,mCardView,position);
+                setupMultichoice(view,mCard,mCardView,position);
             }
         }
 

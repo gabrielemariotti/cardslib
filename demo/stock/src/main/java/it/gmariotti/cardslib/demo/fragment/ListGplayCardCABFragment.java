@@ -52,7 +52,7 @@ public class ListGplayCardCABFragment extends BaseFragment {
 
     MyCardArrayMultiChoiceAdapter mCardArrayAdapter;
     CardListView listView;
-    ActionMode actionMode;
+    ActionMode mActionMode;
 
     @Override
     public int getTitleResourceId() {
@@ -68,22 +68,14 @@ public class ListGplayCardCABFragment extends BaseFragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         initCards(savedInstanceState);
-
-        mCardArrayAdapter.restoreSelectionFromSavedInstanceState(savedInstanceState);
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
-        if (actionMode!=null)
-            actionMode.finish();
-    }
-
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        if (mCardArrayAdapter!=null)
-            mCardArrayAdapter.save(outState);
+    public void onDetach() {
+        super.onDetach();
+        if (mActionMode!=null){
+            mActionMode.finish();
+        }
     }
 
     private void initCards(Bundle savedInstanceState) {
@@ -94,6 +86,7 @@ public class ListGplayCardCABFragment extends BaseFragment {
             GooglePlaySmallCard card = new GooglePlaySmallCard(this.getActivity());
             card.setTitle("Application example " + i);
             card.setSecondaryTitle("A company inc..." + i);
+            card.setBackgroundResourceId(R.drawable.card_multichoice_selector);
             card.setRating((float) (Math.random() * (5.0)));
             card.count = i;
             card.setId("" + i);
@@ -107,7 +100,7 @@ public class ListGplayCardCABFragment extends BaseFragment {
         }
 
 
-        mCardArrayAdapter = new MyCardArrayMultiChoiceAdapter(savedInstanceState, getActivity(), cards);
+        mCardArrayAdapter = new MyCardArrayMultiChoiceAdapter(getActivity(), cards);
         listView = (CardListView) getActivity().findViewById(R.id.carddemo_list_gplaycard_cab);
         if (listView != null) {
             listView.setAdapter(mCardArrayAdapter);
@@ -120,16 +113,14 @@ public class ListGplayCardCABFragment extends BaseFragment {
      */
     public class MyCardArrayMultiChoiceAdapter extends CardArrayMultiChoiceAdapter {
 
-        public MyCardArrayMultiChoiceAdapter(Bundle savedInstanceState, Context context, List<Card> cards) {
+        public MyCardArrayMultiChoiceAdapter(Context context, List<Card> cards) {
             super(context, cards);
         }
 
         @Override
         public boolean onCreateActionMode(ActionMode mode, Menu menu) {
             super.onCreateActionMode(mode, menu);
-            actionMode=mode;
-            if (mTitleSelected!=null)
-                actionMode.setTitle(mTitleSelected);
+            mActionMode=mode;
             MenuInflater inflater = mode.getMenuInflater();
             inflater.inflate(R.menu.carddemo_multichoice, menu);
             return true;
@@ -161,9 +152,10 @@ public class ListGplayCardCABFragment extends BaseFragment {
         private void discardSelectedItems(ActionMode mode) {
             SparseBooleanArray checked = mCardListView.getCheckedItemPositions();
             Card[] items = new Card[checked.size()];
-            for (int i = 0; i < checked.size(); i++) {
+
+            for (int i =  checked.size()-1; i>=0; i--) {
                 if (checked.valueAt(i) == true) {
-                    items[i++] = getItem((int) checked.keyAt(i));
+                    items[i] = getItem((int) checked.keyAt(i));
                 }
             }
             for (Card item : items) {
@@ -226,14 +218,10 @@ public class ListGplayCardCABFragment extends BaseFragment {
 
             addCardThumbnail(cardThumbnail);
 
-            //Only for test, some cards have different clickListeners
-
-
-            //Add ClickListener
             setOnClickListener(new OnCardClickListener() {
                 @Override
                 public void onClick(Card card, View view) {
-                    Toast.makeText(getContext(), "Click=" + title, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mContext, "Click Listener",Toast.LENGTH_SHORT).show();
                 }
             });
 

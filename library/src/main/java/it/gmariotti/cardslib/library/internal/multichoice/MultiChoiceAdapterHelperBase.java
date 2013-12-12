@@ -28,20 +28,13 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 
-import java.util.HashSet;
-import java.util.Set;
-
 public class MultiChoiceAdapterHelperBase implements AdapterView.OnItemLongClickListener,AdapterView.OnItemClickListener {
 
     protected static final String TAG = MultiChoiceAdapterHelperBase.class.getSimpleName();
-    private static final String BUNDLE_KEY = "card__selection";
-
-    private Set<Long> checkedItems = new HashSet<Long>();
 
     protected AbsListView mAdapterView;
     protected BaseAdapter owner;
     protected AbsListView.MultiChoiceModeListener mMultiChoiceModeListener;
-
 
     private boolean ignoreCheckedListener;
 
@@ -53,15 +46,27 @@ public class MultiChoiceAdapterHelperBase implements AdapterView.OnItemLongClick
         this.owner = owner;
     }
 
+    // -------------------------------------------------------------
+    // View
+    // -------------------------------------------------------------
 
+    /**
+     * Sets the adapter and
+     * @param adapterView
+     */
     public void setAdapterView(AbsListView adapterView) {
         mAdapterView=adapterView;
         mAdapterView.setOnItemLongClickListener(this);
-       //mAdapterView.setOnItemClickListener(this);
-        mAdapterView.setMultiChoiceModeListener(getMultiChoiceModeListener());
+        mAdapterView.setMultiChoiceModeListener(mMultiChoiceModeListener);
     }
 
-    public void setItemChecked(long handle, boolean checked) {
+    /**
+     * Checks and unchecks the items
+     *
+     * @param handle    position
+     * @param checked   true if item is checked, false otherwise
+     */
+    protected void setItemChecked(long handle, boolean checked) {
         if (checked) {
             checkItem(handle);
         } else {
@@ -69,21 +74,38 @@ public class MultiChoiceAdapterHelperBase implements AdapterView.OnItemLongClick
         }
     }
 
-    public void checkItem(long handle) {
+    /**
+     * Checks the item
+     *
+     * @param handle
+     */
+    protected void checkItem(long handle) {
         mAdapterView.setItemChecked((int)handle,true);
        }
 
-    public void uncheckItem(long handle) {
+    /**
+     * Unckecks the item
+     *
+     * @param handle
+     */
+    protected void uncheckItem(long handle) {
         mAdapterView.setItemChecked((int)handle,false);
     }
 
+    // -------------------------------------------------------------
+    // OnItemLongClickListener implementation
+    // -------------------------------------------------------------
 
     @Override
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long id) {
         MultiChoiceAdapter adapter = (MultiChoiceAdapter) owner;
+
+        //Check if the card is checkable
         if (!adapter.isCardCheckable(position)) {
             return false;
         }
+
+        //Check the item
         int correctedPosition = correctPositionAccountingForHeader(adapterView, position);
         long handle = positionToSelectionHandle(correctedPosition);
         boolean wasChecked =  mAdapterView.isItemChecked((int)handle);
@@ -106,21 +128,34 @@ public class MultiChoiceAdapterHelperBase implements AdapterView.OnItemLongClick
         return position;
     }
 
+    // -------------------------------------------------------------
+    // OnItemClickListener implementation
+    // -------------------------------------------------------------
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        MultiChoiceAdapter adapter = (MultiChoiceAdapter) owner;
+        if (adapter.getOptionMultiChoice().isSelectItemClickInActionMode()){
+            if (adapter.isActionModeStarted()){
+                onItemLongClick(parent, view, position, id);
+                return;
+            }else{
+                adapter.onItemClick(parent,view,position,id);
+            }
+        }else{
+            adapter.onItemClick(parent,view,position,id);
+        }
+    }
+
+    // -------------------------------------------------------------
+    // Getters and setters
+    // -------------------------------------------------------------
+
     public AbsListView.MultiChoiceModeListener getMultiChoiceModeListener() {
         return mMultiChoiceModeListener;
     }
 
     public void setMultiChoiceModeListener(AbsListView.MultiChoiceModeListener multiChoiceModeListener) {
         mMultiChoiceModeListener = multiChoiceModeListener;
-    }
-
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        MultiChoiceAdapter adapter = (MultiChoiceAdapter) owner;
-        if (adapter.isActionModeStarted()){
-            onItemLongClick(parent, view, position, id);
-            return;
-        }
-        adapter.onItemClick(parent,view,position,id);
     }
 }

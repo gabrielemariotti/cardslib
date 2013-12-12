@@ -465,51 +465,53 @@ public class CardView extends BaseCardView {
 
         if (mCard.isClickable()){
             //Set the onClickListener
-            if (mCard.getOnClickListener() != null) {
-                this.setOnClickListener(new OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if (mCard.getOnClickListener()!=null)
-                            mCard.getOnClickListener().onClick(mCard,v);
-                    }
-                });
+            if(!mCard.isMultiChoiceEnabled()){
+                if (mCard.getOnClickListener() != null) {
+                    this.setOnClickListener(new OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            if (mCard.getOnClickListener()!=null)
+                                mCard.getOnClickListener().onClick(mCard,v);
+                        }
+                    });
 
-                //Prevent multiple events
-                //if (!mCard.isSwipeable() && mCard.getOnSwipeListener() == null) {
-                //    this.setClickable(true);
-                //}
+                    //Prevent multiple events
+                    //if (!mCard.isSwipeable() && mCard.getOnSwipeListener() == null) {
+                    //    this.setClickable(true);
+                    //}
 
-            }else{
-                HashMap<Integer,Card.OnCardClickListener> mMultipleOnClickListner=mCard.getMultipleOnClickListener();
-                if (mMultipleOnClickListner!=null && !mMultipleOnClickListner.isEmpty()){
+                }else{
+                    HashMap<Integer,Card.OnCardClickListener> mMultipleOnClickListner=mCard.getMultipleOnClickListener();
+                    if (mMultipleOnClickListner!=null && !mMultipleOnClickListner.isEmpty()){
 
-                    for (int key:mMultipleOnClickListner.keySet()){
-                        View viewClickable= decodeAreaOnClickListener(key);
-                        final Card.OnCardClickListener mListener=mMultipleOnClickListner.get(key);
-                        if (viewClickable!=null){
-                            //Add listener to this view
-                            viewClickable.setOnClickListener(new OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    //Callback to card listener
-                                    if (mListener!=null)
-                                        mListener.onClick(mCard,v);
-                                }
-                            });
+                        for (int key:mMultipleOnClickListner.keySet()){
+                            View viewClickable= decodeAreaOnClickListener(key);
+                            final Card.OnCardClickListener mListener=mMultipleOnClickListner.get(key);
+                            if (viewClickable!=null){
+                                //Add listener to this view
+                                viewClickable.setOnClickListener(new OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        //Callback to card listener
+                                        if (mListener!=null)
+                                            mListener.onClick(mCard,v);
+                                    }
+                                });
 
-                            //Add Selector to this view
-                            if (key > Card.CLICK_LISTENER_ALL_VIEW) {
-                                if (Build.VERSION.SDK_INT >= 16){
-                                    viewClickable.setBackground(getResources().getDrawable(R.drawable.card_selector));
-                                } else {
-                                    viewClickable.setBackgroundDrawable(getResources().getDrawable(R.drawable.card_selector));
+                                //Add Selector to this view
+                                if (key > Card.CLICK_LISTENER_ALL_VIEW) {
+                                    if (Build.VERSION.SDK_INT >= 16){
+                                        viewClickable.setBackground(getResources().getDrawable(R.drawable.card_selector));
+                                    } else {
+                                        viewClickable.setBackgroundDrawable(getResources().getDrawable(R.drawable.card_selector));
+                                    }
                                 }
                             }
                         }
+                    }else{
+                        //There aren't listners
+                        this.setClickable(false);
                     }
-                }else{
-                    //There aren't listners
-                    this.setClickable(false);
                 }
             }
         }else{
@@ -898,8 +900,4 @@ public class CardView extends BaseCardView {
             }
         }
     }
-
-
-
-
 }

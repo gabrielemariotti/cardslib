@@ -18,20 +18,14 @@
 
 package it.gmariotti.cardslib.library.internal.multichoice;
 
-import android.view.View;
-import android.widget.AdapterView;
-
 /**
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public interface MultiChoiceAdapter {
+public class DefaultOptionMultiChoice extends OptionMultiChoice{
 
+    @Override
+    public boolean isSelectItemClickInActionMode() {
+        return true;
+    }
 
-    boolean isCardCheckable(int position);
-
-    boolean isActionModeStarted();
-
-    void onItemClick(AdapterView<?> parent, View view, int position, long id);
-
-    OptionMultiChoice getOptionMultiChoice();
 }

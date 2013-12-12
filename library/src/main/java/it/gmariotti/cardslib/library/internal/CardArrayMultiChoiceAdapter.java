@@ -20,7 +20,6 @@ package it.gmariotti.cardslib.library.internal;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.os.Bundle;
 import android.view.ActionMode;
 import android.view.Menu;
 import android.view.View;
@@ -30,21 +29,23 @@ import android.widget.AdapterView;
 import java.util.List;
 
 import it.gmariotti.cardslib.library.R;
+import it.gmariotti.cardslib.library.internal.multichoice.DefaultOptionMultiChoice;
 import it.gmariotti.cardslib.library.internal.multichoice.MultiChoiceAdapter;
 import it.gmariotti.cardslib.library.internal.multichoice.MultiChoiceAdapterHelperBase;
+import it.gmariotti.cardslib.library.internal.multichoice.OptionMultiChoice;
 import it.gmariotti.cardslib.library.view.CardListView;
 import it.gmariotti.cardslib.library.view.CardView;
 
 /**
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public abstract class CardArrayMultiChoiceAdapter extends CardArrayAdapter implements MultiChoiceAdapter,AbsListView.MultiChoiceModeListener{
+public abstract class CardArrayMultiChoiceAdapter extends CardArrayAdapter implements MultiChoiceAdapter, AbsListView.MultiChoiceModeListener {
 
     private MultiChoiceAdapterHelperBase mHelper = new MultiChoiceAdapterHelperBase(this);
 
     protected ActionMode actionMode;
-    protected String mTitleSelected;
-    private static final String BUNDLE_KEY = "card__selection";
+
+    protected OptionMultiChoice mOptions;
 
     // -------------------------------------------------------------
     // Constructors
@@ -57,16 +58,21 @@ public abstract class CardArrayMultiChoiceAdapter extends CardArrayAdapter imple
      * @param cards   The cards to represent in the ListView.
      */
     public CardArrayMultiChoiceAdapter(Context context, List<Card> cards) {
+        this(context, cards, new DefaultOptionMultiChoice());
+    }
+
+    /**
+     * Constructor
+     *
+     * @param context The current context.
+     * @param cards   The cards to represent in the ListView.
+     */
+    public CardArrayMultiChoiceAdapter(Context context, List<Card> cards, OptionMultiChoice options) {
         super(context, cards);
+        this.mOptions = options;
         mHelper.setMultiChoiceModeListener(this);
     }
 
-    public void restoreSelectionFromSavedInstanceState(Bundle savedInstanceState) {
-        if (savedInstanceState == null) {
-            return;
-        }
-        mTitleSelected=savedInstanceState.getString(BUNDLE_KEY);
-    }
     // -------------------------------------------------------------
     // Adapter
     // -------------------------------------------------------------
@@ -74,22 +80,28 @@ public abstract class CardArrayMultiChoiceAdapter extends CardArrayAdapter imple
     @Override
     public void setCardListView(CardListView cardListView) {
         super.setCardListView(cardListView);
-        cardListView.setItemsCanFocus(false);
         mHelper.setAdapterView(cardListView);
     }
 
     @Override
-    protected void setupMultichoice(Card mCard, CardView mCardView,long position) {
-        super.setupMultichoice(mCard,mCardView,position);
-
-        if (mCard.getOnClickListener()!=null){
-            mCardView.setOnClickListener(null);
-            mCardListView.setClickable(true);
-            mCardListView.setOnItemClickListener(mHelper);
-        }
-
+    protected void setupMultichoice(View view, Card mCard, CardView mCardView, long position) {
+        super.setupMultichoice(view, mCard, mCardView, position);
         mCardView.setLongClickable(true);
+        mCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final CardView cardView = (CardView) v;
+                int position = getPosition(cardView.getCard());
+                mHelper.onItemClick(mCardListView, v, position, getItemId(position));
+            }
+        });
+    }
 
+    @Override
+    public Card getItem(int position) {
+        Card card = super.getItem(position);
+        card.mMultiChoiceEnabled = true;
+        return card;
     }
 
     // -------------------------------------------------------------
@@ -98,14 +110,15 @@ public abstract class CardArrayMultiChoiceAdapter extends CardArrayAdapter imple
 
     @Override
     public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-        actionMode=mode;
+        actionMode = mode;
+        onItemSelectedStateChanged(mode);
         return false;
-      }
+    }
 
 
     @Override
     public void onDestroyActionMode(ActionMode mode) {
-       actionMode=null;
+        actionMode = null;
     }
 
 
@@ -118,28 +131,26 @@ public abstract class CardArrayMultiChoiceAdapter extends CardArrayAdapter imple
 
 
     protected void onItemSelectedStateChanged(ActionMode mode) {
-        int count =  mCardListView.getCheckedItemCount();
-       
-        Resources res = mCardListView.getResources();
-        mTitleSelected = res.getQuantityString(R.plurals.card_selected_items, count, count);
-        mode.setTitle(mTitleSelected);
+        int count = mCardListView.getCheckedItemCount();
+
+        if (count > 0) {
+            Resources res = mCardListView.getResources();
+            String mTitleSelected = res.getQuantityString(R.plurals.card_selected_items, count, count);
+            mode.setTitle(mTitleSelected);
+        }
     }
 
-    protected abstract void onItemCheckedStateChanged (ActionMode mode, int position, long id, boolean checked,CardView cardView,Card card);
+    protected abstract void onItemCheckedStateChanged(ActionMode mode, int position, long id, boolean checked, CardView cardView, Card card);
 
     // -------------------------------------------------------------
     // MultiChoice
     // -------------------------------------------------------------
 
-    public void save(Bundle outState) {
-        outState.putString(BUNDLE_KEY, mTitleSelected);
-    }
-
 
     @Override
     public boolean isCardCheckable(int position) {
         Card card = getItem(position);
-        if (card!=null)
+        if (card != null)
             return card.isCheckable();
 
         return false;
@@ -147,7 +158,7 @@ public abstract class CardArrayMultiChoiceAdapter extends CardArrayAdapter imple
 
     @Override
     public boolean isActionModeStarted() {
-        if (actionMode!=null){
+        if (actionMode != null) {
             return true;
         }
         return false;
@@ -155,9 +166,14 @@ public abstract class CardArrayMultiChoiceAdapter extends CardArrayAdapter imple
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Card mCard= getItem(position);
-        if (mCard!=null && mCard.getOnClickListener()!=null)
-            mCard.getOnClickListener().onClick(mCard,view);
+        Card mCard = getItem(position);
+        if (mCard != null && mCard.getOnClickListener() != null)
+            mCard.getOnClickListener().onClick(mCard, view);
     }
 
+
+    @Override
+    public OptionMultiChoice getOptionMultiChoice() {
+        return mOptions;
+    }
 }

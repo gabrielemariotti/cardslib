@@ -19,6 +19,7 @@
 package it.gmariotti.cardslib.library.internal.base;
 
 import android.content.Context;
+import android.view.View;
 import android.widget.ArrayAdapter;
 
 import java.util.List;
@@ -94,7 +95,7 @@ public abstract class BaseCardArrayAdapter extends ArrayAdapter<Card> {
      * @param mCard
      * @param mCardView
      */
-    protected void setupMultichoice(Card mCard,CardView mCardView,long position){
+    protected void setupMultichoice(View view,Card mCard,CardView mCardView,long position){
         //empty
     }
 

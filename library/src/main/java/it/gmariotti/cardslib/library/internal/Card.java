@@ -179,6 +179,11 @@ public class Card extends BaseCard {
      */
     private boolean mCheckable= true;
 
+    /**
+     * Used by multichoice
+     */
+    protected boolean mMultiChoiceEnabled = false;
+
     // -------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------
@@ -884,4 +889,13 @@ public class Card extends BaseCard {
     public void setCheckable(boolean checkable) {
         mCheckable = checkable;
     }
+
+    /**
+     * Returns true if the multichoice is enabled
+     * @return
+     */
+    public boolean isMultiChoiceEnabled() {
+        return mMultiChoiceEnabled;
+    }
+
 }

@@ -18,20 +18,20 @@
 
 package it.gmariotti.cardslib.library.internal.multichoice;
 
-import android.view.View;
-import android.widget.AdapterView;
-
 /**
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public interface MultiChoiceAdapter {
+public abstract class OptionMultiChoice{
 
+    /**
+     * You can customize the way the adapter behaves when an item is clicked and the action mode was already active.
+     * True changes the selection state of the clicked item, just as if it had been long clicked. This is what the native MULTICHOICE_MODAL mode of ListView does.
+     * False uses the onClickListener defined on the clicked item
+     */
+    protected boolean selectItemClickInActionMode = true;
 
-    boolean isCardCheckable(int position);
+    public boolean isSelectItemClickInActionMode() {
+        return selectItemClickInActionMode;
+    }
 
-    boolean isActionModeStarted();
-
-    void onItemClick(AdapterView<?> parent, View view, int position, long id);
-
-    OptionMultiChoice getOptionMultiChoice();
 }
