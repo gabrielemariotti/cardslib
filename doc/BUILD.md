@@ -13,6 +13,43 @@ Card Library is pushed to Maven Central as a AAR, so you just need to add the fo
         compile 'com.github.gabrielemariotti.cards:library:1.0.0'
     }
 
+## Building locally in Android Studio with Gradle
+
+ If you would like to use a local copy of this library in Android Studio you have to do these steps:
+
+ You should have a structure like this:
+
+ ```
+   root
+      MyModule
+          build.gradle
+      libraries
+          cardslib
+              library
+                  build.gradle
+      build.gradle
+      settings.gradle
+ ```
+
+ - clone a copy of this repository inside your project in a libraries folder.
+ - modify your settings.gradle
+ ```
+ include ':MyModule', ':libraries:cardslib:library'
+ ```
+
+ - modify MyModule/build.gradle
+ ```
+  dependencies {
+      // Cards Library
+      compile project(':libraries:cardslib:library')
+  }
+ ```
+
+ - remove libraries/cardslib/build.gradle (pay attention, I am not referring to libraries/cardslib/library/build.gradle).
+ This is my main gradle file, but you don't use it.
+ With this file you can have an error while building the project (compileReleaseAidl FAILED).
+
+
 
 ## Reference this project as a library in Eclipse
 
