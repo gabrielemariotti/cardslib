@@ -101,6 +101,7 @@
     <string name="demo_section_thumb_id">Thumbnail from resource ID</string>
     <string name="demo_section_thumb_url">Thumbnail from resource URL</string>
     <string name="demo_section_thumb_style">Styling your Thumbnail card</string>
+    <string name="demo_section_thumb_customsource">Thumbnail from custom source</string>
 
     <string name="demo_section_card_title">Card with simple title</string>
     <string name="demo_section_card_inner">Card with custom inner layout</string>
