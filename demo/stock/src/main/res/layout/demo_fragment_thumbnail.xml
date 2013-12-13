@@ -67,7 +67,7 @@
                 card:card_layout_resourceID="@layout/card_thumbnail_layout"
                 android:layout_marginTop="12dp"/>
 
-            <!-- Customize you thumbnail -->
+	    <!-- Customize you thumbnail -->
             <TextView
                 style="@style/AppTheme.TitleText"
                 android:layout_width="wrap_content"
@@ -83,6 +83,22 @@
                 card:card_layout_resourceID="@layout/card_thumbnail_layout"
                 android:layout_marginTop="12dp"/>
 
+            <!-- Custom Source Thumbnail-->
+            <TextView
+                style="@style/AppTheme.TitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/demo_section_thumb_customsource"/>
+
+            <it.gmariotti.cardslib.library.view.CardView
+                android:id="@+id/carddemo_thumb_customsource"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                card:card_layout_resourceID="@layout/card_thumbnail_layout"
+                android:layout_marginTop="12dp"/>
+	    
             <!-- Empty view-->
             <View
                 android:layout_width="match_parent"
