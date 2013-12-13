@@ -61,8 +61,9 @@ Last get a reference to the `CardView` from your code, and set your `Card.
 
 Card Library provides 2 built-in card layouts.
 
-* `res/layout/card_layout.xml`
-* `res/layout/card_thumbnail_layout.xml`
+* `res/layout/card_layout.xml`: this is the default layout and doesn't contain the thumbnail.
+* `res/layout/card_thumbnail_layout.xml` : this contains the thumbnail
+
 
 You can easily *build your layout*.
 

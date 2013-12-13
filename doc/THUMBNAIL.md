@@ -2,17 +2,33 @@
 
 In this page you can find info about:
 
+* [Quick Start](#quick-start)
 * [Basic usage](#basic-usage)
 * [Thumbnail from Resource ID](#thumbnail-from-resource-id)
 * [Thumbnail from Resource URL](#thumbnail-from-resource-url)
+* [Thumbnail from Custom Source](#thumbnail-from-custom-source)
+* [Using external library](#using-external-library)
+* [Using with a Bitmap](#using-with-a-bitmap)
 * [Error resource id](#error-resource-id)
 * [Customizing the Thumbnail Layout](#customizing-the-thumbnail-layout)
 * [Customize Thumbnail](#customize-thumbnail)
 * [Broadcast to know when the download is finished](#broadcast-to-know-when-the-download-is-finished)
-* [Using external library](#using-external-library)
-* [Using with a Bitmap](#using-with-a-bitmap)
 * [How to modify the bitmap and create circular or rounded images](#how-to-modify-the-bitmap-and-create-circular-or-rounded-images)
 
+
+### Quick Start
+
+* The built-in thumbnail uses an `AsyncTask` and `LRUCache` to improve performance.
+* You have to provide a layout with a thumbnail
+
+The default layout doesn't contain the thumbnail. You to use the `res/layout/card_thumbnail_layout.xml` or a your custom layout. Read [Customizing the Thumbnail Layout](#customizing-the-thumbnail-layout) paragraph for more info.
+
+Example:
+
+``` xml
+        <it.gmariotti.cardslib.library.view.CardView
+            card:card_layout_resourceID="@layout/card_thumbnail_layout" />
+```
 
 
 ### Basic usage
@@ -86,6 +102,128 @@ If you want to load an image from an url:
 ```
 
 ![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/thumb/resourceURL.png)
+
+
+### Thumbnail from Custom Source
+
+If you would like to add thumbnails from custom source, instead of a resource ID or URL, you can use the `thumbnail.setCustomSource()` method.
+
+Pay attention. Using this method, the image will be loaded using the built-in `AsyncTask` and `LRUCache`.
+
+When creating the CardThumbnail you have to implement the `CustomSource` interface.
+
+In this example thumbnail is using the Package Manager.
+
+``` java
+
+        CardThumbnail thumbnail = new CardThumbnail(getContext());
+        thumbnail.setCustomSource(new CardThumbnail.CustomSource() {
+            @Override
+            public String getTag() {
+                return "com.google.android.apps.maps";
+            }
+
+            @Override
+            public Bitmap getBitmap() {
+                PackageManager pm = mContext.getPackageManager();
+                Bitmap bitmap = null;
+                try {
+                    bitmap = drawableToBitmap(pm.getApplicationIcon(getTag()));
+                } catch (PackageManager.NameNotFoundException e) {
+                }
+                return bitmap;
+            }
+
+            private Bitmap drawableToBitmap(Drawable drawable) {
+                if (drawable instanceof BitmapDrawable) {
+                    return ((BitmapDrawable) drawable).getBitmap();
+                }
+
+                Bitmap bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
+                Canvas canvas = new Canvas(bitmap);
+                drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+                drawable.draw(canvas);
+
+                return bitmap;
+            }
+        });
+        addCardThumbnail(thumbnail);
+    }
+
+```
+
+### Using external library
+
+The `CardThumbnail` loads a Bitmap with a built-in feature which uses `LRUCache` and an `AsyncTask`.
+
+If you want to improve this feature using your favorite networking library you can do this:
+
+First you need to set  `thumbnail.setExternalUsage(true);`
+
+``` java
+        Card mCard= new Card(getContext());
+
+        //Add Thumbnail
+        MyThumbnail thumbnail = new MyThumbnail(getContext());
+        //You need to set true to use an external library
+        thumbnail.setExternalUsage(true);
+        addCardThumbnail(thumbnail);
+```
+
+Then you have to implement your logic in `setupInnerViewElements(ViewGroup parent, View viewImage)` method:
+
+``` java
+        public class MyThumbnail extends CardThumbnail {
+
+        @Override
+        public void setupInnerViewElements(ViewGroup parent, View viewImage) {
+
+            //Here you have to set your image with an external library
+            Picasso.with(getContext())
+                   .load(myUrl)
+                   .into((ImageView)viewImage);
+
+            viewImage.getLayoutParams().width = 250;
+            viewImage.getLayoutParams().height = 250;
+        }
+```
+
+In Demo/Extra you can find 3 example with Picasso, Ion and Android-Universal-Image-Loader libraries.
+
+You can see `PicassoCard` , `IonCard` , `UniversalImageLoaderCard` sources in demo-extras.
+
+[You can read more info in this page](https://github.com/gabrielemariotti/cardslib/tree/master/doc/OTHERLIBRARIES.md).
+
+
+### Using with a Bitmap
+
+If you want to use the CardThumbnail with a Bitamp or other DrawableResource you can use a [custom source](#thumbnail-from-custom-source).
+
+Pay attention. Using this method, the image will be loaded using the built-in `AsyncTask` and `LRUCache`.
+
+Otherwise you can use the method above `thumbnail.setExternalUsage(true);` and use the ImageView in `setupInnerViewElements` method:
+
+``` java
+        Card mCard= new Card(getContext());
+
+        //Add Thumbnail
+        MyThumbnail thumbnail = new MyThumbnail(getContext());
+        //You need to set true to use an external library
+        thumbnail.setExternalUsage(true);
+        addCardThumbnail(thumbnail);
+
+        public class MyThumbnail extends CardThumbnail {
+
+        @Override
+        public void setupInnerViewElements(ViewGroup parent, View viewImage) {
+
+            ImageView image= (ImageView)viewImage ;
+
+            //...image.setImageBitmap();
+            //...image.setImageDrawable();
+        }
+```
+
 
 ### Error Resource Id
 
@@ -246,73 +384,6 @@ This Intent includes extras that provide additional details:
     }
 ```
 
-### Using external library
-
-The `CardThumbnail` loads a Bitmap with a built-in feature which uses `LRUCache` and an `AsyncTask`.
-
-If you want to improve this feature using your favorite networking library you can do this:
-
-First you need to set  `thumbnail.setExternalUsage(true);`
-
-``` java
-        Card mCard= new Card(getContext());
-
-        //Add Thumbnail
-        MyThumbnail thumbnail = new MyThumbnail(getContext());
-        //You need to set true to use an external library
-        thumbnail.setExternalUsage(true);
-        addCardThumbnail(thumbnail);
-```
-
-Then you have to implement your logic in `setupInnerViewElements(ViewGroup parent, View viewImage)` method:
-
-``` java
-        public class MyThumbnail extends CardThumbnail {
-
-        @Override
-        public void setupInnerViewElements(ViewGroup parent, View viewImage) {
-
-            //Here you have to set your image with an external library
-            Picasso.with(getContext())
-                   .load(myUrl)
-                   .into((ImageView)viewImage);
-
-            viewImage.getLayoutParams().width = 250;
-            viewImage.getLayoutParams().height = 250;
-        }
-```
-
-In Demo/Extra you can find 3 example with Picasso, Ion and Android-Universal-Image-Loader libraries.
-
-You can see `PicassoCard` , `IonCard` , `UniversalImageLoaderCard` sources in demo-extras.
-
-[You can read more info in this page](https://github.com/gabrielemariotti/cardslib/tree/master/doc/OTHERLIBRARIES.md).
-
-
-### Using with a Bitmap
-
-If you want to use the CardThumbnail with a Bitamp or other DrawableResource you can use the method above `thumbnail.setExternalUsage(true);` and use the ImageView in `setupInnerViewElements` method:
-
-``` java
-        Card mCard= new Card(getContext());
-
-        //Add Thumbnail
-        MyThumbnail thumbnail = new MyThumbnail(getContext());
-        //You need to set true to use an external library
-        thumbnail.setExternalUsage(true);
-        addCardThumbnail(thumbnail);
-
-        public class MyThumbnail extends CardThumbnail {
-
-        @Override
-        public void setupInnerViewElements(ViewGroup parent, View viewImage) {
-
-            ImageView image= (ImageView)viewImage ;
-
-            //...image.setImageBitmap();
-            //...image.setImageDrawable();
-        }
-```
 
 ### How to modify the bitmap and create circular or rounded images
 

@@ -24,7 +24,6 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.util.DisplayMetrics;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -81,16 +80,15 @@ public class GplayCardCustomSource extends Card {
                 PackageManager pm = mContext.getPackageManager();
                 Bitmap bitmap = null;
                 try {
-		    bitmap = drawableToBitmap(pm.getApplicationIcon(getTag()));
-		}
-		catch (PackageManager.NameNotFoundException e) {
-		}
-		return bitmap;
-	    }
+                    bitmap = drawableToBitmap(pm.getApplicationIcon(getTag()));
+                } catch (PackageManager.NameNotFoundException e) {
+                }
+                return bitmap;
+            }
 
-            private Bitmap drawableToBitmap (Drawable drawable) {
+            private Bitmap drawableToBitmap(Drawable drawable) {
                 if (drawable instanceof BitmapDrawable) {
-                    return ((BitmapDrawable)drawable).getBitmap();
+                    return ((BitmapDrawable) drawable).getBitmap();
                 }
 
                 Bitmap bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
