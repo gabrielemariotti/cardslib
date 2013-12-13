@@ -98,6 +98,23 @@ public class CardThumbnail extends BaseCard {
      */
     protected int errorResourceId=0;
 
+    /**
+     * Interface for custom source Thumbnail
+     */
+    public interface CustomSource {
+        /**
+         * @return a string tag to identify the image
+         */
+        String getTag();
+
+        /**
+         * @return the bitmap from custom source
+         */
+        Bitmap getBitmap();
+    }
+
+    protected CustomSource customSource = null;
+
     // -------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------
@@ -183,6 +200,18 @@ public class CardThumbnail extends BaseCard {
     public void setUrlResource(String urlResource) {
         this.urlResource = urlResource;
     }
+
+    /**
+     * Returns the custom source for Thumbnail
+     *
+     * @return the listener
+     */
+    public CustomSource getCustomSource() { return customSource; }
+
+    /**
+     * Sets the listener for a custom source Thumbnail
+     */
+    public void setCustomSource(CustomSource customSource) { this.customSource = customSource; }
 
     /**
      * Indicates if CardThumbnail will use an external library to load image

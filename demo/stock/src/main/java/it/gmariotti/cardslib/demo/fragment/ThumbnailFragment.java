@@ -26,6 +26,7 @@ import android.widget.ScrollView;
 
 import it.gmariotti.cardslib.demo.R;
 import it.gmariotti.cardslib.demo.cards.CustomThumbCard;
+import it.gmariotti.cardslib.demo.cards.GplayCardCustomSource;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardHeader;
 import it.gmariotti.cardslib.library.internal.CardThumbnail;
@@ -64,6 +65,7 @@ public class ThumbnailFragment extends BaseFragment {
         init_card_thumb_resourceId();
         init_card_thumb_resourceURL();
         init_card_thumb_resourceURL_style();
+        init_card_thumb_custom_source();
     }
 
     /**
@@ -163,5 +165,16 @@ public class ThumbnailFragment extends BaseFragment {
         cardView.setCard(card);
     }
 
+    /**
+     * This method builds a card with a custom source thumbnail
+     */
+    private void init_card_thumb_custom_source() {
 
+        //Create a Card
+        Card card = new GplayCardCustomSource(getActivity());
+
+        //Set card in the cardView
+        CardView cardView = (CardView) getActivity().findViewById(R.id.carddemo_thumb_customsource);
+        cardView.setCard(card);
+    }
 }
