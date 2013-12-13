@@ -111,7 +111,7 @@ public class MultiChoiceAdapterHelperBase implements AdapterView.OnItemLongClick
         boolean wasChecked =  mAdapterView.isItemChecked((int)handle);
         setItemChecked(handle, !wasChecked);
 
-        return true;
+        return false;
 
     }
 

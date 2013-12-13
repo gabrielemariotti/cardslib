@@ -86,7 +86,9 @@ public abstract class CardArrayMultiChoiceAdapter extends CardArrayAdapter imple
     @Override
     protected void setupMultichoice(View view, Card mCard, CardView mCardView, long position) {
         super.setupMultichoice(view, mCard, mCardView, position);
+
         mCardView.setLongClickable(true);
+
         mCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
