@@ -78,6 +78,26 @@ If you want a `CardHeader` with the overflow button you can use this simple code
 
 You can use the listener  `CardHeader.OnClickCardHeaderPopupMenuListener` to listen callback when an item menu is clicked.
 
+As described [below](#style), the overflow icon is defined with this style:
+
+``` xml
+    <!-- Button Overflow in Header -->
+    <style name="card.header_button_base.overflow" >
+        <item name="android:background">@drawable/card_menu_button_rounded_overflow</item>
+    </style>
+```
+
+You can override it in your project.
+
+Version 1.1 introduced the 3 rounded dots as default icon. If you would like to use the old icon with 3 square dots you can use:
+
+``` xml
+    <!-- Button Overflow in Header -->
+    <style name="card.header_button_base.overflow" >
+        <item name="android:background">@drawable/card_menu_button_overflow</item>
+    </style>
+```
+
 
 ![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/header/overflow.png)
 

@@ -5,6 +5,7 @@ Version 1.1.0 *(2013-XX-XX)*
 ----------------------------
 * LIB: Added a `CustomSource` interface to load the CardThumbnails from your custom source preserving the built-in feature as AsyncTask and LRUCache. [(doc)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/THUMBNAIL.md#thumbnail-from-custom-source)
 * LIB: Added a method to modify your bitmap before it is attached to the image View. In this way you can build rounded or circular images for example[(doc)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/THUMBNAIL.md#how-to-modify-bitmap-and-create-circular-or-rounded-images)
+* LIB: Changed the overflow icon in Header with 3 rounded dots. If you would like to use the old icon read [this.](https://github.com/gabrielemariotti/cardslib/tree/master/doc/HEADER.md#standard-header-with-the-overflow-botton-and-popup-menu)
 * LIB: Added state_activated in default card_selector
 * DEMO: Added an example with CustomSource (in Thumbnail screen)
 * DEMO: Added examples with circular and rounded images (in Misc and Google Birthday screen)
