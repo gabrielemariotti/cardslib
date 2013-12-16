@@ -8,7 +8,7 @@ You can display **single cards**, **list** of cards and a **grid** of Cards.
 
 ![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/screen2.png)
 
----
+
 ## Examples
 
 
@@ -24,7 +24,7 @@ You can display **single cards**, **list** of cards and a **grid** of Cards.
 
 * [Card Gallery:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/EXAMPLE.md) How to realize simple and nice cards.
 
----
+
 ## Support
 
 
@@ -34,13 +34,13 @@ You can display **single cards**, **list** of cards and a **grid** of Cards.
 
 **If you would like, you can support my work, donating through the demo app.**
 
----
+
 ## Doc
 
 See the **[Card Library Guide](https://github.com/gabrielemariotti/cardslib/tree/master/doc/GUIDE.md)** to know all card library features and all customizations.
 The Guide provides a extensive doc, with all tips and full examples. Don't miss it.
 
----
+
 ## Quick Start
 
 Card Library is pushed to Maven Central as an AAR, so you just need to add the following dependency to your `build.gradle`.
@@ -51,7 +51,6 @@ Card Library is pushed to Maven Central as an AAR, so you just need to add the f
 
 
 ## ChangeLog
--------
 
 * [Changelog:](https://github.com/gabrielemariotti/cardslib/tree/master/CHANGELOG.md) A complete changelog
 
