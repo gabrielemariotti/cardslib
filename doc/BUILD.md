@@ -2,7 +2,14 @@
 
 The library is written with Android Studio and has Gradle support.
 
-You can add this library to your project adding a dependency to your `build.gradle`, or your can reference this project as a library (from Eclipse) or add it as a module (from IntelliJ).
+You can add this library to your project adding a dependency to your `build.gradle`, or your can reference this project as a library (from Eclipse) or add it as a module (from Android Studio/IntelliJ).
+
+In this page you can find info about:
+
+* [Including in your project with Gradle](#Including-in-your-project-with-gradle)
+* [Building locally in Android Studio with Gradle](#Building-locally-in-android-studio-with-gradle)
+* [Reference this project as a library in Eclipse](#Reference-this-project-as-a-library-in-eclipse)
+
 
 
 ## Including in your project with Gradle
@@ -10,7 +17,7 @@ You can add this library to your project adding a dependency to your `build.grad
 Card Library is pushed to Maven Central as a AAR, so you just need to add the following dependency to your `build.gradle`.
 
     dependencies {
-        compile 'com.github.gabrielemariotti.cards:library:1.0.0'
+        compile 'com.github.gabrielemariotti.cards:library:1.1.0'
     }
 
 ## Building locally in Android Studio with Gradle
