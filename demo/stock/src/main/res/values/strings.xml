@@ -82,6 +82,7 @@
     <string name="carddemo_title_list_color">Colored cards</string>
     <string name="carddemo_title_list_cursor">List with Cursor</string>
     <string name="carddemo_title_grid_cursor">Grid with Cursor</string>
+    <string name="carddemo_title_cab_list">List with MultiChoice (experimental)</string>
 
     <!-- Section -->
     <string name="demo_section_header_standard">Standard Header without buttons</string>
@@ -160,4 +161,5 @@
 
     <string name="demo_title_cab1">Long Click to enable CAB</string>
     <string name="demo_title_cab2">Text Changed!</string>
+
 </resources>

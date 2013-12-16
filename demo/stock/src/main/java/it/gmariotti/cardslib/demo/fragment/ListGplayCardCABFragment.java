@@ -56,7 +56,7 @@ public class ListGplayCardCABFragment extends BaseFragment {
 
     @Override
     public int getTitleResourceId() {
-        return R.string.carddemo_title_list_gplaycard;
+        return R.string.carddemo_title_cab_list;
     }
 
     @Override
