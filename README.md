@@ -27,10 +27,10 @@ You can display **single cards**, **list** of cards and a **grid** of Cards.
 
 * [Card Gallery:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/EXAMPLE.md) How to realize simple and nice cards.
 
-  [See this page for more info](https://github.com/gabrielemariotti/cardslib/tree/master/demo/README.md)
+  [See this page for more info about demo and samples](https://github.com/gabrielemariotti/cardslib/tree/master/demo/README.md)
   
 ## Support
-Join the **Google+ Community**: 
+Join the [**Google+ Community**](https://plus.google.com/u/0/communities/111800040690738372803): 
 
 [![Join the Google+ Community](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/g+64.png)](https://plus.google.com/u/0/communities/111800040690738372803)
 	
