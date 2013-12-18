@@ -432,8 +432,9 @@ public class CardHeaderView extends FrameLayout implements CardViewInterface {
      */
     public void setOnClickExpandCollapseActionListener(OnClickListener onClickExpandCollapseActionListener) {
         this.mOnClickExpandCollapseActionListener = onClickExpandCollapseActionListener;
-        if (mImageButtonExpand != null)
+        /*if (mImageButtonExpand != null)
             mImageButtonExpand.setOnClickListener(onClickExpandCollapseActionListener);
+            */
     }
 
     /**

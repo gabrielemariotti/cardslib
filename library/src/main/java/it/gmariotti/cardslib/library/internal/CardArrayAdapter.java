@@ -163,7 +163,7 @@ public class CardArrayAdapter extends BaseCardArrayAdapter implements UndoBarCon
                 mCard.setSwipeable(origianlSwipeable);
 
                 //If card has an expandable button override animation
-                if (mCard.getCardHeader() != null && mCard.getCardHeader().isButtonExpandVisible()) {
+                if ((mCard.getCardHeader() != null && mCard.getCardHeader().isButtonExpandVisible()) || mCard.getViewToClickToExpand()!=null ){
                     setupExpandCollapseListAnimation(mCardView);
                 }
 
