@@ -138,7 +138,7 @@ You have to set the `ViewToClickToExpand` on the `Card`.
              .setupView(cardView); //setup the view which enables the expand/collapse action
              .highlightView(true); //true to highlight the view as selected (default=false)
 
-``` java
+```
 
 
 How to enable expand/collapse action by clicking on the card.
