@@ -57,6 +57,7 @@ import it.gmariotti.cardslib.demo.fragment.ListGplayCardCABFragment;
 import it.gmariotti.cardslib.demo.fragment.ListGplayCardFragment;
 import it.gmariotti.cardslib.demo.fragment.ListGplayUndoCardFragment;
 import it.gmariotti.cardslib.demo.fragment.MiscCardFragment;
+import it.gmariotti.cardslib.demo.fragment.OverflowAnimFragment;
 import it.gmariotti.cardslib.demo.fragment.ShadowFragment;
 import it.gmariotti.cardslib.demo.fragment.StockCardFragment;
 import it.gmariotti.cardslib.demo.fragment.ThumbnailFragment;
@@ -103,6 +104,7 @@ public class MainActivity extends Activity {
     private static final int CASE_CURSOR_LIST = 17;
     private static final int CASE_CURSOR_GRID = 18;
     private static final int CASE_LIST_GPLAY_CAB = 19;
+    private static final int CASE_OVERFLOW_ANIM = 20;
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -338,6 +340,9 @@ public class MainActivity extends Activity {
             case CASE_LIST_GPLAY_CAB:
                 baseFragment = new ListGplayCardCABFragment();
                 break;
+            case CASE_OVERFLOW_ANIM:
+                baseFragment = new OverflowAnimFragment();
+                break;
             default:
                 break;
         }
@@ -395,7 +400,8 @@ public class MainActivity extends Activity {
             "List colored cards",
             "List with Cursor",
             "Grid with Cursor",
-            "List with MultiChoice (exp)"
+            "List with MultiChoice (exp)",
+            "Overflow Animation"
     };
 
 
