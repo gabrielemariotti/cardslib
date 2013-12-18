@@ -453,7 +453,7 @@ Also you can customize your background using a Drawable object:
      card4setBackgroundResource(newDrawable);
 ```
 
-You can see this example:  [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/ChangeValueCardFragment.java#L122à).
+You can see this example:  [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/ChangeValueCardFragment.java#L122).
 
 
 
