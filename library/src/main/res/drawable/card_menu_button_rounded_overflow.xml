@@ -23,6 +23,8 @@
           android:state_pressed="true"/>
     <item android:drawable="@drawable/ic_menu_overflow_card_rounded_dark_pressed"
           android:state_focused="true"/>
+    <item android:drawable="@drawable/ic_menu_overflow_card_rounded_dark_pressed"
+          android:state_selected="true"/>
     <item android:drawable="@drawable/ic_menu_overflow_card_rounded_dark_normal"/>
 
 </selector>

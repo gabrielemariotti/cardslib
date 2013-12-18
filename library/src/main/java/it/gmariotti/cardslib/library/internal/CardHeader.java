@@ -110,7 +110,7 @@ public class CardHeader extends BaseCard {
     /**
      *  Resource ID for PopMenu
      */
-    protected int mPopupMenu=-1;
+    protected int mPopupMenu=NO_POPUP_MENU;
 
     /**
      * Listener invoked when a item in PopupMenu is clicked
@@ -137,6 +137,30 @@ public class CardHeader extends BaseCard {
      *  </pre>
      */
     protected int mOtherButtonDrawable=0;
+
+    /**
+     * Use this value to remove popup on overflow button
+     */
+    public static int NO_POPUP_MENU = -1;
+
+
+    /**
+     * Interface for custom overflow animation
+     */
+    public interface CustomOverflowAnimation {
+
+        /**
+         * @return the bitmap from custom source
+         */
+       void doAnimation(Card card,View imageOverflow);
+    }
+
+    protected CustomOverflowAnimation mCustomOverflowAnimation = null;
+
+    /**
+     * Indicates if overflow icon is selected
+     */
+    protected boolean mIsOverflowSelected=false;
 
     // -------------------------------------------------------------
     // Constructors
@@ -197,7 +221,7 @@ public class CardHeader extends BaseCard {
     /**
      * Sets a popup menu for overflow button.
      * <p/>
-     * Setting the menu resource to -1 disables the menu for this card.
+     * Setting the menu resource to {@linl NO_POPUP_MENU} disables the menu for this card.
      *
      * @param menuRes  The menu resource ID to use for the card's popup menu.
      * @param listener A listener invoked when an option in the popup menu is tapped by the user.
@@ -206,10 +230,12 @@ public class CardHeader extends BaseCard {
         mPopupMenu = menuRes;
         mPopupMenuListener = listener;
 
-        if (menuRes==-1)
+        if (menuRes==NO_POPUP_MENU){
             mIsButtonOverflowVisible=false;
-        else
+            listener=null;
+        }else{
             mIsButtonOverflowVisible=true;
+        }
     }
 
     // -------------------------------------------------------------
@@ -218,6 +244,43 @@ public class CardHeader extends BaseCard {
 
 
 
+    // -------------------------------------------------------------
+    // CustomOverflowAnimator
+    // -------------------------------------------------------------
+
+
+    /**
+     * Returns the custom animation on Overflow icon
+     *
+     * @return the listener
+     */
+    public CustomOverflowAnimation getCustomOverflowAnimation() {
+        return  mCustomOverflowAnimation;
+    }
+
+    /**
+     * Sets the listener for a custom animation on Overflow icon
+     *
+     * @param customAnimation
+     */
+    public void setCustomOverflowAnimation(CustomOverflowAnimation customAnimation) {
+        this.mCustomOverflowAnimation = customAnimation;
+
+        if (mCustomOverflowAnimation==null){
+            mIsButtonOverflowVisible=false;
+        }else{
+            mIsButtonOverflowVisible=true;
+        }
+    }
+
+
+    public boolean isOverflowSelected() {
+        return mIsOverflowSelected;
+    }
+
+    public void setOverflowSelected(boolean isOverflowSelected) {
+        mIsOverflowSelected = isOverflowSelected;
+    }
 
 
 
@@ -330,9 +393,9 @@ public class CardHeader extends BaseCard {
      */
     public boolean isButtonOverflowVisible() {
         //Without a PopupMenu, the button is not visible
-        if (mPopupMenu==-1){
+        if (mPopupMenu==NO_POPUP_MENU && mCustomOverflowAnimation==null){
             if (mIsButtonOverflowVisible)
-                Log.w("CardHeader","You set visible=true to overflow menu, but you don't add any Popup Menu");
+                Log.w("CardHeader","You set visible=true to overflow menu, but you don't add any Popup Menu or a CustomOverflowAnimator");
             return false;
         }
         return mIsButtonOverflowVisible;
@@ -421,4 +484,6 @@ public class CardHeader extends BaseCard {
     public void setOtherButtonDrawable(int otherButtonDrawable) {
         mOtherButtonDrawable = otherButtonDrawable;
     }
+
+
 }

@@ -253,8 +253,13 @@ public class CardHeaderView extends FrameLayout implements CardViewInterface {
 
         if (mCardHeader.isButtonOverflowVisible()) {
             visibilityButtonHelper(VISIBLE, GONE, GONE);
-            //Add popup
-            addPopup();
+
+            if (mCardHeader.getPopupMenu()!=CardHeader.NO_POPUP_MENU){
+                //Add popup
+                addPopup();
+            }else if (mCardHeader.getCustomOverflowAnimation()!=null){
+                addCustomOverflowAnimation();
+            }
         } else {
 
             if (mCardHeader.isButtonExpandVisible()) {
@@ -279,6 +284,29 @@ public class CardHeaderView extends FrameLayout implements CardViewInterface {
                 }
             }
         }
+    }
+
+    /**
+     * Add Custom Overflow Animation
+     */
+    private void addCustomOverflowAnimation() {
+
+        final CardHeader.CustomOverflowAnimation animation= mCardHeader.getCustomOverflowAnimation();
+        if (animation!=null && mImageButtonOverflow != null) {
+
+            //Add a PopupMenu and its listener
+            mImageButtonOverflow.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                   animation.doAnimation(mCardHeader.getParentCard(),v);
+                }
+            });
+
+        }else{
+            if (mImageButtonOverflow != null)
+                mImageButtonOverflow.setVisibility(GONE);
+        }
+
     }
 
     /**

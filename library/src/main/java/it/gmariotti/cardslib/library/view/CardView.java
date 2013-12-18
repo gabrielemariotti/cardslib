@@ -396,6 +396,22 @@ public class CardView extends BaseCardView {
     }
 
     /**
+     * TODO FIXME
+     * @param newLayoutId
+     */
+    public View setupNewInnerLayout(int newLayoutId){
+
+        if (mInternalContentLayout !=null){
+            getCard().setInnerLayout(newLayoutId);
+           ((ViewGroup)mInternalContentLayout).removeView(mInternalInnerView);
+            mInternalInnerView=mCard.getInnerView(getContext(), (ViewGroup) mInternalContentLayout);
+            return mInternalInnerView;
+        }
+
+        return null;
+    }
+
+    /**
      * Setup the Thumbnail View
      */
     protected void setupThumbnailView() {
@@ -821,6 +837,22 @@ public class CardView extends BaseCardView {
      */
     public View getInternalExpandLayout() {
         return mInternalExpandLayout;
+    }
+
+    /**
+     * FIXME
+     * @return
+     */
+    public View getInternalContentLayout() {
+        return mInternalContentLayout;
+    }
+
+    /**
+     * FIXME
+     * @return
+     */
+    public View getInternalInnerView() {
+        return mInternalInnerView;
     }
 
     public int getCollapsedHeight() {
