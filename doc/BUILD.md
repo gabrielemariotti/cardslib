@@ -6,10 +6,9 @@ You can add this library to your project adding a dependency to your `build.grad
 
 In this page you can find info about:
 
-* [Including in your project with Gradle](#Including-in-your-project-with-gradle)
-* [Building locally in Android Studio with Gradle](#Building-locally-in-android-studio-with-gradle)
-* [Reference this project as a library in Eclipse](#Reference-this-project-as-a-library-in-eclipse)
-
+* [Including in your project with Gradle](#including-in-your-project-with-gradle)
+* [Building locally in Android Studio with Gradle](#building-locally-in-android-studio-with-gradle)
+* [Reference this project as a library in Eclipse](#reference-this-project-as-a-library-in-eclipse)
 
 
 ## Including in your project with Gradle
