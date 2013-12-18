@@ -41,6 +41,7 @@ import android.widget.ListView;
 
 import it.gmariotti.cardslib.demo.fragment.BaseFragment;
 import it.gmariotti.cardslib.demo.fragment.BirthDayCardFragment;
+import it.gmariotti.cardslib.demo.fragment.CardExpandFragment;
 import it.gmariotti.cardslib.demo.fragment.CardFragment;
 import it.gmariotti.cardslib.demo.fragment.ChangeValueCardFragment;
 import it.gmariotti.cardslib.demo.fragment.GPlayCardFragment;
@@ -88,23 +89,24 @@ public class MainActivity extends Activity {
     private static final int CASE_SHADOW = 1;
     private static final int CASE_THUMBNAIL = 2;
     private static final int CASE_CARD = 3;
-    private static final int CASE_BIRTH = 4;
-    private static final int CASE_GPLAY = 5;
-    private static final int CASE_STOCK = 6;
-    private static final int CASE_MISC = 7;
-    private static final int CASE_CHG_VALUE = 8;
-    private static final int CASE_LIST_BASE = 9;
-    private static final int CASE_LIST_BASE_INNER = 10;
-    private static final int CASE_LIST_EXPAND = 11;
-    private static final int CASE_LIST_GPLAY = 12;
-    private static final int CASE_LIST_GPLAY_UNDO = 13;
-    private static final int CASE_GRID_BASE = 14;
-    private static final int CASE_GRID_GPLAY = 15;
-    private static final int CASE_LIST_COLORS = 16;
-    private static final int CASE_CURSOR_LIST = 17;
-    private static final int CASE_CURSOR_GRID = 18;
-    private static final int CASE_LIST_GPLAY_CAB = 19;
-    private static final int CASE_OVERFLOW_ANIM = 20;
+    private static final int CASE_CARD_EXPAND = 4;
+    private static final int CASE_BIRTH = 5;
+    private static final int CASE_GPLAY = 6;
+    private static final int CASE_STOCK = 7;
+    private static final int CASE_MISC = 8;
+    private static final int CASE_CHG_VALUE = 9;
+    private static final int CASE_LIST_BASE = 10;
+    private static final int CASE_LIST_BASE_INNER = 11;
+    private static final int CASE_LIST_EXPAND = 12;
+    private static final int CASE_LIST_GPLAY = 13;
+    private static final int CASE_LIST_GPLAY_UNDO = 14;
+    private static final int CASE_GRID_BASE = 15;
+    private static final int CASE_GRID_GPLAY = 16;
+    private static final int CASE_LIST_COLORS = 17;
+    private static final int CASE_CURSOR_LIST = 18;
+    private static final int CASE_CURSOR_GRID = 19;
+    private static final int CASE_LIST_GPLAY_CAB = 20;
+    private static final int CASE_OVERFLOW_ANIM = 21;
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -292,6 +294,9 @@ public class MainActivity extends Activity {
             case CASE_CARD:
                 baseFragment = new CardFragment();
                 break;
+            case CASE_CARD_EXPAND:
+                baseFragment = new CardExpandFragment();
+                break;
             case CASE_BIRTH:
                 baseFragment = new BirthDayCardFragment();
                 break;
@@ -385,6 +390,7 @@ public class MainActivity extends Activity {
             "CardShadow",
             "CardThumbnail",
             "Card",
+            "Card Expand",
             "Google Birthday",
             "Google Play",
             "Google Stock",

@@ -96,7 +96,7 @@
                 android:layout_marginRight="12dp"
                 android:layout_marginTop="12dp"/>
 
-            <!-- Extending card -->
+            <!-- Clickable card -->
             <TextView
                 style="@style/AppTheme.TitleText"
                 android:layout_width="match_parent"

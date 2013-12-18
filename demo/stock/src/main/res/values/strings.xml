@@ -64,6 +64,7 @@
     <string name="carddemo_title_shadow">Card Shadow</string>
     <string name="carddemo_title_thumbnail">Card Thumbnail</string>
     <string name="carddemo_title_card">Card</string>
+    <string name="carddemo_title_card_expand">Card Expand</string>
     <string name="carddemo_title_gplay">Google Play</string>
     <string name="carddemo_title_gnow">Google Now</string>
     <string name="carddemo_title_gplus">Misc</string>
@@ -109,8 +110,14 @@
     <string name="demo_section_card_example">Extending card</string>
     <string name="demo_section_card_example_swipe">Custom card with swipe</string>
     <string name="demo_section_card_example_clickable">Custom card clickable</string>
+    <string name="demo_section_card_example_expand">Card with expand/collapse action</string>
     <string name="demo_section_card_example_partial_listeners">Custom card with partial areas clickable</string>
     <string name="demo_section_card_example_cab">Contextual action mode</string>
+
+    <string name="demo_section_card_expand_example1">Expand clicking on the button</string>
+    <string name="demo_section_card_expand_example2">Expand clicking on the card</string>
+    <string name="demo_section_card_expand_example3">Expand clicking on the text</string>
+    <string name="demo_section_card_expand_example4">Expand clicking on the image</string>
 
     <string name="demo_section_card_changevalue_title">Click Refresh Icon to refresh card</string>
 
@@ -161,5 +168,7 @@
 
     <string name="demo_title_cab1">Long Click to enable CAB</string>
     <string name="demo_title_cab2">Text Changed!</string>
+
+
 
 </resources>
