@@ -54,8 +54,8 @@ Card Library provides 3 custom tags:
 `CardGridView` displays a Grid Card.
 
 * It uses `CardView` tag and some its properties.
-* It works with an `CardGridArrayAdapter
-* It works with an `CardGridCursorAdapter
+* It works with an `CardGridArrayAdapter`
+* It works with an `CardGridCursorAdapter`
 
 
 ## Quick Usage
