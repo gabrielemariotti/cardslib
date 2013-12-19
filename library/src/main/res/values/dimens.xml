@@ -47,6 +47,8 @@
     <dimen name="card_header_simple_title_margin_left">10dp</dimen>
     <dimen name="card_header_simple_title_margin_top">5dp</dimen>
     <dimen name="card_header_simple_title_text_size">20sp</dimen>
+    <dimen name="card_header_simple_title_margin_right">20dp</dimen>
+    <dimen name="card_header_simple_title_margin_bottom">0dp</dimen>
 
     <!-- Content -->
     <dimen name="card_content_outer_view_margin_top">0dp</dimen>

@@ -31,6 +31,8 @@
         <item name="android:textSize">@dimen/card_header_simple_title_text_size</item>
         <item name="android:layout_marginLeft">@dimen/card_header_simple_title_margin_left</item>
         <item name="android:layout_marginTop">@dimen/card_header_simple_title_margin_top</item>
+        <item name="android:layout_marginRight">@dimen/card_header_simple_title_margin_right</item>
+        <item name="android:layout_marginBottom">@dimen/card_header_simple_title_margin_bottom</item>
     </style>
 
 
