@@ -1,6 +1,11 @@
 Change Log
 ===============================================================================
 
+Version 1.2.0 *(201X-XX-XX)*
+----------------------------
+* LIB: Added a feature to enable the expand/collapse action anywhere not only on button header [(doc)](https://github.com/gabrielemariotti/cardslib/blob/master/doc/EXPAND.md#expand-the-card-by-clicking-on-different-view)
+* DEMO: Added a new section CardExpand with new feature to enable the expand/collapse action anywhere
+
 Version 1.1.0 *(2013-12-16)*
 ----------------------------
 * LIB: Added a `CustomSource` interface to load the CardThumbnails from your custom source preserving the built-in feature as AsyncTask and LRUCache. [(doc)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/THUMBNAIL.md#thumbnail-from-custom-source)
