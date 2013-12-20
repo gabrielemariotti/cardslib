@@ -21,6 +21,14 @@ package it.gmariotti.cardslib.library.internal;
 import android.view.View;
 
 /**
+ * Use this class to enable the expand/collapse action anywhere in your card.
+ * <code>
+ *     ViewToClickToExpand.builder()
+ *        .setupView(myView)      //view to click
+ *        .highlightView(true);   //highlight this view
+ *
+ * </code>
+ *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
 public class ViewToClickToExpand {
@@ -41,7 +49,11 @@ public class ViewToClickToExpand {
 
     protected ViewToClickToExpand(){}
 
-
+    /**
+     * Builder
+     *
+     * @return
+     */
     public static ViewToClickToExpand builder(){
         return new ViewToClickToExpand();
     }
