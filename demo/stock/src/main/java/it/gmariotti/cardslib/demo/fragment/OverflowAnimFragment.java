@@ -24,6 +24,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -33,7 +34,8 @@ import it.gmariotti.cardslib.demo.stock.Stock;
 import it.gmariotti.cardslib.demo.stock.StockListLayout;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardHeader;
-import it.gmariotti.cardslib.library.internal.overflowanimation.ChangeCardAnimation;
+import it.gmariotti.cardslib.library.internal.CardThumbnail;
+import it.gmariotti.cardslib.library.internal.overflowanimation.TwoCardOverlayAnimation;
 import it.gmariotti.cardslib.library.view.CardView;
 
 /**
@@ -61,14 +63,15 @@ public class OverflowAnimFragment extends BaseFragment {
     }
 
     private void initCards() {
-        init_simple_card();
+        init_stock_card();
+        init_birthday_card();
     }
+
 
     /**
      * This method builds a simple card
      */
-    private void init_simple_card() {
-
+    private void init_stock_card() {
 
         //Create a Card
         GoogleNowStockCardMod card= new GoogleNowStockCardMod(getActivity());
@@ -79,34 +82,20 @@ public class OverflowAnimFragment extends BaseFragment {
     }
 
 
-    public class SimpleAnimation extends ChangeCardAnimation{
+    private void init_birthday_card() {
 
-        public SimpleAnimation(Context context, Card card) {
-            super(context, card);
-        }
+        GoogleNowBirthCardNew card = new GoogleNowBirthCardNew(getActivity());
 
-        @Override
-        protected int getLayoutIn(Card card) {
-            return R.layout.carddemo_overflowanim_inner_content2;
-        }
-
-        @Override
-        protected int getLayoutOut(Card card) {
-            return R.id.firstContent;
-        }
-
-        @Override
-        protected int getLayoutInAfter(Card card) {
-            return R.layout.carddemo_overflowanim_inner_content;
-        }
-
-        @Override
-        protected int getLayoutOutAfter(Card card) {
-            return R.id.afterContent;
-        }
-
+        //Set card in the cardView
+        CardView cardView = (CardView) getActivity().findViewById(R.id.carddemo_overflowanim2_id);
+        cardView.setCard(card);
     }
 
+
+
+    //------------------------------------------------------------------------------------------
+    // Stock Card
+    //------------------------------------------------------------------------------------------
 
     class GoogleNowStockCardMod extends Card {
 
@@ -123,7 +112,7 @@ public class OverflowAnimFragment extends BaseFragment {
         private void init() {
             //Add Header
             CardHeader header = new CardHeader(getContext());
-            header.setCustomOverflowAnimation(new SimpleAnimation(getActivity(),this));
+            header.setCustomOverflowAnimation(new SimpleStockAnimation(getActivity(),this));
             addCardHeader(header);
 
         }
@@ -160,6 +149,118 @@ public class OverflowAnimFragment extends BaseFragment {
             list.add(s3);
             list.add(s4);
             return list;
+        }
+
+
+    }
+
+    public class SimpleStockAnimation extends TwoCardOverlayAnimation {
+
+        public SimpleStockAnimation(Context context, Card card) {
+            super(context, card);
+        }
+
+        @Override
+        protected CardInfoToAnimate setCardToAnimate(Card card) {
+            TwoCardToAnimate info = new TwoCardToAnimate() {
+                @Override
+                public int getLayoutIdToAdd() {
+                    return R.layout.carddemo_overflowanim_inner_content2;
+                }
+            };
+            return info;
+        }
+    }
+
+    public class SimpleBirthAnimation extends TwoCardOverlayAnimation {
+
+        public SimpleBirthAnimation(Context context, Card card) {
+            super(context, card);
+        }
+
+        @Override
+        protected CardInfoToAnimate setCardToAnimate(Card card) {
+            TwoCardToAnimate info = new TwoCardToAnimate() {
+                @Override
+                public int getLayoutIdToAdd() {
+                    return R.layout.carddemo_overflowanim_inner_content_birth;
+                }
+            };
+            return info;
+        }
+    }
+
+    //------------------------------------------------------------------------------------------
+    // Stock Card
+    //------------------------------------------------------------------------------------------
+
+
+    public class GoogleNowBirthCardNew extends Card {
+
+        public GoogleNowBirthCardNew(Context context) {
+            super(context,R.layout.carddemo_googlenowbirth2_inner_main);
+            init();
+        }
+
+        public GoogleNowBirthCardNew(Context context, int innerLayout) {
+            super(context, innerLayout);
+            init();
+        }
+
+        private void init() {
+
+            //Add Header
+            GoogleNowBirthHeaderNew header = new GoogleNowBirthHeaderNew(getContext(), R.layout.carddemo_googlenowbirth2_inner_header);
+            header.mName = "Gabriele Mariotti";
+            header.mSubName = "Birthday today";
+             header.setCustomOverflowAnimation(new SimpleBirthAnimation(getActivity(),this));
+            addCardHeader(header);
+
+
+            //Set clickListener
+            addPartialOnClickListener(Card.CLICK_LISTENER_CONTENT_VIEW,new OnCardClickListener() {
+                @Override
+                public void onClick(Card card, View view) {
+                    Toast.makeText(getContext(), "Click Listener card", Toast.LENGTH_LONG).show();
+                }
+            });
+
+
+            //Add Thumbnail
+            CardThumbnail thumbnail = new CardThumbnail(getContext());
+            float density = getContext().getResources().getDisplayMetrics().density;
+            int size= (int)(125*density);
+            thumbnail.setUrlResource("https://plus.google.com/s2/photos/profile/114432517923423045208?sz="+size);
+            thumbnail.setErrorResource(R.drawable.ic_ic_error_loading);
+            addCardThumbnail(thumbnail);
+        }
+
+        @Override
+        public void setupInnerViewElements(ViewGroup parent, View view) {
+
+            TextView title = (TextView) view.findViewById(R.id.card_main_inner_simple_title);
+            title.setText("Wish Happy Birthday");
+
+        }
+
+        class GoogleNowBirthHeaderNew extends CardHeader {
+
+            String mName;
+            String mSubName;
+
+            public GoogleNowBirthHeaderNew(Context context, int innerLayout) {
+                super(context, innerLayout);
+            }
+
+            @Override
+            public void setupInnerViewElements(ViewGroup parent, View view) {
+
+                TextView txName = (TextView) view.findViewById(R.id.text_birth1);
+                TextView txSubName = (TextView) view.findViewById(R.id.text_birth2);
+
+                txName.setText(mName);
+                txSubName.setText(mSubName);
+            }
         }
 
 

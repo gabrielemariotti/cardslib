@@ -39,7 +39,7 @@
                 style="@style/AppTheme.TitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/demo_section_card_title"/>
+                android:text="@string/demo_section_overflow_single_title"/>
 
             <it.gmariotti.cardslib.library.view.CardView
                 android:id="@+id/carddemo_overflowanim1_id"
@@ -47,6 +47,18 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
                 android:layout_marginRight="12dp"
+                card:card_layout_resourceID="@layout/card_overlay_layout"
+                android:layout_marginTop="12dp"/>
+
+
+            <it.gmariotti.cardslib.library.view.CardView
+                android:id="@+id/carddemo_overflowanim2_id"
+                android:layout_width="@dimen/card_birth_width"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                card:card_layout_resourceID="@layout/carddemo_googlenowbirth2_layout"
                 android:layout_marginTop="12dp"/>
 
             <!-- Empty view-->

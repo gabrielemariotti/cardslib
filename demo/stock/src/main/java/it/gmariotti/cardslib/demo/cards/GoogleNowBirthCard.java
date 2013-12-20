@@ -45,7 +45,7 @@ public class GoogleNowBirthCard extends Card {
     public int USE_VIGNETTE=0;
 
     public GoogleNowBirthCard(Context context) {
-        super(context);
+        super(context,R.layout.carddemo_googlenowbirth_inner_main);
         init();
     }
 

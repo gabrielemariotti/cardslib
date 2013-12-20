@@ -38,4 +38,9 @@
     <color name="demo_card_background_color4">#33B4E4</color>
     <color name="demo_card_background_color5">#FF4343</color>
 
+    <!-- Birth new-->
+    <color name="demo_card_header_birth_color">#707070</color>
+    <color name="demo_card_line_birth_color">#E5E5E5</color>
+
+
 </resources>

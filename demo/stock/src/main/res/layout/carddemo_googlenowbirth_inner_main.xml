@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!--
-  ~ /*******************************************************************************
+  ~ *******************************************************************************
   ~   Copyright (c) 2013 Gabriele Mariotti.
   ~
   ~   Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,37 +15,26 @@
   ~   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   ~   See the License for the specific language governing permissions and
   ~   limitations under the License.
-  ~  ******************************************************************************/
+  ~  *****************************************************************************
   -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:card="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
-              style="@style/card"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content">
+              android:layout_gravity="center_vertical"
+              android:layout_width="wrap_content"
+              android:layout_height="30dp">
+
 
     <!-- This is the base Inner View inside a CardHeader.
          You can customize it with your layout xml file and your CardHeader.
          You can popolate your element with CardHeader#setupInnerViewElements() method -->
     <TextView
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:id="@+id/text_birth1"
-              android:textSize="24sp"
-              android:layout_marginLeft="20dp"
-              android:textColor="@color/demo_card_header_birth_color"
-              android:lines="2"
-        />
-
-    <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/demo_card_header_birth_color"
-        android:layout_marginLeft="20dp"
-        android:id="@+id/text_birth2"
-        android:textSize="14sp"
-        />
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="15dp"
+        android:textColor="@color/carddemo_googlenowbirth_title"
+        android:id="@+id/card_main_inner_simple_title"
+        style="@style/card.base_simple_title"/>
 
 </LinearLayout>
-

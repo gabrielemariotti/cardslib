@@ -168,7 +168,7 @@
 
     <string name="demo_title_cab1">Long Click to enable CAB</string>
     <string name="demo_title_cab2">Text Changed!</string>
-
+    <string name="demo_section_overflow_single_title">Example with simple animation</string>
 
 
 </resources>
