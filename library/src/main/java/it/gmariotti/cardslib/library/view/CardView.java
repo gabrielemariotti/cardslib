@@ -371,21 +371,6 @@ public class CardView extends BaseCardView {
         }
     }
 
-    /**
-     * TODO FIXME
-     * @param newLayoutId
-     */
-    public View setupNewInnerLayout(int newLayoutId){
-
-        if (mInternalContentLayout !=null){
-            getCard().setInnerLayout(newLayoutId);
-           ((ViewGroup)mInternalContentLayout).removeView(mInternalInnerView);
-            mInternalInnerView=mCard.getInnerView(getContext(), (ViewGroup) mInternalContentLayout);
-            return mInternalInnerView;
-        }
-
-        return null;
-    }
 
     /**
      * Setup the Thumbnail View

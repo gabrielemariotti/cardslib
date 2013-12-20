@@ -500,5 +500,12 @@ public class CardHeaderView extends FrameLayout implements CardViewInterface {
         return mImageButtonOther;
     }
 
+    /**
+     * Returns the Frame which contains the buttons
+     * @return
+     */
+    public ViewGroup getFrameButton() {
+        return mFrameButton;
+    }
 
 }
