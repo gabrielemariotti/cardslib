@@ -307,26 +307,6 @@ public class CardArrayAdapter extends BaseCardArrayAdapter implements UndoBarCon
         }
     }
 
-    // -------------------------------------------------------------
-    //  Getters and Setters
-    // -------------------------------------------------------------
-
-    /**
-     * @return {@link CardListView}
-     */
-    public CardListView getCardListView() {
-        return mCardListView;
-    }
-
-    /**
-     * Sets the {@link CardListView}
-     *
-     * @param cardListView cardListView
-     */
-    public void setCardListView(CardListView cardListView) {
-        this.mCardListView = cardListView;
-    }
-
     /**
      * Indicates if the undo message is enabled after a swipe action
      *
@@ -352,15 +332,41 @@ public class CardArrayAdapter extends BaseCardArrayAdapter implements UndoBarCon
 
             //Create a UndoController
             if (mUndoBarController==null){
-                View undobar = ((Activity)mContext).findViewById(R.id.list_card_undobar);
+
+                if (mUndoBarUIElements==null)
+                    mUndoBarUIElements=new UndoBarController.DefaultUndoBarUIElements();
+
+                View undobar = ((Activity)mContext).findViewById(mUndoBarUIElements.getUndoBarId());
                 if (undobar != null) {
-                    mUndoBarController = new UndoBarController(undobar, this);
+                    mUndoBarController = new UndoBarController(undobar, this,mUndoBarUIElements);
                 }
             }
         }else{
             mUndoBarController=null;
         }
     }
+
+    // -------------------------------------------------------------
+    //  Getters and Setters
+    // -------------------------------------------------------------
+
+    /**
+     * @return {@link CardListView}
+     */
+    public CardListView getCardListView() {
+        return mCardListView;
+    }
+
+    /**
+     * Sets the {@link CardListView}
+     *
+     * @param cardListView cardListView
+     */
+    public void setCardListView(CardListView cardListView) {
+        this.mCardListView = cardListView;
+    }
+
+
 
     /**
      * Return the UndoBarController for undo action

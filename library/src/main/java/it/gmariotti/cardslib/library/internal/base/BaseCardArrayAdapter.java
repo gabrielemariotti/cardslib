@@ -27,6 +27,7 @@ import java.util.List;
 import it.gmariotti.cardslib.library.R;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.view.CardView;
+import it.gmariotti.cardslib.library.view.listener.UndoBarController;
 
 /**
  * Base Array Adapter
@@ -49,6 +50,11 @@ public abstract class BaseCardArrayAdapter extends ArrayAdapter<Card> {
      * Used to set the viewTypeCount
      */
     protected int innerviewTypeCount=1;
+
+    /**
+     * Class to define undobar ui elements
+     */
+    protected UndoBarController.UndoBarUIElements mUndoBarUIElements;
 
     // -------------------------------------------------------------
     // Constructors
@@ -129,5 +135,15 @@ public abstract class BaseCardArrayAdapter extends ArrayAdapter<Card> {
      */
     public void setInnerViewTypeCount(int viewTypeCount) {
         this.innerviewTypeCount = viewTypeCount;
+    }
+
+
+    /**
+     * Set the undobar ui elements
+     *
+     * @param undoBarUIElements
+     */
+    public void setUndoBarUIElements(UndoBarController.UndoBarUIElements undoBarUIElements) {
+        mUndoBarUIElements = undoBarUIElements;
     }
 }
