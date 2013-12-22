@@ -6,8 +6,10 @@ In this page you can find info about:
 * [Use your custom layout for each row](#use-your-custom-layout-for-each-row)
 * [Cards with different inner layouts](#cards-with-different-inner-layouts)
 * [Swipe and Undo in `CardListView`](#swipe-and-undo-in-cardlistview)
+* [Swipe and Undo with a custom UndoBar](#swipe-and-undo-with-a-custom-undobar)
 * [How to use an external adapter](#how-to-use-an-external-adapter)
 * [Using a cursor adapter](#using-a-cursor-adapter)
+
 
 
 ### Creating a base CardList
@@ -238,6 +240,69 @@ You can customize the undo bar. The easiest way is to copy the styles inside `re
 You can see the example in `ListGplayUndoCardFragment`.
 
 ![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/card/cardWithUndo.png)
+
+
+### Swipe and Undo with a custom UndoBar
+
+You can provide a custom UndoBar.
+
+This UndoBar has to contains these elements:
+
+1. A `TextView`
+
+2. A `Button`
+
+3. A root element with an id attribute
+
+You should use the same Ids provided in the default layout `list_card_undo_message`, but if you have to use different ids you can use the `CardArrayAdapter.setUndoBarUIElements`:
+
+Example:
+``` xml
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/my_undobar"
+        style="@style/list_card_UndoBar"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/my_undobar_message"
+            style="@style/list_card_UndoBarMessage"/>
+
+        <Button
+            android:id="@+id/my_undobar_button"
+            style="@style/list_card_UndoBarButton"/>
+
+    </LinearLayout>
+```
+
+``` java
+      CardArrayAdapter mCardArrayAdapter = new CardArrayAdapter(getActivity(),cards);
+
+      //It is very important to set the UndoBarUIElements before to call the setEnableUndo(true);
+      mCardArrayAdapter.setUndoBarUIElements(new UndoBarController.UndoBarUIElements() {
+                  @Override
+                  public int getUndoBarId() {
+                      return R.id.myid_undobar;
+                  }
+
+                  @Override
+                  public int getUndoBarMessageId() {
+                      return R.id.my_undobar_message;
+                  }
+
+                  @Override
+                  public int getUndoBarButtonId() {
+                      return R.id.my_undobar_button;
+                  }
+              });
+      mCardArrayAdapter.setEnableUndo(true);
+
+      if (mListView!=null){
+          mListView.setAdapter(mCardArrayAdapter);
+      }
+
+```
+
+If you would like to use more ListViews in the same screen, you have to use the code above.
 
 
 ### How to use an external adapter

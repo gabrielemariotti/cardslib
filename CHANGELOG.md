@@ -4,7 +4,9 @@ Change Log
 Version 1.2.0 *(201X-XX-XX)*
 ----------------------------
 * LIB: Added a feature to enable the expand/collapse action anywhere not only on button header [(doc)](https://github.com/gabrielemariotti/cardslib/blob/master/doc/EXPAND.md#expand-the-card-by-clicking-on-different-view)
+* LIB: Added a feature to provide a custom undoBar [(doc)](https://github.com/gabrielemariotti/cardslib/blob/master/doc/CARDLIST.md#swipe-and-undo-with-a-custom-undobar)
 * DEMO: Added a new section CardExpand with new feature to enable the expand/collapse action anywhere
+
 
 Version 1.1.0 *(2013-12-16)*
 ----------------------------
