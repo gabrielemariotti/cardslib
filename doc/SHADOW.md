@@ -6,6 +6,7 @@ In this page you can find info about:
 * [Hidden Shadow](#hidden-shadow)
 * [Customizing Shadow](#customizing-shadow)
 * [Customizing the ShadowLayout](#customizing-the-shadowlayout)
+* [Removing Shadow](#removing-shadow)
 
 
 ### Built-in shadow
@@ -121,3 +122,11 @@ You can see an exmple in `res/layout/carddemo_example_card2_shadow_layout.xml`
 ```
 
 ![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/shadow/layout_shadow.png)
+
+
+### Removing Shadow
+
+You can also remove your shadow from your layout.
+
+To achieve it you have to provide your custom card-layout without the `CardShadowView` tag.
+

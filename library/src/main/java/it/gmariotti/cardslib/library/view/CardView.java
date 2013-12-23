@@ -331,7 +331,7 @@ public class CardView extends BaseCardView {
             //No header. Hide layouts
             if (mInternalHeaderLayout !=null){
                 mInternalHeaderLayout.setVisibility(GONE);
-                mInternalExpandLayout.setVisibility(View.GONE);
+                //mInternalExpandLayout.setVisibility(View.GONE);
 
                 if (isForceReplaceInnerLayout()){
                     mInternalHeaderLayout.addCardHeader(null);

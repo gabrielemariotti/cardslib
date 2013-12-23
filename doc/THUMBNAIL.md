@@ -258,7 +258,7 @@ You can see `res/layout/carddemo_googlenownbirth_layout.xml`.
 
 ``` xml
    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                 xmlns:card="http://schemas.android.com/apk/res-auto"
+                 xmlns:card="http://schemas.android.com/apk/res-auto">
 
 
 
