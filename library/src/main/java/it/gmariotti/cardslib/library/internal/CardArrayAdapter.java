@@ -242,6 +242,12 @@ public class CardArrayAdapter extends BaseCardArrayAdapter implements UndoBarCon
                 itemIds[i]=card.getId();
                 i++;
 
+                if (card.isExpanded()){
+                    if (card.getCardView()!=null && card.getCardView().getOnExpandListAnimatorListener()!=null){
+                        //There is a List Animator.
+                        card.getCardView().getOnExpandListAnimatorListener().onCollapseStart(card.getCardView(), card.getCardView().getInternalExpandLayout());
+                    }
+                }
                 remove(card);
                 if (card.getOnSwipeListener() != null){
                         card.getOnSwipeListener().onSwipe(card);
