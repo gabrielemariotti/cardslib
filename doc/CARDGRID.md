@@ -122,7 +122,7 @@ In this case you can use this code:
          mGridView.setExternalAdapter(ownAdapter,mCardGridArrayAdapter);
 ```
 
-Pay attention. You can use this method, if your ownAdapter calls the mCardGridArrayAdapter#getView() method.
+Pay attention. You can only use this method if your ownAdapter calls the mCardGridArrayAdapter#getView() method.
 
 ### Using a cursor adapter
 
