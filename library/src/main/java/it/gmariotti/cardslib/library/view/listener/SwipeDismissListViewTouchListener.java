@@ -21,7 +21,6 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.graphics.Rect;
 import android.os.SystemClock;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
@@ -183,7 +182,7 @@ public class SwipeDismissListViewTouchListener implements View.OnTouchListener {
                 if (mPaused) {
                     return false;
                 }
-                Log.d("SWIPE","DOWN");
+
                 // TODO: ensure this is a finger, and set a flag
 
                 // Find the child view that was touched (perform a hit test)
@@ -224,7 +223,7 @@ public class SwipeDismissListViewTouchListener implements View.OnTouchListener {
                 if (mVelocityTracker == null) {
                     break;
                 }
-                Log.d("SWIPE","UP");
+
                 float deltaX = motionEvent.getRawX() - mDownX;
                 mVelocityTracker.addMovement(motionEvent);
                 mVelocityTracker.computeCurrentVelocity(1000);
@@ -246,24 +245,9 @@ public class SwipeDismissListViewTouchListener implements View.OnTouchListener {
                     // dismiss
                     dismiss(mDownView, mDownPosition, dismissRight);
 
-                    /*
-                    final View downView = mDownView; // mDownView gets null'd before animation ends
-                    final int downPosition = mDownPosition;
-                    ++mDismissAnimationRefCount;
-                    mDownView.animate()
-                            .translationX(dismissRight ? mViewWidth : -mViewWidth)
-                            .alpha(0)
-                            .setDuration(mAnimationTime)
-                            .setListener(new AnimatorListenerAdapter() {
-                                @Override
-                                public void onAnimationEnd(Animator animation) {
-                                    performDismiss(downView, downPosition);
-                                }
-                            });
-                    */
                 } else {
                     // cancel
-                    Log.d("SWIPE","UP-cancel");
+
                     mDownView.animate()
                             .translationX(0)
                             .alpha(1)
@@ -278,6 +262,8 @@ public class SwipeDismissListViewTouchListener implements View.OnTouchListener {
                 mDownPosition = ListView.INVALID_POSITION;
 
                 if (mSwiping){
+                    //Prevent onClick event with fast swipe
+
                     // Cancel ListView's touch (un-highlighting the item)
                     MotionEvent cancelEvent = MotionEvent.obtain(motionEvent);
                     cancelEvent.setAction(MotionEvent.ACTION_CANCEL |
@@ -298,7 +284,7 @@ public class SwipeDismissListViewTouchListener implements View.OnTouchListener {
                 if (mVelocityTracker == null) {
                     break;
                 }
-                Log.d("SWIPE","CANCEL");
+
                 if (mDownView != null) {
                     // cancel
                     mDownView.animate()
@@ -321,7 +307,7 @@ public class SwipeDismissListViewTouchListener implements View.OnTouchListener {
                 if (mVelocityTracker == null || mPaused) {
                     break;
                 }
-                Log.d("SWIPE","MOVE");
+
                 mVelocityTracker.addMovement(motionEvent);
                 float deltaX = motionEvent.getRawX() - mDownX;
                 float deltaY = motionEvent.getRawY() - mDownY;
@@ -424,7 +410,7 @@ public class SwipeDismissListViewTouchListener implements View.OnTouchListener {
                         pendingDismiss.view.setAlpha(1f);
                         pendingDismiss.view.setTranslationX(0);
                         lp = pendingDismiss.view.getLayoutParams();
-                        lp.height = originalHeight;
+                        lp.height = 0;
                         pendingDismiss.view.setLayoutParams(lp);
                     }
 
