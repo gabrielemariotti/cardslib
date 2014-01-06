@@ -247,35 +247,24 @@ public class SwipeDismissListViewTouchListener implements View.OnTouchListener {
 
                 } else {
                     // cancel
-
                     mDownView.animate()
                             .translationX(0)
                             .alpha(1)
                             .setDuration(mAnimationTime)
                             .setListener(null);
                 }
+
                 mVelocityTracker.recycle();
                 mVelocityTracker = null;
                 mDownX = 0;
                 mDownY = 0;
                 mDownView = null;
                 mDownPosition = ListView.INVALID_POSITION;
-
                 if (mSwiping){
-                    //Prevent onClick event with fast swipe
-
-                    // Cancel ListView's touch (un-highlighting the item)
-                    MotionEvent cancelEvent = MotionEvent.obtain(motionEvent);
-                    cancelEvent.setAction(MotionEvent.ACTION_CANCEL |
-                            (motionEvent.getActionIndex()
-                                    << MotionEvent.ACTION_POINTER_INDEX_SHIFT));
-                    mListView.onTouchEvent(cancelEvent);
-                    cancelEvent.recycle();
-
+                    //To prevent onClick event with a fast swipe
                     mSwiping = false;
                     return true;
                 }
-
                 mSwiping = false;
                 break;
             }
@@ -322,12 +311,13 @@ public class SwipeDismissListViewTouchListener implements View.OnTouchListener {
                             (motionEvent.getActionIndex()
                                     << MotionEvent.ACTION_POINTER_INDEX_SHIFT));
                     mListView.onTouchEvent(cancelEvent);
+                    view.onTouchEvent(cancelEvent);
                     cancelEvent.recycle();
                 }
 
                 if (mSwiping) {
                     mDownView.setTranslationX(deltaX - mSwipingSlop);
-                    mDownView.setAlpha(Math.max(0.15f, Math.min(1f,
+                    mDownView.setAlpha(Math.max(0f, Math.min(1f,
                             1f - 2f * Math.abs(deltaX) / mViewWidth)));
                     return true;
                 }
