@@ -19,6 +19,7 @@ out/
 *.iml
 
 # Folders related to builds and Gradle
+.gradle/
 gradle/
 gradlew*
 */build/
