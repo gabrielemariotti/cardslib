@@ -1,8 +1,20 @@
 # Card Library: Overview
 
-A `CardView` has a global layout with some parts:
+**Card Library** provides an easy way to display a UI Card in your Android app.
+
+The main purpose of the library is to build UI Cards through a object-model.
+
+Each `Card` has:
+
+* a **global layout** which binds to `CardView`
+* a **model** which populates and manages the `CardView`
+
+
+A `CardView` has a global layout which defines the appearance and layout of the elements.
 
 ![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/model.png)
+
+It has these basic parts:
 
 * Header
 * Thumbnail
@@ -10,7 +22,7 @@ A `CardView` has a global layout with some parts:
 * Shadow
 * Expand Area
 
-This library provides 2 global layout:
+This library provides 2 global layouts:
 
 * `res/layout/card_layout.xml` (default)
 * `res/layout/card_thumbnail_layout.xml`
@@ -28,7 +40,14 @@ You can build **your custom global** layout as you like and inflate in `CardView
              android:layout_marginTop="12dp"/>
  ```
 
-Each part is a Compound View or a Layout with an **inner layout** which you can easily inflate with your `Card` model.
+In this way you can build different type of cards.
+
+You do not need to use all the parts, you can use only the parts needed.
+
+![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/model/mexample.png)
+
+
+Each part is a Compound View or a Layout with an **inner layout** which you can easily inflate and populate with your `Card` model.
 
 In this way you can build many types of `Card` and preserve all built-in features provided by the library.
 
