@@ -13,7 +13,7 @@ In this page you can find info about:
 Card Library is pushed to Maven Central as an AAR, so you just need to add the following dependency to your `build.gradle`.
 
     dependencies {
-        compile 'com.github.gabrielemariotti.cards:library:1.1.0'
+        compile 'com.github.gabrielemariotti.cards:library:1.2.0'
     }
 
 [To build the library and demo locally you can see this page for more info](https://github.com/gabrielemariotti/cardslib/tree/master/doc/BUILD.md).

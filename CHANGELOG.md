@@ -1,11 +1,16 @@
 Change Log
 ===============================================================================
 
-Version 1.2.0 *(201X-XX-XX)*
+Version 1.2.0 *(2014-01-07)*
 ----------------------------
 * LIB: Added a feature to enable the expand/collapse action anywhere not only on button header [(doc)](https://github.com/gabrielemariotti/cardslib/blob/master/doc/EXPAND.md#expand-the-card-by-clicking-on-different-view)
 * LIB: Added a feature to provide a custom undoBar [(doc)](https://github.com/gabrielemariotti/cardslib/blob/master/doc/CARDLIST.md#swipe-and-undo-with-a-custom-undobar)
 * DEMO: Added a new section CardExpand with new feature to enable the expand/collapse action anywhere
+* LIB: Fixed some issues with swipe action: swipe with ExpandCard, swipe with cards with different height, un-highlight items on swipe, swipe and onClickListener events
+* LIB: Fixed overflow rounded icon in xxhdpi resources
+* LIB: Fixed margin to default title on Header
+* LIB: Added a right margin on header buttons
+* Migrated library and demo to gradle 1.9 and gradle-plugin 0.7.0
 
 
 Version 1.1.0 *(2013-12-16)*
