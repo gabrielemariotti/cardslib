@@ -407,7 +407,7 @@ public class MainActivity extends Activity {
             "List with Cursor",
             "Grid with Cursor",
             "List with MultiChoice (exp)",
-            "Overflow Animation"
+            "Overflow Animation (exp)"
     };
 
 

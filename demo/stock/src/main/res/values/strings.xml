@@ -84,6 +84,7 @@
     <string name="carddemo_title_list_cursor">List with Cursor</string>
     <string name="carddemo_title_grid_cursor">Grid with Cursor</string>
     <string name="carddemo_title_cab_list">List with MultiChoice (experimental)</string>
+    <string name="carddemo_title_overflow_animation">Overflow animation (experimental)</string>
 
     <!-- Section -->
     <string name="demo_section_header_standard">Standard Header without buttons</string>

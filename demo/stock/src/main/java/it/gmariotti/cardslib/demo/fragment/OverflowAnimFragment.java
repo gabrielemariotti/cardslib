@@ -47,7 +47,7 @@ public class OverflowAnimFragment extends BaseFragment {
 
     @Override
     public int getTitleResourceId() {
-        return R.string.carddemo_title_card;
+        return R.string.carddemo_title_overflow_animation;
     }
 
     @Override
