@@ -19,6 +19,8 @@
 package it.gmariotti.cardslib.library.internal.multichoice;
 
 /**
+ * Default Options for multi choice
+ *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
 public class DefaultOptionMultiChoice extends OptionMultiChoice{
