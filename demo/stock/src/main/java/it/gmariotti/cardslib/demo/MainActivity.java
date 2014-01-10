@@ -47,6 +47,7 @@ import it.gmariotti.cardslib.demo.fragment.ChangeValueCardFragment;
 import it.gmariotti.cardslib.demo.fragment.GPlayCardFragment;
 import it.gmariotti.cardslib.demo.fragment.GridBaseFragment;
 import it.gmariotti.cardslib.demo.fragment.GridCursorCardFragment;
+import it.gmariotti.cardslib.demo.fragment.GridGplayCABFragment;
 import it.gmariotti.cardslib.demo.fragment.GridGplayFragment;
 import it.gmariotti.cardslib.demo.fragment.HeaderFragment;
 import it.gmariotti.cardslib.demo.fragment.ListBaseFragment;
@@ -106,7 +107,8 @@ public class MainActivity extends Activity {
     private static final int CASE_CURSOR_LIST = 18;
     private static final int CASE_CURSOR_GRID = 19;
     private static final int CASE_LIST_GPLAY_CAB = 20;
-    private static final int CASE_OVERFLOW_ANIM = 21;
+    private static final int CASE_GRID_GPLAY_CAB = 21;
+    private static final int CASE_OVERFLOW_ANIM = 22;
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -345,6 +347,9 @@ public class MainActivity extends Activity {
             case CASE_LIST_GPLAY_CAB:
                 baseFragment = new ListGplayCardCABFragment();
                 break;
+            case CASE_GRID_GPLAY_CAB:
+                baseFragment = new GridGplayCABFragment();
+                break;
             case CASE_OVERFLOW_ANIM:
                 baseFragment = new OverflowAnimFragment();
                 break;
@@ -407,6 +412,7 @@ public class MainActivity extends Activity {
             "List with Cursor",
             "Grid with Cursor",
             "List with MultiChoice (exp)",
+            "Grid with MultiChoice (exp)",
             "Overflow Animation (exp)"
     };
 
