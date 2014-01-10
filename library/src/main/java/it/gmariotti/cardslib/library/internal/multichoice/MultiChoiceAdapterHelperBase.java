@@ -23,6 +23,7 @@ package it.gmariotti.cardslib.library.internal.multichoice;
  */
 
 import android.content.res.Resources;
+import android.util.SparseBooleanArray;
 import android.view.ActionMode;
 import android.view.Menu;
 import android.view.View;
@@ -30,6 +31,8 @@ import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
+
+import java.util.ArrayList;
 
 import it.gmariotti.cardslib.library.R;
 import it.gmariotti.cardslib.library.internal.Card;
@@ -138,6 +141,7 @@ public class MultiChoiceAdapterHelperBase implements AdapterView.OnItemLongClick
         if (!isCardCheckable(position)) {
             return false;
         }
+
 
         //Check the item
         int correctedPosition = correctPositionAccountingForHeader(adapterView, position);
@@ -288,6 +292,29 @@ public class MultiChoiceAdapterHelperBase implements AdapterView.OnItemLongClick
         return false;
     }
 
+
+    // -------------------------------------------------------------
+    // Utility methods
+    // -------------------------------------------------------------
+
+    /**
+     * Returns the selected cards
+     * @return
+     */
+    public ArrayList<Card> getSelectedCards() {
+        SparseBooleanArray checked = mAdapterView.getCheckedItemPositions();
+        ArrayList<Card> items = new ArrayList<Card>();
+        MultiChoiceAdapter adapter = (MultiChoiceAdapter) owner;
+
+
+        for (int i =  checked.size()-1; i>=0; i--) {
+            if (checked.valueAt(i) == true) {
+                items.add( adapter.getItem((int) checked.keyAt(i)));
+            }
+        }
+
+        return items;
+    }
     // -------------------------------------------------------------
     // Getters and setters
     // -------------------------------------------------------------
@@ -308,6 +335,5 @@ public class MultiChoiceAdapterHelperBase implements AdapterView.OnItemLongClick
     public void setMultiChoiceModeListener(AbsListView.MultiChoiceModeListener multiChoiceModeListener) {
         mMultiChoiceModeListener = multiChoiceModeListener;
     }
-
 
 }

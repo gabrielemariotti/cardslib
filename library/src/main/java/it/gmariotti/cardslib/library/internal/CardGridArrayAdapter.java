@@ -156,6 +156,9 @@ public class CardGridArrayAdapter extends BaseCardArrayAdapter {
 
                 //Setup swipeable animation
                 setupSwipeableAnimation(mCard, mCardView);
+
+                //setupMultiChoice
+                setupMultichoice(view,mCard,mCardView,position);
             }
         }
 
