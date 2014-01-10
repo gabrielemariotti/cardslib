@@ -63,7 +63,7 @@ public class CircleDrawable extends Drawable {
 
         if (mUseStroke) {
             this.mUseStroke = true;
-            mStrokePadding = 0;
+            mStrokePadding = 4;
             mWhitePaint = new Paint();
             mWhitePaint.setStyle(Paint.Style.FILL_AND_STROKE);
             mWhitePaint.setStrokeWidth(0.75f);
