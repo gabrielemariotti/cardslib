@@ -131,7 +131,7 @@ public class GoogleNowBirthCard extends Card {
                     return true;
                 case 2:
 
-                    CircleDrawable circle = new CircleDrawable(bitmap);
+                    CircleDrawable circle = new CircleDrawable(bitmap,true);
                     if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)
                         imageView.setBackground(circle);
                     else

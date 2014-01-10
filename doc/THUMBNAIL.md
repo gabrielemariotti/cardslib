@@ -389,12 +389,11 @@ This Intent includes extras that provide additional details:
 
 You can modify your bitmap before it is attached to the ImageView.
 
-You need to override the  `thumbnail#applyBitmap` method.
+You need to override the `thumbnail#applyBitmap` method.
 
 ``` java
 
   public class CardThumbnailCircle extends CardThumbnail{
-
 
       @Override
       public boolean applyBitmap(View imageView, Bitmap bitmap) {
@@ -403,7 +402,7 @@ You need to override the  `thumbnail#applyBitmap` method.
          //Return true if your callback attaches the bitmap to the ImageView, false otherwise
 
          // Example:
-         CircleDrawable circle = new CircleDrawable(bitmap);
+         CircleDrawable circle = new CircleDrawable(bitmap,true);
          if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)
              imageView.setBackground(circle);
          else
