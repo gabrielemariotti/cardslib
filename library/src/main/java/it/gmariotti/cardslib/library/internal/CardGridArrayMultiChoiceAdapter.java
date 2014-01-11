@@ -31,13 +31,13 @@ import it.gmariotti.cardslib.library.internal.multichoice.DefaultOptionMultiChoi
 import it.gmariotti.cardslib.library.internal.multichoice.MultiChoiceAdapter;
 import it.gmariotti.cardslib.library.internal.multichoice.MultiChoiceAdapterHelperBase;
 import it.gmariotti.cardslib.library.internal.multichoice.OptionMultiChoice;
-import it.gmariotti.cardslib.library.view.CardListView;
+import it.gmariotti.cardslib.library.view.CardGridView;
 import it.gmariotti.cardslib.library.view.CardView;
 
 /**
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public abstract class CardArrayMultiChoiceAdapter extends CardArrayAdapter implements MultiChoiceAdapter, AbsListView.MultiChoiceModeListener {
+public abstract class CardGridArrayMultiChoiceAdapter extends CardGridArrayAdapter implements MultiChoiceAdapter, AbsListView.MultiChoiceModeListener {
 
     /**
      * Helper
@@ -60,7 +60,7 @@ public abstract class CardArrayMultiChoiceAdapter extends CardArrayAdapter imple
      * @param context The current context.
      * @param cards   The cards to represent in the ListView.
      */
-    public CardArrayMultiChoiceAdapter(Context context, List<Card> cards) {
+    public CardGridArrayMultiChoiceAdapter(Context context, List<Card> cards) {
         this(context, cards, new DefaultOptionMultiChoice());
     }
 
@@ -70,7 +70,7 @@ public abstract class CardArrayMultiChoiceAdapter extends CardArrayAdapter imple
      * @param context The current context.
      * @param cards   The cards to represent in the ListView.
      */
-    public CardArrayMultiChoiceAdapter(Context context, List<Card> cards, OptionMultiChoice options) {
+    public CardGridArrayMultiChoiceAdapter(Context context, List<Card> cards, OptionMultiChoice options) {
         super(context, cards);
         this.mOptions = options;
         mHelper.setMultiChoiceModeListener(this);
@@ -81,9 +81,9 @@ public abstract class CardArrayMultiChoiceAdapter extends CardArrayAdapter imple
     // -------------------------------------------------------------
 
     @Override
-    public void setCardListView(CardListView cardListView) {
-        super.setCardListView(cardListView);
-        mHelper.setAdapterView(cardListView);
+    public void setCardGridView(CardGridView cardGridView) {
+        super.setCardGridView(cardGridView);
+        mHelper.setAdapterView(cardGridView);
     }
 
     /**
@@ -140,7 +140,7 @@ public abstract class CardArrayMultiChoiceAdapter extends CardArrayAdapter imple
     /**
      * Called when an item is checked or unchecked during selection mode.
      *
-     * @param mode The {@link ActionMode} providing the selection mode
+     * @param mode The {@link android.view.ActionMode} providing the selection mode
      * @param position Adapter position of the item that was checked or unchecked
      * @param id Adapter ID of the item that was checked or unchecked
      * @param checked <code>true</code> if the item is now checked, <code>false</code>

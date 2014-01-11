@@ -1,6 +1,6 @@
 /*
  * ******************************************************************************
- *   Copyright (c) 2013 Gabriele Mariotti.
+ *   Copyright (c) 2013-2014 Gabriele Mariotti.
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
@@ -156,6 +156,9 @@ public class CardGridArrayAdapter extends BaseCardArrayAdapter {
 
                 //Setup swipeable animation
                 setupSwipeableAnimation(mCard, mCardView);
+
+                //setupMultiChoice
+                setupMultichoice(view,mCard,mCardView,position);
             }
         }
 

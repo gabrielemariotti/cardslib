@@ -1,6 +1,6 @@
 /*
  * ******************************************************************************
- *   Copyright (c) 2013 Gabriele Mariotti.
+ *   Copyright (c) 2013-2014 Gabriele Mariotti.
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
@@ -19,6 +19,8 @@
 package it.gmariotti.cardslib.library.internal.multichoice;
 
 /**
+ * Default Options for multi choice
+ *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
 public class DefaultOptionMultiChoice extends OptionMultiChoice{

@@ -1,6 +1,6 @@
 /*
  * ******************************************************************************
- *   Copyright (c) 2013 Gabriele Mariotti.
+ *   Copyright (c) 2013-2014 Gabriele Mariotti.
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
@@ -131,7 +131,7 @@ public class GoogleNowBirthCard extends Card {
                     return true;
                 case 2:
 
-                    CircleDrawable circle = new CircleDrawable(bitmap);
+                    CircleDrawable circle = new CircleDrawable(bitmap,true);
                     if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)
                         imageView.setBackground(circle);
                     else
