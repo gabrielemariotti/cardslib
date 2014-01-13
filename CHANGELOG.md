@@ -1,6 +1,12 @@
 Change Log
 ===============================================================================
 
+Version 1.3.0 *(2014-XX-XX)*
+----------------------------
+* LIB: Added a CardGridArrayMultiChoiceAdapter [(doc)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARDGRID.md#using-a-cardgrid-in-multichoicemode)
+* DEMO: Added an example with CardGridArrayMultiChoiceAdapter
+
+
 Version 1.2.0 *(2014-01-07)*
 ----------------------------
 * LIB: Added a feature to enable the expand/collapse action anywhere not only on button header [(doc)](https://github.com/gabrielemariotti/cardslib/blob/master/doc/EXPAND.md#expand-the-card-by-clicking-on-different-view)

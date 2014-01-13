@@ -6,6 +6,7 @@ In this page you can find info about:
 * [Use your custom layout for each row](#use-your-custom-layout-for-each-row)
 * [How to use an external adapter](#How-to-use-an-external-adapter)
 * [Using a cursor adapter](#using-a-cursor-adapter)
+* [Using a CardGrid in MultiChoiceMode](#using-a-cardgrid-in-multichoicemode)
 
 
 ### Creating a base CardGrid
@@ -195,3 +196,111 @@ Last create your `MyCursorCardAdapter` instance, get a reference to the `CardGri
 ```
 
 With the this type of adapter, currently you can't use the swipe and undo actions.
+
+
+### Using a CardGrid in MultiChoiceMode
+
+If you would like to have a `CardGrid` with a MultiChoiceMode built-in feature you can use a `CardGridArrayMultiChoiceAdapter`.
+
+This class extends `CardGridArrayAdapter` and preserves all its features.
+
+First of all you have to create your CardArrayMultiChoiceAdapter extending the base class and implementing the missing methods.
+
+``` java
+
+    public class MyCardArrayMultiChoiceAdapter extends CardGridArrayMultiChoiceAdapter {
+
+        public MyCardArrayMultiChoiceAdapter(Context context, List<Card> cards) {
+            super(context, cards);
+        }
+
+        @Override
+        public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+            //It is very important to call the super method!
+            super.onCreateActionMode(mode, menu);
+
+
+            mActionMode=mode; // to manage in your Fragment/Activity
+
+            //If you would like to inflate your menu
+            MenuInflater inflater = mode.getMenuInflater();
+            inflater.inflate(R.menu.carddemo_multichoice, menu);
+            return true;
+        }
+
+        @Override
+        public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+            return false;
+        }
+
+        @Override
+        public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+            if (item.getItemId() == R.id.menu_share) {
+                Toast.makeText(getContext(), "Share;" + formatCheckedCard(), Toast.LENGTH_SHORT).show();
+                return true;
+            }
+            if (item.getItemId() == R.id.menu_discard) {
+                discardSelectedItems(mode);
+                return true;
+            }
+            return false;
+        }
+
+        /**
+         *  Implements this method to handle the click on a item
+         */
+        @Override
+        public void onItemCheckedStateChanged(ActionMode mode, int position, long id, boolean checked, CardView cardView, Card card) {
+            Toast.makeText(getContext(), "Click;" + position + " - " + checked, Toast.LENGTH_SHORT).show();
+        }
+
+        /*
+         * Example
+         */
+        private void discardSelectedItems(ActionMode mode) {
+            ArrayList<Card> items = getSelectedCards();  //Use this method to get the selected cards
+            for (Card item : items) {
+                remove(item);
+            }
+            mode.finish();
+        }
+
+        /*
+         * Example
+         */
+        private String formatCheckedCard() {
+
+            SparseBooleanArray checked = mCardGridView.getCheckedItemPositions();
+            StringBuffer sb = new StringBuffer();
+            for (int i = 0; i < checked.size(); i++) {
+                if (checked.valueAt(i) == true) {
+                    sb.append("\nPosition=" + checked.keyAt(i));
+                }
+            }
+            return sb.toString();
+        }
+
+    }
+```
+It is very important, if you override the `onCreateActionMode()` method, to call the `super.onCreateActionMode()`.
+
+Then get a reference to the `CardGridView` from your code and set your adapter.
+
+``` java
+        MyCardArrayMultiChoiceAdapter mCardGridArrayAdapter = new MyCardArrayMultiChoiceAdapter(getActivity(), cards);
+
+        CardGridView gridView = (CardGridView) getActivity().findViewById(R.id.myGrid);
+        if (gridView!=null){
+             gridView.setAdapter(mCardGridArrayAdapter);
+             gridView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
+        }
+```
+
+When an item is clicked and the action mode was already active, changes the selection state of the clicked item, just as if it had been long clicked.
+
+As you can see in code above use `ArrayList<Card> items = getSelectedCards();`  to get the selected cards.
+
+You need to implement the `onItemCheckedStateChanged` method if you would like to handle the click on a Card.
+
+
+ You can see an example in `GridGplayCABFragment`  [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/GridGplayCABFragment.java).
