@@ -127,8 +127,12 @@ public class GridGplayCABFragment extends BaseFragment {
 
         @Override
         public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+            //It is very important to call the super method!
             super.onCreateActionMode(mode, menu);
-            mActionMode=mode;
+
+            mActionMode=mode; // to manage mode in your Fragment/Activity
+
+            //If you would like to inflate your menu
             MenuInflater inflater = mode.getMenuInflater();
             inflater.inflate(R.menu.carddemo_multichoice, menu);
             return true;
@@ -158,7 +162,7 @@ public class GridGplayCABFragment extends BaseFragment {
         }
 
         private void discardSelectedItems(ActionMode mode) {
-            ArrayList<Card> items = getSelectedCards();
+            ArrayList<Card> items = getSelectedCards(); //Use this method to get the selected cards
             for (Card item : items) {
                 remove(item);
             }
