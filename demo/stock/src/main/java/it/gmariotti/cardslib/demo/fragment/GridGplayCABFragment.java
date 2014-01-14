@@ -229,6 +229,7 @@ public class GridGplayCABFragment extends BaseFragment {
                 @Override
                 public void onClick(Card card, View view) {
                     //Do something
+                    Toast.makeText(getContext(), "Click listener " , Toast.LENGTH_SHORT).show();
                 }
             });
         }

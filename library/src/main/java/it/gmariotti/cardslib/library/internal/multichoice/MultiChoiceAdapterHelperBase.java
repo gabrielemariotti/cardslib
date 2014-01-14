@@ -86,17 +86,27 @@ public class MultiChoiceAdapterHelperBase implements AdapterView.OnItemLongClick
     public void setupMultichoice(View view, Card mCard, CardView mCardView, long position) {
         final MultiChoiceAdapter adapter = (MultiChoiceAdapter) owner;
 
-        //You need it to enable the CAB
-        mCardView.setLongClickable(true);
 
-        mCardView.setOnClickListener(new View.OnClickListener() {
+        View.OnClickListener advanceClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final CardView cardView = (CardView) v;
                 int position = adapter.getPosition(cardView.getCard());
                 onItemClick(mAdapterView, v, position, adapter.getItemId(position));
             }
-        });
+        };
+
+
+        //You need it to enable the CAB
+        if (mCard.isCheckable()) {
+            mCardView.setLongClickable(true);
+
+            mCardView.setOnClickListener(advanceClickListener);
+        }else{
+            if (mCard.getOnClickListener()!=null){
+                mCardView.setOnClickListener(advanceClickListener);
+            }
+        }
     }
     /**
      * Checks and unchecks the items
