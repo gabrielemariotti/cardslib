@@ -140,6 +140,7 @@ public class CardListView extends ListView implements CardView.OnExpandListAnima
         //Set divider to 0dp
         setDividerHeight(0);
 
+        this.setMotionEventSplittingEnabled(false);
     }
 
 
