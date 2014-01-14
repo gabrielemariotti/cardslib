@@ -1,6 +1,6 @@
 /*
  * ******************************************************************************
- *   Copyright (c) 2013 Gabriele Mariotti.
+ *   Copyright (c) 2013-2014 Gabriele Mariotti.
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
@@ -45,6 +45,7 @@ import it.gmariotti.cardslib.demo.extras.fragment.IonFragment;
 import it.gmariotti.cardslib.demo.extras.fragment.ListViewAnimationsFragment;
 import it.gmariotti.cardslib.demo.extras.fragment.ListViewGridAnimationsFragment;
 import it.gmariotti.cardslib.demo.extras.fragment.PicassoFragment;
+import it.gmariotti.cardslib.demo.extras.fragment.StaggeredGridFragment;
 import it.gmariotti.cardslib.demo.extras.fragment.StickyListHeadersFragment;
 import it.gmariotti.cardslib.demo.extras.fragment.UniversalImageLoaderFragment;
 import it.gmariotti.cardslib.demo.extras.iabutils.IabHelper;
@@ -77,6 +78,7 @@ public class MainActivity extends Activity {
     private static final int CASE_GRIDVIEWANIMATOR = 5;
     private static final int CASE_CROUTON = 6;
     private static final int CASE_STKHDR = 7;
+    private static final int CASE_STAG = 8;
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -289,6 +291,9 @@ public class MainActivity extends Activity {
             case CASE_STKHDR:
                 baseFragment= new StickyListHeadersFragment();
                 break;
+            case CASE_STAG:
+                baseFragment= new StaggeredGridFragment();
+                break;
             default:
                 break;
         }
@@ -333,7 +338,8 @@ public class MainActivity extends Activity {
             "ListViewAnimations",
             "GridViewAnimations",
             "Crouton",
-            "StickyListHeaders"
+            "StickyListHeaders",
+            "StaggeredGrid"
 
     };
 

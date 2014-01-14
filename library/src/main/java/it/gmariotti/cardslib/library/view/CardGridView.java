@@ -385,7 +385,9 @@ public class CardGridView extends GridView implements CardView.OnExpandListAnima
                             int delta = ( i > index && rowOfv > rowOfSelectedItem) ? yTranslateBottom : -yTranslateTop;
                             animations.add(getAnimation(v, delta, delta));
                         }
-                        v.setHasTransientState(false);
+                        if (Build.VERSION.SDK_INT >= 16){
+                            v.setHasTransientState(false);
+                        }
                     }
                 }
 

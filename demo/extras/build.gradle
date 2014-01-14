@@ -49,6 +49,7 @@ android {
 dependencies {
     // Cards Library
     compile project(':library')
+    compile project(':library-extra')
     // Support Libraries
     compile 'com.android.support:support-v4:19.0.0'
     //OkHttp
