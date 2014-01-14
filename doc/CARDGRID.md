@@ -302,5 +302,15 @@ As you can see in code above use `ArrayList<Card> items = getSelectedCards();`  
 
 You need to implement the `onItemCheckedStateChanged` method if you would like to handle the click on a Card.
 
+If you would like to customize the sentence "item selected", you can do it in your project overriding these strings in `res/values-XX/strings.xml`.
+
+``` xml
+    <!-- Card selected item with CAB -->
+    <plurals name="card_selected_items">
+        <item quantity="one">1 item selected</item>
+        <item quantity="other">%d items selected</item>
+    </plurals>
+
+```
 
  You can see an example in `GridGplayCABFragment`  [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/GridGplayCABFragment.java).
