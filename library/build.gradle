@@ -30,6 +30,7 @@ android {
 }
 
 dependencies {
+    compile "com.android.support:appcompat-v7:19.0.+"
 }
 
 // Used to update in Maven

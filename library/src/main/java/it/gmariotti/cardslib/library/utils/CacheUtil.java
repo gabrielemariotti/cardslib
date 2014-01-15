@@ -19,7 +19,8 @@
 package it.gmariotti.cardslib.library.utils;
 
 import android.graphics.Bitmap;
-import android.util.LruCache;
+import android.support.v4.util.LruCache;
+
 
 /**
  * Utility class for memoryCache

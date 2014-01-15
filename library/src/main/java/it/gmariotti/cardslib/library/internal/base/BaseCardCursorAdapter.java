@@ -20,7 +20,8 @@ package it.gmariotti.cardslib.library.internal.base;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.widget.CursorAdapter;
+import android.support.v4.widget.CursorAdapter;
+
 
 import it.gmariotti.cardslib.library.R;
 import it.gmariotti.cardslib.library.internal.Card;
