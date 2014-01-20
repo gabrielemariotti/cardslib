@@ -18,6 +18,7 @@
 
 package it.gmariotti.cardslib.library.internal;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.ActionMode;
 import android.view.Menu;
@@ -112,6 +113,10 @@ public abstract class CardGridArrayMultiChoiceAdapter extends CardGridArrayAdapt
     // ActionMode
     // -------------------------------------------------------------
 
+    public boolean startActionMode(Activity activity) {
+        return mHelper.startActionMode(activity);
+    }
+
     /**
      * Called when action mode is first created. The menu supplied will be used to
      * generate action buttons for the action mode.
@@ -123,7 +128,7 @@ public abstract class CardGridArrayMultiChoiceAdapter extends CardGridArrayAdapt
      */
     @Override
     public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-       return mHelper.onCreateActionMode(mode,menu);
+       return mHelper.onCreateActionMode(mode, menu);
     }
 
 
@@ -148,7 +153,7 @@ public abstract class CardGridArrayMultiChoiceAdapter extends CardGridArrayAdapt
      */
     @Override
     public void onItemCheckedStateChanged(ActionMode mode, int position, long id, boolean checked) {
-       mHelper.onItemCheckedStateChanged(mode,position,id,checked);
+       mHelper.onItemCheckedStateChanged(mode, position, id, checked);
     }
 
     /**

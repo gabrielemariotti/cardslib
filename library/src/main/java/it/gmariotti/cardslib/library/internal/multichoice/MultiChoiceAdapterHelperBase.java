@@ -22,6 +22,7 @@ package it.gmariotti.cardslib.library.internal.multichoice;
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
 
+import android.app.Activity;
 import android.content.res.Resources;
 import android.util.SparseBooleanArray;
 import android.view.ActionMode;
@@ -71,7 +72,7 @@ public class MultiChoiceAdapterHelperBase implements AdapterView.OnItemLongClick
      */
     public void setAdapterView(AbsListView adapterView) {
         mAdapterView=adapterView;
-        mAdapterView.setOnItemLongClickListener(this);
+        //mAdapterView.setOnItemLongClickListener(this);
         mAdapterView.setMultiChoiceModeListener(mMultiChoiceModeListener);
     }
 
@@ -99,7 +100,7 @@ public class MultiChoiceAdapterHelperBase implements AdapterView.OnItemLongClick
 
         //You need it to enable the CAB
         if (mCard.isCheckable()) {
-            mCardView.setLongClickable(true);
+            //mCardView.setLongClickable(true);
 
             mCardView.setOnClickListener(advanceClickListener);
         }else{
@@ -232,6 +233,14 @@ public class MultiChoiceAdapterHelperBase implements AdapterView.OnItemLongClick
     // ActionMode
     // -------------------------------------------------------------
 
+    public boolean startActionMode(Activity activity) {
+        if (activity!=null){
+            if (!isActionModeStarted())
+                activity.startActionMode(mMultiChoiceModeListener);
+        }
+        return false;
+    }
+
     /**
      * Called when action mode is first created. The menu supplied will be used to
      * generate action buttons for the action mode.
@@ -244,8 +253,8 @@ public class MultiChoiceAdapterHelperBase implements AdapterView.OnItemLongClick
     public boolean onCreateActionMode(ActionMode mode, Menu menu) {
         actionMode = mode;
         onItemSelectedStateChanged(mode);
-        mAdapterView.setOnItemLongClickListener(null);
-        mAdapterView.setLongClickable(false);
+        //mAdapterView.setOnItemLongClickListener(null);
+        //mAdapterView.setLongClickable(false);
         return false;
     }
 
@@ -256,7 +265,7 @@ public class MultiChoiceAdapterHelperBase implements AdapterView.OnItemLongClick
      */
     public void onDestroyActionMode(ActionMode mode) {
         actionMode = null;
-        mAdapterView.setOnItemLongClickListener(this);
+        //mAdapterView.setOnItemLongClickListener(this);
     }
 
     /**

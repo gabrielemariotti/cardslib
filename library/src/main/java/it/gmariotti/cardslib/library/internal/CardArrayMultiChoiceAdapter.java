@@ -18,6 +18,7 @@
 
 package it.gmariotti.cardslib.library.internal;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.ActionMode;
 import android.view.Menu;
@@ -97,7 +98,7 @@ public abstract class CardArrayMultiChoiceAdapter extends CardArrayAdapter imple
     @Override
     protected void setupMultichoice(View view, Card mCard, CardView mCardView, long position) {
         super.setupMultichoice(view, mCard, mCardView, position);
-        mHelper.setupMultichoice(view,mCard,mCardView,position);
+        mHelper.setupMultichoice(view, mCard, mCardView, position);
     }
 
 
@@ -111,6 +112,10 @@ public abstract class CardArrayMultiChoiceAdapter extends CardArrayAdapter imple
     // -------------------------------------------------------------
     // ActionMode
     // -------------------------------------------------------------
+
+    public boolean startActionMode(Activity activity) {
+        return mHelper.startActionMode(activity);
+    }
 
     /**
      * Called when action mode is first created. The menu supplied will be used to

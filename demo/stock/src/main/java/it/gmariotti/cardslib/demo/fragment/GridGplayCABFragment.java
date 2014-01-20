@@ -56,6 +56,7 @@ public class GridGplayCABFragment extends BaseFragment {
     protected ScrollView mScrollView;
     ActionMode mActionMode;
     CardGridView mCardGridView;
+    MyCardArrayMultiChoiceAdapter mCardGridArrayAdapter;
 
     @Override
     public int getTitleResourceId() {
@@ -106,11 +107,19 @@ public class GridGplayCABFragment extends BaseFragment {
                 card.resourceIdThumbnail = R.drawable.ic_smile;
             }
 
+            card.setOnLongClickListener(new Card.OnLongCardClickListener() {
+                @Override
+                public boolean onLongClick(Card card, View view) {
+                    return mCardGridArrayAdapter.startActionMode(getActivity());
+
+                }
+            });
+
             card.init();
             cards.add(card);
         }
 
-        MyCardArrayMultiChoiceAdapter mCardGridArrayAdapter = new MyCardArrayMultiChoiceAdapter(getActivity(), cards);
+        mCardGridArrayAdapter = new MyCardArrayMultiChoiceAdapter(getActivity(), cards);
 
         mCardGridView = (CardGridView) getActivity().findViewById(R.id.carddemo_grid_base1);
         if ( mCardGridView != null) {

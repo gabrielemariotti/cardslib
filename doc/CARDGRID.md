@@ -284,7 +284,19 @@ First of all you have to create your CardArrayMultiChoiceAdapter extending the b
 ```
 It is very important, if you override the `onCreateActionMode()` method, to call the `super.onCreateActionMode()`.
 
-Then get a reference to the `CardGridView` from your code and set your adapter.
+Then you have implement this `onLongClickListener` in your cards:
+
+``` java
+       card.setOnLongClickListener(new Card.OnLongCardClickListener() {
+                @Override
+                public boolean onLongClick(Card card, View view) {
+                    return mCardGridArrayAdapter.startActionMode(getActivity());
+
+                }
+       });
+```
+
+Finally get a reference to the `CardGridView` from your code and set your adapter.
 
 ``` java
         MyCardArrayMultiChoiceAdapter mCardGridArrayAdapter = new MyCardArrayMultiChoiceAdapter(getActivity(), cards);

@@ -96,6 +96,15 @@ public class ListGplayCardCABFragment extends BaseFragment {
                 card.setResourceIdThumbnail(R.drawable.ic_launcher);
             }
             card.init();
+
+            card.setOnLongClickListener(new Card.OnLongCardClickListener() {
+                @Override
+                public boolean onLongClick(Card card, View view) {
+                    return mCardArrayAdapter.startActionMode(getActivity());
+
+                }
+            });
+
             cards.add(card);
         }
 
