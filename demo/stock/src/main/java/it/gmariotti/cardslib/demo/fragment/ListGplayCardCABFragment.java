@@ -129,7 +129,10 @@ public class ListGplayCardCABFragment extends BaseFragment {
         @Override
         public boolean onCreateActionMode(ActionMode mode, Menu menu) {
             super.onCreateActionMode(mode, menu);
-            mActionMode=mode;
+
+            mActionMode=mode; // to manage mode in your Fragment/Activity
+
+            //If you would like to inflate your menu
             MenuInflater inflater = mode.getMenuInflater();
             inflater.inflate(R.menu.carddemo_multichoice, menu);
             return true;
