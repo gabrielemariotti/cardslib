@@ -23,6 +23,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.PopupMenu;
 import android.widget.ScrollView;
 import android.widget.Toast;
 
@@ -68,6 +69,7 @@ public class HeaderFragment extends BaseFragment {
     private void initCards() {
         init_standard_header_without_buttons();
         init_standard_header_with_overflow_button();
+        init_standard_header_with_overflow_button_dynamic_menu();
         init_standard_header_with_expandcollapse_button();
         init_standard_header_with_expandcollapse_button_custom_area();
         init_standard_header_with_custom_other_button();
@@ -125,6 +127,50 @@ public class HeaderFragment extends BaseFragment {
 
         //Set card in the cardView
         CardView cardView = (CardView) getActivity().findViewById(R.id.carddemo_header_overflow);
+        cardView.setCard(card);
+    }
+
+    /**
+     * This method builds a standard header with overflow button with a dynamic menu
+     */
+    private void init_standard_header_with_overflow_button_dynamic_menu() {
+
+        //Create a Card
+        Card card = new Card(getActivity());
+
+        //Create a CardHeader
+        CardHeader header = new CardHeader(getActivity());
+
+        //Set the header title
+        header.setTitle(getString(R.string.demo_header_basetitle));
+
+        //Add a popup menu. This method set OverFlow button to visible
+        header.setPopupMenu(R.menu.popupmain, new CardHeader.OnClickCardHeaderPopupMenuListener() {
+            @Override
+            public void onMenuItemClick(BaseCard card, MenuItem item) {
+                Toast.makeText(getActivity(), "Click on " + item.getTitle(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        //Add a PopupMenuPrepareListener to add dynamically a menu entry
+        //it is optional.
+        header.setPopupMenuPrepareListener(new CardHeader.OnPrepareCardHeaderPopupMenuListener() {
+            @Override
+            public boolean onPreparePopupMenu(BaseCard card, PopupMenu popupMenu) {
+                popupMenu.getMenu().add("Dynamic item");
+
+                //You can remove an item with this code
+                //popupMenu.getMenu().removeItem(R.id.action_settings);
+
+                //return false; You can use return false to hidden the button and the popup
+
+                return true;
+            }
+        });
+        card.addCardHeader(header);
+
+        //Set card in the cardView
+        CardView cardView = (CardView) getActivity().findViewById(R.id.carddemo_header_overflow_dynamic);
         cardView.setCard(card);
     }
 

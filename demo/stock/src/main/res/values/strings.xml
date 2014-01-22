@@ -83,14 +83,15 @@
     <string name="carddemo_title_list_color">Colored cards</string>
     <string name="carddemo_title_list_cursor">List with Cursor</string>
     <string name="carddemo_title_grid_cursor">Grid with Cursor</string>
-    <string name="carddemo_title_cab_list">List with MultiChoice (experimental)</string>
-    <string name="carddemo_title_grid_gplay_cab">Grid with MultiChoice (experimental)</string>
+    <string name="carddemo_title_cab_list">List with MultiChoice</string>
+    <string name="carddemo_title_grid_gplay_cab">Grid with MultiChoice</string>
 
     <string name="carddemo_title_overflow_animation">Overflow animation (experimental)</string>
 
     <!-- Section -->
     <string name="demo_section_header_standard">Standard Header without buttons</string>
     <string name="demo_section_header_overflow">Standard Header with overflow button</string>
+    <string name="demo_section_header_overflow_dynamic">Overflow button with dynamic menu</string>
     <string name="demo_section_header_expand">Standard Header with expand/collapse button</string>
     <string name="demo_section_header_expand_custom_area">Standard Header with expand/collapse button and custom expand Area</string>
     <string name="demo_section_header_otherButton">Standard Header with custom button</string>

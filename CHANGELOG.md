@@ -3,10 +3,12 @@ Change Log
 
 Version 1.3.0 *(2014-XX-XX)*
 ----------------------------
-* LIB: Added a CardGridArrayMultiChoiceAdapter [(doc)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARDGRID.md#using-a-cardgrid-in-multichoicemode)
-* LIB: Added a CardArrayMultiChoiceAdapter [(doc)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARDLIST.md#using-a-cardlist-in-multichoicemode)
+* LIB: Added a `CardGridArrayMultiChoiceAdapter` [(doc)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARDGRID.md#using-a-cardgrid-in-multichoicemode)
+* LIB: Added a `CardArrayMultiChoiceAdapter` [(doc)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARDLIST.md#using-a-cardlist-in-multichoicemode)
+* LIB: Added a `CardHeader.OnPrepareCardHeaderPopupMenuListener`  to customize the popupMenu dynamically.[(doc)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/HEADER.md#standard-header-with-the-overflow-botton-and-popup-menu)
 * DEMO: Added an example with CardGridArrayMultiChoiceAdapter
 * DEMO: Added an example with CardArrayMultiChoiceAdapter
+* DEMO: Added an example with the popupMenu changed dynamically (in Header screen)
 
 
 Version 1.2.0 *(2014-01-07)*

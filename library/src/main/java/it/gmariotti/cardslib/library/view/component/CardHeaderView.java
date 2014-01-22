@@ -388,6 +388,9 @@ public class CardHeaderView extends FrameLayout implements CardViewInterface {
      */
     protected void addPopup() {
 
+        //To prevent recycle
+        mPopupMenu = null;
+
         if (mCardHeader.getPopupMenu() > -1 && mImageButtonOverflow != null) {
 
             // allow dynamic customization on popup menu

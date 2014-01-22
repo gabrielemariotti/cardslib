@@ -411,8 +411,8 @@ public class MainActivity extends Activity {
             "List colored cards",
             "List with Cursor",
             "Grid with Cursor",
-            "List with MultiChoice (exp)",
-            "Grid with MultiChoice (exp)",
+            "List with MultiChoice",
+            "Grid with MultiChoice",
             "Overflow Animation (exp)"
     };
 
