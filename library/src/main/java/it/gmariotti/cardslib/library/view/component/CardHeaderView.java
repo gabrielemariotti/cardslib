@@ -402,6 +402,10 @@ public class CardHeaderView extends FrameLayout implements CardViewInterface {
                             return false;
                         }
                     });
+                    // allow dynamic customization on popup menu
+                    if (mCardHeader.getPopupMenuPrepareListener() != null) {
+                        mCardHeader.getPopupMenuPrepareListener().onPreparePopupMenu(mCardHeader.getParentCard(), popup);
+                    }
                     popup.show();
                 }
             });
