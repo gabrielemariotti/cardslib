@@ -204,7 +204,7 @@ If you would like to have a `CardGrid` with a MultiChoiceMode built-in feature y
 
 This class extends `CardGridArrayAdapter` and preserves all its features.
 
-First of all you have to create your CardArrayMultiChoiceAdapter extending the base class and implementing the missing methods.
+First of all you have to create your CardGridArrayMultiChoiceAdapter extending the base class and implementing the missing methods.
 
 ``` java
 
