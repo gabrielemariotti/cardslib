@@ -207,7 +207,19 @@ public class CardHeader extends BaseCard {
      * Interface to handle the callback when a popup menu being prepared
      */
     public interface OnPrepareCardHeaderPopupMenuListener {
-        public void onPreparePopupMenu(BaseCard card, PopupMenu menu);
+
+        /**
+         * This is called right before the menu is shown.
+         * You can use this method to efficiently enable/disable items or otherwise
+         * dynamically modify the contents.
+         *
+         * @param card
+         * @param popupMenu
+         *
+         * @return You must return true for the menu to be displayed;
+         *          if you return false it will not be shown.
+         */
+        public boolean onPreparePopupMenu(BaseCard card, PopupMenu popupMenu);
     }
 
     /**
@@ -237,6 +249,7 @@ public class CardHeader extends BaseCard {
      *
      * @param menuRes  The menu resource ID to use for the card's popup menu.
      * @param listener A listener invoked when an option in the popup menu is tapped by the user.
+     * @param prepareListener A listener invoked to change dynamically menu items.
      */
     public void setPopupMenu(int menuRes, OnClickCardHeaderPopupMenuListener listener, OnPrepareCardHeaderPopupMenuListener prepareListener) {
         mPopupMenu = menuRes;
@@ -251,6 +264,14 @@ public class CardHeader extends BaseCard {
         }
     }
 
+    /**
+     * Sets a popup menu for overflow button.
+     * <p/>
+     * Setting the menu resource to {@linl NO_POPUP_MENU} disables the menu for this card.
+     *
+     * @param menuRes  The menu resource ID to use for the card's popup menu.
+     * @param listener A listener invoked when an option in the popup menu is tapped by the user.
+     */
     public void setPopupMenu(int menuRes, OnClickCardHeaderPopupMenuListener listener) {
         setPopupMenu(menuRes, listener, null);
     }
