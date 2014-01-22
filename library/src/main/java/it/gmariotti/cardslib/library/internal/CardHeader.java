@@ -23,6 +23,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import it.gmariotti.cardslib.library.R;
@@ -117,6 +118,10 @@ public class CardHeader extends BaseCard {
      */
     protected OnClickCardHeaderPopupMenuListener mPopupMenuListener;
 
+    /**
+     * Listener invoked when the PopupMenu being prepared
+     */
+    protected OnPrepareCardHeaderPopupMenuListener mPopupMenuPrepareListener;
 
     /**
      * Listener invoked when Other Button is clicked
@@ -199,6 +204,13 @@ public class CardHeader extends BaseCard {
     }
 
     /**
+     * Interface to handle the callback when a popup menu being prepared
+     */
+    public interface OnPrepareCardHeaderPopupMenuListener {
+        public void onPreparePopupMenu(BaseCard card, PopupMenu menu);
+    }
+
+    /**
      * Interface to handle callbacks when ExpandButton is clicked
      * Currently is never used
      */
@@ -226,9 +238,10 @@ public class CardHeader extends BaseCard {
      * @param menuRes  The menu resource ID to use for the card's popup menu.
      * @param listener A listener invoked when an option in the popup menu is tapped by the user.
      */
-    public void setPopupMenu(int menuRes, OnClickCardHeaderPopupMenuListener listener) {
+    public void setPopupMenu(int menuRes, OnClickCardHeaderPopupMenuListener listener, OnPrepareCardHeaderPopupMenuListener prepareListener) {
         mPopupMenu = menuRes;
         mPopupMenuListener = listener;
+        mPopupMenuPrepareListener = prepareListener;
 
         if (menuRes==NO_POPUP_MENU){
             mIsButtonOverflowVisible=false;
@@ -236,6 +249,10 @@ public class CardHeader extends BaseCard {
         }else{
             mIsButtonOverflowVisible=true;
         }
+    }
+
+    public void setPopupMenu(int menuRes, OnClickCardHeaderPopupMenuListener listener) {
+        setPopupMenu(menuRes, listener, null);
     }
 
     // -------------------------------------------------------------
@@ -359,12 +376,30 @@ public class CardHeader extends BaseCard {
     }
 
     /**
+     * Return the popup prepare listener invoked when the PopupMenu is being prepared
+     *
+     * @return  popup listener
+     */
+    public OnPrepareCardHeaderPopupMenuListener getPopupMenuPrepareListener() {
+        return mPopupMenuPrepareListener;
+    }
+
+    /**
      * Sets the popup listener invoked when a item in PopupMenu is clicked
      *
      * @param popupMenuListener  popup listener
      */
     public void setPopupMenuListener(OnClickCardHeaderPopupMenuListener popupMenuListener) {
         mPopupMenuListener = popupMenuListener;
+    }
+
+    /**
+     * Sets the popup listener invoked when the PopupMenu is being prepared
+     *
+     * @param popupMenuListener  popup prepare listener
+     */
+    public void setPopupMenuPrepareListener(OnPrepareCardHeaderPopupMenuListener popupMenuListener) {
+        mPopupMenuPrepareListener = popupMenuListener;
     }
 
     /**

@@ -72,11 +72,17 @@ If you want a `CardHeader` with the overflow button you can use this simple code
             public void onMenuItemClick(BaseCard card, MenuItem item) {
                 Toast.makeText(getActivity(), "Click on "+item.getTitle(), Toast.LENGTH_SHORT).show();
             }
+        },
+        new CardHeader.OnPrepareCardHeaderPopupMenuListener() {
+            @Override
+            public void onPreparePopupMenu(BaseCard card, PopupMenu menu) {
+                menu.getMenu().add("Dynamic Item");
+            }
         });
         card.addCardHeader(header);
 ```
 
-You can use the listener  `CardHeader.OnClickCardHeaderPopupMenuListener` to listen callback when an item menu is clicked.
+You can use the listener  `CardHeader.OnClickCardHeaderPopupMenuListener` to listen callback when an item menu is clicked. The third parameter `CardHeader.OnPrepareCardHeaderPopupMenuListener` is optional and can be used to create dynamic menu items.
 
 As described [below](#style), the overflow icon is defined with this style:
 
