@@ -16,7 +16,7 @@ In this page you can find info about:
 Card Library is pushed to Maven Central as a AAR, so you just need to add the following dependency to your `build.gradle`.
 
     dependencies {
-        compile 'com.github.gabrielemariotti.cards:library:1.2.0'
+        compile 'com.github.gabrielemariotti.cards:library:1.3.0'
     }
 
 ## Building locally in Android Studio with Gradle

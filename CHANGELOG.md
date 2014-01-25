@@ -1,7 +1,7 @@
 Change Log
 ===============================================================================
 
-Version 1.3.0 *(2014-XX-XX)*
+Version 1.3.0 *(2014-01-25)*
 ----------------------------
 * LIB: Added a `CardGridArrayMultiChoiceAdapter` [(doc)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARDGRID.md#using-a-cardgrid-in-multichoicemode)
 * LIB: Added a `CardArrayMultiChoiceAdapter` [(doc)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARDLIST.md#using-a-cardlist-in-multichoicemode)
@@ -9,6 +9,7 @@ Version 1.3.0 *(2014-XX-XX)*
 * DEMO: Added an example with CardGridArrayMultiChoiceAdapter
 * DEMO: Added an example with CardArrayMultiChoiceAdapter
 * DEMO: Added an example with the popupMenu changed dynamically (in Header screen)
+* Migrated library and demo to gradle 1.10 and gradle-plugin 0.8.0
 
 
 Version 1.2.0 *(2014-01-07)*
@@ -33,6 +34,7 @@ Version 1.1.0 *(2013-12-16)*
 * DEMO: Added examples with circular and rounded images (in Misc and Google Birthday screen)
 * DEMO: Added an example with a Card with contextual action mode in Card page [(doc)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARD.md#using-card-with-contextual-action-mode)
 * DEMO: Added an example with Header with buttons on the left (in Header screen)
+
 
 
 Version 1.0.0 *(2013-12-03)*
