@@ -5,9 +5,10 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.7.+'
+        classpath 'com.android.tools.build:gradle:0.8.+'
     }
 }
+
 
 def isReleaseBuild() {
     return version.contains("SNAPSHOT") == false
