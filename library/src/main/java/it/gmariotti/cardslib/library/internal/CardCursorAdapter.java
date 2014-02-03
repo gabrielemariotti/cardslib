@@ -72,7 +72,7 @@ public abstract class CardCursorAdapter extends BaseCardCursorAdapter  {
     /**
      * Recycle
      */
-    private boolean recycle = false;
+    protected boolean recycle = false;
     // -------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------
