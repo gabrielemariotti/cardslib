@@ -259,12 +259,11 @@ public class CardHeaderView extends FrameLayout implements CardViewInterface {
         if (mCardHeader.isButtonOverflowVisible()) {
             visibilityButtonHelper(VISIBLE, GONE, GONE);
 
-            if (mCardHeader.getPopupMenu() != CardHeader.NO_POPUP_MENU) {
-                //Add popup
-                addPopup();
-            } else if (mCardHeader.getCustomOverflowAnimation() != null) {
+            addPopup();
+            if (mPopupMenu==null && mCardHeader.getCustomOverflowAnimation() != null) {
                 addCustomOverflowAnimation();
             }
+
         } else {
 
             if (mCardHeader.isButtonExpandVisible()) {
@@ -391,10 +390,10 @@ public class CardHeaderView extends FrameLayout implements CardViewInterface {
         //To prevent recycle
         mPopupMenu = null;
 
-        if (mCardHeader.getPopupMenu() > -1 && mImageButtonOverflow != null) {
+        if (mImageButtonOverflow != null) {
 
             // allow dynamic customization on popup menu
-            boolean prepareMenu = true;
+            boolean prepareMenu = mCardHeader.getPopupMenu() > CardHeader.NO_POPUP_MENU ? true : false;
             if (mCardHeader.getPopupMenuPrepareListener() != null) {
 
                 //Build the popupMenu
@@ -440,12 +439,14 @@ public class CardHeaderView extends FrameLayout implements CardViewInterface {
     private PopupMenu _buildPopupMenu(){
 
         PopupMenu popup = new PopupMenu(getContext(), mImageButtonOverflow);
-        MenuInflater inflater = popup.getMenuInflater();
-        inflater.inflate(mCardHeader.getPopupMenu(), popup.getMenu());
+        if (mCardHeader.getPopupMenu()> CardHeader.NO_POPUP_MENU){
+            MenuInflater inflater = popup.getMenuInflater();
+            inflater.inflate(mCardHeader.getPopupMenu(), popup.getMenu());
+        }
         popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                if (mCardHeader.getPopupMenu() > 0 && mCardHeader.getPopupMenuListener() != null) {
+                if (mCardHeader.getPopupMenuListener() != null) {
                     // This individual card has it unique menu
                     mCardHeader.getPopupMenuListener().onMenuItemClick(mCardHeader.getParentCard(), item);
                 }

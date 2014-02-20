@@ -92,6 +92,7 @@
     <string name="demo_section_header_standard">Standard Header without buttons</string>
     <string name="demo_section_header_overflow">Standard Header with overflow button</string>
     <string name="demo_section_header_overflow_dynamic">Overflow button with dynamic menu</string>
+    <string name="demo_section_header_overflow_dynamic2">Overflow button with dynamic menu without xml file</string>
     <string name="demo_section_header_expand">Standard Header with expand/collapse button</string>
     <string name="demo_section_header_expand_custom_area">Standard Header with expand/collapse button and custom expand Area</string>
     <string name="demo_section_header_otherButton">Standard Header with custom button</string>

@@ -443,17 +443,11 @@ public class CardHeader extends BaseCard {
 
     /**
      * Indicates if overflow button is visible.
-     * If the Popup Menu is =-1 return  in any case <code>false</code>
      *
-     * @return <code>true</code> if the button is visible and Popup Menu is assigned.
+     * @return <code>true</code> if the button is visible
      */
     public boolean isButtonOverflowVisible() {
-        //Without a PopupMenu, the button is not visible
-        if (mPopupMenu==NO_POPUP_MENU && mCustomOverflowAnimation==null){
-            if (mIsButtonOverflowVisible)
-                Log.w("CardHeader","You set visible=true to overflow menu, but you don't add any Popup Menu or a CustomOverflowAnimator");
-            return false;
-        }
+
         return mIsButtonOverflowVisible;
     }
 

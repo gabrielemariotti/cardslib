@@ -70,6 +70,7 @@ public class HeaderFragment extends BaseFragment {
         init_standard_header_without_buttons();
         init_standard_header_with_overflow_button();
         init_standard_header_with_overflow_button_dynamic_menu();
+        init_standard_header_with_overflow_button_dynamic_menu_without_xml();
         init_standard_header_with_expandcollapse_button();
         init_standard_header_with_expandcollapse_button_custom_area();
         init_standard_header_with_custom_other_button();
@@ -174,6 +175,50 @@ public class HeaderFragment extends BaseFragment {
         cardView.setCard(card);
     }
 
+    /**
+     * This method builds a standard header with overflow button with a dynamic menu
+     */
+    private void init_standard_header_with_overflow_button_dynamic_menu_without_xml() {
+
+        //Create a Card
+        Card card = new Card(getActivity());
+
+        //Create a CardHeader
+        CardHeader header = new CardHeader(getActivity());
+
+        //Set the header title
+        header.setTitle(getString(R.string.demo_header_basetitle));
+
+        //Add a popup menu. This method set OverFlow button to visible
+        header.setButtonOverflowVisible(true);
+        header.setPopupMenuListener(new CardHeader.OnClickCardHeaderPopupMenuListener() {
+            @Override
+            public void onMenuItemClick(BaseCard card, MenuItem item) {
+                Toast.makeText(getActivity(), "Click on " + item.getTitle() + "-" + ((Card) card).getCardHeader().getTitle(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        //Add a PopupMenuPrepareListener to add dynamically a menu entry
+        //it is optional.
+        header.setPopupMenuPrepareListener(new CardHeader.OnPrepareCardHeaderPopupMenuListener() {
+            @Override
+            public boolean onPreparePopupMenu(BaseCard card, PopupMenu popupMenu) {
+                popupMenu.getMenu().add("Dynamic item");
+
+                //You can remove an item with this code
+                //popupMenu.getMenu().removeItem(R.id.action_settings);
+
+                //return false; You can use return false to hidden the button and the popup
+
+                return true;
+            }
+        });
+        card.addCardHeader(header);
+
+        //Set card in the cardView
+        CardView cardView = (CardView) getActivity().findViewById(R.id.carddemo_header_overflow_dynamic2);
+        cardView.setCard(card);
+    }
 
     /**
      * This method builds a standard header with base expand/collpase
