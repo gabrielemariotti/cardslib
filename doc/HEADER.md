@@ -5,6 +5,7 @@ In this page you can find info about:
 * [Creating a base CardHeader](#creating-a-base-cardheader)
 * [Standard Header without Buttons](#standard-header-without-buttons)
 * [Standard Header with the overflow botton and Popup Menu](#standard-header-with-the-overflow-botton-and-popup-menu)
+* [Standard Header with the overflow botton and PopupMenu built programmatically](#standard-header-with-the-overflow-botton-and-popupmenu-built-programmatically)
 * [Standard Header with the expand/collpase button](#standard-header-with-the-expandcollpase-button)
 * [Standard Header with custom button](#standard-header-with-custom-button)
 * [Customizing the innerContent Header Layout](#customizing-the-innercontent-header-layout)
@@ -120,8 +121,37 @@ Version 1.1 introduced the 3 rounded dots as default icon. If you would like to 
     </style>
 ```
 
-
 ![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/header/overflow.png)
+
+
+### Standard Header with the overflow botton and PopupMenu built programmatically
+
+You can add a PopupMenu entirely from code:
+
+``` java
+        //Add a popup menu. This method set OverFlow button to visible
+        //If you would like to add all menu entries without xml file you have to set this value
+        header.setButtonOverflowVisible(true);
+        //Add the listener
+        header.setPopupMenuListener(new CardHeader.OnClickCardHeaderPopupMenuListener() {
+            @Override
+            public void onMenuItemClick(BaseCard card, MenuItem item) {
+                Toast.makeText(getActivity(), "Click on " + item.getTitle() + "-" + ((Card) card).getCardHeader().getTitle(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        //Add a PopupMenuPrepareListener to add dynamically a menu entry
+        header.setPopupMenuPrepareListener(new CardHeader.OnPrepareCardHeaderPopupMenuListener() {
+            @Override
+            public boolean onPreparePopupMenu(BaseCard card, PopupMenu popupMenu) {
+                popupMenu.getMenu().add("Dynamic item");
+                return true;
+            }
+        });
+```
+
+You can see an example in `'HeaderFragment' [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/HeaderFragment.java).
+
 
 ### Standard Header with the expand/collpase button
 

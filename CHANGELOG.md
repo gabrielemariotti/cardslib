@@ -1,6 +1,12 @@
 Change Log
 ===============================================================================
 
+Version 1.4.0 *(2014-xx-xx)*
+----------------------------
+* LIB: Added a feature to add the PopupMenu in CardHeader entirely from code [(doc)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/HEADER.md#standard-header-with-the-overflow-botton-and-popupmenu-built-programmatically)
+* DEMO: Added an example with PopupMenu in CardHeader built programmatically (in Header screen)
+
+
 Version 1.3.0 *(2014-01-25)*
 ----------------------------
 * LIB: Added a `CardGridArrayMultiChoiceAdapter` [(doc)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARDGRID.md#using-a-cardgrid-in-multichoicemode)
