@@ -187,6 +187,7 @@ public class CardView extends BaseCardView {
      * @param attrs
      * @param defStyle
      */
+    @Override
     protected void initAttrs(AttributeSet attrs, int defStyle) {
 
         card_layout_resourceID = R.layout.card_layout;
@@ -295,16 +296,16 @@ public class CardView extends BaseCardView {
         super.retrieveLayoutIDs();
 
         //Main Layout
-        mInternalMainCardLayout = (View) findViewById(R.id.card_main_layout);
+        mInternalMainCardLayout = findViewById(R.id.card_main_layout);
 
         //Get HeaderLayout
         mInternalHeaderLayout = (CardHeaderView) findViewById(R.id.card_header_layout);
 
         //Get ExpandHiddenView
-        mInternalExpandLayout = (View) findViewById(R.id.card_content_expand_layout);
+        mInternalExpandLayout = findViewById(R.id.card_content_expand_layout);
 
         //Get ContentLayout
-        mInternalContentLayout = (View) findViewById(R.id.card_main_content_layout);
+        mInternalContentLayout = findViewById(R.id.card_main_content_layout);
 
         //Get ThumbnailLayout
         mInternalThumbnailLayout = (CardThumbnailView) findViewById(R.id.card_thumbnail_layout);
@@ -898,6 +899,14 @@ public class CardView extends BaseCardView {
         mExpandedHeight = expandedHeight;
     }
 
+    @Override
+    public void setEnabled(boolean enabled) {
+        super.setEnabled(enabled);
+        if (getInternalMainCardLayout() != null) {
+            getInternalMainCardLayout().setEnabled(enabled);
+        }
+    }
+
     /**
      * Indicates if the card is expanded or collapsed
      *
@@ -949,6 +958,8 @@ public class CardView extends BaseCardView {
      *
      * @param drawableResource drawable resource
      */
+    @SuppressWarnings("deprecation")
+    @SuppressLint("NewApi")
     public void changeBackgroundResource(Drawable drawableResource) {
         if (drawableResource!=null){
             if (mInternalMainCardLayout!=null){
