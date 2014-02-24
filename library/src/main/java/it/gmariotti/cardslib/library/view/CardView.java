@@ -422,8 +422,11 @@ public class CardView extends BaseCardView {
                             mInternalExpandLayout.getViewTreeObserver().removeOnPreDrawListener(this);
                             //mInternalExpandLayout.setVisibility(View.GONE);
 
-                            final int widthSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
-                            final int heightSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
+                            //final int widthSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
+                            //final int heightSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
+                            View parent = (View) mInternalExpandLayout.getParent();
+                            final int widthSpec = View.MeasureSpec.makeMeasureSpec(parent.getMeasuredWidth() - parent.getPaddingLeft() - parent.getPaddingRight(), View.MeasureSpec.AT_MOST);
+                            final int heightSpec = View.MeasureSpec.makeMeasureSpec(LayoutParams.WRAP_CONTENT, View.MeasureSpec.AT_MOST);
                             mInternalExpandLayout.measure(widthSpec, heightSpec);
 
                             final int widthSpecCard = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);

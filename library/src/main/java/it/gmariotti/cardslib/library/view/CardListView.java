@@ -23,6 +23,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -30,6 +31,7 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.AbsListView;
 import android.widget.ListAdapter;
@@ -40,9 +42,9 @@ import java.util.HashMap;
 import java.util.List;
 
 import it.gmariotti.cardslib.library.R;
-import it.gmariotti.cardslib.library.internal.CardCursorAdapter;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
+import it.gmariotti.cardslib.library.internal.CardCursorAdapter;
 
 /**
  * Card List View.
@@ -255,12 +257,14 @@ public class CardListView extends ListView implements CardView.OnExpandListAnima
 
     @Override
     public void onExpandStart(CardView viewCard,View expandingLayout) {
-        prepareExpandView(viewCard,expandingLayout);
+        //prepareExpandView(viewCard,expandingLayout);
+        ExpandCollapseHelper.animateExpanding(expandingLayout,viewCard,this);
     }
 
     @Override
     public void onCollapseStart(CardView viewCard,View expandingLayout) {
-        prepareCollapseView(viewCard,expandingLayout);
+        //prepareCollapseView(viewCard,expandingLayout);
+        ExpandCollapseHelper.animateCollapsing(expandingLayout,viewCard);
     }
 
     private void prepareExpandView(final CardView view,final View expandingLayout) {
@@ -722,4 +726,94 @@ public class CardListView extends ListView implements CardView.OnExpandListAnima
         }
     }
 
+
+    private static class ExpandCollapseHelper {
+
+        public static void animateCollapsing(final View expandingLayout, final CardView cardView) {
+            int origHeight = expandingLayout.getHeight();
+
+            ValueAnimator animator = createHeightAnimator(expandingLayout, origHeight, 0);
+            animator.addListener(new AnimatorListenerAdapter() {
+
+                @Override
+                public void onAnimationEnd(final Animator animator) {
+                    expandingLayout.setVisibility(View.GONE);
+
+                    cardView.setExpanded(false);//card.setExpanded(true);
+
+                    Card card = cardView.getCard();
+                    if (card.getOnCollapseAnimatorEndListener()!=null)
+                        card.getOnCollapseAnimatorEndListener().onCollapseEnd(card);
+                }
+            });
+            animator.start();
+        }
+
+        public static void animateExpanding(final View expandingLayout, final CardView cardView,final AbsListView listView) {
+            /* Update the layout so the extra content becomes visible.*/
+            expandingLayout.setVisibility(View.VISIBLE);
+
+            View parent = (View) expandingLayout.getParent();
+            final int widthSpec = View.MeasureSpec.makeMeasureSpec(parent.getMeasuredWidth() - parent.getPaddingLeft() - parent.getPaddingRight(), View.MeasureSpec.AT_MOST);
+            final int heightSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
+            expandingLayout.measure(widthSpec, heightSpec);
+
+            ValueAnimator animator = createHeightAnimator(expandingLayout, 0, expandingLayout.getMeasuredHeight());
+            animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                final int listViewHeight = listView.getHeight();
+                final int listViewBottomPadding = listView.getPaddingBottom();
+                final View v = findDirectChild(expandingLayout, listView);
+
+                @Override
+                public void onAnimationUpdate(final ValueAnimator valueAnimator) {
+                    final int bottom = v.getBottom();
+                    if (bottom > listViewHeight) {
+                        final int top = v.getTop();
+                        if (top > 0) {
+                            listView.smoothScrollBy(Math.min(bottom - listViewHeight + listViewBottomPadding, top), 0);
+                        }
+                    }
+                }
+            });
+            animator.addListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    super.onAnimationEnd(animation);
+                    cardView.setExpanded(true);//card.setExpanded(true);
+
+                    Card card = cardView.getCard();
+                    if (card.getOnExpandAnimatorEndListener()!=null)
+                        card.getOnExpandAnimatorEndListener().onExpandEnd(card);
+
+                }
+            });
+            animator.start();
+        }
+
+        private static View findDirectChild(final View view, final AbsListView listView) {
+            View result = view;
+            View parent = (View) result.getParent();
+            while (parent != listView) {
+                result = parent;
+                parent = (View) result.getParent();
+            }
+            return result;
+        }
+
+        public static ValueAnimator createHeightAnimator(final View view, final int start, final int end) {
+            ValueAnimator animator = ValueAnimator.ofInt(start, end);
+            animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+
+                @Override
+                public void onAnimationUpdate(final ValueAnimator valueAnimator) {
+                    int value = (Integer) valueAnimator.getAnimatedValue();
+
+                    ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
+                    layoutParams.height = value;
+                    view.setLayoutParams(layoutParams);
+                }
+            });
+            return animator;
+        }
+    }
 }
