@@ -410,8 +410,8 @@ public class CardView extends BaseCardView {
     protected void setupExpandAction(){
 
         //Config ExpandLayout and its animation
-        if ( (mInternalExpandLayout !=null && mCardHeader!=null && mCardHeader.isButtonExpandVisible() ) ||
-                mCard.getViewToClickToExpand()!=null  ){
+        if ( mInternalExpandLayout !=null && ( (mCardHeader!=null && mCardHeader.isButtonExpandVisible()) ||
+                mCard.getViewToClickToExpand()!=null)  ){
 
             //Create the expand/collapse animator
             mInternalExpandLayout.getViewTreeObserver().addOnPreDrawListener(
