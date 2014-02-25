@@ -26,6 +26,9 @@
     <TextView
         style="@style/Now.card_expand_inner_layout.light_gray.bold"
         android:id="@+id/carddemo_expand_text1"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left|center_vertical"
+        android:gravity="center_vertical"
         />
 
     <TextView

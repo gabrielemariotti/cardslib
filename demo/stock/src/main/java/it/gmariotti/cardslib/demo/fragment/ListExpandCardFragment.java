@@ -22,6 +22,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -62,7 +63,7 @@ public class ListExpandCardFragment extends BaseFragment {
         //Init an array of Cards
         ArrayList<Card> cards = new ArrayList<Card>();
         for (int i=0;i<200;i++){
-            Card card = init_standard_header_with_expandcollapse_button_custom_area("Header "+i);
+            Card card = init_standard_header_with_expandcollapse_button_custom_area("Header "+i,i);
             cards.add(card);
         }
 
@@ -78,7 +79,7 @@ public class ListExpandCardFragment extends BaseFragment {
     /**
      * This method builds a standard header with a custom expand/collpase
      */
-    private Card init_standard_header_with_expandcollapse_button_custom_area(String titleHeader) {
+    private Card init_standard_header_with_expandcollapse_button_custom_area(String titleHeader,int i) {
 
         //Create a Card
         Card card = new Card(getActivity());
@@ -96,9 +97,31 @@ public class ListExpandCardFragment extends BaseFragment {
         card.addCardHeader(header);
 
         //This provides a simple (and useless) expand area
-        CustomExpandCard expand = new CustomExpandCard(getActivity());
+        CustomExpandCard expand = new CustomExpandCard(getActivity(),i);
         //Add Expand Area to Card
         card.addCardExpand(expand);
+
+        //Just an example to expand a card
+        if (i==2 || i==7 || i==9)
+            card.setExpanded(true);
+
+        //Swipe
+        card.setSwipeable(true);
+
+        //Animator listener
+        card.setOnExpandAnimatorEndListener(new Card.OnExpandAnimatorEndListener() {
+            @Override
+            public void onExpandEnd(Card card) {
+                Toast.makeText(getActivity(),"Expand "+card.getCardHeader().getTitle(),Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        card.setOnCollapseAnimatorEndListener(new Card.OnCollapseAnimatorEndListener() {
+            @Override
+            public void onCollapseEnd(Card card) {
+                Toast.makeText(getActivity(),"Collpase " +card.getCardHeader().getTitle(),Toast.LENGTH_SHORT).show();
+            }
+        });
 
         return card;
     }

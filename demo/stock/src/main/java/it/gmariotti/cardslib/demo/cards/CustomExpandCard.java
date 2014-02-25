@@ -36,9 +36,15 @@ import it.gmariotti.cardslib.library.internal.CardExpand;
  */
 public class CustomExpandCard extends CardExpand {
 
+    int count;
 
     public CustomExpandCard(Context context) {
         super(context, R.layout.carddemo_example_inner_expand);
+    }
+
+    public CustomExpandCard(Context context,int i) {
+        super(context, R.layout.carddemo_example_inner_expand);
+        count = i;
     }
 
     //You can set you properties here (example buttons visibility)
@@ -56,7 +62,10 @@ public class CustomExpandCard extends CardExpand {
 
         //Set value in text views
         if (tx1 != null) {
-            tx1.setText(getContext().getString(R.string.demo_expand_customtitle1));
+            if (count % 2 ==0)
+                tx1.setText(getContext().getString(R.string.demo_expand_customtitle1));
+            else
+                tx1.setText(getContext().getString(R.string.demo_expand_customtitle3));
         }
 
         if (tx2 != null) {
