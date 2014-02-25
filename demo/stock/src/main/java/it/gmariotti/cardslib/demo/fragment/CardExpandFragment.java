@@ -90,7 +90,7 @@ public class CardExpandFragment extends BaseFragment {
         //This provides a simple (and useless) expand area
         CardExpand expand = new CardExpand(getActivity());
         //Set inner title in Expand Area
-        expand.setTitle(getString(R.string.demo_expand_basetitle));
+        expand.setTitle(getString(R.string.demo_expand_customtitle3));
         card.addCardExpand(expand);
 
         //Set card in the cardView
@@ -109,7 +109,7 @@ public class CardExpandFragment extends BaseFragment {
         //This provides a simple (and useless) expand area
         CardExpand expand = new CardExpand(getActivity());
         //Set inner title in Expand Area
-        expand.setTitle(getString(R.string.demo_expand_basetitle));
+        expand.setTitle(getString(R.string.demo_expand_customtitle3));
         card.addCardExpand(expand);
 
 
@@ -135,7 +135,7 @@ public class CardExpandFragment extends BaseFragment {
         //This provides a simple (and useless) expand area
         CardExpand expand = new CardExpand(getActivity());
         //Set inner title in Expand Area
-        expand.setTitle(getString(R.string.demo_expand_basetitle));
+        expand.setTitle(getString(R.string.demo_expand_customtitle3));
         card.addCardExpand(expand);
 
 
@@ -155,7 +155,7 @@ public class CardExpandFragment extends BaseFragment {
         //This provides a simple (and useless) expand area
         CardExpand expand = new CardExpand(getActivity());
         //Set inner title in Expand Area
-        expand.setTitle(getString(R.string.demo_expand_basetitle));
+        expand.setTitle(getString(R.string.demo_expand_customtitle3));
         card.addCardExpand(expand);
 
         CustomThumbnail thumb = new CustomThumbnail(getActivity());

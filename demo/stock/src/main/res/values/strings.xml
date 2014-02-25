@@ -139,6 +139,7 @@
     <!-- Expand Example -->
     <string name="demo_expand_customtitle1">Lorem ipsum dolor sit amet, consectetur adipisici elit...</string>
     <string name="demo_expand_customtitle2">Quis aute iure reprehenderit in voluptate velit esse cillum ..</string>
+    <string name="demo_expand_customtitle3">Lorem ipsum dolor sit amet, consectetur adipisici elit...Lorem ipsum dolor sit amet, consectetur adipisici elit...Lorem ipsum dolor sit amet, consectetur adipisici elit...Lorem ipsum dolor sit amet, consectetur adipisici elit...</string>
 
     <!-- Card Examples -->
     <string name="demo_card_basetitle">My Inner Text</string>
