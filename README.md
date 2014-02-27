@@ -50,7 +50,7 @@ The Guide provides a extensive doc, with all tips and full examples. Don't miss 
 Card Library is pushed to Maven Central as an AAR, so you just need to add the following dependency to your `build.gradle`.
 
     dependencies {
-        compile 'com.github.gabrielemariotti.cards:library:1.3.0'
+        compile 'com.github.gabrielemariotti.cards:library:1.4.0'
     }
 
 
@@ -63,6 +63,7 @@ Acknowledgements
 --------------------
 
 * Thanks to [Roman Nurik][1] for [Android-SwipeToDismiss][2] classes and [UndoBarController][3] classes.
+* Thanks to [Niek Haarman][4] for some ideas and code taken from his [ListViewAnimations][5].
 
 
 Credits
@@ -109,3 +110,5 @@ Google and the Google Maps logo are registered trademarks of Google Inc., used w
  [1]: https://plus.google.com/u/0/+RomanNurik/about
  [2]: https://github.com/romannurik/Android-SwipeToDismiss
  [3]: https://code.google.com/p/romannurik-code/source/browse/#git%2Fmisc%2Fundobar
+ [4]: https://plus.google.com/+NiekHaarman
+ [5]: https://github.com/nhaarman/ListViewAnimations
