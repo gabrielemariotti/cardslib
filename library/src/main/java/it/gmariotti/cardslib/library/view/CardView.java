@@ -665,6 +665,10 @@ public class CardView extends BaseCardView {
                 if (mCardExpand.getInnerLayout()>-1)
                     mCardExpand.setupInnerViewElements((ViewGroup)mInternalExpandLayout,mInternalExpandInnerView);
             }
+
+            ViewGroup.LayoutParams layoutParams = mInternalExpandLayout.getLayoutParams();
+            layoutParams.height = LayoutParams.WRAP_CONTENT;
+            mInternalExpandLayout.setLayoutParams(layoutParams);
         }
     }
 
