@@ -176,7 +176,7 @@ public class CardListView extends ListView implements CardView.OnExpandListAnima
         }else if (adapter instanceof CardCursorAdapter){
             setAdapter((CardCursorAdapter)adapter);
         }else {
-            Log.e(TAG,"You are using a generic adapter. Pay attention: your adapter has to call cardArrayAdapter#getView method" );
+            Log.w(TAG,"You are using a generic adapter. Pay attention: your adapter has to call cardArrayAdapter#getView method" );
             super.setAdapter(adapter);
         }
     }
