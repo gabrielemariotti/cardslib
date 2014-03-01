@@ -27,4 +27,6 @@
     <dimen name="carddemo_extras_gplay_grid_columnwidth">190dp</dimen>
     <dimen name="carddemo_extras_gplay_grid_columnwidth_card">190dp</dimen>
 
+    <dimen name="card_rose">250dp</dimen>
+
 </resources>

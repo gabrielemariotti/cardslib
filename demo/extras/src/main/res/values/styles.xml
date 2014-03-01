@@ -160,4 +160,20 @@
         <item name="android:gravity">center</item>
         <item name="android:scaleType">centerCrop</item>
     </style>
+
+    <!-- Expand inside -->
+    <style name="card.main_layout_expandinside" parent="card.main_layout">
+        <item name="android:background">@drawable/card_background</item>
+    </style>
+
+    <style name="card.header_expand_simple_title" parent="card.header_simple_title">
+        <item name="android:textColor">#CC2A84A5</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="card.main_contentExpand_inside">
+        <item name="android:background">@color/card_background</item>
+        <item name="android:padding">@dimen/card_expand_layout_padding</item>
+    </style>
+
 </resources>
