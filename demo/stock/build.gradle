@@ -14,6 +14,8 @@ android {
         targetSdkVersion 19
         versionName project.VERSION_NAME
         versionCode Integer.parseInt(project.VERSION_CODE)
+
+        testInstrumentationRunner "com.google.android.apps.common.testing.testrunner.GoogleInstrumentationTestRunner"
     }
 
     signingConfigs {
@@ -39,6 +41,8 @@ dependencies {
     compile project(':library')
     // Support Libraries
     compile 'com.android.support:support-v4:19.0.0'
+
+    instrumentTestCompile 'com.jakewharton.espresso:espresso:1.1-r2'
 }
 
 

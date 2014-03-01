@@ -125,6 +125,7 @@
     <string name="demo_section_card_expand_example2">Expand clicking on the card</string>
     <string name="demo_section_card_expand_example3">Expand clicking on the text</string>
     <string name="demo_section_card_expand_example4">Expand clicking on the image</string>
+    <string name="demo_section_card_expand_example5">Expand section inside the card</string>
 
     <string name="demo_section_card_changevalue_title">Click Refresh Icon to refresh card</string>
 
@@ -142,6 +143,7 @@
     <string name="demo_expand_customtitle1">Lorem ipsum dolor sit amet, consectetur adipisici elit...</string>
     <string name="demo_expand_customtitle2">Quis aute iure reprehenderit in voluptate velit esse cillum ..</string>
     <string name="demo_expand_customtitle3">Lorem ipsum dolor sit amet, consectetur adipisici elit...Lorem ipsum dolor sit amet, consectetur adipisici elit...Lorem ipsum dolor sit amet, consectetur adipisici elit...Lorem ipsum dolor sit amet, consectetur adipisici elit...</string>
+    <string name="demo_header_expand_area_inside">Card with expand area inside</string>
 
     <!-- Card Examples -->
     <string name="demo_card_basetitle">My Inner Text</string>
@@ -177,6 +179,7 @@
     <string name="demo_title_cab1">Long Click to enable CAB</string>
     <string name="demo_title_cab2">Text Changed!</string>
     <string name="demo_section_overflow_single_title">Example with simple animation</string>
+
 
 
 </resources>

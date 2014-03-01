@@ -23,6 +23,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import it.gmariotti.cardslib.demo.R;
@@ -42,6 +44,9 @@ import it.gmariotti.cardslib.library.view.CardView;
 public class CardExpandFragment extends BaseFragment {
 
 
+    ScrollView mScrollView;
+
+
     @Override
     public int getTitleResourceId() {
         return R.string.carddemo_title_card_expand;
@@ -49,12 +54,16 @@ public class CardExpandFragment extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.demo_fragment_card_expand, container, false);
+        View root= inflater.inflate(R.layout.demo_fragment_card_expand, container, false);
+
+        mScrollView = (ScrollView) root.findViewById(R.id.card_scrollview);
+        return root;
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
 
         initCards();
     }
@@ -65,6 +74,7 @@ public class CardExpandFragment extends BaseFragment {
         init_custom_card_expand();
         init_custom_card_expand_clicking_text();
         init_custom_card_expand_clicking_image();
+        init_custom_card_expand_inside();
     }
 
     /**
@@ -167,6 +177,50 @@ public class CardExpandFragment extends BaseFragment {
         cardView.setCard(card);
     }
 
+    /**
+     * This method builds a card with a collpse/expand section inside
+     */
+    private void init_custom_card_expand_inside() {
+
+        //Create a Card
+        Card card = new Card(getActivity());
+
+        //Create a CardHeader
+        CardHeader header = new CardHeader(getActivity());
+
+        //Set the header title
+        header.setTitle(getString(R.string.demo_header_expand_area_inside));
+        //Add Header to card
+        card.addCardHeader(header);
+
+        //This provides a simple (and useless) expand area
+        CardExpandInside expand = new CardExpandInside(getActivity());
+        card.addCardExpand(expand);
+
+        //Set card in the cardView
+        CardView cardView = (CardView) getActivity().findViewById(R.id.carddemo_example_card_expand5);
+        ViewToClickToExpand viewToClickToExpand =
+                ViewToClickToExpand.builder()
+                        .highlightView(false)
+                        .setupView(cardView);
+        card.setViewToClickToExpand(viewToClickToExpand);
+
+        card.setOnExpandAnimatorEndListener(new Card.OnExpandAnimatorEndListener() {
+            @Override
+            public void onExpandEnd(Card card) {
+                /*
+                if (mScrollView!=null){
+                    mScrollView.post(new Runnable() {
+                        public void run() {
+                            mScrollView.scrollTo(0, mScrollView.getBottom());
+                        }
+                    });
+                }*/
+            }
+        });
+
+        cardView.setCard(card);
+    }
 
     class CustomCard2 extends Card{
 
@@ -203,9 +257,27 @@ public class CardExpandFragment extends BaseFragment {
 
             ViewToClickToExpand viewToClickToExpand =
                     ViewToClickToExpand.builder()
+                            .highlightView(false)
                             .setupView(imageView);
             getParentCard().setViewToClickToExpand(viewToClickToExpand);
         }
     }
 
+    class CardExpandInside extends CardExpand {
+
+        public CardExpandInside(Context context) {
+            super(context,R.layout.carddemo_example_expandinside_expand_layout);
+        }
+
+        @Override
+        public void setupInnerViewElements(ViewGroup parent, View view) {
+
+            ImageView img = (ImageView) view.findViewById(R.id.carddemo_inside_image);
+
+            //It is just an example. You should load your images in an async way
+            if (img!=null){
+                img.setImageResource(R.drawable.rose);
+            }
+        }
+    }
 }

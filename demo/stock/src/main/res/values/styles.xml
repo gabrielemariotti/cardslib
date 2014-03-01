@@ -228,6 +228,11 @@
     </style>
 
 
+    <!-- Expand inside -->
+    <style name="card.main_layout_expandinside" parent="card.main_layout">
+        <item name="android:background">@drawable/card_background</item>
+    </style>
+
 
 
 </resources>

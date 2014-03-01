@@ -65,6 +65,22 @@
                 android:layout_marginRight="12dp"
                 android:layout_marginTop="12dp"/>
 
+            <!-- Expand a card with collpse section inside -->
+            <TextView
+                style="@style/AppTheme.TitleText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/demo_section_card_expand_example5"/>
+
+            <it.gmariotti.cardslib.library.view.CardView
+                android:id="@+id/carddemo_example_card_expand5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                card:card_layout_resourceID="@layout/carddemo_example_expandinside_card_layout"
+                android:layout_marginTop="12dp"/>
+
             <!-- Expand by clicking the text -->
             <TextView
                 style="@style/AppTheme.TitleText"
@@ -95,6 +111,7 @@
                 android:layout_marginRight="12dp"
                 card:card_layout_resourceID="@layout/card_thumbnail_layout"
                 android:layout_marginTop="12dp"/>
+
 
 
             <!-- Empty view-->
