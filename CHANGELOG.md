@@ -1,7 +1,7 @@
 Change Log
 ===============================================================================
 
-Version 1.4.0 *(2014-xx-xx)*
+Version 1.4.0 *(2014-03-02)*
 ----------------------------
 * LIB: expand/collapse methods are completely new.(Fixed issues with smooth scroll, proper height measure, parent lose when expanded view isn't entirely visible...)
 * LIB: Added a feature to add the PopupMenu in CardHeader entirely from code [(doc)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/HEADER.md#standard-header-with-the-overflow-botton-and-popupmenu-built-programmatically)
