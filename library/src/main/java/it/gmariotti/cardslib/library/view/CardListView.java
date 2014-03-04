@@ -31,9 +31,6 @@ import android.widget.AbsListView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import it.gmariotti.cardslib.library.R;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
@@ -82,11 +79,11 @@ public class CardListView extends ListView implements CardView.OnExpandListAnima
     // Fields for expand/collapse animation
     //--------------------------------------------------------------------------
 
-    private boolean mShouldRemoveObserver = false;
+    //private boolean mShouldRemoveObserver = false;
 
-    private List<View> mViewsToDraw = new ArrayList<View>();
+    //private List<View> mViewsToDraw = new ArrayList<View>();
 
-    private int[] mTranslate;
+    //private int[] mTranslate;
 
     //--------------------------------------------------------------------------
     // Custom Attrs
@@ -250,12 +247,34 @@ public class CardListView extends ListView implements CardView.OnExpandListAnima
 
     @Override
     public void onExpandStart(CardView viewCard,View expandingLayout) {
-        ExpandCollapseHelper.animateExpanding(expandingLayout,viewCard,this);
+
+        boolean expandable = true;
+        if (mCursorAdapter!=null){
+            expandable = mCursorAdapter.onExpandStart(viewCard);
+        }
+
+        if (expandable)
+            ExpandCollapseHelper.animateExpanding(expandingLayout,viewCard,this);
+
+        if (mCursorAdapter!=null){
+            mCursorAdapter.onExpandEnd(viewCard);
+        }
+
     }
 
     @Override
     public void onCollapseStart(CardView viewCard,View expandingLayout) {
-        ExpandCollapseHelper.animateCollapsing(expandingLayout,viewCard,this);
+        boolean collapsible = true;
+        if (mCursorAdapter!=null){
+            collapsible = mCursorAdapter.onCollapseStart(viewCard);
+        }
+
+        if (collapsible)
+            ExpandCollapseHelper.animateCollapsing(expandingLayout,viewCard,this);
+
+        if (mCursorAdapter!=null){
+            mCursorAdapter.onCollapseEnd(viewCard);
+        }
     }
 
     /**

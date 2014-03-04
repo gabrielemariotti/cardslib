@@ -25,7 +25,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import it.gmariotti.cardslib.library.R;
 import it.gmariotti.cardslib.library.internal.base.BaseCardCursorAdapter;
@@ -69,6 +71,9 @@ public abstract class CardCursorAdapter extends BaseCardCursorAdapter  {
      */
     protected HashMap<String /* id */,Card>  mInternalObjects;
 
+
+    protected final List<String> mExpandedIds;
+
     /**
      * Recycle
      */
@@ -80,16 +85,19 @@ public abstract class CardCursorAdapter extends BaseCardCursorAdapter  {
     public CardCursorAdapter(Context context) {
         super(context, null, false);
         mContext= context;
+        mExpandedIds = new ArrayList<String>();
     }
 
     protected CardCursorAdapter(Context context, Cursor c, boolean autoRequery) {
         super(context, c, autoRequery);
         mContext= context;
+        mExpandedIds = new ArrayList<String>();
     }
 
     protected CardCursorAdapter(Context context, Cursor c, int flags) {
         super(context, c, flags);
         mContext= context;
+        mExpandedIds = new ArrayList<String>();
     }
 
     // -------------------------------------------------------------
@@ -135,6 +143,8 @@ public abstract class CardCursorAdapter extends BaseCardCursorAdapter  {
                 boolean origianlSwipeable = mCard.isSwipeable();
                 mCard.setSwipeable(false);
 
+                mCard.setExpanded(isExpanded(mCard));
+
                 mCardView.setCard(mCard);
 
                 //Set originalValue
@@ -153,7 +163,6 @@ public abstract class CardCursorAdapter extends BaseCardCursorAdapter  {
             }
         }
     }
-
 
 
     /**
@@ -194,98 +203,113 @@ public abstract class CardCursorAdapter extends BaseCardCursorAdapter  {
     }
 
     // -------------------------------------------------------------
-    //  SwipeListener and undo action
+    //  Expanded
     // -------------------------------------------------------------
+
     /**
-     * Listener invoked when a card is swiped
+     *  Set the card as Expanded.
      */
-    /*SwipeDismissListViewTouchListener.DismissCallbacks mCallback = new SwipeDismissListViewTouchListener.DismissCallbacks() {
+    public void setExpanded(Card card) {
+        if (card!=null)
+            setExpanded(card.getId());
+    }
 
-        @Override
-        public boolean canDismiss(int position, Card card) {
-            return card.isSwipeable();
+    /**
+     *  Set the card as Expanded using its id
+     */
+    public void setExpanded(final String id) {
+        if (mExpandedIds!=null)
+            mExpandedIds.add(id);
+    }
+
+
+    /**
+     *  Set the card as collapsed
+     */
+    public void setCollapsed(Card card) {
+        if (card!=null)
+            setCollapsed(card.getId());
+    }
+
+    /**
+     *  Set the card as collapsed using its id
+     */
+    public void setCollapsed(final String id) {
+        if (mExpandedIds!=null)
+            mExpandedIds.remove(id);
+    }
+
+
+    /**
+     * Indicates if the item at the specified position is expanded.
+     *
+     * @param card
+     * @return true if the view is expanded, false otherwise.
+     */
+    public boolean isExpanded(Card card) {
+        String itemId = card.getId();
+        return mExpandedIds.contains(itemId);
+    }
+
+    /**
+     * Checks if the item is already expanded
+     *
+     * @param viewCard
+     * @return
+     */
+    public boolean onExpandStart(CardView viewCard) {
+        Card card = viewCard.getCard();
+        if (card!=null){
+            String itemId = card.getId();
+            if (!mExpandedIds.contains(itemId)) {
+                return true;
+            }
         }
+        return false;
+    }
 
-        @Override
-        public void onDismiss(ListView listView, int[] reverseSortedPositions) {
-
-
-            int[] itemPositions=new int[reverseSortedPositions.length];
-            String[] itemIds=new String[reverseSortedPositions.length];
-            int i=0;
-
-            //Remove cards and notifyDataSetChanged
-            for (int position : reverseSortedPositions) {
-                Card card = getItem(position);
-                itemPositions[i]=position;
-                itemIds[i]=card.getId();
-                i++;
-
-                if (card.getOnSwipeListener() != null){
-                        card.getOnSwipeListener().onSwipe(card);
-                }
-            }
-            //notifyDataSetChanged();
-
-            /*
-            //Check for a undo message to confirm
-            if (isEnableUndo() && mUndoBarController!=null){
-
-                //Show UndoBar
-                UndoCard itemUndo=new UndoCard(itemPositions,itemIds);
-
-                if (getContext()!=null){
-                    Resources res = getContext().getResources();
-                    if (res!=null){
-                        String messageUndoBar = res.getQuantityString(R.plurals.list_card_undo_items, reverseSortedPositions.length, reverseSortedPositions.length);
-
-                        mUndoBarController.showUndoBar(
-                                false,
-                                messageUndoBar,
-                                itemUndo);
-                    }
-                }
-
+    /**
+     * * Checks if the item is already collapsed
+     *
+     * @param viewCard
+     * @return
+     */
+    public boolean onCollapseStart(CardView viewCard) {
+        Card card = viewCard.getCard();
+        if (card!=null){
+            String itemId = card.getId();
+            if (mExpandedIds.contains(itemId)) {
+                return true;
             }
         }
-    };*/
+        return false;
+    }
 
-    // -------------------------------------------------------------
-    //  Undo Default Listener
-    // -------------------------------------------------------------
+    /**
+     * Updates the mExpandedIds after an expand action
+     *
+     * @param viewCard
+     */
+    public void onExpandEnd(CardView viewCard) {
+        Card card = viewCard.getCard();
+        if (card!=null){
+            String itemId = card.getId();
+            mExpandedIds.add(itemId);
+        }
+    }
 
-    /*@Override
-    public void onUndo(Parcelable token) {
-        /*
-        //Restore items in lists (use reverseSortedOrder)
-        if (token != null) {
-
-            UndoCard item = (UndoCard) token;
-            int[] itemPositions = item.itemPosition;
-            String[] itemIds = item.itemId;
-
-            if (itemPositions != null) {
-                int end = itemPositions.length;
-
-                for (int i = end - 1; i >= 0; i--) {
-                    int itemPosition = itemPositions[i];
-                    String id= itemIds[i];
-
-                    if (id==null){
-                        Log.w(TAG, "You have to set a id value to use the undo action");
-                    }else{
-                        Card card = mInternalObjects.get(id);
-                        if (card!=null){
-                            insert(card, itemPosition);
-                            notifyDataSetChanged();
-                            if (card.getOnUndoSwipeListListener()!=null)
-                                card.getOnUndoSwipeListListener().onUndoSwipe(card);
-                        }
-                    }
-                }
-            }
-        }*
-    }*/
+    /**
+     * Updates the mExpandedIds after a collapse action
+     *
+     * @param viewCard
+     */
+    public void onCollapseEnd(CardView viewCard) {
+        Card card = viewCard.getCard();
+        if (card!=null){
+            String itemId = card.getId();
+            mExpandedIds.remove(itemId);
+        }
+    }
 
     // -------------------------------------------------------------
     //  Getters and Setters
@@ -307,49 +331,13 @@ public abstract class CardCursorAdapter extends BaseCardCursorAdapter  {
         this.mCardListView = cardListView;
     }
 
-    /**
-     * Indicates if the undo message is enabled after a swipe action
-     *
-     * @return <code>true</code> if the undo message is enabled
-     */
-    /*public boolean isEnableUndo() {
-        return mEnableUndo;
-    }*/
 
     /**
-     * Enables an undo message after a swipe action
+     * Returns the expanded ids
      *
-     * @param enableUndo <code>true</code> to enable an undo message
+     * @return
      */
-    /*
-    public void setEnableUndo(boolean enableUndo) {
-        mEnableUndo = enableUndo;
-        if (enableUndo) {
-            mInternalObjects = new HashMap<String, Card>();
-            for (int i=0;i<getCount();i++) {
-                Card card = getItem(i);
-                mInternalObjects.put(card.getId(), card);
-            }
-
-            //Create a UndoController
-            if (mUndoBarController==null){
-                View undobar = ((Activity)mContext).findViewById(R.id.list_card_undobar);
-                if (undobar != null) {
-                    mUndoBarController = new UndoBarController(undobar, this);
-                }
-            }
-        }else{
-            mUndoBarController=null;
-        }
-    }*/
-
-    /**
-     * Return the UndoBarController for undo action
-     *
-     * @return {@link it.gmariotti.cardslib.library.view.listener.UndoBarController}
-     */
-    /*
-    public UndoBarController getUndoBarController() {
-        return mUndoBarController;
-    }*/
+    public List<String> getExpandedIds() {
+        return mExpandedIds;
+    }
 }
