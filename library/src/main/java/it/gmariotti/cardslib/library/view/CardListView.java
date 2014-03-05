@@ -400,7 +400,7 @@ public class CardListView extends ListView implements CardView.OnExpandListAnima
                 if (cardListView.mAdapter!=null){
                     cardListView.mAdapter.notifyDataSetChanged();
                 } else if (cardListView.mCursorAdapter!=null){
-                    cardListView.mCursorAdapter.notifyDataSetChanged();
+                    //cardListView.mCursorAdapter.notifyDataSetChanged();
                 }
             }
         }
