@@ -74,6 +74,9 @@ public abstract class CardCursorAdapter extends BaseCardCursorAdapter  {
     protected HashMap<String /* id */,Card>  mInternalObjects;
 
 
+    /**
+     * All ids expanded
+     */
     protected final List<String> mExpandedIds;
 
     /**

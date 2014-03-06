@@ -6,6 +6,7 @@ In this page you can find info about:
 * [Standard Expand](#standard-expand)
 * [Custom Expand inflating your inner layout](#custom-expand-inflating-your-inner-layout)
 * [Expand the card by clicking on different view](#expand-the-card-by-clicking-on-different-view)
+* [CardExpand and CardListView](#cardexpand-and-cardlistview)
 
 
 ### Creating a base CardExpand
@@ -234,3 +235,126 @@ How to enable the custom expand/collapse in a `ListView`.
         }
     }
 ```
+
+### CardExpand and CardListView
+
+You can use the `CardExpand` inside the `CardListView`.
+
+With a **`CardArrayAdapter` ** you can use the same code described above.
+
+You can find an example in [`ListExpandCardFragment`]((https://github.com/gabrielemariotti/cardslib/tree/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/ListExpandCardFragment.java).)
+
+``` java
+        Card card = new Card(getActivity());
+
+        //Create a CardHeader
+        CardHeader header = new CardHeader(getActivity());
+        header.setButtonExpandVisible(true);
+        //Add Header to card
+        card.addCardHeader(header);
+
+        //This provides a simple (and useless) expand area
+        CustomExpandCard expand = new CustomExpandCard(getActivity(),i);
+        //Add Expand Area to Card
+        card.addCardExpand(expand);
+
+        //Just an example to expand a card
+        card.setExpanded(true);
+```
+
+If you want to set a card as expanded/collapsed, you can use:
+
+``` java
+        card.setExpanded(true);
+```
+
+If you want to know about your card, you can use
+
+``` java
+
+        card.isExpanded()
+```
+
+When you click a card to expand or collapse the method `adapter.notifyDataSetChanged` will be called.
+
+
+With a **`CardCursorAdapter` ** you have to use this code:
+
+``` java
+    public class MyCursorCardAdapter extends CardCursorAdapter {
+
+
+        public MyCursorCardAdapter(Context context) {
+            super(context);
+        }
+
+        @Override
+        protected Card getCardFromCursor(Cursor cursor) {
+            MyCursorCard card = new MyCursorCard(super.getContext());
+            setCardFromCursor(card,cursor);
+
+            //Create a CardHeader
+            CardHeader header = new CardHeader(getActivity());
+            //Set the header title
+            header.setButtonExpandVisible(true);
+            //Add Header to card
+            card.addCardHeader(header);
+
+            //This provides a simple (and useless) expand area
+            CustomExpandCard expand = new CustomExpandCard(getActivity());
+            //Add Expand Area to Card
+            card.addCardExpand(expand);
+
+            //Don't use card.setExpanded(true)!
+            //Don't use mAdapter.setExpanded(card) here !
+
+            //Animator listener
+            card.setOnExpandAnimatorEndListener(new Card.OnExpandAnimatorEndListener() {
+                @Override
+                public void onExpandEnd(Card card) {
+                    Toast.makeText(getActivity(),"Expand "+card.getCardHeader().getTitle(),Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            card.setOnCollapseAnimatorEndListener(new Card.OnCollapseAnimatorEndListener() {
+                @Override
+                public void onCollapseEnd(Card card) {
+                    Toast.makeText(getActivity(),"Collpase " +card.getCardHeader().getTitle(),Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            return card;
+        }
+```
+
+If you want to set a card as expanded/collapsed, you can use one of these methods:
+
+``` java
+        //To expand
+        mAdapter.setExpanded(card);
+        mAdapter.setExpanded(cardId);
+
+        //To collapse
+        mAdapter.setCollapsed(card);
+        mAdapter.setCollapsed(cardId);
+```
+
+**Pay attention**: don't call this method inside `getCardFromCursor` method (because it is called by `bindView` method)
+
+
+If you want to know about your card, you can use:
+
+
+``` java
+    .mAdapter.isExpanded(Card card)
+```
+
+
+If you want to know  all ids expanded you can use:
+
+``` java
+    .mAdapter.getExpandedIds()
+```
+
+In this case the method `adapter.notifyDataSetChanged` will NOT be called.
+
