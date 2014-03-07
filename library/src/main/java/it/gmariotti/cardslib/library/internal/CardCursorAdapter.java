@@ -27,9 +27,7 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import it.gmariotti.cardslib.library.R;
 import it.gmariotti.cardslib.library.internal.base.BaseCardCursorAdapter;
@@ -207,20 +205,6 @@ public abstract class CardCursorAdapter extends BaseCardCursorAdapter  {
         cardView.setOnExpandListAnimatorListener(mCardListView);
     }
 
-    @Override
-    public void notifyDataSetChanged() {
-        super.notifyDataSetChanged();
-
-        Set<String> removedIds = new HashSet<String>(mExpandedIds);
-
-        for (int i = 0; i < getCount(); ++i) {
-            Card card = getItem(i);
-            String id = card.getId();
-            removedIds.remove(id);
-        }
-
-        mExpandedIds.removeAll(removedIds);
-    }
 
     // -------------------------------------------------------------
     //  Expanded
