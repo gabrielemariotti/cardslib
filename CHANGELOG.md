@@ -1,7 +1,7 @@
 Change Log
 ===============================================================================
 
-Version 1.4.1 *(2014-03-06)*
+Version 1.4.2 *(2014-03-07)*
 ----------------------------
 * LIB: new expand/collapse methods are now available also for `CardCursorAdapter` [(doc)](https://github.com/gabrielemariotti/cardslib/blob/master/doc/EXPAND.md#cardexpand-and-cardlistview)
 
