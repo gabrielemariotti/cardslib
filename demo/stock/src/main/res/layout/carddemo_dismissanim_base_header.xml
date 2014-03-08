@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ /*******************************************************************************
+  ~   Copyright (c) 2014 Gabriele Mariotti.
+  ~
+  ~   Licensed under the Apache License, Version 2.0 (the "License");
+  ~   you may not use this file except in compliance with the License.
+  ~   You may obtain a copy of the License at
+  ~
+  ~   http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~   Unless required by applicable law or agreed to in writing, software
+  ~   distributed under the License is distributed on an "AS IS" BASIS,
+  ~   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~   See the License for the specific language governing permissions and
+  ~   limitations under the License.
+  ~  ******************************************************************************/
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="wrap_content"
+              android:layout_height="match_parent"
+              android:paddingTop="10dp"
+              android:paddingBottom="10dp"
+              android:layout_marginRight="0dp"
+              android:orientation="horizontal"
+              style="@style/card.header_compound_view">
+
+    <View
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:layout_width="1dip"
+        android:layout_height="fill_parent"
+        android:background="#20000000"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+        <!-- This is the Button Frame.
+         You can custom this behaviour with some methods in CardHeader class -->
+        <FrameLayout
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/card_header_button_frame"
+            style="@style/card.header_button_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <!-- Other button. You can customize it with your style file -->
+            <ImageButton
+                android:id="@+id/card_header_button_other"
+                style="@style/card.header_button_base.other"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </FrameLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#20000000"
+            />
+
+        <!-- This is the Inner Frame which you can populate runtime
+         with getInnerView() method in CardHeader class. -->
+        <FrameLayout
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/card_header_inner_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

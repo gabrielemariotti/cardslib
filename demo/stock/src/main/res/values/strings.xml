@@ -87,6 +87,7 @@
     <string name="carddemo_title_grid_cursor">Grid with Cursor</string>
     <string name="carddemo_title_cab_list">List with MultiChoice</string>
     <string name="carddemo_title_grid_gplay_cab">Grid with MultiChoice</string>
+    <string name="carddemo_title_dismiss_animation">Dismiss Animation</string>
 
     <string name="carddemo_title_overflow_animation">Overflow animation (experimental)</string>
 

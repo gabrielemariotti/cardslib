@@ -234,5 +234,13 @@
     </style>
 
 
+    <!--Dismiss Animation -->
+    <style name="card.dismiss_name">
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_gravity">left|center_vertical</item>
+        <item name="android:layout_marginTop">@dimen/card_main_simple_title_margin_top</item>
+    </style>
+
+
 
 </resources>
