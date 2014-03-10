@@ -240,7 +240,7 @@ How to enable the custom expand/collapse in a `ListView`.
 
 You can use the `CardExpand` inside the `CardListView`.
 
-With a **`CardArrayAdapter` ** you can use the same code described above.
+With a **`CardArrayAdapter`** you can use the same code described above.
 
 You can find an example in [`ListExpandCardFragment`]((https://github.com/gabrielemariotti/cardslib/tree/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/ListExpandCardFragment.java).)
 
@@ -278,7 +278,7 @@ If you want to know about your card, you can use
 When you click a card to expand or collapse the method `adapter.notifyDataSetChanged` will be called.
 
 
-With a **`CardCursorAdapter` ** you have to use this code:
+With a **`CardCursorAdapter`** you have to use this code:
 
 ``` java
     public class MyCursorCardAdapter extends CardCursorAdapter {
@@ -327,6 +327,15 @@ With a **`CardCursorAdapter` ** you have to use this code:
         }
 ```
 
+**Pay attention**: To work with a `CardCursorAdapter` and expand/collapse feature you have to set your Id inside your card.
+
+``` java
+   card.setId("xxxx)";
+```
+
+The `id` must be unique, and it can be useful to set it with your id in the database.
+
+
 If you want to set a card as expanded/collapsed, you can use one of these methods:
 
 ``` java
@@ -344,11 +353,9 @@ If you want to set a card as expanded/collapsed, you can use one of these method
 
 If you want to know about your card, you can use:
 
-
 ``` java
     .mAdapter.isExpanded(Card card)
 ```
-
 
 If you want to know  all ids expanded you can use:
 
@@ -358,3 +365,12 @@ If you want to know  all ids expanded you can use:
 
 In this case the method `adapter.notifyDataSetChanged` will NOT be called.
 
+
+**Migration from 1.4.0 (and previous releases) - to 1.4.2**
+
+The 1.4.2 may introduce a breaking change with CardCursorAdapter and expand feature.
+To migrate your code you have to:
+
+* call `card.setId("xxxx)";` in your `getCardFromCursor` method
+* remove `card.setExpanded(true/false)` from your adapter code
+* use `mAdapter.setExpanded(card);` as described above to expand/collapse your cards.
