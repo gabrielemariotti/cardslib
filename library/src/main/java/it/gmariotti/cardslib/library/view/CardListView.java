@@ -75,6 +75,11 @@ public class CardListView extends ListView implements CardView.OnExpandListAnima
      */
     protected CardCursorAdapter mCursorAdapter;
 
+    /**
+     * Listener invoked on scroll to prevent touch firing
+     */
+    protected OnScrollListener mOnScrollListener;
+    
     //--------------------------------------------------------------------------
     // Fields for expand/collapse animation
     //--------------------------------------------------------------------------
@@ -238,6 +243,22 @@ public class CardListView extends ListView implements CardView.OnExpandListAnima
         mCursorAdapter=cardCursorAdapter;
         mCursorAdapter.setCardListView(this);
         mCursorAdapter.setRowLayoutId(list_card_layout_resourceID);
+    }
+    
+    /**
+     * Returns local scroll event listener
+     */
+    public OnScrollListener getOnScrollListener( ) {
+    	return this.mOnScrollListener;
+    }
+    
+    /**
+     * Overrides the set on scroll listener method and registers local reference
+     */
+    @Override
+    public void setOnScrollListener( OnScrollListener mOnScrollListener ) {
+    	this.mOnScrollListener = mOnScrollListener;
+    	super.setOnScrollListener( mOnScrollListener );
     }
 
 

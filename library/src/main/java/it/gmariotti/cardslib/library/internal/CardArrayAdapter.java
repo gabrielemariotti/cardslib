@@ -84,7 +84,7 @@ public class CardArrayAdapter extends BaseCardArrayAdapter implements UndoBarCon
      * Listener invoked when a card is swiped
      */
     protected SwipeDismissListViewTouchListener mOnTouchListener;
-
+    
     /**
      * Used to enable an undo message after a swipe action
      */
@@ -193,7 +193,8 @@ public class CardArrayAdapter extends BaseCardArrayAdapter implements UndoBarCon
                 mOnTouchListener = new SwipeDismissListViewTouchListener(mCardListView, mCallback);
                 // Setting this scroll listener is required to ensure that during
                 // ListView scrolling, we don't look for swipes.
-                mCardListView.setOnScrollListener(mOnTouchListener.makeScrollListener());
+                if (mCardListView.getOnScrollListener() == null)
+                	mCardListView.setOnScrollListener(mOnTouchListener.makeScrollListener());
             }
 
             cardView.setOnTouchListener(mOnTouchListener);
@@ -233,12 +234,13 @@ public class CardArrayAdapter extends BaseCardArrayAdapter implements UndoBarCon
 
             int[] itemPositions=new int[reverseSortedPositions.length];
             String[] itemIds=new String[reverseSortedPositions.length];
+            int headerViews=listVIew.getHeaderViewsCount();
             int i=0;
 
             //Remove cards and notifyDataSetChanged
             for (int position : reverseSortedPositions) {
-                Card card = getItem(position);
-                itemPositions[i]=position;
+                Card card = getItem(position-headerViews);
+                itemPositions[i]=position-headerViews;
                 itemIds[i]=card.getId();
                 i++;
 
