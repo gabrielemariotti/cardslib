@@ -6,8 +6,8 @@ repositories {
 }
 
 android {
-    compileSdkVersion 19
-    buildToolsVersion "19.0.0"
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
         minSdkVersion 14
@@ -42,7 +42,7 @@ dependencies {
     // Support Libraries
     compile 'com.android.support:support-v4:19.0.0'
 
-    instrumentTestCompile 'com.jakewharton.espresso:espresso:1.1-r2'
+    androidTestCompile 'com.jakewharton.espresso:espresso:1.1-r2'
 }
 
 
