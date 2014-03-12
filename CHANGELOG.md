@@ -1,6 +1,11 @@
 Change Log
 ===============================================================================
 
+Version 1.X.X *(2014-XX-XX)*
+----------------------------
+* LIB: introduced a flag to disable the default broadcast after a bitmap is attached to an imageView in `CardThumbnail` [(doc)](https://github.com/gabrielemariotti/cardslib/blob/master/doc/THUMBNAIL.md#broadcast-to-know-when-the-download-is-finished)
+
+
 Version 1.4.2 *(2014-03-07)*
 ----------------------------
 * LIB: new expand/collapse methods are now available also for `CardCursorAdapter` [(doc)](https://github.com/gabrielemariotti/cardslib/blob/master/doc/EXPAND.md#cardexpand-and-cardlistview)

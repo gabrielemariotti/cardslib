@@ -412,6 +412,18 @@ If you want to change the rounded corners, the quickest way would be to customiz
     <dimen name="card_background_default_radius">2dip</dimen>
 ```
 
+Pay attention. The default card has a min height.
+
+Check this style:
+``` xml
+ <style name="card.content_outer_layout">
+```
+
+You can override this value in your dimens.xml:
+``` xml
+    <dimen name="card_base_empty_height">96dp</dimen>
+```
+
 #### Change dynamically Card background
 
 If you need to change dynamically the card background you can use this code:
