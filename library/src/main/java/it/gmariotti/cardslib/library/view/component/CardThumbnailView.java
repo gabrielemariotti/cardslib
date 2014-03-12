@@ -706,18 +706,21 @@ public class CardThumbnailView extends FrameLayout implements CardViewInterface 
      * @param result
      */
     protected void sendBroadcast(boolean result) {
-        Intent intent = new Intent();
-        intent.setAction(Constants.IntentManager.INTENT_ACTION_IMAGE_DOWNLOADED);
-        intent.putExtra(Constants.IntentManager.INTENT_ACTION_IMAGE_DOWNLOADED_EXTRA_RESULT, result);
-        if (mLoadingErrorResource)
-            intent.putExtra(Constants.IntentManager.INTENT_ACTION_IMAGE_DOWNLOADED_EXTRA_ERROR_LOADING, true);
-        else
-            intent.putExtra(Constants.IntentManager.INTENT_ACTION_IMAGE_DOWNLOADED_EXTRA_ERROR_LOADING, false);
 
-        if (mCardThumbnail != null && mCardThumbnail.getParentCard() != null)
-            intent.putExtra(Constants.IntentManager.INTENT_ACTION_IMAGE_DOWNLOADED_EXTRA_CARD_ID, mCardThumbnail.getParentCard().getId());
-        if (getContext() != null)
-            getContext().sendBroadcast(intent);
+        if (mCardThumbnail.isSendBroadcastAfterAttach()) {
+            Intent intent = new Intent();
+            intent.setAction(Constants.IntentManager.INTENT_ACTION_IMAGE_DOWNLOADED);
+            intent.putExtra(Constants.IntentManager.INTENT_ACTION_IMAGE_DOWNLOADED_EXTRA_RESULT, result);
+            if (mLoadingErrorResource)
+                intent.putExtra(Constants.IntentManager.INTENT_ACTION_IMAGE_DOWNLOADED_EXTRA_ERROR_LOADING, true);
+            else
+                intent.putExtra(Constants.IntentManager.INTENT_ACTION_IMAGE_DOWNLOADED_EXTRA_ERROR_LOADING, false);
+
+            if (mCardThumbnail != null && mCardThumbnail.getParentCard() != null)
+                intent.putExtra(Constants.IntentManager.INTENT_ACTION_IMAGE_DOWNLOADED_EXTRA_CARD_ID, mCardThumbnail.getParentCard().getId());
+            if (getContext() != null)
+                getContext().sendBroadcast(intent);
+        }
 
     }
 

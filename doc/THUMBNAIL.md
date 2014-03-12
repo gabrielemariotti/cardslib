@@ -384,6 +384,12 @@ This Intent includes extras that provide additional details:
     }
 ```
 
+You can disable this default feature in your `CardThumbnail` with:
+
+``` java
+     cardthumbnail.setSendBroadcastAfterAttach(false);
+```
+
 
 ### How to modify the bitmap and create circular or rounded images
 
@@ -413,6 +419,9 @@ You need to override the `thumbnail#applyBitmap` method.
 
   }
 ```
+
+This method is called only with a standard implementation. If you use an external library, you don't need this method to access to your bitmap.
+
 
 You can see an example [here](https://github.com/gabrielemariotti/cardslib/tree/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/BirthDayCardFragment.java)
 

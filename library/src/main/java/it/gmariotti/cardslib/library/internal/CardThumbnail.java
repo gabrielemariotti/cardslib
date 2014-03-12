@@ -115,6 +115,11 @@ public class CardThumbnail extends BaseCard {
 
     protected CustomSource customSource = null;
 
+    /**
+     * Flag to send a broadcast after the bitmap is attached to imageView
+     */
+    protected boolean sendBroadcastAfterAttach = true;
+
     // -------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------
@@ -247,5 +252,23 @@ public class CardThumbnail extends BaseCard {
      */
     public void setErrorResource(int errorResourceId) {
         this.errorResourceId = errorResourceId;
+    }
+
+    /**
+     * Returns the flag which indicates to send a broadcast after the bitmap is attached
+     *
+     * @return
+     */
+    public boolean isSendBroadcastAfterAttach() {
+        return sendBroadcastAfterAttach;
+    }
+
+    /**
+     * Sets the flag to send a broadcast after the bitmap is attached
+     *
+     * @param sendBroadcastAfterAttach
+     */
+    public void setSendBroadcastAfterAttach(boolean sendBroadcastAfterAttach) {
+        this.sendBroadcastAfterAttach = sendBroadcastAfterAttach;
     }
 }
