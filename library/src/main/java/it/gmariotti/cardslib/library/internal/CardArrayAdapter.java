@@ -26,6 +26,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.ListView;
 
 import java.util.HashMap;
@@ -36,6 +37,7 @@ import it.gmariotti.cardslib.library.internal.base.BaseCardArrayAdapter;
 import it.gmariotti.cardslib.library.view.CardListView;
 import it.gmariotti.cardslib.library.view.CardView;
 import it.gmariotti.cardslib.library.view.listener.SwipeDismissListViewTouchListener;
+import it.gmariotti.cardslib.library.view.listener.SwipeOnScrollListener;
 import it.gmariotti.cardslib.library.view.listener.UndoBarController;
 import it.gmariotti.cardslib.library.view.listener.UndoCard;
 
@@ -193,11 +195,20 @@ public class CardArrayAdapter extends BaseCardArrayAdapter implements UndoBarCon
                 mOnTouchListener = new SwipeDismissListViewTouchListener(mCardListView, mCallback);
                 // Setting this scroll listener is required to ensure that during
                 // ListView scrolling, we don't look for swipes.
-                mCardListView.setOnScrollListener(mOnTouchListener.makeScrollListener());
+                if (mCardListView.getOnScrollListener() == null){
+                    SwipeOnScrollListener scrollListener = new SwipeOnScrollListener();
+                    scrollListener.setTouchListener(mOnTouchListener);
+                    mCardListView.setOnScrollListener(scrollListener);
+                }else{
+                    AbsListView.OnScrollListener onScrollListener=mCardListView.getOnScrollListener();
+                    if (onScrollListener instanceof SwipeOnScrollListener)
+                        ((SwipeOnScrollListener) onScrollListener).setTouchListener(mOnTouchListener);
+
+                }
+
+                mCardListView.setOnTouchListener(mOnTouchListener);
             }
-
             cardView.setOnTouchListener(mOnTouchListener);
-
         }else{
             //prevent issue with recycle view
             cardView.setOnTouchListener(null);

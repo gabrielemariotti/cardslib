@@ -35,6 +35,7 @@ import it.gmariotti.cardslib.library.R;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
 import it.gmariotti.cardslib.library.internal.CardCursorAdapter;
+import it.gmariotti.cardslib.library.view.listener.SwipeOnScrollListener;
 
 /**
  * Card List View.
@@ -75,7 +76,12 @@ public class CardListView extends ListView implements CardView.OnExpandListAnima
      */
     protected CardCursorAdapter mCursorAdapter;
 
-    //--------------------------------------------------------------------------
+    /**
+     * Custom ScrollListener to be used with a CardListView and cards with swipe action
+     */
+    protected SwipeOnScrollListener mOnScrollListener;
+
+//--------------------------------------------------------------------------
     // Fields for expand/collapse animation
     //--------------------------------------------------------------------------
 
@@ -240,6 +246,22 @@ public class CardListView extends ListView implements CardView.OnExpandListAnima
         mCursorAdapter.setRowLayoutId(list_card_layout_resourceID);
     }
 
+    /**
+     * Returns local scroll event listener
+     */
+    public OnScrollListener getOnScrollListener( ) {
+        return this.mOnScrollListener;
+    }
+
+    /**
+     * Overrides the set on scroll listener method and registers local reference
+     */
+    @Override
+    public void setOnScrollListener( OnScrollListener mOnScrollListener ) {
+        super.setOnScrollListener( mOnScrollListener );
+        if (mOnScrollListener instanceof SwipeOnScrollListener)
+            this.mOnScrollListener = (SwipeOnScrollListener)mOnScrollListener;
+    }
 
     //--------------------------------------------------------------------------
     // Expand and Collapse animator
