@@ -622,8 +622,30 @@ public class CardView extends BaseCardView {
                 }
 
                 View viewToClick = viewToClickToExpand.getViewToClick();
-                if (viewToClick != null)
+                if (viewToClick != null) {
                     viewToClick.setOnClickListener(titleViewOnClickListener);
+                }else{
+                    ViewToClickToExpand.CardElementUI cardElementUI=viewToClickToExpand.getCardElementUIToClick();
+                    if (cardElementUI!=null){
+                        switch (cardElementUI){
+                            case CARD:
+                                viewToClick = this;
+                                break;
+                            case HEADER:
+                                viewToClick = getInternalHeaderLayout();
+                                break;
+                            case THUMBNAIL:
+                                viewToClick = getInternalThumbnailLayout();
+                                break;
+                            case MAIN_CONTENT:
+                                viewToClick = getInternalContentLayout();
+                                break;
+                        }
+                        if (viewToClick != null) {
+                            viewToClick.setOnClickListener(titleViewOnClickListener);
+                        }
+                    }
+                }
 
                 if (isExpanded()) {
                     //Make layout visible and button selected

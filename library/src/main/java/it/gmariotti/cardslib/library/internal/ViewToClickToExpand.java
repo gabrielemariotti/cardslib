@@ -34,7 +34,8 @@ import android.view.View;
 public class ViewToClickToExpand {
 
     /**
-     *  View to Click to enable the expand/collapse action
+     *  View to Click to enable the expand/collapse action.
+     *  It has a higher priority than cardElementUIToClick.
      */
     protected View viewToClick;
 
@@ -42,6 +43,12 @@ public class ViewToClickToExpand {
      *  Indicates if the view will be selected
      */
     protected boolean viewToSelect=false;
+
+    /**
+     *  Card element UI to click to enable the expand/collapse action
+     *  It has a lower priority than cardElementUIToClick.
+     */
+    protected CardElementUI cardElementUIToClick;
 
     // -------------------------------------------------------------
     //  Constructors
@@ -56,6 +63,25 @@ public class ViewToClickToExpand {
      */
     public static ViewToClickToExpand builder(){
         return new ViewToClickToExpand();
+    }
+
+    // -------------------------------------------------------------
+    //  Enum
+    // -------------------------------------------------------------
+
+    public enum CardElementUI{
+
+        CARD(0),
+        HEADER(1),
+        THUMBNAIL(2),
+        MAIN_CONTENT(3);
+
+        int mElement;
+
+        CardElementUI(int element){
+            mElement = element;
+        }
+
     }
 
     // -------------------------------------------------------------
@@ -84,6 +110,11 @@ public class ViewToClickToExpand {
         return this;
     }
 
+    public ViewToClickToExpand setupCardElement(CardElementUI cardElementUIToClick){
+        this.cardElementUIToClick = cardElementUIToClick;
+        return this;
+    }
+
     // -------------------------------------------------------------
     //  Getters
     // -------------------------------------------------------------
@@ -103,5 +134,14 @@ public class ViewToClickToExpand {
     public boolean isViewToSelect() {
         return viewToSelect;
     }
+
+    /**
+     * Returns the card element to click to enable the expand/collapse action
+     * @return
+     */
+    public CardElementUI getCardElementUIToClick() {
+        return cardElementUIToClick;
+    }
+
 
 }

@@ -131,7 +131,9 @@ Default way: it enables the expand button on the header.
         header.setButtonExpandVisible(true);
 ```
 
-You can enable the expand/collapse action by clicking on a different Views.
+Pay attention: the method `header.setButtonExpandVisible(true)` has a higher priority.
+
+You can enable the expand/collapse action by clicking on a different View.
 You have to set the `ViewToClickToExpand` on the `Card`.
 
 ``` java
@@ -195,7 +197,7 @@ How to enable expand/collapse action by clicking on an element of the Card.
 ```
 
 
-How to enable expand/collapse action by clicking on the Thumbnail.
+How to enable expand/collapse action by clicking on the image on Thumbnail.
 
 ``` java
    public class CustomThumbnail extends CardThumbnail{
@@ -235,6 +237,47 @@ How to enable the custom expand/collapse in a `ListView`.
         }
     }
 ```
+
+Also you can enable the expand/collapse action on the default card elements using this method:
+
+
+``` java
+   ViewToClickToExpand viewToClickToExpand =
+                ViewToClickToExpand.builder()
+                        .highlightView(false)
+                        .setupCardElement(ViewToClickToExpand.CardElementUI.CARD);
+   card.setViewToClickToExpand(viewToClickToExpand);
+```
+
+Pay attention: the method `ViewToClickToExpand.setupView(imageView);` has a higher priority than the method `ViewToClickToExpand.setupCardElement()`.
+
+You can use this cardElementUI:
+
+- `ViewToClickToExpand.CardElementUI.CARD`: to enable the click on the whole card
+- `ViewToClickToExpand.CardElementUI.HEADER`: : to enable the click on the header
+- `ViewToClickToExpand.CardElementUI.MAIN_CONTENT`: to enable the click on the main content (not the whole card)
+- `ViewToClickToExpand.CardElementUI.THUMBNAIL`: to enable the click on the thumbnail (the whole thumbnail)
+
+You can also use this feature with a `ListView`.
+
+``` java
+      public class MyCard extends Card{
+
+           public MyCard(Context context) {
+               super(context);
+               init();
+           }
+
+           protected void init(){
+               ViewToClickToExpand viewToClickToExpand =
+                           ViewToClickToExpand.builder()
+                                   .highlightView(false)
+                                   .setupCardElement(ViewToClickToExpand.CardElementUI.CARD);
+               card.setViewToClickToExpand(viewToClickToExpand);
+           }
+       }
+```
+
 
 ### CardExpand and CardListView
 
