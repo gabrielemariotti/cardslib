@@ -7,6 +7,7 @@ In this page you can find info about:
 * [Cards with different inner layouts](#cards-with-different-inner-layouts)
 * [Swipe and Undo in `CardListView`](#swipe-and-undo-in-cardlistview)
 * [Swipe and Undo with a custom UndoBar](#swipe-and-undo-with-a-custom-undobar)
+* [Swipe and custom OnScrollListener](#swipe-and-custom-onscrolllistener)
 * [How to use an external adapter](#how-to-use-an-external-adapter)
 * [Using a cursor adapter](#using-a-cursor-adapter)
 * [Using a CardList in MultiChoiceMode](#using-a-cardlist-in-multichoicemode)
@@ -304,6 +305,36 @@ Example:
 ```
 
 If you would like to use more ListViews in the same screen, you have to use the code above.
+
+
+### Swipe and custom OnScrollListener
+
+The `CardListView` of cards with swipe action uses a own `SwipeOnScrollListener` to  ensure that the `SwipeDismissListViewTouchListener`
+is paused during list view scrolling.
+
+If you want to use your custom `OnScrollListener` you can use this code:
+
+``` java
+ listView.setOnScrollListener(
+
+     new SwipeOnScrollListener() {
+          @Override
+          public void onScrollStateChanged(AbsListView view, int scrollState) {
+              //It is very important to call the super method here to preserve built-in functions
+              super.onScrollStateChanged(view,scrollState);
+          }
+
+         @Override
+         public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+             //Do something...
+         }
+     });
+```
+
+It is very important to call the `super.onScrollStateChanged(view,scrollState);` in `onScrollStateChanged` method to preserve the built-in functions in swipe actions.
+
+You can use a default `AbsListView.OnScrollListener` if you are working with a list of cards without swipe action.
+
 
 
 ### How to use an external adapter

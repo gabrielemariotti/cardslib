@@ -3,8 +3,9 @@ Change Log
 
 Version 1.X.X *(2014-XX-XX)*
 ----------------------------
-* LIB: introduced a flag to disable the default broadcast after a bitmap is attached to an imageView in `CardThumbnail` [(doc)](https://github.com/gabrielemariotti/cardslib/blob/master/doc/THUMBNAIL.md#broadcast-to-know-when-the-download-is-finished)
-* LIB: added the method `ViewToClickToExpand.setupCardElement()` to enable the expand/collapse action on the default card elements  [(doc)](https://github.com/gabrielemariotti/cardslib/blob/master/doc/EXPAND.md#expand-the-card-by-clicking-on-different-view)
+* LIB: Added a feature to use a own OnScrollListener with CardListView and Swipe Action [(doc)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARDLIST.md#swipe-and-custom-onscrolllistener)
+* LIB: Added the method `ViewToClickToExpand.setupCardElement()` to enable the expand/collapse action on the default card elements  [(doc)](https://github.com/gabrielemariotti/cardslib/blob/master/doc/EXPAND.md#expand-the-card-by-clicking-on-different-view)
+* LIB: Introduced a flag to disable the default broadcast after a bitmap is attached to an imageView in `CardThumbnail` [(doc)](https://github.com/gabrielemariotti/cardslib/blob/master/doc/THUMBNAIL.md#broadcast-to-know-when-the-download-is-finished)
 
 
 Version 1.4.2 *(2014-03-07)*
