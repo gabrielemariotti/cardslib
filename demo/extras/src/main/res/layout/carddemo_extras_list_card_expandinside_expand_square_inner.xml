@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /*******************************************************************************
+  ~   Copyright (c) 2014 Gabriele Mariotti.
+  ~
+  ~   Licensed under the Apache License, Version 2.0 (the "License");
+  ~   you may not use this file except in compliance with the License.
+  ~   You may obtain a copy of the License at
+  ~
+  ~   http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~   Unless required by applicable law or agreed to in writing, software
+  ~   distributed under the License is distributed on an "AS IS" BASIS,
+  ~   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~   See the License for the specific language governing permissions and
+  ~   limitations under the License.
+  ~  ******************************************************************************/
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="12dp"
+    android:layout_marginBottom="12dp"
+    >
+
+    <TextView
+        android:id="@+id/carddemo_inside_text"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="12dp"
+        android:background="@drawable/carddemo_rectangle"
+        android:gravity="center"
+        android:text="2"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:fontFamily="sans-serif-light"
+        />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="6"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/carddemo_inside_image_title1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:fontFamily="sans-serif"
+            android:layout_marginTop="0dp"
+            android:gravity="center_vertical"
+            android:textStyle="bold"
+            android:ellipsize="end"
+            android:textAllCaps="true"
+            android:textSize="@dimen/text_size_medium"
+            android:textColor="#c000"
+            android:layout_marginLeft="8dp"
+            />
+
+        <TextView
+            android:id="@+id/carddemo_inside_image_title2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-condensed"
+            android:text="secondary text"
+            android:layout_marginLeft="8dp"
+            android:layout_marginBottom="9dp"
+            android:textColor="#6000"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/carddemo_inside_image_title3"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:textStyle="bold"
+        android:text="7.5"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:textColor="#FF6600"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="center"
+        android:layout_marginRight="2dp"
+
+        />
+
+</LinearLayout>
+
+
+

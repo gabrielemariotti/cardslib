@@ -41,6 +41,7 @@ import android.widget.ListView;
 import it.gmariotti.cardslib.demo.extras.fragment.ActionbarpullFragment;
 import it.gmariotti.cardslib.demo.extras.fragment.BaseFragment;
 import it.gmariotti.cardslib.demo.extras.fragment.CroutonFragment;
+import it.gmariotti.cardslib.demo.extras.fragment.ExpandPicassoFragment;
 import it.gmariotti.cardslib.demo.extras.fragment.IonFragment;
 import it.gmariotti.cardslib.demo.extras.fragment.ListViewAnimationsFragment;
 import it.gmariotti.cardslib.demo.extras.fragment.ListViewGridAnimationsFragment;
@@ -79,6 +80,7 @@ public class MainActivity extends Activity {
     private static final int CASE_CROUTON = 6;
     private static final int CASE_STKHDR = 7;
     private static final int CASE_STAG = 8;
+    private static final int CASE_EXPANDINSIDE = 9;
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -294,6 +296,9 @@ public class MainActivity extends Activity {
             case CASE_STAG:
                 baseFragment= new StaggeredGridFragment();
                 break;
+            case CASE_EXPANDINSIDE:
+                baseFragment= new ExpandPicassoFragment();
+                break;
             default:
                 break;
         }
@@ -338,8 +343,9 @@ public class MainActivity extends Activity {
             "ListViewAnimations",
             "GridViewAnimations",
             "Crouton",
-            "StickyListHeaders"
-            //"StaggeredGrid"
+            "StickyListHeaders",
+            //"StaggeredGrid",
+            "Expand inside"
 
     };
 
