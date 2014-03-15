@@ -113,7 +113,7 @@ public class PicassoCard extends Card {
             if (((PicassoCard) getParentCard()).getCount() % 2 == 0) {
                 Picasso.with(getContext()).setDebugging(true);  //only for debug tests
                 Picasso.with(getContext())
-                        .load("https://plus.google.com/s2/photos/profile/114432517923423045208?sz=96")
+                        .load("https://lh5.googleusercontent.com/-squZd7FxR8Q/UyN5UrsfkqI/AAAAAAAAbAo/VoDHSYAhC_E/s96/new%2520profile%2520%25282%2529.jpg")
                         .error(R.drawable.ic_error_loadingsmall)
                         .into((ImageView) viewImage);
             } else {

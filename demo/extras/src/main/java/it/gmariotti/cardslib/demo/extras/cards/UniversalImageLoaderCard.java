@@ -118,7 +118,7 @@ public class UniversalImageLoaderCard extends Card {
             //Here you have to set your image with an external library
             //Only for test, use a Resource Id and a Url
             if (((UniversalImageLoaderCard) getParentCard()).getCount() % 2 == 0) {
-                imageLoader.displayImage("http://plus.google.com/s2/photos/profile/114432517923423045208?sz=96", (ImageView) viewImage,options);
+                imageLoader.displayImage("https://lh5.googleusercontent.com/-squZd7FxR8Q/UyN5UrsfkqI/AAAAAAAAbAo/VoDHSYAhC_E/s96/new%2520profile%2520%25282%2529.jpg", (ImageView) viewImage,options);
             } else {
                 imageLoader.displayImage("drawable://" + R.drawable.ic_tris, (ImageView) viewImage,options);
             }
