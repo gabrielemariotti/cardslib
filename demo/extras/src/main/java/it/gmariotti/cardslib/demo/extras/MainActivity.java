@@ -344,7 +344,7 @@ public class MainActivity extends Activity {
             "GridViewAnimations",
             "Crouton",
             "StickyListHeaders",
-            //"StaggeredGrid",
+            "StaggeredGrid (exp)",
             "Expand inside"
 
     };
