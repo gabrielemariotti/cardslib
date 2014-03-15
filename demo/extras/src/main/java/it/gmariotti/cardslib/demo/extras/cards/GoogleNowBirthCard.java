@@ -90,6 +90,9 @@ public class GoogleNowBirthCard extends Card {
     }
 
 
+    /**
+     * CardThumbnail. It uses Picasso.
+     */
     class GoogleNowBirthThumb extends CardThumbnail {
 
         public GoogleNowBirthThumb(Context context) {
@@ -113,6 +116,9 @@ public class GoogleNowBirthCard extends Card {
     }
 
 
+    /**
+     * CardHeader
+     */
     class GoogleNowBirthHeader extends CardHeader {
 
         String mName;

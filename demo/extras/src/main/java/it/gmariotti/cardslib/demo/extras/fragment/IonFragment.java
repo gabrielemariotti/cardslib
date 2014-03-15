@@ -32,7 +32,7 @@ import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
 import it.gmariotti.cardslib.library.view.CardListView;
 
 /**
- * This example uses a list card with Thumbnail loaded with built-in method and Ion library
+ * This example uses a list of cards with Thumbnail loaded with built-in method and Ion library
  * Please refer to https://github.com/koush/ion for full doc
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
@@ -58,7 +58,7 @@ public class IonFragment extends BaseFragment {
     }
 
     /**
-     * This method builds a simple card
+     * This method builds a simple list of cards
      */
     private void initCard() {
 

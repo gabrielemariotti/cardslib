@@ -86,14 +86,17 @@ public class ActionbarpullFragment extends BaseFragment implements OnRefreshList
     }
 
     /**
-     * This method builds a simple card
+     * This method builds a simple list of cards
      */
     private void initCard() {
 
         //Init an array of Cards
         ArrayList<Card> cards = new ArrayList<Card>();
         for (int i = 0; i < 25; i++) {
+
             ColorCard card = new ColorCard(this.getActivity());
+
+            //Only for test scope, use different titles and colors
             card.setTitle("A simple colored card " + i);
             card.setCount(i);
             switch (i%5) {
@@ -117,6 +120,7 @@ public class ActionbarpullFragment extends BaseFragment implements OnRefreshList
             cards.add(card);
         }
 
+        //Set the adapter
         CardArrayAdapter mCardArrayAdapter = new CardArrayAdapter(getActivity(), cards);
 
         if (listView != null) {

@@ -32,7 +32,7 @@ import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
 import it.gmariotti.cardslib.library.view.CardListView;
 
 /**
- * This example uses a list card with Thumbnail loaded with built-in method and Picasso library
+ * This example uses a list of cards with Thumbnail loaded with built-in method and Picasso library
  * Please refer to https://github.com/square/picasso for full doc
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
@@ -58,7 +58,7 @@ public class PicassoFragment extends BaseFragment {
     }
 
     /**
-     * This method builds a simple card
+     * This method builds a simple list of cards
      */
     private void initCard() {
 
@@ -72,6 +72,7 @@ public class PicassoFragment extends BaseFragment {
             cards.add(card);
         }
 
+        //Set the adapter
         CardArrayAdapter mCardArrayAdapter = new CardArrayAdapter(getActivity(), cards);
 
         CardListView listView = (CardListView) getActivity().findViewById(R.id.carddemo_extra_list_picasso);

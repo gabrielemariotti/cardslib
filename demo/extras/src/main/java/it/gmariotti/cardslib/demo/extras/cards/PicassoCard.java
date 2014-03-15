@@ -56,7 +56,7 @@ public class PicassoCard extends Card {
 
         //Add thumbnail
         PicassoCardThumbnail cardThumbnail = new PicassoCardThumbnail(mContext);
-        //It must be set to use a external library
+        //It must be set to use a external library!
         cardThumbnail.setExternalUsage(true);
         addCardThumbnail(cardThumbnail);
 

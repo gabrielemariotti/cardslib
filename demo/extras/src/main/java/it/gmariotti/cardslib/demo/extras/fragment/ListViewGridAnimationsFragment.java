@@ -48,7 +48,7 @@ import it.gmariotti.cardslib.library.internal.base.BaseCard;
 import it.gmariotti.cardslib.library.view.CardGridView;
 
 /**
- * This example uses a list card animated with ListViewAnimations
+ * This example uses a grid of cards animated with ListViewAnimations.
  * Please refer to https://github.com/nhaarman/ListViewAnimations for full doc
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
@@ -56,9 +56,9 @@ import it.gmariotti.cardslib.library.view.CardGridView;
 public class ListViewGridAnimationsFragment extends BaseFragment implements
         ActionBar.OnNavigationListener {
 
-    private CardGridView  mListView;
+    private CardGridView mListView;
     private CardGridArrayAdapter mCardArrayAdapter;
-    
+
     @Override
     public int getTitleResourceId() {
         return R.string.carddemo_extras_title_listviewgridanimations;
@@ -92,6 +92,9 @@ public class ListViewGridAnimationsFragment extends BaseFragment implements
 
     }
 
+    /**
+     * Populate the downDownValues to select the different animations
+     */
     private void populateNavigationList() {
 
         getActivity().getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
@@ -113,7 +116,7 @@ public class ListViewGridAnimationsFragment extends BaseFragment implements
     }
 
     /**
-     * This method builds a simple card
+     * This method builds a simple list of cards
      */
     private void initCard() {
 
@@ -122,6 +125,7 @@ public class ListViewGridAnimationsFragment extends BaseFragment implements
 
             GplayGridCard card = new GplayGridCard(getActivity());
 
+            //Only for test, use different titles and ratings
             card.headerTitle = "App example " + i;
             card.secondaryTitle = "Some text here " + i;
             card.rating = (float) (Math.random() * (5.0));
@@ -143,7 +147,8 @@ public class ListViewGridAnimationsFragment extends BaseFragment implements
             cards.add(card);
         }
 
-         mCardArrayAdapter = new CardGridArrayAdapter(getActivity(), cards);
+        //Set the adapter
+        mCardArrayAdapter = new CardGridArrayAdapter(getActivity(), cards);
 
         mListView = (CardGridView) getActivity().findViewById(R.id.carddemo_extras_grid_base1);
         if (mListView != null) {
@@ -152,40 +157,58 @@ public class ListViewGridAnimationsFragment extends BaseFragment implements
     }
 
 
+    /**
+     * Alpha animation
+     */
     private void setAlphaAdapter() {
         AnimationAdapter animCardArrayAdapter = new AlphaInAnimationAdapter(mCardArrayAdapter);
         animCardArrayAdapter.setAbsListView(mListView);
-        mListView.setExternalAdapter(animCardArrayAdapter,mCardArrayAdapter);
+        mListView.setExternalAdapter(animCardArrayAdapter, mCardArrayAdapter);
     }
 
+    /**
+     * Left animation
+     */
     private void setLeftAdapter() {
         AnimationAdapter animCardArrayAdapter = new SwingLeftInAnimationAdapter(mCardArrayAdapter);
         animCardArrayAdapter.setAbsListView(mListView);
-        mListView.setExternalAdapter(animCardArrayAdapter,mCardArrayAdapter);
+        mListView.setExternalAdapter(animCardArrayAdapter, mCardArrayAdapter);
     }
 
+    /**
+     * Right animation
+     */
     private void setRightAdapter() {
         AnimationAdapter animCardArrayAdapter = new SwingRightInAnimationAdapter(mCardArrayAdapter);
         animCardArrayAdapter.setAbsListView(mListView);
-        mListView.setExternalAdapter(animCardArrayAdapter,mCardArrayAdapter);
+        mListView.setExternalAdapter(animCardArrayAdapter, mCardArrayAdapter);
     }
 
+    /**
+     * Bottom animation
+     */
     private void setBottomAdapter() {
         AnimationAdapter animCardArrayAdapter = new SwingBottomInAnimationAdapter(mCardArrayAdapter);
         animCardArrayAdapter.setAbsListView(mListView);
-        mListView.setExternalAdapter(animCardArrayAdapter,mCardArrayAdapter);
+        mListView.setExternalAdapter(animCardArrayAdapter, mCardArrayAdapter);
     }
 
+    /**
+     * Bottom-right animation
+     */
     private void setBottomRightAdapter() {
         AnimationAdapter animCardArrayAdapter = new SwingBottomInAnimationAdapter(new SwingRightInAnimationAdapter(mCardArrayAdapter));
         animCardArrayAdapter.setAbsListView(mListView);
-        mListView.setExternalAdapter(animCardArrayAdapter,mCardArrayAdapter);
+        mListView.setExternalAdapter(animCardArrayAdapter, mCardArrayAdapter);
     }
 
+    /**
+     * Scale animation
+     */
     private void setScaleAdapter() {
         AnimationAdapter animCardArrayAdapter = new ScaleInAnimationAdapter(mCardArrayAdapter);
         animCardArrayAdapter.setAbsListView(mListView);
-        mListView.setExternalAdapter(animCardArrayAdapter,mCardArrayAdapter);
+        mListView.setExternalAdapter(animCardArrayAdapter, mCardArrayAdapter);
     }
 
     @Override
@@ -215,7 +238,9 @@ public class ListViewGridAnimationsFragment extends BaseFragment implements
 
     }
 
-
+    /**
+     * A card as Google Play
+     */
     public class GplayGridCard extends Card {
 
         protected TextView mTitle;
@@ -237,6 +262,8 @@ public class ListViewGridAnimationsFragment extends BaseFragment implements
         }
 
         private void init() {
+
+            //Add header with the overflow button
             CardHeader header = new CardHeader(getContext());
             header.setButtonOverflowVisible(true);
             header.setTitle(headerTitle);
@@ -249,6 +276,7 @@ public class ListViewGridAnimationsFragment extends BaseFragment implements
 
             addCardHeader(header);
 
+            //Add thumbnail
             GplayGridThumb thumbnail = new GplayGridThumb(getContext());
             if (resourceIdThumbnail > -1)
                 thumbnail.setDrawableResource(resourceIdThumbnail);
@@ -256,6 +284,7 @@ public class ListViewGridAnimationsFragment extends BaseFragment implements
                 thumbnail.setDrawableResource(R.drawable.ic_ic_launcher_web);
             addCardThumbnail(thumbnail);
 
+            //Listeners
             setOnClickListener(new OnCardClickListener() {
                 @Override
                 public void onClick(Card card, View view) {
@@ -266,6 +295,8 @@ public class ListViewGridAnimationsFragment extends BaseFragment implements
 
         @Override
         public void setupInnerViewElements(ViewGroup parent, View view) {
+
+            //Populate the inner elements
 
             TextView title = (TextView) view.findViewById(R.id.carddemo_extras_gplay_main_inner_title);
             title.setText("FREE");
@@ -281,6 +312,9 @@ public class ListViewGridAnimationsFragment extends BaseFragment implements
             mRatingBar.setRating(rating);
         }
 
+        /**
+         * CardThumbnail
+         */
         class GplayGridThumb extends CardThumbnail {
 
             public GplayGridThumb(Context context) {
