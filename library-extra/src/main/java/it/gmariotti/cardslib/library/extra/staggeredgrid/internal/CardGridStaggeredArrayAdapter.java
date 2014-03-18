@@ -31,7 +31,6 @@ import it.gmariotti.cardslib.library.extra.staggeredgrid.view.CardGridStaggeredV
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.base.BaseCardArrayAdapter;
 import it.gmariotti.cardslib.library.view.CardView;
-import it.gmariotti.cardslib.library.view.listener.SwipeDismissListViewTouchListener;
 
 /**
  * Array Adapter for {@link it.gmariotti.cardslib.library.internal.Card} model.
@@ -81,12 +80,6 @@ public class CardGridStaggeredArrayAdapter extends BaseCardArrayAdapter {
      * {@link it.gmariotti.cardslib.library.view.CardGridView}
      */
     protected CardGridStaggeredView mCardGridView;
-
-    /**
-     * Listener invoked when a card is swiped
-     */
-    protected SwipeDismissListViewTouchListener mOnTouchListener;
-
 
     // -------------------------------------------------------------
     // Constructors
@@ -150,13 +143,13 @@ public class CardGridStaggeredArrayAdapter extends BaseCardArrayAdapter {
                     Log.d(TAG, "Swipe action not enabled in this type of view");
 
                 //If card has an expandable button override animation
-                if (mCard.getCardHeader() != null && mCard.getCardHeader().isButtonExpandVisible()) {
+                if ((mCard.getCardHeader() != null && mCard.getCardHeader().isButtonExpandVisible()) || mCard.getViewToClickToExpand()!=null ){
                     //setupExpandCollapseListAnimation(mCardView);
                     Log.d(TAG, "Expand action not enabled in this type of view");
                 }
 
                 //Setup swipeable animation
-                setupSwipeableAnimation(mCard, mCardView);
+                //setupSwipeableAnimation(mCard, mCardView);
 
                 //setupMultiChoice
                 setupMultichoice(view,mCard,mCardView,position);
@@ -166,24 +159,13 @@ public class CardGridStaggeredArrayAdapter extends BaseCardArrayAdapter {
         return view;
     }
 
-    /**
-     * Removes SwipeAnimation on Grid
-     *
-     * @param card     {@link it.gmariotti.cardslib.library.internal.Card}
-     * @param cardView {@link it.gmariotti.cardslib.library.view.CardView}
-     */
-    protected void setupSwipeableAnimation(final Card card, CardView cardView) {
-        cardView.setOnTouchListener(null);
-    }
-
     @Override
     public int getItemViewType(int position) {
-        if (position>=0){
+        if (position>=0 && position<getCount()){
             return super.getItemViewType(position);
         }else{
             return position;
         }
-        
     }
 
 
