@@ -43,22 +43,25 @@ dependencies {
     // Cards Library
     compile project(':library')
     compile project(':library-extra')
+
     // Support Libraries
     compile 'com.android.support:support-v4:19.0.0'
+
     //OkHttp
     compile 'com.squareup.okhttp:okhttp:1.3.0'
     //Picasso
     compile 'com.squareup.picasso:picasso:2.2.0'
+
     //Ion
     compile 'com.koushikdutta.ion:ion:1.2.4'
+
     //universal-image-loader
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.1'
+
     //Actionbar pull to refresh
     compile 'com.github.chrisbanes.actionbarpulltorefresh:library:0.9.3'
 
     //lListViewAnimations
-    //compile fileTree(dir: 'libs', include: '*.jar')
-    //compile 'com.nineoldandroids:library:2.4.0'
     compile 'com.nhaarman.listviewanimations:library:2.6.0'
 
     //Crouton

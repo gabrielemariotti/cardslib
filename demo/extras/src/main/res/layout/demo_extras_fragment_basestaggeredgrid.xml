@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ *******************************************************************************
+  ~   Copyright (c) 2013-2014 Gabriele Mariotti.
+  ~
+  ~   Licensed under the Apache License, Version 2.0 (the "License");
+  ~   you may not use this file except in compliance with the License.
+  ~   You may obtain a copy of the License at
+  ~
+  ~   http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~   Unless required by applicable law or agreed to in writing, software
+  ~   distributed under the License is distributed on an "AS IS" BASIS,
+  ~   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~   See the License for the specific language governing permissions and
+  ~   limitations under the License.
+  ~  *****************************************************************************
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:card="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+   <it.gmariotti.cardslib.library.extra.staggeredgrid.view.CardGridStaggeredView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       card:item_margin="8dp"
+       card:column_count_portrait="3"
+       card:column_count_landscape="3"
+       card:grid_paddingRight="8dp"
+       card:grid_paddingLeft="8dp"
+       card:list_card_layout_resourceID="@layout/carddemo_extras_base_staggered_card"
+       android:id="@+id/carddemo_extras_grid_stag"/>
+
+
+</LinearLayout>
