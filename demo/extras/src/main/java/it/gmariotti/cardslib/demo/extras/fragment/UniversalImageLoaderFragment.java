@@ -40,7 +40,7 @@ import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
 import it.gmariotti.cardslib.library.view.CardListView;
 
 /**
- * This example uses a list card with Thumbnail loaded with built-in method and Android-Universal-Image-Loader library
+ * This example uses a list of cards with Thumbnail loaded with built-in method and Android-Universal-Image-Loader library
  * https://github.com/nostra13/Android-Universal-Image-Loader
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)

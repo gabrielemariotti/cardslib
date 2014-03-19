@@ -41,7 +41,7 @@ import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
 import it.gmariotti.cardslib.library.view.CardListView;
 
 /**
- * This example uses a list card animated with ListViewAnimations
+ * This example uses a list of cards animated with ListViewAnimations.
  * Please refer to https://github.com/nhaarman/ListViewAnimations for full doc
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
@@ -85,7 +85,9 @@ public class ListViewAnimationsFragment extends BaseFragment implements
 
     }
 
-
+    /**
+     * Populate the downDownValues to select the different animations
+     */
     private void populateNavigationList() {
 
         getActivity().getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
@@ -107,14 +109,17 @@ public class ListViewAnimationsFragment extends BaseFragment implements
     }
 
     /**
-     * This method builds a simple card
+     * This method builds a simple list of cards
      */
     private void initCard() {
 
         //Init an array of Cards
         ArrayList<Card> cards = new ArrayList<Card>();
         for (int i = 0; i < 25; i++) {
+
             ColorCard card = new ColorCard(this.getActivity());
+
+            //Only for test scope, use different titles and colors
             card.setTitle("A simple colored card " + i);
             card.setCount(i);
             switch (i % 5) {
@@ -138,10 +143,8 @@ public class ListViewAnimationsFragment extends BaseFragment implements
             cards.add(card);
         }
 
-
+        //Set the adapter
         mCardArrayAdapter = new CardArrayAdapter(getActivity(), cards);
-
-
 
         mListView = (CardListView) getActivity().findViewById(R.id.carddemo_extra_list_viewanimations);
         if (mListView != null) {
@@ -150,6 +153,9 @@ public class ListViewAnimationsFragment extends BaseFragment implements
     }
 
 
+    /**
+     * Alpha animation
+     */
     private void setAlphaAdapter() {
         AnimationAdapter animCardArrayAdapter = new AlphaInAnimationAdapter(mCardArrayAdapter);
         animCardArrayAdapter.setAbsListView(mListView);
@@ -158,6 +164,9 @@ public class ListViewAnimationsFragment extends BaseFragment implements
         }
     }
 
+    /**
+     * Left animation
+     */
     private void setLeftAdapter() {
         AnimationAdapter animCardArrayAdapter = new SwingLeftInAnimationAdapter(mCardArrayAdapter);
         animCardArrayAdapter.setAbsListView(mListView);
@@ -166,6 +175,9 @@ public class ListViewAnimationsFragment extends BaseFragment implements
         }
     }
 
+    /**
+     * Right animation
+     */
     private void setRightAdapter() {
         AnimationAdapter animCardArrayAdapter = new SwingRightInAnimationAdapter(mCardArrayAdapter);
         animCardArrayAdapter.setAbsListView(mListView);
@@ -174,12 +186,18 @@ public class ListViewAnimationsFragment extends BaseFragment implements
         }
     }
 
+    /**
+     * Bottom animation
+     */
     private void setBottomAdapter() {
         AnimationAdapter animCardArrayAdapter = new SwingBottomInAnimationAdapter(mCardArrayAdapter);
         animCardArrayAdapter.setAbsListView(mListView);
         mListView.setExternalAdapter(animCardArrayAdapter,mCardArrayAdapter);
     }
 
+    /**
+     * Bottom-right animation
+     */
     private void setBottomRightAdapter() {
         AnimationAdapter animCardArrayAdapter = new SwingBottomInAnimationAdapter(new SwingRightInAnimationAdapter(mCardArrayAdapter));
         animCardArrayAdapter.setAbsListView(mListView);
@@ -188,6 +206,9 @@ public class ListViewAnimationsFragment extends BaseFragment implements
         }
     }
 
+    /**
+     * Scale animation
+     */
     private void setScaleAdapter() {
         AnimationAdapter animCardArrayAdapter = new ScaleInAnimationAdapter(mCardArrayAdapter);
         animCardArrayAdapter.setAbsListView(mListView);

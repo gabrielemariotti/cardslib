@@ -34,7 +34,7 @@ import it.gmariotti.cardslib.library.internal.CardThumbnail;
 import it.gmariotti.cardslib.library.view.CardView;
 
 /**
- * Crouton card
+ * This example build a Crouton Card.(the Crouton lib display a Card View)
  * Please refer to https://github.com/keyboardsurfer/Crouton for full doc
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
@@ -61,12 +61,16 @@ public class CroutonFragment extends BaseFragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.extras_crouton, menu);
-        super.onCreateOptionsMenu(menu,inflater);
+        super.onCreateOptionsMenu(menu, inflater);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+
+            /**
+             * Only for test scope, use 2 different crouton cards
+             */
 
             case R.id.menu_crouton1:
                 crouton1();
@@ -87,25 +91,29 @@ public class CroutonFragment extends BaseFragment {
     }
 
     /**
-     * This method builds a simple card
+     * This method builds a crouton card
      */
     private void crouton1() {
 
         LayoutInflater mInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = mInflater.inflate(R.layout.carddemo_extras_crouton_card, null);
 
-        CardView cardView= (CardView)view.findViewById(R.id.carddemo_card_crouton_id);
+        //CardView
+        CardView cardView = (CardView) view.findViewById(R.id.carddemo_card_crouton_id);
 
+        //Card
         Card card = new Card(getActivity());
         card.setTitle("Crouton Card");
         card.setBackgroundResourceId(R.color.demoextra_card_background_color2);
 
+        //Add a cardThumbnail
         CardThumbnail thumb = new CardThumbnail(getActivity());
         thumb.setDrawableResource(R.drawable.ic_action_bulb);
         card.addCardThumbnail(thumb);
 
         cardView.setCard(card);
 
+        //Make the crouton view
         final Crouton crouton;
         crouton = Crouton.make(getActivity(), view);
         crouton.show();
@@ -113,24 +121,28 @@ public class CroutonFragment extends BaseFragment {
     }
 
     /**
-     * This method builds a simple card
+     * This method builds another crouton card
      */
     private void crouton2() {
 
         LayoutInflater mInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = mInflater.inflate(R.layout.carddemo_extras_crouton_card, null);
 
-        CardView cardView= (CardView)view.findViewById(R.id.carddemo_card_crouton_id);
+        //Card View
+        CardView cardView = (CardView) view.findViewById(R.id.carddemo_card_crouton_id);
 
+        //Card
         Card card = new Card(getActivity());
         card.setTitle("Crouton Card");
 
+        //Add a CardThumbnail
         CardThumbnail thumb = new CardThumbnail(getActivity());
         thumb.setDrawableResource(R.drawable.ic_action_halt);
         card.addCardThumbnail(thumb);
 
         cardView.setCard(card);
 
+        //Make the crouton view
         final Crouton crouton;
         crouton = Crouton.make(getActivity(), view);
         crouton.show();

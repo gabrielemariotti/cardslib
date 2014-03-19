@@ -115,7 +115,7 @@ public class IonCard extends Card {
                         .resize(96, 96)
                         .error(R.drawable.ic_error_loadingsmall)
                         .centerInside()
-                        .load("https://plus.google.com/s2/photos/profile/114432517923423045208?sz=96");
+                        .load("https://lh5.googleusercontent.com/-squZd7FxR8Q/UyN5UrsfkqI/AAAAAAAAbAo/VoDHSYAhC_E/s96/new%2520profile%2520%25282%2529.jpg");
 
             } else {
                 //I can use built-in method with drawable resources.

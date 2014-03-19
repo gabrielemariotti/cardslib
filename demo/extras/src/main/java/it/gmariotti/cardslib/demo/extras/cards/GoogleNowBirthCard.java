@@ -90,6 +90,9 @@ public class GoogleNowBirthCard extends Card {
     }
 
 
+    /**
+     * CardThumbnail. It uses Picasso.
+     */
     class GoogleNowBirthThumb extends CardThumbnail {
 
         public GoogleNowBirthThumb(Context context) {
@@ -104,7 +107,7 @@ public class GoogleNowBirthCard extends Card {
             //Here you have to set your image with an external library
             Picasso.with(getContext()).setDebugging(true);
             Picasso.with(getContext())
-                   .load("https://plus.google.com/s2/photos/profile/114432517923423045208?sz=250")
+                   .load("https://lh5.googleusercontent.com/-squZd7FxR8Q/UyN5UrsfkqI/AAAAAAAAbAo/VoDHSYAhC_E/s250/new%2520profile%2520%25282%2529.jpg")
                    .into((ImageView)viewImage);
 
             viewImage.getLayoutParams().width = 250;
@@ -113,6 +116,9 @@ public class GoogleNowBirthCard extends Card {
     }
 
 
+    /**
+     * CardHeader
+     */
     class GoogleNowBirthHeader extends CardHeader {
 
         String mName;
