@@ -34,7 +34,7 @@ import it.gmariotti.cardslib.library.view.CardView;
 
 /**
  * Array Adapter for {@link it.gmariotti.cardslib.library.internal.Card} model.
- * Use it with a {@link it.gmariotti.cardslib.library.view.CardGridView}.
+ * Use it with a {@link it.gmariotti.cardslib.library.extra.staggeredgrid.view.CardGridStaggeredView}.
  * </p>
  * Usage:
  * <pre><code>
@@ -44,9 +44,9 @@ import it.gmariotti.cardslib.library.view.CardView;
  *     cards.add(card);
  * }
  * <p/>
- * CardGridArrayAdapter mCardArrayAdapter = new CardGridArrayAdapter(getActivity(),cards);
+ * CardGridStaggeredArrayAdapter mCardArrayAdapter = new CardGridStaggeredArrayAdapter(getActivity(),cards);
  * <p/>
- * CardGridView gridView = (CardGridView) getActivity().findViewById(R.id.gridId);
+ * CardGridView gridView = (CardGridStaggeredView) getActivity().findViewById(R.id.gridId);
  * gridView.setAdapter(mCardArrayAdapter); *
  * </code></pre>
  * It provides a default layout id for each row @layout/list_card_layout
@@ -77,7 +77,7 @@ public class CardGridStaggeredArrayAdapter extends BaseCardArrayAdapter {
     protected static String TAG = "CardGridArrayAdapter";
 
     /**
-     * {@link it.gmariotti.cardslib.library.view.CardGridView}
+     * {@link it.gmariotti.cardslib.library.extra.staggeredgrid.view.CardGridStaggeredView}
      */
     protected CardGridStaggeredView mCardGridView;
 
