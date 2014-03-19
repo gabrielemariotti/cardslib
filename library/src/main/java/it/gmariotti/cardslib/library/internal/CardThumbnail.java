@@ -24,6 +24,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import it.gmariotti.cardslib.library.internal.base.BaseCard;
+import it.gmariotti.cardslib.library.view.component.CardThumbnailView;
 
 /**
  * Card Thumbnail model.
@@ -270,5 +271,17 @@ public class CardThumbnail extends BaseCard {
      */
     public void setSendBroadcastAfterAttach(boolean sendBroadcastAfterAttach) {
         this.sendBroadcastAfterAttach = sendBroadcastAfterAttach;
+    }
+
+    /**
+     * Return the CardThumbnailCardView
+     * @return
+     */
+    public CardThumbnailView getCardThumbnailView() {
+
+        if (getParentCard() != null)
+            return getParentCard().getCardView().getInternalThumbnailLayout();
+
+        return null;
     }
 }
