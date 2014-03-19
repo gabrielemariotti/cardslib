@@ -49,21 +49,6 @@ public abstract class CardGridCursorAdapter extends BaseCardCursorAdapter  {
     protected CardGridView mCardGridView;
 
     /**
-     * Listener invoked when a card is swiped
-     */
-    //protected SwipeDismissListViewTouchListener mOnTouchListener;
-
-    /**
-     * Used to enable an undo message after a swipe action
-     */
-    //protected boolean mEnableUndo=false;
-
-    /**
-     * Undo Controller
-     */
-    //protected UndoBarController mUndoBarController;
-
-    /**
      * Internal Map with all Cards.
      * It uses the card id value as key.
      */
@@ -166,127 +151,9 @@ public abstract class CardGridCursorAdapter extends BaseCardCursorAdapter  {
     protected void setupSwipeableAnimation(final Card card, CardView cardView) {
 
         cardView.setOnTouchListener(null);
-        /*
-        if (card.isSwipeable()){
-            if (mOnTouchListener == null){
-                mOnTouchListener = new SwipeDismissListViewTouchListener(mCardListView, mCallback);
-                // Setting this scroll listener is required to ensure that during
-                // ListView scrolling, we don't look for swipes.
-                mCardListView.setOnScrollListener(mOnTouchListener.makeScrollListener());
-            }
-
-            cardView.setOnTouchListener(mOnTouchListener);
-
-        }else{
-            //prevent issue with recycle view
-            cardView.setOnTouchListener(null);
-        }*/
     }
 
-    /**
-     * Overrides the default collapse/expand animation in a List
-     *
-     * @param cardView {@link it.gmariotti.cardslib.library.view.CardView}
-     */
-    protected void setupExpandCollapseListAnimation(CardView cardView) {
 
-        if (cardView == null) return;
-        cardView.setOnExpandListAnimatorListener(mCardGridView);
-    }
-
-    // -------------------------------------------------------------
-    //  SwipeListener and undo action
-    // -------------------------------------------------------------
-    /**
-     * Listener invoked when a card is swiped
-     */
-    /*SwipeDismissListViewTouchListener.DismissCallbacks mCallback = new SwipeDismissListViewTouchListener.DismissCallbacks() {
-
-        @Override
-        public boolean canDismiss(int position, Card card) {
-            return card.isSwipeable();
-        }
-
-        @Override
-        public void onDismiss(ListView listView, int[] reverseSortedPositions) {
-
-
-            int[] itemPositions=new int[reverseSortedPositions.length];
-            String[] itemIds=new String[reverseSortedPositions.length];
-            int i=0;
-
-            //Remove cards and notifyDataSetChanged
-            for (int position : reverseSortedPositions) {
-                Card card = getItem(position);
-                itemPositions[i]=position;
-                itemIds[i]=card.getId();
-                i++;
-
-                if (card.getOnSwipeListener() != null){
-                        card.getOnSwipeListener().onSwipe(card);
-                }
-            }
-            //notifyDataSetChanged();
-
-            /*
-            //Check for a undo message to confirm
-            if (isEnableUndo() && mUndoBarController!=null){
-
-                //Show UndoBar
-                UndoCard itemUndo=new UndoCard(itemPositions,itemIds);
-
-                if (getContext()!=null){
-                    Resources res = getContext().getResources();
-                    if (res!=null){
-                        String messageUndoBar = res.getQuantityString(R.plurals.list_card_undo_items, reverseSortedPositions.length, reverseSortedPositions.length);
-
-                        mUndoBarController.showUndoBar(
-                                false,
-                                messageUndoBar,
-                                itemUndo);
-                    }
-                }
-
-            }
-        }
-    };*/
-
-    // -------------------------------------------------------------
-    //  Undo Default Listener
-    // -------------------------------------------------------------
-
-    /*@Override
-    public void onUndo(Parcelable token) {
-        /*
-        //Restore items in lists (use reverseSortedOrder)
-        if (token != null) {
-
-            UndoCard item = (UndoCard) token;
-            int[] itemPositions = item.itemPosition;
-            String[] itemIds = item.itemId;
-
-            if (itemPositions != null) {
-                int end = itemPositions.length;
-
-                for (int i = end - 1; i >= 0; i--) {
-                    int itemPosition = itemPositions[i];
-                    String id= itemIds[i];
-
-                    if (id==null){
-                        Log.w(TAG, "You have to set a id value to use the undo action");
-                    }else{
-                        Card card = mInternalObjects.get(id);
-                        if (card!=null){
-                            insert(card, itemPosition);
-                            notifyDataSetChanged();
-                            if (card.getOnUndoSwipeListListener()!=null)
-                                card.getOnUndoSwipeListListener().onUndoSwipe(card);
-                        }
-                    }
-                }
-            }
-        }*
-    }*/
 
     // -------------------------------------------------------------
     //  Getters and Setters

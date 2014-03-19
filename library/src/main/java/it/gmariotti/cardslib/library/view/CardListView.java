@@ -81,15 +81,6 @@ public class CardListView extends ListView implements CardView.OnExpandListAnima
      */
     protected SwipeOnScrollListener mOnScrollListener;
 
-//--------------------------------------------------------------------------
-    // Fields for expand/collapse animation
-    //--------------------------------------------------------------------------
-
-    //private boolean mShouldRemoveObserver = false;
-
-    //private List<View> mViewsToDraw = new ArrayList<View>();
-
-    //private int[] mTranslate;
 
     //--------------------------------------------------------------------------
     // Custom Attrs

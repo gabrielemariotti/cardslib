@@ -91,7 +91,7 @@ public class CardThumbnail extends BaseCard {
     /**
      * Placeholder
      */
-    protected int placeholderResourceId=0;
+    //protected int placeholderResourceId=0;
 
     /**
      * errorResourceId: image used if an error occurs while downloading file

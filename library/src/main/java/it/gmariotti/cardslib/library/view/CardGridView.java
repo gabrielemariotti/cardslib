@@ -26,9 +26,6 @@ import android.view.View;
 import android.widget.GridView;
 import android.widget.ListAdapter;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import it.gmariotti.cardslib.library.R;
 import it.gmariotti.cardslib.library.internal.CardGridArrayAdapter;
 import it.gmariotti.cardslib.library.internal.CardGridCursorAdapter;
@@ -77,16 +74,6 @@ public class CardGridView extends GridView implements CardView.OnExpandListAnima
      * Card Cursor Adapter
      */
     protected CardGridCursorAdapter mCursorAdapter;
-
-    //--------------------------------------------------------------------------
-    // Fields for expand/collapse animation
-    //--------------------------------------------------------------------------
-
-    private boolean mShouldRemoveObserver = false;
-
-    private List<View> mViewsToDraw = new ArrayList<View>();
-
-    private int[] mTranslate;
 
     //--------------------------------------------------------------------------
     // Custom Attrs

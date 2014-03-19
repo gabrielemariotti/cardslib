@@ -51,21 +51,6 @@ public abstract class CardCursorAdapter extends BaseCardCursorAdapter  {
     protected CardListView mCardListView;
 
     /**
-     * Listener invoked when a card is swiped
-     */
-    //protected SwipeDismissListViewTouchListener mOnTouchListener;
-
-    /**
-     * Used to enable an undo message after a swipe action
-     */
-    //protected boolean mEnableUndo=false;
-
-    /**
-     * Undo Controller
-     */
-    //protected UndoBarController mUndoBarController;
-
-    /**
      * Internal Map with all Cards.
      * It uses the card id value as key.
      */
@@ -177,21 +162,6 @@ public abstract class CardCursorAdapter extends BaseCardCursorAdapter  {
     protected void setupSwipeableAnimation(final Card card, CardView cardView) {
 
         cardView.setOnTouchListener(null);
-        /*
-        if (card.isSwipeable()){
-            if (mOnTouchListener == null){
-                mOnTouchListener = new SwipeDismissListViewTouchListener(mCardListView, mCallback);
-                // Setting this scroll listener is required to ensure that during
-                // ListView scrolling, we don't look for swipes.
-                mCardListView.setOnScrollListener(mOnTouchListener.makeScrollListener());
-            }
-
-            cardView.setOnTouchListener(mOnTouchListener);
-
-        }else{
-            //prevent issue with recycle view
-            cardView.setOnTouchListener(null);
-        }*/
     }
 
     /**
