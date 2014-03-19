@@ -1,3 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+
 <!--
   ~ *******************************************************************************
   ~   Copyright (c) 2013-2014 Gabriele Mariotti.
@@ -16,20 +18,8 @@
   ~  *****************************************************************************
   -->
 
-<resources>
-    <!-- Card Color -->
-    <color name="card_background">#FFF</color>
-    <color name="card_background_header">#FFF</color>
-    <color name="card_backgroundExpand">#515254</color>
-
-    <color name="card_text_color_header">#000</color>
-    <color name="card_expand_title_color">#B3B2B2</color>
-
-    <!-- Used by selector -->
-    <color name="card_pressed">#7E0099CC</color>
-    <color name="card_activated">#CFE9F3</color>
-
-    <color name="card_pressed_kitkat">#10000000</color>
-    <color name="card_activated_kitkat">#ADE1F4</color>
-
-</resources>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+       android:shape="rectangle">
+    <solid android:color="@color/card_pressed_kitkat"/>
+    <corners android:radius="@dimen/card_background_default_radius"/>
+</shape>

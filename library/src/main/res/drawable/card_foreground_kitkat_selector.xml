@@ -1,3 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+
 <!--
   ~ *******************************************************************************
   ~   Copyright (c) 2013-2014 Gabriele Mariotti.
@@ -16,20 +18,10 @@
   ~  *****************************************************************************
   -->
 
-<resources>
-    <!-- Card Color -->
-    <color name="card_background">#FFF</color>
-    <color name="card_background_header">#FFF</color>
-    <color name="card_backgroundExpand">#515254</color>
+<selector xmlns:android="http://schemas.android.com/apk/res/android"
+          android:exitFadeDuration="@android:integer/config_mediumAnimTime">
 
-    <color name="card_text_color_header">#000</color>
-    <color name="card_expand_title_color">#B3B2B2</color>
-
-    <!-- Used by selector -->
-    <color name="card_pressed">#7E0099CC</color>
-    <color name="card_activated">#CFE9F3</color>
-
-    <color name="card_pressed_kitkat">#10000000</color>
-    <color name="card_activated_kitkat">#ADE1F4</color>
-
-</resources>
+    <item android:state_activated="true" android:drawable="@drawable/activated_background_kitkat_card"/>
+    <item android:state_pressed="true" android:drawable="@drawable/pressed_background_kitkat_card"/>
+    <item android:drawable="@android:color/transparent"/>
+</selector>
