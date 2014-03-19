@@ -36,4 +36,13 @@
 
     </declare-styleable>
 
+    <!-- Used for ForegroundLinearLayout -->
+    <!-- Refer to https://gist.github.com/chrisbanes/9091754 for original code -->
+    <declare-styleable name="ForegroundLinearLayout">
+        <attr name="android:foreground" />
+        <attr name="android:foregroundInsidePadding" />
+        <attr name="android:foregroundGravity" />
+    </declare-styleable>
+
+
 </resources>

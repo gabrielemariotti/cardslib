@@ -133,6 +133,16 @@
         <item name="android:layout_marginRight">@dimen/card_main_layout_view_margin_right</item>
     </style>
 
+    <!-- Style for Main Layout-->
+    <style name="card.main_layout_foreground">
+        <item name="android:background">@drawable/card_background</item>
+        <item name="android:foreground">@drawable/card_foreground_selector</item>
+        <item name="android:layout_marginTop">@dimen/card_main_layout_view_margin_top</item>
+        <item name="android:layout_marginBottom">@dimen/card_main_layout_view_margin_bottom</item>
+        <item name="android:layout_marginLeft">@dimen/card_main_layout_view_margin_left</item>
+        <item name="android:layout_marginRight">@dimen/card_main_layout_view_margin_right</item>
+    </style>
+
     <!-- Style for Hidden Expand Layout ****************************************-->
 
     <style name="card.main_contentExpand">
