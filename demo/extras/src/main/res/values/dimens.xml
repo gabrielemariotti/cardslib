@@ -42,4 +42,9 @@
 
     <dimen name="card_rose">250dp</dimen>
 
+    <!--Staggered -->
+    <dimen name="carddemo_extras_basestaggered_height1">120dp</dimen>
+    <dimen name="carddemo_extras_basestaggered_height2">150dp</dimen>
+    <dimen name="carddemo_extras_basestaggered_height3">180dp</dimen>
+
 </resources>

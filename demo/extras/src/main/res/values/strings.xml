@@ -81,6 +81,8 @@
     <string name="carddemo_extras_title_stkhdr">StickyListHeaders</string>
     <string name="carddemo_extras_title_fading">FadingActionBar</string>
     <string name="carddemo_extras_title_expandinside">MixExpand</string>
+    <string name="carddemo_extras_title_staggered">StaggeredGrid</string>
+    <string name="carddemo_extras_title_base_staggered">Base StaggeredGrid</string>
 
     <string name="carddemo_extras_simpletext">Simple Text</string>
     <string name="carddemo_extras_header_expand_area_inside">Card with expand area inside</string>
@@ -93,6 +95,16 @@
     <string name="demo_item_small_beer">Buy me a coffee</string>
     <string name="demo_item_medium_beer">Buy me a toast</string>
     <string name="demo_item_large_beer">Buy me a pizza</string>
+
+    <!-- Base Staggered -->
+    <string name="carddemo_extras_title_base_stag1">Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.</string>
+    <string name="carddemo_extras_title_base_stag2">Lorem ipsum dolor sit amet, consectetur adipisici elit</string>
+    <string name="carddemo_extras_title_base_stag3">Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.</string>
+    <string name="carddemo_extras_title_base_stag4">unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque.</string>
+    <string name="carddemo_extras_title_base_stag5"> Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</string>
+    <string name="carddemo_extras_title_base_stag6">Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</string>
+
+
 
 
 </resources>

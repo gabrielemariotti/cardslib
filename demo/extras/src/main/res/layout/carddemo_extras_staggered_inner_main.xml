@@ -19,28 +19,29 @@
   -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:card="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
-
-    <it.gmariotti.cardslib.library.extra.staggeredgrid.view.CardGridStaggeredView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        card:item_margin="8dp"
-        card:column_count_portrait="3"
-        card:column_count_landscape="3"
-        card:grid_paddingRight="8dp"
-        card:grid_paddingLeft="8dp"
-        card:list_card_layout_resourceID="@layout/carddemo_extras_staggered_card"
-        android:id="@+id/carddemo_extras_grid_stag"/>
+              android:layout_gravity="center_vertical"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content">
 
 
-    <ProgressBar
-        android:id="@android:id/empty"
+    <!-- This is the base Inner View inside a CardHeader.
+         You can customize it with your layout xml file and your CardHeader.
+         You can popolate your element with CardHeader#setupInnerViewElements() method -->
+    <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        />
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="15dp"
+        android:id="@+id/carddemo_staggered_inner_title"
+        style="@style/card.base_simple_title"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="30dp"
+        android:id="@+id/carddemo_staggered_inner_subtitle"
+        style="@style/card.base_simple_title"/>
 
 </LinearLayout>

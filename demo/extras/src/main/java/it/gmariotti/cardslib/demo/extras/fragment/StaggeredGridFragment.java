@@ -18,37 +18,52 @@
 
 package it.gmariotti.cardslib.demo.extras.fragment;
 
+import android.app.Activity;
 import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RatingBar;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
 import it.gmariotti.cardslib.demo.extras.R;
+import it.gmariotti.cardslib.demo.extras.staggered.DynamicHeightPicassoCardThumbnailView;
+import it.gmariotti.cardslib.demo.extras.staggered.data.Image;
+import it.gmariotti.cardslib.demo.extras.staggered.data.MockImageLoader;
+import it.gmariotti.cardslib.demo.extras.staggered.data.Section;
+import it.gmariotti.cardslib.demo.extras.staggered.data.ServerDatabase;
 import it.gmariotti.cardslib.library.extra.staggeredgrid.internal.CardGridStaggeredArrayAdapter;
 import it.gmariotti.cardslib.library.extra.staggeredgrid.view.CardGridStaggeredView;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardHeader;
 import it.gmariotti.cardslib.library.internal.CardThumbnail;
-import it.gmariotti.cardslib.library.internal.base.BaseCard;
 
 /**
- * This example uses a list card with Thumbnail loaded with built-in method and Picasso library
- * Please refer to https://github.com/square/picasso for full doc
+ * This example uses a staggered card with different different photos and text.
+ *
+ * This example uses cards with a foreground layout.
+ * Pay attention to style="@style/card.main_layout_foreground" in card layout.
+ *
+ * .DynamicHeightPicassoCardThumbnailView
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
 public class StaggeredGridFragment extends BaseFragment {
 
+    ServerDatabase mServerDatabase;
+    CardGridStaggeredArrayAdapter mCardArrayAdapter;
+
+    public StaggeredGridFragment() {
+        super();
+    }
+
     @Override
     public int getTitleResourceId() {
-        return R.string.carddemo_extras_title_picasso;
+        return R.string.carddemo_extras_title_staggered;
     }
 
 
@@ -58,94 +73,153 @@ public class StaggeredGridFragment extends BaseFragment {
     }
 
     @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+
+        //Initialize Image loader
+        MockImageLoader loader = MockImageLoader.getInstance(activity.getApplication());
+        mServerDatabase = new ServerDatabase(loader);
+    }
+
+    @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        initCard();
+        //Set the arrayAdapter
+        ArrayList<Card> cards = new ArrayList<Card>();
+        mCardArrayAdapter = new CardGridStaggeredArrayAdapter(getActivity(), cards);
+
+        CardGridStaggeredView staggeredView = (CardGridStaggeredView) getActivity().findViewById(R.id.carddemo_extras_grid_stag);
+
+        //Set the empty view
+        staggeredView.setEmptyView(getActivity().findViewById(android.R.id.empty));
+        if (staggeredView != null) {
+            staggeredView.setAdapter(mCardArrayAdapter);
+        }
+
+        //Load cards
+        new LoaderAsyncTask().execute();
     }
 
+
     /**
-     * This method builds a simple card
+     * Async Task to elaborate images
      */
-    private void initCard() {
+    class LoaderAsyncTask extends AsyncTask<Void, Void, Void> {
+
+        LoaderAsyncTask() {
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            //elaborate images
+            mServerDatabase.getImagesForSection(Section.STAG);
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid){
+            //Update the adapter
+            updateAdapter();
+        }
+    }
+
+
+    /**
+     * This method builds a simple list of cards
+     */
+    private ArrayList<Card> initCard() {
 
         ArrayList<Card> cards = new ArrayList<Card>();
-        for (int i = 0; i < 200; i++) {
+        for (int i = 0; i < 100; i++) {
 
-            GplayGridCard card = new GplayGridCard(getActivity());
+            StaggeredCard card = new StaggeredCard(getActivity());
 
             card.headerTitle = "App example " + i;
             card.secondaryTitle = "Some text here " + i;
-            card.rating = (float) (Math.random() * (5.0));
 
-            //Only for test, change some icons
-            if ((i % 6 == 0)) {
-                card.resourceIdThumbnail = R.drawable.action_refresh;
-            } else if ((i % 6 == 1)) {
-                card.resourceIdThumbnail = R.drawable.ic_ic_dh_net;
-            } else if ((i % 6 == 2)) {
-                card.resourceIdThumbnail = R.drawable.ic_tris;
-            } else if ((i % 6 == 3)) {
-                card.resourceIdThumbnail = R.drawable.ic_info;
-            } else if ((i % 6 == 4)) {
-                card.resourceIdThumbnail = R.drawable.ic_smile;
+            //Only for test, use different images from images loader
+            int xx = i % 8;
+            switch (xx) {
+                case 0:
+                    card.image = mServerDatabase.getImagesForSection(Section.STAG).get(0);
+                    break;
+                case 1:
+                    card.image = mServerDatabase.getImagesForSection(Section.STAG).get(1);
+                    //card.resourceIdThumbnail = R.drawable.sea;
+                    break;
+                case 2:
+                    card.image = mServerDatabase.getImagesForSection(Section.STAG).get(2);
+                    //card.resourceIdThumbnail = R.drawable.mountain2;
+                    break;
+                case 3:
+                    card.image = mServerDatabase.getImagesForSection(Section.STAG).get(3);
+                    //card.resourceIdThumbnail = R.drawable.snow;
+                    break;
+                case 4:
+                    card.image = mServerDatabase.getImagesForSection(Section.STAG).get(4);
+                    //card.resourceIdThumbnail = R.drawable.water;
+                    break;
+                case 5:
+                    card.image = mServerDatabase.getImagesForSection(Section.STAG).get(5);
+                    //card.resourceIdThumbnail = R.drawable.hill;
+                    break;
+                case 6:
+                    card.image = mServerDatabase.getImagesForSection(Section.STAG).get(7);
+                    //card.resourceIdThumbnail = R.drawable.rose;
+                    break;
+                case 7:
+                    card.image = mServerDatabase.getImagesForSection(Section.STAG).get(8);
+                    //card.resourceIdThumbnail = R.drawable.img2;
+                    break;
             }
 
             card.init();
             cards.add(card);
         }
 
-
-        CardGridStaggeredArrayAdapter mCardArrayAdapter = new CardGridStaggeredArrayAdapter(getActivity(), cards);
-
-        CardGridStaggeredView mListView = (CardGridStaggeredView) getActivity().findViewById(R.id.carddemo_extras_grid_stag);
-        if (mListView != null) {
-            mListView.setAdapter(mCardArrayAdapter);
-        }
+        return cards;
 
     }
 
+    /**
+     * Update the adapter
+     */
+    private void updateAdapter() {
+        ArrayList<Card> cards = initCard();
+        mCardArrayAdapter.addAll(cards);
+        mCardArrayAdapter.notifyDataSetChanged();
+    }
 
-    public class GplayGridCard extends Card {
+    /**
+     * Card
+     */
+    public class StaggeredCard extends Card {
 
         protected TextView mTitle;
         protected TextView mSecondaryTitle;
-        protected RatingBar mRatingBar;
-        protected int resourceIdThumbnail = -1;
-        protected int count;
+        //protected int resourceIdThumbnail = -1;
+        protected int height;
 
         protected String headerTitle;
         protected String secondaryTitle;
-        protected float rating;
+        protected Image image;
 
-        public GplayGridCard(Context context) {
-            super(context, R.layout.carddemo_extras_gplay_inner_content);
-        }
-
-        public GplayGridCard(Context context, int innerLayout) {
-            super(context, innerLayout);
+        public StaggeredCard(Context context) {
+            super(context, R.layout.carddemo_extras_staggered_inner_main);
         }
 
         private void init() {
+            //Add the header
             CardHeader header = new CardHeader(getContext());
-            header.setButtonOverflowVisible(true);
-            header.setTitle(headerTitle);
-            header.setPopupMenu(R.menu.extras_popupmain, new CardHeader.OnClickCardHeaderPopupMenuListener() {
-                @Override
-                public void onMenuItemClick(BaseCard card, MenuItem item) {
-                    Toast.makeText(getContext(), "Item " + item.getTitle(), Toast.LENGTH_SHORT).show();
-                }
-            });
-
             addCardHeader(header);
 
-            GplayGridThumb thumbnail = new GplayGridThumb(getContext());
-            if (resourceIdThumbnail > -1)
-                thumbnail.setDrawableResource(resourceIdThumbnail);
-            else
-                thumbnail.setDrawableResource(R.drawable.ic_ic_launcher_web);
+            //Add the thumbnail
+            StaggeredCardThumb thumbnail = new StaggeredCardThumb(getContext());
+            thumbnail.image = image;
             addCardThumbnail(thumbnail);
 
+            //A simple clickListener
             setOnClickListener(new OnCardClickListener() {
                 @Override
                 public void onClick(Card card, View view) {
@@ -157,32 +231,36 @@ public class StaggeredGridFragment extends BaseFragment {
         @Override
         public void setupInnerViewElements(ViewGroup parent, View view) {
 
-            TextView title = (TextView) view.findViewById(R.id.carddemo_extras_gplay_main_inner_title);
-            title.setText("FREE");
+            TextView title = (TextView) view.findViewById(R.id.carddemo_staggered_inner_title);
+            title.setText("TEST");
 
-            TextView subtitle = (TextView) view.findViewById(R.id.carddemo_extras_gplay_main_inner_subtitle);
-            subtitle.setText(secondaryTitle);
-
-            RatingBar mRatingBar = (RatingBar) parent.findViewById(R.id.carddemo_extras_gplay_main_inner_ratingBar);
-
-            mRatingBar.setNumStars(5);
-            mRatingBar.setMax(5);
-            mRatingBar.setStepSize(0.5f);
-            mRatingBar.setRating(rating);
+            TextView subtitle = (TextView) view.findViewById(R.id.carddemo_staggered_inner_subtitle);
+            subtitle.setText("Subtitle");
         }
 
-        class GplayGridThumb extends CardThumbnail {
 
-            public GplayGridThumb(Context context) {
+        /**
+         *  A StaggeredCardThumbnail.
+         *  It uses a DynamicHeightPicassoCardThumbnailView which  maintains its own width to height ratio.
+         */
+        class StaggeredCardThumb extends CardThumbnail {
+
+            Image image;
+
+            public StaggeredCardThumb(Context context) {
                 super(context);
+                setExternalUsage(true);
             }
 
             @Override
             public void setupInnerViewElements(ViewGroup parent, View viewImage) {
-                /*
-                viewImage.getLayoutParams().width = 196;
-                viewImage.getLayoutParams().height = 196;
-                */
+
+                final ImageView imageView = (ImageView) viewImage;
+
+                //Use a DynamicHeightPicassoCardThumbnailView to maintain width/height ratio
+                DynamicHeightPicassoCardThumbnailView thumbView = (DynamicHeightPicassoCardThumbnailView) getCardThumbnailView();
+                //thumbView.bindInto(imageView);
+                thumbView.bindTo(image);
 
             }
         }

@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
   ~ *******************************************************************************
   ~   Copyright (c) 2013-2014 Gabriele Mariotti.
@@ -17,8 +18,8 @@
   -->
 
 <resources>
-    <!-- Customize dimensions originally defined in res/values/dimens.xml (such as
-         screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here. -->
-    <dimen name="activity_horizontal_margin">128dp</dimen>
+
+    <!--Staggered -->
+    <integer name="carddemo_extras_basestaggered_nlines">10</integer>
 
 </resources>

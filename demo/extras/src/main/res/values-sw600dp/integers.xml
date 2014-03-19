@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <!--
   ~ *******************************************************************************
   ~   Copyright (c) 2013-2014 Gabriele Mariotti.
@@ -18,12 +17,9 @@
   ~  *****************************************************************************
   -->
 
-<it.gmariotti.cardslib.library.view.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/list_cardId"
-    android:layout_width="@dimen/carddemo_extras_gplay_grid_columnwidth_card"
-    android:layout_height="wrap_content"
-    style="@style/grid_card"
-    card:card_layout_resourceID="@layout/carddemo_extras_googleplay_stag_layout"
-    />
+<resources>
+
+    <!--Staggered -->
+    <integer name="carddemo_extras_basestaggered_nlines">6</integer>
+
+</resources>
