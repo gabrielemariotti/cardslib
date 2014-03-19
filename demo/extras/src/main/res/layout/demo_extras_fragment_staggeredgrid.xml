@@ -36,11 +36,12 @@
         android:id="@+id/carddemo_extras_grid_stag"/>
 
 
-    <ProgressBar
+    <TextView
         android:id="@android:id/empty"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:text="Loading data..."/>
 
 </LinearLayout>

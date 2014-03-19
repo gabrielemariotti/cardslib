@@ -42,5 +42,7 @@
     <color name="demoextra_sticky_header_normal">#ffe74c3c</color>
     <color name="demoextra_sticky_header_pressed">#ffc0392b</color>
 
+    <!-- Staggered-->
+    <color name="demo_card_staggered_subtitle">#66000000</color>
 
 </resources>

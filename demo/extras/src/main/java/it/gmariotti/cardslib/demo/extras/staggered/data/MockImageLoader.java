@@ -54,7 +54,7 @@ public final class MockImageLoader {
      */
     public ImageBuilder newImage(String filename) {
 
-        String path = "mock/images/" + filename;
+        String path = "images/" + filename;
 
         int width;
         int height;

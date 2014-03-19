@@ -86,7 +86,7 @@ public class BaseStaggeredGridFragment extends BaseFragment {
 
             SquareGridCard card = new SquareGridCard(getActivity());
 
-            card.headerTitle = "Simple card " + i;
+            card.headerTitle = "Card " + i;
 
             //Only for test scope, use random colors, and random height
             int random = (int) (Math.random() * 6);

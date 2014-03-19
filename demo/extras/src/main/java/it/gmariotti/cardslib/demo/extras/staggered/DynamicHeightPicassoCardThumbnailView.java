@@ -23,6 +23,7 @@ import android.net.Uri;
 import android.util.AttributeSet;
 import android.util.Log;
 
+import com.squareup.picasso.Cache;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.RequestCreator;
 
@@ -77,6 +78,7 @@ public class DynamicHeightPicassoCardThumbnailView extends CardThumbnailView {
                         Log.e("DynamicHeightPicassoCardThumbnailView", "Failed to load image: " + uri, e);
                     }
                 })
+                .memoryCache(Cache.NONE)
                 .build();
     }
 

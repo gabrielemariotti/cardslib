@@ -46,34 +46,35 @@ public final class ServerDatabase {
         List<Image> hotImages = new ArrayList<Image>();
         imagesBySection.put(Section.STAG, hotImages);
 
-        hotImages.add(mockImageLoader.newImage("0y3uACw.jpg") //
-                .title("Much Dagger") //
+        hotImages.add(mockImageLoader.newImage("hill.jpg") //
+                .title("Hill") //
                 .views(4000) //
                 .build()); //
-        hotImages.add(mockImageLoader.newImage("9PcLf86.jpg") //
-                .title("Nice Picasso") //
+        hotImages.add(mockImageLoader.newImage("snow.jpg") //
+                .title("Snow") //
                 .views(854) //
                 .build());
-        hotImages.add(mockImageLoader.newImage("DgKWqio.jpg") //
-                .title("Omg Scalpel") //
+        hotImages.add(mockImageLoader.newImage("sea.jpg") //
+                .title("Sea") //
                 .build());
-        hotImages.add(mockImageLoader.newImage("e3LxhEC.jpg") //
-                .title("Open Source Amaze") //
+        hotImages.add(mockImageLoader.newImage("water.jpg") //
+                .title("waterfalls") //
                 .build());
-        hotImages.add(mockImageLoader.newImage("p3jUQjI.jpg") //
-                .title("So RxJava") //
+        hotImages.add(mockImageLoader.newImage("mountain.jpg") //
+                .title("Mountain") //
                 .views(2000) //
                 .build());
-        hotImages.add(mockImageLoader.newImage("P8hx3pg.jpg") //
-                .title("Madge Amaze") //
+        hotImages.add(mockImageLoader.newImage("mountain2.jpg") //
+                .title("Mountain 1") //
                 .build());
-        hotImages.add(mockImageLoader.newImage("vSxLdXJ.jpg") //
-                .title("Very ButterKnife") //
+        hotImages.add(mockImageLoader.newImage("img2.jpg") //
+                .title("Swans") //
                 .views(3040) //
                 .build());
-        hotImages.add(mockImageLoader.newImage("DOGE-6.jpg") //
-                .title("Good AOSP") //
+        hotImages.add(mockImageLoader.newImage("rose.jpg") //
+                .title("Rose") //
                 .build());
+        /*
         hotImages.add(mockImageLoader.newImage("DOGE-10.jpg") //
                 .title("Many OkHttp") //
                 .views(1500) //
@@ -81,7 +82,7 @@ public final class ServerDatabase {
         hotImages.add(mockImageLoader.newImage("DOGE-16.jpg") //
                 .title("Wow Retrofit") //
                 .views(3000) //
-                .build());
+                .build());*/
     }
 
     public List<Image> getImagesForSection(Section section) {

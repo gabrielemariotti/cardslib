@@ -20,6 +20,6 @@
 <resources>
 
     <!--Staggered -->
-    <integer name="carddemo_extras_basestaggered_nlines">3</integer>
+    <integer name="carddemo_extras_basestaggered_nlines">4</integer>
 
 </resources>

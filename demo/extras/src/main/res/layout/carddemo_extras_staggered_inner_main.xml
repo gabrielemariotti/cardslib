@@ -32,7 +32,8 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:gravity="center_vertical"
-        android:layout_marginLeft="15dp"
+        android:layout_marginLeft="5dp"
+        android:textColor="@color/demoextra_card_background_color2"
         android:id="@+id/carddemo_staggered_inner_title"
         style="@style/card.base_simple_title"/>
 
@@ -40,7 +41,8 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:gravity="center_vertical"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="5dp"
+        android:textColor="@color/demo_card_staggered_subtitle"
         android:id="@+id/carddemo_staggered_inner_subtitle"
         style="@style/card.base_simple_title"/>
 

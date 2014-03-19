@@ -39,7 +39,6 @@ import it.gmariotti.cardslib.demo.extras.staggered.data.ServerDatabase;
 import it.gmariotti.cardslib.library.extra.staggeredgrid.internal.CardGridStaggeredArrayAdapter;
 import it.gmariotti.cardslib.library.extra.staggeredgrid.view.CardGridStaggeredView;
 import it.gmariotti.cardslib.library.internal.Card;
-import it.gmariotti.cardslib.library.internal.CardHeader;
 import it.gmariotti.cardslib.library.internal.CardThumbnail;
 
 /**
@@ -134,9 +133,7 @@ public class StaggeredGridFragment extends BaseFragment {
         for (int i = 0; i < 100; i++) {
 
             StaggeredCard card = new StaggeredCard(getActivity());
-
-            card.headerTitle = "App example " + i;
-            card.secondaryTitle = "Some text here " + i;
+            card.headerTitle = "PHOTO " + i;
 
             //Only for test, use different images from images loader
             int xx = i % 8;
@@ -146,31 +143,24 @@ public class StaggeredGridFragment extends BaseFragment {
                     break;
                 case 1:
                     card.image = mServerDatabase.getImagesForSection(Section.STAG).get(1);
-                    //card.resourceIdThumbnail = R.drawable.sea;
                     break;
                 case 2:
                     card.image = mServerDatabase.getImagesForSection(Section.STAG).get(2);
-                    //card.resourceIdThumbnail = R.drawable.mountain2;
                     break;
                 case 3:
                     card.image = mServerDatabase.getImagesForSection(Section.STAG).get(3);
-                    //card.resourceIdThumbnail = R.drawable.snow;
                     break;
                 case 4:
                     card.image = mServerDatabase.getImagesForSection(Section.STAG).get(4);
-                    //card.resourceIdThumbnail = R.drawable.water;
                     break;
                 case 5:
                     card.image = mServerDatabase.getImagesForSection(Section.STAG).get(5);
-                    //card.resourceIdThumbnail = R.drawable.hill;
                     break;
                 case 6:
-                    card.image = mServerDatabase.getImagesForSection(Section.STAG).get(7);
-                    //card.resourceIdThumbnail = R.drawable.rose;
+                    card.image = mServerDatabase.getImagesForSection(Section.STAG).get(6);
                     break;
                 case 7:
-                    card.image = mServerDatabase.getImagesForSection(Section.STAG).get(8);
-                    //card.resourceIdThumbnail = R.drawable.img2;
+                    card.image = mServerDatabase.getImagesForSection(Section.STAG).get(7);
                     break;
             }
 
@@ -196,13 +186,9 @@ public class StaggeredGridFragment extends BaseFragment {
      */
     public class StaggeredCard extends Card {
 
-        protected TextView mTitle;
-        protected TextView mSecondaryTitle;
-        //protected int resourceIdThumbnail = -1;
         protected int height;
-
         protected String headerTitle;
-        protected String secondaryTitle;
+
         protected Image image;
 
         public StaggeredCard(Context context) {
@@ -210,9 +196,18 @@ public class StaggeredGridFragment extends BaseFragment {
         }
 
         private void init() {
+            /*
             //Add the header
             CardHeader header = new CardHeader(getContext());
+            header.setTitle(headerTitle);
+            header.setPopupMenu(R.menu.extras_popupmain, new CardHeader.OnClickCardHeaderPopupMenuListener() {
+                @Override
+                public void onMenuItemClick(BaseCard card, MenuItem item) {
+                    Toast.makeText(getContext(),"Header:"+ ((Card) card).getCardHeader().getTitle() + "Item " + item.getTitle(), Toast.LENGTH_SHORT).show();
+                }
+            });
             addCardHeader(header);
+            */
 
             //Add the thumbnail
             StaggeredCardThumb thumbnail = new StaggeredCardThumb(getContext());
@@ -232,10 +227,10 @@ public class StaggeredGridFragment extends BaseFragment {
         public void setupInnerViewElements(ViewGroup parent, View view) {
 
             TextView title = (TextView) view.findViewById(R.id.carddemo_staggered_inner_title);
-            title.setText("TEST");
+            title.setText(image.title.toUpperCase());
 
             TextView subtitle = (TextView) view.findViewById(R.id.carddemo_staggered_inner_subtitle);
-            subtitle.setText("Subtitle");
+            subtitle.setText(getString(R.string.carddemo_extras_title_stag));
         }
 
 
