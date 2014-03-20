@@ -218,7 +218,7 @@ How to enable expand/collapse action by clicking on the image on Thumbnail.
 
 ```
 
-You can see some examples in [`CardExpandFragment`]((https://github.com/gabrielemariotti/cardslib/tree/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/CardExpandFragment.java).)
+You can see some examples in [`CardExpandFragment`](https://github.com/gabrielemariotti/cardslib/tree/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/CardExpandFragment.java).
 
 
 How to enable the custom expand/collapse in a `ListView`.
@@ -237,6 +237,9 @@ How to enable the custom expand/collapse in a `ListView`.
         }
     }
 ```
+
+This code requires that your `Card` has a MainContentLayout `android:id="@+id/card_main_content_layout"`, otherwise you can use the new method described below.
+
 
 Also you can enable the expand/collapse action on the default card elements using this method:
 
@@ -277,6 +280,8 @@ You can also use this feature with a `ListView`.
            }
        }
 ```
+
+You can see some examples in [`ExpandPicassoFragment`](https://github.com/gabrielemariotti/cardslib/tree/master/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/fragment/ExpandPicassoFragment.java).
 
 
 ### CardExpand and CardListView

@@ -14,6 +14,7 @@ There are two sample applications:
 5. [ListViewAnimations][11]
 6. [Crouton][12]
 7. [StickyListHeaders][14]
+8. [AndroidStaggeredGrid][16]
 
 [(See this page for more info about integration)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/OTHERLIBRARIES.md)
 
@@ -40,6 +41,9 @@ Extras demo uses these open source libraries:
 * [ListViewAnimations][11] by [Niek Haarman][10]
 * [Crouton][12] by [Benjamin Weiss][13]
 * [StickyListHeaders][14] by [Emil Sjölander][15]
+* [AndroidStaggeredGrid][16] by [Etsy][17]
+
+* Thanks to [JakeWharton][18] for some ideas and code taken from his [u2020][19].
 
 Credits
 -------
@@ -95,4 +99,8 @@ License
  [13]: https://plus.google.com/u/0/117509657298845443204
  [14]: https://github.com/emilsjolander/StickyListHeaders
  [15]: http://emilsjolander.se/
+ [16]: https://github.com/etsy/AndroidStaggeredGrid
+ [17]: https://github.com/etsy
+ [18]: http://jakewharton.com/
+ [19]: https://github.com/JakeWharton/u2020
 

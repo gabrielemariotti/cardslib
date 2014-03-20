@@ -28,9 +28,38 @@ import com.etsy.android.grid.StaggeredGridView;
 
 import it.gmariotti.cardslib.library.extra.R;
 import it.gmariotti.cardslib.library.extra.staggeredgrid.internal.CardGridStaggeredArrayAdapter;
-import it.gmariotti.cardslib.library.internal.CardGridArrayAdapter;
 
 /**
+ * This class realizes a CardGridStaggeredView.
+ *  * Card Grid View.
+ * It uses an {@link it.gmariotti.cardslib.library.extra.staggeredgrid.internal.CardGridStaggeredArrayAdapter} to populate items.
+ * </p>
+ * Usage:
+ * <pre><code>
+ *    <it.gmariotti.cardslib.library.extra.staggeredgrid.view.CardGridStaggeredView
+ *      android:layout_width="match_parent"
+ *      android:layout_height="match_parent"
+ *      card:item_margin="8dp"
+ *      card:column_count_portrait="3"
+ *      card:column_count_landscape="3"
+ *      card:grid_paddingRight="8dp"
+ *      card:grid_paddingLeft="8dp"
+ *      card:list_card_layout_resourceID="@layout/carddemo_extras_staggered_card"
+ *      android:id="@+id/carddemo_extras_grid_stag"/>
+ * </code></pre>
+ * It provides a default layout id for each row @layout/list_card_layout
+ * Use can easily customize it using card:list_card_layout_resourceID attr in your xml layout.
+ * </p>
+ * Use this code to populate the grid view
+ * <pre><code>
+ * CardGridStaggeredView staggeredView = (CardGridStaggeredView) getActivity().findViewById(R.id.carddemo_extras_grid_stag);
+ * gridView.setAdapter(mCardGridArrayAdapter);
+ * </code></pre>
+ * This type of view, doesn't support swipe and collapse/expand actions.
+ * </p>
+ * Currently you have to use the same inner layout for each card in gridView.
+ * </p>
+ *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
 public class CardGridStaggeredView extends StaggeredGridView {
@@ -38,7 +67,7 @@ public class CardGridStaggeredView extends StaggeredGridView {
     protected static String TAG = "CardGridStaggeredView";
 
     /**
-     *  Card Grid Array Adapter
+     *  Card Grid Staggered Array Adapter
      */
     protected CardGridStaggeredArrayAdapter mAdapter;
 
@@ -114,7 +143,7 @@ public class CardGridStaggeredView extends StaggeredGridView {
     //--------------------------------------------------------------------------
 
     /**
-     * Forces to use a {@link CardGridArrayAdapter}
+     * Forces to use a {@link CardGridStaggeredArrayAdapter}
      *
      * @param adapter
      */
@@ -129,7 +158,7 @@ public class CardGridStaggeredView extends StaggeredGridView {
     }
 
     /**
-     * Set {@link CardGridStaggeredArrayAdapter} and layout used by items in ListView
+     * Set {@link CardGridStaggeredArrayAdapter} and layout used by items in CardGridStaggeredView
      *
      * @param adapter {@link CardGridStaggeredArrayAdapter}
      */

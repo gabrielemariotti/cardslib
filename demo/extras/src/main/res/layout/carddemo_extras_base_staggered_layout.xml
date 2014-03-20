@@ -60,7 +60,7 @@
             <!-- Main Content View -->
             <FrameLayout
                 android:id="@+id/card_main_content_layout"
-                style="@style/card.content_outer_layout"
+                style="@style/card.content_outer_layout.staggered"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 

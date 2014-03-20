@@ -33,6 +33,14 @@ The Demo contains some drafts to customize your card and some more complete exam
 ### Colored cards example [source](https://github.com/gabrielemariotti/cardslib/tree/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/ListColorFragment.java)
 
 ![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/demo/colors.png)
+
+### Expand inside the card [source](https://github.com/gabrielemariotti/cardslib/tree/master/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/fragment/ExpandPicassoFragment.java)
+
+![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/demo/expandinside.png)
+
+### Staggered Grid [source](https://github.com/gabrielemariotti/cardslib/tree/master/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/fragment/StaggeredGridFragment.java)
+
+![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/demo/staggered.png)
 ---
 
 Google and the Google Maps logo are registered trademarks of Google Inc., used with permission.

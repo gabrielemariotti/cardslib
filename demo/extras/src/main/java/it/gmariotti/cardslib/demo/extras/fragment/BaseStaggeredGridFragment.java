@@ -121,9 +121,9 @@ public class BaseStaggeredGridFragment extends BaseFragment {
         //Set the arrayAdapter
         CardGridStaggeredArrayAdapter mCardArrayAdapter = new CardGridStaggeredArrayAdapter(getActivity(), cards);
 
-        CardGridStaggeredView mListView = (CardGridStaggeredView) getActivity().findViewById(R.id.carddemo_extras_grid_stag);
-        if (mListView != null) {
-            mListView.setAdapter(mCardArrayAdapter);
+        CardGridStaggeredView mGridView = (CardGridStaggeredView) getActivity().findViewById(R.id.carddemo_extras_grid_stag);
+        if (mGridView != null) {
+            mGridView.setAdapter(mCardArrayAdapter);
         }
 
     }

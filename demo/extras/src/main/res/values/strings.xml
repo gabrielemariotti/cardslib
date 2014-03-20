@@ -34,7 +34,7 @@
         Get: <a href="https://github.com/gabrielemariotti/cardslib">Source and doc</a><br>
         Get on Google Play: <a href="https://play.google.com/store/apps/details?id=it.gmariotti.cardslib.demo">Cardslib Demo Stock</a><br>
         <br><br>
-        Many thanks to these open source tools:<br>
+        <b>Many thanks to these open source tools:</b><br>
         <b><a href="https://github.com/square/picasso">Picasso</a></b><br>
         <i>by Square, Inc.</i><br><br>
         <b><a href="https://github.com/koush/ion">Ion</a></b><br>
@@ -51,6 +51,11 @@
         <i>by Benjamin Weiss</i><br><br>
         <b><a href="https://github.com/emilsjolander/StickyListHeaders">StickyListHeaders</a></b><br>
         <i>by Emil Sjölander</i><br><br>
+        <b><a href="https://github.com/etsy/AndroidStaggeredGrid">AndroidStaggeredGrid</a></b><br>
+        <i>by Etsy</i><br><br>
+        <b>Thanks for some ideas and code:</b><br>
+        <b><a href="https://github.com/JakeWharton/u2020">u2020</a></b><br>
+        <i>by JakeWharton</i><br><br>
         <br>
 
     ]]></string>
@@ -95,14 +100,15 @@
     <string name="demo_item_small_beer">Buy me a coffee</string>
     <string name="demo_item_medium_beer">Buy me a toast</string>
     <string name="demo_item_large_beer">Buy me a pizza</string>
+    <string name="demo_item_xlarge_beer">Buy me a dinner</string>
 
     <!-- Base Staggered -->
-    <string name="carddemo_extras_title_base_stag1">Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.</string>
+    <string name="carddemo_extras_title_base_stag1">Lorem ipsum dolor sit amet.</string>
     <string name="carddemo_extras_title_base_stag2">Lorem ipsum dolor sit amet, consectetur adipisici elit</string>
-    <string name="carddemo_extras_title_base_stag3">Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.</string>
-    <string name="carddemo_extras_title_base_stag4">unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque.</string>
+    <string name="carddemo_extras_title_base_stag3">Lorem ipsum </string>
+    <string name="carddemo_extras_title_base_stag4">unde omnis iste natus error sit voluptatem accusantium </string>
     <string name="carddemo_extras_title_base_stag5"> Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</string>
-    <string name="carddemo_extras_title_base_stag6">Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</string>
+    <string name="carddemo_extras_title_base_stag6">Loremnim </string>
 
     <!-- Staggered -->
     <string name="carddemo_extras_title_stag">More details...</string>

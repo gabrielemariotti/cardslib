@@ -1,4 +1,4 @@
-# Cards Library: USAGE
+# Cards Library: QUICK USAGE
 
 In this page you can find info about:
 
@@ -44,6 +44,9 @@ Last get a reference to the `CardView` from your code, and set your `Card`.
 
        cardView.setCard(card);
 ```
+
+See this [page](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CUSTOMIZATION.md) for more info.
+
 
 ## CardList Usage
 

@@ -27,6 +27,7 @@ import com.squareup.picasso.Cache;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.RequestCreator;
 
+import it.gmariotti.cardslib.demo.extras.R;
 import it.gmariotti.cardslib.demo.extras.staggered.data.Image;
 import it.gmariotti.cardslib.library.view.component.CardThumbnailView;
 
@@ -71,15 +72,23 @@ public class DynamicHeightPicassoCardThumbnailView extends CardThumbnailView {
      * Init Picasso
      */
     private void initPicasso() {
-        picasso = new Picasso.Builder(getContext())
+
+        boolean useCache=getResources().getBoolean(R.bool.carddemo_staggered_cache);
+
+        Picasso.Builder builder= new Picasso.Builder(getContext())
                 .listener(new Picasso.Listener() {
                     @Override
                     public void onImageLoadFailed(Picasso picasso, Uri uri, Exception e) {
                         Log.e("DynamicHeightPicassoCardThumbnailView", "Failed to load image: " + uri, e);
                     }
-                })
-                .memoryCache(Cache.NONE)
-                .build();
+                });
+
+        if (!useCache){
+                    builder
+                    .memoryCache(Cache.NONE);
+        }
+
+        picasso = builder.build();
     }
 
 

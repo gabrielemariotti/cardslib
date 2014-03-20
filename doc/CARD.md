@@ -17,6 +17,7 @@ In this page you can find info about:
 * [Change dynamically Card background with a Drawable object](#change-dynamically-card-background-with-a-drawable-object)
 * [Export card as bitmap](#export-card-as-bitmap)
 * [Using Card with contextual action mode](#using-card-with-contextual-action-mode)
+* [Using a ForegroundLinearLayout](#using-a-foregroundlinearlayout)
 
 
 ### Creating a base Card
@@ -574,3 +575,52 @@ If you would like to use a card with  you can use a code like this:
                 cardViewCab.setActivated(false);
         }
     };
+```
+
+You can see this example:  [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/ListGplayCardCABFragment.java).
+
+### Using a ForegroundLinearLayout
+
+You can draw the stateful drawable on top, using a foreground selector.
+
+To achieve this behaviour you have to do these steps:
+
+- change the `android:id="@+id/card_main_layout"` element in your card layout
+
+Default layout:
+```xml
+    <!-- Standard Card visible layout -->
+    <LinearLayout
+        android:id="@+id/card_main_layout"
+        style="@style/card.main_layout"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+ ```
+Foreground layout:
+
+```xml
+    <!-- Foreground Card visible layout -->
+    <it.gmariotti.cardslib.library.view.ForegroundLinearLayout
+        android:id="@+id/card_main_layout"
+        style="@style/card.main_layout_foreground"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+ ```
+
+- change the default style with something like the `style="@style/card.main_layout_foreground"`
+
+This style uses a foreground selector using the `android:foreground` attribute, and a simple drawable(or color) for background.
+
+```xml
+    <!-- Style for Main Layout with foreground selector-->
+    <style name="card.main_layout_foreground">
+        <item name="android:background">@drawable/card_background</item>
+        <item name="android:foreground">@drawable/card_foreground_selector</item>
+    </style>
+ ```
+
+You can see this example:  [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/extras/src/main/res/layout/carddemo_extras_base_staggered_layout.xml).

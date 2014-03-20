@@ -53,6 +53,7 @@ public class IabUtil {
     public static String SMALL_BEER_SKU = "small_beer";
     public static String MEDIUM_BEER_SKU = "medium_beer";
     public static String LARGE_BEER_SKU = "large_beer";
+    public static String XLARGE_BEER_SKU = "xlarge_beer";
 
     private static String TAG="IabUtil";
 
@@ -62,12 +63,14 @@ public class IabUtil {
     String p1="1.00€";
     String p2="2.00€";
     String p3="5.00€";
+    String p4="10.00€";
 
     private IabUtil() {
         items = new HashMap<String, DonationEntry>();
         items.put(SMALL_BEER_SKU, new DonationEntry(SMALL_BEER_SKU, R.string.demo_item_small_beer, p1));
         items.put(MEDIUM_BEER_SKU, new DonationEntry(MEDIUM_BEER_SKU, R.string.demo_item_medium_beer, p2));
         items.put(LARGE_BEER_SKU, new DonationEntry(LARGE_BEER_SKU, R.string.demo_item_large_beer, p3));
+        items.put(XLARGE_BEER_SKU, new DonationEntry(XLARGE_BEER_SKU, R.string.demo_item_xlarge_beer, p4));
     }
 
     public static IabUtil getInstance() {
@@ -107,6 +110,7 @@ public class IabUtil {
         additionalSkuList.add(SMALL_BEER_SKU);
         additionalSkuList.add(MEDIUM_BEER_SKU);
         additionalSkuList.add(LARGE_BEER_SKU);
+        additionalSkuList.add(XLARGE_BEER_SKU);
 
         IabHelper.QueryInventoryFinishedListener
                 mQueryFinishedListener = new IabHelper.QueryInventoryFinishedListener() {
@@ -124,6 +128,7 @@ public class IabUtil {
                 boolean b1=false;
                 boolean b2=false;
                 boolean b3=false;
+                boolean b4=false;
 
                 if (inventory!=null){
                     SkuDetails d1 = inventory.getSkuDetails(SMALL_BEER_SKU);
@@ -149,6 +154,13 @@ public class IabUtil {
                     b3 = inventory.hasPurchase(LARGE_BEER_SKU);
                 }
 
+                if (inventory!=null){
+                    SkuDetails d4 = inventory.getSkuDetails(XLARGE_BEER_SKU);
+                    if (d4!=null){
+                        p4 = d4.getPrice();
+                    }
+                    b4 = inventory.hasPurchase(XLARGE_BEER_SKU);
+                }
 
                 // update data
                 IabUtil iabutil = getInstance();
@@ -187,8 +199,19 @@ public class IabUtil {
                             if (mHelper!=null  && inventory!=null)
                                  consumeItem(mHelper,LARGE_BEER_SKU,inventory.getPurchase(LARGE_BEER_SKU));
                         }
+                    }
 
 
+                    DonationEntry itemxLarge = iabutil.items.get(XLARGE_BEER_SKU);
+                    if (itemxLarge != null) {
+                        itemxLarge.purchased = b4;
+                        itemxLarge.price = p4;
+                        items.put(XLARGE_BEER_SKU, itemxLarge);
+
+                        if (b4) {
+                            if (mHelper!=null  && inventory!=null)
+                                consumeItem(mHelper,XLARGE_BEER_SKU,inventory.getPurchase(XLARGE_BEER_SKU));
+                        }
                     }
                 }
             }
@@ -336,6 +359,34 @@ public class IabUtil {
                                         } else if (info.getSku().equals(LARGE_BEER_SKU)) {
                                             IabUtil.getInstance().items.get(LARGE_BEER_SKU).purchased = true;
                                             llarge.setClickable(false);
+                                            IabUtil.getInstance().retrieveData(mHelper);
+                                            Toast.makeText(getActivity(), "Thank you!", Toast.LENGTH_LONG).show();
+                                        }
+                                    }
+                                }, "bGoa+V7g/yqDXvKRqq+JTFn4uQZbPiQJo4pf9RzJ");
+                    }
+                });
+            }
+
+            final RelativeLayout lxlarge = (RelativeLayout) rootView.findViewById(R.id.purchase_xlarge_layout);
+            TextView lxlargeText = (TextView) rootView.findViewById(R.id.purchase_xlarge_layout_text);
+            lxlargeText.setText(iabUtil.items.get(XLARGE_BEER_SKU).nameId);
+            TextView lxlargeTextPrice = (TextView) rootView.findViewById(R.id.purchase_xlarge_layout_text_price);
+            lxlargeTextPrice.setText(iabUtil.items.get(XLARGE_BEER_SKU).price);
+            if (!iabUtil.items.get(XLARGE_BEER_SKU).purchased) {
+                lxlarge.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        mHelper.launchPurchaseFlow(getActivity(), XLARGE_BEER_SKU, 10001,
+                                new IabHelper.OnIabPurchaseFinishedListener() {
+                                    @Override
+                                    public void onIabPurchaseFinished(IabResult result, Purchase info) {
+                                        if (result.isFailure()) {
+                                            //Toast.makeText(getActivity(), "Error purchasing: " + result, Toast.LENGTH_LONG).show();
+                                            return;
+                                        } else if (info.getSku().equals(XLARGE_BEER_SKU)) {
+                                            IabUtil.getInstance().items.get(XLARGE_BEER_SKU).purchased = true;
+                                            lxlarge.setClickable(false);
                                             IabUtil.getInstance().retrieveData(mHelper);
                                             Toast.makeText(getActivity(), "Thank you!", Toast.LENGTH_LONG).show();
                                         }

@@ -1,11 +1,15 @@
 Change Log
 ===============================================================================
 
-Version 1.X.X *(2014-XX-XX)*
+Version 1.5.0 *(2014-XX-XX)*
 ----------------------------
-* LIB: Added a feature to use a own OnScrollListener with CardListView and Swipe Action [(doc)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARDLIST.md#swipe-and-custom-onscrolllistener)
+* LIB-EXTRA: Added a `CardGridStaggeredView` [(doc)](https://github.com/gabrielemariotti/cardslib/blob/master/doc/STAGGEREDGRID.md)
+* LIB: Added the chance to use a `ForegroundLinearLayout` in your Card [(doc)](https://github.com/gabrielemariotti/cardslib/blob/master/doc/CARD.md#using-a-foregroundlinearlayout)
+* LIB: Added a feature to use a own `OnScrollListener` with CardListView and Swipe Action [(doc)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARDLIST.md#swipe-and-custom-onscrolllistener)
 * LIB: Added the method `ViewToClickToExpand.setupCardElement()` to enable the expand/collapse action on the default card elements  [(doc)](https://github.com/gabrielemariotti/cardslib/blob/master/doc/EXPAND.md#expand-the-card-by-clicking-on-different-view)
 * LIB: Introduced a flag to disable the default broadcast after a bitmap is attached to an imageView in `CardThumbnail` [(doc)](https://github.com/gabrielemariotti/cardslib/blob/master/doc/THUMBNAIL.md#broadcast-to-know-when-the-download-is-finished)
+* DEMO-Extra: Added examples with StaggeredGridView
+* DEMO-Extra: Added an example with a List with expand-inside.[(source)](https://github.com/gabrielemariotti/cardslib/blob/dev/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/fragment/ExpandPicassoFragment.java)
 
 
 Version 1.4.2 *(2014-03-07)*

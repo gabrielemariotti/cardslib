@@ -16,12 +16,19 @@ In this page you can find info about:
 Card Library is pushed to Maven Central as a AAR, so you just need to add the following dependency to your `build.gradle`.
 
     dependencies {
-        compile 'com.github.gabrielemariotti.cards:library:1.4.2'
+        //Core card library
+        compile 'com.github.gabrielemariotti.cards:library:1.5.0'
+
+        //Extra card library, it is required only if you want to use integrations with other libraries
+        compile 'com.github.gabrielemariotti.cards:library-extra:1.5.0'
     }
+
+The library-extra is optional. It contains code to use integrations with other libraries, as StaggeredGridView.
+
 
 ## Building locally in Android Studio with Gradle
 
- If you would like to use a local copy of this library in Android Studio you have to do these steps:
+ If you would like to use a local copy of this **library** in Android Studio you have to do these steps:
 
  You should have a structure like this:
 
@@ -56,10 +63,48 @@ Card Library is pushed to Maven Central as a AAR, so you just need to add the fo
  With this file you can have an error while building the project (compileReleaseAidl FAILED).
 
 
+If you would like to build also the **library-extra** module (it is optional,it contains code to use integrations with other libraries, as StaggeredGridView):
+
+- add the extra-library folder
+ ```
+      libraries
+          cardslib
+              library
+                  build.gradle
+              library-extra
+                  build.gradle
+ ```
+
+ - modify your `settings.gradle`
+ ```
+ include ':MyModule', ':libraries:cardslib:library' , ':libraries:cardslib:library-extra'
+ ```
+
+ - check your `library-extra/build.gradle`. It requires external dependencies.
+ ```
+  dependencies {
+      // Cards Library
+      compile project(':libraries:cardslib:library')
+
+     //StaggeredGrid
+     compile 'com.etsy.android.grid:library:1.0.4'
+  }
+ ```
+
+ - modify `MyModule/build.gradle`
+  ```
+   dependencies {
+       // Cards Library
+       compile project(':libraries:cardslib:library')
+       // Cards Library-extra
+       compile project(':libraries:cardslib:library-extra')
+   }
+  ```
+
 
 ## Reference this project as a library in Eclipse
 
-If you would like to use this library in Eclipse you have to do these steps:
+If you would like to use this **library** in Eclipse you have to do these steps:
 
 - clone a copy of this repository, or download it (outside eclipse workspace)
 - import the code in your workspace starting from library folder. The Wizard will import the code in library/src/main. I suggest you to name it "cardslib" (or another name) instead of "main".
@@ -67,8 +112,18 @@ If you would like to use this library in Eclipse you have to do these steps:
 - mark cardslib as Android Library (Properties -> Android -> Is library)
 - The library targets SDK 19 and works with minSdk=14. In any cases you need to use API>=16 to compile library (Properties -> Android)
 
+If you would like to use this **library-extra** in Eclipse you have to do these steps:
+(this part is optional,it contains code to use integrations with other libraries, as StaggeredGridView)
 
-If you would like to build the demo-stock you have to do these additional steps:
+- import the code in your workspace starting from library-extra folder. The Wizard will import the code in library-extra/src/main. I suggest you to name it "cardslib-extra" (or another name) instead of "main".
+- mark java(*) folder as source (click on folder -> Build-Path -> use as source folder). You can also remove the src folder, from the project.
+- mark cardslib-extra as Android Library (Properties -> Android -> Is library)
+- add cardslib as dependency ( click -> Properties -> Android -> Add library)
+- add [Etsy-StaggeredGrid](https://github.com/etsy/AndroidStaggeredGrid) as dependency ( click -> Properties -> Android -> Add library) as dependency. Check the AndroidStaggeredGrid-library readme for instruction.
+- The library targets SDK 19 and works with minSdk=14. In any cases you need to use API>=16 to compile library (Properties -> Android)
+
+
+If you would like to build the **demo-stock** you have to do these additional steps:
 
 - import the demo-code in your workspace starting from demo/stock folder.
 - mark java(*) folder as source

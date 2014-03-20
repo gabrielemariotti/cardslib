@@ -5,16 +5,23 @@ In this page you can find info about:
 * [Including in your project and building](#including-in-your-project)
 * [Feature](#feature)
 * [Quick Usage](#quick-usage)
-* [Customization](#customization)
+* [Customization](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CUSTOMIZATION.md)
 
+**THIS LIBRARY requires API 14+**
 
 ## Including in your project
 
 Card Library is pushed to Maven Central as an AAR, so you just need to add the following dependency to your `build.gradle`.
 
     dependencies {
-        compile 'com.github.gabrielemariotti.cards:library:1.4.2'
+        //Core card library
+        compile 'com.github.gabrielemariotti.cards:library:1.5.0'
+
+        //Extra card library, it is required only if you want to use integrations with other libraries
+        compile 'com.github.gabrielemariotti.cards:library-extra:1.5.0'
     }
+
+The library-extra is optional. It contains code to use integrations with other libraries, as StaggeredGridView.
 
 [To build the library and demo locally you can see this page for more info](https://github.com/gabrielemariotti/cardslib/tree/master/doc/BUILD.md).
 
@@ -23,11 +30,12 @@ Card Library is pushed to Maven Central as an AAR, so you just need to add the f
 
 ## Feature
 
-Card Library provides 3 custom tags:
+Card Library provides 4 custom tags:
 
 *  `CardView` to display a UI Card.
 *  `CardListView` to display a List Card.
 *  `CardGridView` to display a Grid Card.
+*  `StaggeredGridView` to display a Staggered Grid Card.
 
 **It requires API 14+**
 
@@ -96,19 +104,10 @@ Last get a reference to the `CardView` from your code, and set your `Card`.
        cardView.setCard(card);
 ```
 
-* [See this page for a complete list of use](https://github.com/gabrielemariotti/cardslib/tree/master/doc/USAGE.md).
+* [See this page for a complete list of use](https://github.com/gabrielemariotti/cardslib/tree/master/doc/QUICKUSAGE.md).
 
 
 ## Customization
 
-Here you can find some pages to customize these tags.
+Check [this page](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CUSTOMIZATION.md) to customize these tags.
 
-* [Overview:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/OVERVIEW.md)
-* [Card Header:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/HEADER.md) How to customize all header features
-* [Card Shadow:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/SHADOW.md) How to customize the shadow
-* [Card Expand:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/EXPAND.md) How to use an expandable/collapsible built-in feature
-* [Card Thumbnail:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/THUMBNAIL.md) How to display a thumbnail
-* [Card:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARD.md) How to customize all card features
-* [CardList:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARDLIST.md) How to work with the `CardListView`
-* [CardGrid:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARDGRID.md) How to work with the `CardGridView`
-* [Integration with other libraries:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/OTHERLIBRARIES.md) How to work with other main libraries

@@ -46,23 +46,22 @@ import it.gmariotti.cardslib.library.view.CardView;
  * <p/>
  * CardGridStaggeredArrayAdapter mCardArrayAdapter = new CardGridStaggeredArrayAdapter(getActivity(),cards);
  * <p/>
- * CardGridView gridView = (CardGridStaggeredView) getActivity().findViewById(R.id.gridId);
+ * CardGridStaggeredView gridView = (CardGridStaggeredView) getActivity().findViewById(R.id.gridId);
  * gridView.setAdapter(mCardArrayAdapter); *
  * </code></pre>
  * It provides a default layout id for each row @layout/list_card_layout
  * Use can easily customize it using card:list_card_layout_resourceID attr in your xml layout:
  * <pre><code>
- *    <it.gmariotti.cardslib.library.view.CardGridView
- *     android:layout_width="match_parent"
- *     android:layout_height="match_parent"
- *     android:columnWidth="190dp"
- *     android:numColumns="auto_fit"
- *     android:verticalSpacing="3dp"
- *     android:horizontalSpacing="2dp"
- *     android:stretchMode="columnWidth"
- *     android:gravity="center"
- *     card:list_card_layout_resourceID="@layout/carddemo_grid_gplay"
- *     android:id="@+id/carddemo_grid_base1"/>
+ *    <it.gmariotti.cardslib.library.extra.staggeredgrid.view.CardGridStaggeredView
+ *      android:layout_width="match_parent"
+ *      android:layout_height="match_parent"
+ *      card:item_margin="8dp"
+ *      card:column_count_portrait="3"
+ *      card:column_count_landscape="3"
+ *      card:grid_paddingRight="8dp"
+ *      card:grid_paddingLeft="8dp"
+ *      card:list_card_layout_resourceID="@layout/carddemo_extras_staggered_card"
+ *      android:id="@+id/carddemo_extras_grid_stag"/>
  * </code></pre>
  * or:
  * <pre><code>
@@ -74,7 +73,7 @@ import it.gmariotti.cardslib.library.view.CardView;
  */
 public class CardGridStaggeredArrayAdapter extends BaseCardArrayAdapter {
 
-    protected static String TAG = "CardGridArrayAdapter";
+    protected static String TAG = "CardGridStaggeredArrayAdapters";
 
     /**
      * {@link it.gmariotti.cardslib.library.extra.staggeredgrid.view.CardGridStaggeredView}

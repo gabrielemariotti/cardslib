@@ -25,7 +25,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -74,10 +73,7 @@ public class StaggeredGridFragment extends BaseFragment {
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-
-        //Initialize Image loader
-        MockImageLoader loader = MockImageLoader.getInstance(activity.getApplication());
-        mServerDatabase = new ServerDatabase(loader);
+        new LoaderInitAsyncTask(activity).execute();
     }
 
     @Override
@@ -100,6 +96,27 @@ public class StaggeredGridFragment extends BaseFragment {
         new LoaderAsyncTask().execute();
     }
 
+
+    /**
+     * Async Task to init images
+     */
+    class LoaderInitAsyncTask extends AsyncTask<Void, Void, Void> {
+
+        Context mContext;
+
+
+        LoaderInitAsyncTask(Context context) {
+            mContext = context;
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            //Initialize Image loader
+            MockImageLoader loader = MockImageLoader.getInstance(((Activity)mContext).getApplication());
+            mServerDatabase = new ServerDatabase(loader);
+            return null;
+        }
+    }
 
     /**
      * Async Task to elaborate images
@@ -250,11 +267,8 @@ public class StaggeredGridFragment extends BaseFragment {
             @Override
             public void setupInnerViewElements(ViewGroup parent, View viewImage) {
 
-                final ImageView imageView = (ImageView) viewImage;
-
                 //Use a DynamicHeightPicassoCardThumbnailView to maintain width/height ratio
                 DynamicHeightPicassoCardThumbnailView thumbView = (DynamicHeightPicassoCardThumbnailView) getCardThumbnailView();
-                //thumbView.bindInto(imageView);
                 thumbView.bindTo(image);
 
             }

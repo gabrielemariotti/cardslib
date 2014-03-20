@@ -2,7 +2,7 @@
 
 **Card Library** provides an easy way to display a UI Card in your Android app.
 
-You can display **single cards**, **list** of cards and a **grid** of Cards.
+You can display **single cards**, **list** of cards and **grid** or **staggered grid** of Cards.
 
 ![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/screen.png)
 
@@ -34,7 +34,7 @@ Join the [**Google+ Community**](https://plus.google.com/u/0/communities/1118000
 
 [![Join the Google+ Community](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/g+64.png)](https://plus.google.com/u/0/communities/111800040690738372803)
 	
-a place to discuss the library, share screenshots, ask for tips....﻿
+a place to discuss the library, share screenshots, ask for tips, talk with the author....﻿
 
 **If you would like, you can support my work, donating through the demo app.**
 
@@ -50,7 +50,7 @@ The Guide provides a extensive doc, with all tips and full examples. Don't miss 
 Card Library is pushed to Maven Central as an AAR, so you just need to add the following dependency to your `build.gradle`.
 
     dependencies {
-        compile 'com.github.gabrielemariotti.cards:library:1.4.2'
+        compile 'com.github.gabrielemariotti.cards:library:1.5.0'
     }
 
 
@@ -64,6 +64,7 @@ Acknowledgements
 
 * Thanks to [Roman Nurik][1] for [Android-SwipeToDismiss][2] classes and [UndoBarController][3] classes.
 * Thanks to [Niek Haarman][4] for some ideas and code taken from his [ListViewAnimations][5].
+* Thanks to [Chris Banes][6] for [ForegroundLinearLayout][7] class.
 
 
 Credits
@@ -112,3 +113,5 @@ Google and the Google Maps logo are registered trademarks of Google Inc., used w
  [3]: https://code.google.com/p/romannurik-code/source/browse/#git%2Fmisc%2Fundobar
  [4]: https://plus.google.com/+NiekHaarman
  [5]: https://github.com/nhaarman/ListViewAnimations
+ [6]: https://plus.google.com/+ChrisBanes
+ [7]: https://gist.github.com/chrisbanes/9091754 & https://plus.google.com/+AndroidDevelopers/posts/aHPVDtr6mcp

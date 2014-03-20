@@ -176,4 +176,9 @@
         <item name="android:padding">@dimen/card_expand_layout_padding</item>
     </style>
 
+    <!--Staggered-->
+    <!--Style for Content View-->
+    <style name="card.content_outer_layout.staggered">
+        <item name="android:minHeight">20dp</item>
+    </style>
 </resources>
