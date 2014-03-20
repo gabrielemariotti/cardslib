@@ -418,7 +418,7 @@ public class MainActivity extends Activity {
             "Grid with Cursor",
             "List with MultiChoice",
             "Grid with MultiChoice",
-            "Dismiss Animation",
+            "Dismiss Animation (exp)",
             "Overflow Animation (exp)"
     };
 
