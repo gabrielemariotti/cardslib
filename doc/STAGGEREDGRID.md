@@ -58,12 +58,12 @@ Then create an Array of `Card`s:
 Last create a `CardGridStaggeredArrayAdapter`, get a reference to the `CardGridStaggeredView` from your code and set your adapter.
 
 ``` java
-        CardGridStaggeredArrayAdapter mCardArrayAdapter = new CardGridStaggeredArrayAdapter(getActivity(), cards);
+   CardGridStaggeredArrayAdapter mCardArrayAdapter = new CardGridStaggeredArrayAdapter(getActivity(), cards);
 
-       CardGridStaggeredView mGridView = (CardGridStaggeredView) getActivity().findViewById(R.id.carddemo_extras_grid_stag);
-       if (mGridView != null) {
-           mGridView.setAdapter(mCardArrayAdapter);
-       }
+   CardGridStaggeredView mGridView = (CardGridStaggeredView) getActivity().findViewById(R.id.carddemo_extras_grid_stag);
+   if (mGridView != null) {
+       mGridView.setAdapter(mCardArrayAdapter);
+   }
 ```
 
 This `CardGridStaggeredView` uses for each row the row-list layout `res/layout/list_card_layout.xml`.
@@ -93,10 +93,10 @@ As column widths change on orientation change, the grid view expects that all ch
 
 It can be very important if you are using a CardThumbnail inside your card.
 
-The demo-extra includes the `DynamicHeightPicassoCardThumbnailView` [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/staggered/DynamicHeightPicassoCardThumbnailView.java). an example of a view that measures its height based on its width.
+The demo-extra includes the `DynamicHeightPicassoCardThumbnailView` [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/staggered/DynamicHeightPicassoCardThumbnailView.java), an example of a view that measures its height based on its width.
 
 
-You can see an example in `BaseStaggeredGridFragment`  [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/fragment/StaggeredGridFragment.java).
+You can see a full example in `StaggeredGridFragment`  [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/fragment/StaggeredGridFragment.java).
 
 
 ### Use your custom layout for each row
