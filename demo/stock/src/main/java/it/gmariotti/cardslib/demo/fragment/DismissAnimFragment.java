@@ -107,7 +107,7 @@ public class DismissAnimFragment extends BaseFragment {
         int size = (int) (75 * density);
         switch (i % 3) {
             case 0:
-                thumb.setUrlResource("https://plus.google.com/s2/photos/profile/114432517923423045208?sz=" + size);
+                thumb.setUrlResource("https://lh5.googleusercontent.com/-squZd7FxR8Q/UyN5UrsfkqI/AAAAAAAAbAo/VoDHSYAhC_E/s"+size+"/new%2520profile%2520%25282%2529.jpg");
                 break;
             case 1:
                 thumb.setDrawableResource(R.drawable.ic_ic_error_loading);
