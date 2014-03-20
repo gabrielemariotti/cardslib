@@ -34,11 +34,16 @@
         Get: <a href="https://github.com/gabrielemariotti/cardslib">Source and doc</a><br>
         Get on Google Play: <a href="https://play.google.com/store/apps/details?id=it.gmariotti.cardslib.demo.extras">Cardslib Demo Extras</a><br>
         <br><br>
-        Many thanks to these open source tools:<br>
+        <b>Many thanks to these open source tools:</b><br>
         <b><a href="https://github.com/romannurik/Android-SwipeToDismiss">SwipeToDismiss</a></b><br>
         <i>by Roman Nurik</i><br><br>
-         <b><a href="https://github.com/nhaarman/ListViewAnimations">ListViewAnimations</a></b><br>
+        <b><a href="https://gist.github.com/chrisbanes/9091754">ForegroundLinearLayout</a></b><br>
+        <i>by Chris Banes</i><br><br>
+
+        <b>Thanks for some ideas and code:</b><br>
+        <b><a href="https://github.com/nhaarman/ListViewAnimations">ListViewAnimations</a></b><br>
         <i>by Niek Haarman</i><br><br>
+
         <br><br><br>
         Google and the Google Maps logo are registered trademarks of Google Inc.
 
@@ -175,6 +180,7 @@
     <string name="demo_item_small_beer">Buy me a coffee</string>
     <string name="demo_item_medium_beer">Buy me a toast</string>
     <string name="demo_item_large_beer">Buy me a pizza</string>
+    <string name="demo_item_xlarge_beer">Buy me a dinner</string>
 
 
     <string name="demo_title_cab1">Long Click to enable CAB</string>
