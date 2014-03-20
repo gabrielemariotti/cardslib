@@ -1,7 +1,7 @@
 Change Log
 ===============================================================================
 
-Version 1.5.0 *(2014-XX-XX)*
+Version 1.5.0 *(2014-03-21)*
 ----------------------------
 * LIB-EXTRA: Added a `CardGridStaggeredView` [(doc)](https://github.com/gabrielemariotti/cardslib/blob/master/doc/STAGGEREDGRID.md)
 * LIB: Added the chance to use a `ForegroundLinearLayout` in your Card [(doc)](https://github.com/gabrielemariotti/cardslib/blob/master/doc/CARD.md#using-a-foregroundlinearlayout)
