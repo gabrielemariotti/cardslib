@@ -7,6 +7,7 @@ In this page you can find info about:
 * [Attributes](#attributes)
 * [Width to height ratio](#width-to-height-ratio)
 * [Use your custom layout for each row](#use-your-custom-layout-for-each-row)
+* [How to use an external adapter](#how-to-use-an-external-adapter)
 
 ### Intro
 
@@ -107,3 +108,31 @@ This kind of View, doesn't support these `Card` features:
 
  1. swipe action
  2. collapse/expand action
+
+
+### How to use an external adapter
+
+Some libraries use a own adapter as [ListViewAnimations](https://github.com/gabrielemariotti/cardslib/tree/master/doc/OTHERLIBRARIES.md#using-card-with-listviewanimations)
+
+In this case you can use this code:
+
+``` java
+         mGridView.setExternalAdapter(ownAdapter,mCardArrayAdapter);
+```
+
+Pay attention. You can use this method, if your ownAdapter calls the mCardArrayAdapter#getView() method.
+
+Example with ListViewAnimations:
+
+``` java
+        CardGridStaggeredArrayAdapter mCardArrayAdapter = new CardGridStaggeredArrayAdapter(getActivity(), cards);
+        CardGridStaggeredView staggeredView = (CardGridStaggeredView) getActivity().findViewById(R.id.carddemo_extras_grid_stag);
+
+        //Add an animator
+        AnimationAdapter animCardArrayAdapter = new SwingLeftInAnimationAdapter(mCardArrayAdapter);
+        animCardArrayAdapter.setAbsListView(staggeredView);
+        animCardArrayAdapter.setInitialDelayMillis(500);
+        if (staggeredView != null) {
+            staggeredView.setExternalAdapter(animCardArrayAdapter, mCardArrayAdapter);
+        }
+```

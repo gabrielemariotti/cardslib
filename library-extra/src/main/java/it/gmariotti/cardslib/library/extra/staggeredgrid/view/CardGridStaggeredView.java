@@ -171,4 +171,20 @@ public class CardGridStaggeredView extends StaggeredGridView {
         adapter.setCardGridView(this);
         mAdapter=adapter;
     }
+
+    /**
+     * You can use this method, if you are using external adapters.
+     * Pay attention. The generic adapter#getView() method has to call the cardArrayAdapter#getView() method to work.
+     *
+     * @param adapter {@link ListAdapter} generic adapter
+     * @param cardAdapter    {@link CardGridStaggeredArrayAdapter} cardAdapter
+     */
+    public void setExternalAdapter(ListAdapter adapter, CardGridStaggeredArrayAdapter cardAdapter) {
+
+        setAdapter(adapter);
+
+        mAdapter=cardAdapter;
+        mAdapter.setCardGridView(this);
+        mAdapter.setRowLayoutId(list_card_layout_resourceID);
+    }
 }
