@@ -84,6 +84,7 @@ public class StaggeredGridFragment extends BaseFragment {
         ArrayList<Card> cards = new ArrayList<Card>();
         mCardArrayAdapter = new CardGridStaggeredArrayAdapter(getActivity(), cards);
 
+        //Staggered grid view
         CardGridStaggeredView staggeredView = (CardGridStaggeredView) getActivity().findViewById(R.id.carddemo_extras_grid_stag);
 
         //Set the empty view
@@ -121,22 +122,23 @@ public class StaggeredGridFragment extends BaseFragment {
     /**
      * Async Task to elaborate images
      */
-    class LoaderAsyncTask extends AsyncTask<Void, Void, Void> {
+    class LoaderAsyncTask extends AsyncTask<Void, Void, ArrayList<Card>> {
 
         LoaderAsyncTask() {
         }
 
         @Override
-        protected Void doInBackground(Void... params) {
+        protected ArrayList<Card> doInBackground(Void... params) {
             //elaborate images
             mServerDatabase.getImagesForSection(Section.STAG);
-            return null;
+            ArrayList<Card> cards = initCard();
+            return cards;
         }
 
         @Override
-        protected void onPostExecute(Void aVoid){
+        protected void onPostExecute(ArrayList<Card> cards){
             //Update the adapter
-            updateAdapter();
+            updateAdapter(cards);
         }
     }
 
@@ -192,10 +194,11 @@ public class StaggeredGridFragment extends BaseFragment {
     /**
      * Update the adapter
      */
-    private void updateAdapter() {
-        ArrayList<Card> cards = initCard();
-        mCardArrayAdapter.addAll(cards);
-        mCardArrayAdapter.notifyDataSetChanged();
+    private void updateAdapter(ArrayList<Card> cards) {
+        if (cards!=null) {
+            mCardArrayAdapter.addAll(cards);
+            mCardArrayAdapter.notifyDataSetChanged();
+        }
     }
 
     /**
