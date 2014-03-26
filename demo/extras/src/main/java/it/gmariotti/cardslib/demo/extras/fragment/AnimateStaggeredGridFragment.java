@@ -18,6 +18,7 @@
 
 package it.gmariotti.cardslib.demo.extras.fragment;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
 import android.os.AsyncTask;
@@ -25,7 +26,15 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import com.nhaarman.listviewanimations.swinginadapters.AnimationAdapter;
+import com.nhaarman.listviewanimations.swinginadapters.prepared.AlphaInAnimationAdapter;
+import com.nhaarman.listviewanimations.swinginadapters.prepared.ScaleInAnimationAdapter;
+import com.nhaarman.listviewanimations.swinginadapters.prepared.SwingBottomInAnimationAdapter;
+import com.nhaarman.listviewanimations.swinginadapters.prepared.SwingLeftInAnimationAdapter;
+import com.nhaarman.listviewanimations.swinginadapters.prepared.SwingRightInAnimationAdapter;
 
 import java.util.ArrayList;
 
@@ -41,7 +50,7 @@ import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardThumbnail;
 
 /**
- * This example uses a staggered card with different different photos and text.
+ * This example uses a staggered card with different different photos and text + ListViewAnimation to animate the adapter
  *
  * This example uses cards with a foreground layout.
  * Pay attention to style="@style/card.main_layout_foreground" in card layout.
@@ -50,24 +59,26 @@ import it.gmariotti.cardslib.library.internal.CardThumbnail;
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public class StaggeredGridFragment extends BaseFragment {
+public class AnimateStaggeredGridFragment extends BaseFragment implements
+        ActionBar.OnNavigationListener {
 
     ServerDatabase mServerDatabase;
     CardGridStaggeredArrayAdapter mCardArrayAdapter;
+    CardGridStaggeredView staggeredView;
 
-    public StaggeredGridFragment() {
+    public AnimateStaggeredGridFragment() {
         super();
     }
 
     @Override
     public int getTitleResourceId() {
-        return R.string.carddemo_extras_title_staggered;
+        return R.string.carddemo_extras_title_animate_staggered;
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.demo_extras_fragment_staggeredgrid, container, false);
+        return inflater.inflate(R.layout.demo_extras_fragment_animate_staggeredgrid, container, false);
     }
 
     @Override
@@ -84,19 +95,63 @@ public class StaggeredGridFragment extends BaseFragment {
         ArrayList<Card> cards = new ArrayList<Card>();
         mCardArrayAdapter = new CardGridStaggeredArrayAdapter(getActivity(), cards);
 
-        //Staggered grid view
-        CardGridStaggeredView staggeredView = (CardGridStaggeredView) getActivity().findViewById(R.id.carddemo_extras_grid_stag);
-
-        //Set the empty view
-        staggeredView.setEmptyView(getActivity().findViewById(android.R.id.empty));
-        if (staggeredView != null) {
-            staggeredView.setAdapter(mCardArrayAdapter);
-        }
+        staggeredView = (CardGridStaggeredView) getActivity().findViewById(R.id.carddemo_extras_grid_stag);
 
         //Load cards
         new LoaderAsyncTask().execute();
+
+        //Set the empty view
+        staggeredView.setEmptyView(getActivity().findViewById(android.R.id.empty));
+
+        /**
+         * Set adapter with animations
+         */
+        if (staggeredView != null) {
+           setAlphaAdapter();
+        }
     }
 
+    //-------------------------------------------------------------------------------------------------------------
+    // Navigation mode
+    //-------------------------------------------------------------------------------------------------------------
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        populateNavigationList();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        getActivity().getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
+
+    }
+
+    /**
+     * Populate the downDownValues to select the different animations
+     */
+    private void populateNavigationList() {
+
+        getActivity().getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
+
+        final String[] dropdownValues = {"Alpha", "Left", "Right", "Bottom", "Bottom right", "Scale"};
+
+        ActionBar actionBar = getActivity().getActionBar();
+
+        // Specify a SpinnerAdapter to populate the dropdown list.
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(actionBar.getThemedContext(),
+                android.R.layout.simple_spinner_item, android.R.id.text1,
+                dropdownValues);
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        // Set up the dropdown list navigation in the action bar.
+        actionBar.setListNavigationCallbacks(adapter, this);
+
+    }
 
     //-------------------------------------------------------------------------------------------------------------
     // Images loader
@@ -156,7 +211,7 @@ public class StaggeredGridFragment extends BaseFragment {
         for (int i = 0; i < 100; i++) {
 
             StaggeredCard card = new StaggeredCard(getActivity());
-            card.headerTitle = "PHOTO " + i;
+            card.headerTitle = "PHOTO " + (mCardArrayAdapter.getCount() +i);
 
             //Only for test, use different images from images loader
             int xx = i % 8;
@@ -199,16 +254,116 @@ public class StaggeredGridFragment extends BaseFragment {
      * Update the adapter
      */
     private void updateAdapter(ArrayList<Card> cards) {
-        if (cards!=null) {
-            mCardArrayAdapter.addAll(cards);
-            mCardArrayAdapter.notifyDataSetChanged();
-        }
+        mCardArrayAdapter.addAll(cards);
+        mCardArrayAdapter.notifyDataSetChanged();
     }
+
+
+    //-------------------------------------------------------------------------------------------------------------
+    // Animations
+    //-------------------------------------------------------------------------------------------------------------
+
+    /**
+     * Common settings for animation adapter
+     *
+     * @param animCardArrayAdapter
+     */
+    private void setCommonAnimation(AnimationAdapter animCardArrayAdapter) {
+        animCardArrayAdapter.setAnimationDurationMillis(1000);
+        animCardArrayAdapter.setAnimationDelayMillis(500);
+    }
+
+    /**
+     * Alpha animation
+     */
+    private void setAlphaAdapter() {
+        AnimationAdapter animCardArrayAdapter = new AlphaInAnimationAdapter(mCardArrayAdapter);
+        setCommonAnimation(animCardArrayAdapter);
+        animCardArrayAdapter.setAbsListView(staggeredView);
+        staggeredView.setExternalAdapter(animCardArrayAdapter, mCardArrayAdapter);
+    }
+
+    /**
+     * Left animation
+     */
+    private void setLeftAdapter() {
+        AnimationAdapter animCardArrayAdapter = new SwingLeftInAnimationAdapter(mCardArrayAdapter);
+        setCommonAnimation(animCardArrayAdapter);
+        animCardArrayAdapter.setAbsListView(staggeredView);
+        staggeredView.setExternalAdapter(animCardArrayAdapter, mCardArrayAdapter);
+    }
+
+    /**
+     * Right animation
+     */
+    private void setRightAdapter() {
+        AnimationAdapter animCardArrayAdapter = new SwingRightInAnimationAdapter(mCardArrayAdapter);
+        setCommonAnimation(animCardArrayAdapter);
+        animCardArrayAdapter.setAbsListView(staggeredView);
+        staggeredView.setExternalAdapter(animCardArrayAdapter, mCardArrayAdapter);
+    }
+
+    /**
+     * Bottom animation
+     */
+    private void setBottomAdapter() {
+        AnimationAdapter animCardArrayAdapter = new SwingBottomInAnimationAdapter(mCardArrayAdapter);
+        setCommonAnimation(animCardArrayAdapter);
+        animCardArrayAdapter.setAbsListView(staggeredView);
+        staggeredView.setExternalAdapter(animCardArrayAdapter, mCardArrayAdapter);
+    }
+
+    /**
+     * Bottom-right animation
+     */
+    private void setBottomRightAdapter() {
+        AnimationAdapter animCardArrayAdapter = new SwingBottomInAnimationAdapter(new SwingRightInAnimationAdapter(mCardArrayAdapter));
+        setCommonAnimation(animCardArrayAdapter);
+        animCardArrayAdapter.setAbsListView(staggeredView);
+        staggeredView.setExternalAdapter(animCardArrayAdapter, mCardArrayAdapter);
+    }
+
+    /**
+     * Scale animation
+     */
+    private void setScaleAdapter() {
+        AnimationAdapter animCardArrayAdapter = new ScaleInAnimationAdapter(mCardArrayAdapter);
+        setCommonAnimation(animCardArrayAdapter);
+        animCardArrayAdapter.setAbsListView(staggeredView);
+        staggeredView.setExternalAdapter(animCardArrayAdapter, mCardArrayAdapter);
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(int itemPosition, long itemId) {
+        switch (itemPosition) {
+            case 0:
+                setAlphaAdapter();
+                return true;
+            case 1:
+                setLeftAdapter();
+                return true;
+            case 2:
+                setRightAdapter();
+                return true;
+            case 3:
+                setBottomAdapter();
+                return true;
+            case 4:
+                setBottomRightAdapter();
+                return true;
+            case 5:
+                setScaleAdapter();
+                return true;
+            default:
+                return false;
+        }
+
+    }
+
 
     //-------------------------------------------------------------------------------------------------------------
     // Cards
     //-------------------------------------------------------------------------------------------------------------
-
 
     /**
      * Card
@@ -225,18 +380,6 @@ public class StaggeredGridFragment extends BaseFragment {
         }
 
         private void init() {
-            /*
-            //Add the header
-            CardHeader header = new CardHeader(getContext());
-            header.setTitle(headerTitle);
-            header.setPopupMenu(R.menu.extras_popupmain, new CardHeader.OnClickCardHeaderPopupMenuListener() {
-                @Override
-                public void onMenuItemClick(BaseCard card, MenuItem item) {
-                    Toast.makeText(getContext(),"Header:"+ ((Card) card).getCardHeader().getTitle() + "Item " + item.getTitle(), Toast.LENGTH_SHORT).show();
-                }
-            });
-            addCardHeader(header);
-            */
 
             //Add the thumbnail
             StaggeredCardThumb thumbnail = new StaggeredCardThumb(getContext());

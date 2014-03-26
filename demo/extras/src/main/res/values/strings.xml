@@ -88,6 +88,7 @@
     <string name="carddemo_extras_title_expandinside">MixExpand</string>
     <string name="carddemo_extras_title_staggered">StaggeredGrid</string>
     <string name="carddemo_extras_title_base_staggered">Base StaggeredGrid</string>
+    <string name="carddemo_extras_title_animate_staggered">Animate StaggeredGrid</string>
 
     <string name="carddemo_extras_simpletext">Simple Text</string>
     <string name="carddemo_extras_header_expand_area_inside">Card with expand area inside</string>
