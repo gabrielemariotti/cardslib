@@ -6,7 +6,7 @@ You can display **single cards**, **list** of cards and **grid** or **staggered 
 
 ![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/screen.png)
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/screen2.png)
+![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/screen3.png)
 
 
 ## Examples
