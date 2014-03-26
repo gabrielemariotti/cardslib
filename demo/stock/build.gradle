@@ -28,6 +28,11 @@ android {
                 signingConfig signingConfigs.release
             }
         }
+
+        debug {
+            packageNameSuffix ".debug"
+            versionNameSuffix "-debug"
+        }
     }
 
     // This is important, it will run lint checks but won't abort build

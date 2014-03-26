@@ -22,6 +22,9 @@
     <!--App name -->
     <string name="app_name">CardsLibDemo</string>
 
+    <!--Authority -->
+    <string name="config_authority">it.gmariotti.cardslib.demo.provider.debug</string>
+
     <!-- About -->
     <string name="title_about"><![CDATA[
         <b>CardLib</b>&nbsp;<font color="#888888">v%1$s</font>

@@ -18,11 +18,26 @@
 
 package it.gmariotti.cardslib.demo.db;
 
+import it.gmariotti.cardslib.demo.BuildConfig;
+
 /**
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
 public class Constants {
 
-    public static final String AUTHORITY_CARDDEMO = "it.gmariotti.cardslib.demo.provider";
+    public static final String AUTHORITY_CARDDEMO = buildAuthority();
+
+    /**
+     * Build authority according to flavor
+     *
+     * @return authority
+     */
+    private static String buildAuthority() {
+        String authority = "it.gmariotti.cardslib.demo.provider";
+        if (BuildConfig.DEBUG) {
+            authority += ".debug";
+        }
+        return authority;
+    }
 
 }

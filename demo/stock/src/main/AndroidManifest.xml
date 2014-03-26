@@ -44,7 +44,7 @@
         </activity>
         
         <provider
-            android:authorities="it.gmariotti.cardslib.demo.provider"
+            android:authorities="@string/config_authority"
             android:name=".db.CardCursorProvider"
             android:exported="false"></provider>
     </application>
