@@ -380,9 +380,9 @@ You have to extend the `CardCursorAdapter` and override the `getCardFromCursor` 
               setCardFromCursor(card,cursor);
 
               //Create a CardHeader
-              CardHeader header = new CardHeader(getActivity());
+              CardHeader header = new CardHeader(super.getContext());
+              
               //Set the header title
-
               header.setTitle(card.mainHeader);
 
               //Add Header to card
