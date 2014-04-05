@@ -59,10 +59,6 @@ before_install:
   # Otherwise
   #- echo yes | android update sdk -t tools,platform-tools,extra-android-support,extra-android-m2repository,android-19 --force --no-ui
 
-  # verify files exist in right paths
-  - find $ANDROID_HOME/build-tools
-  - file $ANDROID_HOME/build-tools/19/aapt
-
 
 # Let's try to build...
 install: gradle clean build
