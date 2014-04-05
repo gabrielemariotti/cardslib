@@ -17,8 +17,6 @@ notifications:
 
 before_install:
 
-  - sudo chmod +x gradlew
-
   # environment info
   - gradle -v
   - uname -a
