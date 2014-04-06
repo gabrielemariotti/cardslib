@@ -7,6 +7,9 @@ branches:
 
 jdk: oraclejdk7
 
+env:
+  global:
+    - ANDROID_SDK_VERSION="r22.6.2"
 
 notifications:
   email: false
@@ -37,13 +40,13 @@ before_install:
   - gradle -v
 
   # newest android SDK
-  #- wget http://dl.google.com/android/android-sdk_${ANDROID_SDK_VERSION}-linux.tgz
-  #- tar -zxf android-sdk_${ANDROID_SDK_VERSION}-linux.tgz
-  #- export ANDROID_HOME=`pwd`/android-sdk-linux
-  #- export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
+  - wget http://dl.google.com/android/android-sdk_${ANDROID_SDK_VERSION}-linux.tgz
+  - tar -zxf android-sdk_${ANDROID_SDK_VERSION}-linux.tgz
+  - export ANDROID_HOME=`pwd`/android-sdk-linux
+  - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
 
   # manually set sdk.dir variable, according to local paths
-  #- echo "sdk.dir=$ANDROID_HOME" > local.properties
+  - echo "sdk.dir=$ANDROID_HOME" > local.properties
 
   # Install required components.
   # For a full list, run `android list sdk -a --extended`
