@@ -27,6 +27,8 @@ dependencies {
     compile project(':library')
     //StaggeredGrid
     compile 'com.etsy.android.grid:library:1.0.4'
+    //DynamicList
+    compile 'com.nhaarman.listviewanimations:library:2.6.0'
 }
 
 // Used to update in Maven
