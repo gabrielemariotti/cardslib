@@ -4,6 +4,7 @@ Change Log
 Version 1.X.X *(2014-XX-XX)*
 ----------------------------
 * LIB-EXTRA: Added a new method to add external adapter different from CardGridStaggeredArrayAdapter  [(doc)](https://github.com/gabrielemariotti/cardslib/blob/master/doc/STAGGEREDGRID.md#how-to-use-an-external-adapter)
+* DEMO-Extra: Added an example with CardGridStaggered + ListViewAnimation
 
 
 Version 1.5.0 *(2014-03-21)*
