@@ -64,7 +64,8 @@ public class PicassoCard extends Card {
         setOnClickListener(new OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
-                Toast.makeText(getContext(), "Click Listener card=", Toast.LENGTH_SHORT).show();
+                String cardTitle= mId!=null? mId: mTitle;
+                Toast.makeText(getContext(), "Click Listener card="+cardTitle, Toast.LENGTH_SHORT).show();
             }
         });
     }
