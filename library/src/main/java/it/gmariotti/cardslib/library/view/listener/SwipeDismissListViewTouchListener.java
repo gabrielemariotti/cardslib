@@ -252,6 +252,7 @@ public class SwipeDismissListViewTouchListener implements View.OnTouchListener {
                 }
                 if (dismiss && mDownPosition != ListView.INVALID_POSITION) {
                     // dismiss
+                    // we have to abstract away the header indexes here because evidently the adapter can't deal with life. (asarazan)
                     dismiss(mDownView, mDownPosition - mListView.getHeaderViewsCount(), dismissRight);
 
                 } else {
