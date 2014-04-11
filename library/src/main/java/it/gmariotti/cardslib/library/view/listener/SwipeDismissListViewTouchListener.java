@@ -196,12 +196,14 @@ public class SwipeDismissListViewTouchListener implements View.OnTouchListener {
                 // Find the child view that was touched (perform a hit test)
                 Rect rect = new Rect();
                 int childCount = mListView.getChildCount();
+                int headerCount = mListView.getHeaderViewsCount();
+                int footerCount = mListView.getFooterViewsCount();
                 int[] listViewCoords = new int[2];
                 mListView.getLocationOnScreen(listViewCoords);
                 int x = (int) motionEvent.getRawX() - listViewCoords[0];
                 int y = (int) motionEvent.getRawY() - listViewCoords[1];
                 View child=null;
-                for (int i = 0; i < childCount; i++) {
+                for (int i = headerCount; i < (childCount - footerCount); i++) {
                     child = mListView.getChildAt(i);
                     child.getHitRect(rect);
                     if (rect.contains(x, y)) {
@@ -211,7 +213,6 @@ public class SwipeDismissListViewTouchListener implements View.OnTouchListener {
                 }
 
                 if (mDownView != null) {
-
                     mDownX = motionEvent.getRawX();
                     mDownY = motionEvent.getRawY();
                     mDownPosition = mListView.getPositionForView(mDownView);
@@ -251,7 +252,7 @@ public class SwipeDismissListViewTouchListener implements View.OnTouchListener {
                 }
                 if (dismiss && mDownPosition != ListView.INVALID_POSITION) {
                     // dismiss
-                    dismiss(mDownView, mDownPosition, dismissRight);
+                    dismiss(mDownView, mDownPosition - mListView.getHeaderViewsCount(), dismissRight);
 
                 } else {
                     // cancel
