@@ -434,14 +434,16 @@ public class CardThumbnailView extends FrameLayout implements CardViewInterface 
     public static boolean cancelPotentialWork(CardThumbnail.CustomSource customSource, ImageView imageView) {
         final BitmapWorkerCustomSourceTask bitmapWorkerTask = getBitmapWorkerCustomSourceTask(imageView);
 
-        if (bitmapWorkerTask != null) {
+        if (bitmapWorkerTask != null && bitmapWorkerTask.customSource != null) {
             final CardThumbnail.CustomSource bitmapWorkerTaskCustomSource = bitmapWorkerTask.customSource;
-            if (!bitmapWorkerTaskCustomSource.getTag().equals(customSource.getTag())) {
-                // Cancel previous task
-                bitmapWorkerTask.cancel(true);
-            } else {
-                // The same work is already in progress
-                return false;
+            if (bitmapWorkerTaskCustomSource.getTag() != null) {
+                if (!bitmapWorkerTaskCustomSource.getTag().equals(customSource.getTag())) {
+                    // Cancel previous task
+                    bitmapWorkerTask.cancel(true);
+                } else {
+                    // The same work is already in progress
+                    return false;
+                }
             }
         }
         // No task associated with the ImageView, or an existing task was cancelled
