@@ -148,6 +148,8 @@ public abstract class CardCursorAdapter extends BaseCardCursorAdapter  {
                 //Setup swipeable animation
                 setupSwipeableAnimation(mCard, mCardView);
 
+                //setupMultiChoice
+                setupMultichoice(view,mCard,mCardView,cursor.getPosition());
             }
         }
     }
