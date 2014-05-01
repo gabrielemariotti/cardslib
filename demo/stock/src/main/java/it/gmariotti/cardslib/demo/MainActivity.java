@@ -58,6 +58,7 @@ import it.gmariotti.cardslib.demo.fragment.ListDifferentInnerBaseFragment;
 import it.gmariotti.cardslib.demo.fragment.ListExpandCardFragment;
 import it.gmariotti.cardslib.demo.fragment.ListGplayCardCABFragment;
 import it.gmariotti.cardslib.demo.fragment.ListGplayCardFragment;
+import it.gmariotti.cardslib.demo.fragment.ListGplayCursorCardCABFragment;
 import it.gmariotti.cardslib.demo.fragment.ListGplayUndoCardFragment;
 import it.gmariotti.cardslib.demo.fragment.MiscCardFragment;
 import it.gmariotti.cardslib.demo.fragment.OverflowAnimFragment;
@@ -109,8 +110,9 @@ public class MainActivity extends Activity {
     private static final int CASE_CURSOR_GRID = 19;
     private static final int CASE_LIST_GPLAY_CAB = 20;
     private static final int CASE_GRID_GPLAY_CAB = 21;
-    private static final int CASE_DISMISS_ANIM = 22;
-    private static final int CASE_OVERFLOW_ANIM = 23;
+    private static final int CASE_CURSOR_LIST_GPLAY_CAB = 22;
+    private static final int CASE_DISMISS_ANIM = 23;
+    private static final int CASE_OVERFLOW_ANIM = 24;
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -147,6 +149,7 @@ public class MainActivity extends Activity {
                 if (!result.isSuccess()) {
                     // Oh noes, there was a problem.
                     Log.d(TAG, "Problem setting up In-app Billing: " + result);
+                    return;
                 }
 
                 // Have we been disposed of in the meantime? If so, quit.
@@ -352,6 +355,9 @@ public class MainActivity extends Activity {
             case CASE_GRID_GPLAY_CAB:
                 baseFragment = new GridGplayCABFragment();
                 break;
+            case CASE_CURSOR_LIST_GPLAY_CAB:
+                baseFragment = new ListGplayCursorCardCABFragment();
+                break;
             case CASE_DISMISS_ANIM:
                 baseFragment = new DismissAnimFragment();
                 break;
@@ -418,6 +424,7 @@ public class MainActivity extends Activity {
             "Grid with Cursor",
             "List with MultiChoice",
             "Grid with MultiChoice",
+            "List with Cursor and MultiChoice",
             "Dismiss Animation (exp)",
             "Overflow Animation (exp)"
     };
