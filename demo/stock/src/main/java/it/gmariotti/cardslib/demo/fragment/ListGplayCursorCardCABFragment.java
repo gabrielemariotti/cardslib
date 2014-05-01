@@ -197,7 +197,7 @@ public class ListGplayCursorCardCABFragment extends BaseFragment implements Load
             card.setOnClickListener(new Card.OnCardClickListener() {
                 @Override
                 public void onClick(Card card, View view) {
-                    Toast.makeText(getContext(), "Card id=" + card.getId() + " Title=" + card.getTitle(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Card id=" + card.getId() + " Title=" + card.getCardHeader().getTitle(), Toast.LENGTH_SHORT).show();
                 }
             });
 
