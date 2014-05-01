@@ -23,7 +23,7 @@
     <string name="app_name">CardsLibDemo</string>
 
     <!--Authority -->
-    <string name="config_authority">it.gmariotti.cardslib.demo.provider.debug</string>
+    <string name="config_authority">it.gmariotti.cardslib.demo.provider</string>
 
     <!-- About -->
     <string name="title_about"><![CDATA[
