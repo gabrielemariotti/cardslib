@@ -63,18 +63,15 @@ public abstract class CardGridCursorAdapter extends BaseCardCursorAdapter  {
     // -------------------------------------------------------------
 
     public CardGridCursorAdapter(Context context) {
-        super(context, null, false);
-        mContext= context;
+        super(context, null, 0);
     }
 
     protected CardGridCursorAdapter(Context context, Cursor c, boolean autoRequery) {
         super(context, c, autoRequery);
-        mContext= context;
     }
 
     protected CardGridCursorAdapter(Context context, Cursor c, int flags) {
         super(context, c, flags);
-        mContext= context;
     }
 
     // -------------------------------------------------------------
