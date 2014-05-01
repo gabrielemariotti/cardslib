@@ -126,6 +126,7 @@ public class MainActivity extends Activity {
                 if (!result.isSuccess()) {
                     // Oh noes, there was a problem.
                     Log.d(TAG, "Problem setting up In-app Billing: " + result);
+                    return;
                 }
 
                 // Have we been disposed of in the meantime? If so, quit.

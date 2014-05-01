@@ -25,6 +25,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender.SendIntentException;
 import android.content.ServiceConnection;
+import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
@@ -89,6 +90,8 @@ public class IabHelper {
     // Is an asynchronous operation in progress?
     // (only one at a time can be in progress)
     boolean mAsyncInProgress = false;
+
+    boolean mServiceBound = false;
 
     // (for logging/debugging)
     // if mAsyncInProgress == true, what asynchronous operation is in progress?
@@ -267,9 +270,12 @@ public class IabHelper {
 
         Intent serviceIntent = new Intent("com.android.vending.billing.InAppBillingService.BIND");
         serviceIntent.setPackage("com.android.vending");
-        if (mContext!=null && !mContext.getPackageManager().queryIntentServices(serviceIntent, 0).isEmpty()) {
+        List<ResolveInfo> packages = mContext.getPackageManager().queryIntentServices(serviceIntent, 0);
+        if (mContext!=null && packages != null && !packages.isEmpty()) {
+
             // service available to handle that Intent
             mContext.bindService(serviceIntent, mServiceConn, Context.BIND_AUTO_CREATE);
+            mServiceBound = true;
         }
         else {
             // no service available to handle that Intent
@@ -292,7 +298,7 @@ public class IabHelper {
         mSetupDone = false;
         if (mServiceConn != null) {
             logDebug("Unbinding from service.");
-            if (mContext != null) mContext.unbindService(mServiceConn);
+            if (mContext != null && mServiceBound) mContext.unbindService(mServiceConn);
         }
         mDisposed = true;
         mContext = null;
