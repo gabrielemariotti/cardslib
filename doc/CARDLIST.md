@@ -12,7 +12,7 @@ In this page you can find info about:
 * [Using a cursor adapter](#using-a-cursor-adapter)
 * [Using a CardList in MultiChoiceMode](#using-a-cardlist-in-multichoicemode)
 * [Using a CardList in MultiChoiceMode and CursorAdapter](#using-a-cardlist-in-multichoicemode-and-cursoradapter)
-
+* [CardList with Drag and Drop:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/DRAGDROPLIST.md)
 
 
 ### Creating a base CardList

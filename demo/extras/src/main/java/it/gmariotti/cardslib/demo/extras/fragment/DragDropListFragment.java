@@ -102,6 +102,9 @@ public class DragDropListFragment extends BaseFragment implements
         }
     }
 
+    //-------------------------------------------------------------------------------------------------------------
+    // Animations. (these method aren't used in this demo, but they can be called to enable the animations)
+    //-------------------------------------------------------------------------------------------------------------
 
     /**
      * Alpha animation

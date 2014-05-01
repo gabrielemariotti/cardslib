@@ -11,8 +11,8 @@ In this page you can find info about:
 
 ### Intro
 
-**PAY ATTENTION:** to use this feature you have to use the **library-extra**.
-[for more info](https://github.com/gabrielemariotti/cardslib/tree/master/doc/GUIDE.md#including-in-your-project).
+> **PAY ATTENTION:** to use this feature you have to use the **library-extra**.
+> [for more info](https://github.com/gabrielemariotti/cardslib/tree/master/doc/GUIDE.md#including-in-your-project).
 
 This feature is base on [AndroidStaggeredGrid](https://github.com/etsy/AndroidStaggeredGrid) provided by [Etsy](https://github.com/etsy).
 Check the [`build.gradle`](https://github.com/gabrielemariotti/cardslib/blob/master/library-extra/build.gradle) to know the last version used.
@@ -102,7 +102,7 @@ You can see a full example in `StaggeredGridFragment`  [(source)](https://github
 
 ### Use your custom layout for each row
 
-You can use the same rules of GridView. Check [this link](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARDGRID.md#use-your-custom-layout-for-each-row)
+You can use the same rules of CardGridView. Check [this link](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARDGRID.md#use-your-custom-layout-for-each-row)
 
 This kind of View, doesn't support these `Card` features:
 

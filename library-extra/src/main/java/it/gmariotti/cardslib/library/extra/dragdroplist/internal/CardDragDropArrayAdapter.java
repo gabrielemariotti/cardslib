@@ -95,7 +95,7 @@ public class CardDragDropArrayAdapter extends CardArrayAdapter implements Dynami
      */
     protected final void setupSwipeableAnimation(final Card card, CardView cardView) {
         card.setSwipeable(false);
-        cardView.setOnTouchListener(null);
+        //cardView.setOnTouchListener(null);
     }
 
     /**

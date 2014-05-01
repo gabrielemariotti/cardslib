@@ -70,8 +70,6 @@ public class CardListDragDropView extends DynamicListView {
         init(attrs, 0);
     }
 
-
-
     //--------------------------------------------------------------------------
     // Init
     //--------------------------------------------------------------------------
@@ -124,6 +122,7 @@ public class CardListDragDropView extends DynamicListView {
      *
      * @param adapter
      */
+    @SuppressWarnings("deprecation")
     @Override
     public void setAdapter(ListAdapter adapter) {
         if (adapter instanceof CardDragDropArrayAdapter){

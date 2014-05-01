@@ -25,6 +25,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
+    <!-- Drag and Drop icon kindly offered by [Taylor Ling](https://plus.google.com/+TaylorLing).-->
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

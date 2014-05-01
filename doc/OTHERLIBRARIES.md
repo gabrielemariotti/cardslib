@@ -10,6 +10,7 @@ In this page you can find info about:
 * [Using card as a Crouton](#using-card-as-a-crouton)
 * [Using card with StickyListHeaders](#using-card-with-stickylistheaders)
 * [StaggeredGrid](https://github.com/gabrielemariotti/cardslib/tree/master/doc/STAGGEREDGRID.md)
+* [Using a Card List with Drag and Drop support](https://github.com/gabrielemariotti/cardslib/tree/master/doc/DRAGDROPLIST.md)
 
 ## Using card with Picasso
 

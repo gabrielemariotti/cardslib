@@ -15,13 +15,13 @@ Card Library is pushed to Maven Central as an AAR, so you just need to add the f
 
     dependencies {
         //Core card library
-        compile 'com.github.gabrielemariotti.cards:library:1.5.0'
+        compile 'com.github.gabrielemariotti.cards:library:1.6.0'
 
         //Extra card library, it is required only if you want to use integrations with other libraries
-        compile 'com.github.gabrielemariotti.cards:library-extra:1.5.0'
+        compile 'com.github.gabrielemariotti.cards:library-extra:1.6.0'
     }
 
-The library-extra is optional. It contains code to use integrations with other libraries, as StaggeredGridView.
+The library-extra is optional. It contains code to use integrations with other libraries, as StaggeredGridView and CardListDragDropView.
 
 [To build the library and demo locally you can see this page for more info](https://github.com/gabrielemariotti/cardslib/tree/master/doc/BUILD.md).
 
@@ -30,12 +30,13 @@ The library-extra is optional. It contains code to use integrations with other l
 
 ## Feature
 
-Card Library provides 4 custom tags:
+Card Library provides 5 custom tags:
 
 *  `CardView` to display a UI Card.
 *  `CardListView` to display a List Card.
 *  `CardGridView` to display a Grid Card.
 *  `StaggeredGridView` to display a Staggered Grid Card.
+*  `CardListDragDropView` to display a List Card with drag and drop support.
 
 **It requires API 14+**
 

@@ -17,13 +17,13 @@ Card Library is pushed to Maven Central as a AAR, so you just need to add the fo
 
     dependencies {
         //Core card library
-        compile 'com.github.gabrielemariotti.cards:library:1.5.0'
+        compile 'com.github.gabrielemariotti.cards:library:1.6.0'
 
         //Extra card library, it is required only if you want to use integrations with other libraries
-        compile 'com.github.gabrielemariotti.cards:library-extra:1.5.0'
+        compile 'com.github.gabrielemariotti.cards:library-extra:1.6.0'
     }
 
-The library-extra is optional. It contains code to use integrations with other libraries, as StaggeredGridView.
+The library-extra is optional. It contains code to use integrations with other libraries, as StaggeredGridView and CardListDragDropView.
 
 
 ## Building locally in Android Studio with Gradle
@@ -63,7 +63,7 @@ The library-extra is optional. It contains code to use integrations with other l
  With this file you can have an error while building the project (compileReleaseAidl FAILED).
 
 
-If you would like to build also the **library-extra** module (it is optional,it contains code to use integrations with other libraries, as StaggeredGridView):
+If you would like to build also the **library-extra** module (it is optional,it contains code to use integrations with other libraries, as StaggeredGridView and CardListDragDropView):
 
 - add the extra-library folder
  ```
@@ -88,6 +88,9 @@ If you would like to build also the **library-extra** module (it is optional,it 
 
      //StaggeredGrid
      compile 'com.etsy.android.grid:library:1.0.4'
+
+     //Drag and drop list base on DynamicList
+     compile 'com.nhaarman.listviewanimations:library:2.6.0'
   }
  ```
 
@@ -113,13 +116,14 @@ If you would like to use this **library** in Eclipse you have to do these steps:
 - The library targets SDK 19 and works with minSdk=14. In any cases you need to use API>=16 to compile library (Properties -> Android)
 
 If you would like to use this **library-extra** in Eclipse you have to do these steps:
-(this part is optional,it contains code to use integrations with other libraries, as StaggeredGridView)
+(this part is optional,it contains code to use integrations with other libraries, as StaggeredGridView and CardListDragDropView)
 
 - import the code in your workspace starting from library-extra folder. The Wizard will import the code in library-extra/src/main. I suggest you to name it "cardslib-extra" (or another name) instead of "main".
 - mark java(*) folder as source (click on folder -> Build-Path -> use as source folder). You can also remove the src folder, from the project.
 - mark cardslib-extra as Android Library (Properties -> Android -> Is library)
 - add cardslib as dependency ( click -> Properties -> Android -> Add library)
 - add [Etsy-StaggeredGrid](https://github.com/etsy/AndroidStaggeredGrid) as dependency ( click -> Properties -> Android -> Add library) as dependency. Check the AndroidStaggeredGrid-library readme for instruction.
+- add [ListViewAnimation](https://github.com/nhaarman/ListViewAnimations) as dependency ( click -> Properties -> Android -> Add library) as dependency. Check the ListViewAnimations-library readme for instruction.
 - The library targets SDK 19 and works with minSdk=14. In any cases you need to use API>=16 to compile library (Properties -> Android)
 
 
