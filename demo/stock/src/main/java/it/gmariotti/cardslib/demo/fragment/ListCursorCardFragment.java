@@ -103,6 +103,9 @@ public class ListCursorCardFragment extends BaseFragment implements LoaderManage
         mAdapter.swapCursor(null);
     }
 
+    //-------------------------------------------------------------------------------------------------------------
+    // Adapter
+    //-------------------------------------------------------------------------------------------------------------
 
     public class MyCursorCardAdapter extends CardCursorAdapter {
 
@@ -117,8 +120,8 @@ public class ListCursorCardFragment extends BaseFragment implements LoaderManage
 
             //Create a CardHeader
             CardHeader header = new CardHeader(getActivity());
-            //Set the header title
 
+            //Set the header title
             header.setTitle(card.mainHeader);
             header.setPopupMenu(R.menu.popupmain, new CardHeader.OnClickCardHeaderPopupMenuListener() {
                 @Override
@@ -131,11 +134,12 @@ public class ListCursorCardFragment extends BaseFragment implements LoaderManage
             card.addCardHeader(header);
 
 
-
+            //Add the thumbnail
             CardThumbnail thumb = new CardThumbnail(getActivity());
             thumb.setDrawableResource(card.resourceIdThumb);
             card.addCardThumbnail(thumb);
 
+            //Simple clickListener
             card.setOnClickListener(new Card.OnCardClickListener() {
                 @Override
                 public void onClick(Card card, View view) {
@@ -154,6 +158,7 @@ public class ListCursorCardFragment extends BaseFragment implements LoaderManage
             card.mainHeader=cursor.getString(CardCursorContract.CardCursor.IndexColumns.HEADER_COLUMN);
             card.setId(""+cursor.getInt(CardCursorContract.CardCursor.IndexColumns.ID_COLUMN));
 
+            //Only for test, use different images
             int thumb = cursor.getInt(CardCursorContract.CardCursor.IndexColumns.THUMBNAIL_COLUMN);
             switch (thumb){
                 case 0:
@@ -188,6 +193,11 @@ public class ListCursorCardFragment extends BaseFragment implements LoaderManage
         //mAdapter.notifyDataSetChanged();
 
     }
+
+    //-------------------------------------------------------------------------------------------------------------
+    // Cards
+    //-------------------------------------------------------------------------------------------------------------
+
 
     public class MyCursorCard extends Card {
 

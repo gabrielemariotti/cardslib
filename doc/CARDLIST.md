@@ -11,6 +11,7 @@ In this page you can find info about:
 * [How to use an external adapter](#how-to-use-an-external-adapter)
 * [Using a cursor adapter](#using-a-cursor-adapter)
 * [Using a CardList in MultiChoiceMode](#using-a-cardlist-in-multichoicemode)
+* [Using a CardList in MultiChoiceMode and CursorAdapter](#using-a-cardlist-in-multichoicemode-and-cursoradapter)
 
 
 
@@ -434,6 +435,7 @@ First of all you have to create your CardArrayMultiChoiceAdapter extending the b
 
             @Override
             public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+                //It is very important to call the super method
                 super.onCreateActionMode(mode, menu);
 
                 mActionMode=mode; // to manage mode in your Fragment/Activity
@@ -493,7 +495,7 @@ First of all you have to create your CardArrayMultiChoiceAdapter extending the b
 ```
 It is very important, if you override the `onCreateActionMode()` method, to call the `super.onCreateActionMode()`.
 
-Then you have implement this `onLongClickListener` in your cards:
+Then you have to implement this `onLongClickListener` in your cards:
 
 ``` java
        card.setOnLongClickListener(new Card.OnLongCardClickListener() {
@@ -534,6 +536,44 @@ If you would like to customize the sentence "item selected", you can do it in yo
 
 ```
 
+ You can see an example in `ListGplayCardCABFragment`  [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/ListGplayCardCABFragment.java).
 
 
- You can see an example in `GridGplayCABFragment`  [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/ListGplayCardCABFragment.java).
+ ### Using a CardList in MultiChoiceMode and CursorAdapter
+
+If you would like to have a `CardList` with a CursorAdapter and a MultiChoiceMode  built-in feature you can use a `CardCursorMultiChoiceAdapter`.
+
+This class extends `CardCursorAdapter` and preserves all its features.
+
+All considerations, [written above](#using-a-cardlist-in-multichoicemode), are valid.
+
+``` java
+
+    public class MyCardCursorMultiChoiceAdapter extends CardCursorMultiChoiceAdapter {
+
+           public MyCardCursorMultiChoiceAdapter(Context context) {
+               super(context);
+           }
+
+
+           @Override
+           protected Card getCardFromCursor(Cursor cursor) {
+
+                MyCursorCard card = new MyCursorCard(super.getContext());
+
+                //Implement you code here
+
+                //It is very important.
+                //You have to implement this onLongClickListener in your cards to enable the multiChoice
+                card.setOnLongClickListener(new Card.OnLongCardClickListener() {
+                    @Override
+                    public boolean onLongClick(Card card, View view) {
+                        return startActionMode(getActivity());
+                    }
+                });
+           }
+
+    }
+```
+
+ You can see an example in `ListGplayCursorCardCABFragment`  [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/ListGplayCursorCardCABFragment.java).

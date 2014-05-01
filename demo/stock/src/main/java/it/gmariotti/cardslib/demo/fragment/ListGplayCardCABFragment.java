@@ -44,7 +44,7 @@ import it.gmariotti.cardslib.library.view.CardListView;
 import it.gmariotti.cardslib.library.view.CardView;
 
 /**
- * List of Google Play cards Example
+ * List of Google Play cards Example with MultiChoice
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
@@ -78,6 +78,9 @@ public class ListGplayCardCABFragment extends BaseFragment {
         }
     }
 
+    /**
+     * This method builds a simple list of cards
+     */
     private void initCards(Bundle savedInstanceState) {
 
         //Init an array of Cards
@@ -97,6 +100,8 @@ public class ListGplayCardCABFragment extends BaseFragment {
             }
             card.init();
 
+            //It is very important.
+            //You have to implement this onLongClickListener in your cards to enable the multiChoice
             card.setOnLongClickListener(new Card.OnLongCardClickListener() {
                 @Override
                 public boolean onLongClick(Card card, View view) {
@@ -128,6 +133,7 @@ public class ListGplayCardCABFragment extends BaseFragment {
 
         @Override
         public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+            //It is very important to call the super method
             super.onCreateActionMode(mode, menu);
 
             mActionMode=mode; // to manage mode in your Fragment/Activity
@@ -184,6 +190,9 @@ public class ListGplayCardCABFragment extends BaseFragment {
 
     }
 
+    //-------------------------------------------------------------------------------------------------------------
+    // Cards
+    //-------------------------------------------------------------------------------------------------------------
 
     /**
      * This class provides a simple card as Google Play
@@ -222,9 +231,9 @@ public class ListGplayCardCABFragment extends BaseFragment {
             else {
                 cardThumbnail.setDrawableResource(resourceIdThumbnail);
             }
-
             addCardThumbnail(cardThumbnail);
 
+            //Simple clickListener
             setOnClickListener(new OnCardClickListener() {
                 @Override
                 public void onClick(Card card, View view) {

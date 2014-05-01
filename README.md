@@ -1,4 +1,7 @@
 # Card Library
+Travis master: [![Build Status](https://travis-ci.org/gabrielemariotti/cardslib.svg?branch=master)](https://travis-ci.org/gabrielemariotti/cardslib)
+Travis dev: [![Build Status](https://travis-ci.org/gabrielemariotti/cardslib.svg?branch=dev)](https://travis-ci.org/gabrielemariotti/cardslib)
+
 
 **Card Library** provides an easy way to display a UI Card in your Android app.
 
@@ -64,7 +67,7 @@ Acknowledgements
 
 * Thanks to [Roman Nurik][1] for [Android-SwipeToDismiss][2] classes and [UndoBarController][3] classes.
 * Thanks to [Niek Haarman][4] for some ideas and code taken from his [ListViewAnimations][5].
-* Thanks to [Chris Banes][6] for [ForegroundLinearLayout][7] class.
+* Thanks to [Chris Banes][6] for [ForegroundLinearLayout][7] class (See this [post][8] for more info).
 
 
 Credits
@@ -114,4 +117,5 @@ Google and the Google Maps logo are registered trademarks of Google Inc., used w
  [4]: https://plus.google.com/+NiekHaarman
  [5]: https://github.com/nhaarman/ListViewAnimations
  [6]: https://plus.google.com/+ChrisBanes
- [7]: https://gist.github.com/chrisbanes/9091754 & https://plus.google.com/+AndroidDevelopers/posts/aHPVDtr6mcp
+ [7]: https://gist.github.com/chrisbanes/9091754
+ [8]: https://plus.google.com/+AndroidDevelopers/posts/aHPVDtr6mcp

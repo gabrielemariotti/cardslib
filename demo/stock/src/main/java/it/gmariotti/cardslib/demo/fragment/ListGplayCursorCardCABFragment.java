@@ -33,12 +33,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import it.gmariotti.cardslib.demo.R;
 import it.gmariotti.cardslib.demo.db.CardCursorContract;
@@ -51,7 +47,7 @@ import it.gmariotti.cardslib.library.view.CardListView;
 import it.gmariotti.cardslib.library.view.CardView;
 
 /**
- * List of Google Play cards Example
+ * List of Google Play cards Example with MultiChoice and CursorAdapter
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
@@ -107,15 +103,24 @@ public class ListGplayCursorCardCABFragment extends BaseFragment implements Load
     }
 
     private void init() {
+
+        //Set the arrayAdapter
         mAdapter = new MyCardCursorMultiChoiceAdapter(getActivity());
+
+        //ListView
         listView = (CardListView) getActivity().findViewById(R.id.carddemo_list_gplaycard_cab);
         if (listView != null) {
             listView.setAdapter(mAdapter);
             listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
         }
+
         // Force start background query to load sessions
         getLoaderManager().restartLoader(0, null, this);
     }
+
+    //-------------------------------------------------------------------------------------------------------------
+    // Cards
+    //-------------------------------------------------------------------------------------------------------------
 
     public class MyCursorCard extends Card {
 
@@ -143,9 +148,11 @@ public class ListGplayCursorCardCABFragment extends BaseFragment implements Load
         }
     }
 
-    /**
-     *
-     */
+
+    //-------------------------------------------------------------------------------------------------------------
+    // Adapter
+    //-------------------------------------------------------------------------------------------------------------
+
     public class MyCardCursorMultiChoiceAdapter extends CardCursorMultiChoiceAdapter {
 
         public MyCardCursorMultiChoiceAdapter(Context context) {
@@ -159,8 +166,8 @@ public class ListGplayCursorCardCABFragment extends BaseFragment implements Load
 
             //Create a CardHeader
             CardHeader header = new CardHeader(getActivity());
-            //Set the header title
 
+            //Set the header title
             header.setTitle(card.mainHeader);
             header.setPopupMenu(R.menu.popupmain, new CardHeader.OnClickCardHeaderPopupMenuListener() {
                 @Override
@@ -172,17 +179,21 @@ public class ListGplayCursorCardCABFragment extends BaseFragment implements Load
             //Add Header to card
             card.addCardHeader(header);
 
-
+            //Add the thumbnail
             CardThumbnail thumb = new CardThumbnail(getActivity());
             thumb.setDrawableResource(card.resourceIdThumb);
             card.addCardThumbnail(thumb);
 
+            //It is very important.
+            //You have to implement this onLongClickListener in your cards to enable the multiChoice
             card.setOnLongClickListener(new Card.OnLongCardClickListener() {
                 @Override
                 public boolean onLongClick(Card card, View view) {
-                    return mAdapter.startActionMode(getActivity());
+                    return startActionMode(getActivity());
                 }
             });
+
+            //Simple clickListener
             card.setOnClickListener(new Card.OnCardClickListener() {
                 @Override
                 public void onClick(Card card, View view) {
@@ -194,12 +205,14 @@ public class ListGplayCursorCardCABFragment extends BaseFragment implements Load
         }
 
         private void setCardFromCursor(MyCursorCard card,Cursor cursor) {
+
             card.position=cursor.getPosition();
             card.mainTitle=cursor.getString(CardCursorContract.CardCursor.IndexColumns.TITLE_COLUMN);
             card.secondaryTitle=cursor.getString(CardCursorContract.CardCursor.IndexColumns.SUBTITLE_COLUMN);
             card.mainHeader=cursor.getString(CardCursorContract.CardCursor.IndexColumns.HEADER_COLUMN);
             card.setId(""+cursor.getInt(CardCursorContract.CardCursor.IndexColumns.ID_COLUMN));
 
+            //Only for test, use different images
             int thumb = cursor.getInt(CardCursorContract.CardCursor.IndexColumns.THUMBNAIL_COLUMN);
             switch (thumb){
                 case 0:
@@ -228,6 +241,7 @@ public class ListGplayCursorCardCABFragment extends BaseFragment implements Load
 
         @Override
         public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+            //It is very important to call the super method
             super.onCreateActionMode(mode, menu);
 
             mActionMode=mode; // to manage mode in your Fragment/Activity

@@ -1,9 +1,12 @@
 Change Log
 ===============================================================================
 
-Version 1.X.X *(2014-XX-XX)*
+Version 1.6.X *(2014-XX-XX)*
 ----------------------------
-* LIB-EXTRA: Added a new method to add external adapter different from CardGridStaggeredArrayAdapter  [(doc)](https://github.com/gabrielemariotti/cardslib/blob/master/doc/STAGGEREDGRID.md#how-to-use-an-external-adapter)
+* LIB: Added a `CardCursorMultiChoiceAdapter` [(doc)](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARDLIST.md#using-a-cardlist-in-multichoicemode-and-cursoradapter)
+* LIB-EXTRA: Added a new method to add external adapter different from `CardGridStaggeredArrayAdapter` [(doc)](https://github.com/gabrielemariotti/cardslib/blob/master/doc/STAGGEREDGRID.md#how-to-use-an-external-adapter)
+* Added Travis CI support
+* DEMO: Added an example with CardCursorMultiChoiceAdapter
 * DEMO-Extra: Added an example with CardGridStaggered + ListViewAnimation
 
 
