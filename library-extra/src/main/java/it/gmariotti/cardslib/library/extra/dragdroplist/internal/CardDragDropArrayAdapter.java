@@ -31,6 +31,8 @@ import it.gmariotti.cardslib.library.view.CardView;
 
 
 /**
+ * Array Adapter for {@link Card} model with drop and drop support.
+ *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
 public class CardDragDropArrayAdapter extends CardArrayAdapter implements DynamicListView.Swappable{
@@ -64,7 +66,7 @@ public class CardDragDropArrayAdapter extends CardArrayAdapter implements Dynami
         return true;
     }
 
-    public void set(final int location, final Card object) {
+    private void set(final int location, final Card object) {
         remove(object);
         insert(object,location);
         notifyDataSetChanged();

@@ -31,6 +31,9 @@ import it.gmariotti.cardslib.library.extra.dragdroplist.internal.CardDragDropArr
 import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
 
 /**
+ * Card List View with drag and drop support.
+ * It uses an {@link CardDragDropArrayAdapter} to populate items.
+ *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
 public class CardListDragDropView extends DynamicListView {
@@ -116,9 +119,9 @@ public class CardListDragDropView extends DynamicListView {
     //--------------------------------------------------------------------------
 
     /**
-     * Set the adapter. You can provide a {@link it.gmariotti.cardslib.library.internal.CardArrayAdapter}, or a {@link it.gmariotti.cardslib.library.internal.CardCursorAdapter}
+     * Set the adapter. You can provide a {@link it.gmariotti.cardslib.library.extra.dragdroplist.internal.CardDragDropArrayAdapter}
      * or a generic adapter.
-     * Pay attention: your generic adapter has to call {@link it.gmariotti.cardslib.library.internal.CardArrayAdapter#getView} method
+     * Pay attention: your generic adapter has to call {@link it.gmariotti.cardslib.library.extra.dragdroplist.internal.CardDragDropArrayAdapter#getView} method
      *
      * @param adapter
      */
@@ -134,9 +137,9 @@ public class CardListDragDropView extends DynamicListView {
     }
 
     /**
-     * Set {@link CardArrayAdapter} and layout used by items in ListView
+     * Set {@link CardDragDropArrayAdapter} and layout used by items in ListView
      *
-     * @param adapter {@link CardArrayAdapter}
+     * @param adapter {@link (CardDragDropArrayAdapter}
      */
     public void setAdapter(CardDragDropArrayAdapter adapter) {
         super.setAdapter(adapter);
@@ -154,7 +157,7 @@ public class CardListDragDropView extends DynamicListView {
      * Pay attention. The generic adapter#getView() method has to call the cardArrayAdapter#getView() method to work.
      *
      * @param adapter {@link ListAdapter} generic adapter
-     * @param cardArrayAdapter    {@link CardArrayAdapter} cardArrayAdapter
+     * @param cardArrayAdapter    {@link CardDragDropArrayAdapter} cardArrayAdapter
      */
     public void setExternalAdapter(ListAdapter adapter, CardDragDropArrayAdapter cardArrayAdapter) {
 

@@ -40,8 +40,7 @@ import it.gmariotti.cardslib.library.extra.dragdroplist.view.CardListDragDropVie
 import it.gmariotti.cardslib.library.internal.Card;
 
 /**
- * This example uses a list of cards animated with ListViewAnimations.
- * Please refer to https://github.com/nhaarman/ListViewAnimations for full doc
+ * This example uses a list of cards with drap and drop support.
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
@@ -70,8 +69,6 @@ public class DragDropListFragment extends BaseFragment implements
 
         initCard();
     }
-
-
 
     /**
      * This method builds a simple list of cards
