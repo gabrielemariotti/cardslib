@@ -290,7 +290,7 @@ You can use the `CardExpand` inside the `CardListView`.
 
 With a **`CardArrayAdapter`** you can use the same code described above.
 
-You can find an example in [`ListExpandCardFragment`]((/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/ListExpandCardFragment.java).)
+You can find an example in [`ListExpandCardFragment`](/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/ListExpandCardFragment.java).
 
 ``` java
         Card card = new Card(getActivity());

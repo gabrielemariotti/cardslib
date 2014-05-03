@@ -577,7 +577,7 @@ If you would like to use a card with  you can use a code like this:
     };
 ```
 
-You can see this example:  [(source)](/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/ListGplayCardCABFragment.java).
+You can see this example:  [(source)](/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/CardFragment.java#L259).
 
 ### Using a ForegroundLinearLayout
 
