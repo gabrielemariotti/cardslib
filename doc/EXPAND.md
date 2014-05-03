@@ -49,7 +49,7 @@ If you want a standard `CardExpand` you can use this simple code:
         card.addCardExpand(expand);
 ```
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/header/expand.png)
+![Screen](/demo/images/header/expand.png)
 
 
 ### Custom Expand inflating your inner layout
@@ -99,7 +99,7 @@ Then you can add this custom `CustomExpandCard` to your `Card`:
         card.addCardExpand(expand);
 ```
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/header/expandCustom.png)
+![Screen](/demo/images/header/expandCustom.png)
 
 You can use these listeners to listen any callbacks when animations end.
 
@@ -218,7 +218,7 @@ How to enable expand/collapse action by clicking on the image on Thumbnail.
 
 ```
 
-You can see some examples in [`CardExpandFragment`](https://github.com/gabrielemariotti/cardslib/tree/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/CardExpandFragment.java).
+You can see some examples in [`CardExpandFragment`](/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/CardExpandFragment.java).
 
 
 How to enable the custom expand/collapse in a `ListView`.
@@ -281,7 +281,7 @@ You can also use this feature with a `ListView`.
        }
 ```
 
-You can see some examples in [`ExpandPicassoFragment`](https://github.com/gabrielemariotti/cardslib/tree/master/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/fragment/ExpandPicassoFragment.java).
+You can see some examples in [`ExpandPicassoFragment`](/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/fragment/ExpandPicassoFragment.java).
 
 
 ### CardExpand and CardListView
@@ -290,7 +290,7 @@ You can use the `CardExpand` inside the `CardListView`.
 
 With a **`CardArrayAdapter`** you can use the same code described above.
 
-You can find an example in [`ListExpandCardFragment`]((https://github.com/gabrielemariotti/cardslib/tree/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/ListExpandCardFragment.java).)
+You can find an example in [`ListExpandCardFragment`]((/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/ListExpandCardFragment.java).)
 
 ``` java
         Card card = new Card(getActivity());

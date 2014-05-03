@@ -12,7 +12,7 @@ In this page you can find info about:
 * [Using a cursor adapter](#using-a-cursor-adapter)
 * [Using a CardList in MultiChoiceMode](#using-a-cardlist-in-multichoicemode)
 * [Using a CardList in MultiChoiceMode and CursorAdapter](#using-a-cardlist-in-multichoicemode-and-cursoradapter)
-* [CardList with Drag and Drop:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/DRAGDROPLIST.md)
+* [CardList with Drag and Drop:](DRAGDROPLIST.md)
 
 
 ### Creating a base CardList
@@ -97,7 +97,7 @@ You can build your layout, but need to have:
 
 
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/demo/list_gplay.png)
+![Screen](/demo/images/demo/list_gplay.png)
 
 ### Cards with different inner layouts
 
@@ -162,7 +162,7 @@ Moreover you can extend `CardArrayAdapter` and provide your logic.
 ```
 You can see the example in 'ListDifferentInnerBaseFragment'.
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/card/different_inner.png)
+![Screen](/demo/images/card/different_inner.png)
 
 
 ### Swipe and Undo in `CardListView`
@@ -242,7 +242,7 @@ You can customize the undo bar. The easiest way is to copy the styles inside `re
 
 You can see the example in `ListGplayUndoCardFragment`.
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/card/cardWithUndo.png)
+![Screen](/demo/images/card/cardWithUndo.png)
 
 
 ### Swipe and Undo with a custom UndoBar
@@ -340,7 +340,7 @@ You can use a default `AbsListView.OnScrollListener` if you are working with a l
 
 ### How to use an external adapter
 
-Some libraries use a own adapter as [ListViewAnimations](https://github.com/gabrielemariotti/cardslib/tree/master/doc/OTHERLIBRARIES.md#using-card-with-listviewanimations)
+Some libraries use a own adapter as [ListViewAnimations](OTHERLIBRARIES.md#using-card-with-listviewanimations)
 
 In this case you can use this code:
 
@@ -536,10 +536,10 @@ If you would like to customize the sentence "item selected", you can do it in yo
 
 ```
 
- You can see an example in `ListGplayCardCABFragment`  [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/ListGplayCardCABFragment.java).
+ You can see an example in `ListGplayCardCABFragment`  [(source)](/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/ListGplayCardCABFragment.java).
 
 
- ### Using a CardList in MultiChoiceMode and CursorAdapter
+### Using a CardList in MultiChoiceMode and CursorAdapter
 
 If you would like to have a `CardList` with a CursorAdapter and a MultiChoiceMode  built-in feature you can use a `CardCursorMultiChoiceAdapter`.
 
@@ -576,4 +576,4 @@ All considerations, [written above](#using-a-cardlist-in-multichoicemode), are v
     }
 ```
 
- You can see an example in `ListGplayCursorCardCABFragment`  [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/ListGplayCursorCardCABFragment.java).
+ You can see an example in `ListGplayCursorCardCABFragment`  [(source)](/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/ListGplayCursorCardCABFragment.java).

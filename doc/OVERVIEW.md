@@ -12,7 +12,7 @@ Each `Card` has:
 
 A `CardView` has a global layout which defines the appearance and layout of the elements.
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/model.png)
+![Screen](/demo/images/model.png)
 
 It has these basic parts:
 
@@ -44,7 +44,7 @@ In this way you can build different type of cards.
 
 You do not need to use all the parts, you can use only the parts needed.
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/model/mexample.png)
+![Screen](/demo/images/model/mexample.png)
 
 
 Each part is a Compound View or a Layout with an **inner layout** which you can easily inflate and populate with your `Card` model.

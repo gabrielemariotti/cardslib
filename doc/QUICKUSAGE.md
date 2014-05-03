@@ -45,7 +45,7 @@ Last get a reference to the `CardView` from your code, and set your `Card`.
        cardView.setCard(card);
 ```
 
-See this [page](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CUSTOMIZATION.md) for more info.
+See this [page](CUSTOMIZATION.md) for more info.
 
 
 ## CardList Usage
@@ -76,7 +76,7 @@ Last get a reference to the `CardListView` from your code, and set your adapter:
 Also the `CardListView` can work with a `CardCursorAdapter`.
 
 
-See this [page](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARDLIST.md) for more info.
+See this [page](CARDLIST.md) for more info.
 
 
 ## CardGrid Usage
@@ -111,4 +111,4 @@ Last get a reference to the `CardGridView` from your code, and set your adapter:
         gridView.setAdapter(mCardArrayAdapter);
 ```
 
-See this [page](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARDGRID.md) for more info.
+See this [page](CARDGRID.md) for more info.

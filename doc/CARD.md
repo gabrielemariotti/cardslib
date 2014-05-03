@@ -109,7 +109,7 @@ The built-in content inner layout is quite useless, and provides a simple title.
       cardView.setCard(card);
 ```
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/card/title.png)
+![Screen](/demo/images/card/title.png)
 
 Surely you have to custom this area.
 
@@ -152,7 +152,7 @@ This is the layout:
     </RelativeLayout>
 ```
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/card/inner_content.png)
+![Screen](/demo/images/card/inner_content.png)
 
 #### Extending Card class
 
@@ -236,7 +236,7 @@ Then you can simply do:
         cardView.setCard(card);
 ```
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/card/mycard.png)
+![Screen](/demo/images/card/mycard.png)
 
 #### Listeners
 
@@ -248,7 +248,7 @@ The `Card` class provides some listeners to handle callbacks.
 * `OnCollapseAnimatorEndListener` : invoked when the collapse animation ends
 * `OnLongCardClickListener` : invoked when the card is long clicked
 
-See [Card Header:](https://github.com/gabrielemariotti/cardslib/tree/master/doc/HEADER.md) for Header listeners.
+See [Card Header:](HEADER.md) for Header listeners.
 
 #### Card with a swipe action
 
@@ -298,7 +298,7 @@ If you want a clickable card, enable a `Card.OnCardClickListener`
         CardView cardView = (CardView) getActivity().findViewById(R.id.carddemo_example_card3);
         cardView.setCard(card);
 ```
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/card/clickable.png)
+![Screen](/demo/images/card/clickable.png)
 
 #### ClickListener on a specific area
 
@@ -332,7 +332,7 @@ If you want to set only a part (or more parts) as clickable you can use this cod
         });
 ```
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/card/partial_listeners.png)
+![Screen](/demo/images/card/partial_listeners.png)
 
 
 #### Refresh a card
@@ -448,9 +448,9 @@ Example:
     </selector>
 ```
 
-You can see this example:  Colored cards example [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/ListColorFragment.java).
+You can see this example:  Colored cards example [(source)](/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/ListColorFragment.java).
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/demo/colors.png)
+![Screen](/demo/images/demo/colors.png)
 
 
 #### Change dynamically Card background with a Drawable object
@@ -466,7 +466,7 @@ Also you can customize your background using a Drawable object:
      card4setBackgroundResource(newDrawable);
 ```
 
-You can see this example:  [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/ChangeValueCardFragment.java#L122).
+You can see this example:  [(source)](/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/ChangeValueCardFragment.java#L122).
 
 
 
@@ -481,7 +481,7 @@ It is very simple.
     Bitmap bitmap = cardView.createBitmap();
 ```
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/card/exportCard.png)
+![Screen](/demo/images/card/exportCard.png)
 
 
 You can use this bitmap for your scopes.
@@ -577,7 +577,7 @@ If you would like to use a card with  you can use a code like this:
     };
 ```
 
-You can see this example:  [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/ListGplayCardCABFragment.java).
+You can see this example:  [(source)](/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/ListGplayCardCABFragment.java).
 
 ### Using a ForegroundLinearLayout
 
@@ -623,4 +623,4 @@ This style uses a foreground selector using the `android:foreground` attribute, 
     </style>
  ```
 
-You can see this example:  [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/extras/src/main/res/layout/carddemo_extras_base_staggered_layout.xml).
+You can see this example:  [(source)](/demo/extras/src/main/res/layout/carddemo_extras_base_staggered_layout.xml).

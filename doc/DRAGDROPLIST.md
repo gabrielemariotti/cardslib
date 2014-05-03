@@ -9,12 +9,12 @@ In this page you can find info about:
 ### Intro
 
 > **PAY ATTENTION:** to use this feature you have to use the **library-extra**.
-> [for more info](https://github.com/gabrielemariotti/cardslib/tree/master/doc/GUIDE.md#including-in-your-project).
+> [for more info](GUIDE.md#including-in-your-project).
 
 This feature is base on [ListViewAnimation](https://github.com/nhaarman/ListViewAnimations) provided by [Niek Haarman](https://plus.google.com/+NiekHaarman).
-Check the [`build.gradle`](https://github.com/gabrielemariotti/cardslib/blob/master/library-extra/build.gradle) to know the last version used.
+Check the [`build.gradle`](/library-extra/build.gradle) to know the last version used.
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/demo/dragdrop.png)
+![Screen](/demo/images/demo/dragdrop.png)
 
 
 ### Creating a base CardListDragDropView
@@ -32,7 +32,7 @@ First, you need an XML layout that will display the `CardListDragDropView`.
            card:list_card_layout_resourceID="@layout/carddemo_extras_list_card_dragdrop_layout"/>
 ```
 You have to customize the layout used for each item in ListView using the attr: `card:list_card_layout_resourceID="@layout/my_layout` to provide an area or an image where the drag and drop feature is enable.
-(You can use the same rules of CardListView. Check [this link](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARDLIST.md#use-your-custom-layout-for-each-row))
+(You can use the same rules of CardListView. Check [this link](CARDLIST.md#use-your-custom-layout-for-each-row))
 
 I suggest you using a ImageView with a "standard" drag and drop icon.
 
@@ -113,12 +113,12 @@ This kind of View, doesn't support these `Card` features:
  2. collapse/expand action
 
 
-You can see an example in `DragDropListFragment`  [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/fragment/DragDropListFragment.java).
+You can see an example in `DragDropListFragment`  [(source)](/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/fragment/DragDropListFragment.java).
 
 
 ### How to use an external adapter
 
-Some libraries use a own adapter as [ListViewAnimations](https://github.com/gabrielemariotti/cardslib/tree/master/doc/OTHERLIBRARIES.md#using-card-with-listviewanimations)
+Some libraries use a own adapter as [ListViewAnimations](OTHERLIBRARIES.md#using-card-with-listviewanimations)
 
 In this case you can use this code:
 

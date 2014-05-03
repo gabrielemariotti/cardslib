@@ -105,10 +105,10 @@ Last get a reference to the `CardView` from your code, and set your `Card`.
        cardView.setCard(card);
 ```
 
-* [See this page for a complete list of use](https://github.com/gabrielemariotti/cardslib/tree/master/doc/QUICKUSAGE.md).
+* [See this page for a complete list of use](QUICKUSAGE.md).
 
 
 ## Customization
 
-Check [this page](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CUSTOMIZATION.md) to customize these tags.
+Check [this page](CUSTOMIZATION.md) to customize these tags.
 

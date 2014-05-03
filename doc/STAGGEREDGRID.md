@@ -12,12 +12,12 @@ In this page you can find info about:
 ### Intro
 
 > **PAY ATTENTION:** to use this feature you have to use the **library-extra**.
-> [for more info](https://github.com/gabrielemariotti/cardslib/tree/master/doc/GUIDE.md#including-in-your-project).
+> [for more info](GUIDE.md#including-in-your-project).
 
 This feature is base on [AndroidStaggeredGrid](https://github.com/etsy/AndroidStaggeredGrid) provided by [Etsy](https://github.com/etsy).
-Check the [`build.gradle`](https://github.com/gabrielemariotti/cardslib/blob/master/library-extra/build.gradle) to know the last version used.
+Check the [`build.gradle`](/library-extra/build.gradle) to know the last version used.
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/demo/staggered.png)
+![Screen](/demo/images/demo/staggered.png)
 
 
 ### Creating a base CardGridStaggeredView
@@ -70,7 +70,7 @@ Last create a `CardGridStaggeredArrayAdapter`, get a reference to the `CardGridS
 This `CardGridStaggeredView` uses for each row the row-list layout `res/layout/list_card_layout.xml`.
 
 
-You can see an example in `BaseStaggeredGridFragment`  [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/fragment/BaseStaggeredGridFragment.java).
+You can see an example in `BaseStaggeredGridFragment`  [(source)](/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/fragment/BaseStaggeredGridFragment.java).
 
 
 ### Attributes
@@ -94,15 +94,15 @@ As column widths change on orientation change, the grid view expects that all ch
 
 It can be very important if you are using a CardThumbnail inside your card.
 
-The demo-extra includes the `DynamicHeightPicassoCardThumbnailView` [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/staggered/DynamicHeightPicassoCardThumbnailView.java), an example of a view that measures its height based on its width.
+The demo-extra includes the `DynamicHeightPicassoCardThumbnailView` [(source)](/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/staggered/DynamicHeightPicassoCardThumbnailView.java), an example of a view that measures its height based on its width.
 
 
-You can see a full example in `StaggeredGridFragment`  [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/fragment/StaggeredGridFragment.java).
+You can see a full example in `StaggeredGridFragment`  [(source)](/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/fragment/StaggeredGridFragment.java).
 
 
 ### Use your custom layout for each row
 
-You can use the same rules of CardGridView. Check [this link](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARDGRID.md#use-your-custom-layout-for-each-row)
+You can use the same rules of CardGridView. Check [this link](CARDGRID.md#use-your-custom-layout-for-each-row)
 
 This kind of View, doesn't support these `Card` features:
 
@@ -112,7 +112,7 @@ This kind of View, doesn't support these `Card` features:
 
 ### How to use an external adapter
 
-Some libraries use a own adapter as [ListViewAnimations](https://github.com/gabrielemariotti/cardslib/tree/master/doc/OTHERLIBRARIES.md#using-card-with-listviewanimations)
+Some libraries use a own adapter as [ListViewAnimations](OTHERLIBRARIES.md#using-card-with-listviewanimations)
 
 In this case you can use this code:
 

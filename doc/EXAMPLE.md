@@ -2,45 +2,45 @@
 
 The Demo contains some drafts to customize your card and some more complete examples.
 
-### BirthDay Card [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/BirthDayCardFragment.java)
+### BirthDay Card [(source)](/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/BirthDayCardFragment.java)
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/demo/birthday.png)
+![Screen](/demo/images/demo/birthday.png)
 
-### Google Play Card [source](https://github.com/gabrielemariotti/cardslib/tree/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/GPlayCardFragment.java)
+### Google Play Card [source](/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/GPlayCardFragment.java)
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/demo/gplay.png)
+![Screen](/demo/images/demo/gplay.png)
 
-### Google Now Stock Card [source](https://github.com/gabrielemariotti/cardslib/tree/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/StockCardFragment.java)
+### Google Now Stock Card [source](/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/StockCardFragment.java)
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/demo/gnow.png)
+![Screen](/demo/images/demo/gnow.png)
 
-### Misc Card [source](https://github.com/gabrielemariotti/cardslib/tree/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/MiscCardFragment.java)
+### Misc Card [source](/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/MiscCardFragment.java)
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/demo/misc.png)
+![Screen](/demo/images/demo/misc.png)
 
-### Expandable cards list example [source](https://github.com/gabrielemariotti/cardslib/tree/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/ListExpandCardFragment.java)
+### Expandable cards list example [source](/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/ListExpandCardFragment.java)
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/demo/list_expand.png)
+![Screen](/demo/images/demo/list_expand.png)
 
-### Google play cards list example [source](https://github.com/gabrielemariotti/cardslib/tree/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/ListGplayCardFragment.java)
+### Google play cards list example [source](/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/ListGplayCardFragment.java)
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/demo/list_gplay.png)
+![Screen](/demo/images/demo/list_gplay.png)
 
-### Google play cards grid example [source](https://github.com/gabrielemariotti/cardslib/blob/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/GridGplayFragment.java)
+### Google play cards grid example [source](/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/GridGplayFragment.java)
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/demo/grid_gplay.png)
+![Screen](/demo/images/demo/grid_gplay.png)
 
-### Colored cards example [source](https://github.com/gabrielemariotti/cardslib/tree/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/ListColorFragment.java)
+### Colored cards example [source](/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/ListColorFragment.java)
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/demo/colors.png)
+![Screen](/demo/images/demo/colors.png)
 
-### Expand inside the card [source](https://github.com/gabrielemariotti/cardslib/tree/master/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/fragment/ExpandPicassoFragment.java)
+### Expand inside the card [source](/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/fragment/ExpandPicassoFragment.java)
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/demo/expandinside.png)
+![Screen](/demo/images/demo/expandinside.png)
 
-### Staggered Grid [source](https://github.com/gabrielemariotti/cardslib/tree/master/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/fragment/StaggeredGridFragment.java)
+### Staggered Grid [source](/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/fragment/StaggeredGridFragment.java)
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/demo/staggered.png)
+![Screen](/demo/images/demo/staggered.png)
 ---
 
 Google and the Google Maps logo are registered trademarks of Google Inc., used with permission.

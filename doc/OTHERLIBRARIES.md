@@ -9,14 +9,14 @@ In this page you can find info about:
 * [Using card with ListViewAnimations](#using-card-with-listviewanimations)
 * [Using card as a Crouton](#using-card-as-a-crouton)
 * [Using card with StickyListHeaders](#using-card-with-stickylistheaders)
-* [StaggeredGrid](https://github.com/gabrielemariotti/cardslib/tree/master/doc/STAGGEREDGRID.md)
-* [Using a Card List with Drag and Drop support](https://github.com/gabrielemariotti/cardslib/tree/master/doc/DRAGDROPLIST.md)
+* [StaggeredGrid](STAGGEREDGRID.md)
+* [Using a Card List with Drag and Drop support](DRAGDROPLIST.md)
 
 ## Using card with Picasso
 
 [Picasso][1] is provided by [Square, inc][2].
 
-You can find an example in demo-extras in `PicassoCard` [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/fragment/PicassoFragment.java).
+You can find an example in demo-extras in `PicassoCard` [(source)](/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/fragment/PicassoFragment.java).
 
 First you need to set  `thumbnail.setExternalUsage(true);`
 
@@ -52,7 +52,7 @@ Then you have to implement your logic in `setupInnerViewElements(ViewGroup paren
 
 [Ion][3] is provided by [Koushik Dutta][4].
 
-You can find an example in demo-extras in `IonCard`  [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/fragment/IonFragment.java).
+You can find an example in demo-extras in `IonCard`  [(source)](/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/fragment/IonFragment.java).
 
 First you need to set  `thumbnail.setExternalUsage(true);`
 
@@ -89,7 +89,7 @@ Then you have to implement your logic in `setupInnerViewElements(ViewGroup paren
 
 [Android-Universal-Image-Loader][5] is provided by [Sergey Tarasevich][6].
 
-You can find an example in demo-extras in `UniversalImageLoaderCard`  [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/fragment/UniversalImageLoaderFragment.java) .
+You can find an example in demo-extras in `UniversalImageLoaderCard`  [(source)](/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/fragment/UniversalImageLoaderFragment.java) .
 
 First you need to set  `thumbnail.setExternalUsage(true);`
 
@@ -134,7 +134,7 @@ Then you have to implement your logic in `setupInnerViewElements(ViewGroup paren
 
 [ActionBar PullToRefresh][7] is provided by [Chris Banes][8].
 
-You can find an example in demo-extras in `ActionbarpullFragment`. [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/fragment/ActionbarpullFragment.java)
+You can find an example in demo-extras in `ActionbarpullFragment`. [(source)](/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/fragment/ActionbarpullFragment.java)
 
 The proper way to integrate this library is to use `PullToRefreshLayout` in your layout:
 
@@ -185,7 +185,7 @@ The proper way to integrate this library is to use `PullToRefreshLayout` in your
 
 [ListViewAnimations][9] is provided by [Niek Haarman][10].
 
-You can find an example in demo-extras in `ListViewAnimationsFragment`. [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/fragment/ListViewAnimationsFragment.java)
+You can find an example in demo-extras in `ListViewAnimationsFragment`. [(source)](/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/fragment/ListViewAnimationsFragment.java)
 
 ``` java
         CardArrayAdapter mCardArrayAdapter = new CardArrayAdapter(getActivity(), cards);
@@ -196,7 +196,7 @@ You can find an example in demo-extras in `ListViewAnimationsFragment`. [(source
         mListView.setExternalAdapter(animCardArrayAdapter,mCardArrayAdapter);
 ```
 
-You can find another example in demo-extras in `ListViewGridAnimationsFragment`. [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/fragment/ListViewGridAnimationsFragment.java)
+You can find another example in demo-extras in `ListViewGridAnimationsFragment`. [(source)](/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/fragment/ListViewGridAnimationsFragment.java)
 
 ``` java
         CardGridArrayAdapter mCardArrayAdapter = new CardGridArrayAdapter(getActivity(), cards);
@@ -212,7 +212,7 @@ You can find another example in demo-extras in `ListViewGridAnimationsFragment`.
 
 [Crouton][11] is provided by [Benjamin Weiss][12].
 
-You can find an example in demo-extras in `CroutonFragment`. [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/fragment/CroutonFragment.java)
+You can find an example in demo-extras in `CroutonFragment`. [(source)](/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/fragment/CroutonFragment.java)
 
 ``` java
 
@@ -236,12 +236,12 @@ You can find an example in demo-extras in `CroutonFragment`. [(source)](https://
 
 [StickyListHeaders][13] is provided by [Emil Sjölander][14].
 
-You can find an example in demo-extras in `StickyListHeadersFragment`. [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/fragment/StickyListHeadersFragment.java)
+You can find an example in demo-extras in `StickyListHeadersFragment`. [(source)](/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/fragment/StickyListHeadersFragment.java)
 
 In order to use this library you have to:
 
   1. Extend your `CardArrayAdapter` and implement `StickyListHeadersAdapter`.
-  2. Use or extend the `StickyCardListView` provided in this demo [(source)](https://github.com/gabrielemariotti/cardslib/tree/master/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/stickylist/StickyCardListView.java)
+  2. Use or extend the `StickyCardListView` provided in this demo [(source)](/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/stickylist/StickyCardListView.java)
   3. Provide a layout with a `StickyCardListView`.
 
   The `StickyCardListView` extends the standard `StickyListHeadersListView` merged with the `CardListView` methods.

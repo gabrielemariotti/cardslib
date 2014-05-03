@@ -77,7 +77,7 @@ If you want to load an image from a resource ID:
         cardView.setCard(card);
 ```
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/thumb/resourceId.png)
+![Screen](/demo/images/thumb/resourceId.png)
 
 ### Thumbnail from Resource URL
 
@@ -101,7 +101,7 @@ If you want to load an image from an url:
         cardView.setCard(card);
 ```
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/thumb/resourceURL.png)
+![Screen](/demo/images/thumb/resourceURL.png)
 
 
 ### Thumbnail from Custom Source
@@ -192,7 +192,7 @@ In Demo/Extra you can find 3 example with Picasso, Ion and Android-Universal-Ima
 
 You can see `PicassoCard` , `IonCard` , `UniversalImageLoaderCard` sources in demo-extras.
 
-[You can read more info in this page](https://github.com/gabrielemariotti/cardslib/tree/master/doc/OTHERLIBRARIES.md).
+[You can read more info in this page](OTHERLIBRARIES.md).
 
 
 ### Using with a Bitmap
@@ -243,7 +243,7 @@ You can set a drawable resource Id to display when the image can't be attached t
         card.addCardThumbnail(thumb);
 ```
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/thumb/errorID.png)
+![Screen](/demo/images/thumb/errorID.png)
 
 
 ### Customizing the Thumbnail Layout
@@ -342,7 +342,7 @@ Otherwise you can extend your `CardThumbmail` and override the `setupInnerViewEl
     }
 ```
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/thumb/thumb_style.png)
+![Screen](/demo/images/thumb/thumb_style.png)
 
 
 ### Broadcast to know when the download is finished
@@ -423,9 +423,9 @@ You need to override the `thumbnail#applyBitmap` method.
 This method is called only with a standard implementation. If you use an external library, you don't need this method to access to your bitmap.
 
 
-You can see an example [here](https://github.com/gabrielemariotti/cardslib/tree/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/BirthDayCardFragment.java)
+You can see an example [here](/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/BirthDayCardFragment.java)
 
-![Screen](https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/thumb/circle.png)
+![Screen](/demo/images/thumb/circle.png)
 
 
 ---
