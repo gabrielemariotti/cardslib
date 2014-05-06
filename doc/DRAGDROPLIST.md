@@ -16,7 +16,7 @@ Check the [`build.gradle`](/library-extra/build.gradle) to know the last version
 
 The library-extra provides a `@drawable/card_drag` icon kindly offered by [Taylor Ling](https://plus.google.com/+TaylorLing).
 
-![Screen](/demo/images/demo/dragdrop.png)
+![Screen](/demo/images/dragdrop.png)
 
 
 ### Creating a base CardListDragDropView
