@@ -14,6 +14,8 @@ In this page you can find info about:
 This feature is base on [ListViewAnimation](https://github.com/nhaarman/ListViewAnimations) provided by [Niek Haarman](https://plus.google.com/+NiekHaarman).
 Check the [`build.gradle`](/library-extra/build.gradle) to know the last version used.
 
+The library-extra provides a `@drawable/card_drag` icon kindly offered by [Taylor Ling](https://plus.google.com/+TaylorLing).
+
 ![Screen](/demo/images/demo/dragdrop.png)
 
 
@@ -36,7 +38,7 @@ You have to customize the layout used for each item in ListView using the attr: 
 
 I suggest you using a ImageView with a "standard" drag and drop icon.
 
-The library-extra provide a `@drawable/card_drag` icon kindly offered by [Taylor Ling](https://plus.google.com/+TaylorLing).
+The library-extra provides a `@drawable/card_drag` icon kindly offered by [Taylor Ling](https://plus.google.com/+TaylorLing).
 
 Example:
 ``` xml

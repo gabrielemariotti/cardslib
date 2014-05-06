@@ -68,6 +68,7 @@ Acknowledgements
 * Thanks to [Roman Nurik][1] for [Android-SwipeToDismiss][2] classes and [UndoBarController][3] classes.
 * Thanks to [Niek Haarman][4] for some ideas and code taken from his [ListViewAnimations][5].
 * Thanks to [Chris Banes][6] for [ForegroundLinearLayout][7] class (See this [post][8] for more info).
+* Thanks to [Taylor Ling][9] for drag and drop icon.
 
 
 Credits
@@ -119,3 +120,4 @@ Google and the Google Maps logo are registered trademarks of Google Inc., used w
  [6]: https://plus.google.com/+ChrisBanes
  [7]: https://gist.github.com/chrisbanes/9091754
  [8]: https://plus.google.com/+AndroidDevelopers/posts/aHPVDtr6mcp
+ [9]: https://plus.google.com/+TaylorLing

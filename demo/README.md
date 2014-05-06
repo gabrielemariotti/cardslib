@@ -44,6 +44,7 @@ Extras demo uses these open source libraries:
 * [AndroidStaggeredGrid][16] by [Etsy][17]
 
 * Thanks to [JakeWharton][18] for some ideas and code taken from his [u2020][19].
+* Thanks to [Taylor Ling][20] for drag and drop icon.
 
 Credits
 -------
@@ -103,4 +104,5 @@ License
  [17]: https://github.com/etsy
  [18]: http://jakewharton.com/
  [19]: https://github.com/JakeWharton/u2020
+ [20]: https://plus.google.com/+TaylorLing
 

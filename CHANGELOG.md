@@ -1,7 +1,7 @@
 Change Log
 ===============================================================================
 
-Version 1.6.0 *(2014-XX-XX)*
+Version 1.6.0 *(2014-05-06)*
 ----------------------------
 * LIB: Added a `CardCursorMultiChoiceAdapter` [(doc)](/doc/CARDLIST.md#using-a-cardlist-in-multichoicemode-and-cursoradapter)
 * LIB-EXTRA: Added a `CardListDragDropView`, a cardList with drag and drop support: [(doc)](/doc/DRAGDROPLIST.md)
