@@ -16,7 +16,7 @@ Check the [`build.gradle`](/library-extra/build.gradle) to know the last version
 
 The library-extra provides a `@drawable/card_drag` icon kindly offered by [Taylor Ling](https://plus.google.com/+TaylorLing).
 
-![Screen](/demo/images/demo/dragdrop.png)
+![Screen](/demo/images/dragdrop.png)
 
 
 ### Creating a base CardListDragDropView
@@ -108,6 +108,19 @@ Last create a `CardDragDropArrayAdapter`, get a reference to the `CardListDragDr
 
 Currently you can't enable the drag and drop feature clicking on the cards.
 
+
+You can set a listener to be notified when an item is dropped:
+``` java
+   //Listener
+   mListView.setOnItemMovedListener(new DynamicListView.OnItemMovedListener() {
+      @Override
+      public void onItemMoved(int newPosition) {
+          Card card = mCardArrayAdapter.getItem(newPosition);
+          Toast.makeText(getActivity(),"Card "+card.getId() + " moved to position " + newPosition, Toast.LENGTH_SHORT ).show();
+      }
+   });
+
+```
 
 This kind of View, doesn't support these `Card` features:
 
