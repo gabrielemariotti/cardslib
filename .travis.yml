@@ -13,7 +13,7 @@ notifications:
 before_install:
 
   # for gradle output style
-  #- export TERM=dumb
+  - export TERM=dumb
 
   # newer version of gradle
   # - wget http://services.gradle.org/distributions/gradle-1.12-bin.zip
@@ -47,6 +47,6 @@ before_install:
 # Let's try to build...
 #install: ./gradlew clean build
 
-#script: ./gradlew check
+script: ./gradlew clean build
 
 
