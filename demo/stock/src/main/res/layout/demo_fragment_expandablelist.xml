@@ -19,36 +19,15 @@
   -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:card="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_marginLeft="3dp"
-              android:gravity="center_vertical"
-              android:layout_height="96dp">
+              android:layout_height="match_parent">
 
-    <CheckBox
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:id="@+id/carddemo_cb"/>
-
-    <TextView
-        android:id="@+id/carddemo_myapps_main_inner_title"
-        style="@style/carddemo_myapps_main_inner_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <TextView
-        android:id="@+id/carddemo_myapps_main_inner_secondaryTitle"
-        style="@style/carddemo_myapps_main_inner_secondarytitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <RatingBar
-        android:id="@+id/carddemo_myapps_main_inner_ratingBar"
-        style="@style/carddemo_myapps_main_inner_ratingbar"
-        android:numStars="5"
-        android:stepSize="1.0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+    <it.gmariotti.cardslib.library.view.CardExpandableListView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:id="@+id/carddemo_list_expand"/>
 
 
 </LinearLayout>

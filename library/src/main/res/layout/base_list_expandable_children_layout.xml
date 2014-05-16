@@ -19,36 +19,22 @@
   -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
+              xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
-              android:layout_marginLeft="3dp"
-              android:gravity="center_vertical"
-              android:layout_height="96dp">
-
-    <CheckBox
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:id="@+id/carddemo_cb"/>
+              android:layout_height="40dp"
+              android:clickable="true"
+              android:orientation="vertical"
+              android:paddingLeft="40dp"
+              tools:context=".MainActivity" >
 
     <TextView
-        android:id="@+id/carddemo_myapps_main_inner_title"
-        style="@style/carddemo_myapps_main_inner_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <TextView
-        android:id="@+id/carddemo_myapps_main_inner_secondaryTitle"
-        style="@style/carddemo_myapps_main_inner_secondarytitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <RatingBar
-        android:id="@+id/carddemo_myapps_main_inner_ratingBar"
-        style="@style/carddemo_myapps_main_inner_ratingbar"
-        android:numStars="5"
-        android:stepSize="1.0"
+        android:id="@+id/card_children_simple_title"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
+        android:layout_height="wrap_content"
+        android:drawablePadding="5dp"
+        android:gravity="center_vertical"
+        android:textSize="14sp"
+        android:textStyle="bold" >
+    </TextView>
 
 </LinearLayout>
