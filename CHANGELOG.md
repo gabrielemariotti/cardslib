@@ -1,6 +1,14 @@
 Change Log
 ===============================================================================
 
+Version 1.7.0 *(2014-XX-XX)*
+----------------------------
+* LIB: Added a feature to customize undoBar message [(doc)](/doc/CARDLIST.md#swipe-and-undo-with-a-custom-undobar)
+
+  It contains a **BREAKING CHANGE** with UndoBar and UndoBarUIElements feature. Read the above link to migrate your code.
+
+
+
 Version 1.6.0 *(2014-05-06)*
 ----------------------------
 * LIB: Added a `CardCursorMultiChoiceAdapter` [(doc)](/doc/CARDLIST.md#using-a-cardlist-in-multichoicemode-and-cursoradapter)

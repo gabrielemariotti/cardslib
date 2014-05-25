@@ -273,18 +273,26 @@ public class CardArrayAdapter extends BaseCardArrayAdapter implements UndoBarCon
                 //Show UndoBar
                 UndoCard itemUndo=new UndoCard(itemPositions,itemIds);
 
-                if (getContext()!=null){
-                    Resources res = getContext().getResources();
-                    if (res!=null){
-                        String messageUndoBar = res.getQuantityString(R.plurals.list_card_undo_items, reverseSortedPositions.length, reverseSortedPositions.length);
+                //MessageUndoBar
+                String messageUndoBar=null;
+                if (getUndoBarController().getUndoBarUIElements()!=null){
+                    messageUndoBar = getUndoBarController().getUndoBarUIElements().getMessageUndo(CardArrayAdapter.this,itemIds,itemPositions);
+                }
 
-                        mUndoBarController.showUndoBar(
-                                false,
-                                messageUndoBar,
-                                itemUndo);
+                //Default message if null
+                if (messageUndoBar == null) {
+                    if (getContext() != null) {
+                        Resources res = getContext().getResources();
+                        if (res != null) {
+                            messageUndoBar = res.getQuantityString(R.plurals.list_card_undo_items, reverseSortedPositions.length, reverseSortedPositions.length);
+                        }
                     }
                 }
 
+                mUndoBarController.showUndoBar(
+                        false,
+                        messageUndoBar,
+                        itemUndo);
             }
         }
     };
@@ -354,9 +362,14 @@ public class CardArrayAdapter extends BaseCardArrayAdapter implements UndoBarCon
                 if (mUndoBarUIElements==null)
                     mUndoBarUIElements=new UndoBarController.DefaultUndoBarUIElements();
 
-                View undobar = ((Activity)mContext).findViewById(mUndoBarUIElements.getUndoBarId());
-                if (undobar != null) {
-                    mUndoBarController = new UndoBarController(undobar, this,mUndoBarUIElements);
+                if (mContext!=null && mContext instanceof Activity) {
+                    View undobar = ((Activity) mContext).findViewById(mUndoBarUIElements.getUndoBarId());
+                    if (undobar != null) {
+                        mUndoBarController = new UndoBarController(undobar, this, mUndoBarUIElements);
+                    }
+                }else{
+                    Log.e(TAG,"Undo Action requires a valid Activity context");
+                    throw new IllegalArgumentException("Undo Action requires a valid Activity context");
                 }
             }
         }else{

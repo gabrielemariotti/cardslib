@@ -20,6 +20,7 @@ package it.gmariotti.cardslib.library.view.listener;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcelable;
@@ -29,6 +30,7 @@ import android.view.ViewPropertyAnimator;
 import android.widget.TextView;
 
 import it.gmariotti.cardslib.library.R;
+import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
 
 /**
  * It is based on Roman Nurik code.
@@ -194,6 +196,16 @@ public class UndoBarController {
          */
         public int getUndoBarButtonId();
 
+        /**
+         * UndoMessage
+         *
+         * @param cardArrayAdapter  array Adapter
+         * @param itemIds           ids of items
+         * @param itemPositions     positions of items
+         * @return
+         */
+        public String getMessageUndo(CardArrayAdapter cardArrayAdapter,String[] itemIds,int[] itemPositions);
+
 
     }
 
@@ -218,6 +230,17 @@ public class UndoBarController {
         public int getUndoBarButtonId() {
             return R.id.list_card_undobar_button;
         }
+
+        @Override
+        public String getMessageUndo(CardArrayAdapter cardArrayAdapter, String[] itemIds, int[] itemPositions) {
+            if (cardArrayAdapter!=null && cardArrayAdapter.getContext()!=null) {
+                Resources res = cardArrayAdapter.getContext().getResources();
+                if (res!=null)
+                    return res.getQuantityString(R.plurals.list_card_undo_items, itemPositions.length, itemPositions.length);
+            }
+            return null;
+        }
+
     };
 
 
