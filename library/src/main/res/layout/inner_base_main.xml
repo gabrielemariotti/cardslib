@@ -24,9 +24,9 @@
               android:layout_height="wrap_content">
 
 
-    <!-- This is the base Inner View inside a CardHeader.
-         You can customize it with your layout xml file and your CardHeader.
-         You can popolate your element with CardHeader#setupInnerViewElements() method -->
+    <!-- This is the base Inner View inside a Card.
+         You can customize it with your layout xml file and your Card.
+         You can populate your element with Card#setupInnerViewElements() method -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
