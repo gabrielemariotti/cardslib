@@ -197,7 +197,8 @@ public class UndoBarController {
         public int getUndoBarButtonId();
 
         /**
-         * UndoMessage
+         * UndoMessage.
+         * Implement this method to customize the undo message dynamically.
          *
          * @param cardArrayAdapter  array Adapter
          * @param itemIds           ids of items
@@ -211,6 +212,27 @@ public class UndoBarController {
 
     /**
      * Default UndoBar
+     *
+     * You can provide a custom UndoBar.
+     * This UndoBar has to contains these elements:
+     * <ul>
+     *    <li>A TextView</li>
+     *    <li>A Button</li>
+     *    <li>A root element with an id attribute </li>
+     * </ul>
+     *
+     *  You should use the same Ids provided in the default layout list_card_undo_message,
+     *  but if you have to use different ids you can use the CardArrayAdapter.setUndoBarUIElements.
+     *
+     *  Example:
+     *  <code>
+     *      mCardArrayAdapter.setUndoBarUIElements(new UndoBarController.DefaultUndoBarUIElements(){
+     *
+     *          //Override methods to customize the elements
+     *      }
+     *  </code>
+     * It is very important to set the UndoBarUIElements before to call the setEnableUndo(true);
+     *
      */
     public static class DefaultUndoBarUIElements implements UndoBarUIElements {
 
