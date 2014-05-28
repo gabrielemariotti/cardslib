@@ -89,6 +89,11 @@
     <dimen name="grid_card_padding_bottom">2dp</dimen>
     <dimen name="grid_card_padding_top">2dp</dimen>
 
+    <!-- Card with list -->
+    <dimen name="card_base_cardwithlist_layout_leftmargin">3dp</dimen>
+    <dimen name="card_base_cardwithlist_layout_rightmargin">3dp</dimen>
+    <dimen name="card_base_cardwithlist_list_margin_top">10dp</dimen>
+    <dimen name="card_base_cardwithlist_list_margin_left">0dp</dimen>
 
 
 </resources>
