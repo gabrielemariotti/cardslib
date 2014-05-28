@@ -3,7 +3,7 @@ Change Log
 
 Version 1.7.0 *(2014-XX-XX)*
 ----------------------------
-* LIB: Added a feature to customize undoBar message [(doc)](/doc/CARDLIST.md#swipe-and-undo-with-a-custom-undobar)
+* LIB: Added a feature to customize dynamically the undoBar message [(doc)](/doc/CARDLIST.md#swipe-and-undo-with-a-custom-undobar)
 
   It contains a **BREAKING CHANGE** with UndoBar and UndoBarUIElements feature. Read the above link to migrate your code.
 
