@@ -34,6 +34,7 @@ import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardHeader;
 import it.gmariotti.cardslib.library.internal.base.BaseCard;
 import it.gmariotti.cardslib.library.prototypes.CardWithList;
+import it.gmariotti.cardslib.library.prototypes.LinearListView;
 
 /**
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
@@ -51,10 +52,24 @@ public class GoogleNowWeatherCard extends CardWithList {
         CardHeader header = new CardHeader(getContext());
 
         //Add a popup menu. This method set OverFlow button to visible
-        header.setPopupMenu(R.menu.popupmain, new CardHeader.OnClickCardHeaderPopupMenuListener() {
+        header.setPopupMenu(R.menu.popup_item, new CardHeader.OnClickCardHeaderPopupMenuListener() {
             @Override
             public void onMenuItemClick(BaseCard card, MenuItem item) {
-                Toast.makeText(getContext(), "Click on " + item.getTitle(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(), "Click on " + item.getTitle(), Toast.LENGTH_SHORT).show();
+                switch (item.getItemId()){
+                    case R.id.action_add:
+                        WeatherObject w1= new WeatherObject();
+                        w1.city ="Madrid";
+                        w1.temperature = 24;
+                        w1.weatherIcon = R.drawable.ic_action_sun;
+                        w1.setObjectId(w1.city);
+                        mLinearListAdapter.add(w1);
+                        break;
+                    case R.id.action_remove:
+                        mLinearListAdapter.remove(mLinearListAdapter.getItem(0));
+                        break;
+                }
+
             }
         });
         header.setTitle("Weather"); //should use R.string.
@@ -64,12 +79,22 @@ public class GoogleNowWeatherCard extends CardWithList {
     @Override
     protected void initCard() {
 
-        setOnClickListener(new OnCardClickListener() {
+        setSwipeable(true);
+        setOnSwipeListener(new OnSwipeListener() {
             @Override
-            public void onClick(Card card, View view) {
-                Toast.makeText(getContext(),"Click",Toast.LENGTH_SHORT).show();
+            public void onSwipe(Card card) {
+                Toast.makeText(getContext(), "Swipe on " + card.getCardHeader().getTitle(), Toast.LENGTH_SHORT).show();
             }
         });
+
+
+    }
+
+    @Override
+    public void setupEmptyView(ViewGroup parent) {
+        TextView text = (TextView)parent.findViewById(R.id.card_inner_base_empty_cardwithlist);
+        text.setText("No data....");
+        setEmptyView(text);
     }
 
     @Override
@@ -81,18 +106,21 @@ public class GoogleNowWeatherCard extends CardWithList {
         w1.city ="London";
         w1.temperature = 16;
         w1.weatherIcon = R.drawable.ic_action_cloud;
+        w1.setObjectId(w1.city);
         mObjects.add(w1);
 
         WeatherObject w2= new WeatherObject();
         w2.city ="Rome";
         w2.temperature = 25;
         w2.weatherIcon = R.drawable.ic_action_sun;
+        w2.setObjectId(w2.city);
         mObjects.add(w2);
 
         WeatherObject w3= new WeatherObject();
         w3.city ="Paris";
         w3.temperature = 19;
         w3.weatherIcon = R.drawable.ic_action_cloudy;
+        w3.setObjectId(w3.city);
         mObjects.add(w3);
 
         return mObjects;
@@ -118,12 +146,33 @@ public class GoogleNowWeatherCard extends CardWithList {
         return R.layout.carddemo_googlenowweather_inner_main;
     }
 
-    public class WeatherObject implements ListObject{
+
+
+    // -------------------------------------------------------------
+    // Weather Object
+    // -------------------------------------------------------------
+
+    public class WeatherObject extends DefaultListObject{
 
         public String city;
         public int weatherIcon;
         public int temperature;
         public String temperatureUnit="°C";
 
+        public WeatherObject(){
+            init();
+        }
+
+        private void init(){
+            setOnItemClickListener(new OnItemClickListener() {
+                @Override
+                public void onItemClick(LinearListView parent, View view, int position, ListObject object) {
+                    Toast.makeText(getContext(), "Click on " + getObjectId(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+
     }
+
+
 }

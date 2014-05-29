@@ -23,6 +23,7 @@
               android:orientation="vertical"
               android:layout_marginLeft="8dp"
               android:layout_marginRight="8dp"
+              android:background="@drawable/demo_item_selector"
               android:layout_width="match_parent"
               android:layout_height="wrap_content">
 
@@ -39,7 +40,7 @@
         android:layout_marginRight="12dp"
         android:layout_gravity="center_vertical"
         android:layout_height="wrap_content"
-        android:minHeight="40dp">
+        android:minHeight="48dp">
 
         <TextView
             android:id="@+id/carddemo_weather_city"
