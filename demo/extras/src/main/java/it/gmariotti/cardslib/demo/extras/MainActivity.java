@@ -42,6 +42,7 @@ import it.gmariotti.cardslib.demo.extras.fragment.ActionbarpullFragment;
 import it.gmariotti.cardslib.demo.extras.fragment.AnimateStaggeredGridFragment;
 import it.gmariotti.cardslib.demo.extras.fragment.BaseFragment;
 import it.gmariotti.cardslib.demo.extras.fragment.BaseStaggeredGridFragment;
+import it.gmariotti.cardslib.demo.extras.fragment.CardWeatherFragment;
 import it.gmariotti.cardslib.demo.extras.fragment.CroutonFragment;
 import it.gmariotti.cardslib.demo.extras.fragment.DragDropListFragment;
 import it.gmariotti.cardslib.demo.extras.fragment.ExpandPicassoFragment;
@@ -87,6 +88,7 @@ public class MainActivity extends Activity {
     private static final int CASE_STAG = 10;
     private static final int CASE_ALL = 11;
     private static final int CASE_DRAGDROP = 12;
+    private static final int CASE_WEATHER = 13;
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -315,6 +317,9 @@ public class MainActivity extends Activity {
             case CASE_DRAGDROP:
                 baseFragment= new DragDropListFragment();
                 break;
+            case CASE_WEATHER:
+                baseFragment= new CardWeatherFragment();
+                break;
             default:
                 break;
         }
@@ -364,7 +369,8 @@ public class MainActivity extends Activity {
             "Base StaggeredGrid",
             "StaggeredGrid",
             "AnimateStaggeredGrid",
-            "Drag And Drop CardList"
+            "Drag And Drop CardList",
+            "Card and Weather List"
     };
 
 
