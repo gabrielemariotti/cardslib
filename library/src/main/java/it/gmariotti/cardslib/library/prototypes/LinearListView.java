@@ -22,51 +22,51 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.ListAdapter;
 
 /**
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public class ListLayout extends LinearLayout implements
-        View.OnClickListener {
+public class LinearListView extends LinearLayout {
 
-    private ListAdapter mList;
-    private View.OnClickListener mListener;
+    /**
+     * Adapter
+     */
+    private CardWithList.LinearListAdapter mListAdapter;
+
     private View view;
 
-    public ListLayout(Context context) {
+    // -------------------------------------------------------------
+    // Constructors
+    // -------------------------------------------------------------
+
+    public LinearListView(Context context) {
         super(context);
     }
 
-    public ListLayout(Context context, AttributeSet attrs) {
+    public LinearListView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public ListLayout(Context context, AttributeSet attrs, int defStyle) {
+    public LinearListView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
-    public void setAdapter(ListAdapter list) {
-        this.mList = list;
+    // -------------------------------------------------------------
+    // Adapter
+    // -------------------------------------------------------------
+
+    public void setAdapter(CardWithList.LinearListAdapter listAdapter) {
+        this.mListAdapter = listAdapter;
         setOrientation(VERTICAL);
 
         //Populate the list
-        if (mList != null) {
-            for (int i = 0; i < mList.getCount(); i++) {
-                view = mList.getView(i, null, null);
-                this.addView(view);
+        if (mListAdapter != null) {
+            for (int i = 0; i < mListAdapter.getCount(); i++) {
+                view = mListAdapter.getView(i, null, null);
+                if (view != null)
+                    this.addView(view);
             }
         }
     }
-
-    public void setListener(View.OnClickListener listener) {
-        this.mListener = listener;
-    }
-
-    @Override
-    public void onClick(View v) {
-        if (mListener !=null) mListener.onClick(v);
-    }
-
 
 }

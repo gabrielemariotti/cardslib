@@ -19,11 +19,14 @@
 package it.gmariotti.cardslib.library.prototypes;
 
 import android.content.Context;
+import android.database.DataSetObserver;
 import android.view.LayoutInflater;
+import android.view.SoundEffectConstants;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import it.gmariotti.cardslib.library.R;
@@ -33,117 +36,472 @@ import it.gmariotti.cardslib.library.internal.CardHeader;
 /**
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public abstract class CardWithList extends Card{
+public abstract class CardWithList extends Card {
 
-    protected List<ListObject> mChildren;
+    /**
+     * The cardHeader
+     */
     protected CardHeader mCardHeader;
 
-    protected ListLayout mList;
-    protected ListAdapter mListAdapter;
+    /**
+     * The "listView"
+     */
+    protected LinearListView mListView;
+
+    /**
+     * The listAdapter
+     */
+    protected LinearListAdapter mLinearListAdapter;
 
     /**
      * Default layout used for each row
      */
     protected int mChildLayoutId;
 
+    /**
+     *
+     */
+    private View mEmptyView;
 
-    public CardWithList (Context context){
-        this (context,R.layout.inner_base_main_cardwithlist);
+    private DataSetObserver mDataObserver = new DataSetObserver() {
+
+        @Override
+        public void onChanged() {
+            setupChildren();
+        }
+
+        @Override
+        public void onInvalidated() {
+            setupChildren();
+        }
+
+    };
+
+    // -------------------------------------------------------------
+    // Constructors
+    // -------------------------------------------------------------
+
+    /**
+     * Constructor with a base inner layout defined by R.layout.inner_base_main_cardwithlist
+     *
+     * @param context context
+     */
+    public CardWithList(Context context) {
+        this(context, R.layout.inner_base_main_cardwithlist);
     }
 
+    /**
+     * Constructor with a custom inner layout.
+     *
+     * @param context     context
+     * @param innerLayout resource ID for inner layout
+     */
     public CardWithList(Context context, int innerLayout) {
         super(context, innerLayout);
         init();
     }
 
-    private void init(){
+    // -------------------------------------------------------------
+    // Init
+    // -------------------------------------------------------------
+
+    /**
+     * Init the card
+     */
+    private void init() {
 
         //Init the CardHeader
         mCardHeader = initCardHeader();
         if (mCardHeader != null)
             addCardHeader(mCardHeader);
 
+        //Init the Card
         initCard();
 
-        mChildren = initChildren();
+        //Init the children
+        List<ListObject> mChildren = initChildren();
+        if (mChildren==null)
+            mChildren = new ArrayList<ListObject>();
+        mLinearListAdapter = new LinearListAdapter(super.getContext(), mChildren);
 
+        //Retrieve the layoutId use by children
         mChildLayoutId = getChildLayoutId();
+
     }
 
+    // -------------------------------------------------------------
+    // Abstract method to be implemented in your class
+    // -------------------------------------------------------------
+
     /**
+     * Implement this method to initialize your CardHeader.
+     * <p/>
+     * An example:
+     * <pre><code>
+     *     //Add Header
+     *     CardHeader header = new CardHeader(getContext());
+     *     //Add a popup menu. This method set OverFlow button to visible
+     *     header.setPopupMenu(R.menu.popupmain, new CardHeader.OnClickCardHeaderPopupMenuListener() {
+     *          @Override
+     *          public void onMenuItemClick(BaseCard card, MenuItem item) {
+     *              Toast.makeText(getContext(), "Click on " + item.getTitle(), Toast.LENGTH_SHORT).show();
+     *          }
+     *      });
+     *      header.setTitle("Weather"); //should use R.string.
+     *      return header;
+     * <p/>
+     * </code></pre>
      *
-     * @return
+     * @return the {@link CardHeader}
      */
     protected abstract CardHeader initCardHeader();
 
     /**
-     *
-     * @return
+     * Implement this method to initialize your Card.
+     * <p/>
+     * An example:
+     * <pre><code>
+     *      setSwipeable(true);
+     *      setOnSwipeListener(new OnSwipeListener() {
+     *          @Override
+     *              public void onSwipe(Card card) {
+     *                  Toast.makeText(getContext(), "Swipe on " + card.getCardHeader().getTitle(), Toast.LENGTH_SHORT).show();
+     *              }
+     *      });
+     *  </code></pre>
      */
     protected abstract void initCard();
 
     /**
+     * Implement this method to initialize the list of objects
+     * <p/>
+     * An example:
+     * <pre><code>
+     * <p/>
+     *      List<ListObject> mObjects = new ArrayList<ListObject>();
+     * <p/>
+     *      WeatherObject w1= new WeatherObject();
+     *      mObjects.add(w1);
+     * <p/>
+     *      return mObjects;
+     * </code></pre>
      *
-     * @return
+     * @return the List of ListObject
      */
     protected abstract List<ListObject> initChildren();
 
-    protected int getListResourceId(){
+    /**
+     * Inflates the inner layout and adds to parent layout.
+     * Then calls {@link #setupInnerViewElements(android.view.ViewGroup, android.view.View)} method
+     * to setup all values.
+     * </p>
+     * You can provide your custom layout.
+     * You can use a xml layout with {@link Card#setInnerLayout(int)} or with constructor
+     * {@link Card#Card(android.content.Context, int)}
+     * <p/>
+     * Then customize #setupInnerViewElements to set your values.
+     *
+     * @param context context
+     * @param parent  Inner Layout
+     * @return view
+     */
+
+    /**
+     * This method is called by the {@link it.gmariotti.cardslib.library.prototypes.CardWithList.LinearListAdapter} for each row.
+     * You can provide your layout and setup your ui elements.
+     *
+     * @param childPosition position inside the list of objects
+     * @param object        {@link it.gmariotti.cardslib.library.prototypes.CardWithList.ListObject}
+     * @param convertView   view used by row
+     * @param parent        parent view
+     * @return
+     */
+    public abstract View setupChildView(int childPosition, ListObject object, View convertView, ViewGroup parent);
+
+    /**
+     * Implement this method to specify the layoutId used for each row in the list
+     *
+     * @return the layoutId
+     */
+    public abstract int getChildLayoutId();
+
+    public abstract void setupEmptyView(ViewGroup parent);
+
+    // -------------------------------------------------------------
+    // View
+    // -------------------------------------------------------------
+
+    /**
+     * Returns the id that identifies the {@link LinearListView}.
+     *
+     * @return
+     */
+    protected int getListViewId() {
         return R.id.card_inner_base_main_cardwithlist;
     }
 
+    /**
+     * Setup the listAdapter.
+     *
+     * @param parent parent view (Inner Frame)
+     * @param view   Inner View
+     */
     @Override
     public void setupInnerViewElements(ViewGroup parent, View view) {
 
-        mList = (ListLayout) view.findViewById(getListResourceId());
-        if (mList!=null){
-            mListAdapter = new ListAdapter(super.getContext(), mChildren);
-            mList.setAdapter(mListAdapter);
+        mListView = (LinearListView) view.findViewById(getListViewId());
+        if (mListView != null) {
+
+            if (mLinearListAdapter != null) {
+                mLinearListAdapter.registerDataSetObserver(mDataObserver);
+                setupChildren();
+            }
+        }
+
+        setupEmptyView(parent);
+    }
+
+    /**
+     * Setup the children
+     */
+    private void setupChildren() {
+        if (mListView != null) {
+
+            mListView.removeAllViews();
+
+            updateEmptyStatus((mLinearListAdapter == null) || mLinearListAdapter.isEmpty());
+
+            if (mLinearListAdapter == null) {
+                return;
+            }
+            mListView.setAdapter(mLinearListAdapter);
         }
     }
 
-    public abstract View setupChildView(int childPosition, ListObject object , View convertView, ViewGroup parent);
+    // -------------------------------------------------------------
+    // Getter and Setter
+    // -------------------------------------------------------------
 
-    public abstract int getChildLayoutId();
+    public LinearListAdapter getLinearListAdapter() {
+        return mLinearListAdapter;
+    }
+
+    public void setLinearListAdapter(LinearListAdapter linearListAdapter) {
+        mLinearListAdapter = linearListAdapter;
+    }
+
+    // -------------------------------------------------------------
+    // Interface to be used by children
+    // -------------------------------------------------------------
+
 
     /**
-     *
+     * Children have to implement this interface
      */
-    public interface ListObject{
+    public interface ListObject {
+
+        /**
+         * Returns the object id
+         *
+         * @return
+         */
+        public String getObjectId();
+
+        /**
+         * Register a callback to be invoked when an item in this LinearListView has
+         * been clicked.
+         *
+         * @return The callback to be invoked with an item in this LinearListView has
+         * been clicked, or null id no callback has been set.
+         */
+        public void setOnItemClickListener(OnItemClickListener onItemClickListener);
+
+        /**
+         * @return The callback to be invoked with an item in this LinearListView has
+         * been clicked, or null id no callback has been set.
+         */
+        public OnItemClickListener getOnItemClickListener();
 
     }
 
 
-    private class ListAdapter extends ArrayAdapter<ListObject> {
+    // -------------------------------------------------------------
+    // Interface definition for a callback to be invoked when an item in this
+    // LinearListView has been clicked.
+    // -------------------------------------------------------------
 
-        List<ListObject> mObjects;
+    /**
+     * Interface definition for a callback to be invoked when an item in this
+     * LinearListView has been clicked.
+     */
+    public interface OnItemClickListener {
+
+        /**
+         * Callback method to be invoked when an item in this LinearListView has
+         * been clicked.
+         * <p/>
+         * Implementers can call getItemAtPosition(position) if they need to
+         * access the data associated with the selected item.
+         *
+         * @param parent   The LinearListView where the click happened.
+         * @param view     The view within the LinearListView that was clicked (this
+         *                 will be a view provided by the adapter)
+         * @param position The position of the view in the adapter.
+         * @param object   The object that was clicked.
+         */
+        void onItemClick(LinearListView parent, View view, int position, ListObject object);
+    }
+
+
+    // -------------------------------------------------------------
+    // Default Implementation for ListObject
+    // -------------------------------------------------------------
+
+    /**
+     * Default ListObject
+     */
+    public class DefaultListObject implements ListObject {
+
+        protected String mObjectId;
+        protected OnItemClickListener mOnItemClickListener;
+
+        @Override
+        public String getObjectId() {
+            return mObjectId;
+        }
+
+        public void setObjectId(String objectId) {
+            mObjectId = objectId;
+        }
+
+        @Override
+        public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+            mOnItemClickListener = onItemClickListener;
+        }
+
+        @Override
+        public OnItemClickListener getOnItemClickListener() {
+            return mOnItemClickListener;
+        }
+    }
+
+    // -------------------------------------------------------------
+    // Empty View
+    // -------------------------------------------------------------
+
+    /**
+     * Sets the view to show if the adapter is empty
+     */
+    public void setEmptyView(View emptyView) {
+        mEmptyView = emptyView;
+
+        final LinearListAdapter adapter = getLinearListAdapter();
+        final boolean empty = ((adapter == null) || adapter.isEmpty());
+        updateEmptyStatus(empty);
+    }
+
+    /**
+     * When the current adapter is empty, the LinearListView can display a special
+     * view call the empty view. The empty view is used to provide feedback to
+     * the user that no data is available in this LinearListView.
+     *
+     * @return The view to show if the adapter is empty.
+     */
+    public View getEmptyView() {
+        return mEmptyView;
+    }
+
+    /**
+     * Update the status of the list based on the empty parameter. If empty is
+     * true and we have an empty view, display it. In all the other cases, make
+     * sure that the layout is VISIBLE and that the empty view is GONE (if
+     * it's not null).
+     */
+    private void updateEmptyStatus(boolean empty) {
+        if (empty) {
+            if (mEmptyView != null) {
+                mEmptyView.setVisibility(View.VISIBLE);
+                mListView.setVisibility(View.GONE);
+            } else {
+                // If the caller just removed our empty view, make sure the list
+                // view is visible
+                mListView.setVisibility(View.VISIBLE);
+            }
+        } else {
+            if (mEmptyView != null)
+                mEmptyView.setVisibility(View.GONE);
+            mListView.setVisibility(View.VISIBLE);
+        }
+    }
+
+
+    // -------------------------------------------------------------
+    // Internal Adapter
+    // -------------------------------------------------------------
+
+    /**
+     * ListAdapter used to populate the LinearLayout inside the Card.
+     */
+    protected class LinearListAdapter extends ArrayAdapter<ListObject> {
+
         LayoutInflater mLayoutInflater;
 
-        public ListAdapter(Context context, List<ListObject> objects) {
+        /**
+         * Constructor
+         *
+         * @param context context
+         * @param objects objects
+         */
+        public LinearListAdapter(Context context, List<ListObject> objects) {
             super(context, 0, objects);
-            mObjects = objects;
+            //mObjects = objects;
             mLayoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(final int position, View convertView, ViewGroup parent) {
 
-            ListObject object = getItem(position);
+            //Object
+            final ListObject object = getItem(position);
 
             View view = convertView;
             if (view == null) {
                 view = mLayoutInflater.inflate(getChildLayoutId(), parent, false);
             }
 
-            setupChildView(position,object,view,parent);
+            //Setup the elements
+            final View viewChild = setupChildView(position, object, view, parent);
 
-            return view;
+            if (viewChild != null && object.getOnItemClickListener() != null) {
+                view.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        mListView.playSoundEffect(SoundEffectConstants.CLICK);
+                        object.getOnItemClickListener().onItemClick(mListView, viewChild, position, object);
+                    }
+                });
+            }
+
+            return viewChild;
         }
 
 
         @Override
         public int getViewTypeCount() {
             return 1;
+        }
+
+
+        /**
+         * Return the Object Id
+         *
+         * @param position
+         * @return
+         */
+        public String getChildId(int position) {
+            //Object
+            ListObject object = getItem(position);
+            return object.getObjectId();
         }
     }
 
