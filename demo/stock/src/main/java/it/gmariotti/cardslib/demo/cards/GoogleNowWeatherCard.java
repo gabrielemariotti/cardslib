@@ -90,12 +90,6 @@ public class GoogleNowWeatherCard extends CardWithList {
 
     }
 
-    @Override
-    public void setupEmptyView(ViewGroup parent) {
-        TextView text = (TextView)parent.findViewById(R.id.card_inner_base_empty_cardwithlist);
-        text.setText("No data....");
-        setEmptyView(text);
-    }
 
     @Override
     protected List<ListObject> initChildren() {

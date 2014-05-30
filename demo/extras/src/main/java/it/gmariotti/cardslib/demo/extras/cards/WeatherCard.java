@@ -85,24 +85,22 @@ public class WeatherCard extends CardWithList {
             }
         });
 
-
+        //Provide a custom view for the ViewStud EmptyView
+        setEmptyViewViewStubLayoutId(R.layout.carddemo_extras_base_withlist_empty);
     }
 
-    @Override
-     public void setupEmptyView(ViewGroup parent) {
-        TextView text = (TextView) parent.findViewById(R.id.card_inner_base_empty_cardwithlist);
-        text.setText("No data....");
-        setEmptyView(text);
-    }
+
 
     @Override
     protected List<ListObject> initChildren() {
+        //The default list is empty
         return null;
     }
 
     @Override
     public View setupChildView(int childPosition, ListObject object, View convertView, ViewGroup parent) {
 
+        //Setup the elements inside each row
         TextView dayText = (TextView) convertView.findViewById(R.id.carddemo_weather_dayName);
         TextView dayDate = (TextView) convertView.findViewById(R.id.carddemo_weather_dayDate);
         ImageView icon = (ImageView) convertView.findViewById(R.id.carddemo_weather_dayIcon);
@@ -134,12 +132,18 @@ public class WeatherCard extends CardWithList {
     }
 
 
+    /**
+     * This method receives the data from the forecast service and updates the adapter to display the list inside the card.
+     * @param forecast
+     */
     public void updateForecast(WeatherForecast forecast) {
+        //Update the data
         if (forecast == null) return;
         List<DayForecast> dayForecastList = forecast.getForecast();
 
         units = forecast.getUnit();
 
+        //Update the array inside the card
         ArrayList<WeatherObject> objs = new ArrayList<WeatherObject>();
         for (DayForecast dayForecast:dayForecastList){
             WeatherObject weatherObject = new WeatherObject(dayForecast);
@@ -173,7 +177,9 @@ public class WeatherCard extends CardWithList {
 
     }
 
-
+    /**
+     * Utility class used to map the icon
+     */
     public static class WeatherIconMapper {
 
         public static int getWeatherResource(String id, int wId) {
