@@ -37,11 +37,21 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-    <TextView
+    <!-- This provide a default empty-view built-in feature.
+         You can customize this layout in manu ways. Check the doc-->
+    <ViewStub
         android:id="@+id/card_inner_base_empty_cardwithlist"
-        android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
        />
+
+    <ViewStub
+        android:id="@+id/card_inner_base_progressbar_cardwithlist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        />
 
 </LinearLayout>

@@ -1,3 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+
 <!--
   ~ *******************************************************************************
   ~   Copyright (c) 2013-2014 Gabriele Mariotti.
@@ -16,29 +18,15 @@
   ~  *****************************************************************************
   -->
 
-<resources>
-    
-    <string name="app_name">CardsLib</string>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
 
+    <TextView
+        android:text="@string/card_empty_cardwithlist_text"
+        android:id="@+id/card_base_empty_cardwithlist_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
-    <!-- Undo Controller-->
-
-    <string name="list_card_undo_title">Undo</string>
-    <!--<string name="undo_card">Card removed</string>-->
-
-    <plurals name="list_card_undo_items">
-        <item quantity="one">1 card removed</item>
-        <item quantity="other">%d cards removed</item>
-    </plurals>
-
-    <!-- Card selected item with CAB -->
-    <plurals name="card_selected_items">
-        <item quantity="one">1 item selected</item>
-        <item quantity="other">%d items selected</item>
-    </plurals>
-
-    <!-- Card with List -->
-    <string name="card_empty_cardwithlist_text">No data....</string>
-
-
-</resources>
+</LinearLayout>

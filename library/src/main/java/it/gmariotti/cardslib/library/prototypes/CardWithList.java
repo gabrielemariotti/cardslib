@@ -24,6 +24,7 @@ import android.view.LayoutInflater;
 import android.view.SoundEffectConstants;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewStub;
 import android.widget.ArrayAdapter;
 
 import java.util.ArrayList;
@@ -59,20 +60,56 @@ public abstract class CardWithList extends Card {
     protected int mChildLayoutId;
 
     /**
-     *
+     * Empty View
      */
     private View mEmptyView;
+
+    /**
+     * Progress View
+     */
+    private View mProgressView;
+
+    /**
+     *  Resource Id used which identifies the empty view
+     */
+    protected int emptyViewId = R.id.card_inner_base_empty_cardwithlist;
+
+    /**
+     *  An identifier for the layout resource to inflate when the ViewStub becomes visible
+     */
+    protected int emptyViewViewStubLayoutId = R.layout.base_withlist_empty;
+
+    /**
+     *
+     */
+    protected int progressBarId = R.id.card_inner_base_progressbar_cardwithlist;
+
+    /**
+     * Indicates if the empty view feature is enabled
+     */
+    protected boolean useEmptyView = true;
+
+    /**
+     *
+     */
+    protected boolean useProgressBar = false;
+
+    /**
+     * Resource Id used which identifies the list
+     */
+    protected int listViewId = R.id.card_inner_base_main_cardwithlist;
+
 
     private DataSetObserver mDataObserver = new DataSetObserver() {
 
         @Override
         public void onChanged() {
-            setupChildren();
+            internalSetupChildren();
         }
 
         @Override
         public void onInvalidated() {
-            setupChildren();
+            internalSetupChildren();
         }
 
     };
@@ -120,7 +157,7 @@ public abstract class CardWithList extends Card {
 
         //Init the children
         List<ListObject> mChildren = initChildren();
-        if (mChildren==null)
+        if (mChildren == null)
             mChildren = new ArrayList<ListObject>();
         mLinearListAdapter = new LinearListAdapter(super.getContext(), mChildren);
 
@@ -225,7 +262,6 @@ public abstract class CardWithList extends Card {
      */
     public abstract int getChildLayoutId();
 
-    public abstract void setupEmptyView(ViewGroup parent);
 
     // -------------------------------------------------------------
     // View
@@ -237,7 +273,7 @@ public abstract class CardWithList extends Card {
      * @return
      */
     protected int getListViewId() {
-        return R.id.card_inner_base_main_cardwithlist;
+        return listViewId;
     }
 
     /**
@@ -254,17 +290,17 @@ public abstract class CardWithList extends Card {
 
             if (mLinearListAdapter != null) {
                 mLinearListAdapter.registerDataSetObserver(mDataObserver);
-                setupChildren();
+                internalSetupChildren();
             }
         }
 
-        setupEmptyView(parent);
+        internalSetupEmptyView(parent, view);
     }
 
     /**
      * Setup the children
      */
-    private void setupChildren() {
+    private void internalSetupChildren() {
         if (mListView != null) {
 
             mListView.removeAllViews();
@@ -278,16 +314,21 @@ public abstract class CardWithList extends Card {
         }
     }
 
-    // -------------------------------------------------------------
-    // Getter and Setter
-    // -------------------------------------------------------------
-
-    public LinearListAdapter getLinearListAdapter() {
-        return mLinearListAdapter;
-    }
-
-    public void setLinearListAdapter(LinearListAdapter linearListAdapter) {
-        mLinearListAdapter = linearListAdapter;
+    /**
+     * Setup the empty view.
+     *
+     * @param parent  mainContentLayout
+     * @param view    innerView
+     */
+    private void internalSetupEmptyView(ViewGroup parent, View view) {
+        if (useEmptyView) {
+            mEmptyView = (View) parent.findViewById(getEmptyViewId());
+            if (mEmptyView != null) {
+                if (mEmptyView instanceof ViewStub)
+                    ((ViewStub) mEmptyView).setLayoutResource(getEmptyViewViewStubLayoutId());
+                setEmptyView(mEmptyView);
+            }
+        }
     }
 
     // -------------------------------------------------------------
@@ -395,6 +436,8 @@ public abstract class CardWithList extends Card {
     public void setEmptyView(View emptyView) {
         mEmptyView = emptyView;
 
+        useEmptyView = emptyView != null ? true : false;
+
         final LinearListAdapter adapter = getLinearListAdapter();
         final boolean empty = ((adapter == null) || adapter.isEmpty());
         updateEmptyStatus(empty);
@@ -418,19 +461,21 @@ public abstract class CardWithList extends Card {
      * it's not null).
      */
     private void updateEmptyStatus(boolean empty) {
-        if (empty) {
-            if (mEmptyView != null) {
-                mEmptyView.setVisibility(View.VISIBLE);
-                mListView.setVisibility(View.GONE);
+        if (isUseEmptyView()) {
+            if (empty) {
+                if (mEmptyView != null) {
+                    mEmptyView.setVisibility(View.VISIBLE);
+                    mListView.setVisibility(View.GONE);
+                } else {
+                    // If the caller just removed our empty view, make sure the list
+                    // view is visible
+                    mListView.setVisibility(View.VISIBLE);
+                }
             } else {
-                // If the caller just removed our empty view, make sure the list
-                // view is visible
+                if (mEmptyView != null)
+                    mEmptyView.setVisibility(View.GONE);
                 mListView.setVisibility(View.VISIBLE);
             }
-        } else {
-            if (mEmptyView != null)
-                mEmptyView.setVisibility(View.GONE);
-            mListView.setVisibility(View.VISIBLE);
         }
     }
 
@@ -505,7 +550,113 @@ public abstract class CardWithList extends Card {
         }
     }
 
+    // -------------------------------------------------------------
+    // Getter and setter
+    // -------------------------------------------------------------
 
+    /**
+     * Returns the adapter
+     *
+     * @return
+     */
+    public LinearListAdapter getLinearListAdapter() {
+        return mLinearListAdapter;
+    }
+
+    /**
+     * Sets the adapter
+     * @param linearListAdapter
+     */
+    public void setLinearListAdapter(LinearListAdapter linearListAdapter) {
+        mLinearListAdapter = linearListAdapter;
+    }
+
+    /**
+     * Returns the resource Id used which identifies the empty view
+     * @return
+     */
+    public int getEmptyViewId() {
+        return emptyViewId;
+    }
+
+    /**
+     * Sets the resource Id used which identifies the empty view
+     * @param emptyViewId
+     */
+    public void setEmptyViewId(int emptyViewId) {
+        this.emptyViewId = emptyViewId;
+    }
+
+    public int getProgressBarId() {
+        return progressBarId;
+    }
+
+    public void setProgressBarId(int progressBarId) {
+        this.progressBarId = progressBarId;
+    }
+
+    /**
+     * Return if the card uses the empty view built-in feature
+     * @return
+     */
+    private boolean isUseEmptyView() {
+        if (mEmptyView != null)
+            return useEmptyView;
+        else return false;
+    }
+
+    /**
+     * Sets the flag to enable and disable the empty view feature
+     * @param useEmptyView
+     */
+    public void setUseEmptyView(boolean useEmptyView) {
+        this.useEmptyView = useEmptyView;
+    }
+
+    private boolean isUseProgressBar() {
+        if (mProgressView != null)
+            return useProgressBar;
+        else
+            return false;
+    }
+
+    public void setUseProgressBar(boolean useProgressBar) {
+        this.useProgressBar = useProgressBar;
+    }
+
+    public View getProgressView() {
+        return mProgressView;
+    }
+
+    public void setProgressView(View progressView) {
+        mProgressView = progressView;
+    }
+
+    /**
+     * Sets the resource Id used which identifies the list
+     * @param listViewId
+     */
+    public void setListViewId(int listViewId) {
+        this.listViewId = listViewId;
+    }
+
+    /**
+     * Returns the identifier for the layout resource to inflate when the ViewStub becomes visible
+     * It is used only if the {@see useEmptyView) is setted to true and the {@see mEmptyView} is a {@link android.view.ViewStub}.
+     * @return
+     */
+    public int getEmptyViewViewStubLayoutId() {
+        return emptyViewViewStubLayoutId;
+    }
+
+    /**
+     * Sets the identifier for the layout resource to inflate when the ViewStub becomes visible
+     *
+     * @param emptyViewViewStubLayoutId
+     */
+    public void setEmptyViewViewStubLayoutId(int emptyViewViewStubLayoutId) {
+        this.emptyViewViewStubLayoutId = emptyViewViewStubLayoutId;
+    }
 }
 
 
