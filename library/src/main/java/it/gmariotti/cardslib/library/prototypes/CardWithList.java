@@ -223,7 +223,7 @@ public abstract class CardWithList extends Card {
      *      return mObjects;
      * </code></pre>
      *
-     * @return the List of ListObject
+     * @return the List of ListObject. Return <code>null</code> if the list is empty.
      */
     protected abstract List<ListObject> initChildren();
 
