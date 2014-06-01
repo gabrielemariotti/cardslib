@@ -23,6 +23,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.nhaarman.listviewanimations.swinginadapters.AnimationAdapter;
 import com.nhaarman.listviewanimations.swinginadapters.prepared.AlphaInAnimationAdapter;
@@ -30,6 +31,7 @@ import com.nhaarman.listviewanimations.swinginadapters.prepared.ScaleInAnimation
 import com.nhaarman.listviewanimations.swinginadapters.prepared.SwingBottomInAnimationAdapter;
 import com.nhaarman.listviewanimations.swinginadapters.prepared.SwingLeftInAnimationAdapter;
 import com.nhaarman.listviewanimations.swinginadapters.prepared.SwingRightInAnimationAdapter;
+import com.nhaarman.listviewanimations.widget.DynamicListView;
 
 import java.util.ArrayList;
 
@@ -97,6 +99,15 @@ public class DragDropListFragment extends BaseFragment implements
         if (mListView != null) {
                mListView.setAdapter(mCardArrayAdapter);
         }
+
+        //Listener
+        mListView.setOnItemMovedListener(new DynamicListView.OnItemMovedListener() {
+            @Override
+            public void onItemMoved(int newPosition) {
+                Card card = mCardArrayAdapter.getItem(newPosition);
+                Toast.makeText(getActivity(),"Card "+card.getId() + " moved to position " + newPosition, Toast.LENGTH_SHORT ).show();
+            }
+        });
     }
 
     //-------------------------------------------------------------------------------------------------------------
