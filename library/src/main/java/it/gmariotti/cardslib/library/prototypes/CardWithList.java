@@ -33,6 +33,7 @@ import java.util.List;
 import it.gmariotti.cardslib.library.R;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardHeader;
+import it.gmariotti.cardslib.library.view.listener.SwipeDismissListItemViewTouchListener;
 
 /**
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
@@ -363,6 +364,13 @@ public abstract class CardWithList extends Card {
          */
         public OnItemClickListener getOnItemClickListener();
 
+        /**
+         * @return Is the list item expanded or not
+         */
+        public Boolean isExpanded();
+
+        public void setExpanded(Boolean expanded);
+
     }
 
 
@@ -403,6 +411,7 @@ public abstract class CardWithList extends Card {
      */
     public class DefaultListObject implements ListObject {
 
+        private Boolean isItemExpanded = false;
         protected String mObjectId;
         protected OnItemClickListener mOnItemClickListener;
 
@@ -424,6 +433,17 @@ public abstract class CardWithList extends Card {
         public OnItemClickListener getOnItemClickListener() {
             return mOnItemClickListener;
         }
+
+        @Override
+        public Boolean isExpanded(){
+            return isItemExpanded;
+        }
+
+        @Override
+        public void setExpanded(Boolean expanded){
+            this.isItemExpanded = expanded;
+        }
+
     }
 
     // -------------------------------------------------------------
@@ -487,7 +507,7 @@ public abstract class CardWithList extends Card {
     /**
      * ListAdapter used to populate the LinearLayout inside the Card.
      */
-    protected class LinearListAdapter extends ArrayAdapter<ListObject> {
+    public class LinearListAdapter extends ArrayAdapter<ListObject> {
 
         LayoutInflater mLayoutInflater;
 
@@ -525,6 +545,9 @@ public abstract class CardWithList extends Card {
                         object.getOnItemClickListener().onItemClick(mListView, viewChild, position, object);
                     }
                 });
+
+                view.setOnTouchListener(new SwipeDismissListItemViewTouchListener(viewChild, mListView, object));
+
             }
 
             return viewChild;
@@ -547,6 +570,10 @@ public abstract class CardWithList extends Card {
             //Object
             ListObject object = getItem(position);
             return object.getObjectId();
+        }
+
+        public void setExpanded(int position, boolean expanded){
+            getItem(position).setExpanded(expanded);
         }
     }
 

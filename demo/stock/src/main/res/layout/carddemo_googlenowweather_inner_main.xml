@@ -19,13 +19,15 @@
   -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:orientation="vertical"
-              android:layout_marginLeft="8dp"
-              android:layout_marginRight="8dp"
-              android:background="@drawable/demo_item_selector"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:tag="Parent">
 
     <View
         android:layout_width="match_parent"
@@ -35,9 +37,12 @@
         android:background="@color/demo_card_line_weather_color"/>
 
     <RelativeLayout
+
+        android:background="@drawable/demo_item_selector"
+        android:id="@+id/demo_card_list_item_layout"
         android:layout_width="match_parent"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
         android:layout_gravity="center_vertical"
         android:layout_height="wrap_content"
         android:minHeight="48dp">
@@ -75,5 +80,40 @@
 
 
     </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/demo_card_expandable_list_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:visibility="gone">
+
+        <TextView
+            android:background="@drawable/demo_item_selector"
+            android:id="@+id/exTV1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Test line 1"
+            android:padding="10dp"/>
+        <TextView
+            android:background="@drawable/demo_item_selector"
+            android:id="@+id/exTV2"
+            android:layout_below="@id/exTV1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Test line 2"
+            android:padding="10dp"/>
+        <TextView
+            android:background="@drawable/demo_item_selector"
+            android:id="@+id/exTV3"
+            android:layout_below="@id/exTV2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Test line 3"
+            android:padding="10dp"/>
+
+    </RelativeLayout>
+
 
 </LinearLayout>

@@ -69,4 +69,8 @@ public class LinearListView extends LinearLayout {
         }
     }
 
+    public CardWithList.LinearListAdapter getAdapter(){
+        return mListAdapter;
+    }
+
 }

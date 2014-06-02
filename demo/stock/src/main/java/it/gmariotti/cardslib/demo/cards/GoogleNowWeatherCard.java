@@ -22,7 +22,11 @@ import android.content.Context;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.Transformation;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -132,8 +136,31 @@ public class GoogleNowWeatherCard extends CardWithList {
         city.setText(weatherObject.city);
         temperature.setText(weatherObject.temperature + weatherObject.temperatureUnit);
 
+        TextView subTv1 = (TextView) convertView.findViewById(R.id.exTV1);
+        TextView subTv2 = (TextView) convertView.findViewById(R.id.exTV2);
+        TextView subTv3 = (TextView) convertView.findViewById(R.id.exTV3);
+
+        subTv1.setOnClickListener(subItemClick);
+        subTv2.setOnClickListener(subItemClick);
+        subTv3.setOnClickListener(subItemClick);
+
+        RelativeLayout expandedLayout = ((RelativeLayout)convertView.findViewById(R.id.demo_card_expandable_list_item));
+        if(object.isExpanded()){
+            expandedLayout.setVisibility(View.VISIBLE);
+        }else{
+            expandedLayout.setVisibility(View.GONE);
+        }
+
+
         return  convertView;
     }
+
+    View.OnClickListener subItemClick = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Toast.makeText(getContext(),"Pressed sub item "+((TextView)view).getText(),Toast.LENGTH_SHORT).show();
+        }
+    };
 
     @Override
     public int getChildLayoutId() {
@@ -162,8 +189,72 @@ public class GoogleNowWeatherCard extends CardWithList {
                 @Override
                 public void onItemClick(LinearListView parent, View view, int position, ListObject object) {
                     Toast.makeText(getContext(), "Click on " + getObjectId(), Toast.LENGTH_SHORT).show();
+                    RelativeLayout expandedLayout = ((RelativeLayout)view.findViewById(R.id.demo_card_expandable_list_item));
+                    if(object.isExpanded())  {
+                        collapse(expandedLayout);
+                        expandedLayout.setVisibility(View.GONE);
+                        object.setExpanded(false);
+                    }else{
+                        expand(expandedLayout);
+                        expandedLayout.setVisibility(View.VISIBLE);
+                        object.setExpanded(true);
+                    }
+
                 }
             });
+        }
+
+        public void expand(final View v) {
+            v.measure(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            final int targtetHeight = v.getMeasuredHeight();
+
+            v.getLayoutParams().height = 0;
+            v.setVisibility(View.VISIBLE);
+            Animation a = new Animation()
+            {
+                @Override
+                protected void applyTransformation(float interpolatedTime, Transformation t) {
+                    v.getLayoutParams().height = interpolatedTime == 1
+                            ? LinearLayout.LayoutParams.WRAP_CONTENT
+                            : (int)(targtetHeight * interpolatedTime);
+                    v.requestLayout();
+                }
+
+                @Override
+                public boolean willChangeBounds() {
+                    return true;
+                }
+            };
+
+            // 1dp/ms
+            a.setDuration((int)(targtetHeight / v.getContext().getResources().getDisplayMetrics().density));
+            v.startAnimation(a);
+        }
+
+        public void collapse(final View v) {
+            final int initialHeight = v.getMeasuredHeight();
+
+            Animation a = new Animation()
+            {
+                @Override
+                protected void applyTransformation(float interpolatedTime, Transformation t) {
+                    if(interpolatedTime == 1){
+                        v.setVisibility(View.GONE);
+                    }else{
+                        v.getLayoutParams().height = initialHeight - (int)(initialHeight * interpolatedTime);
+                        v.requestLayout();
+                    }
+                }
+
+                @Override
+                public boolean willChangeBounds() {
+                    return true;
+                }
+            };
+
+            // 1dp/ms
+            a.setDuration((int)(initialHeight / v.getContext().getResources().getDisplayMetrics().density));
+            v.startAnimation(a);
         }
 
     }
