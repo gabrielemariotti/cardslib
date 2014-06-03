@@ -8,6 +8,7 @@ In this page you can find info about:
 * [Init the Children](#init-the-children)
 * [Define the layout used by items](#define-the-layout-used-by-items)
 * [Setup child view](#setup-child-view)
+* [How to customize the divider](#how-to-customize-the-divider)
 * [Empty View](#empty-view)
 * [How to disable the empty view](#how-to-disable-the-empty-view)
 * [How to customize the Empty View](#how-to-customize-the-empty-view)
@@ -61,7 +62,7 @@ It is a normal `CardHeader`, with all its features.
                 
                 switch (item.getItemId()){
                     case R.id.action_add:
-                        WeatherObject w1= new WeatherObject();
+                        WeatherObject w1= new WeatherObject(MyCard.this);
                         w1.city ="Madrid";
                         w1.temperature = 24;
                         w1.weatherIcon = R.drawable.ic_action_sun;
@@ -108,7 +109,7 @@ You have to initialize your items inside the `Card` using the method `initChildr
 
         List<ListObject> mObjects = new ArrayList<ListObject>();
 
-        WeatherObject w1= new WeatherObject();
+        WeatherObject w1= new WeatherObject(this);
         w1.city ="London";
         w1.temperature = 16;
         w1.weatherIcon = R.drawable.ic_action_cloud;
@@ -139,6 +140,23 @@ In particular you can :
             Toast.makeText(getContext(), "Click on " + getObjectId(), Toast.LENGTH_SHORT).show();
         }
     });
+```
+
+- set the single item as swipeable using `setSwipeable`
+
+```java
+    item.setSwipeable(true);
+```
+
+- set an `OnItemSwipeListener` to register a callback for swipe on the single item.
+
+```java
+        item.setOnItemSwipeListener(new OnItemSwipeListener() {
+            @Override
+            public void onItemSwipe(ListObject object) {
+                Toast.makeText(getContext(), "Swipe on " + object.getObjectId(), Toast.LENGTH_SHORT).show();
+            }
+        });
 ```
 
 ## Define the layout used by items
@@ -173,6 +191,38 @@ After declaring the layout used by items, you have to setup the elements inside 
         return  convertView;
     }
 ```
+
+## How to customize the divider
+
+You can customize the divider used by the List.
+
+You can override this dimension in your project to change the height of divider. 
+
+``` xml
+    <dimen name="card_base_cardwithlist_dividerHeight">1dp</dimen>
+``` 
+
+You can change the color of the divider cloning this color in your project:
+
+``` xml
+    <!-- Used by card with list -->
+    <color name="card_base_cardwithlist_divider_color">#E5E5E5</color>
+```
+
+Finally you can clone this style in your project:
+
+``` xml
+    <!-- Style for card with list -->
+    <style name="cardwithlist">
+        <item name="android:layout_marginTop">@dimen/card_base_cardwithlist_list_margin_top</item>
+        <item name="android:layout_marginLeft">@dimen/card_base_cardwithlist_list_margin_left</item>
+        <item name="android:divider">@color/card_base_cardwithlist_divider_color</item>
+        <item name="android:showDividers">middle</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+``` 
+
 
 
 ## Empty View
