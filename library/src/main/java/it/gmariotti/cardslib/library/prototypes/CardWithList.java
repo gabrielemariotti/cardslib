@@ -70,12 +70,12 @@ public abstract class CardWithList extends Card {
     private View mProgressView;
 
     /**
-     *  Resource Id used which identifies the empty view
+     * Resource Id used which identifies the empty view
      */
     protected int emptyViewId = R.id.card_inner_base_empty_cardwithlist;
 
     /**
-     *  An identifier for the layout resource to inflate when the ViewStub becomes visible
+     * An identifier for the layout resource to inflate when the ViewStub becomes visible
      */
     protected int emptyViewViewStubLayoutId = R.layout.base_withlist_empty;
 
@@ -317,8 +317,8 @@ public abstract class CardWithList extends Card {
     /**
      * Setup the empty view.
      *
-     * @param parent  mainContentLayout
-     * @param view    innerView
+     * @param parent mainContentLayout
+     * @param view   innerView
      */
     private void internalSetupEmptyView(ViewGroup parent, View view) {
         if (useEmptyView) {
@@ -349,6 +349,11 @@ public abstract class CardWithList extends Card {
         public String getObjectId();
 
         /**
+         * Returns the parent card
+         */
+        public Card getParentCard();
+
+        /**
          * Register a callback to be invoked when an item in this LinearListView has
          * been clicked.
          *
@@ -362,6 +367,33 @@ public abstract class CardWithList extends Card {
          * been clicked, or null id no callback has been set.
          */
         public OnItemClickListener getOnItemClickListener();
+
+        /**
+         * Indicates if the item is swipeable
+         */
+        public boolean isSwipeable();
+
+        /**
+         * Set the item as swipeable
+         *
+         * @param isSwipeable
+         */
+        public void setSwipeable(boolean isSwipeable);
+
+        /**
+         * Returns the callback to be invoked when item has been swiped
+         *
+         * @return listener
+         */
+        public OnItemSwipeListener getOnItemSwipeListener();
+
+        /**
+         * Register a callback to be invoked when an item in this LinearListView has
+         * been swiped.
+         *
+         * @param onSwipeListener listener
+         */
+        public void setOnItemSwipeListener(OnItemSwipeListener onSwipeListener);
 
     }
 
@@ -393,6 +425,49 @@ public abstract class CardWithList extends Card {
         void onItemClick(LinearListView parent, View view, int position, ListObject object);
     }
 
+    // -------------------------------------------------------------
+    // On Item Swipe Interface
+    // -------------------------------------------------------------
+
+    /**
+     * Interface definition for a callback to be invoked when an item in this
+     * LinearListView has been swiped
+     */
+    public interface OnItemSwipeListener {
+
+        /**
+         * Callback method to be invoked when an item in this LinearListView has
+         * been swiped.
+         *
+         * @param object The object that was clicked.
+         */
+        public void onItemSwipe(ListObject object,boolean dismissRight);
+
+    }
+
+
+    /**
+     * Returns listener invoked when card is swiped
+     *
+     * @return listener
+     */
+    public OnSwipeListener getOnSwipeListener() {
+        return mOnSwipeListener;
+    }
+
+    /**
+     * Sets listener invoked when card is swiped.
+     * If listener is <code>null</code> the card is not swipeable.
+     *
+     * @param onSwipeListener listener
+     */
+    public void setOnSwipeListener(OnSwipeListener onSwipeListener) {
+        if (onSwipeListener != null)
+            mIsSwipeable = true;
+        else
+            mIsSwipeable = false;
+        this.mOnSwipeListener = onSwipeListener;
+    }
 
     // -------------------------------------------------------------
     // Default Implementation for ListObject
@@ -403,17 +478,56 @@ public abstract class CardWithList extends Card {
      */
     public class DefaultListObject implements ListObject {
 
+        /**
+         * Object Id
+         */
         protected String mObjectId;
+
+        /**
+         * Parent Card
+         */
+        protected Card mParentCard;
+
+        /*
+         * Item click listener
+         */
         protected OnItemClickListener mOnItemClickListener;
+
+        /**
+         *
+         */
+        protected boolean mItemSwipeable = false;
+
+        /**
+         * Item swipe listener
+         */
+        protected OnItemSwipeListener mOnItemSwipeListener;
+
+        // -------------------------------------------------------------
+        // Constructor
+        // -------------------------------------------------------------
+        public DefaultListObject(Card parentCard) {
+            this.mParentCard = parentCard;
+        }
+
+        // -------------------------------------------------------------
+        // Default Implementation for getters and setters
+        // -------------------------------------------------------------
 
         @Override
         public String getObjectId() {
             return mObjectId;
         }
 
+        @Override
+        public Card getParentCard() {
+            return null;
+        }
+
         public void setObjectId(String objectId) {
             mObjectId = objectId;
         }
+
 
         @Override
         public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
@@ -424,6 +538,32 @@ public abstract class CardWithList extends Card {
         public OnItemClickListener getOnItemClickListener() {
             return mOnItemClickListener;
         }
+
+        @Override
+        public boolean isSwipeable() {
+            return mItemSwipeable;
+        }
+
+        @Override
+        public void setSwipeable(boolean isSwipeable) {
+            mItemSwipeable = isSwipeable;
+        }
+
+        @Override
+        public OnItemSwipeListener getOnItemSwipeListener() {
+            return mOnItemSwipeListener;
+        }
+
+        @Override
+        public void setOnItemSwipeListener(OnItemSwipeListener onItemSwipeListener) {
+            if (onItemSwipeListener != null)
+                mItemSwipeable = true;
+            else
+                mItemSwipeable = false;
+            this.mOnItemSwipeListener = onItemSwipeListener;
+        }
+
+
     }
 
     // -------------------------------------------------------------
@@ -492,6 +632,11 @@ public abstract class CardWithList extends Card {
         LayoutInflater mLayoutInflater;
 
         /**
+         * Listener invoked when a card is swiped
+         */
+        protected SwipeDismissListItemViewTouchListener mOnTouchListener;
+
+        /**
          * Constructor
          *
          * @param context context
@@ -517,6 +662,7 @@ public abstract class CardWithList extends Card {
             //Setup the elements
             final View viewChild = setupChildView(position, object, view, parent);
 
+            //ClickItem Listener
             if (viewChild != null && object.getOnItemClickListener() != null) {
                 view.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -527,6 +673,9 @@ public abstract class CardWithList extends Card {
                 });
             }
 
+            //SwipeItem Listener
+            setupItemSwipeAnimation(object, viewChild);
+
             return viewChild;
         }
 
@@ -534,6 +683,22 @@ public abstract class CardWithList extends Card {
         @Override
         public int getViewTypeCount() {
             return 1;
+        }
+
+        /**
+         * Sets SwipeAnimation on items List
+         *
+         * @param item     {@link ListObject}
+         * @param itemView itemView
+         */
+        protected void setupItemSwipeAnimation(final ListObject item, View itemView) {
+
+            if (item.isSwipeable()) {
+                if (mOnTouchListener == null) {
+                    mOnTouchListener = new SwipeDismissListItemViewTouchListener(mListView, mCallback);
+                }
+                itemView.setOnTouchListener(mOnTouchListener);
+            }
         }
 
 
@@ -548,6 +713,33 @@ public abstract class CardWithList extends Card {
             ListObject object = getItem(position);
             return object.getObjectId();
         }
+
+
+        // -------------------------------------------------------------
+        //  SwipeListener and undo action
+        // -------------------------------------------------------------
+        /**
+         * Listener invoked when a card is swiped
+         */
+        SwipeDismissListItemViewTouchListener.DismissCallbacks mCallback = new SwipeDismissListItemViewTouchListener.DismissCallbacks() {
+            @Override
+            public boolean canDismiss(int position, Card card, ListObject listObject) {
+                return listObject.isSwipeable();
+            }
+
+            @Override
+            public void onDismiss(LinearListView listView, int position, boolean dismissRight) {
+
+                int i = 0;
+
+                //Remove cards and notifyDataSetChanged
+                ListObject object = getItem(position);
+                remove(object);
+                if (object.getOnItemSwipeListener() != null) {
+                    object.getOnItemSwipeListener().onItemSwipe(object,dismissRight);
+                }
+            }
+        };
     }
 
     // -------------------------------------------------------------
@@ -565,6 +757,7 @@ public abstract class CardWithList extends Card {
 
     /**
      * Sets the adapter
+     *
      * @param linearListAdapter
      */
     public void setLinearListAdapter(LinearListAdapter linearListAdapter) {
@@ -573,6 +766,7 @@ public abstract class CardWithList extends Card {
 
     /**
      * Returns the resource Id used which identifies the empty view
+     *
      * @return
      */
     public int getEmptyViewId() {
@@ -581,6 +775,7 @@ public abstract class CardWithList extends Card {
 
     /**
      * Sets the resource Id used which identifies the empty view
+     *
      * @param emptyViewId
      */
     public void setEmptyViewId(int emptyViewId) {
@@ -597,6 +792,7 @@ public abstract class CardWithList extends Card {
 
     /**
      * Return if the card uses the empty view built-in feature
+     *
      * @return
      */
     private boolean isUseEmptyView() {
@@ -607,6 +803,7 @@ public abstract class CardWithList extends Card {
 
     /**
      * Sets the flag to enable and disable the empty view feature
+     *
      * @param useEmptyView
      */
     public void setUseEmptyView(boolean useEmptyView) {
@@ -634,6 +831,7 @@ public abstract class CardWithList extends Card {
 
     /**
      * Sets the resource Id used which identifies the list
+     *
      * @param listViewId
      */
     public void setListViewId(int listViewId) {
@@ -643,6 +841,7 @@ public abstract class CardWithList extends Card {
     /**
      * Returns the identifier for the layout resource to inflate when the ViewStub becomes visible
      * It is used only if the {@see useEmptyView) is setted to true and the {@see mEmptyView} is a {@link android.view.ViewStub}.
+     *
      * @return
      */
     public int getEmptyViewViewStubLayoutId() {
