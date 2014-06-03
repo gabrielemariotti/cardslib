@@ -19,6 +19,7 @@
   -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:card="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_marginLeft="@dimen/card_base_cardwithlist_layout_leftmargin"
@@ -32,10 +33,9 @@
          -->
     <it.gmariotti.cardslib.library.prototypes.LinearListView
         android:id="@+id/card_inner_base_main_cardwithlist"
-        android:layout_marginTop="@dimen/card_base_cardwithlist_list_margin_top"
-        android:layout_marginLeft="@dimen/card_base_cardwithlist_list_margin_left"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        style="@style/cardwithlist"
+        card:card_list_item_dividerHeight="@dimen/card_base_cardwithlist_dividerHeight"
+        />
 
     <!-- This provide a default empty-view built-in feature.
          You can customize this layout in manu ways. Check the doc-->
@@ -44,7 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-       />
+        />
 
     <ViewStub
         android:id="@+id/card_inner_base_progressbar_cardwithlist"

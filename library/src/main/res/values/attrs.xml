@@ -44,5 +44,10 @@
         <attr name="android:foregroundGravity" />
     </declare-styleable>
 
+    <!-- Used in card with list-->
+    <declare-styleable name="card_listItem">
+        <!-- Height of divider used in the list -->
+         <attr name="card_list_item_dividerHeight" format="dimension" />
+    </declare-styleable>
 
 </resources>
