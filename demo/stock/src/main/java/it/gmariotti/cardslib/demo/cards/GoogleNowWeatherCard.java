@@ -19,6 +19,7 @@
 package it.gmariotti.cardslib.demo.cards;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -162,6 +163,8 @@ public class GoogleNowWeatherCard extends CardWithList {
         }
     };
 
+
+
     @Override
     public int getChildLayoutId() {
         return R.layout.carddemo_googlenowweather_inner_main;
@@ -194,10 +197,18 @@ public class GoogleNowWeatherCard extends CardWithList {
                         collapse(expandedLayout);
                         expandedLayout.setVisibility(View.GONE);
                         object.setExpanded(false);
+                        getLinearListAdapter().setLastExpanded(null);
                     }else{
+                        //getLinearListAdapter().collapseAll();  only use this if there is a scenario where multiple items will be expanded at once
+
+                        getLinearListAdapter().collapseLastExpanded(); //this is much more efficient
+
+                        object.setExpanded(true);
+                        getLinearListAdapter().setLastExpanded(object);
+                        getLinearListAdapter().notifyDataSetChanged();
                         expand(expandedLayout);
                         expandedLayout.setVisibility(View.VISIBLE);
-                        object.setExpanded(true);
+
                     }
 
                 }

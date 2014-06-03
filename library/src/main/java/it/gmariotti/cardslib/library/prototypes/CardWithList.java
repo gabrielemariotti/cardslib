@@ -509,7 +509,9 @@ public abstract class CardWithList extends Card {
      */
     public class LinearListAdapter extends ArrayAdapter<ListObject> {
 
-        LayoutInflater mLayoutInflater;
+        private ListObject lastExpanded;
+
+        private LayoutInflater mLayoutInflater;
 
         /**
          * Constructor
@@ -574,6 +576,27 @@ public abstract class CardWithList extends Card {
 
         public void setExpanded(int position, boolean expanded){
             getItem(position).setExpanded(expanded);
+        }
+
+        public void setLastExpanded(ListObject item){
+            lastExpanded = item;
+        }
+
+        public void collapseAll(){
+            int count = getCount();
+            for(int i = 0; i < count;i++){
+                if(getItem(i).isExpanded()){
+                    getItem(i).setExpanded(false);
+                    notifyDataSetChanged();
+                }
+            }
+        }
+
+        public void collapseLastExpanded(){
+           if(lastExpanded!=null){
+               lastExpanded.setExpanded(false);
+               notifyDataSetChanged();
+           }
         }
     }
 
