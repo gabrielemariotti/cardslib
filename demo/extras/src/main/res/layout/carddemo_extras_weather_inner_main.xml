@@ -27,12 +27,6 @@
               android:layout_width="match_parent"
               android:layout_height="wrap_content">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginLeft="3dp"
-        android:layout_marginRight="3dp"
-        android:background="@color/demoextra_card_line_weather_color"/>
 
     <RelativeLayout
         android:layout_width="match_parent"

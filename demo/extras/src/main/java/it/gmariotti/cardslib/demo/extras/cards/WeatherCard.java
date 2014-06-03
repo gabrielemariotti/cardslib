@@ -146,7 +146,7 @@ public class WeatherCard extends CardWithList {
         //Update the array inside the card
         ArrayList<WeatherObject> objs = new ArrayList<WeatherObject>();
         for (DayForecast dayForecast:dayForecastList){
-            WeatherObject weatherObject = new WeatherObject(dayForecast);
+            WeatherObject weatherObject = new WeatherObject(this,dayForecast);
             objs.add(weatherObject);
         }
         getLinearListAdapter().addAll(objs);
@@ -161,7 +161,8 @@ public class WeatherCard extends CardWithList {
 
         public DayForecast mDayForecast;
 
-        public WeatherObject(DayForecast forecast) {
+        public WeatherObject(Card parentCard,DayForecast forecast) {
+            super(parentCard);
             mDayForecast = forecast;
             init();
         }

@@ -58,7 +58,7 @@ public class GoogleNowWeatherCard extends CardWithList {
                 //Toast.makeText(getContext(), "Click on " + item.getTitle(), Toast.LENGTH_SHORT).show();
                 switch (item.getItemId()){
                     case R.id.action_add:
-                        WeatherObject w1= new WeatherObject();
+                        WeatherObject w1= new WeatherObject(GoogleNowWeatherCard.this);
                         w1.city ="Madrid";
                         w1.temperature = 24;
                         w1.weatherIcon = R.drawable.ic_action_sun;
@@ -96,21 +96,28 @@ public class GoogleNowWeatherCard extends CardWithList {
 
         List<ListObject> mObjects = new ArrayList<ListObject>();
 
-        WeatherObject w1= new WeatherObject();
+        WeatherObject w1= new WeatherObject(this);
         w1.city ="London";
         w1.temperature = 16;
         w1.weatherIcon = R.drawable.ic_action_cloud;
         w1.setObjectId(w1.city);
         mObjects.add(w1);
 
-        WeatherObject w2= new WeatherObject();
+        WeatherObject w2= new WeatherObject(this);
         w2.city ="Rome";
         w2.temperature = 25;
         w2.weatherIcon = R.drawable.ic_action_sun;
         w2.setObjectId(w2.city);
+        w2.setSwipeable(true);
+        w2.setOnItemSwipeListener(new OnItemSwipeListener() {
+            @Override
+            public void onItemSwipe(ListObject object,boolean dismissRight) {
+                Toast.makeText(getContext(), "Swipe on " + object.getObjectId(), Toast.LENGTH_SHORT).show();
+            }
+        });
         mObjects.add(w2);
 
-        WeatherObject w3= new WeatherObject();
+        WeatherObject w3= new WeatherObject(this);
         w3.city ="Paris";
         w3.temperature = 19;
         w3.weatherIcon = R.drawable.ic_action_cloudy;
@@ -153,7 +160,8 @@ public class GoogleNowWeatherCard extends CardWithList {
         public int temperature;
         public String temperatureUnit="°C";
 
-        public WeatherObject(){
+        public WeatherObject(Card parentCard){
+            super(parentCard);
             init();
         }
 
