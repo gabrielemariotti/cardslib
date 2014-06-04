@@ -46,7 +46,6 @@ import it.gmariotti.cardslib.demo.fragment.CardFragment;
 import it.gmariotti.cardslib.demo.fragment.CardWithListFragment;
 import it.gmariotti.cardslib.demo.fragment.ChangeValueCardFragment;
 import it.gmariotti.cardslib.demo.fragment.DismissAnimFragment;
-import it.gmariotti.cardslib.demo.fragment.ExpandableListCardFragment;
 import it.gmariotti.cardslib.demo.fragment.GPlayCardFragment;
 import it.gmariotti.cardslib.demo.fragment.GridBaseFragment;
 import it.gmariotti.cardslib.demo.fragment.GridCursorCardFragment;
@@ -113,10 +112,10 @@ public class MainActivity extends Activity {
     private static final int CASE_LIST_GPLAY_CAB = 20;
     private static final int CASE_GRID_GPLAY_CAB = 21;
     private static final int CASE_CURSOR_LIST_GPLAY_CAB = 22;
-    private static final int CASE_EXPLIB = 23;
-    private static final int CASE_CARDWITHLIST = 24;
-    private static final int CASE_DISMISS_ANIM = 25;
-    private static final int CASE_OVERFLOW_ANIM = 26;
+    //private static final int CASE_EXPLIB = 23;
+    private static final int CASE_CARDWITHLIST = 23;
+    private static final int CASE_DISMISS_ANIM = 24;
+    private static final int CASE_OVERFLOW_ANIM = 25;
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -362,9 +361,9 @@ public class MainActivity extends Activity {
             case CASE_CURSOR_LIST_GPLAY_CAB:
                 baseFragment = new ListGplayCursorCardCABFragment();
                 break;
-            case CASE_EXPLIB:
-                baseFragment = new ExpandableListCardFragment();
-                break;
+            //case CASE_EXPLIB:
+            //    baseFragment = new ExpandableListCardFragment();
+            //    break;
             case CASE_CARDWITHLIST:
                 baseFragment = new CardWithListFragment();
                 break;
@@ -435,7 +434,7 @@ public class MainActivity extends Activity {
             "List with MultiChoice",
             "Grid with MultiChoice",
             "List with Cursor and MultiChoice",
-            "ExpandableList",
+            //"ExpandableList",
             "Card with List",
             "Dismiss Animation (exp)",
             "Overflow Animation (exp)"

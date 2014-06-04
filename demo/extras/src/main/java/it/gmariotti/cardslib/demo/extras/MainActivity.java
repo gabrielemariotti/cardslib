@@ -42,7 +42,7 @@ import it.gmariotti.cardslib.demo.extras.fragment.ActionbarpullFragment;
 import it.gmariotti.cardslib.demo.extras.fragment.AnimateStaggeredGridFragment;
 import it.gmariotti.cardslib.demo.extras.fragment.BaseFragment;
 import it.gmariotti.cardslib.demo.extras.fragment.BaseStaggeredGridFragment;
-import it.gmariotti.cardslib.demo.extras.fragment.CardWeatherFragment;
+import it.gmariotti.cardslib.demo.extras.fragment.CardWithListFragment;
 import it.gmariotti.cardslib.demo.extras.fragment.CroutonFragment;
 import it.gmariotti.cardslib.demo.extras.fragment.DragDropListFragment;
 import it.gmariotti.cardslib.demo.extras.fragment.ExpandPicassoFragment;
@@ -319,7 +319,7 @@ public class MainActivity extends Activity {
                 baseFragment = new DragDropListFragment();
                 break;
             case CASE_WEATHER:
-                baseFragment = new CardWeatherFragment();
+                baseFragment = new CardWithListFragment();
                 break;
             default:
                 break;

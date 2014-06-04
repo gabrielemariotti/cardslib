@@ -35,6 +35,7 @@ import com.survivingwithandroid.weather.lib.provider.WeatherProviderFactory;
 import com.survivingwithandroid.weather.lib.provider.openweathermap.OpenweathermapProviderType;
 
 import it.gmariotti.cardslib.demo.extras.R;
+import it.gmariotti.cardslib.demo.extras.cards.GoogleKnowwithList;
 import it.gmariotti.cardslib.demo.extras.cards.WeatherCard;
 import it.gmariotti.cardslib.library.view.CardView;
 
@@ -43,7 +44,7 @@ import it.gmariotti.cardslib.library.view.CardView;
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public class CardWeatherFragment extends BaseFragment {
+public class CardWithListFragment extends BaseFragment {
 
     private WeatherConfig config;
     private WeatherClient client;
@@ -129,6 +130,13 @@ public class CardWeatherFragment extends BaseFragment {
         //Set card in the cardView
         CardView cardView = (CardView) getActivity().findViewById(R.id.carddemo_weathercard);
         cardView.setCard(card);
+
+
+        GoogleKnowwithList card2= new GoogleKnowwithList(getActivity());
+
+        //Set card in the cardView
+        CardView cardView2 = (CardView) getActivity().findViewById(R.id.carddemo_mayknowcard);
+        cardView2.setCard(card2);
     }
 
 }

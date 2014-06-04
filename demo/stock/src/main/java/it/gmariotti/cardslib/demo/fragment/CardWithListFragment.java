@@ -24,6 +24,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import it.gmariotti.cardslib.demo.R;
+import it.gmariotti.cardslib.demo.cards.GoogleNowStockCardwithList;
 import it.gmariotti.cardslib.demo.cards.GoogleNowWeatherCard;
 import it.gmariotti.cardslib.library.view.CardView;
 
@@ -69,6 +70,15 @@ public class CardWithListFragment extends BaseFragment {
         //Set card in the cardView
         CardView cardView = (CardView) getActivity().findViewById(R.id.carddemo_weathercard);
         cardView.setCard(card);
+
+
+        //Card
+        GoogleNowStockCardwithList card2 = new GoogleNowStockCardwithList(getActivity());
+
+        //Set card in the cardView
+        CardView cardView2 = (CardView) getActivity().findViewById(R.id.carddemo_stockcard);
+        cardView2.setCard(card2);
+
     }
 
 }

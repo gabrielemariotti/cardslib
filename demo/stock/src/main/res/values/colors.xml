@@ -47,4 +47,8 @@
     <color name="demo_card_weather_city_color">#A4A4A4</color>
     <color name="demo_card_weather_temperature_color">#868686</color>
 
+    <!-- Stock -->
+    <color name="demo_card_stock_negative">#FF4646</color>
+    <color name="demo_card_stock_positive">#29A426</color>
+
 </resources>

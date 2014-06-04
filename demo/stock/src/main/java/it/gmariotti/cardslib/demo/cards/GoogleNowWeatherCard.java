@@ -49,15 +49,16 @@ public class GoogleNowWeatherCard extends CardWithList {
     protected CardHeader initCardHeader() {
 
         //Add Header
-        CardHeader header = new CardHeader(getContext());
+        CardHeader header = new CardHeader(getContext(),R.layout.carddemo_googlenowweather_inner_header);
 
         //Add a popup menu. This method set OverFlow button to visible
         header.setPopupMenu(R.menu.popup_item, new CardHeader.OnClickCardHeaderPopupMenuListener() {
             @Override
             public void onMenuItemClick(BaseCard card, MenuItem item) {
-                //Toast.makeText(getContext(), "Click on " + item.getTitle(), Toast.LENGTH_SHORT).show();
+
                 switch (item.getItemId()){
                     case R.id.action_add:
+                        //Example: add an item
                         WeatherObject w1= new WeatherObject(GoogleNowWeatherCard.this);
                         w1.city ="Madrid";
                         w1.temperature = 24;
@@ -66,6 +67,7 @@ public class GoogleNowWeatherCard extends CardWithList {
                         mLinearListAdapter.add(w1);
                         break;
                     case R.id.action_remove:
+                        //Example: remove an item
                         mLinearListAdapter.remove(mLinearListAdapter.getItem(0));
                         break;
                 }
@@ -79,6 +81,7 @@ public class GoogleNowWeatherCard extends CardWithList {
     @Override
     protected void initCard() {
 
+        //Set the whole card as swipeable
         setSwipeable(true);
         setOnSwipeListener(new OnSwipeListener() {
             @Override
@@ -87,20 +90,21 @@ public class GoogleNowWeatherCard extends CardWithList {
             }
         });
 
-
     }
 
 
     @Override
     protected List<ListObject> initChildren() {
 
+        //Init the list
         List<ListObject> mObjects = new ArrayList<ListObject>();
 
+        //Add an object to the list
         WeatherObject w1= new WeatherObject(this);
         w1.city ="London";
         w1.temperature = 16;
         w1.weatherIcon = R.drawable.ic_action_cloud;
-        w1.setObjectId(w1.city);
+        w1.setObjectId(w1.city); //It can be important to set ad id
         mObjects.add(w1);
 
         WeatherObject w2= new WeatherObject(this);
@@ -109,12 +113,14 @@ public class GoogleNowWeatherCard extends CardWithList {
         w2.weatherIcon = R.drawable.ic_action_sun;
         w2.setObjectId(w2.city);
         w2.setSwipeable(true);
-        w2.setOnItemSwipeListener(new OnItemSwipeListener() {
+
+        //Example onSwipe
+        /*w2.setOnItemSwipeListener(new OnItemSwipeListener() {
             @Override
             public void onItemSwipe(ListObject object,boolean dismissRight) {
                 Toast.makeText(getContext(), "Swipe on " + object.getObjectId(), Toast.LENGTH_SHORT).show();
             }
-        });
+        });*/
         mObjects.add(w2);
 
         WeatherObject w3= new WeatherObject(this);
@@ -130,10 +136,12 @@ public class GoogleNowWeatherCard extends CardWithList {
     @Override
     public View setupChildView(int childPosition, ListObject object, View convertView, ViewGroup parent) {
 
+        //Setup the ui elements inside the item
         TextView city = (TextView) convertView.findViewById(R.id.carddemo_weather_city);
         ImageView icon = (ImageView) convertView.findViewById(R.id.carddemo_weather_icon);
         TextView temperature = (TextView) convertView.findViewById(R.id.carddemo_weather_temperature);
 
+        //Retrieve the values from the object
         WeatherObject weatherObject= (WeatherObject)object;
         icon.setImageResource(weatherObject.weatherIcon);
         city.setText(weatherObject.city);
@@ -166,10 +174,19 @@ public class GoogleNowWeatherCard extends CardWithList {
         }
 
         private void init(){
+            //OnClick Listener
             setOnItemClickListener(new OnItemClickListener() {
                 @Override
                 public void onItemClick(LinearListView parent, View view, int position, ListObject object) {
                     Toast.makeText(getContext(), "Click on " + getObjectId(), Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            //OnItemSwipeListener
+            setOnItemSwipeListener(new OnItemSwipeListener() {
+                @Override
+                public void onItemSwipe(ListObject object, boolean dismissRight) {
+                    Toast.makeText(getContext(), "Swipe on " + object.getObjectId(), Toast.LENGTH_SHORT).show();
                 }
             });
         }

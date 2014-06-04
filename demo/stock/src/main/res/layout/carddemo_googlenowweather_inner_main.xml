@@ -34,14 +34,13 @@
         android:layout_marginRight="12dp"
         android:layout_gravity="center_vertical"
         android:layout_height="wrap_content"
-        android:minHeight="48dp">
+        android:minHeight="55dp">
 
         <TextView
             android:id="@+id/carddemo_weather_city"
             android:textColor="@color/demo_card_weather_city_color"
-            android:textSize="16sp"
+            android:textSize="17sp"
             tools:text="London"
-
             android:layout_centerInParent="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -55,14 +54,14 @@
             android:layout_height="wrap_content"
             tools:text="16°C"
             android:layout_centerInParent="true"
-            android:textSize="26sp"
+            android:textSize="28sp"
             android:layout_alignParentRight="true"/>
 
         <ImageView
             android:id="@+id/carddemo_weather_icon"
             android:layout_width="wrap_content"
             tools:background="@drawable/ic_action_sun"
-            android:layout_height="24dp"
+            android:layout_height="28dp"
             android:layout_marginRight="2dp"
             android:layout_toLeftOf="@id/carddemo_weather_temperature"
             android:layout_centerVertical="true"/>
