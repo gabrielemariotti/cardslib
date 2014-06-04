@@ -87,7 +87,7 @@ If you would like to build also the **library-extra** module (it is optional,it 
       compile project(':libraries:cardslib:library')
 
      //StaggeredGrid
-     compile 'com.etsy.android.grid:library:1.0.4'
+     compile 'com.etsy.android.grid:library:1.0.5'
 
      //Drag and drop list base on DynamicList
      compile 'com.nhaarman.listviewanimations:library:2.6.0'
