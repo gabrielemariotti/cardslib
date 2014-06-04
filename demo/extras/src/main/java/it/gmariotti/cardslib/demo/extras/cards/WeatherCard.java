@@ -19,6 +19,7 @@
 package it.gmariotti.cardslib.demo.extras.cards;
 
 import android.content.Context;
+import android.os.SystemClock;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -87,6 +88,8 @@ public class WeatherCard extends CardWithList {
 
         //Provide a custom view for the ViewStud EmptyView
         setEmptyViewViewStubLayoutId(R.layout.carddemo_extras_base_withlist_empty);
+
+        setUseProgressBar(true);
     }
 
 
@@ -137,6 +140,8 @@ public class WeatherCard extends CardWithList {
      * @param forecast
      */
     public void updateForecast(WeatherForecast forecast) {
+        SystemClock.sleep(1000);
+
         //Update the data
         if (forecast == null) return;
         List<DayForecast> dayForecastList = forecast.getForecast();
@@ -150,6 +155,7 @@ public class WeatherCard extends CardWithList {
             objs.add(weatherObject);
         }
         getLinearListAdapter().addAll(objs);
+        updateProgressBar(true,true);
     }
 
 

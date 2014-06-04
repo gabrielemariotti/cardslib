@@ -23,6 +23,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.survivingwithandroid.weather.lib.WeatherClient;
 import com.survivingwithandroid.weather.lib.WeatherClientDefault;
@@ -104,14 +105,17 @@ public class CardWeatherFragment extends BaseFragment {
 
             @Override
             public void onWeatherError(WeatherLibException t) {
-
+                card.updateProgressBar(true,true);
+                Toast.makeText(getActivity(),"Error on connection...",Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onConnectionError(Throwable t) {
-
+                card.updateProgressBar(true,true);
+                Toast.makeText(getActivity(),"Error on connection...",Toast.LENGTH_SHORT).show();
             }
         });
+        card.updateProgressBar(false,false);
     }
 
     /**
