@@ -112,13 +112,13 @@ public class PicassoCard extends Card {
             //It is just an example !
 
             if (((PicassoCard) getParentCard()).getCount() % 2 == 0) {
-                Picasso.with(getContext()).setDebugging(true);  //only for debug tests
+                Picasso.with(getContext()).setIndicatorsEnabled(true);  //only for debug tests
                 Picasso.with(getContext())
                         .load("https://lh5.googleusercontent.com/-squZd7FxR8Q/UyN5UrsfkqI/AAAAAAAAbAo/VoDHSYAhC_E/s96/new%2520profile%2520%25282%2529.jpg")
                         .error(R.drawable.ic_error_loadingsmall)
                         .into((ImageView) viewImage);
             } else {
-                Picasso.with(getContext()).setDebugging(true);  //only for debug tests
+                Picasso.with(getContext()).setIndicatorsEnabled(true);  //only for debug tests
                 Picasso.with(getContext())
                         .load(R.drawable.ic_tris)
                         .resize(96, 96)

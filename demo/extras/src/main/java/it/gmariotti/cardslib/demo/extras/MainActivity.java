@@ -63,12 +63,12 @@ public class MainActivity extends Activity {
     private ListView mDrawerList;
     private DrawerLayout mDrawer;
     private CustomActionBarDrawerToggle mDrawerToggle;
-    private int mCurrentTitle=R.string.app_name;
+    private int mCurrentTitle = R.string.app_name;
     private int mSelectedFragment;
     private BaseFragment mBaseFragment;
 
 
-    private static String TAG= "MainActivity";
+    private static String TAG = "MainActivity";
     private IabHelper mHelper;
 
     //Used in savedInstanceState
@@ -117,7 +117,7 @@ public class MainActivity extends Activity {
 
         // ---------------------------------------------------------------
         // ...
-        String base64EncodedPublicKey= IabUtil.key;
+        String base64EncodedPublicKey = IabUtil.key;
 
         // compute your public key and store it in base64EncodedPublicKey
         mHelper = new IabHelper(this, base64EncodedPublicKey);
@@ -145,7 +145,7 @@ public class MainActivity extends Activity {
 
             FragmentManager fragmentManager = getFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            if (fragmentManager.findFragmentById(R.id.fragment_main_extras)==null)
+            if (fragmentManager.findFragmentById(R.id.fragment_main_extras) == null)
                 mBaseFragment = selectFragment(mSelectedFragment);
             //if (mBaseFragment==null)
             //    mBaseFragment = selectFragment(mSelectedFragment);
@@ -195,7 +195,7 @@ public class MainActivity extends Activity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         /*
-		 * The action bar home/up should open or close the drawer.
+         * The action bar home/up should open or close the drawer.
 		 * ActionBarDrawerToggle will take care of this.
 		 */
         if (mDrawerToggle.onOptionsItemSelected(item)) {
@@ -255,20 +255,21 @@ public class MainActivity extends Activity {
             mBaseFragment = selectFragment(position);
             mSelectedFragment = position;
 
-            if (mBaseFragment != null)
-                openFragment(mBaseFragment);
+            /*
             mDrawer.setDrawerListener(
-                    new DrawerLayout.SimpleDrawerListener()
-                    {
+                    new DrawerLayout.SimpleDrawerListener() {
                         @Override
-                        public void onDrawerClosed(View drawerView)
-                        {
+                        public void onDrawerClosed(View drawerView) {
                             super.onDrawerClosed(drawerView);
                             if (mBaseFragment != null)
                                 openFragment(mBaseFragment);
                         }
-                    });
+                    }
+            );*/
             mDrawer.closeDrawer(mDrawerList);
+            if (mBaseFragment != null)
+                openFragment(mBaseFragment);
+
         }
     }
 
@@ -279,46 +280,46 @@ public class MainActivity extends Activity {
         switch (position) {
 
             case CASE_PICASSO:
-                baseFragment= new PicassoFragment();
+                baseFragment = new PicassoFragment();
                 break;
             case CASE_ION:
-                baseFragment= new IonFragment();
+                baseFragment = new IonFragment();
                 break;
             case CASE_UNILOADER:
-                baseFragment= new UniversalImageLoaderFragment();
+                baseFragment = new UniversalImageLoaderFragment();
                 break;
             case CASE_ACTIONPULL:
-                baseFragment= new ActionbarpullFragment();
+                baseFragment = new ActionbarpullFragment();
                 break;
             case CASE_LISTVIEWANIMATOR:
-                baseFragment= new ListViewAnimationsFragment();
+                baseFragment = new ListViewAnimationsFragment();
                 break;
             case CASE_GRIDVIEWANIMATOR:
-                baseFragment= new ListViewGridAnimationsFragment();
+                baseFragment = new ListViewGridAnimationsFragment();
                 break;
             case CASE_CROUTON:
-                baseFragment= new CroutonFragment();
+                baseFragment = new CroutonFragment();
                 break;
             case CASE_STKHDR:
-                baseFragment= new StickyListHeadersFragment();
+                baseFragment = new StickyListHeadersFragment();
                 break;
             case CASE_EXPANDINSIDE:
-                baseFragment= new ExpandPicassoFragment();
+                baseFragment = new ExpandPicassoFragment();
                 break;
             case CASE_BASESTAG:
-                baseFragment= new BaseStaggeredGridFragment();
+                baseFragment = new BaseStaggeredGridFragment();
                 break;
             case CASE_STAG:
-                baseFragment= new StaggeredGridFragment();
+                baseFragment = new StaggeredGridFragment();
                 break;
             case CASE_ALL:
-                baseFragment= new AnimateStaggeredGridFragment();
+                baseFragment = new AnimateStaggeredGridFragment();
                 break;
             case CASE_DRAGDROP:
-                baseFragment= new DragDropListFragment();
+                baseFragment = new DragDropListFragment();
                 break;
             case CASE_WEATHER:
-                baseFragment= new CardWeatherFragment();
+                baseFragment = new CardWeatherFragment();
                 break;
             default:
                 break;
@@ -346,11 +347,12 @@ public class MainActivity extends Activity {
         if (baseFragment != null) {
             FragmentManager fragmentManager = getFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            //fragmentTransaction.setCustomAnimations(R.animator.carddemo_fag_fade_in,R.animator.carddemo_frag_fade_out);
 
             fragmentTransaction.replace(R.id.fragment_main_extras, baseFragment);
             //fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
-            if (baseFragment.getTitleResourceId()>0)
+            if (baseFragment.getTitleResourceId() > 0)
                 mCurrentTitle = baseFragment.getTitleResourceId();
         }
     }
@@ -397,8 +399,7 @@ public class MainActivity extends Activity {
             // perform any handling of activity results not related to in-app
             // billing...
             super.onActivityResult(requestCode, resultCode, data);
-        }
-        else {
+        } else {
             Log.d(TAG, "onActivityResult handled by IABUtil.");
         }
     }

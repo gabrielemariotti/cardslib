@@ -22,6 +22,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,15 +43,15 @@ import it.gmariotti.cardslib.library.internal.CardThumbnail;
 
 /**
  * This example uses a staggered card with different different photos and text.
- *
+ * <p/>
  * This example uses cards with a foreground layout.
  * Pay attention to style="@style/card.main_layout_foreground" in card layout.
- *
+ * <p/>
  * .DynamicHeightPicassoCardThumbnailView
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public class StaggeredGridFragment extends BaseFragment {
+public class StaggeredGridFragment extends BaseListFragment {
 
     ServerDatabase mServerDatabase;
     CardGridStaggeredArrayAdapter mCardArrayAdapter;
@@ -67,7 +68,9 @@ public class StaggeredGridFragment extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.demo_extras_fragment_staggeredgrid, container, false);
+        View root = inflater.inflate(R.layout.demo_extras_fragment_staggeredgrid, container, false);
+        setupListFragment(root);
+        return root;
     }
 
     @Override
@@ -79,6 +82,8 @@ public class StaggeredGridFragment extends BaseFragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        hideList(false);
 
         //Set the arrayAdapter
         ArrayList<Card> cards = new ArrayList<Card>();
@@ -117,7 +122,7 @@ public class StaggeredGridFragment extends BaseFragment {
         @Override
         protected Void doInBackground(Void... params) {
             //Initialize Image loader
-            MockImageLoader loader = MockImageLoader.getInstance(((Activity)mContext).getApplication());
+            MockImageLoader loader = MockImageLoader.getInstance(((Activity) mContext).getApplication());
             mServerDatabase = new ServerDatabase(loader);
             return null;
         }
@@ -134,15 +139,17 @@ public class StaggeredGridFragment extends BaseFragment {
         @Override
         protected ArrayList<Card> doInBackground(Void... params) {
             //elaborate images
+            SystemClock.sleep(1000); //delay to simulate download, don't use it in a real app
             mServerDatabase.getImagesForSection(Section.STAG);
             ArrayList<Card> cards = initCard();
             return cards;
         }
 
         @Override
-        protected void onPostExecute(ArrayList<Card> cards){
+        protected void onPostExecute(ArrayList<Card> cards) {
             //Update the adapter
             updateAdapter(cards);
+            displayList();
         }
     }
 
@@ -199,7 +206,7 @@ public class StaggeredGridFragment extends BaseFragment {
      * Update the adapter
      */
     private void updateAdapter(ArrayList<Card> cards) {
-        if (cards!=null) {
+        if (cards != null) {
             mCardArrayAdapter.addAll(cards);
             mCardArrayAdapter.notifyDataSetChanged();
         }
@@ -264,8 +271,8 @@ public class StaggeredGridFragment extends BaseFragment {
 
 
         /**
-         *  A StaggeredCardThumbnail.
-         *  It uses a DynamicHeightPicassoCardThumbnailView which  maintains its own width to height ratio.
+         * A StaggeredCardThumbnail.
+         * It uses a DynamicHeightPicassoCardThumbnailView which  maintains its own width to height ratio.
          */
         class StaggeredCardThumb extends CardThumbnail {
 

@@ -48,12 +48,13 @@ dependencies {
     compile 'com.android.support:support-v4:19.1.0'
 
     //OkHttp
-    compile 'com.squareup.okhttp:okhttp:1.5.4'
+    compile 'com.squareup.okhttp:okhttp:1.6.0'
+    compile 'com.squareup.okhttp:okhttp-urlconnection:1.6.0'
     //Picasso
-    compile 'com.squareup.picasso:picasso:2.2.0'
+    compile 'com.squareup.picasso:picasso:2.3.1'
 
     //Ion
-    compile 'com.koushikdutta.ion:ion:1.2.4'
+    compile 'com.koushikdutta.ion:ion:1.2.7'
 
     //universal-image-loader
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.1'
@@ -65,13 +66,13 @@ dependencies {
     compile 'com.nhaarman.listviewanimations:library:2.6.0'
 
     //Crouton
-    compile('de.keyboardsurfer.android.widget:crouton:1.8.3') {
+    compile('de.keyboardsurfer.android.widget:crouton:1.8.4') {
         // exclusion is not neccessary, but generally a good idea.
         exclude group: 'com.google.android', module: 'support-v4'
     }
 
     //StickyListHeaders
-    compile ('se.emilsjolander:stickylistheaders:2.3.0')
+    compile ('se.emilsjolander:stickylistheaders:2.4.0')
 
     //Weather Lib
     compile 'com.survivingwithandroid:WeatherLib:1.3.0'
