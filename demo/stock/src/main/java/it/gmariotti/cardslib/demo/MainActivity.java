@@ -281,9 +281,9 @@ public class MainActivity extends Activity {
             mBaseFragment = selectFragment(position);
             mSelectedFragment = position;
 
+            mDrawer.closeDrawer(mDrawerList);
             if (mBaseFragment != null)
                 openFragment(mBaseFragment);
-            mDrawer.closeDrawer(mDrawerList);
         }
     }
 

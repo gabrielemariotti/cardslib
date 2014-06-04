@@ -51,7 +51,7 @@ import it.gmariotti.cardslib.library.view.CardView;
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public class ListGplayCursorCardCABFragment extends BaseFragment implements LoaderManager.LoaderCallbacks<Cursor> {
+public class ListGplayCursorCardCABFragment extends BaseListFragment implements LoaderManager.LoaderCallbacks<Cursor> {
 
     MyCardCursorMultiChoiceAdapter mAdapter;
     CardListView listView;
@@ -64,12 +64,15 @@ public class ListGplayCursorCardCABFragment extends BaseFragment implements Load
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.demo_fragment_list_gplaycard_cab, container, false);
+        View root = inflater.inflate(R.layout.demo_fragment_list_gplaycard_cab, container, false);
+        setupListFragment(root);
+        return root;
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        hideList(false);
         init();
     }
 
@@ -95,6 +98,8 @@ public class ListGplayCursorCardCABFragment extends BaseFragment implements Load
             return;
         }
         mAdapter.swapCursor(data);
+
+        displayList();
     }
 
     @Override

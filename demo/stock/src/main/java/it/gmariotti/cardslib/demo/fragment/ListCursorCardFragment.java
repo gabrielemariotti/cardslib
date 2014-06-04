@@ -46,7 +46,7 @@ import it.gmariotti.cardslib.library.view.CardListView;
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public class ListCursorCardFragment extends BaseFragment implements LoaderManager.LoaderCallbacks<Cursor> {
+public class ListCursorCardFragment extends BaseListFragment implements LoaderManager.LoaderCallbacks<Cursor> {
 
     MyCursorCardAdapter mAdapter;
     CardListView mListView;
@@ -58,13 +58,15 @@ public class ListCursorCardFragment extends BaseFragment implements LoaderManage
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.demo_fragment_list_cursor, container, false);
+        View root= inflater.inflate(R.layout.demo_fragment_list_cursor, container, false);
+        setupListFragment(root);
+        return root;
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
+        hideList(false);
         init();
     }
 
@@ -96,6 +98,8 @@ public class ListCursorCardFragment extends BaseFragment implements LoaderManage
             return;
         }
         mAdapter.swapCursor(data);
+
+        displayList();
     }
 
     @Override

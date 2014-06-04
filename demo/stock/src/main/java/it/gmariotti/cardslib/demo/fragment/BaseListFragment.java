@@ -21,7 +21,8 @@ package it.gmariotti.cardslib.demo.fragment;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 
-import it.gmariotti.cardslib.demo.extras.R;
+import it.gmariotti.cardslib.demo.R;
+
 
 /**
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)

@@ -18,25 +18,54 @@
   ~  *****************************************************************************
   -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:card="http://schemas.android.com/apk/res-auto"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:card="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-    <it.gmariotti.cardslib.library.view.CardGridView
+    <LinearLayout
+        android:id="@+id/carddemo_progressContainer"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="2dp"
-        android:layout_marginRight="2dp"
-        android:numColumns="auto_fit"
-        android:columnWidth="@dimen/carddemo_gricursor_width"
-        android:verticalSpacing="3dp"
-        android:horizontalSpacing="2dp"
-        android:stretchMode="columnWidth"
-        android:gravity="center"
-        card:list_card_layout_resourceID="@layout/carddemo_grid_cursor_layout"
-        android:id="@+id/carddemo_grid_cursor"/>
+        android:visibility="gone"
+        android:gravity="center">
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text=""
+            android:paddingTop="4dip"
+            android:singleLine="true"/>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/carddemo_listContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <it.gmariotti.cardslib.library.view.CardGridView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:numColumns="auto_fit"
+            android:columnWidth="@dimen/carddemo_gricursor_width"
+            android:verticalSpacing="3dp"
+            android:horizontalSpacing="2dp"
+            android:stretchMode="columnWidth"
+            android:gravity="center"
+            card:list_card_layout_resourceID="@layout/carddemo_grid_cursor_layout"
+            android:id="@+id/carddemo_grid_cursor"/>
 
 
-</LinearLayout>
+    </FrameLayout>
+
+</RelativeLayout>
