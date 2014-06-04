@@ -13,11 +13,18 @@ In this page you can find info about:
 * [How to disable the empty view](#how-to-disable-the-empty-view)
 * [How to customize the Empty View](#how-to-customize-the-empty-view)
 * [Using a custom inner layout](#using-a-custom-inner-layout)
+* [ProgressBar](#progressbar)
+* [How to enable the progressbar](#how-to-enable-the-progressbar)
+* [How to customize the ProgressBar](#how-to-customize-the-progressbar)
+* [Using a custom inner layout](#using-a-custom-inner-layout)
+
 
 ## How to build a card with a LinearList
 
 The card with a LinearList inside is a particular `Card` that can display items inside the `Card`.
 Technically it is a special `LinearLayout` that works with an ArrayAdapter, so you can use your `Card` inside a `ScrollView` for example.
+
+![Screen](/demo/images/card/cwl_1.png)
 
 First, you need an XML layout that will display the `Card`.
 
@@ -159,6 +166,8 @@ In particular you can :
         });
 ```
 
+![Screen](/demo/images/card/cwl_swipeitem.png)
+
 ## Define the layout used by items
 
 You have to specify the layout used by each item.
@@ -262,18 +271,68 @@ Example:
          setEmptyViewViewStubLayoutId(R.layout.carddemo_extras_base_withlist_empty);
     }
 ```
+![Screen](/demo/images/card/cwl_customnodata.png)
 
-You can provide a different view using a custom [innerlayout](#using-a-custom-inner-layout).
+
+Of course you can provide a complete different view using a custom [innerlayout](#using-a-custom-inner-layout) for your card.
 In this you can use your favorite View.
-``` xml
-    <TextView
-        android:text="@string/new_empty_view"
-        android:id="@+id/card_inner_base_empty_cardwithlist"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-       />
+
+
+## ProgressBar
+
+The default card provides a built-in feature with a ProgressBar that can be displayed inside the `CardView`. 
+This feature is disabled by default but you can customize it.
+The default view used is a `ProgressBar` and a TextView.
+
+![Screen](/demo/images/card/cwl_progressbar.png)
+
+
+### How to enable the ProgressBar.
+To enable the ProgressBar you can use `setUseProgressBar(true)`
+
+Example:
+``` java
+    @Override
+    protected void initCard() {
+        setUseProgressBar(true);
+    }
 ```
+
+You can display the ProgressBar using this code:
+``` java
+    card.updateProgressBar(false,false);
+``` 
+
+The first parameter indicates to hide the list and display the progressbar, while the second parameter indicates if you want to animate the transition between the views.
+When the process is ended you can hide the ProgressBar and display the list using:
+
+``` java
+    card.updateProgressBar(true,true);
+``` 
+
+
+### How to customize the ProgressBar
+
+You can customize the ProgressBar in different ways:
+
+You can change the string used simply overriding this string in your project:
+``` xml
+    <string name="card_progressbar_cardwithlist_text"></string>
+```
+
+The default layout [inner_base_main_cardwithlist](/library/library/src/main/res/layout/inner_base_main_cardwithlist) uses a `ViewStub`.
+You can dynamically change the the layout resource to inflate when the ViewStub becomes visible, using the method `setProgressBarViewStubLayoutId`.
+
+Example:
+``` java
+    @Override
+    protected void initCard() {
+         setProgressBarViewStubLayoutId(R.layout.carddemo_extras_base_withlist_progressbar);
+    }
+```
+
+Of course you can provide a complete different view using a custom [innerlayout](#using-a-custom-inner-layout) for your card.
+In this you can use your favorite View.
 
 
 ## Using a custom inner layout
