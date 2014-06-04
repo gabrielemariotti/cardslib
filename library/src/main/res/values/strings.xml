@@ -39,6 +39,7 @@
 
     <!-- Card with List -->
     <string name="card_empty_cardwithlist_text">No data....</string>
+    <string name="card_progressbar_cardwithlist_text">Loading data...</string>
 
 
 </resources>

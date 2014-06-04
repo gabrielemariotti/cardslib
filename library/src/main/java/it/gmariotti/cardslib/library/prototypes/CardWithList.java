@@ -25,6 +25,7 @@ import android.view.SoundEffectConstants;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
+import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 
 import java.util.ArrayList;
@@ -35,6 +36,8 @@ import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardHeader;
 
 /**
+ * TODO
+ *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
 public abstract class CardWithList extends Card {
@@ -80,9 +83,15 @@ public abstract class CardWithList extends Card {
     protected int emptyViewViewStubLayoutId = R.layout.base_withlist_empty;
 
     /**
-     *
+     * Resource Id used which identifies the progressBar
      */
     protected int progressBarId = R.id.card_inner_base_progressbar_cardwithlist;
+
+
+    /**
+     * An identifier for the layout resource to inflate when the ViewStub becomes visible
+     */
+    protected int progressBarViewStubLayoutId = R.layout.base_withlist_progress;
 
     /**
      * Indicates if the empty view feature is enabled
@@ -90,9 +99,14 @@ public abstract class CardWithList extends Card {
     protected boolean useEmptyView = true;
 
     /**
-     *
+     * Indicates if the progressBar feature is enabled
      */
     protected boolean useProgressBar = false;
+
+    /**
+     * Internal flag to indicate if the list is shown
+     */
+    private boolean mListShown;
 
     /**
      * Resource Id used which identifies the list
@@ -288,6 +302,8 @@ public abstract class CardWithList extends Card {
         mListView = (LinearListView) view.findViewById(getListViewId());
         if (mListView != null) {
 
+            internalSetupProgressBar(parent, view);
+
             if (mLinearListAdapter != null) {
                 mLinearListAdapter.registerDataSetObserver(mDataObserver);
                 internalSetupChildren();
@@ -295,6 +311,7 @@ public abstract class CardWithList extends Card {
         }
 
         internalSetupEmptyView(parent, view);
+
     }
 
     /**
@@ -327,6 +344,24 @@ public abstract class CardWithList extends Card {
                 if (mEmptyView instanceof ViewStub)
                     ((ViewStub) mEmptyView).setLayoutResource(getEmptyViewViewStubLayoutId());
                 setEmptyView(mEmptyView);
+            }
+        }
+    }
+
+    /**
+     * Setup the Progress Bar view.
+     *
+     * @param parent mainContentLayout
+     * @param view   innerView
+     */
+    private void internalSetupProgressBar(ViewGroup parent, View view) {
+        if (useProgressBar) {
+            mProgressView = (View) parent.findViewById(getProgressBarId());
+            mListShown=true;
+            if (mProgressView != null) {
+                if (mProgressView instanceof ViewStub)
+                    ((ViewStub) mProgressView).setLayoutResource(getProgressBarViewStubLayoutId());
+                setProgressView(mProgressView);
             }
         }
     }
@@ -620,6 +655,80 @@ public abstract class CardWithList extends Card {
     }
 
 
+
+    // -------------------------------------------------------------
+    // Progress bar
+    // -------------------------------------------------------------
+
+    /**
+     * When the current adapter is loading data, the LinearListView can display a special
+     * progress Bar.
+     *
+     * @return The view to show if the adapter is the progress bar is enabled.
+     */
+    public View getProgressView() {
+        return mProgressView;
+    }
+
+    /**
+     * Sets the view to show as progress bar
+     */
+    public void setProgressView(View progressView) {
+        mProgressView = progressView;
+        useProgressBar = progressView != null ? true : false;
+    }
+
+    /**
+     * Updates the status of the list and the progress bar.
+     *
+     * @param shownList indicates if the list has to be shown
+     * @param animate indicates to use an animation between view transition
+     */
+    public void updateProgressBar(boolean shownList, boolean animate) {
+        if (isUseProgressBar()) {
+            if (mListShown == shownList) {
+                return;
+            }
+            mListShown = shownList;
+
+            if (shownList) {
+                if (animate) {
+                    mProgressView.startAnimation(AnimationUtils.loadAnimation(
+                            getContext(), android.R.anim.fade_out));
+                    mListView.startAnimation(AnimationUtils.loadAnimation(
+                            getContext(), android.R.anim.fade_in));
+                    if (useEmptyView && mEmptyView!=null){
+                        mEmptyView.startAnimation(AnimationUtils.loadAnimation(
+                                getContext(), android.R.anim.fade_in));
+                    }
+                }
+                mProgressView.setVisibility(View.GONE);
+
+                final LinearListAdapter adapter = getLinearListAdapter();
+                final boolean empty = ((adapter == null) || adapter.isEmpty());
+                updateEmptyStatus(empty);
+
+
+            } else {
+                if (animate) {
+                    mProgressView.startAnimation(AnimationUtils.loadAnimation(
+                            getContext(), android.R.anim.fade_in));
+                    mListView.startAnimation(AnimationUtils.loadAnimation(
+                            getContext(), android.R.anim.fade_out));
+                    if (useEmptyView && mEmptyView!=null){
+                        mEmptyView.startAnimation(AnimationUtils.loadAnimation(
+                                getContext(), android.R.anim.fade_out));
+                    }
+                }
+                mProgressView.setVisibility(View.VISIBLE);
+                mListView.setVisibility(View.INVISIBLE);
+                if (useEmptyView && mEmptyView!=null){
+                    mEmptyView.setVisibility(View.INVISIBLE);
+                }
+            }
+        }
+    }
+
     // -------------------------------------------------------------
     // Internal Adapter
     // -------------------------------------------------------------
@@ -821,13 +930,6 @@ public abstract class CardWithList extends Card {
         this.useProgressBar = useProgressBar;
     }
 
-    public View getProgressView() {
-        return mProgressView;
-    }
-
-    public void setProgressView(View progressView) {
-        mProgressView = progressView;
-    }
 
     /**
      * Sets the resource Id used which identifies the list
@@ -855,6 +957,25 @@ public abstract class CardWithList extends Card {
      */
     public void setEmptyViewViewStubLayoutId(int emptyViewViewStubLayoutId) {
         this.emptyViewViewStubLayoutId = emptyViewViewStubLayoutId;
+    }
+
+    /**
+     * Returns the identifier for the layout resource to inflate when the ViewStub used by the ProgressBar becomes visible
+     * It is used only if the {@see useProgressBar) is setted to true and the {@see mProgressView} is a {@link android.view.ViewStub}.
+     *
+     * @return
+     */
+    public int getProgressBarViewStubLayoutId() {
+        return progressBarViewStubLayoutId;
+    }
+
+    /**
+     * Sets the identifier for the layout resource to inflate when the ViewStub used by the ProgressBar becomes visible
+     *
+     * @param progressBarViewStubLayoutId
+     */
+    public void setProgressBarViewStubLayoutId(int progressBarViewStubLayoutId) {
+        this.progressBarViewStubLayoutId = progressBarViewStubLayoutId;
     }
 }
 

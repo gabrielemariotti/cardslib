@@ -28,11 +28,15 @@
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical|center_horizontal" />
+        android:layout_gravity="center_vertical|center_horizontal"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical|center_horizontal"
-        android:text="Loading data..." />
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/card_progressbar_cardwithlist_text"
+        android:singleLine="true"
+        />
+
 </LinearLayout>
