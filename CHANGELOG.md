@@ -4,12 +4,15 @@ Change Log
 Version 1.7.0 *(2014-XX-XX)*
 ----------------------------
 
+* LIB: Added a new feature to display a list of items inside a Card [(doc)](/doc/CARDWITHLIST.md)
 * LIB: Added a feature to customize dynamically the undoBar message [(doc)](/doc/CARDLIST.md#swipe-and-undo-with-a-custom-undobar)
 
   It contains a **BREAKING CHANGE** with UndoBar and UndoBarUIElements feature. Read the above link to migrate your code.
 * LIB-EXTRA: Updated Etsy-Grid dependency to 1.0.5
-* DEMO-Extras: Improved staggered grid examples.
-* DEMO-Extras: updated all libraries.
+* DEMO: Added a new example for Card with List 
+* DEMO-Extra: Added a new example for Card with List integrated with WeatherLib
+* DEMO-Extra: Improved staggered grid examples.
+* DEMO-Extra: updated all libraries.
 
 
 Version 1.6.0 *(2014-05-06)*

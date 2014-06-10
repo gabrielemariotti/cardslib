@@ -160,13 +160,32 @@ In particular you can :
 ```java
         item.setOnItemSwipeListener(new OnItemSwipeListener() {
             @Override
-            public void onItemSwipe(ListObject object) {
+            public void onItemSwipe(ListObject object,boolean dismissRight) {
                 Toast.makeText(getContext(), "Swipe on " + object.getObjectId(), Toast.LENGTH_SHORT).show();
             }
         });
 ```
 
 ![Screen](/demo/images/card/cwl_swipeitem.png)
+
+You can customize the background behind the items cloning this color in your project:
+
+``` xml
+    <!-- Used by card with list -->
+    <color name="card_base_cardwithlist_background_list_color">#10000000</color>
+``` 
+
+Otherwise you can customize this style in your project:
+                  
+``` xml
+      <!-- Style for card with list -->
+      <style name="cardwithlist">
+            <item name="android:background">@color/card_base_cardwithlist_background_list_color</item>
+      </style>                
+```
+
+and finally you can provide your [custom inner layout](#using-a-custom-inner-layout)
+
 
 ## Define the layout used by items
 
@@ -229,6 +248,7 @@ Finally you can clone this style in your project:
         <item name="android:showDividers">middle</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/card_base_cardwithlist_background_list_color</item>
     </style>
 ``` 
 

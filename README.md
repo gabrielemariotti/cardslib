@@ -53,7 +53,7 @@ The Guide provides a extensive doc, with all tips and full examples. Don't miss 
 Card Library is pushed to Maven Central as an AAR, so you just need to add the following dependency to your `build.gradle`.
 
     dependencies {
-        compile 'com.github.gabrielemariotti.cards:library:1.6.0'
+        compile 'com.github.gabrielemariotti.cards:library:1.7.0'
     }
 
 
@@ -69,6 +69,7 @@ Acknowledgements
 * Thanks to [Niek Haarman][4] for some ideas and code taken from his [ListViewAnimations][5].
 * Thanks to [Chris Banes][6] for [ForegroundLinearLayout][7] class (See this [post][8] for more info).
 * Thanks to [Taylor Ling][9] for drag and drop icon.
+* Thanks to [Frankie Sardo][10] for some ideas and code taken from his [LinearListView][11]
 
 
 Credits
@@ -121,3 +122,5 @@ Google and the Google Maps logo are registered trademarks of Google Inc., used w
  [7]: https://gist.github.com/chrisbanes/9091754
  [8]: https://plus.google.com/+AndroidDevelopers/posts/aHPVDtr6mcp
  [9]: https://plus.google.com/+TaylorLing
+ [10]: https://plus.google.com/+FrankieSardo
+ [11]: https://github.com/frankiesardo/LinearListViews

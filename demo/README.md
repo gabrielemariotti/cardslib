@@ -15,6 +15,7 @@ There are two sample applications:
 6. [Crouton][12]
 7. [StickyListHeaders][14]
 8. [AndroidStaggeredGrid][16]
+9. [WeatherLib][21]
 
 [(See this page for more info about integration)](/doc/OTHERLIBRARIES.md)
 
@@ -42,6 +43,7 @@ Extras demo uses these open source libraries:
 * [Crouton][12] by [Benjamin Weiss][13]
 * [StickyListHeaders][14] by [Emil Sjölander][15]
 * [AndroidStaggeredGrid][16] by [Etsy][17]
+* [WeatherLib][21] by [Francesco Azzola][22]
 
 * Thanks to [JakeWharton][18] for some ideas and code taken from his [u2020][19].
 * Thanks to [Taylor Ling][20] for drag and drop icon.
@@ -105,4 +107,6 @@ License
  [18]: http://jakewharton.com/
  [19]: https://github.com/JakeWharton/u2020
  [20]: https://plus.google.com/+TaylorLing
+ [21]: https://github.com/survivingwithandroid/WeatherLib
+ [22]: https://plus.google.com/+FrancescoAzzola
 
