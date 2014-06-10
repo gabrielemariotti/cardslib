@@ -88,7 +88,7 @@ public class GoogleKnowwithList extends CardWithList {
         s2.name = "Another user";
         s2.common = "3 people in common";
         s2.url = "https://lh5.googleusercontent.com/-squZd7FxR8Q/UyN5UrsfkqI/AAAAAAAAbAo/VoDHSYAhC_E/s54/new%2520profile%2520%25282%2529.jpg";
-        mObjects.add(s1);
+        mObjects.add(s2);
 
         return mObjects;
     }

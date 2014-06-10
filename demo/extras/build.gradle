@@ -75,7 +75,7 @@ dependencies {
     compile ('se.emilsjolander:stickylistheaders:2.4.0')
 
     //Weather Lib
-    compile 'com.survivingwithandroid:WeatherLib:1.3.0'
+    compile 'com.survivingwithandroid:weatherlib:1.3.2'
 
     // Fading ActionBar
     compile 'com.github.manuelpeinado.fadingactionbar:fadingactionbar:3.0.0'

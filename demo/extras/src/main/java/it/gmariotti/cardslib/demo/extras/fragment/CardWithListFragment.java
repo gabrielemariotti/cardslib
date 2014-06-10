@@ -74,6 +74,7 @@ public class CardWithListFragment extends BaseFragment {
 
         // Let's create the WeatherProvider
         config = new WeatherConfig();
+        config.lang = "en"; // If you want to use english
         config.unitSystem = WeatherConfig.UNIT_SYSTEM.M;
         config.numDays = 6; // Max num of days in the forecast
 
@@ -124,7 +125,7 @@ public class CardWithListFragment extends BaseFragment {
      */
     private void initCard() {
 
-        //Create a Card
+        //Weather Card
        card= new WeatherCard(getActivity());
 
         //Set card in the cardView
@@ -132,6 +133,7 @@ public class CardWithListFragment extends BaseFragment {
         cardView.setCard(card);
 
 
+        //May know card
         GoogleKnowwithList card2= new GoogleKnowwithList(getActivity());
 
         //Set card in the cardView
