@@ -1,7 +1,7 @@
 Change Log
 ===============================================================================
 
-Version 1.7.0 *(2014-XX-XX)*
+Version 1.7.0 *(2014-06-10)*
 ----------------------------
 
 * LIB: Added a new feature to display a list of items inside a Card [(doc)](/doc/CARDWITHLIST.md)
