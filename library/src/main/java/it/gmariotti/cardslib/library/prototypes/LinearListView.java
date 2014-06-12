@@ -43,11 +43,6 @@ public class LinearListView extends LinearLayout {
     private CardWithList.LinearListAdapter mListAdapter;
 
     /**
-     * ItemView
-     */
-    private View itemView;
-
-    /**
      * Represents an invalid position. All valid positions are in the range 0 to 1 less than the
      * number of items in the current adapter.
      */
@@ -336,7 +331,7 @@ public class LinearListView extends LinearLayout {
         //Populate the list
         if (mListAdapter != null) {
             for (int i = 0; i < mListAdapter.getCount(); i++) {
-                itemView = mListAdapter.getView(i, null, null);
+                View itemView = mListAdapter.getView(i, null, null);
                 if (itemView != null)
                     this.addView(itemView);
             }
