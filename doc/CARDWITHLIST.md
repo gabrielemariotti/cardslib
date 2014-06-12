@@ -17,6 +17,7 @@ In this page you can find info about:
 * [How to enable the progressbar](#how-to-enable-the-progressbar)
 * [How to customize the ProgressBar](#how-to-customize-the-progressbar)
 * [Using a custom inner layout](#using-a-custom-inner-layout)
+* [Note about CardListView](#note-about-cardlistview)
 
 
 ## How to build a card with a LinearList
@@ -398,3 +399,7 @@ Also you can add other elements inside you layout. In this case you have to set 
     }
 ```
 
+
+## Note about CardListView
+
+Currently this kind of `Card` can't be used inside a `CardListView`.
