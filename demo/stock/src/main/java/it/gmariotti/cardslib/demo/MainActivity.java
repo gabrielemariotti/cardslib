@@ -61,6 +61,7 @@ import it.gmariotti.cardslib.demo.fragment.ListGplayCardCABFragment;
 import it.gmariotti.cardslib.demo.fragment.ListGplayCardFragment;
 import it.gmariotti.cardslib.demo.fragment.ListGplayCursorCardCABFragment;
 import it.gmariotti.cardslib.demo.fragment.ListGplayUndoCardFragment;
+import it.gmariotti.cardslib.demo.fragment.ListSectionedCardFragment;
 import it.gmariotti.cardslib.demo.fragment.MiscCardFragment;
 import it.gmariotti.cardslib.demo.fragment.OverflowAnimFragment;
 import it.gmariotti.cardslib.demo.fragment.ShadowFragment;
@@ -114,8 +115,9 @@ public class MainActivity extends Activity {
     private static final int CASE_CURSOR_LIST_GPLAY_CAB = 22;
     //private static final int CASE_EXPLIB = 23;
     private static final int CASE_CARDWITHLIST = 23;
-    private static final int CASE_DISMISS_ANIM = 24;
-    private static final int CASE_OVERFLOW_ANIM = 25;
+    private static final int CASE_SECTIONED_LIST = 24;
+    private static final int CASE_DISMISS_ANIM = 25;
+    private static final int CASE_OVERFLOW_ANIM = 26;
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -367,6 +369,9 @@ public class MainActivity extends Activity {
             case CASE_CARDWITHLIST:
                 baseFragment = new CardWithListFragment();
                 break;
+            case CASE_SECTIONED_LIST:
+                baseFragment = new ListSectionedCardFragment();
+                break;
             case CASE_DISMISS_ANIM:
                 baseFragment = new DismissAnimFragment();
                 break;
@@ -436,6 +441,7 @@ public class MainActivity extends Activity {
             "List with Cursor and MultiChoice",
             //"ExpandableList",
             "Card with List",
+            "Sectioned List",
             "Dismiss Animation (exp)",
             "Overflow Animation (exp)"
     };

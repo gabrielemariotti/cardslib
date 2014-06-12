@@ -46,4 +46,13 @@
     <dimen name="carddemo_gricursor_width">125dp</dimen>
     <dimen name="card_rose">250dp</dimen>
 
+    <!-- GPlay sectioned list-->
+    <dimen name="carddemo_section_textmore_text">13sp</dimen>
+    <dimen name="carddemo_section_textmore_padding_left">8dp</dimen>
+    <dimen name="carddemo_section_textmore_padding_right">8dp</dimen>
+    <dimen name="carddemo_section_textmore_padding_top">5dp</dimen>
+    <dimen name="carddemo_section_textmore_padding_bottom">5dp</dimen>
+    <dimen name="carddemo_section_textmore_margin_left">10dp</dimen>
+
+
 </resources>
