@@ -248,21 +248,30 @@ public class CardArrayAdapter extends BaseCardArrayAdapter implements UndoBarCon
 
             //Remove cards and notifyDataSetChanged
             for (int position : reverseSortedPositions) {
-                Card card = getItem(position);
-                itemPositions[i]=position;
-                itemIds[i]=card.getId();
-                i++;
 
-                /*
-                if (card.isExpanded()){
-                    if (card.getCardView()!=null && card.getCardView().getOnExpandListAnimatorListener()!=null){
-                        //There is a List Animator.
-                        card.getCardView().getOnExpandListAnimatorListener().onCollapseStart(card.getCardView(), card.getCardView().getInternalExpandLayout());
-                    }
-                }*/
-                remove(card);
-                if (card.getOnSwipeListener() != null){
+                Card card = null;
+                if (listView.getAdapter() != null && listView.getAdapter().getItem(position) instanceof Card)
+                    card = (Card) listView.getAdapter().getItem(position);
+                //Card card = getItem(position);
+
+                if (card != null) {
+                    itemPositions[i] = position;
+                    itemIds[i] = card.getId();
+                    i++;
+
+                    /*
+                    if (card.isExpanded()){
+                        if (card.getCardView()!=null && card.getCardView().getOnExpandListAnimatorListener()!=null){
+                            //There is a List Animator.
+                            card.getCardView().getOnExpandListAnimatorListener().onCollapseStart(card.getCardView(), card.getCardView().getInternalExpandLayout());
+                        }
+                    }*/
+                    remove(card);
+                    if (card.getOnSwipeListener() != null) {
                         card.getOnSwipeListener().onSwipe(card);
+                    }
+                }else{
+                    Log.e(TAG,"Error on swipe action. Impossible to retrieve the card from position");
                 }
             }
             notifyDataSetChanged();

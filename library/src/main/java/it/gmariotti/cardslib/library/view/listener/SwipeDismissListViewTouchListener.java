@@ -217,10 +217,14 @@ public class SwipeDismissListViewTouchListener implements View.OnTouchListener {
                     mDownX = motionEvent.getRawX();
                     mDownY = motionEvent.getRawY();
                     mDownPosition = mListView.getPositionForView(mDownView);
-                    if (mCallbacks.canDismiss(mDownPosition,(Card) mListView.getAdapter().getItem(mDownPosition))) {
-                        mVelocityTracker = VelocityTracker.obtain();
-                        mVelocityTracker.addMovement(motionEvent);
-                    } else {
+                    if (mListView.getAdapter().getItem(mDownPosition) instanceof Card) {
+                        if (mCallbacks.canDismiss(mDownPosition, (Card) mListView.getAdapter().getItem(mDownPosition))) {
+                            mVelocityTracker = VelocityTracker.obtain();
+                            mVelocityTracker.addMovement(motionEvent);
+                        } else {
+                            mDownView = null;
+                        }
+                    }else{
                         mDownView = null;
                     }
                 }
