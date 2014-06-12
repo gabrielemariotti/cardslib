@@ -230,4 +230,28 @@
     </style>
 
 
+    <!-- Style used for Sectioned List -->
+    <style name="card_section_container">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">@dimen/card_section_container_padding_left</item>
+        <item name="android:paddingRight">@dimen/card_section_container_padding_right</item>
+        <item name="android:descendantFocusability">blocksDescendants</item>
+        <item name="android:background">@color/card_section_container_color</item>
+    </style>
+
+    <style name="card_section_title">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <!--<item name="android:textStyle">italic</item>-->
+        <item name="android:textSize">@dimen/card_section_title</item>
+        <item name="android:textColor">@color/card_section_title_color</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_marginTop">@dimen/card_section_title_margin_top</item>
+    </style>
+
+
 </resources>

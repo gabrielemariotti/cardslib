@@ -36,4 +36,9 @@
     <color name="card_base_cardwithlist_divider_color">#E5E5E5</color>
     <color name="card_base_cardwithlist_background_list_color">#10000000</color>
 
+    <!-- Used by sectioned list -->
+    <color name="card_section_container_color">@android:color/transparent</color>
+    <color name="card_section_title_color">@android:color/black</color>
+
+
 </resources>
