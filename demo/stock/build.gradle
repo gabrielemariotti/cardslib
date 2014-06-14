@@ -15,7 +15,7 @@ android {
         versionName project.VERSION_NAME
         versionCode Integer.parseInt(project.VERSION_CODE)
 
-        testInstrumentationRunner "com.google.android.apps.common.testing.testrunner.GoogleInstrumentationTestRunner"
+        //testInstrumentationRunner "com.google.android.apps.common.testing.testrunner.GoogleInstrumentationTestRunner"
     }
 
     signingConfigs {
@@ -30,7 +30,7 @@ android {
         }
 
         debug {
-            packageNameSuffix ".debug"
+            applicationIdSuffix ".debug"
             versionNameSuffix "-debug"
         }
     }
@@ -47,7 +47,7 @@ dependencies {
     // Support Libraries
     compile 'com.android.support:support-v4:19.1.0'
 
-    androidTestCompile 'com.jakewharton.espresso:espresso:1.1-r2'
+    //androidTestCompile 'com.jakewharton.espresso:espresso:1.1-r2'
 }
 
 
