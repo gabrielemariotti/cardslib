@@ -1,6 +1,11 @@
 Change Log
 ===============================================================================
 
+Version 1.7.1 *(2014-06-14)*
+----------------------------
+* Removed application labels from android-libs manifest to prevent issues with the new Manifest merger
+
+
 Version 1.7.0 *(2014-06-10)*
 ----------------------------
 

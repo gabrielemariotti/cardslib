@@ -71,7 +71,10 @@ afterEvaluate { project ->
     }
 
     task androidJavadocs(type: Javadoc) {
-        source = android.sourceSets.main.allJava
+        options {
+            linksOffline "http://d.android.com/reference", "${android.sdkDirectory}/docs/reference"
+        }
+        source = android.sourceSets.main.java.sourceFiles
         classpath += project.files(project.android.getBootClasspath().join(File.pathSeparator))
     }
 
@@ -84,7 +87,7 @@ afterEvaluate { project ->
     task androidSourcesJar(type: Jar) {
         classifier = 'sources'
         //basename = artifact_id
-        from android.sourceSets.main.allSource
+        from android.sourceSets.main.java.sourceFiles
     }
 
     artifacts {

@@ -28,7 +28,7 @@ android {
         }
 
         debug {
-            packageNameSuffix ".debug"
+            applicationIdSuffix ".debug"
             versionNameSuffix "-debug"
         }
     }
