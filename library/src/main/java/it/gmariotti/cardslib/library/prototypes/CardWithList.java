@@ -159,6 +159,10 @@ public abstract class CardWithList extends Card {
      * Init the card
      */
     public void init() {
+<<<<<<< HEAD
+=======
+        init();
+>>>>>>> f1b01a76a5048c65207d8d41d8d106c5dc66e621
 
         //Init the CardHeader
         mCardHeader = initCardHeader();
