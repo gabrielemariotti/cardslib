@@ -149,7 +149,6 @@ public abstract class CardWithList extends Card {
      */
     public CardWithList(Context context, int innerLayout) {
         super(context, innerLayout);
-        init();
     }
 
     // -------------------------------------------------------------
@@ -159,7 +158,7 @@ public abstract class CardWithList extends Card {
     /**
      * Init the card
      */
-    private void init() {
+    public void init() {
 
         //Init the CardHeader
         mCardHeader = initCardHeader();
