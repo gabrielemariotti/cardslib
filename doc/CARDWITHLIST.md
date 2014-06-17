@@ -8,6 +8,8 @@ In this page you can find info about:
 * [Init the Children](#init-the-children)
 * [Define the layout used by items](#define-the-layout-used-by-items)
 * [Setup child view](#setup-child-view)
+* [Extending the init method](#extending-the-init-method)
+* [How to add and remove items dynamically](#how-to-add-and-remove-items-dynamically)
 * [How to customize the divider](#how-to-customize-the-divider)
 * [Empty View](#empty-view)
 * [How to disable the empty view](#how-to-disable-the-empty-view)
@@ -50,6 +52,14 @@ In this case you have to extend the `CardWithList` (which extends `Card`) and im
         }
     }
 ```
+
+Finally you have to call the `init()` method.
+
+``` java
+   GoogleNowWeatherCard card = new GoogleNowWeatherCard(context);
+   card.init();
+```
+
 
 ## Init the CardHeader
 
@@ -220,6 +230,50 @@ After declaring the layout used by items, you have to setup the elements inside 
         return  convertView;
     }
 ```
+
+## Extending the init method
+
+You can extend your `init` method to set your custom variables.
+
+``` java
+    @Override
+    public void init() {
+        //Insert your code here...
+        mField = xxx;
+
+        //Finally call the super.init();
+        super.init();
+    }
+```
+
+## How to add and remove items dynamically
+
+You can add and remove items dynamically, using a method inside your `Card` through the `getLinearListAdapter()` method.
+
+``` java
+    public void updateItems(ArrayList myList) {
+
+        //Update the array inside the card
+        ArrayList<MyObject> objs = new ArrayList<WeatherObject>();
+        //.....
+        getLinearListAdapter().addAll(objs);
+
+        //use this line if your are using the progress bar
+        //updateProgressBar(true,true);
+    }
+```
+
+``` java
+    public void updateItems(String city,int temp) {
+            WeatherObject w1= new WeatherObject(GoogleNowWeatherCard.this);
+            w1.city =city;
+            w1.temperature = temp;
+            w1.weatherIcon = R.drawable.ic_action_sun;
+            w1.setObjectId(w1.city);
+            mLinearListAdapter.add(w1);
+    }
+```
+
 
 ## How to customize the divider
 
@@ -402,4 +456,4 @@ Also you can add other elements inside you layout. In this case you have to set 
 
 ## Note about CardListView
 
-Currently this kind of `Card` can't be used inside a `CardListView`.
+Currently this kind of `Card` is not supported to be used inside a `CardListView`.

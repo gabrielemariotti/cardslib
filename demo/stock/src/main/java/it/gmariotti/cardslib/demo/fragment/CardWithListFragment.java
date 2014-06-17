@@ -35,6 +35,9 @@ import it.gmariotti.cardslib.library.view.CardView;
  */
 public class CardWithListFragment extends BaseFragment {
 
+    GoogleNowWeatherCard card;
+    GoogleNowStockCardwithList card2;
+
     @Override
     public int getTitleResourceId() {
         return R.string.carddemo_title_carwithlist_card;
@@ -65,7 +68,8 @@ public class CardWithListFragment extends BaseFragment {
     private void initCard() {
 
         //Create a Card
-         GoogleNowWeatherCard card= new GoogleNowWeatherCard(getActivity());
+         card= new GoogleNowWeatherCard(getActivity());
+         card.init();
 
         //Set card in the cardView
         CardView cardView = (CardView) getActivity().findViewById(R.id.carddemo_weathercard);
@@ -73,7 +77,8 @@ public class CardWithListFragment extends BaseFragment {
 
 
         //Card
-        GoogleNowStockCardwithList card2 = new GoogleNowStockCardwithList(getActivity());
+        card2 = new GoogleNowStockCardwithList(getActivity());
+        card2.init();
 
         //Set card in the cardView
         CardView cardView2 = (CardView) getActivity().findViewById(R.id.carddemo_stockcard);
@@ -81,4 +86,12 @@ public class CardWithListFragment extends BaseFragment {
 
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (card != null)
+            card.unregisterDataSetObserver();
+        if (card2 != null)
+            card2.unregisterDataSetObserver();
+    }
 }
