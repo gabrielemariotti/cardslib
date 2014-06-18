@@ -72,7 +72,7 @@ public class CardWithListArrayFragment extends BaseFragment {
         for (int i=0;i<200;i++) {
             //Create a Card
             GoogleNowWeatherCard card = new GoogleNowWeatherCard(getActivity());
-            card.init(i);
+            card.init();
             cards.add(card);
         }
 
