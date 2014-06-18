@@ -39,6 +39,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import it.gmariotti.cardslib.demo.fragment.BaseFragment;
 import it.gmariotti.cardslib.demo.fragment.BirthDayCardFragment;
 import it.gmariotti.cardslib.demo.fragment.CardExpandFragment;
@@ -70,6 +73,7 @@ import it.gmariotti.cardslib.demo.fragment.ThumbnailFragment;
 import it.gmariotti.cardslib.demo.iabutils.IabHelper;
 import it.gmariotti.cardslib.demo.iabutils.IabResult;
 import it.gmariotti.cardslib.demo.iabutils.IabUtil;
+import it.gmariotti.cardslib.demo.utils.SimpleSectionedListAdapter;
 
 public class MainActivity extends Activity {
 
@@ -79,6 +83,7 @@ public class MainActivity extends Activity {
     private int mCurrentTitle=R.string.app_name;
     private int mSelectedFragment;
     private BaseFragment mBaseFragment;
+    SimpleSectionedListAdapter mSectionedAdapter;
 
     protected ActionMode mActionMode;
 
@@ -278,6 +283,9 @@ public class MainActivity extends Activity {
 
             // Highlight the selected item, update the title, and close the drawer
             // update selected item and title, then close the drawer
+            position = mSectionedAdapter.sectionedPositionToPosition(position);
+
+
             mDrawerList.setItemChecked(position, true);
             mBaseFragment = selectFragment(position);
             mSelectedFragment = position;
@@ -451,9 +459,24 @@ public class MainActivity extends Activity {
         mDrawerList = (ListView) findViewById(R.id.drawer);
 
         if (mDrawerList != null) {
-            mDrawerList.setAdapter(new ArrayAdapter<String>(this,
-                    android.R.layout.simple_list_item_1, options));
+            ArrayAdapter<String> mAdapter =new ArrayAdapter<String>(this,
+                   R.layout.demo_activity_menuitem, options);
 
+            List<SimpleSectionedListAdapter.Section> sections =
+                    new ArrayList<SimpleSectionedListAdapter.Section>();
+
+            sections.add(new SimpleSectionedListAdapter.Section(CASE_STD,"Card base features"));
+            sections.add(new SimpleSectionedListAdapter.Section(CASE_BIRTH,"Card examples"));
+            sections.add(new SimpleSectionedListAdapter.Section(CASE_LIST_BASE,"List and Grid"));
+            sections.add(new SimpleSectionedListAdapter.Section(CASE_LIST_GPLAY_CAB,"Multichoice"));
+            sections.add(new SimpleSectionedListAdapter.Section(CASE_CARDWITHLIST,"Misc"));
+
+
+            SimpleSectionedListAdapter.Section[] dummy = new SimpleSectionedListAdapter.Section[sections.size()];
+            mSectionedAdapter = new SimpleSectionedListAdapter(this,R.layout.demo_activity_menusection,mAdapter);
+            mSectionedAdapter.setSections(sections.toArray(dummy));
+
+            mDrawerList.setAdapter(mSectionedAdapter);
             mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
         }
 
@@ -478,7 +501,6 @@ public class MainActivity extends Activity {
     public IabHelper getHelper() {
         return mHelper;
     }
-
 
 }
 

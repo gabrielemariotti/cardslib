@@ -1,6 +1,6 @@
 /*
  * ******************************************************************************
- *   Copyright (c) 2013-2014 Gabriele Mariotti.
+ *   Copyright (c) 2014 Gabriele Mariotti.
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
@@ -23,20 +23,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+
 import it.gmariotti.cardslib.demo.R;
-import it.gmariotti.cardslib.demo.cards.GoogleNowStockCardwithList;
 import it.gmariotti.cardslib.demo.cards.GoogleNowWeatherCard;
-import it.gmariotti.cardslib.library.view.CardView;
+import it.gmariotti.cardslib.library.internal.Card;
+import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
+import it.gmariotti.cardslib.library.view.CardListView;
 
 /**
  * Card Examples
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public class CardWithListFragment extends BaseFragment {
+public class CardWithListArrayFragment extends BaseFragment {
 
-    GoogleNowWeatherCard card;
-    GoogleNowStockCardwithList card2;
 
     @Override
     public int getTitleResourceId() {
@@ -45,7 +46,7 @@ public class CardWithListFragment extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.demo_fragment_cardwithlist_card, container, false);
+        return inflater.inflate(R.layout.demo_fragment_cardwithlist_list, container, false);
     }
 
     @Override
@@ -67,31 +68,21 @@ public class CardWithListFragment extends BaseFragment {
      */
     private void initCard() {
 
-        //Create a Card
-         card= new GoogleNowWeatherCard(getActivity());
-         card.init();
+        ArrayList<Card> cards = new ArrayList<Card>();
+        for (int i=0;i<200;i++) {
+            //Create a Card
+            GoogleNowWeatherCard card = new GoogleNowWeatherCard(getActivity());
+            card.init(i);
+            cards.add(card);
+        }
 
-        //Set card in the cardView
-        CardView cardView = (CardView) getActivity().findViewById(R.id.carddemo_weathercard);
-        cardView.setCard(card);
+        CardArrayAdapter mCardArrayAdapter = new CardArrayAdapter(getActivity(),cards);
 
-
-        //Card
-        card2 = new GoogleNowStockCardwithList(getActivity());
-        card2.init();
-
-        //Set card in the cardView
-        CardView cardView2 = (CardView) getActivity().findViewById(R.id.carddemo_stockcard);
-        cardView2.setCard(card2);
+        CardListView listView = (CardListView) getActivity().findViewById(R.id.carddemo_list_cwl);
+        if (listView!=null){
+            listView.setAdapter(mCardArrayAdapter);
+        }
 
     }
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        if (card != null)
-            card.unregisterDataSetObserver();
-        if (card2 != null)
-            card2.unregisterDataSetObserver();
-    }
 }
