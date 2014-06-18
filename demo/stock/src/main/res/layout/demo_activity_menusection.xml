@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
   ~ *******************************************************************************
   ~   Copyright (c) 2013-2014 Gabriele Mariotti.
@@ -16,28 +17,14 @@
   ~  *****************************************************************************
   -->
 
-<android.support.v4.widget.DrawerLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/drawer_layout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <!-- The main content view -->
-    <FrameLayout
-        android:id="@+id/fragment_main"
+   <TextView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
-
-    <!-- The navigation drawer -->
-    <ListView
-        android:id="@+id/drawer"
-        android:layout_width="@dimen/drawer_width"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:background="#F3F3F4"
-        android:choiceMode="singleChoice"
-        android:divider="@android:color/darker_gray"
-        android:dividerHeight="1dp"></ListView>
-
-</android.support.v4.widget.DrawerLayout>
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:singleLine="true"
+        android:textAllCaps="true"
+        android:textColor="@color/demo_title_section_textcolor"
+        android:background="@color/card_base_cardwithlist_divider_color"
+        android:textAppearance="@android:style/TextAppearance.Small"
+        android:textStyle="bold" />
