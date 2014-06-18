@@ -465,11 +465,11 @@ public class MainActivity extends Activity {
             List<SimpleSectionedListAdapter.Section> sections =
                     new ArrayList<SimpleSectionedListAdapter.Section>();
 
-            sections.add(new SimpleSectionedListAdapter.Section(0,"Card base features"));
-            sections.add(new SimpleSectionedListAdapter.Section(5,"Card examples"));
-            sections.add(new SimpleSectionedListAdapter.Section(10,"List and Grid"));
-            sections.add(new SimpleSectionedListAdapter.Section(20,"Multichoice"));
-            sections.add(new SimpleSectionedListAdapter.Section(23,"Misc"));
+            sections.add(new SimpleSectionedListAdapter.Section(CASE_STD,"Card base features"));
+            sections.add(new SimpleSectionedListAdapter.Section(CASE_BIRTH,"Card examples"));
+            sections.add(new SimpleSectionedListAdapter.Section(CASE_LIST_BASE,"List and Grid"));
+            sections.add(new SimpleSectionedListAdapter.Section(CASE_LIST_GPLAY_CAB,"Multichoice"));
+            sections.add(new SimpleSectionedListAdapter.Section(CASE_CARDWITHLIST,"Misc"));
 
 
             SimpleSectionedListAdapter.Section[] dummy = new SimpleSectionedListAdapter.Section[sections.size()];
