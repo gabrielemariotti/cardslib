@@ -17,10 +17,10 @@ Card Library is pushed to Maven Central as a AAR, so you just need to add the fo
 
     dependencies {
         //Core card library
-        compile 'com.github.gabrielemariotti.cards:library:1.7.1'
+        compile 'com.github.gabrielemariotti.cards:library:1.7.2'
 
         //Extra card library, it is required only if you want to use integrations with other libraries
-        compile 'com.github.gabrielemariotti.cards:library-extra:1.7.1'
+        compile 'com.github.gabrielemariotti.cards:library-extra:1.7.2'
     }
 
 The library-extra is optional. It contains code to use integrations with other libraries, as StaggeredGridView and CardListDragDropView.

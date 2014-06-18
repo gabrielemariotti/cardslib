@@ -1,6 +1,14 @@
 Change Log
 ===============================================================================
 
+Version 1.7.2 *(2014-06-18)*
+----------------------------
+* Changed the visibility of the`init() method` and its call.
+
+It contains a **BREAKING CHANGE** .* [(doc)](/doc/CARDWITHLIST.md#how-to-build-a-card-with-a-linearlist)
+* Fixed the issue with Observer when the CardWithList works in a CardListView
+
+
 Version 1.7.1 *(2014-06-14)*
 ----------------------------
 * Removed application labels from android-libs manifest to prevent issues with the new Manifest merger

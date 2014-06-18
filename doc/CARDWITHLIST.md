@@ -60,6 +60,13 @@ Finally you have to call the `init()` method.
    card.init();
 ```
 
+**Migration from 1.7.0 - to 1.7.2+**
+
+ The 1.7.2 introduces a breaking change with CardWithList.
+ To migrate your code you have to:
+
+ * call `card.init()";`
+
 
 ## Init the CardHeader
 
