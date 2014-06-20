@@ -333,9 +333,12 @@ Otherwise you can override the method `getMessageUndo` in your `UndoBarControlle
             public String getMessageUndo(CardArrayAdapter cardArrayAdapter, String[] itemIds, int[] itemPositions) {
 
                 //It is only an example
+                //Pay attention: you can't find the cards with these positions in your arrayAdapter because the cards are removed.
+                //You have to/can use your id itemIds, to identify your cards.
+                
                 StringBuffer message=new StringBuffer();
-                for (int position:itemPositions){
-                    Card card = cardArrayAdapter.getItem(position);
+                for (int id:itemIds){
+                    Card card =myIdsList.get(id);    
                     message.append(card.getTitle());
                 }
                 return message.toString();
