@@ -18,32 +18,61 @@
   ~  *****************************************************************************
   -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:card="http://schemas.android.com/apk/res-auto"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:card="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-
-    <it.gmariotti.cardslib.library.extra.staggeredgrid.view.CardGridStaggeredView
+    <LinearLayout
+        android:id="@+id/carddemo_progressContainer"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        card:item_margin="8dp"
-        card:column_count_portrait="3"
-        card:column_count_landscape="3"
-        card:grid_paddingRight="8dp"
-        card:grid_paddingLeft="8dp"
-        card:list_card_layout_resourceID="@layout/carddemo_extras_staggered_card"
-        android:id="@+id/carddemo_extras_grid_stag"/>
+        android:visibility="gone"
+        android:gravity="center">
 
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-    <TextView
-        android:id="@android:id/empty"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text=""
+            android:paddingTop="4dip"
+            android:singleLine="true"/>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/carddemo_listContainer"
+        android:visibility="gone"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:textAppearance="?android:textAppearanceMedium"
-        android:text="Loading data..."/>
+        android:layout_height="match_parent">
+
+        <it.gmariotti.cardslib.library.extra.staggeredgrid.view.CardGridStaggeredView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            card:item_margin="8dp"
+            card:column_count_portrait="3"
+            card:column_count_landscape="3"
+            card:grid_paddingRight="8dp"
+            card:grid_paddingLeft="8dp"
+            card:list_card_layout_resourceID="@layout/carddemo_extras_staggered_card"
+            android:id="@+id/carddemo_extras_grid_stag"/>
 
 
-</LinearLayout>
+        <TextView
+            android:id="@android:id/empty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:visibility="gone"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:text="No data..."/>
+
+    </FrameLayout>
+
+</RelativeLayout>

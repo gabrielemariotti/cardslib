@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ *******************************************************************************
+  ~   Copyright (c) 2013-2014 Gabriele Mariotti.
+  ~
+  ~   Licensed under the Apache License, Version 2.0 (the "License");
+  ~   you may not use this file except in compliance with the License.
+  ~   You may obtain a copy of the License at
+  ~
+  ~   http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~   Unless required by applicable law or agreed to in writing, software
+  ~   distributed under the License is distributed on an "AS IS" BASIS,
+  ~   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~   See the License for the specific language governing permissions and
+  ~   limitations under the License.
+  ~  *****************************************************************************
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_gravity="center_vertical"
+                android:layout_height="wrap_content"
+                android:background="@drawable/demo_item_selector"
+                android:minHeight="45dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:textSize="18sp"
+        android:textColor="#ABABAB"
+        android:layout_weight="3"
+        tools:text="GOOG"
+        android:layout_centerInParent="true"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/textViewCode"/>
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:textColor="#4285F4"
+        android:layout_toLeftOf="@+id/textViewDelta"
+        tools:text="544.66"
+        android:textSize="18sp"
+        android:layout_centerInParent="true"
+        android:layout_weight="1"
+        android:id="@+id/textViewValue"
+        android:gravity="right"/>
+
+
+    <TextView
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="right"
+        android:layout_toLeftOf="@+id/textViewPerc"
+        android:textColor="#29A426"
+        tools:text="-0.28"
+        android:textSize="16sp"
+        android:layout_weight="1"
+        android:id="@+id/textViewDelta"/>
+
+    <TextView
+        android:layout_width="60dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content"
+        android:textColor="#29A426"
+        android:textSize="16sp"
+        tools:text="-0.05%"
+        android:layout_weight="1"
+        android:id="@+id/textViewPerc"
+        android:layout_marginRight="12dp"
+        android:gravity="right"/>
+
+</RelativeLayout>
+

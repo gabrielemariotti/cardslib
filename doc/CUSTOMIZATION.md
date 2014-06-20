@@ -12,4 +12,5 @@ Here you can find some pages to customize these tags.
 * [CardGrid:](CARDGRID.md) How to work with the `CardGridView`
 * [StaggeredGrid:](STAGGEREDGRID.md) How to work with the `CardGridStaggeredView`
 * [CardList with Drag and Drop:](DRAGDROPLIST.md) How to work with the `CardListDragDropView`
+* [Card with a List inside](CARDWITHLIST.md) How to build a card with a List Inside.
 * [Integration with other libraries:](OTHERLIBRARIES.md) How to work with other main libraries

@@ -17,10 +17,10 @@ Card Library is pushed to Maven Central as a AAR, so you just need to add the fo
 
     dependencies {
         //Core card library
-        compile 'com.github.gabrielemariotti.cards:library:1.6.0'
+        compile 'com.github.gabrielemariotti.cards:library:1.7.2'
 
         //Extra card library, it is required only if you want to use integrations with other libraries
-        compile 'com.github.gabrielemariotti.cards:library-extra:1.6.0'
+        compile 'com.github.gabrielemariotti.cards:library-extra:1.7.2'
     }
 
 The library-extra is optional. It contains code to use integrations with other libraries, as StaggeredGridView and CardListDragDropView.
@@ -87,7 +87,7 @@ If you would like to build also the **library-extra** module (it is optional,it 
       compile project(':libraries:cardslib:library')
 
      //StaggeredGrid
-     compile 'com.etsy.android.grid:library:1.0.4'
+     compile 'com.etsy.android.grid:library:1.0.5'
 
      //Drag and drop list base on DynamicList
      compile 'com.nhaarman.listviewanimations:library:2.6.0'
@@ -114,6 +114,7 @@ If you would like to use this **library** in Eclipse you have to do these steps:
 - mark java(*) folder as source (click on folder -> Build-Path -> use as source folder). You can also remove the src folder, from the project.
 - mark cardslib as Android Library (Properties -> Android -> Is library)
 - The library targets SDK 19 and works with minSdk=14. In any cases you need to use API>=16 to compile library (Properties -> Android)
+- Clean and build
 
 If you would like to use this **library-extra** in Eclipse you have to do these steps:
 (this part is optional,it contains code to use integrations with other libraries, as StaggeredGridView and CardListDragDropView)
@@ -125,7 +126,7 @@ If you would like to use this **library-extra** in Eclipse you have to do these 
 - add [Etsy-StaggeredGrid](https://github.com/etsy/AndroidStaggeredGrid) as dependency ( click -> Properties -> Android -> Add library) as dependency. Check the AndroidStaggeredGrid-library readme for instruction.
 - add [ListViewAnimation](https://github.com/nhaarman/ListViewAnimations) as dependency ( click -> Properties -> Android -> Add library) as dependency. Check the ListViewAnimations-library readme for instruction.
 - The library targets SDK 19 and works with minSdk=14. In any cases you need to use API>=16 to compile library (Properties -> Android)
-
+- Clean and build
 
 If you would like to build the **demo-stock** you have to do these additional steps:
 
@@ -135,6 +136,7 @@ If you would like to build the **demo-stock** you have to do these additional st
 - add support library v4 rel.19 ( click -> Android Tools -> Add support library , or just copy android-support-v4.jar in libs folder)
 - add cardslib as dependency ( click -> Properties -> Android -> Add library)
 - The demo-stock targets SDK 19 and works with minSdk=14. In any cases you need to use API>=16 to compile it
+- Clean and build
 
 
 (*) Eclipse uses src and res as source folders.

@@ -281,7 +281,7 @@ Example:
       CardArrayAdapter mCardArrayAdapter = new CardArrayAdapter(getActivity(),cards);
 
       //It is very important to set the UndoBarUIElements before to call the setEnableUndo(true);
-      mCardArrayAdapter.setUndoBarUIElements(new UndoBarController.UndoBarUIElements() {
+      mCardArrayAdapter.setUndoBarUIElements(new UndoBarController.DefaultUndoBarUIElements() {
                   @Override
                   public int getUndoBarId() {
                       return R.id.myid_undobar;
@@ -306,6 +306,50 @@ Example:
 ```
 
 If you would like to use more ListViews in the same screen, you have to use the code above.
+
+Also you can customize your Undobar message.
+
+You can clone in your res/values/strings.xml these strings and override them:
+
+```xml
+    <!-- Undo Controller-->
+
+    <string name="list_card_undo_title">Undo</string>
+    <!--<string name="undo_card">Card removed</string>-->
+
+    <plurals name="list_card_undo_items">
+        <item quantity="one">1 card removed</item>
+        <item quantity="other">%d cards removed</item>
+    </plurals>
+```
+
+Otherwise you can override the method `getMessageUndo` in your `UndoBarController.DefaultUndoBarUIElements`.
+
+```java
+    //It is very important to set the UndoBarUIElements before to call the setEnableUndo(true);
+    mCardArrayAdapter.setUndoBarUIElements(new UndoBarController.DefaultUndoBarUIElements(){
+
+            @Override
+            public String getMessageUndo(CardArrayAdapter cardArrayAdapter, String[] itemIds, int[] itemPositions) {
+
+                //It is only an example
+                StringBuffer message=new StringBuffer();
+                for (int position:itemPositions){
+                    Card card = cardArrayAdapter.getItem(position);
+                    message.append(card.getTitle());
+                }
+                return message.toString();
+            }
+        });
+```
+
+**Migration from 1.6.0 (and previous releases) - to 1.7.0**
+
+The 1.7.0 may introduce a breaking change with UndoBar and UndoBarUIElements.
+To migrate your code you have to:
+
+* rename `UndoBarController.UndoBarUIElements()` in `UndoBarController.DefaultUndoBarUIElements()` if you are using it.
+* extend `UndoBarController.DefaultUndoBarUIElements()` instead of implementing the `UndoBarController.UndoBarUIElements()` interface if you are using a custom undo bar.
 
 
 ### Swipe and custom OnScrollListener

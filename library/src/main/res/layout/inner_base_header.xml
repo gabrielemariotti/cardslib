@@ -27,7 +27,7 @@
 
     <!-- This is the base Inner View inside a CardHeader.
          You can customize it with your layout xml file and your CardHeader.
-         You can popolate your elements with CardHeader#setupInnerViewElements(android.view.ViewGroup, android.view.View) method -->
+         You can populate your elements with CardHeader#setupInnerViewElements(android.view.ViewGroup, android.view.View) method -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

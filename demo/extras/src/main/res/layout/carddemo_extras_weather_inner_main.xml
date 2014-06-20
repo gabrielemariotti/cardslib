@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ *******************************************************************************
+  ~   Copyright (c) 2013-2014 Gabriele Mariotti.
+  ~
+  ~   Licensed under the Apache License, Version 2.0 (the "License");
+  ~   you may not use this file except in compliance with the License.
+  ~   You may obtain a copy of the License at
+  ~
+  ~   http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~   Unless required by applicable law or agreed to in writing, software
+  ~   distributed under the License is distributed on an "AS IS" BASIS,
+  ~   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~   See the License for the specific language governing permissions and
+  ~   limitations under the License.
+  ~  *****************************************************************************
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:layout_marginLeft="8dp"
+              android:layout_marginRight="8dp"
+              android:background="@drawable/demo_item_selector"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_gravity="center_vertical"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp">
+
+        <TextView
+            android:id="@+id/carddemo_weather_dayName"
+            android:layout_height="wrap_content"
+            android:layout_width="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:paddingLeft="5dp"
+            tools:text="Fri"
+            />
+
+        <TextView
+            android:id="@+id/carddemo_weather_dayDate"
+            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_below="@id/carddemo_weather_dayName"
+            android:layout_centerInParent="true"
+            android:layout_toRightOf="@id/carddemo_weather_dayName"
+            android:paddingLeft="2dp"
+            tools:text="03/Jun"
+            />
+
+
+        <ImageView
+            android:id="@+id/carddemo_weather_dayIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="5dp"
+            tools:src="@drawable/w01d"
+            android:layout_toRightOf="@id/carddemo_weather_dayDate"
+            android:layout_centerInParent="true"
+            />
+
+        <TextView
+            android:id="@+id/carddemo_weather_dayTempMin"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:paddingLeft="2dp"
+            android:textColor="@android:color/holo_blue_dark"
+            android:paddingRight="3dp"
+            tools:text="17°C"
+            android:layout_toRightOf="@id/carddemo_weather_dayIcon"
+
+            />
+
+        <TextView
+            android:id="@+id/carddemo_weather_dayTempMax"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/holo_red_dark"
+            android:layout_toRightOf="@id/carddemo_weather_dayTempMin"
+            android:layout_centerInParent="true"
+            tools:text="21°C"
+            android:paddingRight="3dp"
+
+            />
+
+
+        <TextView
+            android:id="@+id/carddemo_weather_dayDescr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="5dp"
+            tools:text="Cloudy"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+
+            />
+
+
+    </RelativeLayout>
+
+</LinearLayout>

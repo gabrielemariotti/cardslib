@@ -45,4 +45,11 @@
     <!-- Staggered-->
     <color name="demo_card_staggered_subtitle">#66000000</color>
 
+    <!-- Weather -->
+    <color name="demoextra_card_line_weather_color">#E5E5E5</color>
+    <color name="demoextra_card_weather_city_color">#A4A4A4</color>
+    <color name="demoextra_card_weather_temperature_color">#868686</color>
+    <!--override the listlayout background-->
+    <color name="card_base_cardwithlist_background_list_color">@color/card_background</color>
+
 </resources>

@@ -20,6 +20,7 @@ package it.gmariotti.cardslib.library.view.listener;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcelable;
@@ -29,6 +30,7 @@ import android.view.ViewPropertyAnimator;
 import android.widget.TextView;
 
 import it.gmariotti.cardslib.library.R;
+import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
 
 /**
  * It is based on Roman Nurik code.
@@ -194,11 +196,43 @@ public class UndoBarController {
          */
         public int getUndoBarButtonId();
 
+        /**
+         * UndoMessage.
+         * Implement this method to customize the undo message dynamically.
+         *
+         * @param cardArrayAdapter  array Adapter
+         * @param itemIds           ids of items
+         * @param itemPositions     positions of items
+         * @return
+         */
+        public String getMessageUndo(CardArrayAdapter cardArrayAdapter,String[] itemIds,int[] itemPositions);
+
 
     }
 
     /**
      * Default UndoBar
+     *
+     * You can provide a custom UndoBar.
+     * This UndoBar has to contains these elements:
+     * <ul>
+     *    <li>A TextView</li>
+     *    <li>A Button</li>
+     *    <li>A root element with an id attribute </li>
+     * </ul>
+     *
+     *  You should use the same Ids provided in the default layout list_card_undo_message,
+     *  but if you have to use different ids you can use the CardArrayAdapter.setUndoBarUIElements.
+     *
+     *  Example:
+     *  <code>
+     *      mCardArrayAdapter.setUndoBarUIElements(new UndoBarController.DefaultUndoBarUIElements(){
+     *
+     *          //Override methods to customize the elements
+     *      }
+     *  </code>
+     * It is very important to set the UndoBarUIElements before to call the setEnableUndo(true);
+     *
      */
     public static class DefaultUndoBarUIElements implements UndoBarUIElements {
 
@@ -218,6 +252,17 @@ public class UndoBarController {
         public int getUndoBarButtonId() {
             return R.id.list_card_undobar_button;
         }
+
+        @Override
+        public String getMessageUndo(CardArrayAdapter cardArrayAdapter, String[] itemIds, int[] itemPositions) {
+            if (cardArrayAdapter!=null && cardArrayAdapter.getContext()!=null) {
+                Resources res = cardArrayAdapter.getContext().getResources();
+                if (res!=null)
+                    return res.getQuantityString(R.plurals.list_card_undo_items, itemPositions.length, itemPositions.length);
+            }
+            return null;
+        }
+
     };
 
 

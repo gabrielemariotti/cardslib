@@ -23,6 +23,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,7 +60,7 @@ import it.gmariotti.cardslib.library.internal.CardThumbnail;
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public class AnimateStaggeredGridFragment extends BaseFragment implements
+public class AnimateStaggeredGridFragment extends BaseListFragment implements
         ActionBar.OnNavigationListener {
 
     ServerDatabase mServerDatabase;
@@ -78,7 +79,9 @@ public class AnimateStaggeredGridFragment extends BaseFragment implements
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.demo_extras_fragment_animate_staggeredgrid, container, false);
+        View root = inflater.inflate(R.layout.demo_extras_fragment_animate_staggeredgrid, container, false);
+        setupListFragment(root);
+        return root;
     }
 
     @Override
@@ -90,6 +93,8 @@ public class AnimateStaggeredGridFragment extends BaseFragment implements
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        hideList(false);
 
         //Set the arrayAdapter
         ArrayList<Card> cards = new ArrayList<Card>();
@@ -189,6 +194,7 @@ public class AnimateStaggeredGridFragment extends BaseFragment implements
         @Override
         protected ArrayList<Card> doInBackground(Void... params) {
             //elaborate images
+            SystemClock.sleep(1000); //delay to simulate download, don't use it in a real app
             mServerDatabase.getImagesForSection(Section.STAG);
             ArrayList<Card> cards = initCard();
             return cards;
@@ -198,6 +204,7 @@ public class AnimateStaggeredGridFragment extends BaseFragment implements
         protected void onPostExecute(ArrayList<Card> cards){
             //Update the adapter
             updateAdapter(cards);
+            displayList();
         }
     }
 

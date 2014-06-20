@@ -46,6 +46,8 @@
         <b>Thanks for some ideas and code:</b><br>
         <b><a href="https://github.com/nhaarman/ListViewAnimations">ListViewAnimations</a></b><br>
         <i>by Niek Haarman</i><br><br>
+        <b><a href="https://github.com/frankiesardo/LinearListView">LinearListView</a></b><br>
+        <i>by Frankie Sardo</i><br><br>
 
         <br><br><br>
         Google and the Google Maps logo are registered trademarks of Google Inc.
@@ -97,7 +99,8 @@
     <string name="carddemo_title_grid_gplay_cab">Grid with MultiChoice</string>
     <string name="carddemo_title_cab_list_cursor">List with Cursor and MultiChoice</string>
     <string name="carddemo_title_dismiss_animation">Dismiss Animation (experimental)</string>
-
+    <string name="carddemo_title_expandablelistcard">ExpandableListCard</string>
+    <string name="carddemo_title_carwithlist_card">Card with List</string>
     <string name="carddemo_title_overflow_animation">Overflow animation (experimental)</string>
 
     <!-- Section -->

@@ -43,8 +43,8 @@ public abstract class BaseFragment extends Fragment {
         setTitle();
     }
 
-    protected void setTitle(){
-        if (getActivity()!=null){
+    protected void setTitle() {
+        if (getActivity() != null) {
             getActivity().setTitle(getTitleResourceId());
             getActivity().getActionBar().setTitle(getTitleResourceId());
         }
