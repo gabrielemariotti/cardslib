@@ -33,12 +33,13 @@ import java.util.Comparator;
 
 import it.gmariotti.cardslib.library.R;
 import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
-import it.gmariotti.cardslib.library.internal.base.BaseCardArrayAdapter;
 
 /**
+ * An adapter to build a CardList with sections.
+ *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public class SectionedCardArrayAdapter extends BaseAdapter {
+public class SectionedCardAdapter extends BaseAdapter {
 
     private boolean mValid = true;
 
@@ -46,9 +47,21 @@ public class SectionedCardArrayAdapter extends BaseAdapter {
      * Default layout used for sections
      */
     private int mSectionResourceId = R.layout.base_section_layout;
+
+    /**
+     * Inflater
+     */
     private LayoutInflater mLayoutInflater;
-    private BaseCardArrayAdapter mBaseAdapter;
-    private SparseArray<Section> mSections = new SparseArray<Section>();
+
+    /**
+     * Adapter with cards.
+     */
+    private BaseAdapter mBaseAdapter;
+
+    /**
+     * Array with Card Sections
+     */
+    private SparseArray<CardSection> mCardSections = new SparseArray<CardSection>();
 
     // -------------------------------------------------------------
     // Constructors
@@ -60,7 +73,7 @@ public class SectionedCardArrayAdapter extends BaseAdapter {
      * @param context
      * @param cardArrayAdapter
      */
-    public SectionedCardArrayAdapter(Context context,CardArrayAdapter cardArrayAdapter) {
+    public SectionedCardAdapter(Context context, CardArrayAdapter cardArrayAdapter) {
         this(context,R.layout.base_section_layout,cardArrayAdapter);
     }
 
@@ -70,7 +83,7 @@ public class SectionedCardArrayAdapter extends BaseAdapter {
      * @param sectionResourceId   layout used by sections
      * @param cardArrayAdapter    cardArrayAdapter
      */
-    public SectionedCardArrayAdapter(Context context,int sectionResourceId,CardArrayAdapter cardArrayAdapter) {
+    public SectionedCardAdapter(Context context, int sectionResourceId, CardArrayAdapter cardArrayAdapter) {
         mLayoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mBaseAdapter = cardArrayAdapter;
         mSectionResourceId = sectionResourceId;
@@ -94,27 +107,17 @@ public class SectionedCardArrayAdapter extends BaseAdapter {
     // Section
     // -------------------------------------------------------------
 
-    public static class Section {
-        int firstPosition;
-        int sectionedPosition;
-        CharSequence title;
+    /**
+     * Sets the Card sections
+     *
+     * @param cardSections
+     */
+    public void setCardSections(CardSection[] cardSections) {
+        mCardSections.clear();
 
-        public Section(int firstPosition, CharSequence title) {
-            this.firstPosition = firstPosition;
-            this.title = title;
-        }
-
-        public CharSequence getTitle() {
-            return title;
-        }
-    }
-
-    public void setSections(Section[] sections) {
-        mSections.clear();
-
-        Arrays.sort(sections, new Comparator<Section>() {
+        Arrays.sort(cardSections, new Comparator<CardSection>() {
             @Override
-            public int compare(Section o, Section o1) {
+            public int compare(CardSection o, CardSection o1) {
                 return (o.firstPosition == o1.firstPosition)
                         ? 0
                         : ((o.firstPosition < o1.firstPosition) ? -1 : 1);
@@ -122,9 +125,9 @@ public class SectionedCardArrayAdapter extends BaseAdapter {
         });
 
         int offset = 0; // offset positions for the headers we're adding
-        for (Section section : sections) {
-            section.sectionedPosition = section.firstPosition + offset;
-            mSections.append(section.sectionedPosition, section);
+        for (CardSection cardSection : cardSections) {
+            cardSection.sectionedPosition = cardSection.firstPosition + offset;
+            mCardSections.append(cardSection.sectionedPosition, cardSection);
             ++offset;
         }
 
@@ -135,10 +138,16 @@ public class SectionedCardArrayAdapter extends BaseAdapter {
     // Adapter's methods
     // -------------------------------------------------------------
 
+    /**
+     * Returns the sectioned position from the position
+     *
+     * @param position
+     * @return
+     */
     public int positionToSectionedPosition(int position) {
         int offset = 0;
-        for (int i = 0; i < mSections.size(); i++) {
-            if (mSections.valueAt(i).firstPosition > position) {
+        for (int i = 0; i < mCardSections.size(); i++) {
+            if (mCardSections.valueAt(i).firstPosition > position) {
                 break;
             }
             ++offset;
@@ -147,7 +156,7 @@ public class SectionedCardArrayAdapter extends BaseAdapter {
     }
 
     /**
-     *
+     * Returns the position from the sectioned position
      * @param sectionedPosition
      * @return
      */
@@ -157,8 +166,8 @@ public class SectionedCardArrayAdapter extends BaseAdapter {
         }
 
         int offset = 0;
-        for (int i = 0; i < mSections.size(); i++) {
-            if (mSections.valueAt(i).sectionedPosition > sectionedPosition) {
+        for (int i = 0; i < mCardSections.size(); i++) {
+            if (mCardSections.valueAt(i).sectionedPosition > sectionedPosition) {
                 break;
             }
             --offset;
@@ -167,30 +176,31 @@ public class SectionedCardArrayAdapter extends BaseAdapter {
     }
 
     /**
+     * Returns true if the position is a Section
      *
      * @param position
      * @return
      */
     public boolean isSectionHeaderPosition(int position) {
-        return mSections.get(position) != null;
+        return mCardSections.get(position) != null;
     }
 
     @Override
     public int getCount() {
-        return (mValid ? mBaseAdapter.getCount() + mSections.size() : 0);
+        return (mValid ? mBaseAdapter.getCount() + mCardSections.size() : 0);
     }
 
     @Override
     public Object getItem(int position) {
         return isSectionHeaderPosition(position)
-                ? mSections.get(position)
+                ? mCardSections.get(position)
                 : mBaseAdapter.getItem(sectionedPositionToPosition(position));
     }
 
     @Override
     public long getItemId(int position) {
         return isSectionHeaderPosition(position)
-                ? Integer.MAX_VALUE - mSections.indexOfKey(position)
+                ? Integer.MAX_VALUE - mCardSections.indexOfKey(position)
                 : mBaseAdapter.getItemId(sectionedPositionToPosition(position));
     }
 
@@ -198,7 +208,7 @@ public class SectionedCardArrayAdapter extends BaseAdapter {
     public int getItemViewType(int position) {
         return isSectionHeaderPosition(position)
                 ? getViewTypeCount() - 1
-                : mBaseAdapter.getItemViewType(position);
+                : mBaseAdapter.getItemViewType(sectionedPositionToPosition(position));
     }
 
     @Override
@@ -268,7 +278,7 @@ public class SectionedCardArrayAdapter extends BaseAdapter {
 
         TextView textView = (TextView) view.findViewById(R.id.card_section_simple_title);
         if (textView != null)
-            textView.setText(mSections.get(position).title);
+            textView.setText(mCardSections.get(position).title);
 
         return view;
     }
@@ -277,8 +287,12 @@ public class SectionedCardArrayAdapter extends BaseAdapter {
     // Getters and setters
     // -------------------------------------------------------------
 
-    public SparseArray<Section> getSections() {
-        return mSections;
+    /**
+     * Returns the sections
+     * @return
+     */
+    public SparseArray<CardSection> getCardSections() {
+        return mCardSections;
     }
 
 

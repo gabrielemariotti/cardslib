@@ -34,11 +34,12 @@ import it.gmariotti.cardslib.demo.R;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
 import it.gmariotti.cardslib.library.internal.CardThumbnail;
-import it.gmariotti.cardslib.library.prototypes.SectionedCardArrayAdapter;
+import it.gmariotti.cardslib.library.prototypes.CardSection;
+import it.gmariotti.cardslib.library.prototypes.SectionedCardAdapter;
 import it.gmariotti.cardslib.library.view.CardListView;
 
 /**
- * List of Google Play cards Example
+ * List of Google Play cards with sections
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
@@ -46,7 +47,7 @@ public class ListSectionedCardFragment extends BaseFragment {
 
     @Override
     public int getTitleResourceId() {
-        return R.string.carddemo_title_list_gplaycard;
+        return R.string.carddemo_title_sectioned_list;
     }
 
     @Override
@@ -58,10 +59,13 @@ public class ListSectionedCardFragment extends BaseFragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        //init the cards
         initCards();
     }
 
-
+    /**
+     * Init
+     */
     private void initCards() {
 
         //Init an array of Cards
@@ -74,21 +78,27 @@ public class ListSectionedCardFragment extends BaseFragment {
             card.count=i;
             card.init();
 
+            //Add card to array
             cards.add(card);
         }
 
+        //Standard array
         CardArrayAdapter mCardArrayAdapter = new CardArrayAdapter(getActivity(),cards);
+
+        // Sections code.
+        // Add the card sections
+        List<GplayCardSection> sections =
+                new ArrayList<GplayCardSection>();
+
+        sections.add(new GplayCardSection(1,"Section 1","More"));
+        sections.add(new GplayCardSection(3,"Section 2","Other"));
+
+        GplayCardSection[] dummy = new GplayCardSection[sections.size()];
+
+        //Sectioned adapter
         GPlaySectionedAdapter mAdapter = new GPlaySectionedAdapter(getActivity(),
                 mCardArrayAdapter);
-
-        List<GplaySection> sections =
-                new ArrayList<GplaySection>();
-
-        sections.add(new GplaySection(1,"Section 1","More"));
-        sections.add(new GplaySection(3,"Section 2","Other"));
-
-        GplaySection[] dummy = new GplaySection[sections.size()];
-        mAdapter.setSections(sections.toArray(dummy));
+        mAdapter.setCardSections(sections.toArray(dummy));
 
         CardListView listView = (CardListView) getActivity().findViewById(R.id.carddemo_list_gplaycard);
         if (listView!=null){
@@ -99,7 +109,10 @@ public class ListSectionedCardFragment extends BaseFragment {
 
     }
 
-    public class GPlaySectionedAdapter extends SectionedCardArrayAdapter{
+    /**
+     * Sectioned adapter
+     */
+    public class GPlaySectionedAdapter extends SectionedCardAdapter {
 
         public GPlaySectionedAdapter(Context context, CardArrayAdapter cardArrayAdapter) {
             super(context, R.layout.carddemo_gplay_section_layout,cardArrayAdapter);
@@ -108,14 +121,18 @@ public class ListSectionedCardFragment extends BaseFragment {
         @Override
         protected View getSectionView(int position, View view, ViewGroup parent) {
 
-            GplaySection section = (GplaySection) getSections().get(position);
+            //Override this method to customize your section's view
+
+            //Get the section
+            GplayCardSection section = (GplayCardSection) getCardSections().get(position);
 
             if (section != null ) {
-
+                //Set the title
                 TextView title = (TextView) view.findViewById(R.id.carddemo_section_gplay_title);
                 if (title != null)
                     title.setText(section.getTitle());
 
+                //Set the button
                 TextView buttonMore = (TextView) view.findViewById(R.id.carddemo_section_gplay_textmore);
                 if (buttonMore != null)
                     buttonMore.setText(section.mButtonTxt);
@@ -123,18 +140,22 @@ public class ListSectionedCardFragment extends BaseFragment {
 
             return view;
         }
-
     }
 
-    public class GplaySection extends SectionedCardArrayAdapter.Section {
+
+    /*
+     * Custom Card section
+     */
+    public class GplayCardSection extends CardSection {
 
         public CharSequence mButtonTxt;
 
-        public GplaySection(int firstPosition, CharSequence title,CharSequence buttonText) {
+        public GplayCardSection(int firstPosition, CharSequence title, CharSequence buttonText) {
             super(firstPosition, title);
             mButtonTxt = buttonText;
         }
     }
+
 
     /**
      * This class provides a simple card as Google Play
