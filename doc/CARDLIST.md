@@ -13,7 +13,7 @@ In this page you can find info about:
 * [Using a CardList in MultiChoiceMode](#using-a-cardlist-in-multichoicemode)
 * [Using a CardList in MultiChoiceMode and CursorAdapter](#using-a-cardlist-in-multichoicemode-and-cursoradapter)
 * [CardList with Drag and Drop:](DRAGDROPLIST.md)
-* [SectionedCardList](#sectionedCardList)
+* [SectionedCardList](#sectionedcardlist)
 
 
 ### Creating a base CardList
@@ -658,6 +658,7 @@ You can use it with our CardArrayAdapter without changing your code:
 ```
 
 You have to follow these steps:
+
 1. Define your sections using the `CardSection` class.
 2. Define your `SectionedCardAdapter`
 3. Set the externalAdapter to your `CardListView`
@@ -671,6 +672,7 @@ Using the code `new CardSection(1,"Section 1"))` you define the position (in the
 You can **customize** your CardSection using your favorite layout.
 
 It is very easy o obtain it you have to extend the SectionedCardAdapter: 
+
 1. defining the layout to be used in the constructor and 
 2. overriding the `getSectionView` method
 
