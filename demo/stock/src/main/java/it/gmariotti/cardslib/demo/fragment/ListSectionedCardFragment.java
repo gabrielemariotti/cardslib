@@ -102,7 +102,6 @@ public class ListSectionedCardFragment extends BaseFragment {
 
         CardListView listView = (CardListView) getActivity().findViewById(R.id.carddemo_list_gplaycard);
         if (listView!=null){
-            //listView.setAdapter(mAdapter);
             listView.setExternalAdapter(mAdapter,mCardArrayAdapter);
         }
 

@@ -25,6 +25,7 @@
 
     <TextView
         android:id="@+id/card_section_simple_title"
-        style="@style/card_section_title"/>
+        style="@style/card_section_title"
+        />
 
 </LinearLayout>

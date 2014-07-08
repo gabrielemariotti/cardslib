@@ -66,6 +66,10 @@ public class ListGplayUndoCardFragment extends BaseFragment {
 
         mListView = (CardListView) getActivity().findViewById(R.id.carddemo_list_gplaycard);
         initCards();
+
+        if (savedInstanceState!=null){
+            mCardArrayAdapter.getUndoBarController().onRestoreInstanceState(savedInstanceState);
+        }
     }
 
 
@@ -101,6 +105,12 @@ public class ListGplayUndoCardFragment extends BaseFragment {
         }
     }
 
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        mCardArrayAdapter.getUndoBarController().onSaveInstanceState(outState);
+    }
 
     /**
      * This class provides a simple card as Google Play
