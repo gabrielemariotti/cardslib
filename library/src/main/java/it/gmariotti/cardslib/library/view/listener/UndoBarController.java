@@ -47,6 +47,7 @@ public class UndoBarController {
     private Handler mHideHandler = new Handler();
 
     private UndoListener mUndoListener;
+    private UndoBarHideListener mUndoBarHideListener;
 
     // State objects
     private Parcelable mUndoToken;
@@ -62,6 +63,19 @@ public class UndoBarController {
          *  Called when you undo the action
          */
         void onUndo(Parcelable undoToken);
+    }
+
+    /**
+     * Interface to listen for when the Undo controller hides the Undo Bar,
+     * after it times out from being shown for the currently dismissed mUndoToken.
+     */
+    public interface UndoBarHideListener {
+        /**
+         * Called when the UndoBar is hidden after being shown.
+         * @param undoOccurred true if the user pressed the undo button
+         *                     for the current mUndoToken.
+         */
+        void onUndoBarHide(boolean undoOccurred);
     }
 
     public UndoBarController(View undoBarView, UndoListener undoListener) {
@@ -84,16 +98,27 @@ public class UndoBarController {
                     public void onClick(View view) {
                         hideUndoBar(false);
                         mUndoListener.onUndo(mUndoToken);
+                        // Remove the reference to the undo token, since the undo has occurred.
+                        mUndoToken = null;
                     }
                 });
 
         hideUndoBar(true);
     }
 
-    public void showUndoBar(boolean immediate, CharSequence message, Parcelable undoToken) {
+    public void showUndoBar(boolean immediate, CharSequence message,
+                            Parcelable undoToken, UndoBarHideListener undoBarHideListener) {
+
+        // We're replacing the existing UndoBarHideListener, meaning that
+        // the original object removal was not undone. So, execute
+        // onUndoBarHide for the previous listener.
+        if (mUndoBarHideListener != null) {
+            undoBarHideListener.onUndoBarHide(mUndoToken == null);
+        }
 
         mUndoToken = undoToken;
         mUndoMessage = message;
+        mUndoBarHideListener = undoBarHideListener;
         mMessageView.setText(mUndoMessage);
 
         mHideHandler.removeCallbacks(mHideRunnable);
@@ -120,8 +145,12 @@ public class UndoBarController {
             mBarView.setVisibility(View.GONE);
             mBarView.setAlpha(0);
             mUndoMessage = null;
+            if (mUndoBarHideListener != null) {
+                // The undo has occurred only if mUndoToken was set to null.
+                mUndoBarHideListener.onUndoBarHide(mUndoToken == null);
+            }
+            mUndoBarHideListener = null;
             mUndoToken = null;
-
         } else {
             mBarAnimator.cancel();
             mBarAnimator
@@ -133,6 +162,11 @@ public class UndoBarController {
                         public void onAnimationEnd(Animator animation) {
                             mBarView.setVisibility(View.GONE);
                             mUndoMessage = null;
+                            if (mUndoBarHideListener != null) {
+                                // The undo has occurred only if mUndoToken was set to null.
+                                mUndoBarHideListener.onUndoBarHide(mUndoToken == null);
+                            }
+                            mUndoBarHideListener = null;
                             mUndoToken = null;
                         }
                     });
@@ -150,7 +184,7 @@ public class UndoBarController {
             mUndoToken = savedInstanceState.getParcelable("undo_token");
 
             if (mUndoToken != null || !TextUtils.isEmpty(mUndoMessage)) {
-                showUndoBar(true, mUndoMessage, mUndoToken);
+                showUndoBar(true, mUndoMessage, mUndoToken, mUndoBarHideListener);
             }
         }
     }
