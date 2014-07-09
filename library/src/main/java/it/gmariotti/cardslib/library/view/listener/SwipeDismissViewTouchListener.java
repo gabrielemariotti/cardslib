@@ -28,6 +28,7 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 
+import it.gmariotti.cardslib.library.R;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.view.CardView;
 
@@ -62,6 +63,8 @@ public class SwipeDismissViewTouchListener implements View.OnTouchListener {
     private VelocityTracker mVelocityTracker;
     private boolean mPaused;
     private float mTranslationX;
+
+    private int swipeDistanceDivisor = 2;
 
     /**
      * The callback interface used by {@link SwipeDismissViewTouchListener}
@@ -100,6 +103,7 @@ public class SwipeDismissViewTouchListener implements View.OnTouchListener {
         mCardView = cardView;
         mToken= card;
         mCallbacks = callbacks;
+        swipeDistanceDivisor =  cardView.getContext().getResources().getInteger(R.integer.list_card_swipe_distance_divisor);
     }
 
     /**
@@ -153,7 +157,7 @@ public class SwipeDismissViewTouchListener implements View.OnTouchListener {
                 float absVelocityY = Math.abs(mVelocityTracker.getYVelocity());
                 boolean dismiss = false;
                 boolean dismissRight = false;
-                if (Math.abs(deltaX) > mViewWidth / 2) {
+                if (Math.abs(deltaX) > mViewWidth / swipeDistanceDivisor) {
                     dismiss = true;
                     dismissRight = deltaX > 0;
                 } else if (mMinFlingVelocity <= absVelocityX

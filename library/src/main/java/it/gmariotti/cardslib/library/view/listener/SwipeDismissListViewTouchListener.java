@@ -36,6 +36,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import it.gmariotti.cardslib.library.R;
 import it.gmariotti.cardslib.library.internal.Card;
 
 /**
@@ -105,6 +106,8 @@ public class SwipeDismissListViewTouchListener implements View.OnTouchListener {
     private boolean mPaused;
     private SwipeDirection mSwipeDirection = SwipeDirection.BOTH;
 
+    private int swipeDistanceDivisor = 2;
+
     /**
      * The callback interface used by {@link SwipeDismissListViewTouchListener} to inform its client
      * about a successful dismissal of one or more list item positions.
@@ -158,6 +161,7 @@ public class SwipeDismissListViewTouchListener implements View.OnTouchListener {
                 android.R.integer.config_shortAnimTime);
         mListView = listView;
         mCallbacks = callbacks;
+        swipeDistanceDivisor =  listView.getContext().getResources().getInteger(R.integer.list_card_swipe_distance_divisor);
     }
 
     /**
@@ -263,7 +267,7 @@ public class SwipeDismissListViewTouchListener implements View.OnTouchListener {
                 float absVelocityY = Math.abs(mVelocityTracker.getYVelocity());
                 boolean dismiss = false;
                 boolean dismissRight = false;
-                if (Math.abs(deltaX) > mViewWidth / 2  && mSwiping) {
+                if (Math.abs(deltaX) > mViewWidth / swipeDistanceDivisor  && mSwiping) {
                     dismiss = true;
                     dismissRight = deltaX > 0;
                 } else if (mMinFlingVelocity <= absVelocityX && absVelocityX <= mMaxFlingVelocity
