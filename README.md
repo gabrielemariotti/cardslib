@@ -123,4 +123,4 @@ Google and the Google Maps logo are registered trademarks of Google Inc., used w
  [8]: https://plus.google.com/+AndroidDevelopers/posts/aHPVDtr6mcp
  [9]: https://plus.google.com/+TaylorLing
  [10]: https://plus.google.com/+FrankieSardo
- [11]: https://github.com/frankiesardo/LinearListViews
+ [11]: https://github.com/frankiesardo/LinearListView
