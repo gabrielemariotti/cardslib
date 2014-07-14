@@ -1,11 +1,12 @@
 language: android
 android:
   components:
-    - build-tools-19.0.3
+    - build-tools-20.0.0
 
 branches:
   only:
-    - travis
+    - master
+    - dev
 
 notifications:
   email: false
