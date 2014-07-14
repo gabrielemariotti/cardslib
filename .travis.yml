@@ -1,7 +1,7 @@
 language: android
 android:
   components:
-    - build-tools-19.0.3
+    - build-tools-19.1.0
 
 branches:
   only:
