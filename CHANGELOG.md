@@ -1,7 +1,7 @@
 Change Log
 ===============================================================================
 
-Version 1.8.0 *(2014-xx-xx)*
+Version 1.8.0 *(2014-07-14)*
 ----------------------------
 * LIB: Added a `SectionedCardAdapter` which allows to display a `CardList` with Sections [(doc)](/doc/CARDLIST.md#sectionedcardlist)
 * LIB: Added a parameter to customize the swipe action
