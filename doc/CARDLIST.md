@@ -243,6 +243,15 @@ You can customize the undo bar. The easiest way is to copy the styles inside `re
 
 You can see the example in `ListGplayUndoCardFragment`.
 
+You can customize the distance from the edge needed to activate the swipe action, overriding this value in your integers.xml
+
+```xml
+    <integer name="list_card_swipe_distance_divisor">2</integer>
+```
+
+The default value is `2` = half card.
+
+
 ![Screen](/demo/images/card/cardWithUndo.png)
 
 
