@@ -1,12 +1,12 @@
 language: android
 android:
   components:
-    - build-tools-20.0.0
+    - build-tools-19.0.3
 
 branches:
   only:
-    - master
     - dev
+    - master
 
 notifications:
   email: false
