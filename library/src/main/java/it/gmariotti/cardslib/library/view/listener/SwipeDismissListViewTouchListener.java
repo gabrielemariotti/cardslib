@@ -103,6 +103,7 @@ public class SwipeDismissListViewTouchListener implements View.OnTouchListener {
     private int mDownPosition;
     private View mDownView;
     private boolean mPaused;
+    private SwipeDirection mSwipeDirection = SwipeDirection.BOTH;
 
     /**
      * The callback interface used by {@link SwipeDismissListViewTouchListener} to inform its client
@@ -123,6 +124,22 @@ public class SwipeDismissListViewTouchListener implements View.OnTouchListener {
          *                               order for convenience.
          */
         void onDismiss(ListView listView, int[] reverseSortedPositions);
+    }
+
+    public enum SwipeDirection {
+        BOTH(0),
+        LEFT(1),
+        RIGHT(2);
+
+        private final int mValue;
+
+        private SwipeDirection(int value) {
+            mValue = value;
+        }
+
+        public int getValue() {
+            return mValue;
+        }
     }
 
     /**
@@ -314,7 +331,10 @@ public class SwipeDismissListViewTouchListener implements View.OnTouchListener {
                 mVelocityTracker.addMovement(motionEvent);
                 float deltaX = motionEvent.getRawX() - mDownX;
                 float deltaY = motionEvent.getRawY() - mDownY;
-                if (Math.abs(deltaX) > mSlop && Math.abs(deltaY) < Math.abs(deltaX) / 2)  {
+                boolean movementAllowed = isSwipeMovementAllowed(deltaX);
+                if (movementAllowed
+                    && Math.abs(deltaX) > mSlop
+                    && Math.abs(deltaY) < Math.abs(deltaX) / 2)  {
                     mSwiping = true;
                     mSwipingSlop = (deltaX > 0 ? mSlop : -mSlop);
                     mListView.requestDisallowInterceptTouchEvent(true);
@@ -439,5 +459,22 @@ public class SwipeDismissListViewTouchListener implements View.OnTouchListener {
 
         mPendingDismisses.add(new PendingDismissData(dismissPosition, dismissView));
         animator.start();
+    }
+
+    private boolean isSwipeMovementAllowed(float deltaX) {
+        switch (mSwipeDirection) {
+            case BOTH:
+                return Math.abs(deltaX) > 0;
+            case RIGHT:
+                return deltaX > 0;
+            case LEFT:
+                return deltaX < 0;
+            default:
+                return false;
+        }
+    }
+
+    public void setSwipeDirection(SwipeDirection direction) {
+        mSwipeDirection = direction;
     }
 }

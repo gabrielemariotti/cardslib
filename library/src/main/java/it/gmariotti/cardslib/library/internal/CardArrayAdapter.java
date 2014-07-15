@@ -90,6 +90,12 @@ public class CardArrayAdapter extends BaseCardArrayAdapter implements UndoBarCon
     protected SwipeDismissListViewTouchListener mOnTouchListener;
 
     /**
+     * Swipe direction, to be used when mOnTouchListener is created
+     */
+    protected SwipeDismissListViewTouchListener.SwipeDirection mSwipeDirection =
+                                SwipeDismissListViewTouchListener.SwipeDirection.BOTH;
+
+    /**
      * Used to enable an undo message after a swipe action
      */
     protected boolean mEnableUndo=false;
@@ -195,6 +201,7 @@ public class CardArrayAdapter extends BaseCardArrayAdapter implements UndoBarCon
         if (card.isSwipeable()){
             if (mOnTouchListener == null){
                 mOnTouchListener = new SwipeDismissListViewTouchListener(mCardListView, mCallback);
+                mOnTouchListener.setSwipeDirection(mSwipeDirection);
                 // Setting this scroll listener is required to ensure that during
                 // ListView scrolling, we don't look for swipes.
                 if (mCardListView.getOnScrollListener() == null){
@@ -226,6 +233,18 @@ public class CardArrayAdapter extends BaseCardArrayAdapter implements UndoBarCon
 
         if (cardView == null) return;
         cardView.setOnExpandListAnimatorListener(mCardListView);
+    }
+
+    /**
+     * Sets this CardArrayAdapter so that only a single swipe direction will
+     * be enabled.
+     *
+     */
+    public void setSwipeDirection(SwipeDismissListViewTouchListener.SwipeDirection swipeDirection) {
+        if (mOnTouchListener != null) {
+            mOnTouchListener.setSwipeDirection(swipeDirection);
+        }
+        mSwipeDirection = swipeDirection;
     }
 
     // -------------------------------------------------------------
