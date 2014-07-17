@@ -113,7 +113,7 @@ public class UndoBarController {
         // the original object removal was not undone. So, execute
         // onUndoBarHide for the previous listener.
         if (mUndoBarHideListener != null) {
-            undoBarHideListener.onUndoBarHide(mUndoToken == null);
+            mUndoBarHideListener.onUndoBarHide(mUndoToken == null);
         }
 
         mUndoToken = undoToken;
