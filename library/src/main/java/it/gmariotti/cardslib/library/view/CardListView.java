@@ -166,9 +166,9 @@ public class CardListView extends ListView implements CardView.OnExpandListAnima
     @Override
     public void setAdapter(ListAdapter adapter) {
         if (adapter instanceof CardArrayAdapter){
-            setAdapter((CardArrayAdapter)adapter);
+            setArrayAdapter((CardArrayAdapter)adapter);
         }else if (adapter instanceof CardCursorAdapter){
-            setAdapter((CardCursorAdapter)adapter);
+            setCursorAdapter((CardCursorAdapter)adapter);
         }else {
             Log.w(TAG,"You are using a generic adapter. Pay attention: your adapter has to call cardArrayAdapter#getView method" );
             super.setAdapter(adapter);
@@ -180,7 +180,7 @@ public class CardListView extends ListView implements CardView.OnExpandListAnima
      *
      * @param adapter {@link CardArrayAdapter}
      */
-    public void setAdapter(CardArrayAdapter adapter) {
+    private void setArrayAdapter(CardArrayAdapter adapter) {
         super.setAdapter(adapter);
 
         //Set Layout used by items
@@ -195,7 +195,7 @@ public class CardListView extends ListView implements CardView.OnExpandListAnima
      *
      * @param adapter {@link CardCursorAdapter}
      */
-    public void setAdapter(CardCursorAdapter adapter) {
+    private void setCursorAdapter(CardCursorAdapter adapter) {
         super.setAdapter(adapter);
 
         //Set Layout used by items
