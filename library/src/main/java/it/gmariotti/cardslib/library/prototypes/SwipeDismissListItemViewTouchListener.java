@@ -27,6 +27,7 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.ListView;
 
+import it.gmariotti.cardslib.library.R;
 import it.gmariotti.cardslib.library.internal.Card;
 
 /**
@@ -83,6 +84,8 @@ public class SwipeDismissListItemViewTouchListener implements View.OnTouchListen
     private int mDownPosition;
     private View mDownView;
 
+    private int swipeDistanceDivisor = 2;
+
     public SwipeDismissListItemViewTouchListener(LinearListView listView, DismissCallbacks callbacks) {
         ViewConfiguration vc = ViewConfiguration.get(listView.getContext());
         mSlop = vc.getScaledTouchSlop();
@@ -93,6 +96,7 @@ public class SwipeDismissListItemViewTouchListener implements View.OnTouchListen
 
         this.mListView = listView;
         mCallbacks = callbacks;
+        swipeDistanceDivisor =  listView.getContext().getResources().getInteger(R.integer.list_card_swipe_distance_divisor);
     }
 
 
@@ -196,7 +200,7 @@ public class SwipeDismissListItemViewTouchListener implements View.OnTouchListen
                 float absVelocityY = Math.abs(mVelocityTracker.getYVelocity());
                 boolean dismiss = false;
                 boolean dismissRight = false;
-                if (Math.abs(deltaX) > mViewWidth / 2) {
+                if (Math.abs(deltaX) > mViewWidth / swipeDistanceDivisor) {
                     dismiss = true;
                     dismissRight = deltaX > 0;
                 } else if (mMinFlingVelocity <= absVelocityX && absVelocityX <= mMaxFlingVelocity

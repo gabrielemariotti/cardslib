@@ -98,4 +98,11 @@
     <dimen name="card_base_cardwithlist_dividerHeight">1dp</dimen>
 
 
+    <!--Section -->
+    <dimen name="card_section_title">18sp</dimen>
+    <dimen name="card_section_container_padding_left">15dp</dimen>
+    <dimen name="card_section_container_padding_right">15dp</dimen>
+    <dimen name="card_section_title_margin_top">10dp</dimen>
+
+
 </resources>

@@ -126,7 +126,8 @@ public class CardWithListFragment extends BaseFragment {
     private void initCard() {
 
         //Weather Card
-       card= new WeatherCard(getActivity());
+        card= new WeatherCard(getActivity());
+        card.init();
 
         //Set card in the cardView
         CardView cardView = (CardView) getActivity().findViewById(R.id.carddemo_weathercard);
@@ -135,6 +136,7 @@ public class CardWithListFragment extends BaseFragment {
 
         //May know card
         GoogleKnowwithList card2= new GoogleKnowwithList(getActivity());
+        card2.init();
 
         //Set card in the cardView
         CardView cardView2 = (CardView) getActivity().findViewById(R.id.carddemo_mayknowcard);

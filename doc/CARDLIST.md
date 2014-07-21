@@ -13,6 +13,7 @@ In this page you can find info about:
 * [Using a CardList in MultiChoiceMode](#using-a-cardlist-in-multichoicemode)
 * [Using a CardList in MultiChoiceMode and CursorAdapter](#using-a-cardlist-in-multichoicemode-and-cursoradapter)
 * [CardList with Drag and Drop:](DRAGDROPLIST.md)
+* [SectionedCardList](#sectionedcardlist)
 
 
 ### Creating a base CardList
@@ -242,6 +243,15 @@ You can customize the undo bar. The easiest way is to copy the styles inside `re
 
 You can see the example in `ListGplayUndoCardFragment`.
 
+You can customize the distance from the edge needed to activate the swipe action, overriding this value in your integers.xml
+
+```xml
+    <integer name="list_card_swipe_distance_divisor">2</integer>
+```
+
+The default value is `2` = half card.
+
+
 ![Screen](/demo/images/card/cardWithUndo.png)
 
 
@@ -333,9 +343,12 @@ Otherwise you can override the method `getMessageUndo` in your `UndoBarControlle
             public String getMessageUndo(CardArrayAdapter cardArrayAdapter, String[] itemIds, int[] itemPositions) {
 
                 //It is only an example
+                //Pay attention: you can't find the cards with these positions in your arrayAdapter because the cards are removed.
+                //You have to/can use your id itemIds, to identify your cards.
+                
                 StringBuffer message=new StringBuffer();
-                for (int position:itemPositions){
-                    Card card = cardArrayAdapter.getItem(position);
+                for (int id:itemIds){
+                    Card card =myIdsList.get(id);    
                     message.append(card.getTitle());
                 }
                 return message.toString();
@@ -621,3 +634,136 @@ All considerations, [written above](#using-a-cardlist-in-multichoicemode), are v
 ```
 
  You can see an example in `ListGplayCursorCardCABFragment`  [(source)](/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/ListGplayCursorCardCABFragment.java).
+ 
+## SectionedCardList
+
+The `SectionedCardAdapter` allow to display a `CardList` with Sections.
+
+It doesn't extend the `CardArrayAdapter`, it works with a `CardArrayAdapter`.
+
+![Screen](/demo/images/demo/sectionList.png)
+
+You can use it with our CardArrayAdapter without changing your code:
+
+``` java
+        //Standard array
+        CardArrayAdapter mCardArrayAdapter = new CardArrayAdapter(getActivity(),cards);
+
+        // Define your sections
+        List<GplayCardSection> sections =  new ArrayList<GplayCardSection>();
+        sections.add(new CardSection(1,"Section 1"));
+        sections.add(new CardSection(3,"Section 2"));
+        GplayCardSection[] dummy = new GplayCardSection[sections.size()];
+
+        //Define your Sectioned adapter
+        SectionedCardAdapter mAdapter = new SectionedCardAdapter(getActivity(), mCardArrayAdapter);
+        mAdapter.setCardSections(sections.toArray(dummy));
+
+        CardListView listView = (CardListView) getActivity().findViewById(R.id.carddemo_list_gplaycard);
+        if (listView!=null){
+            //Use the external adapter.
+            listView.setExternalAdapter(mAdapter,mCardArrayAdapter);
+        }
+```
+
+You have to follow these steps:
+
+1. Define your sections using the `CardSection` class.
+2. Define your `SectionedCardAdapter`
+3. Set the externalAdapter to your `CardListView`
+    
+This code uses a default layout for the sections  [`res/layout/base_section_layout`](/library/src/main/res/layout/base_section_layout.xml)   
+
+Using the code `new CardSection(1,"Section 1"))` you define the position (in the original array) where the section will be inserted and a title to be displayed. 
+
+**It doesn't change the positions in the original array!**
+ 
+You can **customize** your CardSection using your favorite layout.
+
+It is very easy o obtain it you have to extend the SectionedCardAdapter: 
+
+1. defining the layout to be used in the constructor and 
+2. overriding the `getSectionView` method
+
+``` java
+    /**
+     * Sectioned adapter
+     */
+    public class MySectionedAdapter extends SectionedCardAdapter {
+
+        /*
+         * Define your layout in the constructor
+         */
+        public MySectionedAdapter(Context context, CardArrayAdapter cardArrayAdapter) {
+            super(context, R.layout.carddemo_gplay_section_layout,cardArrayAdapter);
+        }
+
+        /*
+         * Override this method to customize your layout
+         */
+        @Override
+        protected View getSectionView(int position, View view, ViewGroup parent) {
+
+            //Override this method to customize your section's view
+
+            //Get the section
+            MyCardSection section = (MyCardSection) getCardSections().get(position);
+
+            if (section != null ) {
+                //Set the title
+                TextView title = (TextView) view.findViewById(R.id.carddemo_section_gplay_title);
+                if (title != null)
+                    title.setText(section.getTitle());
+
+                //Set the button
+                TextView buttonMore = (TextView) view.findViewById(R.id.carddemo_section_gplay_textmore);
+                if (buttonMore != null)
+                    buttonMore.setText(section.mButtonTxt);
+            }
+
+            return view;
+        }
+    }
+```        
+
+And then use it with the same code described above.
+
+```  java
+        //Standard array
+        CardArrayAdapter mCardArrayAdapter = new CardArrayAdapter(getActivity(),cards);
+
+        // Define your sections
+        List<MyCardSection> sections = new ArrayList<MyCardSection>();
+        sections.add(new MyCardSection(1,"Section 1","More"));
+        sections.add(new MyCardSection(3,"Section 2","Other"));
+
+        MyCardSection[] dummy = new MyCardSection[sections.size()];
+
+        //Define your Sectioned adapter
+        MySectionedAdapter mAdapter = new MySectionedAdapter(getActivity(), mCardArrayAdapter);
+        mAdapter.setCardSections(sections.toArray(dummy));
+
+        CardListView listView = (CardListView) getActivity().findViewById(R.id.carddemo_list_gplaycard);
+        if (listView!=null){
+            //Use the external adapter.
+            listView.setExternalAdapter(mAdapter,mCardArrayAdapter);
+        }
+```  
+        
+You can extend the CardSection (it is not mandatory) to customize your section model.
+
+``` java
+    /*
+     * Custom Card section
+     */
+    public class GplayCardSection extends CardSection {
+
+        public CharSequence mButtonTxt;
+
+        public GplayCardSection(int firstPosition, CharSequence title, CharSequence buttonText) {
+            super(firstPosition, title);
+            mButtonTxt = buttonText;
+        }
+    }
+```
+

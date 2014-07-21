@@ -53,7 +53,7 @@ The Guide provides a extensive doc, with all tips and full examples. Don't miss 
 Card Library is pushed to Maven Central as an AAR, so you just need to add the following dependency to your `build.gradle`.
 
     dependencies {
-        compile 'com.github.gabrielemariotti.cards:library:1.7.1'
+        compile 'com.github.gabrielemariotti.cards:library:1.8.0'
     }
 
 
@@ -123,4 +123,4 @@ Google and the Google Maps logo are registered trademarks of Google Inc., used w
  [8]: https://plus.google.com/+AndroidDevelopers/posts/aHPVDtr6mcp
  [9]: https://plus.google.com/+TaylorLing
  [10]: https://plus.google.com/+FrankieSardo
- [11]: https://github.com/frankiesardo/LinearListViews
+ [11]: https://github.com/frankiesardo/LinearListView

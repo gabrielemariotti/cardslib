@@ -36,7 +36,6 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:background="#F3F3F4"
-        android:padding="5dp"
         android:choiceMode="singleChoice"
         android:divider="@android:color/darker_gray"
         android:dividerHeight="1dp"></ListView>

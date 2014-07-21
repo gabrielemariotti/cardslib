@@ -242,5 +242,23 @@
     </style>
 
 
+    <!-- GPlay section list -->
+    <style name="carddemo_section_textmore">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">@dimen/carddemo_section_textmore_text</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">#98CC00</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:paddingLeft">@dimen/carddemo_section_textmore_padding_left</item>
+        <item name="android:paddingTop">@dimen/carddemo_section_textmore_padding_top</item>
+        <item name="android:paddingRight">@dimen/carddemo_section_textmore_padding_right</item>
+        <item name="android:paddingBottom">@dimen/carddemo_section_textmore_padding_bottom</item>
+        <item name="android:layout_marginLeft">@dimen/carddemo_section_textmore_margin_left</item>
+        <item name="android:layout_marginTop">@dimen/card_section_title_margin_top</item>
+    </style>
+
 
 </resources>

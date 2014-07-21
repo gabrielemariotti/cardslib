@@ -1,3 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+
 <!--
   ~ *******************************************************************************
   ~   Copyright (c) 2013-2014 Gabriele Mariotti.
@@ -16,26 +18,18 @@
   ~  *****************************************************************************
   -->
 
-<resources>
-    
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                style="@style/card_section_container"
+                android:layout_height="60dp">
 
-    <!-- Undo Controller-->
+    <TextView
+        android:id="@+id/carddemo_section_gplay_title"
+        style="@style/card_section_title"
+        android:textStyle="italic"
+        />
 
-    <string name="list_card_undo_title">Rückgängig</string>
-    <!--<string name="undo_card">Karte entfernt</string>-->
+    <TextView
+        android:id="@+id/carddemo_section_gplay_textmore"
+        style="@style/carddemo_section_textmore"/>
 
-    <plurals name="list_card_undo_items">
-        <item quantity="one">1 Karte entfernt</item>
-        <item quantity="other">%d Karten entfernt</item>
-    </plurals>
-
-    <!-- Card selected item with CAB -->
-    <plurals name="card_selected_items">
-        <item quantity="one">1 Element gewählt</item>
-        <item quantity="other">%d Elemente gewählt</item>
-    </plurals>
-
-
-
-
-</resources>
+</RelativeLayout>

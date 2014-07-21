@@ -102,6 +102,7 @@
     <string name="carddemo_title_expandablelistcard">ExpandableListCard</string>
     <string name="carddemo_title_carwithlist_card">Card with List</string>
     <string name="carddemo_title_overflow_animation">Overflow animation (experimental)</string>
+    <string name="carddemo_title_sectioned_list">Sectioned List</string>
 
     <!-- Section -->
     <string name="demo_section_header_standard">Standard Header without buttons</string>

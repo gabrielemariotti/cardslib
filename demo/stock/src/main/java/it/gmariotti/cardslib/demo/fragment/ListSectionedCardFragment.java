@@ -28,89 +28,133 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import it.gmariotti.cardslib.demo.R;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
 import it.gmariotti.cardslib.library.internal.CardThumbnail;
+import it.gmariotti.cardslib.library.prototypes.CardSection;
+import it.gmariotti.cardslib.library.prototypes.SectionedCardAdapter;
 import it.gmariotti.cardslib.library.view.CardListView;
-import it.gmariotti.cardslib.library.view.listener.UndoBarController;
 
 /**
- * List of Google Play cards Example with Undo Controller
+ * List of Google Play cards with sections
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public class ListGplayUndoCardFragment extends BaseFragment {
-
-    private CardArrayAdapter mCardArrayAdapter;
-    private UndoBarController mUndoBarController;
-    private CardListView mListView;
-    private String[] mCardIds;
-    private static final String BUNDLE_IDS="BUNDLE_IDS";
-    private static final String BUNDLE_IDS_UNDO="BUNDLE_IDS_UNDO";
+public class ListSectionedCardFragment extends BaseFragment {
 
     @Override
     public int getTitleResourceId() {
-        return R.string.carddemo_title_list_gplaycard_undo;
+        return R.string.carddemo_title_sectioned_list;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.demo_fragment_list_gplaycard_undo, container, false);
+        return inflater.inflate(R.layout.demo_fragment_list_gplaycard, container, false);
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        mListView = (CardListView) getActivity().findViewById(R.id.carddemo_list_gplaycard);
+        //init the cards
         initCards();
-
-        if (savedInstanceState!=null){
-            mCardArrayAdapter.getUndoBarController().onRestoreInstanceState(savedInstanceState);
-        }
     }
 
-
+    /**
+     * Init
+     */
     private void initCards() {
 
         //Init an array of Cards
         ArrayList<Card> cards = new ArrayList<Card>();
-
-        for (int i=0;i<100;i++){
+        for (int i=0;i<200;i++){
             GooglePlaySmallCard card = new GooglePlaySmallCard(this.getActivity());
-            card.setTitle("Application example " + i);
-            card.setSecondaryTitle("A company inc..." + i);
-            card.setRating((float) (Math.random() * (5.0)));
-            card.setId("" + i);
-
-            //Only for test, change some icons
-            if ((i > 10 && i < 15) || (i > 35 && i < 45)) {
-                card.setResourceIdThumbnail(R.drawable.ic_launcher);
-            }
-
+            card.setTitle("Application example "+i);
+            card.setSecondaryTitle("A company inc..."+i);
+            card.setRating((float)(Math.random()*(5.0)));
+            card.count=i;
             card.init();
+
+            //Add card to array
             cards.add(card);
         }
 
-        mCardArrayAdapter = new CardArrayAdapter(getActivity(),cards);
+        //Standard array
+        CardArrayAdapter mCardArrayAdapter = new CardArrayAdapter(getActivity(),cards);
 
-        //Enable undo controller!
-        mCardArrayAdapter.setEnableUndo(true);
+        // Sections code.
+        // Add the card sections
+        List<GplayCardSection> sections =
+                new ArrayList<GplayCardSection>();
 
-        //CardListView listView = (CardListView) getActivity().findViewById(R.id.carddemo_list_gplaycard);
-        if (mListView!=null){
-            mListView.setAdapter(mCardArrayAdapter);
+        sections.add(new GplayCardSection(1,"Section 1","More"));
+        sections.add(new GplayCardSection(3,"Section 2","Other"));
+
+        GplayCardSection[] dummy = new GplayCardSection[sections.size()];
+
+        //Sectioned adapter
+        GPlaySectionedAdapter mAdapter = new GPlaySectionedAdapter(getActivity(),
+                mCardArrayAdapter);
+        mAdapter.setCardSections(sections.toArray(dummy));
+
+        CardListView listView = (CardListView) getActivity().findViewById(R.id.carddemo_list_gplaycard);
+        if (listView!=null){
+            listView.setExternalAdapter(mAdapter,mCardArrayAdapter);
+        }
+
+
+    }
+
+    /**
+     * Sectioned adapter
+     */
+    public class GPlaySectionedAdapter extends SectionedCardAdapter {
+
+        public GPlaySectionedAdapter(Context context, CardArrayAdapter cardArrayAdapter) {
+            super(context, R.layout.carddemo_gplay_section_layout,cardArrayAdapter);
+        }
+
+        @Override
+        protected View getSectionView(int position, View view, ViewGroup parent) {
+
+            //Override this method to customize your section's view
+
+            //Get the section
+            GplayCardSection section = (GplayCardSection) getCardSections().get(position);
+
+            if (section != null ) {
+                //Set the title
+                TextView title = (TextView) view.findViewById(R.id.carddemo_section_gplay_title);
+                if (title != null)
+                    title.setText(section.getTitle());
+
+                //Set the button
+                TextView buttonMore = (TextView) view.findViewById(R.id.carddemo_section_gplay_textmore);
+                if (buttonMore != null)
+                    buttonMore.setText(section.mButtonTxt);
+            }
+
+            return view;
         }
     }
 
 
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        mCardArrayAdapter.getUndoBarController().onSaveInstanceState(outState);
+    /*
+     * Custom Card section
+     */
+    public class GplayCardSection extends CardSection {
+
+        public CharSequence mButtonTxt;
+
+        public GplayCardSection(int firstPosition, CharSequence title, CharSequence buttonText) {
+            super(firstPosition, title);
+            mButtonTxt = buttonText;
+        }
     }
+
 
     /**
      * This class provides a simple card as Google Play
@@ -136,36 +180,22 @@ public class ListGplayUndoCardFragment extends BaseFragment {
 
         public GooglePlaySmallCard(Context context, int innerLayout) {
             super(context, innerLayout);
-            //init();
+            init();
         }
 
         private void init() {
 
             //Add thumbnail
             CardThumbnail cardThumbnail = new CardThumbnail(mContext);
-
-            if (resourceIdThumbnail==0)
-                cardThumbnail.setDrawableResource(R.drawable.ic_std_launcher);
-            else{
-                cardThumbnail.setDrawableResource(resourceIdThumbnail);
-            }
+            cardThumbnail.setDrawableResource(R.drawable.ic_std_launcher);
 
             addCardThumbnail(cardThumbnail);
 
-            setSwipeable(true);
-
-            setOnSwipeListener(new OnSwipeListener() {
-                    @Override
-                    public void onSwipe(Card card) {
-                        Toast.makeText(getContext(), "Removed card=" + title, Toast.LENGTH_SHORT).show();
-                    }
-            });
-
-
-            setOnUndoSwipeListListener(new OnUndoSwipeListListener() {
+            //Add ClickListener
+            setOnClickListener(new OnCardClickListener() {
                 @Override
-                public void onUndoSwipe(Card card) {
-                    Toast.makeText(getContext(), "Undo card=" + title, Toast.LENGTH_SHORT).show();
+                public void onClick(Card card, View view) {
+                    Toast.makeText(getContext(), "Click Listener card=" + title, Toast.LENGTH_SHORT).show();
                 }
             });
 

@@ -9,7 +9,7 @@ jdk: oraclejdk7
 
 env:
   global:
-    - ANDROID_SDK_VERSION="r22.6.2"
+    - ANDROID_SDK_VERSION="r23"
 
 notifications:
   email: false
@@ -37,7 +37,7 @@ before_install:
   # - export PATH=$GRADLE_HOME/bin:$PATH
 
   # just to test gradle version, against our provided one
-  - gradle -v
+  - ./gradlew -v
 
   # newest android SDK
   - wget http://dl.google.com/android/android-sdk_${ANDROID_SDK_VERSION}-linux.tgz
@@ -51,8 +51,8 @@ before_install:
   # Install required components.
   # For a full list, run `android list sdk -a --extended`
   - echo yes | android update sdk --filter platform-tools --no-ui --force > /dev/null
-  - echo yes | android update sdk --all --filter build-tools-19.1.0 --no-ui --force > /dev/null
-  - echo yes | android update sdk --filter android-19 --no-ui --force > /dev/null
+  - echo yes | android update sdk --all --filter build-tools-20.0.0 --no-ui --force > /dev/null
+  - echo yes | android update sdk --filter android-20 --no-ui --force > /dev/null
   - echo yes | android update sdk --filter extra-android-support --no-ui --force > /dev/null
   - echo yes | android update sdk --filter extra-android-m2repository --no-ui --force > /dev/null
 
@@ -61,8 +61,8 @@ before_install:
 
 
 # Let's try to build...
-install: gradle clean build
+#install: ./gradlew clean build
 
-script: gradle check
+script: ./gradlew clean build
 
 

@@ -199,10 +199,13 @@ public class UndoBarController {
         /**
          * UndoMessage.
          * Implement this method to customize the undo message dynamically.
+         * </p>
+         * You can't find the cards with these positions in your arrayAdapter because the cards are removed.
+         * You have to/can use your id itemIds, to identify your cards.
          *
          * @param cardArrayAdapter  array Adapter
          * @param itemIds           ids of items
-         * @param itemPositions     positions of items
+         * @param itemPositions     position of removed items
          * @return
          */
         public String getMessageUndo(CardArrayAdapter cardArrayAdapter,String[] itemIds,int[] itemPositions);

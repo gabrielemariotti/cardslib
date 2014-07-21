@@ -74,6 +74,8 @@ afterEvaluate { project ->
         options {
             linksOffline "http://d.android.com/reference", "${android.sdkDirectory}/docs/reference"
         }
+        exclude '**/BuildConfig.java'
+        exclude '**/R.java'
         source = android.sourceSets.main.java.sourceFiles
         classpath += project.files(project.android.getBootClasspath().join(File.pathSeparator))
     }

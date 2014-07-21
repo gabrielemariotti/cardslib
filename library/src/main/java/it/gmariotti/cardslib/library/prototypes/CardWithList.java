@@ -36,10 +36,12 @@ import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardHeader;
 
 /**
- * TODO
+ * A card with a LinearList inside.
+ * It is a particular Card that can display items inside the Card.
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
+@SuppressWarnings({"JavaDoc", "UnusedDeclaration"})
 public abstract class CardWithList extends Card {
 
     /**
@@ -113,6 +115,10 @@ public abstract class CardWithList extends Card {
      */
     protected int listViewId = R.id.card_inner_base_main_cardwithlist;
 
+    /**
+     *  Flag to set the observer as registered
+     */
+    private boolean observerRegistered = false;
 
     private DataSetObserver mDataObserver = new DataSetObserver() {
 
@@ -241,22 +247,6 @@ public abstract class CardWithList extends Card {
     protected abstract List<ListObject> initChildren();
 
     /**
-     * Inflates the inner layout and adds to parent layout.
-     * Then calls {@link #setupInnerViewElements(android.view.ViewGroup, android.view.View)} method
-     * to setup all values.
-     * </p>
-     * You can provide your custom layout.
-     * You can use a xml layout with {@link Card#setInnerLayout(int)} or with constructor
-     * {@link Card#Card(android.content.Context, int)}
-     * <p/>
-     * Then customize #setupInnerViewElements to set your values.
-     *
-     * @param context context
-     * @param parent  Inner Layout
-     * @return view
-     */
-
-    /**
      * This method is called by the {@link it.gmariotti.cardslib.library.prototypes.CardWithList.LinearListAdapter} for each row.
      * You can provide your layout and setup your ui elements.
      *
@@ -304,8 +294,8 @@ public abstract class CardWithList extends Card {
             internalSetupProgressBar(parent, view);
 
             if (mLinearListAdapter != null) {
-                mLinearListAdapter.registerDataSetObserver(mDataObserver);
                 internalSetupChildren();
+                mLinearListAdapter.registerDataSetObserver(mDataObserver);
             }
         }
 
@@ -336,6 +326,7 @@ public abstract class CardWithList extends Card {
      * @param parent mainContentLayout
      * @param view   innerView
      */
+    @SuppressWarnings("UnusedParameters")
     private void internalSetupEmptyView(ViewGroup parent, View view) {
         if (useEmptyView) {
             mEmptyView = (View) parent.findViewById(getEmptyViewId());
@@ -353,6 +344,7 @@ public abstract class CardWithList extends Card {
      * @param parent mainContentLayout
      * @param view   innerView
      */
+    @SuppressWarnings("UnusedParameters")
     private void internalSetupProgressBar(ViewGroup parent, View view) {
         if (useProgressBar) {
             mProgressView = (View) parent.findViewById(getProgressBarId());
@@ -363,6 +355,14 @@ public abstract class CardWithList extends Card {
                 setProgressView(mProgressView);
             }
         }
+    }
+
+    /**
+     * Use this method to unregister the observer
+     */
+    public void unregisterDataSetObserver(){
+        if (mLinearListAdapter!=null)
+            mLinearListAdapter.unregisterDataSetObserver(mDataObserver);
     }
 
     // -------------------------------------------------------------
@@ -674,7 +674,7 @@ public abstract class CardWithList extends Card {
      */
     public void setProgressView(View progressView) {
         mProgressView = progressView;
-        useProgressBar = progressView != null ? true : false;
+        useProgressBar = progressView != null;
     }
 
     /**
@@ -735,6 +735,7 @@ public abstract class CardWithList extends Card {
     /**
      * ListAdapter used to populate the LinearLayout inside the Card.
      */
+    @SuppressWarnings("JavaDoc")
     protected class LinearListAdapter extends ArrayAdapter<ListObject> {
 
         LayoutInflater mLayoutInflater;
@@ -811,11 +812,12 @@ public abstract class CardWithList extends Card {
 
 
         /**
-         * Return the Object Id
+         * Returns the Object Id
          *
-         * @param position
-         * @return
+         * @param position  position in the list
+         * @return          the object Id
          */
+        @SuppressWarnings("UnusedDeclaration")
         public String getChildId(int position) {
             //Object
             ListObject object = getItem(position);
@@ -848,6 +850,24 @@ public abstract class CardWithList extends Card {
                 }
             }
         };
+
+        @Override
+        public void registerDataSetObserver(DataSetObserver observer) {
+            if (!observerRegistered) {
+                super.registerDataSetObserver(observer);
+            }
+            observerRegistered = true;
+        }
+
+        @Override
+        public void unregisterDataSetObserver(DataSetObserver observer) {
+            if (observer == null) {
+                observerRegistered = false;
+                return;
+            }
+            super.unregisterDataSetObserver(observer);
+            observerRegistered = false;
+        }
     }
 
     // -------------------------------------------------------------
@@ -857,7 +877,7 @@ public abstract class CardWithList extends Card {
     /**
      * Returns the adapter
      *
-     * @return
+     * @return the adapter
      */
     public LinearListAdapter getLinearListAdapter() {
         return mLinearListAdapter;
@@ -866,7 +886,7 @@ public abstract class CardWithList extends Card {
     /**
      * Sets the adapter
      *
-     * @param linearListAdapter
+     * @param linearListAdapter  adapter
      */
     public void setLinearListAdapter(LinearListAdapter linearListAdapter) {
         mLinearListAdapter = linearListAdapter;
@@ -875,7 +895,7 @@ public abstract class CardWithList extends Card {
     /**
      * Returns the resource Id used which identifies the empty view
      *
-     * @return
+     * @return the resource Id used which identifies the empty view
      */
     public int getEmptyViewId() {
         return emptyViewId;
@@ -884,16 +904,24 @@ public abstract class CardWithList extends Card {
     /**
      * Sets the resource Id used which identifies the empty view
      *
-     * @param emptyViewId
+     * @param emptyViewId resource Id used which identifies the empty view
      */
     public void setEmptyViewId(int emptyViewId) {
         this.emptyViewId = emptyViewId;
     }
 
+    /**
+     * Returns the resource Id used which identifies the ProgressBar
+     * @return the resource Id used which identifies the ProgressBar
+     */
     public int getProgressBarId() {
         return progressBarId;
     }
 
+    /**
+     * Sets the resource Id used which identifies the ProgressBar
+     * @param progressBarId  resource Id used which identifies the ProgressBar
+     */
     public void setProgressBarId(int progressBarId) {
         this.progressBarId = progressBarId;
     }
@@ -901,7 +929,7 @@ public abstract class CardWithList extends Card {
     /**
      * Return if the card uses the empty view built-in feature
      *
-     * @return
+     * @return  true if the card uses the empty view
      */
     private boolean isUseEmptyView() {
         if (mEmptyView != null)
@@ -912,7 +940,7 @@ public abstract class CardWithList extends Card {
     /**
      * Sets the flag to enable and disable the empty view feature
      *
-     * @param useEmptyView
+     * @param useEmptyView  flag
      */
     public void setUseEmptyView(boolean useEmptyView) {
         this.useEmptyView = useEmptyView;
@@ -925,6 +953,10 @@ public abstract class CardWithList extends Card {
             return false;
     }
 
+    /**
+     * Sets the flag to enable and disable the progress bar
+     * @param useProgressBar
+     */
     public void setUseProgressBar(boolean useProgressBar) {
         this.useProgressBar = useProgressBar;
     }
@@ -933,7 +965,7 @@ public abstract class CardWithList extends Card {
     /**
      * Sets the resource Id used which identifies the list
      *
-     * @param listViewId
+     * @param listViewId  resourceId which identifies the list
      */
     public void setListViewId(int listViewId) {
         this.listViewId = listViewId;

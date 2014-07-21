@@ -1,9 +1,30 @@
 Change Log
 ===============================================================================
 
+Version 1.8.0 *(2014-07-14)*
+----------------------------
+* LIB: Added a `SectionedCardAdapter` which allows to display a `CardList` with Sections [(doc)](/doc/CARDLIST.md#sectionedcardlist)
+* LIB: Added a parameter to customize the swipe action [(doc)](/doc/CARDLIST.md#swipe-and-undo-in-cardlistview)
+* LIB: Fixed the CAB feature with the ForegroundLinearLayout
+* DEMO: Added an example with `SectionedCardAdapter`
+
+
+Version 1.7.3 *(2014-06-20)*
+----------------------------
+* LIB: Removed labels app_name to prevent issue with the new Manifest merger
+
+
+Version 1.7.2 *(2014-06-18)*
+----------------------------
+* LIB: Changed the visibility of the`init() method` and its call.
+
+It contains a **BREAKING CHANGE** .* [(doc)](/doc/CARDWITHLIST.md#how-to-build-a-card-with-a-linearlist)
+* LIB: Fixed the issue with Observer when the CardWithList works in a CardListView
+
+
 Version 1.7.1 *(2014-06-14)*
 ----------------------------
-* Removed application labels from android-libs manifest to prevent issues with the new Manifest merger
+* LIB: Removed application labels from android-libs manifest to prevent issues with the new Manifest merger
 
 
 Version 1.7.0 *(2014-06-10)*
