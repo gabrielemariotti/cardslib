@@ -35,7 +35,7 @@ import java.util.List;
 import it.gmariotti.cardslib.library.R;
 import it.gmariotti.cardslib.library.internal.base.BaseCardArrayAdapter;
 import it.gmariotti.cardslib.library.view.CardListView;
-import it.gmariotti.cardslib.library.view.CardView;
+import it.gmariotti.cardslib.library.view.base.CommonCardView;
 import it.gmariotti.cardslib.library.view.listener.SwipeDismissListViewTouchListener;
 import it.gmariotti.cardslib.library.view.listener.SwipeOnScrollListener;
 import it.gmariotti.cardslib.library.view.listener.UndoBarController;
@@ -126,7 +126,7 @@ public class CardArrayAdapter extends BaseCardArrayAdapter implements UndoBarCon
     public View getView(int position, View convertView, ViewGroup parent) {
 
         View view = convertView;
-        CardView mCardView;
+        CommonCardView mCardView;
         Card mCard;
 
         LayoutInflater mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -147,7 +147,7 @@ public class CardArrayAdapter extends BaseCardArrayAdapter implements UndoBarCon
             }
 
             //Setup card
-            mCardView = (CardView) view.findViewById(R.id.list_cardId);
+            mCardView = (CommonCardView) view.findViewById(R.id.list_cardId);
             if (mCardView != null) {
                 //It is important to set recycle value for inner layout elements
                 mCardView.setForceReplaceInnerLayout(Card.equalsInnerLayout(mCardView.getCard(),mCard));
@@ -186,9 +186,9 @@ public class CardArrayAdapter extends BaseCardArrayAdapter implements UndoBarCon
      * Sets SwipeAnimation on List
      *
      * @param card {@link Card}
-     * @param cardView {@link CardView}
+     * @param cardView {@link CommonCardView}
      */
-    protected void setupSwipeableAnimation(final Card card, CardView cardView) {
+    protected void setupSwipeableAnimation(final Card card, CommonCardView cardView) {
 
         if (card.isSwipeable()){
             if (mOnTouchListener == null){
@@ -218,9 +218,9 @@ public class CardArrayAdapter extends BaseCardArrayAdapter implements UndoBarCon
     /**
      * Overrides the default collapse/expand animation in a List
      *
-     * @param cardView {@link CardView}
+     * @param cardView {@link CommonCardView}
      */
-    protected void setupExpandCollapseListAnimation(CardView cardView) {
+    protected void setupExpandCollapseListAnimation(CommonCardView cardView) {
 
         if (cardView == null) return;
         cardView.setOnExpandListAnimatorListener(mCardListView);

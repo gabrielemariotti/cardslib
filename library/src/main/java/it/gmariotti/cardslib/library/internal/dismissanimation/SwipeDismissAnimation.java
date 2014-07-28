@@ -21,9 +21,10 @@ package it.gmariotti.cardslib.library.internal.dismissanimation;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
+import android.view.View;
 
 import it.gmariotti.cardslib.library.internal.Card;
-import it.gmariotti.cardslib.library.view.CardView;
+import it.gmariotti.cardslib.library.view.base.CommonCardView;
 
 /**
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
@@ -42,16 +43,16 @@ public class SwipeDismissAnimation extends BaseDismissAnimation {
     }
 
     @Override
-    public void animate(final Card card, final CardView cardView) {
+    public void animate(final Card card, final CommonCardView cardView) {
 
-        cardView.animate()
+        ((View)cardView).animate()
                 .translationX(mDismissRight ? mListWidth : -mListWidth)
                 .alpha(0)
                 .setDuration(mAnimationTime)
                 .setListener(new AnimatorListenerAdapter() {
                     @Override
                     public void onAnimationEnd(Animator animation) {
-                        invokeCallbak(cardView);
+                        invokeCallbak((View)cardView);
                     }
                 });
     }

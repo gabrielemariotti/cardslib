@@ -30,7 +30,8 @@ import android.view.ViewGroup;
 
 import it.gmariotti.cardslib.library.R;
 import it.gmariotti.cardslib.library.internal.Card;
-import it.gmariotti.cardslib.library.view.CardView;
+import it.gmariotti.cardslib.library.view.base.CommonCardView;
+
 
 /**
  * It is based on Roman Nurik code.
@@ -52,7 +53,7 @@ public class SwipeDismissViewTouchListener implements View.OnTouchListener {
     private long mAnimationTime;
 
     // Fixed properties
-    private CardView mCardView;
+    private CommonCardView mCardView;
     private DismissCallbacks mCallbacks;
     private int mViewWidth = 1; // 1 and not 0 to prevent dividing by zero
 
@@ -82,7 +83,7 @@ public class SwipeDismissViewTouchListener implements View.OnTouchListener {
          * @param cardView               The originating {@link it.gmariotti.cardslib.library.view.CardView}.
          * @parma card                   Card
          */
-        void onDismiss(CardView cardView,Card card);
+        void onDismiss(CommonCardView cardView,Card card);
     }
 
     /**
@@ -91,7 +92,7 @@ public class SwipeDismissViewTouchListener implements View.OnTouchListener {
      * @param cardView  The card view which should be dismissable.
      * @param callbacks The callback to trigger when the user has indicated that she
      */
-    public SwipeDismissViewTouchListener(CardView cardView,
+    public SwipeDismissViewTouchListener(CommonCardView cardView,
                                          Card card,
                                          DismissCallbacks callbacks) {
         ViewConfiguration vc = ViewConfiguration.get(cardView.getContext());
@@ -123,7 +124,7 @@ public class SwipeDismissViewTouchListener implements View.OnTouchListener {
         motionEvent.offsetLocation(mTranslationX, 0);
 
         if (mViewWidth < 2) {
-            mViewWidth = mCardView.getWidth();
+            mViewWidth = ((View)mCardView).getWidth();
         }
 
         switch (motionEvent.getActionMasked()) {
@@ -170,7 +171,7 @@ public class SwipeDismissViewTouchListener implements View.OnTouchListener {
                 if (dismiss) {
                     // dismiss
 
-                    mCardView.animate()
+                    ((View)mCardView).animate()
                             .translationX(dismissRight ? mViewWidth : -mViewWidth)
                             .alpha(0).setDuration(mAnimationTime)
                             .setListener(new AnimatorListenerAdapter() {
@@ -181,7 +182,7 @@ public class SwipeDismissViewTouchListener implements View.OnTouchListener {
                             });
                 } else {
                     // cancel
-                    mCardView.animate().translationX(0).alpha(1)
+                    ((View)mCardView).animate().translationX(0).alpha(1)
                             .setDuration(mAnimationTime).setListener(null);
                 }
                 mVelocityTracker.recycle();
@@ -200,21 +201,21 @@ public class SwipeDismissViewTouchListener implements View.OnTouchListener {
                 float deltaX = motionEvent.getRawX() - mDownX;
                 if (Math.abs(deltaX) > mSlop) {
                     mSwiping = true;
-                    mCardView.getParent().requestDisallowInterceptTouchEvent(true);
+                    ((View)mCardView).getParent().requestDisallowInterceptTouchEvent(true);
 
                     // Cancel ListView's touch (un-highlighting the item)
                     MotionEvent cancelEvent = MotionEvent.obtain(motionEvent);
                     cancelEvent
                             .setAction(MotionEvent.ACTION_CANCEL
                                     | (motionEvent.getActionIndex() << MotionEvent.ACTION_POINTER_INDEX_SHIFT));
-                    mCardView.onTouchEvent(cancelEvent);
+                    ((View)mCardView).onTouchEvent(cancelEvent);
                     cancelEvent.recycle();
                 }
 
                 if (mSwiping) {
                     mTranslationX = deltaX;
-                    mCardView.setTranslationX(deltaX);
-                    mCardView.setAlpha(Math.max(0f,
+                    ((View)mCardView).setTranslationX(deltaX);
+                    ((View)mCardView).setAlpha(Math.max(0f,
                             Math.min(1f, 1f - 2f * Math.abs(deltaX) / mViewWidth)));
                     return true;
                 }
@@ -230,8 +231,8 @@ public class SwipeDismissViewTouchListener implements View.OnTouchListener {
         // This triggers layout on each animation frame; in the future we may want to do something
         // smarter and more performant.
 
-        final ViewGroup.LayoutParams lp = mCardView.getLayoutParams();
-        final int originalHeight = mCardView.getHeight();
+        final ViewGroup.LayoutParams lp = ((View)mCardView).getLayoutParams();
+        final int originalHeight = ((View)mCardView).getHeight();
 
         ValueAnimator animator = ValueAnimator.ofInt(originalHeight, 1)
                 .setDuration(mAnimationTime);
@@ -242,11 +243,11 @@ public class SwipeDismissViewTouchListener implements View.OnTouchListener {
 
                 mCallbacks.onDismiss(mCardView,mToken);
                 // Reset view presentation
-                mCardView.setAlpha(1f);
-                mCardView.setTranslationX(0);
+                ((View)mCardView).setAlpha(1f);
+                ((View)mCardView).setTranslationX(0);
                 //ViewGroup.LayoutParams lp = mCardView.getLayoutParams();
                 lp.height = originalHeight;
-                mCardView.setLayoutParams(lp);
+                ((View) mCardView).setLayoutParams(lp);
             }
         });
 
@@ -254,7 +255,7 @@ public class SwipeDismissViewTouchListener implements View.OnTouchListener {
             @Override
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 lp.height = (Integer) valueAnimator.getAnimatedValue();
-                mCardView.setLayoutParams(lp);
+                ((View)mCardView).setLayoutParams(lp);
             }
         });
 

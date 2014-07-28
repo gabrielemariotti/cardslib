@@ -2,7 +2,6 @@ package it.gmariotti.cardslib.library.internal;
 
 import android.app.Activity;
 import android.content.Context;
-import android.database.Cursor;
 import android.view.ActionMode;
 import android.view.Menu;
 import android.view.View;
@@ -10,14 +9,13 @@ import android.widget.AbsListView;
 
 import java.util.ArrayList;
 
-import it.gmariotti.cardslib.library.internal.Card;
-import it.gmariotti.cardslib.library.internal.CardCursorAdapter;
 import it.gmariotti.cardslib.library.internal.multichoice.DefaultOptionMultiChoice;
 import it.gmariotti.cardslib.library.internal.multichoice.MultiChoiceAdapter;
 import it.gmariotti.cardslib.library.internal.multichoice.MultiChoiceAdapterHelperBase;
 import it.gmariotti.cardslib.library.internal.multichoice.OptionMultiChoice;
 import it.gmariotti.cardslib.library.view.CardListView;
-import it.gmariotti.cardslib.library.view.CardView;
+import it.gmariotti.cardslib.library.view.base.CommonCardView;
+
 
 public abstract class CardCursorMultiChoiceAdapter extends CardCursorAdapter implements MultiChoiceAdapter, AbsListView.MultiChoiceModeListener {
 
@@ -75,7 +73,7 @@ public abstract class CardCursorMultiChoiceAdapter extends CardCursorAdapter imp
      * @param position
      */
     @Override
-    protected void setupMultichoice(View view, Card mCard, CardView mCardView, long position) {
+    protected void setupMultichoice(View view, Card mCard, CommonCardView mCardView, long position) {
         super.setupMultichoice(view, mCard, mCardView, position);
         mHelper.setupMultichoice(view, mCard, mCardView, position);
     }

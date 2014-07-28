@@ -30,7 +30,8 @@ import it.gmariotti.cardslib.library.extra.R;
 import it.gmariotti.cardslib.library.extra.staggeredgrid.view.CardGridStaggeredView;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.base.BaseCardArrayAdapter;
-import it.gmariotti.cardslib.library.view.CardView;
+import it.gmariotti.cardslib.library.view.base.CommonCardView;
+
 
 /**
  * Array Adapter for {@link it.gmariotti.cardslib.library.internal.Card} model.
@@ -102,7 +103,7 @@ public class CardGridStaggeredArrayAdapter extends BaseCardArrayAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         View view = convertView;
-        CardView mCardView;
+        CommonCardView mCardView;
         Card mCard;
 
         LayoutInflater mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -123,7 +124,7 @@ public class CardGridStaggeredArrayAdapter extends BaseCardArrayAdapter {
             }
 
             //Setup card
-            mCardView = (CardView) view.findViewById(R.id.list_cardId);
+            mCardView = (CommonCardView) view.findViewById(R.id.list_cardId);
             if (mCardView != null) {
                 //It is important to set recycle value for inner layout elements
                 mCardView.setForceReplaceInnerLayout(Card.equalsInnerLayout(mCardView.getCard(),mCard));

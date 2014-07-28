@@ -35,6 +35,7 @@ import it.gmariotti.cardslib.library.R;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
 import it.gmariotti.cardslib.library.internal.CardCursorAdapter;
+import it.gmariotti.cardslib.library.view.base.CommonCardView;
 import it.gmariotti.cardslib.library.view.listener.SwipeOnScrollListener;
 
 /**
@@ -62,7 +63,7 @@ import it.gmariotti.cardslib.library.view.listener.SwipeOnScrollListener;
  * </p>
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public class CardListView extends ListView implements CardView.OnExpandListAnimatorListener {
+public class CardListView extends ListView implements CommonCardView.OnExpandListAnimatorListener {
 
     protected static String TAG = "CardListView";
 
@@ -259,7 +260,7 @@ public class CardListView extends ListView implements CardView.OnExpandListAnima
     //--------------------------------------------------------------------------
 
     @Override
-    public void onExpandStart(CardView viewCard,View expandingLayout) {
+    public void onExpandStart(CommonCardView viewCard,View expandingLayout) {
 
         boolean expandable = true;
         if (mCursorAdapter!=null){
@@ -276,7 +277,7 @@ public class CardListView extends ListView implements CardView.OnExpandListAnima
     }
 
     @Override
-    public void onCollapseStart(CardView viewCard,View expandingLayout) {
+    public void onCollapseStart(CommonCardView viewCard,View expandingLayout) {
         boolean collapsible = true;
         if (mCursorAdapter!=null){
             collapsible = mCursorAdapter.onCollapseStart(viewCard);
@@ -302,7 +303,7 @@ public class CardListView extends ListView implements CardView.OnExpandListAnima
          * @param cardView         cardView
          * @param listView         listView
          */
-        public static void animateCollapsing(final View expandingLayout, final CardView cardView,final AbsListView listView) {
+        public static void animateCollapsing(final View expandingLayout, final CommonCardView cardView,final AbsListView listView) {
             int origHeight = expandingLayout.getHeight();
 
             ValueAnimator animator = createHeightAnimator(expandingLayout, origHeight, 0);
@@ -331,7 +332,7 @@ public class CardListView extends ListView implements CardView.OnExpandListAnima
          * @param cardView         cardView
          * @param listView         listView
          */
-        public static void animateExpanding(final View expandingLayout, final CardView cardView,final AbsListView listView) {
+        public static void animateExpanding(final View expandingLayout, final CommonCardView cardView,final AbsListView listView) {
             /* Update the layout so the extra content becomes visible.*/
             expandingLayout.setVisibility(View.VISIBLE);
 

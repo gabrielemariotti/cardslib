@@ -30,7 +30,8 @@ import java.util.HashMap;
 import it.gmariotti.cardslib.library.R;
 import it.gmariotti.cardslib.library.internal.base.BaseCardCursorAdapter;
 import it.gmariotti.cardslib.library.view.CardGridView;
-import it.gmariotti.cardslib.library.view.CardView;
+import it.gmariotti.cardslib.library.view.base.CommonCardView;
+
 
 /**
  * Cursor Adapter for {@link Card} model
@@ -100,12 +101,12 @@ public abstract class CardGridCursorAdapter extends BaseCardCursorAdapter  {
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
 
-        CardView mCardView;
+        CommonCardView mCardView;
         Card mCard;
 
         mCard = (Card) getCardFromCursor(cursor);
         if (mCard != null) {
-            mCardView = (CardView) view.findViewById(R.id.list_cardId);
+            mCardView = (CommonCardView) view.findViewById(R.id.list_cardId);
             if (mCardView != null) {
                 //It is important to set recycle value for inner layout elements
                 mCardView.setForceReplaceInnerLayout(Card.equalsInnerLayout(mCardView.getCard(),mCard));
@@ -145,7 +146,7 @@ public abstract class CardGridCursorAdapter extends BaseCardCursorAdapter  {
      * @param card {@link Card}
      * @param cardView {@link it.gmariotti.cardslib.library.view.CardView}
      */
-    protected void setupSwipeableAnimation(final Card card, CardView cardView) {
+    protected void setupSwipeableAnimation(final Card card, CommonCardView cardView) {
 
         cardView.setOnTouchListener(null);
     }

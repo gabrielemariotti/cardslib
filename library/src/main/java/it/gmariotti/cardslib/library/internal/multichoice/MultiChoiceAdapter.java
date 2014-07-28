@@ -21,7 +21,8 @@ package it.gmariotti.cardslib.library.internal.multichoice;
 import android.view.ActionMode;
 
 import it.gmariotti.cardslib.library.internal.Card;
-import it.gmariotti.cardslib.library.view.CardView;
+import it.gmariotti.cardslib.library.view.base.CommonCardView;
+
 
 /**
  * A base interface for multi choice adapter
@@ -63,9 +64,7 @@ public interface MultiChoiceAdapter {
      * @param cardView
      * @param card
      */
-    void onItemCheckedStateChanged(ActionMode mode, int position, long id, boolean checked, CardView cardView, Card card);
-
-
+    void onItemCheckedStateChanged(ActionMode mode, int position, long id, boolean checked, CommonCardView cardView, Card card);
 
     // -------------------------------------------------------------
     // Default methods. You haven't to define it in your classes

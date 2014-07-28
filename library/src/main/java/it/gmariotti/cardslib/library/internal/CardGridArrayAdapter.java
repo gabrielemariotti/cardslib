@@ -29,7 +29,7 @@ import java.util.List;
 import it.gmariotti.cardslib.library.R;
 import it.gmariotti.cardslib.library.internal.base.BaseCardArrayAdapter;
 import it.gmariotti.cardslib.library.view.CardGridView;
-import it.gmariotti.cardslib.library.view.CardView;
+import it.gmariotti.cardslib.library.view.base.CommonCardView;
 import it.gmariotti.cardslib.library.view.listener.SwipeDismissListViewTouchListener;
 
 /**
@@ -109,7 +109,7 @@ public class CardGridArrayAdapter extends BaseCardArrayAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         View view = convertView;
-        CardView mCardView;
+        CommonCardView mCardView;
         Card mCard;
 
         LayoutInflater mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -130,7 +130,7 @@ public class CardGridArrayAdapter extends BaseCardArrayAdapter {
             }
 
             //Setup card
-            mCardView = (CardView) view.findViewById(R.id.list_cardId);
+            mCardView = (CommonCardView) view.findViewById(R.id.list_cardId);
             if (mCardView != null) {
                 //It is important to set recycle value for inner layout elements
                 mCardView.setForceReplaceInnerLayout(Card.equalsInnerLayout(mCardView.getCard(),mCard));
@@ -169,9 +169,9 @@ public class CardGridArrayAdapter extends BaseCardArrayAdapter {
      * Removes SwipeAnimation on Grid
      *
      * @param card     {@link Card}
-     * @param cardView {@link CardView}
+     * @param cardView {@link CommonCardView}
      */
-    protected void setupSwipeableAnimation(final Card card, CardView cardView) {
+    protected void setupSwipeableAnimation(final Card card, CommonCardView cardView) {
 
         cardView.setOnTouchListener(null);
     }
@@ -181,7 +181,7 @@ public class CardGridArrayAdapter extends BaseCardArrayAdapter {
      *
      * @param cardView {@link it.gmariotti.cardslib.library.view.CardView}
      */
-    protected void setupExpandCollapseListAnimation(CardView cardView) {
+    protected void setupExpandCollapseListAnimation(CommonCardView cardView) {
 
         if (cardView == null) return;
         cardView.setOnExpandListAnimatorListener(mCardGridView);

@@ -26,7 +26,7 @@ import java.util.List;
 
 import it.gmariotti.cardslib.library.R;
 import it.gmariotti.cardslib.library.internal.Card;
-import it.gmariotti.cardslib.library.view.CardView;
+import it.gmariotti.cardslib.library.view.base.CommonCardView;
 import it.gmariotti.cardslib.library.view.listener.UndoBarController;
 
 /**
@@ -101,7 +101,7 @@ public abstract class BaseCardArrayAdapter extends ArrayAdapter<Card> {
      * @param mCard
      * @param mCardView
      */
-    protected void setupMultichoice(View view,Card mCard,CardView mCardView,long position){
+    protected void setupMultichoice(View view,Card mCard,CommonCardView mCardView,long position){
         //empty
     }
 

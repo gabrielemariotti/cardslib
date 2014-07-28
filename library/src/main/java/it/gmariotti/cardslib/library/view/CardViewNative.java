@@ -24,14 +24,16 @@ import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.support.v7.widget.CardView;
 import android.util.AttributeSet;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import android.widget.LinearLayout;
 
 import java.util.HashMap;
 
@@ -47,76 +49,70 @@ import it.gmariotti.cardslib.library.view.component.CardThumbnailView;
 import it.gmariotti.cardslib.library.view.listener.SwipeDismissViewTouchListener;
 
 /**
- * Card view
- * </p>
- * Use an XML layout file to display it.
- * </p>
- * First, you need an XML layout that will display the Card.
- * <pre><code>
- *  <it.gmariotti.cardslib.library.view.CardView
- *     android:id="@+id/carddemo_example_card3"
- *     android:layout_width="match_parent"
- *     android:layout_height="wrap_content"
- *     android:layout_marginLeft="12dp"
- *     android:layout_marginRight="12dp"
- *     android:layout_marginTop="12dp"/>
- * </code></pre>
- * Then create a model:
- * <pre><code>
- *
- *     //Create a Card
- *     Card card = new Card(getContext());
- *
- *     //Create a CardHeader
- *     CardHeader header = new CardHeader(getContext());
- *
- *     //Add Header to card
- *     card.addCardHeader(header);
- *
- * </code></pre>
- * Last get a reference to the `CardView` from your code, and set your `Card.
- * <pre><code>
- *     //Set card in the cardView
- *     CardView cardView = (CardView) getActivity().findViewById(R.id.carddemo);
- *
- *     cardView.setCard(card);
- * </code></pre>
- * You can easily build your layout.
- * </p>
- * The quickest way to start with this would be to copy one of this files and create your layout.
- * Then you can inflate your layout in the `CardView` using the attr: `card:card_layout_resourceID="@layout/my_layout`
- *  Example:
- * <pre><code>
- *      <it.gmariotti.cardslib.library.view.CardView
- *       android:id="@+id/carddemo_thumb_url"
- *        android:layout_width="match_parent"
- *        android:layout_height="wrap_content"
- *        android:layout_marginLeft="12dp"
- *        android:layout_marginRight="12dp"
- *        card:card_layout_resourceID="@layout/card_thumbnail_layout"
- *        android:layout_marginTop="12dp"/>
- * </code></pre>
- * </p>
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public class CardView extends BaseCardView implements CommonCardView {
+public class CardViewNative extends CardView implements CommonCardView {
+
+    protected static String TAG = "CardViewNative";
 
     //--------------------------------------------------------------------------
-    //
+    // BaseCardView attribute
     //--------------------------------------------------------------------------
 
     /**
-     * {@link CardHeader} model
+     * Card Model
+     */
+    protected Card mCard;
+
+    /**
+     * Default layout to apply to card
+     */
+    protected int card_layout_resourceID = R.layout.native_card_layout;
+
+    /**
+     * Global View for this Component
+     */
+    protected View mInternalOuterView;
+
+
+    /**
+     * Header Compound View
+     */
+    protected CardHeaderView mInternalHeaderLayout;
+
+
+    /**
+     * Thumbnail Compound View
+     */
+    protected CardThumbnailView mInternalThumbnailLayout;
+
+    /**
+     * Used to recycle ui elements.
+     */
+    protected boolean mIsRecycle=false;
+
+    /**
+     * Used to replace inner layout elements.
+     */
+    protected boolean mForceReplaceInnerLayout =false;
+
+
+    //--------------------------------------------------------------------------
+    // CardView attribute
+    //--------------------------------------------------------------------------
+
+    /**
+     * {@link it.gmariotti.cardslib.library.internal.CardHeader} model
      */
     protected CardHeader mCardHeader;
 
     /**
-     * {@link CardThumbnail} model
+     * {@link it.gmariotti.cardslib.library.internal.CardThumbnail} model
      */
     protected CardThumbnail mCardThumbnail;
 
     /**
-     * {@link CardExpand} model
+     * {@link it.gmariotti.cardslib.library.internal.CardExpand} model
      */
     protected CardExpand mCardExpand;
 
@@ -165,22 +161,40 @@ public class CardView extends BaseCardView implements CommonCardView {
     // Constructor
     //--------------------------------------------------------------------------
 
-    public CardView(Context context) {
+
+    public CardViewNative(Context context) {
         super(context);
+        init(null, 0);
     }
 
-    public CardView(Context context, AttributeSet attrs) {
+    public CardViewNative(Context context, AttributeSet attrs) {
         super(context, attrs);
+        init(attrs, 0);
     }
 
-    public CardView(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
+    public CardViewNative(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        init(attrs, defStyleAttr);
     }
 
     //--------------------------------------------------------------------------
     // Init
     //--------------------------------------------------------------------------
 
+    /**
+     * Initialize
+     *
+     * @param attrs
+     * @param defStyle
+     */
+    protected void init(AttributeSet attrs, int defStyle) {
+        //Init attrs
+        initAttrs(attrs, defStyle);
+
+        //Init view
+        if (!isInEditMode())
+            initView();
+    }
 
     /**
      * Init custom attrs.
@@ -190,7 +204,7 @@ public class CardView extends BaseCardView implements CommonCardView {
      */
     protected void initAttrs(AttributeSet attrs, int defStyle) {
 
-        card_layout_resourceID = R.layout.card_layout;
+        card_layout_resourceID = R.layout.native_card_layout;
 
         TypedArray a = getContext().getTheme().obtainStyledAttributes(
                 attrs, R.styleable.card_options, defStyle, defStyle);
@@ -200,6 +214,19 @@ public class CardView extends BaseCardView implements CommonCardView {
         } finally {
             a.recycle();
         }
+    }
+
+    /**
+     * Init View
+     */
+    protected void initView() {
+
+        //Inflate outer view
+        LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        mInternalOuterView = inflater.inflate(card_layout_resourceID, this, true);
+
+        setRadius(getResources().getDimension(R.dimen.card_background_default_radius));
+
     }
 
     //--------------------------------------------------------------------------
@@ -215,7 +242,8 @@ public class CardView extends BaseCardView implements CommonCardView {
     @Override
     public void setCard(Card card){
 
-        super.setCard(card);
+        mCard = card;
+
         if (card!=null){
             mCardHeader=card.getCardHeader();
             mCardThumbnail=card.getCardThumbnail();
@@ -257,11 +285,12 @@ public class CardView extends BaseCardView implements CommonCardView {
     // Setup methods
     //--------------------------------------------------------------------------
 
-    @Override
     protected void buildUI() {
 
-        super.buildUI();
-
+        if (mCard == null) {
+            Log.e(TAG, "No card model found. Please use setCard(card) to set all values.");
+            return;
+        }
         mCard.setCardView(this);
 
         //Setup Header view
@@ -290,10 +319,7 @@ public class CardView extends BaseCardView implements CommonCardView {
     /**
      * Retrieve all Layouts IDs
      */
-    @Override
     protected void retrieveLayoutIDs(){
-
-        super.retrieveLayoutIDs();
 
         //Main Layout
         mInternalMainCardLayout = (View) findViewById(R.id.card_main_layout);
@@ -690,7 +716,7 @@ public class CardView extends BaseCardView implements CommonCardView {
             }
 
             ViewGroup.LayoutParams layoutParams = mInternalExpandLayout.getLayoutParams();
-            layoutParams.height = LayoutParams.WRAP_CONTENT;
+            layoutParams.height = LinearLayout.LayoutParams.WRAP_CONTENT;
             mInternalExpandLayout.setLayoutParams(layoutParams);
         }
     }
@@ -839,35 +865,120 @@ public class CardView extends BaseCardView implements CommonCardView {
      *
      * @param onExpandListAnimatorListener listener
      */
-    public void setOnExpandListAnimatorListener(OnExpandListAnimatorListener onExpandListAnimatorListener) {
+    @Override
+    public void setOnExpandListAnimatorListener(CommonCardView.OnExpandListAnimatorListener onExpandListAnimatorListener) {
         this.mOnExpandListAnimatorListener = onExpandListAnimatorListener;
     }
 
     // -------------------------------------------------------------
-    //  Bitmap export
+    //  ChangeBackground
     // -------------------------------------------------------------
 
     /**
-     * Create a {@link android.graphics.Bitmap} from CardView
-     * @return
+     * Changes dynamically the drawable resource to override the style of MainLayout.
+     *
+     * @param drawableResourceId drawable resource Id
      */
-    public Bitmap createBitmap(){
-
-        if (getWidth()<=0 && getHeight()<=0){
-            int spec = MeasureSpec.makeMeasureSpec( 0,MeasureSpec.UNSPECIFIED);
-            measure(spec,spec);
-            layout(0, 0, getMeasuredWidth(), getMeasuredHeight());
+    @Override
+    public void changeBackgroundResourceId(int drawableResourceId) {
+        if (drawableResourceId!=0){
+            if (mInternalMainCardLayout!=null){
+                mInternalMainCardLayout.setBackgroundResource(drawableResourceId);
+            }
         }
-
-        Bitmap b = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_8888);
-        Canvas c = new Canvas(b);
-        draw(c);
-        return b;
     }
 
-    // -------------------------------------------------------------
-    //  Getter and Setter
-    // -------------------------------------------------------------
+    /**
+     * Changes dynamically the drawable resource to override the style of MainLayout.
+     *
+     * @param drawableResource drawable resource
+     */
+    @Override
+    public void changeBackgroundResource(Drawable drawableResource) {
+        if (drawableResource!=null){
+            if (mInternalMainCardLayout!=null){
+                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)
+                    mInternalMainCardLayout.setBackground(drawableResource);
+                else
+                    mInternalMainCardLayout.setBackgroundDrawable(drawableResource);
+            }
+        }
+    }
+
+
+    //--------------------------------------------------------------------------
+    // Getters and Setters
+    //--------------------------------------------------------------------------
+
+    public View getInternalOuterView() {
+        return mInternalOuterView;
+    }
+
+    /**
+     * Returns {@link Card} model
+     *
+     * @return  {@link Card} model
+     */
+    public Card getCard() {
+        return mCard;
+    }
+
+    /**
+     * Returns the view used for Header
+     *
+     * @return {@link CardHeaderView}
+     */
+    public CardHeaderView getInternalHeaderLayout() {
+        return mInternalHeaderLayout;
+    }
+
+    /**
+     * Returns the view used by Thumbnail
+     *
+     * @return {@link CardThumbnailView}
+     */
+    @Override
+    public CardThumbnailView getInternalThumbnailLayout() {
+        return mInternalThumbnailLayout;
+    }
+
+    /**
+     * Indicates if view can recycle ui elements.
+     *
+     * @return <code>true</code> if views can recycle ui elements
+     */
+    public boolean isRecycle() {
+        return mIsRecycle;
+    }
+
+    /**
+     * Sets if view can recycle ui elements
+     *
+     * @param isRecycle  <code>true</code> to recycle
+     */
+    @Override
+    public void setRecycle(boolean isRecycle) {
+        this.mIsRecycle = isRecycle;
+    }
+
+    /**
+     * Indicates if inner layout have to be replaced
+     *
+     * @return <code>true</code> if inner layout can be recycled
+     */
+    public boolean isForceReplaceInnerLayout() {
+        return mForceReplaceInnerLayout;
+    }
+
+    /**
+     * Sets if inner layout have to be replaced
+     *
+     * @param forceReplaceInnerLayout  <code>true</code> to recycle
+     */
+    @Override
+    public void setForceReplaceInnerLayout(boolean forceReplaceInnerLayout) {
+        this.mForceReplaceInnerLayout = forceReplaceInnerLayout;
+    }
 
     /**
      * Returns the view used by Expand Layout
@@ -901,7 +1012,7 @@ public class CardView extends BaseCardView implements CommonCardView {
      */
     public boolean isExpanded() {
         if (mCard!=null){
-               return mCard.isExpanded();
+            return mCard.isExpanded();
         }else
             return false;
     }
@@ -914,47 +1025,6 @@ public class CardView extends BaseCardView implements CommonCardView {
     public void setExpanded(boolean expanded) {
         if (mCard!=null){
             mCard.setExpanded(expanded);
-        }
-    }
-
-    /**
-     * Retrieves the InternalMainCardGlobalLayout.
-     * Background style is applied here.
-     *
-     * @return
-     */
-    public View getInternalMainCardLayout() {
-        return mInternalMainCardLayout;
-    }
-
-    /**
-     * Changes dynamically the drawable resource to override the style of MainLayout.
-     *
-     * @param drawableResourceId drawable resource Id
-     */
-    @Override
-    public void changeBackgroundResourceId(int drawableResourceId) {
-        if (drawableResourceId!=0){
-            if (mInternalMainCardLayout!=null){
-                mInternalMainCardLayout.setBackgroundResource(drawableResourceId);
-            }
-        }
-    }
-
-    /**
-     * Changes dynamically the drawable resource to override the style of MainLayout.
-     *
-     * @param drawableResource drawable resource
-     */
-    @Override
-    public void changeBackgroundResource(Drawable drawableResource) {
-        if (drawableResource!=null){
-            if (mInternalMainCardLayout!=null){
-                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)
-                    mInternalMainCardLayout.setBackground(drawableResource);
-                else
-                    mInternalMainCardLayout.setBackgroundDrawable(drawableResource);
-            }
         }
     }
 }

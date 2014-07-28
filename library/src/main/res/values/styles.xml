@@ -252,5 +252,17 @@
         <item name="android:layout_marginBottom">@dimen/card_section_title_margin_top</item>
     </style>
 
+    <!-- ****************************************************** -->
+    <!-- Native *********************************************** -->
+    <!-- ****************************************************** -->
+
+    <style name="card.native_main_layout">
+        <item name="android:background">@drawable/native_card_selector</item>
+        <item name="android:layout_marginTop">@dimen/card_main_layout_view_margin_top</item>
+        <item name="android:layout_marginBottom">@dimen/card_main_layout_view_margin_bottom</item>
+        <item name="android:layout_marginLeft">@dimen/card_main_layout_view_margin_left</item>
+        <item name="android:layout_marginRight">@dimen/card_main_layout_view_margin_right</item>
+    </style>
+
 
 </resources>
