@@ -11,7 +11,7 @@ buildscript {
 }
 
 ext {
-    compileSdkVersion = 19
+    compileSdkVersion = 'android-L'
     buildToolsVersion = "20.0.0"
 }
 

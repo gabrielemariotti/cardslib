@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 19
+        targetSdkVersion 'L'
         versionName project.VERSION_NAME
         versionCode Integer.parseInt(project.VERSION_CODE)
     }
@@ -23,6 +23,7 @@ android {
 }
 
 dependencies {
+    compile 'com.android.support:cardview-v7:+'
 }
 
 // Used to update in Maven
