@@ -44,7 +44,7 @@ import it.gmariotti.cardslib.library.internal.CardHeader;
 import it.gmariotti.cardslib.library.internal.CardThumbnail;
 import it.gmariotti.cardslib.library.internal.base.BaseCard;
 import it.gmariotti.cardslib.library.view.CardListView;
-import it.gmariotti.cardslib.library.view.CardView;
+import it.gmariotti.cardslib.library.view.base.CommonCardView;
 
 /**
  * List of Google Play cards Example with MultiChoice and CursorAdapter
@@ -276,7 +276,7 @@ public class ListGplayCursorCardCABFragment extends BaseListFragment implements 
         }
 
         @Override
-        public void onItemCheckedStateChanged(ActionMode mode, int position, long id, boolean checked, CardView cardView, Card card) {
+        public void onItemCheckedStateChanged(ActionMode mode, int position, long id, boolean checked, CommonCardView cardView, Card card) {
             Toast.makeText(getContext(), "Click;" + position + " - " + checked, Toast.LENGTH_SHORT).show();
         }
 

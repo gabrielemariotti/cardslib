@@ -35,7 +35,9 @@ import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardExpand;
 import it.gmariotti.cardslib.library.internal.CardHeader;
 import it.gmariotti.cardslib.library.internal.base.BaseCard;
-import it.gmariotti.cardslib.library.view.CardView;
+import it.gmariotti.cardslib.library.view.CardViewNative;
+
+
 
 /**
  * Card Header Examples
@@ -97,9 +99,9 @@ public class HeaderFragment extends BaseFragment {
 
         card.addCardHeader(header);
 
-        //Set card in the cardView
-        CardView cardView = (CardView) getActivity().findViewById(R.id.carddemo_header_std);
-        cardView.setCard(card);
+        //Set card in the CardViewNative
+        CardViewNative CardViewNative = (CardViewNative) getActivity().findViewById(R.id.carddemo_header_std);
+        CardViewNative.setCard(card);
     }
 
 
@@ -126,9 +128,9 @@ public class HeaderFragment extends BaseFragment {
         });
         card.addCardHeader(header);
 
-        //Set card in the cardView
-        CardView cardView = (CardView) getActivity().findViewById(R.id.carddemo_header_overflow);
-        cardView.setCard(card);
+        //Set card in the CardViewNative
+        CardViewNative CardViewNative = (CardViewNative) getActivity().findViewById(R.id.carddemo_header_overflow);
+        CardViewNative.setCard(card);
     }
 
     /**
@@ -170,9 +172,9 @@ public class HeaderFragment extends BaseFragment {
         });
         card.addCardHeader(header);
 
-        //Set card in the cardView
-        CardView cardView = (CardView) getActivity().findViewById(R.id.carddemo_header_overflow_dynamic);
-        cardView.setCard(card);
+        //Set card in the CardViewNative
+        CardViewNative CardViewNative = (CardViewNative) getActivity().findViewById(R.id.carddemo_header_overflow_dynamic);
+        CardViewNative.setCard(card);
     }
 
     /**
@@ -215,9 +217,9 @@ public class HeaderFragment extends BaseFragment {
         });
         card.addCardHeader(header);
 
-        //Set card in the cardView
-        CardView cardView = (CardView) getActivity().findViewById(R.id.carddemo_header_overflow_dynamic2);
-        cardView.setCard(card);
+        //Set card in the CardViewNative
+        CardViewNative CardViewNative = (CardViewNative) getActivity().findViewById(R.id.carddemo_header_overflow_dynamic2);
+        CardViewNative.setCard(card);
     }
 
     /**
@@ -246,9 +248,9 @@ public class HeaderFragment extends BaseFragment {
         expand.setTitle(getString(R.string.demo_expand_basetitle));
         card.addCardExpand(expand);
 
-        //Set card in the cardView
-        CardView cardView = (CardView) getActivity().findViewById(R.id.carddemo_header_expand);
-        cardView.setCard(card);
+        //Set card in the CardViewNative
+        CardViewNative CardViewNative = (CardViewNative) getActivity().findViewById(R.id.carddemo_header_expand);
+        CardViewNative.setCard(card);
     }
 
     /**
@@ -276,8 +278,8 @@ public class HeaderFragment extends BaseFragment {
         //Add Expand Area to Card
         card.addCardExpand(expand);
 
-        //Set card in the cardView
-        final CardView cardView = (CardView) getActivity().findViewById(R.id.carddemo_header_expand_custom_area);
+        //Set card in the CardViewNative
+        final CardViewNative CardViewNative = (CardViewNative) getActivity().findViewById(R.id.carddemo_header_expand_custom_area);
 
         // It is not required.
         card.setOnExpandAnimatorEndListener(new Card.OnExpandAnimatorEndListener() {
@@ -287,7 +289,7 @@ public class HeaderFragment extends BaseFragment {
             }
         });
 
-        cardView.setCard(card);
+        CardViewNative.setCard(card);
     }
 
     /**
@@ -318,10 +320,10 @@ public class HeaderFragment extends BaseFragment {
         //Add Header to card
         card.addCardHeader(header);
 
-        //Set card in the cardView
-        final CardView cardView = (CardView) getActivity().findViewById(R.id.carddemo_header_other_button);
+        //Set card in the CardViewNative
+        final CardViewNative CardViewNative = (CardViewNative) getActivity().findViewById(R.id.carddemo_header_other_button);
 
-        cardView.setCard(card);
+        CardViewNative.setCard(card);
 
     }
 
@@ -356,10 +358,10 @@ public class HeaderFragment extends BaseFragment {
         //Add Header to card
         card.addCardHeader(header);
 
-        //Set card in the cardView
-        final CardView cardView = (CardView) getActivity().findViewById(R.id.carddemo_header_other_button_programmatically);
+        //Set card in the CardViewNative
+        final CardViewNative CardViewNative = (CardViewNative) getActivity().findViewById(R.id.carddemo_header_other_button_programmatically);
 
-        cardView.setCard(card);
+        CardViewNative.setCard(card);
 
     }
 
@@ -378,10 +380,10 @@ public class HeaderFragment extends BaseFragment {
         //Add Header to card
         card.addCardHeader(header);
 
-        //Set card in the cardView
-        CardView cardView = (CardView) getActivity().findViewById(R.id.carddemo_header_inner);
+        //Set card in the CardViewNative
+        CardViewNative CardViewNative = (CardViewNative) getActivity().findViewById(R.id.carddemo_header_inner);
 
-        cardView.setCard(card);
+        CardViewNative.setCard(card);
     }
 
     /**
@@ -398,10 +400,10 @@ public class HeaderFragment extends BaseFragment {
         //Add Header to card
         card.addCardHeader(header);
 
-        //Set card in the cardView
-        CardView cardView = (CardView) getActivity().findViewById(R.id.carddemo_header_layout);
+        //Set card in the CardViewNative
+        CardViewNative CardViewNative = (CardViewNative) getActivity().findViewById(R.id.carddemo_header_layout);
 
-        cardView.setCard(card);
+        CardViewNative.setCard(card);
     }
 
     /**
@@ -428,9 +430,9 @@ public class HeaderFragment extends BaseFragment {
         });
         card.addCardHeader(header);
 
-        //Set card in the cardView
-        CardView cardView = (CardView) getActivity().findViewById(R.id.carddemo_header_buttonleft);
-        cardView.setCard(card);
+        //Set card in the CardViewNative
+        CardViewNative CardViewNative = (CardViewNative) getActivity().findViewById(R.id.carddemo_header_buttonleft);
+        CardViewNative.setCard(card);
     }
 
 }

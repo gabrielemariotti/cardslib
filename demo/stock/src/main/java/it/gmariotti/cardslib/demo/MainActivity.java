@@ -66,7 +66,6 @@ import it.gmariotti.cardslib.demo.fragment.ListGplayCursorCardCABFragment;
 import it.gmariotti.cardslib.demo.fragment.ListGplayUndoCardFragment;
 import it.gmariotti.cardslib.demo.fragment.ListSectionedCardFragment;
 import it.gmariotti.cardslib.demo.fragment.MiscCardFragment;
-import it.gmariotti.cardslib.demo.fragment.OverflowAnimFragment;
 import it.gmariotti.cardslib.demo.fragment.ShadowFragment;
 import it.gmariotti.cardslib.demo.fragment.StockCardFragment;
 import it.gmariotti.cardslib.demo.fragment.ThumbnailFragment;
@@ -122,7 +121,7 @@ public class MainActivity extends Activity {
     private static final int CASE_CARDWITHLIST = 23;
     private static final int CASE_SECTIONED_LIST = 24;
     private static final int CASE_DISMISS_ANIM = 25;
-    private static final int CASE_OVERFLOW_ANIM = 26;
+    //private static final int CASE_OVERFLOW_ANIM = 26;
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -383,9 +382,9 @@ public class MainActivity extends Activity {
             case CASE_DISMISS_ANIM:
                 baseFragment = new DismissAnimFragment();
                 break;
-            case CASE_OVERFLOW_ANIM:
-                baseFragment = new OverflowAnimFragment();
-                break;
+            //case CASE_OVERFLOW_ANIM:
+            //    baseFragment = new OverflowAnimFragment();
+            //    break;
             default:
                 break;
         }

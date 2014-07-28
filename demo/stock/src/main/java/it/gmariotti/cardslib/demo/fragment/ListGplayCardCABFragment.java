@@ -41,7 +41,7 @@ import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardArrayMultiChoiceAdapter;
 import it.gmariotti.cardslib.library.internal.CardThumbnail;
 import it.gmariotti.cardslib.library.view.CardListView;
-import it.gmariotti.cardslib.library.view.CardView;
+import it.gmariotti.cardslib.library.view.base.CommonCardView;
 
 /**
  * List of Google Play cards Example with MultiChoice
@@ -163,7 +163,7 @@ public class ListGplayCardCABFragment extends BaseFragment {
         }
 
         @Override
-        public void onItemCheckedStateChanged(ActionMode mode, int position, long id, boolean checked, CardView cardView, Card card) {
+        public void onItemCheckedStateChanged(ActionMode mode, int position, long id, boolean checked, CommonCardView cardView, Card card) {
             Toast.makeText(getContext(), "Click;" + position + " - " + checked, Toast.LENGTH_SHORT).show();
         }
 
