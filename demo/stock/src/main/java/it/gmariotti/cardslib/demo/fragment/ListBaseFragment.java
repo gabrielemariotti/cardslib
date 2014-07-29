@@ -76,6 +76,8 @@ public class ListBaseFragment extends BaseFragment {
         CardListView listView = (CardListView) getActivity().findViewById(R.id.carddemo_list_base1);
         if (listView!=null){
             listView.setAdapter(mCardArrayAdapter);
+            listView.addFooterView(new View(this), null, false);
+            listView.addHeaderView(new View(this), null, false);
         }
     }
 
