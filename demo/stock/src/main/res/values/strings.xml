@@ -104,6 +104,9 @@
     <string name="carddemo_title_overflow_animation">Overflow animation (experimental)</string>
     <string name="carddemo_title_sectioned_list">Sectioned List</string>
 
+    <string name="carddemo_title_native_card">Native Card</string>
+
+
     <!-- Section -->
     <string name="demo_section_header_standard">Standard Header without buttons</string>
     <string name="demo_section_header_overflow">Standard Header with overflow button</string>
@@ -194,7 +197,10 @@
     <string name="demo_title_cab1">Long Click to enable CAB</string>
     <string name="demo_title_cab2">Text Changed!</string>
     <string name="demo_section_overflow_single_title">Example with simple animation</string>
-
+    <string name="demo_source_code">Source</string>
+    <string name="demo_doc">Doc</string>
+    <string name="placeholder_session_title">Native Cards Examples</string>
+    <string name="placeholder_session_subtitle">Big Cards</string>
 
 
 </resources>

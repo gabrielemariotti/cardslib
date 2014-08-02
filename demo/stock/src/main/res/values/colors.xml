@@ -51,4 +51,21 @@
     <color name="demo_card_stock_negative">#FF4646</color>
     <color name="demo_card_stock_positive">#29A426</color>
 
+
+
+    <!-- Material -->
+    <color name="body_text_1">#de000000</color>
+    <color name="body_text_2">#8a000000</color>
+    <color name="body_text_3">#60000000</color>
+    <color name="body_text_disabled">#44000000</color>
+
+    <color name="body_text_1_inverse">#deffffff</color>
+    <color name="body_text_2_inverse">#8affffff</color>
+
+    <color name="theme_accent_1">#00b0ff</color>
+    <color name="theme_accent_1_light">#8ad4fa</color>
+    <color name="theme_accent_2">#e91e63</color>
+
+    <color name="demo_theme_main_color">#6CB7F0</color>
+    <color name="demo_theme_status_bar_color">#588CB3</color>
 </resources>

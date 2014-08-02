@@ -29,7 +29,7 @@
         <item name="android:actionModeBackground">@drawable/cab_background_top_carddemo</item>
         <item name="android:actionModeSplitBackground">@drawable/cab_background_bottom_carddemo</item>
         <item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Carddemo</item>
-        
+        <item name="android:windowContentOverlay">@null</item>
         
     </style>
 

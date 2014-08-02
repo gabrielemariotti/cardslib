@@ -18,13 +18,9 @@
   -->
 
 <resources>
+    <integer name="font_textStyle_medium">1</integer> <!-- bold -->
+    <string name="font_fontFamily_medium">sans-serif</string>
 
-
-    <style name="AppTheme" parent="android:Theme.Material.Light.DarkActionBar">
-        <item name="android:colorPrimary">@color/demo_theme_main_color</item>
-        <item name="android:colorPrimaryDark">@color/demo_theme_status_bar_color</item>
-        <item name="android:windowContentOverlay">@null</item>
-    </style>
-
-
+    <integer name="font_textStyle_drawer_item">0</integer> <!-- normal -->
+    <string name="font_fontFamily_drawer_item">sans-serif</string>
 </resources>

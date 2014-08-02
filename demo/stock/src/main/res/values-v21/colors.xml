@@ -19,12 +19,4 @@
 
 <resources>
 
-
-    <style name="AppTheme" parent="android:Theme.Material.Light.DarkActionBar">
-        <item name="android:colorPrimary">@color/demo_theme_main_color</item>
-        <item name="android:colorPrimaryDark">@color/demo_theme_status_bar_color</item>
-        <item name="android:windowContentOverlay">@null</item>
-    </style>
-
-
 </resources>

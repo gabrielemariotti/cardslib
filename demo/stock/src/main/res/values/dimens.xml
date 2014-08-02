@@ -23,6 +23,7 @@
 
     <dimen name="drawer_width">240dp</dimen>
     <dimen name="text_size_medium">14sp</dimen>
+    <dimen name="text_size_large">18sp</dimen>
 
     <dimen name="demo_title_section_margin">10dp</dimen>
     <dimen name="demo_title_section_margin_bottom">1dp</dimen>
@@ -53,6 +54,9 @@
     <dimen name="carddemo_section_textmore_padding_top">5dp</dimen>
     <dimen name="carddemo_section_textmore_padding_bottom">5dp</dimen>
     <dimen name="carddemo_section_textmore_margin_left">10dp</dimen>
+    <dimen name="keyline_2_session_detail">72dp</dimen>
+    <dimen name="keyline_1">16dp</dimen>
+    <dimen name="session_detail_max_header_elevation">2dp</dimen>
 
 
 </resources>

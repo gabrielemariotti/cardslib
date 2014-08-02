@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ *******************************************************************************
+  ~   Copyright (c) 2013-2014 Gabriele Mariotti.
+  ~
+  ~   Licensed under the Apache License, Version 2.0 (the "License");
+  ~   you may not use this file except in compliance with the License.
+  ~   You may obtain a copy of the License at
+  ~
+  ~   http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~   Unless required by applicable law or agreed to in writing, software
+  ~   distributed under the License is distributed on an "AS IS" BASIS,
+  ~   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~   See the License for the specific language governing permissions and
+  ~   limitations under the License.
+  ~  *****************************************************************************
+  -->
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginTop="8dp"
+    android:id="@+id/subtitle_tags"
+    android:orientation="horizontal"
+    android:gravity="center_horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="32dp"
+    tools:showIn="@layout/demo_fragment_native_card">
+
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+              android:background="@drawable/session_tag_chip"
+              android:paddingLeft="8dp"
+              android:paddingRight="8dp"
+              android:drawablePadding="4dp"
+              android:text="@string/demo_source_code"
+              android:gravity="center"
+              android:textColor="@color/body_text_1"
+              android:textSize="@dimen/text_size_medium"
+              android:layout_width="144dp"
+              android:layout_height="match_parent"
+              android:layout_marginRight="16dp"/>
+
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+              android:background="@drawable/session_tag_chip"
+              android:paddingLeft="8dp"
+              android:paddingRight="8dp"
+              android:drawablePadding="4dp"
+              android:text="@string/demo_doc"
+              android:gravity="center"
+              android:textColor="@color/body_text_1"
+              android:textSize="@dimen/text_size_medium"
+              android:layout_width="144dp"
+              android:layout_height="match_parent"
+              android:layout_marginLeft="16dp"
+        />
+
+
+</LinearLayout>
+
+
+    

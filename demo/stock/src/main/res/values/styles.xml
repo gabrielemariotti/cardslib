@@ -260,5 +260,16 @@
         <item name="android:layout_marginTop">@dimen/card_section_title_margin_top</item>
     </style>
 
+    <style name="TextBody">
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:textColor">@color/body_text_1</item>
+        <item name="android:lineSpacingMultiplier">1.1</item>
+    </style>
+
+    <style name="SessionTimeHint" parent="TextBody">
+          <item name="android:textStyle">italic</item>
+          <item name="android:textColor">@color/body_text_2</item>
+    </style>
+
 
 </resources>
