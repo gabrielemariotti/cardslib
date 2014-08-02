@@ -920,4 +920,10 @@ public class Card extends BaseCard {
     public void setViewToClickToExpand(ViewToClickToExpand viewToClickToExpand) {
         this.viewToClickToExpand = viewToClickToExpand;
     }
+
+    protected boolean isNative(){
+        if (mCardView!=null)
+            return mCardView.isNative();
+        return false;
+    }
 }

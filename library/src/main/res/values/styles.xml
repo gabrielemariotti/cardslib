@@ -22,6 +22,8 @@
 
     </style>
 
+    <style name="card.native"></style>
+
     <!-- Style for Shadow ******************************************************-->
 
     <!-- Style for Shadow Compound view-->
@@ -43,6 +45,13 @@
     <!-- Style for Header ******************************************************-->
 
     <style name="card.header_outer_layout">
+        <item name="android:layout_marginTop">@dimen/card_header_outer_view_margin_top</item>
+        <item name="android:layout_marginBottom">@dimen/card_header_outer_view_margin_bottom</item>
+        <item name="android:layout_marginLeft">@dimen/card_header_outer_view_margin_left</item>
+        <item name="android:layout_marginRight">@dimen/card_header_outer_view_margin_right</item>
+    </style>
+
+    <style name="card.native.header_outer_layout">
         <item name="android:layout_marginTop">@dimen/card_header_outer_view_margin_top</item>
         <item name="android:layout_marginBottom">@dimen/card_header_outer_view_margin_bottom</item>
         <item name="android:layout_marginLeft">@dimen/card_header_outer_view_margin_left</item>
@@ -71,6 +80,9 @@
 
     </style>
 
+
+    <style name="card.native.header_button_frame"></style>
+
     <!-- Button Base in Header-->
     <style name="card.header_button_base">
         <item name="android:layout_width">wrap_content</item>
@@ -84,10 +96,25 @@
         <item name="android:layout_marginRight">@dimen/card_header_button_margin_right</item>
     </style>
 
+    <style name="card.native.header_button_base">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_marginLeft">@dimen/card_header_button_margin_right</item>
+        <item name="android:focusable">false</item>
+        <item name="android:focusableInTouchMode">false</item>
+        <item name="android:clickable">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginRight">@dimen/card_header_button_margin_right</item>
+    </style>
+
     <!-- Button Overflow in Header -->
     <style name="card.header_button_base.overflow" >
         <item name="android:background">@drawable/card_menu_button_rounded_overflow</item>
-        <item name="android:layout_marginRight">@dimen/card_header_button_overflow_margin_right</item>
+    </style>
+
+    <style name="card.native.header_button_base.overflow" >
+        <item name="android:background">@drawable/card_menu_button_rounded_overflow</item>
     </style>
 
     <!-- Button to Expand/Collapse in Header -->
@@ -95,11 +122,19 @@
         <item name="android:background">@drawable/card_menu_button_expand</item>
     </style>
 
+    <style name="card.native.header_button_base.expand">
+        <item name="android:background">@drawable/card_menu_button_expand</item>
+    </style>
+
+
     <!-- Other Button in Header -->
     <style name="card.header_button_base.other">
 
     </style>
 
+    <style name="card.native.header_button_base.other">
+
+    </style>
 
     <!-- Style for Content ******************************************************-->
 
@@ -263,6 +298,8 @@
         <item name="android:layout_marginLeft">@dimen/card_main_layout_view_margin_left</item>
         <item name="android:layout_marginRight">@dimen/card_main_layout_view_margin_right</item>
     </style>
+
+
 
 
 </resources>

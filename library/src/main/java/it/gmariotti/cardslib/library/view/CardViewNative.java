@@ -49,8 +49,58 @@ import it.gmariotti.cardslib.library.view.component.CardThumbnailView;
 import it.gmariotti.cardslib.library.view.listener.SwipeDismissViewTouchListener;
 
 /**
- * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
- */
+* Card view
+* </p>
+* Use an XML layout file to display it.
+* </p>
+* First, you need an XML layout that will display the Card.
+* <pre><code>
+*  <it.gmariotti.cardslib.library.view.CardViewNative
+*     android:id="@+id/carddemo_example_card3"
+*     android:layout_width="match_parent"
+*     android:layout_height="wrap_content"
+*     android:layout_marginLeft="12dp"
+*     android:layout_marginRight="12dp"
+*     android:layout_marginTop="12dp"/>
+* </code></pre>
+* Then create a model:
+* <pre><code>
+*
+*     //Create a Card
+*     Card card = new Card(getContext());
+*
+*     //Create a CardHeader
+*     CardHeader header = new CardHeader(getContext());
+*
+*     //Add Header to card
+*     card.addCardHeader(header);
+*
+* </code></pre>
+* Last get a reference to the `CardViewNative` from your code, and set your `Card.
+* <pre><code>
+*     //Set card in the cardView
+*     CardViewNative cardView = (CardViewNative) getActivity().findViewById(R.id.carddemo);
+*
+*     cardView.setCard(card);
+* </code></pre>
+* You can easily build your layout.
+* </p>
+* The quickest way to start with this would be to copy one of this files and create your layout.
+* Then you can inflate your layout in the `CardViewNative` using the attr: `card:card_layout_resourceID="@layout/my_layout`
+*  Example:
+* <pre><code>
+*      <it.gmariotti.cardslib.library.view.CardViewNative
+*       android:id="@+id/carddemo_thumb_url"
+*        android:layout_width="match_parent"
+*        android:layout_height="wrap_content"
+*        android:layout_marginLeft="12dp"
+*        android:layout_marginRight="12dp"
+*        card:card_layout_resourceID="@layout/card_thumbnail_layout"
+*        android:layout_marginTop="12dp"/>
+* </code></pre>
+* </p>
+* @author Gabriele Mariotti (gabri.mariotti@gmail.com)
+*/
 public class CardViewNative extends CardView implements CommonCardView {
 
     protected static String TAG = "CardViewNative";
@@ -1026,5 +1076,10 @@ public class CardViewNative extends CardView implements CommonCardView {
         if (mCard!=null){
             mCard.setExpanded(expanded);
         }
+    }
+
+    @Override
+    public boolean isNative() {
+        return true;
     }
 }

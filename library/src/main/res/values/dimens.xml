@@ -43,6 +43,8 @@
     <dimen name="card_header_button_margin_right">2dp</dimen>
     <dimen name="card_header_button_overflow_margin_right">3dp</dimen>
 
+    <dimen name="card_header_native_button_margin_right">2dp</dimen>
+
     <!-- Title Header -->
     <dimen name="card_header_simple_title_margin_left">10dp</dimen>
     <dimen name="card_header_simple_title_margin_top">5dp</dimen>

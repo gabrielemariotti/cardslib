@@ -38,9 +38,10 @@
              If you want to customize this element use attr card:card_header_layout_resourceID
              You can also use your CardHeader subclass-->
         <it.gmariotti.cardslib.library.view.component.CardHeaderView
-            style="@style/card.header_outer_layout"
+            style="@style/card.native.header_outer_layout"
             android:id="@+id/card_header_layout"
             android:layout_width="match_parent"
+            card:card_header_layout_resourceID="@layout/native_base_header_layout"
             android:layout_height="wrap_content"/>
 
         <!-- Main Content View -->

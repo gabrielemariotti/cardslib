@@ -26,14 +26,20 @@ import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.view.component.CardThumbnailView;
 
 /**
+ * Common interface for CardView.
+ * <p>
+ * Necessary to merge the native cardview and the library cardview.
+ * <p>
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
 public interface CommonCardView {
 
-
+    /**
+     * Return the context
+     *
+     * @return context
+     */
     Context getContext();
-
-    void refreshCard(Card card);
 
     /**
      * Interface to listen any callbacks when expand/collapse animation starts
@@ -43,26 +49,82 @@ public interface CommonCardView {
         public void onCollapseStart(CommonCardView viewCard,View expandingLayout);
     }
 
-
+    /**
+     * Changes dynamically the drawable resource to override the style of MainLayout.
+     *
+     * @param drawableResourceId drawable resource Id
+     */
     void changeBackgroundResourceId(int drawableResourceId);
 
+    /**
+     * Changes dynamically the drawable resource to override the style of MainLayout.
+     *
+     * @param drawableResource drawable resource
+     */
     void changeBackgroundResource(Drawable drawableResource);
 
+    /**
+     * Returns {@link Card} model
+     *
+     * @return  {@link Card} model
+     */
     Card getCard();
 
-    void setCard(Card mCard);
+    /**
+     * Add a {@link Card}.
+     * It is very important to set all values and all components before launch this method.
+     *
+     * @param card {@link Card} model
+     */
+    void setCard(Card card);
 
-    void setForceReplaceInnerLayout(boolean b);
+    /**
+     * Indicates if inner layout have to be replaced
+     *
+     *
+     */
+    void setForceReplaceInnerLayout(boolean forceReplaceInnerLayout);
 
+    /**
+     * Sets if view can recycle ui elements
+     *
+     * @param recycle  <code>true</code> to recycle
+     */
     void setRecycle(boolean recycle);
 
+    /**
+     * Implement Refreshes the card content (it doesn't inflate layouts again)
+     *
+     * @param card
+     */
+    void refreshCard(Card card);
+
+    /** Returns the view used by Thumbnail
+     *
+     * @return {@link CardThumbnailView}
+     */
     CardThumbnailView getInternalThumbnailLayout();
+
 
     void setOnTouchListener(View.OnTouchListener onTouchListener);
 
+    /**
+     * Sets the listener invoked when expand/collapse animation starts
+     * It is used internally. Don't override it.
+     *
+     * @param onExpandListAnimatorListener listener
+     */
     void setOnExpandListAnimatorListener(OnExpandListAnimatorListener onExpandListAnimatorListener);
 
     void setOnClickListener(View.OnClickListener advanceClickListener);
 
-    void setExpanded(boolean b);
+    /**
+     * Sets the card as expanded or collapsed
+     *
+     * @param expanded  <code>true</code> if the card is expanded
+     */
+    void setExpanded(boolean expanded);
+
+
+    boolean isNative();
 }

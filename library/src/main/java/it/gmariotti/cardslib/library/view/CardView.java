@@ -917,6 +917,11 @@ public class CardView extends BaseCardView implements CommonCardView {
         }
     }
 
+    @Override
+    public boolean isNative() {
+        return false;
+    }
+
     /**
      * Retrieves the InternalMainCardGlobalLayout.
      * Background style is applied here.
