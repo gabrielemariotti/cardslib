@@ -24,6 +24,8 @@ package it.gmariotti.cardslib.library;
 public class Constants {
 
 
+    public static int API_L = 20;
+
     public static class IntentManager{
 
         /**

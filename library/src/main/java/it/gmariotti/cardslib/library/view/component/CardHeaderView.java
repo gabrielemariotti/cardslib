@@ -19,8 +19,10 @@
 package it.gmariotti.cardslib.library.view.component;
 
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Outline;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -32,6 +34,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
 
+import it.gmariotti.cardslib.library.Constants;
 import it.gmariotti.cardslib.library.R;
 import it.gmariotti.cardslib.library.internal.CardHeader;
 import it.gmariotti.cardslib.library.view.base.CardViewInterface;
@@ -369,16 +372,38 @@ public class CardHeaderView extends FrameLayout implements CardViewInterface {
     protected void visibilityButtonHelper(int overflowButtonVisibility, int expandButtonVisibility, int otherButtonVisibility) {
 
         if (overflowButtonVisibility == VISIBLE || overflowButtonVisibility == GONE) {
-            if (mImageButtonOverflow != null)
+            if (mImageButtonOverflow != null) {
                 mImageButtonOverflow.setVisibility(overflowButtonVisibility);
+                rippleButtonHelper(mImageButtonOverflow);
+            }
         }
         if (expandButtonVisibility == VISIBLE || expandButtonVisibility == GONE) {
-            if (mImageButtonExpand != null)
+            if (mImageButtonExpand != null) {
                 mImageButtonExpand.setVisibility(expandButtonVisibility);
+                rippleButtonHelper(mImageButtonExpand);
+            }
         }
         if (otherButtonVisibility == VISIBLE || otherButtonVisibility == GONE) {
-            if (mImageButtonOther != null)
+            if (mImageButtonOther != null) {
                 mImageButtonOther.setVisibility(otherButtonVisibility);
+                rippleButtonHelper(mImageButtonOther);
+            }
+        }
+    }
+
+    /**
+     * Ripple helper for button in header
+     * @param button
+     */
+    @TargetApi(Build.VERSION_CODES.L)
+    private void rippleButtonHelper(ImageButton button) {
+
+        if (button != null && Build.VERSION.SDK_INT >= Constants.API_L) {
+            //Outline
+            int size = getResources().getDimensionPixelSize(R.dimen.card_header_button_size);
+            Outline outline = new Outline();
+            outline.setOval(0, 0, size, size);
+            button.setOutline(outline);
         }
     }
 

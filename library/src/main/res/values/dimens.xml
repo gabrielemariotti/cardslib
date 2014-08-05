@@ -106,5 +106,7 @@
     <dimen name="card_section_container_padding_right">15dp</dimen>
     <dimen name="card_section_title_margin_top">10dp</dimen>
 
+    <dimen name="card_header_button_size">56dp</dimen>
+
 
 </resources>

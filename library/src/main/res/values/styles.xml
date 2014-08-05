@@ -51,11 +51,8 @@
         <item name="android:layout_marginRight">@dimen/card_header_outer_view_margin_right</item>
     </style>
 
-    <style name="card.native.header_outer_layout">
-        <item name="android:layout_marginTop">@dimen/card_header_outer_view_margin_top</item>
-        <item name="android:layout_marginBottom">@dimen/card_header_outer_view_margin_bottom</item>
-        <item name="android:layout_marginLeft">@dimen/card_header_outer_view_margin_left</item>
-        <item name="android:layout_marginRight">@dimen/card_header_outer_view_margin_right</item>
+    <style name="card.native.header_outer_layout" parent="card.header_outer_layout">
+
     </style>
 
     <!--Style for Header Compound View -->
@@ -96,16 +93,8 @@
         <item name="android:layout_marginRight">@dimen/card_header_button_margin_right</item>
     </style>
 
-    <style name="card.native.header_button_base">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_alignParentRight">true</item>
+    <style name="card.native.header_button_base" parent="card.header_button_base">
         <item name="android:layout_marginLeft">@dimen/card_header_button_margin_right</item>
-        <item name="android:focusable">false</item>
-        <item name="android:focusableInTouchMode">false</item>
-        <item name="android:clickable">true</item>
-        <item name="android:layout_centerVertical">true</item>
-        <item name="android:layout_marginRight">@dimen/card_header_button_margin_right</item>
     </style>
 
     <!-- Button Overflow in Header -->
@@ -171,6 +160,10 @@
     <!-- Style for Main Layout kitkat-->
     <style name="card.main_layout.kitkat">
         <item name="android:background">@drawable/card_kitkat_selector</item>
+    </style>
+
+    <style name="card.native_main_layout" parent="card.main_layout">
+
     </style>
 
     <!-- Style for Main Layout with foreground selector-->
@@ -287,17 +280,7 @@
         <item name="android:layout_marginBottom">@dimen/card_section_title_margin_top</item>
     </style>
 
-    <!-- ****************************************************** -->
-    <!-- Native *********************************************** -->
-    <!-- ****************************************************** -->
 
-    <style name="card.native_main_layout">
-        <item name="android:background">@drawable/native_card_selector</item>
-        <item name="android:layout_marginTop">@dimen/card_main_layout_view_margin_top</item>
-        <item name="android:layout_marginBottom">@dimen/card_main_layout_view_margin_bottom</item>
-        <item name="android:layout_marginLeft">@dimen/card_main_layout_view_margin_left</item>
-        <item name="android:layout_marginRight">@dimen/card_main_layout_view_margin_right</item>
-    </style>
 
 
 
