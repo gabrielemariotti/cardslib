@@ -92,7 +92,7 @@
     <!-- Standard Header without buttons -->
     <TextView
         android:layout_alignParentBottom="true"
-        style="@style/AppTheme.TrademarkText"
+        style="@style/Theme.Carddemo.App.TrademarkText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/demo_trademark"/>

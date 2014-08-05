@@ -57,6 +57,7 @@
     <dimen name="keyline_2_session_detail">72dp</dimen>
     <dimen name="keyline_1">16dp</dimen>
     <dimen name="session_detail_max_header_elevation">2dp</dimen>
+    <dimen name="carddemo_hader_height">72dp</dimen>
 
 
 </resources>

@@ -19,10 +19,17 @@
 
 <resources>
 
-    <style name="Theme.Carddemo" parent="@android:style/Theme.Holo.Light">
+    <style name="Theme.Carddemo.Base" parent="Theme">
+
+        <item name="popupItemBackground">?android:selectableItemBackground</item>
+
+
+        <item name="android:popupMenuStyle">@style/Widget.Carddemo.PopupMenu</item>
+        <item name="android:listPopupWindowStyle">@style/Widget.Carddemo.PopupMenu</item>
+        <item name="android:dropDownListViewStyle">@style/Widget.Carddemo.ListView.DropDown</item>
+        <item name="android:textAppearanceLargePopupMenu">@style/TextAppearance.LargePopupMenu</item>
+
         <item name="android:actionBarItemBackground">@drawable/selectable_background_carddemo</item>
-        <item name="android:popupMenuStyle">@style/PopupMenu.Carddemo</item>
-        <item name="android:dropDownListViewStyle">@style/DropDownListView.Carddemo</item>
         <item name="android:actionBarTabStyle">@style/ActionBarTabStyle.Carddemo</item>
         <item name="android:actionDropDownStyle">@style/DropDownNav.Carddemo</item>
         <item name="android:actionBarStyle">@style/ActionBar.Solid.Carddemo</item>
@@ -30,7 +37,7 @@
         <item name="android:actionModeSplitBackground">@drawable/cab_background_bottom_carddemo</item>
         <item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Carddemo</item>
         <item name="android:windowContentOverlay">@null</item>
-        
+
     </style>
 
     <style name="ActionBar.Solid.Carddemo" parent="@android:style/Widget.Holo.Light.ActionBar.Solid">
@@ -46,7 +53,7 @@
     </style>
 
     <style name="PopupMenu.Carddemo" parent="@android:style/Widget.Holo.Light.ListPopupWindow">
-        <item name="android:popupBackground">@drawable/menu_dropdown_panel_carddemo</item>	
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_carddemo</item>
     </style>
 
     <style name="DropDownListView.Carddemo" parent="@android:style/Widget.Holo.Light.ListView.DropDown">
@@ -71,10 +78,6 @@
         <item name="android:background">@drawable/btn_cab_done_carddemo</item>
     </style>
 
-    <!-- this style is only referenced in a Light.DarkActionBar based theme -->
-    <style name="Theme.Carddemo.Widget" parent="@android:style/Theme.Holo">
-        <item name="android:popupMenuStyle">@style/PopupMenu.Carddemo</item>
-        <item name="android:dropDownListViewStyle">@style/DropDownListView.Carddemo</item>
-    </style>
+
 
 </resources>

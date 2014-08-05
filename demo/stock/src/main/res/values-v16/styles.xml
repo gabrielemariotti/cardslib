@@ -23,12 +23,10 @@
         AppBaseTheme from BOTH res/values/styles.xml and
         res/values-v11/styles.xml on API 14+ devices.
     -->
-    <style name="AppBaseTheme" parent="Theme.Carddemo">
-        <!-- API 14 theme customizations can go here. -->
-    </style>
+
 
     <!-- Text for sections -->
-    <style name="AppTheme.TitleText">
+    <style name="Theme.Carddemo.App.TitleText">
         <item name="android:textSize">@dimen/demo_title_section_textsize</item>
         <item name="android:layout_marginLeft">@dimen/demo_title_section_margin</item>
         <item name="android:layout_marginRight">@dimen/demo_title_section_margin</item>

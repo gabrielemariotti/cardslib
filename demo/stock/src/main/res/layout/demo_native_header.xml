@@ -25,7 +25,7 @@
              android:layout_height="wrap_content"
              android:clipChildren="false"
              android:clipToPadding="false"
-             android:id="@+id/header_session"
+             android:id="@+id/header_recap"
              tools:showIn="@layout/demo_fragment_native_card">
 
     <!-- height assigned dynamically -->
@@ -33,7 +33,7 @@
         android:id="@+id/header_background"
         android:layout_width="match_parent"
         android:background="@color/demo_theme_main_color"
-        android:layout_height="72dp"/>
+        android:layout_height="@dimen/carddemo_hader_height"/>
 
     <LinearLayout
         android:id="@+id/header_contents"
@@ -51,7 +51,7 @@
             android:layout_width="match_parent"
             android:layout_marginBottom="0dp"
             android:text="@string/placeholder_session_title"
-            android:id="@+id/session_title"
+            android:id="@+id/header_title"
             android:maxLines="4"
             android:ellipsize="end"
             android:textSize="@dimen/text_size_large"
@@ -66,7 +66,7 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:text="@string/placeholder_session_subtitle"
-            android:id="@+id/session_subtitle"
+            android:id="@+id/header_subtitle"
             android:maxLines="2"
             android:ellipsize="end"
             android:textSize="16sp"

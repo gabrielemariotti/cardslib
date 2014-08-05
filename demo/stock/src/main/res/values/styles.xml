@@ -18,26 +18,34 @@
 
 <resources>
 
-    <!--
-        Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
-    -->
-    <style name="AppBaseTheme" parent="Theme.Carddemo">
-        <!--
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        -->
+
+    <style name="FrameworkRoot.Theme" parent="android:Theme.Holo.Light.DarkActionBar" />
+    <style name="FrameworkRoot.ActionBar" parent="android:Widget.Holo.ActionBar" />
+    <style name="FrameworkRoot.ActionBar.TitleText" parent="android:TextAppearance.Holo.Widget.ActionBar.Title" />
+    <style name="FrameworkRoot.ActionBar.TabBar" parent="android:Widget.Holo.ActionBar.TabBar" />
+    <style name="FrameworkRoot.EditText" parent="android:Widget.Holo.Light.EditText" />
+    <style name="FrameworkRoot.Widget" parent="android:Theme.Holo" />
+    <style name="FrameworkRoot.Widget.ActionButton.Overflow" parent="android:Widget.Holo.ActionButton.Overflow" />
+    <style name="FrameworkRoot.Widget.Spinner" parent="android:Widget.Holo.Light.Spinner" />
+    <style name="FrameworkRoot.Widget.ListView.DropDown" parent="android:Widget.Holo.Light.ListView.DropDown" />
+    <style name="FrameworkRoot.Widget.PopupMenu" parent="android:Widget.Holo.Light.PopupMenu" />
+    <style name="FrameworkRoot.TextAppearance.Widget.PopupMenu.Large" parent="android:TextAppearance.Holo.Widget.PopupMenu.Large" />
+
+    <!-- Immediate parent theme to specify base values for custom attributes -->
+    <style name="Theme" parent="FrameworkRoot.Theme">
+        <!-- Only needed for pre-L -->
+        <item name="android:actionOverflowButtonStyle">@style/ActionButton.Overflow</item>
     </style>
 
-    <!-- Application theme. -->
-    <style name="AppTheme" parent="AppBaseTheme">
-        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
-    </style>
+    <style name="Theme.Carddemo.App" parent="Theme.Carddemo.Base" />
 
+
+    <style name="ActionButton.Overflow" parent="FrameworkRoot.Widget.ActionButton.Overflow">
+        <item name="android:src">@drawable/demo_ic_action_overflow</item>
+    </style>
 
     <!-- Text for sections -->
-    <style name="AppTheme.TitleText">
+    <style name="Theme.Carddemo.App.TitleText">
         <item name="android:textSize">@dimen/demo_title_section_textsize</item>
         <item name="android:layout_marginLeft">@dimen/demo_title_section_margin</item>
         <item name="android:layout_marginRight">@dimen/demo_title_section_margin</item>
@@ -47,12 +55,33 @@
         <item name="android:textColor">@color/demo_title_section_textcolor</item>
     </style>
 
-    <style name="AppTheme.TrademarkText">
+    <style name="Theme.Carddemo.App.TrademarkText">
         <item name="android:textSize">12dp</item>
         <item name="android:layout_marginLeft">@dimen/demo_title_section_margin</item>
         <item name="android:layout_marginRight">@dimen/demo_title_section_margin</item>
         <item name="android:layout_marginBottom">@dimen/demo_title_section_margin_bottom</item>
         <item name="android:textColor">@android:color/darker_gray</item>
+    </style>
+
+    <style name="Theme.Carddemo.App.Widget" parent="FrameworkRoot.Widget">
+        <item name="android:popupMenuStyle">@style/Widget.Carddemo.PopupMenu</item>
+        <item name="android:listPopupWindowStyle">@style/Widget.Carddemo.PopupMenu</item>
+        <item name="android:dropDownListViewStyle">@style/Widget.Carddemo.ListView.DropDown</item>
+        <item name="android:textAppearanceLargePopupMenu">@style/TextAppearance.LargePopupMenu</item>
+    </style>
+
+    <style name="Widget.Carddemo.PopupMenu" parent="FrameworkRoot.Widget.PopupMenu">
+        <item name="android:dropDownSelector">?popupItemBackground</item>
+    </style>
+
+    <style name="Widget.Carddemo.ListView.DropDown" parent="FrameworkRoot.Widget.ListView.DropDown">
+        <item name="android:listSelector">?popupItemBackground</item>
+        <item name="android:divider">@null</item>
+        <item name="android:dividerHeight">0dp</item>
+    </style>
+
+    <style name="TextAppearance.LargePopupMenu" parent="FrameworkRoot.TextAppearance.Widget.PopupMenu.Large">
+        <item name="android:textColor">@color/body_text_1</item>
     </style>
 
     <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++   -->

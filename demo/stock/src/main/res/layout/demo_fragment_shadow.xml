@@ -36,7 +36,7 @@
 
             <!-- No shadow -->
             <TextView
-                style="@style/AppTheme.TitleText"
+                style="@style/Theme.Carddemo.App.TitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/demo_section_shadow_no"/>
@@ -52,7 +52,7 @@
 
             <!-- Customize Layout Shadow -->
             <TextView
-                style="@style/AppTheme.TitleText"
+                style="@style/Theme.Carddemo.App.TitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/demo_section_shadow_layout"/>

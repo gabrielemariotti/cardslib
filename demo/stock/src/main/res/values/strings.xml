@@ -199,8 +199,10 @@
     <string name="demo_section_overflow_single_title">Example with simple animation</string>
     <string name="demo_source_code">Source</string>
     <string name="demo_doc">Doc</string>
+
     <string name="placeholder_session_title">Native Cards Examples</string>
     <string name="placeholder_session_subtitle">Big Cards</string>
 
-
+    <string name="header_title_examples">Native Cards Examples</string>
+    <string name="header_title_bigcard">Big Cards</string>
 </resources>
