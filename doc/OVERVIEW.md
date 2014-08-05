@@ -4,10 +4,12 @@
 
 The main purpose of the library is to build UI Cards through a object-model.
 
+**Note**: *in this doc, the term `CardView` is referred to the view `CardView` or `CardViewNative`*
+
 Each `Card` has:
 
-* a **global layout** which binds to `CardView`
-* a **model** which populates and manages the `CardView`
+* a **global layout** which binds to `CardView` 
+* a **model** which populates and manages the `CardView` 
 
 
 A `CardView` has a global layout which defines the appearance and layout of the elements.
@@ -19,13 +21,19 @@ It has these basic parts:
 * Header
 * Thumbnail
 * MainContent
-* Shadow
+* Shadow (it is not available in the `CardViewNative` because it is natively supported)
 * Expand Area
 
 This library provides 2 global layouts:
 
-* `res/layout/card_layout.xml` (default)
+For the `CardView`:
+* **Default** : `res/layout/card_layout.xml` (without a `CardThumbnail`) 
 * `res/layout/card_thumbnail_layout.xml`
+
+For the `CardViewNative`:
+* **Default** : `res/layout/native_card_layout.xml` (without a `CardThumbnail`)  
+* `res/layout/native_card_thumbnail_layout.xml`
+
 
 You can build **your custom global** layout as you like and inflate in `CardView` with `card_layout_resourceID` attr.
 
