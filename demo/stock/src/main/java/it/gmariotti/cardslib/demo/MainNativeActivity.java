@@ -54,7 +54,6 @@ import it.gmariotti.cardslib.demo.fragment.GridBaseFragment;
 import it.gmariotti.cardslib.demo.fragment.GridCursorCardFragment;
 import it.gmariotti.cardslib.demo.fragment.GridGplayCABFragment;
 import it.gmariotti.cardslib.demo.fragment.GridGplayFragment;
-import it.gmariotti.cardslib.demo.fragment.HeaderFragment;
 import it.gmariotti.cardslib.demo.fragment.ListBaseFragment;
 import it.gmariotti.cardslib.demo.fragment.ListColorFragment;
 import it.gmariotti.cardslib.demo.fragment.ListCursorCardFragment;
@@ -70,6 +69,7 @@ import it.gmariotti.cardslib.demo.fragment.ShadowFragment;
 import it.gmariotti.cardslib.demo.fragment.StockCardFragment;
 import it.gmariotti.cardslib.demo.fragment.ThumbnailFragment;
 import it.gmariotti.cardslib.demo.fragment.androidL.NativeCardFragment;
+import it.gmariotti.cardslib.demo.fragment.androidL.NativeHeaderFragment;
 import it.gmariotti.cardslib.demo.iabutils.IabHelper;
 import it.gmariotti.cardslib.demo.iabutils.IabResult;
 import it.gmariotti.cardslib.demo.iabutils.IabUtil;
@@ -303,7 +303,7 @@ public class MainNativeActivity extends Activity {
         switch (position) {
 
             case CASE_HEADER:
-                baseFragment = new HeaderFragment();
+                baseFragment = new NativeHeaderFragment();
                 break;
             case CASE_SHADOW:
                 baseFragment = new ShadowFragment();

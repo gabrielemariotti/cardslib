@@ -34,20 +34,22 @@
 
     <style name="Theme" parent="FrameworkRoot.Theme" /> <!-- doesn't contain the pre-L code from the values/styles.xml -->
 
-    <style name="Theme.Carddemo.Base" parent="Theme"/>
 
     <style name="Theme.Carddemo.App" parent="Theme.Carddemo.Base">
+        <item name="actionBarInsetStart">@dimen/carddemo_keyline_2</item>
+
         <item name="android:colorPrimary">@color/demo_theme_main_color</item>
         <item name="android:colorPrimaryDark">@color/demo_theme_status_bar_color</item>
         <item name="android:colorAccent">@color/theme_accent_1</item>
-        <item name="android:windowContentOverlay">@null</item>
+
 
         <item name="popupItemBackground">@drawable/popup_item_background</item>
 
-        <item name="android:popupMenuStyle">@style/Widget.Carddemo.PopupMenu</item>
-        <item name="android:listPopupWindowStyle">@style/Widget.Carddemo.PopupMenu</item>
-        <item name="android:dropDownListViewStyle">@style/Widget.Carddemo.ListView.DropDown</item>
-        <item name="android:textAppearanceLargePopupMenu">@style/TextAppearance.LargePopupMenu</item>
+    </style>
+
+    <style name="ActionBar" parent="ActionBar.Base">
+        <item name="android:displayOptions">homeAsUp|showTitle</item>
+        <item name="android:contentInsetStart">?actionBarInsetStart</item>
     </style>
 
 </resources>

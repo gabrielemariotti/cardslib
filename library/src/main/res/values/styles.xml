@@ -60,6 +60,10 @@
 
     </style>
 
+    <style name="card.native.header_compound_view">
+
+    </style>
+
     <!--Style for simple title inner header view-->
     <style name="card.header_simple_title">
         <item name="android:textSize">@dimen/card_header_simple_title_text_size</item>
@@ -70,6 +74,8 @@
         <item name="android:layout_marginRight">@dimen/card_header_simple_title_margin_right</item>
         <item name="android:layout_marginBottom">@dimen/card_header_simple_title_margin_bottom</item>
     </style>
+
+    <style name="card.native.header_simple_title" parent="card.header_simple_title"/>
 
     <!-- Style for Header Buttons ***********************************************-->
 

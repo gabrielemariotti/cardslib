@@ -19,15 +19,7 @@
 
 <resources>
 
-    <style name="Theme.Carddemo.Base" parent="Theme">
-
-        <item name="popupItemBackground">?android:selectableItemBackground</item>
-
-
-        <item name="android:popupMenuStyle">@style/Widget.Carddemo.PopupMenu</item>
-        <item name="android:listPopupWindowStyle">@style/Widget.Carddemo.PopupMenu</item>
-        <item name="android:dropDownListViewStyle">@style/Widget.Carddemo.ListView.DropDown</item>
-        <item name="android:textAppearanceLargePopupMenu">@style/TextAppearance.LargePopupMenu</item>
+    <style name="Theme.Old" parent="Theme">
 
         <item name="android:actionBarItemBackground">@drawable/selectable_background_carddemo</item>
         <item name="android:actionBarTabStyle">@style/ActionBarTabStyle.Carddemo</item>
@@ -36,7 +28,6 @@
         <item name="android:actionModeBackground">@drawable/cab_background_top_carddemo</item>
         <item name="android:actionModeSplitBackground">@drawable/cab_background_bottom_carddemo</item>
         <item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Carddemo</item>
-        <item name="android:windowContentOverlay">@null</item>
 
     </style>
 
@@ -52,6 +43,7 @@
         <item name="android:progressBarStyle">@style/ProgressBar.Carddemo</item>
     </style>
 
+    <!--
     <style name="PopupMenu.Carddemo" parent="@android:style/Widget.Holo.Light.ListPopupWindow">
         <item name="android:popupBackground">@drawable/menu_dropdown_panel_carddemo</item>
     </style>
@@ -59,6 +51,7 @@
     <style name="DropDownListView.Carddemo" parent="@android:style/Widget.Holo.Light.ListView.DropDown">
         <item name="android:listSelector">@drawable/selectable_background_carddemo</item>
     </style>
+    -->
 
     <style name="ActionBarTabStyle.Carddemo" parent="@android:style/Widget.Holo.Light.ActionBar.TabView">
         <item name="android:background">@drawable/tab_indicator_ab_carddemo</item>

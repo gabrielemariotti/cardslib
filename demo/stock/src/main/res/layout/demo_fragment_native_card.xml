@@ -22,9 +22,9 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <include layout="@layout/demo_native_header"/>
+    <include layout="@layout/demo_barheader"/>
 
-    <include layout="@layout/demo_header_native_button"/>
+    <include layout="@layout/demo_barheader_button"/>
 
     <ScrollView
         android:layout_width="match_parent"

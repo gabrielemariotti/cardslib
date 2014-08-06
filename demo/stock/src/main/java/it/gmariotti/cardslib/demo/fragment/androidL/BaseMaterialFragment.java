@@ -63,7 +63,7 @@ public abstract class BaseMaterialFragment extends BaseFragment {
         LPreviewUtilsBase lpu = LPreviewUtils.getInstance(getActivity());
 
         float mMaxHeaderElevation = getResources().getDimensionPixelSize(
-                R.dimen.session_detail_max_header_elevation);
+                R.dimen.carddemo_barheader_elevation);
 
         mHeaderShadow.setVisibility(lpu.hasLPreviewAPIs() ? View.GONE : View.VISIBLE);
         lpu.setViewElevation(mHeaderBackgroundBox,  mMaxHeaderElevation);

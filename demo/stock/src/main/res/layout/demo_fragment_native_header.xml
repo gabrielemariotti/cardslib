@@ -44,7 +44,7 @@
                 android:text="@string/demo_section_header_standard"/>
 
 
-            <it.gmariotti.cardslib.library.view.CardView
+            <it.gmariotti.cardslib.library.view.CardViewNative
                 android:id="@+id/carddemo_header_std"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/demo_section_header_overflow"/>
 
-            <it.gmariotti.cardslib.library.view.CardView
+            <it.gmariotti.cardslib.library.view.CardViewNative
                 android:id="@+id/carddemo_header_overflow"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -74,7 +74,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/demo_section_header_overflow_dynamic"/>
 
-            <it.gmariotti.cardslib.library.view.CardView
+            <it.gmariotti.cardslib.library.view.CardViewNative
                 android:id="@+id/carddemo_header_overflow_dynamic"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -89,7 +89,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/demo_section_header_overflow_dynamic2"/>
 
-            <it.gmariotti.cardslib.library.view.CardView
+            <it.gmariotti.cardslib.library.view.CardViewNative
                 android:id="@+id/carddemo_header_overflow_dynamic2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -104,7 +104,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/demo_section_header_expand"/>
 
-            <it.gmariotti.cardslib.library.view.CardView
+            <it.gmariotti.cardslib.library.view.CardViewNative
                 android:id="@+id/carddemo_header_expand"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -119,7 +119,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/demo_section_header_expand_custom_area"/>
 
-            <it.gmariotti.cardslib.library.view.CardView
+            <it.gmariotti.cardslib.library.view.CardViewNative
                 android:id="@+id/carddemo_header_expand_custom_area"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -134,7 +134,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/demo_section_header_otherButton"/>
 
-            <it.gmariotti.cardslib.library.view.CardView
+            <it.gmariotti.cardslib.library.view.CardViewNative
                 android:id="@+id/carddemo_header_other_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -149,7 +149,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/demo_section_header_otherButton_programmatically"/>
 
-            <it.gmariotti.cardslib.library.view.CardView
+            <it.gmariotti.cardslib.library.view.CardViewNative
                 android:id="@+id/carddemo_header_other_button_programmatically"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -165,7 +165,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/demo_section_header_inner"/>
 
-            <it.gmariotti.cardslib.library.view.CardView
+            <it.gmariotti.cardslib.library.view.CardViewNative
                 android:id="@+id/carddemo_header_inner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -180,7 +180,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/demo_section_header_layout"/>
 
-            <it.gmariotti.cardslib.library.view.CardView
+            <it.gmariotti.cardslib.library.view.CardViewNative
                 android:id="@+id/carddemo_header_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -196,7 +196,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/demo_section_header_buttonleft_layout"/>
 
-            <it.gmariotti.cardslib.library.view.CardView
+            <it.gmariotti.cardslib.library.view.CardViewNative
                 android:id="@+id/carddemo_header_buttonleft"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

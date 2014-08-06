@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!--
   ~ *******************************************************************************
   ~   Copyright (c) 2013-2014 Gabriele Mariotti.
@@ -17,11 +16,6 @@
   ~  *****************************************************************************
   -->
 
-<resources>
-
-    <declare-styleable name="BaseTheme">
-        <attr name="actionBarInsetStart" format="dimension" />
-        <attr name="popupItemBackground" format="dimension" />
-    </declare-styleable>
-
-</resources>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <solid android:color="@color/demo_theme_main_color" />
+</shape>

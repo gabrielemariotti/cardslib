@@ -37,7 +37,39 @@
         <item name="android:actionOverflowButtonStyle">@style/ActionButton.Overflow</item>
     </style>
 
+    <style name="Theme.Carddemo.Base" parent="Theme">
+        <item name="actionBarInsetStart">?android:actionBarSize</item>
+
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="popupItemBackground">?android:selectableItemBackground</item>
+
+        <item name="android:actionBarStyle">@style/ActionBar</item>
+
+        <item name="android:popupMenuStyle">@style/Widget.Carddemo.PopupMenu</item>
+        <item name="android:listPopupWindowStyle">@style/Widget.Carddemo.PopupMenu</item>
+        <item name="android:dropDownListViewStyle">@style/Widget.Carddemo.ListView.DropDown</item>
+        <item name="android:textAppearanceLargePopupMenu">@style/TextAppearance.LargePopupMenu</item>
+
+    </style>
+
     <style name="Theme.Carddemo.App" parent="Theme.Carddemo.Base" />
+
+
+    <!-- Action bar -->
+    <style name="ActionBar.Base" parent="FrameworkRoot.ActionBar">
+        <item name="android:background">@drawable/actionbar_background</item>
+        <item name="android:icon">@drawable/ic_launcher</item>
+        <item name="android:displayOptions">showHome|showTitle</item>
+        <item name="android:titleTextStyle">@style/ActionBar.TitleText</item>
+        <item name="android:logo">@drawable/ic_launcher</item>
+    </style>
+
+    <style name="ActionBar" parent="ActionBar.Base" />
+
+    <style name="ActionBar.TitleText" parent="FrameworkRoot.ActionBar.TitleText">
+        <item name="android:textColor">#fff</item>
+        <item name="android:textSize">18sp</item>
+    </style>
 
 
     <style name="ActionButton.Overflow" parent="FrameworkRoot.Widget.ActionButton.Overflow">

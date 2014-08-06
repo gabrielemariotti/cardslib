@@ -26,13 +26,17 @@
     <!--Style for simple title header inner view-->
     <style name="card.header_simple_title">
         <item name="android:layout_gravity">left|center_vertical</item>
-        <item name="android:fontFamily">sans-serif-condensed</item>
+        <item name="android:fontFamily">@string/card_font_fontFamily_medium</item>
         <item name="android:textColor">@color/card_text_color_header</item>
         <item name="android:textSize">@dimen/card_header_simple_title_text_size</item>
         <item name="android:layout_marginLeft">@dimen/card_header_simple_title_margin_left</item>
         <item name="android:layout_marginTop">@dimen/card_header_simple_title_margin_top</item>
         <item name="android:layout_marginRight">@dimen/card_header_simple_title_margin_right</item>
         <item name="android:layout_marginBottom">@dimen/card_header_simple_title_margin_bottom</item>
+    </style>
+
+    <style name="card.native.header_simple_title" parent="card.header_simple_title">
+        <item name="android:fontFamily">@string/card_font_fontFamily_medium</item>
     </style>
 
 

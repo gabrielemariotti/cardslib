@@ -18,10 +18,5 @@
   -->
 
 <resources>
-
-    <declare-styleable name="BaseTheme">
-        <attr name="actionBarInsetStart" format="dimension" />
-        <attr name="popupItemBackground" format="dimension" />
-    </declare-styleable>
-
+    <string name="card_font_fontFamily_medium">sans-serif-medium</string>
 </resources>

@@ -33,15 +33,15 @@
         android:id="@+id/header_background"
         android:layout_width="match_parent"
         android:background="@color/demo_theme_main_color"
-        android:layout_height="@dimen/carddemo_hader_height"/>
+        android:layout_height="@dimen/carddemo_barheader_height"/>
 
     <LinearLayout
         android:id="@+id/header_contents"
         android:layout_width="match_parent"
         android:orientation="vertical"
-        android:paddingLeft="@dimen/keyline_2_session_detail"
+        android:paddingLeft="@dimen/carddemo_keyline_content_start"
         android:paddingTop="8dp"
-        android:paddingRight="@dimen/keyline_1"
+        android:paddingRight="@dimen/carddemo_keyline_margin"
         android:paddingBottom="16dp"
         android:layout_height="wrap_content">
 
