@@ -51,7 +51,7 @@ public class NativeHeaderFragment extends BaseMaterialFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View mRootView = inflater.inflate(R.layout.demo_fragment_native_header, container, false);
-        setupHeader(mRootView);
+        setupBarHeader(mRootView);
         return mRootView;
     }
 

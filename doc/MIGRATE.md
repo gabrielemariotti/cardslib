@@ -11,7 +11,7 @@ In this page you can find info about:
 The cardslib 2.+ introduces a new view called `CardViewNative` which extends the `android.support.v7.widget.CardView` released by Google with the support-library
  (`com.android.support:cardview-v7`). 
 
-With this release you can build your `Card`s using one of 2 supported view:
+With this release you can build your `Cards` using one of 2 supported views:
 * `it.gmariotti.cardslib.library.view.CardView`: it is the `CardView`-v1. 
 * `it.gmariotti.cardslib.library.view.CardViewNative` which extends the Google's CardView.
 
@@ -21,7 +21,7 @@ In this page you will find all info to migrate from v1 to v2.
 
 ## Breaking changes
 
-The library 2.x introduces some breaking changes in your code. You can fix these issue following this guide:
+The library 2.x introduces some breaking changes in your code. You can fix these issues following this guide:
 
 * if you are using the `getCardView()` you have to change your code using a cast to `CardView`. Now this code returns the `CommonCardView` interface.
 ``` java

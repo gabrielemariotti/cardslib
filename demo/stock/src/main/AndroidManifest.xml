@@ -33,7 +33,7 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/Theme.Carddemo.App">
+        android:theme="@style/Theme.Carddemo">
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name">
@@ -42,6 +42,12 @@
         <activity
             android:name=".MainNativeActivity"
             android:label="@string/app_name">
+        </activity>
+
+        <activity
+            android:name=".ui.MainMenuNativeActivity"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Carddemo.Main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>

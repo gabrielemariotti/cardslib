@@ -278,7 +278,9 @@ public class CardHeaderView extends FrameLayout implements CardViewInterface {
                     //Check if button is not null
                     if (mImageButtonOther != null) {
                         if (mCardHeader.getOtherButtonDrawable() > 0) {
-                            if (Build.VERSION.SDK_INT >= 16) {
+                            if (Build.VERSION.SDK_INT >= Constants.API_L) {
+                                mImageButtonOther.setImageResource(mCardHeader.getOtherButtonDrawable());
+                            }else if (Build.VERSION.SDK_INT >= 16) {
                                 mImageButtonOther.setBackground(getResources().getDrawable(mCardHeader.getOtherButtonDrawable()));
                             } else {
                                 mImageButtonOther.setBackgroundDrawable(getResources().getDrawable(mCardHeader.getOtherButtonDrawable()));

@@ -46,7 +46,7 @@ public abstract class BaseMaterialFragment extends BaseFragment {
     }
 
 
-    protected void setupHeader(View rootView){
+    protected void setupBarHeader(View rootView){
         mHeaderBox = rootView.findViewById(R.id.header_recap);
         mHeaderContentBox = rootView.findViewById(R.id.header_contents);
         mHeaderBackgroundBox = rootView.findViewById(R.id.header_background);

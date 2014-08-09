@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <!--
   ~ *******************************************************************************
   ~   Copyright (c) 2013-2014 Gabriele Mariotti.
@@ -19,60 +18,35 @@
   -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:card="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
+    <include layout="@layout/demo_barheader"/>
+
+    <include layout="@layout/demo_barheader_button"/>
+
     <ScrollView
-        android:id="@+id/card_scrollview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
+            android:orientation="vertical"
             android:layout_height="match_parent">
 
-            <!-- No shadow -->
-            <TextView
-                style="@style/Theme.Carddemo.TitleText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/demo_section_shadow_no"/>
-
-            <it.gmariotti.cardslib.library.view.CardView
-                android:id="@+id/carddemo_shadow_no"
+            <it.gmariotti.cardslib.library.view.CardViewNative
+                android:id="@+id/carddemo_card_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
                 android:layout_marginRight="12dp"
                 android:layout_marginTop="12dp"/>
-
-
-            <!-- Customize Layout Shadow -->
-            <TextView
-                style="@style/Theme.Carddemo.TitleText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/demo_section_shadow_layout"/>
-
-            <it.gmariotti.cardslib.library.view.CardView
-                android:id="@+id/carddemo_shadow_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                card:card_layout_resourceID="@layout/carddemo_example_card2_layout"
-                android:layout_marginTop="12dp"/>
-
-            <!-- Empty view-->
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="15dp"/>
 
         </LinearLayout>
 
+
     </ScrollView>
+
 
 </LinearLayout>

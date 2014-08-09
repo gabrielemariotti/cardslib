@@ -45,7 +45,6 @@ import java.util.List;
 import it.gmariotti.cardslib.demo.fragment.BaseFragment;
 import it.gmariotti.cardslib.demo.fragment.BirthDayCardFragment;
 import it.gmariotti.cardslib.demo.fragment.CardExpandFragment;
-import it.gmariotti.cardslib.demo.fragment.CardFragment;
 import it.gmariotti.cardslib.demo.fragment.CardWithListFragment;
 import it.gmariotti.cardslib.demo.fragment.ChangeValueCardFragment;
 import it.gmariotti.cardslib.demo.fragment.DismissAnimFragment;
@@ -67,9 +66,10 @@ import it.gmariotti.cardslib.demo.fragment.ListSectionedCardFragment;
 import it.gmariotti.cardslib.demo.fragment.MiscCardFragment;
 import it.gmariotti.cardslib.demo.fragment.ShadowFragment;
 import it.gmariotti.cardslib.demo.fragment.StockCardFragment;
-import it.gmariotti.cardslib.demo.fragment.ThumbnailFragment;
 import it.gmariotti.cardslib.demo.fragment.androidL.NativeCardFragment;
 import it.gmariotti.cardslib.demo.fragment.androidL.NativeHeaderFragment;
+import it.gmariotti.cardslib.demo.fragment.androidL.NativeThumbnailFragment;
+import it.gmariotti.cardslib.demo.fragment.androidL.TodoNativeCardFragment;
 import it.gmariotti.cardslib.demo.iabutils.IabHelper;
 import it.gmariotti.cardslib.demo.iabutils.IabResult;
 import it.gmariotti.cardslib.demo.iabutils.IabUtil;
@@ -182,7 +182,7 @@ public class MainNativeActivity extends Activity {
             //if (mBaseFragment==null)
             //    mBaseFragment = selectFragment(mSelectedFragment);
         } else {
-            mBaseFragment = new NativeCardFragment();
+            mBaseFragment = new TodoNativeCardFragment();
             openFragment(mBaseFragment);
         }
 
@@ -309,10 +309,10 @@ public class MainNativeActivity extends Activity {
                 baseFragment = new ShadowFragment();
                 break;
             case CASE_THUMBNAIL:
-                baseFragment = new ThumbnailFragment();
+                baseFragment = new NativeThumbnailFragment();
                 break;
             case CASE_CARD:
-                baseFragment = new CardFragment();
+                baseFragment = new NativeCardFragment();
                 break;
             case CASE_CARD_EXPAND:
                 baseFragment = new CardExpandFragment();

@@ -200,12 +200,23 @@
     <string name="demo_source_code">Source</string>
     <string name="demo_doc">Doc</string>
 
+    <!-- Material -->
     <string name="placeholder_session_title">Native Cards Examples</string>
     <string name="placeholder_session_subtitle">Big Cards</string>
 
     <string name="header_title_examples">Native Cards Examples</string>
     <string name="header_title_bigcard">Big Cards</string>
-
     <string name="header_title_cardheadersubtitle">How to use the CardHeader</string>
     <string name="header_title_cardheader">Card Base Features</string>
+    <string name="header_title_cardthumbnailsubtitle">How to use the CardThumbanil</string>
+    <string name="header_title_cardthumbnail">Card Base Features</string>
+    <string name="header_title_cardsubtitle">How to use the Card</string>
+    <string name="header_title_card">Card Base Features</string>
+
+    <!--Nav drawer -->
+    <string name="navdrawer_item_native_cardslib">CardViewNative</string>
+    <string name="navdrawer_item_cardslib_v1">CardView v1</string>
+    <string name="navdrawer_item_donate">Donate</string>
+    <string name="navdrawer_item_info">About</string>
+
 </resources>

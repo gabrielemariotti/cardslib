@@ -68,4 +68,11 @@
 
     <color name="demo_theme_main_color">#6CB7F0</color>
     <color name="demo_theme_status_bar_color">#588CB3</color>
+
+    <color name="navdrawer_background">#ffffffff</color>
+    <color name="navdrawer_text_color">@color/body_text_1</color>
+    <color name="navdrawer_text_color_selected">@color/demo_theme_main_color</color>
+    <color name="navdrawer_icon_tint">#808080</color>
+    <color name="navdrawer_icon_tint_selected">@color/demo_theme_main_color</color>
+
 </resources>

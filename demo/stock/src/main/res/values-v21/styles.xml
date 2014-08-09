@@ -35,8 +35,10 @@
     <style name="Theme" parent="FrameworkRoot.Theme" /> <!-- doesn't contain the pre-L code from the values/styles.xml -->
 
 
-    <style name="Theme.Carddemo.App" parent="Theme.Carddemo.Base">
+    <style name="Theme.Carddemo" parent="Theme.Carddemo.Base">
+        <item name="actionBarIconColor">#fff</item>
         <item name="actionBarInsetStart">@dimen/carddemo_keyline_2</item>
+        <item name="actionBarOverlayTopOffset">0dp</item> <!-- action bars replaced by Toolbars -->
 
         <item name="android:colorPrimary">@color/demo_theme_main_color</item>
         <item name="android:colorPrimaryDark">@color/demo_theme_status_bar_color</item>
@@ -45,11 +47,29 @@
 
         <item name="popupItemBackground">@drawable/popup_item_background</item>
 
+        <item name="android:actionBarTheme">@style/ActionBarThemeOverlay</item>
+    </style>
+
+    <style name="Theme.Carddemo.Main" parent="Theme.Carddemo">
+        <item name="android:windowActionBar">false</item> <!-- replaced by toolbar -->
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="HeaderBar">
+        <item name="android:elevation">@dimen/headerbar_elevation</item>
+        <item name="android:background">?android:colorPrimary</item>
     </style>
 
     <style name="ActionBar" parent="ActionBar.Base">
         <item name="android:displayOptions">homeAsUp|showTitle</item>
         <item name="android:contentInsetStart">?actionBarInsetStart</item>
     </style>
+
+    <style name="ActionBarThemeOverlay" parent="">
+        <item name="android:textColorPrimary">#fff</item>
+        <item name="android:colorControlNormal">?actionBarIconColor</item>
+        <item name="android:colorControlHighlight">#3fff</item>
+    </style>
+
 
 </resources>

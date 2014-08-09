@@ -25,6 +25,9 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
+    <include layout="@layout/demo_barheader"/>
+
+    <include layout="@layout/demo_barheader_button"/>
 
     <ScrollView
         android:id="@+id/card_scrollview"
@@ -38,7 +41,7 @@
 
             <!-- Standard Header without buttons -->
             <TextView
-                style="@style/Theme.Carddemo.App.TitleText"
+                style="@style/Theme.Carddemo.TitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/demo_section_header_standard"/>
@@ -54,7 +57,7 @@
 
             <!-- Standard Header with overflow button -->
             <TextView
-                style="@style/Theme.Carddemo.App.TitleText"
+                style="@style/Theme.Carddemo.TitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/demo_section_header_overflow"/>
@@ -69,7 +72,7 @@
 
             <!-- Standard Header with overflow button with dynamic menu-->
             <TextView
-                style="@style/Theme.Carddemo.App.TitleText"
+                style="@style/Theme.Carddemo.TitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/demo_section_header_overflow_dynamic"/>
@@ -84,7 +87,7 @@
 
             <!-- Standard Header with overflow button with dynamic menu-->
             <TextView
-                style="@style/Theme.Carddemo.App.TitleText"
+                style="@style/Theme.Carddemo.TitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/demo_section_header_overflow_dynamic2"/>
@@ -99,7 +102,7 @@
 
             <!-- Standard Header with collapse/expand button -->
             <TextView
-                style="@style/Theme.Carddemo.App.TitleText"
+                style="@style/Theme.Carddemo.TitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/demo_section_header_expand"/>
@@ -114,7 +117,7 @@
 
             <!-- Standard Header with collapse/expand button custom area-->
             <TextView
-                style="@style/Theme.Carddemo.App.TitleText"
+                style="@style/Theme.Carddemo.TitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/demo_section_header_expand_custom_area"/>
@@ -129,7 +132,7 @@
 
             <!-- Standard Header with other button -->
             <TextView
-                style="@style/Theme.Carddemo.App.TitleText"
+                style="@style/Theme.Carddemo.TitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/demo_section_header_otherButton"/>
@@ -144,7 +147,7 @@
 
             <!-- Standard Header with other buttonw programmatically -->
             <TextView
-                style="@style/Theme.Carddemo.App.TitleText"
+                style="@style/Theme.Carddemo.TitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/demo_section_header_otherButton_programmatically"/>
@@ -160,7 +163,7 @@
 
             <!-- Customize InnerContentHeader -->
             <TextView
-                style="@style/Theme.Carddemo.App.TitleText"
+                style="@style/Theme.Carddemo.TitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/demo_section_header_inner"/>
@@ -175,7 +178,7 @@
 
             <!-- Customize LayoutHeader -->
             <TextView
-                style="@style/Theme.Carddemo.App.TitleText"
+                style="@style/Theme.Carddemo.TitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/demo_section_header_layout"/>
@@ -191,7 +194,7 @@
 
             <!-- Customize LayoutHeader -->
             <TextView
-                style="@style/Theme.Carddemo.App.TitleText"
+                style="@style/Theme.Carddemo.TitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/demo_section_header_buttonleft_layout"/>

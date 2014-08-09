@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!--
   ~ *******************************************************************************
   ~   Copyright (c) 2013-2014 Gabriele Mariotti.
@@ -17,12 +16,21 @@
   ~  *****************************************************************************
   -->
 
-<resources>
+<merge xmlns:tools="http://schemas.android.com/tools"
+       xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:iosched="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.MainMenuNativeActivity">
 
-    <declare-styleable name="BaseTheme">
-        <attr name="actionBarInsetStart" format="dimension" />
-        <attr name="popupItemBackground" format="dimension" />
-        <attr name="actionBarOverlayTopOffset" format="dimension" />
-    </declare-styleable>
+    <FrameLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-</resources>
+        <!-- Drawer items -->
+        <LinearLayout
+            android:id="@+id/navdrawer_items_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="vertical" />
+    </FrameLayout>
+</merge>

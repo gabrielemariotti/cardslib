@@ -24,6 +24,10 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
+    <include layout="@layout/demo_barheader"/>
+
+    <include layout="@layout/demo_barheader_button"/>
+
     <ScrollView
         android:id="@+id/card_scrollview"
         android:layout_width="match_parent"
@@ -34,47 +38,71 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <!-- Simple Title -->
+            <!-- Resource ID-->
             <TextView
                 style="@style/Theme.Carddemo.TitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/demo_section_card_changevalue_title"/>
+                android:text="@string/demo_section_thumb_id"/>
 
-            <it.gmariotti.cardslib.library.view.CardView
-                android:id="@+id/carddemo_card_changevalue_id"
+            <it.gmariotti.cardslib.library.view.CardViewNative
+                android:id="@+id/carddemo_thumb_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
                 android:layout_marginRight="12dp"
-                android:layout_marginTop="12dp"/>
-
-            <it.gmariotti.cardslib.library.view.CardView
-                android:id="@+id/carddemo_card_changevalue_id2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
                 card:card_layout_resourceID="@layout/card_thumbnail_layout"
-                android:layout_marginRight="12dp"
                 android:layout_marginTop="12dp"/>
 
-            <it.gmariotti.cardslib.library.view.CardView
-                android:id="@+id/carddemo_card_changevalue_id3"
+
+            <!-- Resource URL -->
+            <TextView
+                style="@style/Theme.Carddemo.TitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/demo_section_thumb_url"/>
+
+            <it.gmariotti.cardslib.library.view.CardViewNative
+                android:id="@+id/carddemo_thumb_url"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
                 card:card_layout_resourceID="@layout/card_thumbnail_layout"
-                android:layout_marginRight="12dp"
                 android:layout_marginTop="12dp"/>
 
-            <it.gmariotti.cardslib.library.view.CardView
-                android:id="@+id/carddemo_card_changevalue_id4"
+	    <!-- Customize you thumbnail -->
+            <TextView
+                style="@style/Theme.Carddemo.TitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/demo_section_thumb_style"/>
+
+            <it.gmariotti.cardslib.library.view.CardViewNative
+                android:id="@+id/carddemo_thumb_style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
                 android:layout_marginRight="12dp"
+                card:card_layout_resourceID="@layout/card_thumbnail_layout"
                 android:layout_marginTop="12dp"/>
 
+            <!-- Custom Source Thumbnail-->
+            <TextView
+                style="@style/Theme.Carddemo.TitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/demo_section_thumb_customsource"/>
+
+            <it.gmariotti.cardslib.library.view.CardViewNative
+                android:id="@+id/carddemo_thumb_customsource"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                card:card_layout_resourceID="@layout/card_thumbnail_layout"
+                android:layout_marginTop="12dp"/>
+	    
             <!-- Empty view-->
             <View
                 android:layout_width="match_parent"

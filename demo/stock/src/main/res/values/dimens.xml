@@ -57,11 +57,22 @@
 
 
     <!--Material design-->
+    <dimen name="navdrawer_width">240dp</dimen>
+
+    <dimen name="headerbar_elevation">2dp</dimen>
+
+    <dimen name="carddemo_keyline_1">16dp</dimen>
+    <dimen name="carddemo_keyline_1_minus_8dp">8dp</dimen>
     <dimen name="carddemo_keyline_margin">16dp</dimen>
     <dimen name="carddemo_keyline_content_start">72dp</dimen>
     <dimen name="carddemo_barheader_elevation">2dp</dimen>
     <dimen name="carddemo_barheader_height">72dp</dimen>
     <dimen name="carddemo_keyline_2">72dp</dimen>
+
+    <dimen name="keyline_1">16dp</dimen>
+    <dimen name="keyline_1_minus_8dp">8dp</dimen>
+    <dimen name="keyline_2">72dp</dimen>
+    <dimen name="keyline_2_minus_16dp">56dp</dimen>
 
 
 </resources>

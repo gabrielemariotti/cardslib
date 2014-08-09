@@ -19,10 +19,15 @@
 
 <resources>
 
-    <declare-styleable name="BaseTheme">
-        <attr name="actionBarInsetStart" format="dimension" />
-        <attr name="popupItemBackground" format="dimension" />
-        <attr name="actionBarOverlayTopOffset" format="dimension" />
-    </declare-styleable>
+    <!-- Cards -->
 
+    <!-- Other Button in Header -->
+    <style name="card.header_button_base.other">
+        <item name="android:background">@drawable/ic_menu_other_action_more_normal</item>
+    </style>
+
+    <!-- Other Button in Header -->
+    <style name="card.native.header_button_base.other" parent="card.header_button_base.other">
+
+    </style>
 </resources>

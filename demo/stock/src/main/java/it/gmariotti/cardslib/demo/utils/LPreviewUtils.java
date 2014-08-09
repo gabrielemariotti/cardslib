@@ -21,6 +21,9 @@ package it.gmariotti.cardslib.demo.utils;
 import android.app.Activity;
 import android.os.Build;
 
+/**
+ * An abstract interface to use SDK-L and SDK-19
+ */
 public class LPreviewUtils {
 
     private LPreviewUtils() {
