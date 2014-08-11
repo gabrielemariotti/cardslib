@@ -32,6 +32,7 @@
     <ScrollView
         android:id="@+id/card_scrollview"
         android:layout_width="match_parent"
+        style="@style/carddemo_default_container_padding"
         android:layout_height="match_parent">
 
         <LinearLayout
@@ -51,9 +52,8 @@
                 android:id="@+id/carddemo_header_std"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                android:layout_marginTop="12dp"/>
+                style="@style/card.native"
+             />
 
             <!-- Standard Header with overflow button -->
             <TextView
@@ -66,9 +66,7 @@
                 android:id="@+id/carddemo_header_overflow"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                android:layout_marginTop="12dp"/>
+                style="@style/card.native"/>
 
             <!-- Standard Header with overflow button with dynamic menu-->
             <TextView
@@ -81,9 +79,7 @@
                 android:id="@+id/carddemo_header_overflow_dynamic"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                android:layout_marginTop="12dp"/>
+                style="@style/card.native"/>
 
             <!-- Standard Header with overflow button with dynamic menu-->
             <TextView
@@ -96,9 +92,7 @@
                 android:id="@+id/carddemo_header_overflow_dynamic2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                android:layout_marginTop="12dp"/>
+                style="@style/card.native"/>
 
             <!-- Standard Header with collapse/expand button -->
             <TextView
@@ -111,9 +105,7 @@
                 android:id="@+id/carddemo_header_expand"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                android:layout_marginTop="12dp"/>
+                style="@style/card.native"/>
 
             <!-- Standard Header with collapse/expand button custom area-->
             <TextView
@@ -126,9 +118,7 @@
                 android:id="@+id/carddemo_header_expand_custom_area"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                android:layout_marginTop="12dp"/>
+                style="@style/card.native"/>
 
             <!-- Standard Header with other button -->
             <TextView
@@ -141,9 +131,7 @@
                 android:id="@+id/carddemo_header_other_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                android:layout_marginTop="12dp"/>
+                style="@style/card.native"/>
 
             <!-- Standard Header with other buttonw programmatically -->
             <TextView
@@ -155,10 +143,7 @@
             <it.gmariotti.cardslib.library.view.CardViewNative
                 android:id="@+id/carddemo_header_other_button_programmatically"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                android:layout_marginTop="12dp"/>
+                android:layout_height="wrap_content"/>
 
 
             <!-- Customize InnerContentHeader -->
@@ -171,10 +156,7 @@
             <it.gmariotti.cardslib.library.view.CardViewNative
                 android:id="@+id/carddemo_header_inner"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                android:layout_marginTop="12dp"/>
+                android:layout_height="wrap_content"/>
 
             <!-- Customize LayoutHeader -->
             <TextView
@@ -187,10 +169,8 @@
                 android:id="@+id/carddemo_header_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                card:card_layout_resourceID="@layout/carddemo_example_card1_layout"
-                android:layout_marginTop="12dp"/>
+                style="@style/card.native"
+                card:card_layout_resourceID="@layout/carddemo_example_card1_layout"/>
 
             <!-- Customize LayoutHeader -->
             <TextView
@@ -203,12 +183,9 @@
                 android:id="@+id/carddemo_header_buttonleft"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                card:cardCornerRadius="2dp"
-                android:elevation="2dp"
+                style="@style/card.native"
                 card:card_layout_resourceID="@layout/carddemo_example_buttonleft_layout"
-                android:layout_marginTop="12dp"/>
+   />
 
             <!-- Empty view-->
             <View

@@ -1,5 +1,6 @@
 /*
  * ******************************************************************************
+ *   Copyright 2014 Google Inc. All rights reserved.
  *   Copyright (c) 2013-2014 Gabriele Mariotti.
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");

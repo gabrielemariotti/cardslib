@@ -19,10 +19,8 @@
 package it.gmariotti.cardslib.library.view.component;
 
 import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.Outline;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -376,36 +374,17 @@ public class CardHeaderView extends FrameLayout implements CardViewInterface {
         if (overflowButtonVisibility == VISIBLE || overflowButtonVisibility == GONE) {
             if (mImageButtonOverflow != null) {
                 mImageButtonOverflow.setVisibility(overflowButtonVisibility);
-                rippleButtonHelper(mImageButtonOverflow);
             }
         }
         if (expandButtonVisibility == VISIBLE || expandButtonVisibility == GONE) {
             if (mImageButtonExpand != null) {
                 mImageButtonExpand.setVisibility(expandButtonVisibility);
-                rippleButtonHelper(mImageButtonExpand);
             }
         }
         if (otherButtonVisibility == VISIBLE || otherButtonVisibility == GONE) {
             if (mImageButtonOther != null) {
                 mImageButtonOther.setVisibility(otherButtonVisibility);
-                rippleButtonHelper(mImageButtonOther);
             }
-        }
-    }
-
-    /**
-     * Ripple helper for button in header
-     * @param button
-     */
-    @TargetApi(Build.VERSION_CODES.L)
-    private void rippleButtonHelper(ImageButton button) {
-
-        if (button != null && Build.VERSION.SDK_INT >= Constants.API_L) {
-            //Outline
-            int size = getResources().getDimensionPixelSize(R.dimen.card_header_button_size);
-            Outline outline = new Outline();
-            outline.setOval(0, 0, size, size);
-            button.setOutline(outline);
         }
     }
 

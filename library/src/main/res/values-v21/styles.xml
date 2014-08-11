@@ -35,6 +35,8 @@
 
     <style name="card.native.header_button_base" parent="card.header_button_base">
         <item name="android:layout_marginLeft">@dimen/card_header_button_margin_right</item>
+        <item name="android:layout_marginRight">@dimen/card_header_button_margin_right</item>
+        <item name="android:paddingLeft">0dp</item>
     </style>
 
     <!-- Button Overflow in Header -->

@@ -21,7 +21,13 @@
 
     <!-- Card -->
     <dimen name="card_base_empty_height">96dp</dimen>
-    <dimen name="card_background_default_radius">2dip</dimen>
+    <dimen name="card_background_default_radius">2dp</dimen>
+
+    <!-- Native card margin -->
+    <dimen name="card_default_native_margin_top">4dp</dimen>
+    <dimen name="card_default_native_margin_bottom">4dp</dimen>
+    <dimen name="card_default_native_margin_left">4dp</dimen>
+    <dimen name="card_default_native_margin_right">4dp</dimen>
 
     <!-- Main -->
     <dimen name="card_main_layout_view_margin_top">0dp</dimen>
@@ -30,6 +36,8 @@
     <dimen name="card_main_layout_view_margin_right">0dp</dimen>
 
     <!-- Header -->
+    <dimen name="card_header_default_padding">0dp</dimen>
+
     <dimen name="card_header_outer_view_margin_top">0dp</dimen>
     <dimen name="card_header_outer_view_margin_left">0dp</dimen>
     <dimen name="card_header_outer_view_margin_bottom">0dp</dimen>
@@ -106,7 +114,8 @@
     <dimen name="card_section_container_padding_right">15dp</dimen>
     <dimen name="card_section_title_margin_top">10dp</dimen>
 
-    <dimen name="card_header_button_size">56dp</dimen>
+
+
 
 
 </resources>

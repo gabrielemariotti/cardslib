@@ -22,7 +22,9 @@
 
     </style>
 
-    <style name="card.native"></style>
+    <style name="card.native">
+
+    </style>
 
     <!-- Style for Shadow ******************************************************-->
 
@@ -52,7 +54,7 @@
     </style>
 
     <style name="card.native.header_outer_layout" parent="card.header_outer_layout">
-
+        <item name="android:padding">@dimen/card_header_default_padding</item>
     </style>
 
     <!--Style for Header Compound View -->
@@ -75,7 +77,12 @@
         <item name="android:layout_marginBottom">@dimen/card_header_simple_title_margin_bottom</item>
     </style>
 
-    <style name="card.native.header_simple_title" parent="card.header_simple_title"/>
+    <style name="card.native.header_simple_title" parent="card.header_simple_title">
+        <item name="android:layout_marginLeft">0dp</item>
+        <item name="android:layout_marginTop">0dp</item>
+        <item name="android:layout_marginRight">0dp</item>
+        <item name="android:layout_marginBottom">0dp</item>
+    </style>
 
     <!-- Style for Header Buttons ***********************************************-->
 
@@ -101,6 +108,8 @@
 
     <style name="card.native.header_button_base" parent="card.header_button_base">
         <item name="android:layout_marginLeft">@dimen/card_header_button_margin_right</item>
+        <item name="android:layout_marginRight">@dimen/card_header_button_margin_right</item>
+        <item name="android:paddingLeft">0dp</item>
     </style>
 
     <!-- Button Overflow in Header -->
@@ -169,7 +178,7 @@
     </style>
 
     <style name="card.native_main_layout" parent="card.main_layout">
-
+        <item name="android:background">?android:selectableItemBackground</item>
     </style>
 
     <!-- Style for Main Layout with foreground selector-->

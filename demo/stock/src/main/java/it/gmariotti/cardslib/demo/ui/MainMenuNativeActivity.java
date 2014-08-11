@@ -30,7 +30,7 @@ public class MainMenuNativeActivity extends BaseActivity {
 
     @Override
     protected int getSelfNavDrawerItem() {
-        return NAVDRAWER_ITEM_NATIVE_CARDSLIB;
+        return NAVDRAWER_ITEM_INFO;
     }
 
     @Override

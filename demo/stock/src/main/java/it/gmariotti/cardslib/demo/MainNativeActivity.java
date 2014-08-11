@@ -53,7 +53,6 @@ import it.gmariotti.cardslib.demo.fragment.GridBaseFragment;
 import it.gmariotti.cardslib.demo.fragment.GridCursorCardFragment;
 import it.gmariotti.cardslib.demo.fragment.GridGplayCABFragment;
 import it.gmariotti.cardslib.demo.fragment.GridGplayFragment;
-import it.gmariotti.cardslib.demo.fragment.ListBaseFragment;
 import it.gmariotti.cardslib.demo.fragment.ListColorFragment;
 import it.gmariotti.cardslib.demo.fragment.ListCursorCardFragment;
 import it.gmariotti.cardslib.demo.fragment.ListDifferentInnerBaseFragment;
@@ -68,6 +67,7 @@ import it.gmariotti.cardslib.demo.fragment.ShadowFragment;
 import it.gmariotti.cardslib.demo.fragment.StockCardFragment;
 import it.gmariotti.cardslib.demo.fragment.androidL.NativeCardFragment;
 import it.gmariotti.cardslib.demo.fragment.androidL.NativeHeaderFragment;
+import it.gmariotti.cardslib.demo.fragment.androidL.NativeListBaseFragment;
 import it.gmariotti.cardslib.demo.fragment.androidL.NativeThumbnailFragment;
 import it.gmariotti.cardslib.demo.fragment.androidL.TodoNativeCardFragment;
 import it.gmariotti.cardslib.demo.iabutils.IabHelper;
@@ -333,7 +333,7 @@ public class MainNativeActivity extends Activity {
                 baseFragment = new ChangeValueCardFragment();
                 break;
             case CASE_LIST_BASE:
-                baseFragment = new ListBaseFragment();
+                baseFragment = new NativeListBaseFragment();
                 break;
             case CASE_LIST_BASE_INNER:
                 baseFragment = new ListDifferentInnerBaseFragment();
