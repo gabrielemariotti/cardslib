@@ -25,13 +25,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.nhaarman.listviewanimations.swinginadapters.AnimationAdapter;
-import com.nhaarman.listviewanimations.swinginadapters.prepared.AlphaInAnimationAdapter;
-import com.nhaarman.listviewanimations.swinginadapters.prepared.ScaleInAnimationAdapter;
-import com.nhaarman.listviewanimations.swinginadapters.prepared.SwingBottomInAnimationAdapter;
-import com.nhaarman.listviewanimations.swinginadapters.prepared.SwingLeftInAnimationAdapter;
-import com.nhaarman.listviewanimations.swinginadapters.prepared.SwingRightInAnimationAdapter;
-import com.nhaarman.listviewanimations.widget.DynamicListView;
+import com.nhaarman.listviewanimations.appearance.AnimationAdapter;
+import com.nhaarman.listviewanimations.appearance.simple.AlphaInAnimationAdapter;
+import com.nhaarman.listviewanimations.appearance.simple.ScaleInAnimationAdapter;
+import com.nhaarman.listviewanimations.appearance.simple.SwingBottomInAnimationAdapter;
+import com.nhaarman.listviewanimations.appearance.simple.SwingLeftInAnimationAdapter;
+import com.nhaarman.listviewanimations.appearance.simple.SwingRightInAnimationAdapter;
+import com.nhaarman.listviewanimations.itemmanipulation.dragdrop.OnItemMovedListener;
 
 import java.util.ArrayList;
 
@@ -89,8 +89,11 @@ public class DragDropListFragment extends BaseFragment implements
 
             //Card must have a stable Id.
             card.setId("a"+i);
+            card.setSwipeable(true);
+
             cards.add(card);
         }
+
 
         //Set the adapter
         mCardArrayAdapter = new CardDragDropArrayAdapter(getActivity(), cards);
@@ -101,9 +104,10 @@ public class DragDropListFragment extends BaseFragment implements
         }
 
         //Listener
-        mListView.setOnItemMovedListener(new DynamicListView.OnItemMovedListener() {
+        mListView.setOnItemMovedListener(new OnItemMovedListener() {
+
             @Override
-            public void onItemMoved(int newPosition) {
+            public void onItemMoved(int originalPosition, int newPosition) {
                 Card card = mCardArrayAdapter.getItem(newPosition);
                 Toast.makeText(getActivity(),"Card "+card.getId() + " moved to position " + newPosition, Toast.LENGTH_SHORT ).show();
             }

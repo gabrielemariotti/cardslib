@@ -28,8 +28,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.nhaarman.listviewanimations.swinginadapters.AnimationAdapter;
-import com.nhaarman.listviewanimations.swinginadapters.prepared.AlphaInAnimationAdapter;
+import com.nhaarman.listviewanimations.appearance.AnimationAdapter;
+import com.nhaarman.listviewanimations.appearance.simple.AlphaInAnimationAdapter;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -155,7 +155,7 @@ public class ExpandPicassoFragment extends BaseFragment {
         //Add an animator
         AnimationAdapter animCardArrayAdapter = new AlphaInAnimationAdapter(mCardArrayAdapter);
         animCardArrayAdapter.setAbsListView(listView);
-        animCardArrayAdapter.setInitialDelayMillis(500);
+        //animCardArrayAdapter.setInitialDelayMillis(500);
         if (listView != null) {
             listView.setExternalAdapter(animCardArrayAdapter, mCardArrayAdapter);
         }
