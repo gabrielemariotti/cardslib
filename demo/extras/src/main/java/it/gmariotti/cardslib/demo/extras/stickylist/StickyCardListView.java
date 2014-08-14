@@ -38,6 +38,7 @@ import it.gmariotti.cardslib.library.view.CardView;
 import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;
 import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
 
+
 /**
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
