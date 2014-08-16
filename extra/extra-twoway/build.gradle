@@ -1,0 +1,39 @@
+apply plugin: 'android-sdk-manager'
+apply plugin: 'android-library'
+
+repositories {
+    mavenCentral()
+    //used only for twowayview
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+}
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 'L'
+        versionName project.VERSION_NAME
+        versionCode Integer.parseInt(project.VERSION_CODE)
+    }
+
+    // This is important, it will run lint checks but won't abort build
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    // Cards Library
+    compile project(':library')
+
+    //Twowayview
+    compile 'com.android.support:recyclerview-v7:+'
+    compile 'org.lucasr.twowayview:core:1.0.0-SNAPSHOT@aar'
+    compile 'org.lucasr.twowayview:layouts:1.0.0-SNAPSHOT@aar'
+
+}
+
+// Used to update in Maven
+//apply from: '../maven_push.gradle'
