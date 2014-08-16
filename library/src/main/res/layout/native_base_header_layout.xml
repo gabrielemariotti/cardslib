@@ -32,6 +32,7 @@
          with setupInnerViewElements(android.view.ViewGroup, android.view.View) method in CardHeader class.-->
     <FrameLayout
         android:id="@+id/card_header_inner_frame"
+        style="@style/card.native.header_inner_frame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
@@ -41,8 +42,6 @@
     <FrameLayout
         android:id="@+id/card_header_button_frame"
         style="@style/card.native.header_button_frame"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 

@@ -25,9 +25,9 @@
               android:layout_height="wrap_content">
 
     <!-- Card visible layout -->
-    <LinearLayout
+    <it.gmariotti.cardslib.library.view.ForegroundLinearLayout
         android:id="@+id/card_main_layout"
-        style="@style/card.native_main_layout"
+        style="@style/card.native.main_layout_foreground"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -63,7 +63,7 @@
 
         </LinearLayout>
 
-    </LinearLayout>
+    </it.gmariotti.cardslib.library.view.ForegroundLinearLayout>
 
     <!-- Expand layout. You can customize this element with your CardExpand class -->
     <FrameLayout

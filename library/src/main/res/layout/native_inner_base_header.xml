@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <!--
   ~ *******************************************************************************
   ~   Copyright (c) 2013-2014 Gabriele Mariotti.
@@ -17,6 +18,21 @@
   ~  *****************************************************************************
   -->
 
-<resources>
-    <string name="card_font_fontFamily_medium">sans-serif-condensed</string>
-</resources>
+<!-- This is the InnerContent of Header -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content">
+
+
+    <!-- This is the base Inner View inside a CardHeader.
+         You can customize it with your layout xml file and your CardHeader.
+         You can populate your elements with CardHeader#setupInnerViewElements(android.view.ViewGroup, android.view.View) method -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/card_header_inner_simple_title"
+        style="@style/card.native.header_simple_title"/>
+
+</LinearLayout>

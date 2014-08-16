@@ -19,11 +19,18 @@
 <resources>
 
     <style name="card">
-
+        <!-- this style should be empty -->
     </style>
 
     <style name="card.native">
+        <!-- this style should be empty -->
+    </style>
 
+    <style name="card_external">
+        <item name="android:layout_marginTop">@dimen/card_default_native_margin_top</item>
+        <item name="android:layout_marginBottom">@dimen/card_default_native_margin_bottom</item>
+        <item name="android:layout_marginLeft">@dimen/card_default_native_margin_left</item>
+        <item name="android:layout_marginRight">@dimen/card_default_native_margin_right</item>
     </style>
 
     <!-- Style for Shadow ******************************************************-->
@@ -46,6 +53,7 @@
 
     <!-- Style for Header ******************************************************-->
 
+
     <style name="card.header_outer_layout">
         <item name="android:layout_marginTop">@dimen/card_header_outer_view_margin_top</item>
         <item name="android:layout_marginBottom">@dimen/card_header_outer_view_margin_bottom</item>
@@ -54,7 +62,9 @@
     </style>
 
     <style name="card.native.header_outer_layout" parent="card.header_outer_layout">
-        <item name="android:padding">@dimen/card_header_default_padding</item>
+        <item name="android:paddingLeft">@dimen/card_header_default_padding</item>
+        <item name="android:paddingRight">@dimen/card_header_default_padding</item>
+        <item name="android:paddingTop">@dimen/card_header_default_padding</item>
     </style>
 
     <!--Style for Header Compound View -->
@@ -64,6 +74,10 @@
 
     <style name="card.native.header_compound_view">
 
+    </style>
+
+    <style name="card.native.header_inner_frame">
+        <item name="android:layout_centerVertical">true</item>
     </style>
 
     <!--Style for simple title inner header view-->
@@ -78,7 +92,7 @@
     </style>
 
     <style name="card.native.header_simple_title" parent="card.header_simple_title">
-        <item name="android:layout_marginLeft">0dp</item>
+        <item name="android:layout_marginLeft">@dimen/card_header_native_simple_title_margin</item>
         <item name="android:layout_marginTop">0dp</item>
         <item name="android:layout_marginRight">0dp</item>
         <item name="android:layout_marginBottom">0dp</item>
@@ -91,7 +105,10 @@
     </style>
 
 
-    <style name="card.native.header_button_frame"></style>
+    <style name="card.native.header_button_frame">
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_alignParentRight">true</item>
+    </style>
 
     <!-- Button Base in Header-->
     <style name="card.header_button_base">
@@ -103,6 +120,7 @@
         <item name="android:focusableInTouchMode">false</item>
         <item name="android:clickable">true</item>
         <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_gravity">center_vertical</item>
         <item name="android:layout_marginRight">@dimen/card_header_button_margin_right</item>
     </style>
 
@@ -152,6 +170,13 @@
         <item name="android:layout_marginRight">@dimen/card_content_outer_view_margin_right</item>
     </style>
 
+    <!--Style for Content View-->
+    <style name="card.native.content_outer_layout" parent="card.content_outer_layout">
+        <item name="android:paddingLeft">@dimen/card_header_default_padding</item>
+        <item name="android:paddingRight">@dimen/card_header_default_padding</item>
+        <item name="android:paddingBottom">@dimen/card_header_default_padding</item>
+    </style>
+
     <!--Style for simple title inner main view-->
     <style name="card.base_simple_title">
         <item name="android:textStyle">bold</item>
@@ -160,6 +185,13 @@
         <item name="android:layout_marginTop">@dimen/card_main_simple_title_margin_top</item>
     </style>
 
+    <!--Style for simple title inner main view-->
+    <style name="card.native.base_simple_title">
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_gravity">left|center_vertical</item>
+        <item name="android:layout_marginLeft">@dimen/card_main_native_simple_title_margin_left</item>
+        <item name="android:layout_marginTop">@dimen/card_main_native_simple_title_margin_top</item>
+    </style>
 
     <!-- Style for Main Layout ****************************************-->
 
@@ -196,6 +228,10 @@
         <item name="android:foreground">@drawable/card_foreground_kitkat_selector</item>
     </style>
 
+    <style name="card.native.main_layout_foreground" parent="card.main_layout_foreground.kitkat">
+        <item name="android:foreground">?android:selectableItemBackground</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
 
     <!-- Style for Hidden Expand Layout ****************************************-->
 
@@ -294,9 +330,6 @@
         <item name="android:layout_marginTop">@dimen/card_section_title_margin_top</item>
         <item name="android:layout_marginBottom">@dimen/card_section_title_margin_top</item>
     </style>
-
-
-
 
 
 

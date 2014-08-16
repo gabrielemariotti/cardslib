@@ -34,6 +34,9 @@
         <!-- Layout used by card in a ListView. Default value is  @layout/list_card_layout -->
         <attr name="list_card_layout_resourceID" format="reference"/>
 
+        <!-- Layout used by card in a ListView. Default value is  @layout/list_card_layout -->
+        <attr name="list_card_layout_resourceIDs" format="reference"/>
+
     </declare-styleable>
 
     <!-- Used for ForegroundLinearLayout -->
