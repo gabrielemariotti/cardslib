@@ -49,9 +49,7 @@
                 android:id="@+id/carddemo_card_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                android:layout_marginTop="12dp"/>
+                style="@style/card_external"/>
 
 
             <!-- Card with custom inner layout -->
@@ -65,9 +63,7 @@
                 android:id="@+id/carddemo_card_inner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                android:layout_marginTop="12dp"/>
+                style="@style/card_external"/>
 
             <!-- Extending card -->
             <TextView
@@ -80,9 +76,7 @@
                 android:id="@+id/carddemo_example_card3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                android:layout_marginTop="12dp"/>
+                style="@style/card_external"/>
 
             <!-- Swipe listener -->
             <TextView
@@ -96,9 +90,7 @@
                 android:id="@+id/carddemo_example_card3_swipe"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                android:layout_marginTop="12dp"/>
+                style="@style/card_external"/>
 
             <!-- Clickable card -->
             <TextView
@@ -111,9 +103,7 @@
                 android:id="@+id/carddemo_example_card3_clickable"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                android:layout_marginTop="12dp"/>
+                style="@style/card_external"/>
 
             <!-- Partial clickable -->
             <TextView
@@ -132,17 +122,13 @@
                     android:id="@+id/carddemo_example_card3_listeners1"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginRight="12dp"
-                    android:layout_marginTop="12dp"/>
+                    style="@style/card_external"/>
 
                 <it.gmariotti.cardslib.library.view.CardViewNative
                     android:id="@+id/carddemo_example_card3_listeners2"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginRight="12dp"
-                    android:layout_marginTop="12dp"/>
+                    style="@style/card_external"/>
 
 
             </LinearLayout>
@@ -158,9 +144,7 @@
                 android:id="@+id/carddemo_example_card_cab"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                android:layout_marginTop="12dp"/>
+                style="@style/card_external"/>
 
             <!-- Empty view-->
             <View

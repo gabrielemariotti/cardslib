@@ -49,10 +49,8 @@
                 android:id="@+id/carddemo_thumb_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                card:card_layout_resourceID="@layout/card_thumbnail_layout"
-                android:layout_marginTop="12dp"/>
+                style="@style/card_external"
+                card:card_layout_resourceID="@layout/card_thumbnail_layout"/>
 
 
             <!-- Resource URL -->
@@ -66,10 +64,8 @@
                 android:id="@+id/carddemo_thumb_url"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                card:card_layout_resourceID="@layout/card_thumbnail_layout"
-                android:layout_marginTop="12dp"/>
+                style="@style/card_external"
+                card:card_layout_resourceID="@layout/card_thumbnail_layout"/>
 
 	    <!-- Customize you thumbnail -->
             <TextView
@@ -82,10 +78,8 @@
                 android:id="@+id/carddemo_thumb_style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                card:card_layout_resourceID="@layout/card_thumbnail_layout"
-                android:layout_marginTop="12dp"/>
+                style="@style/card_external"
+                card:card_layout_resourceID="@layout/card_thumbnail_layout"/>
 
             <!-- Custom Source Thumbnail-->
             <TextView
@@ -98,10 +92,8 @@
                 android:id="@+id/carddemo_thumb_customsource"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                card:card_layout_resourceID="@layout/card_thumbnail_layout"
-                android:layout_marginTop="12dp"/>
+                style="@style/card_external"
+                card:card_layout_resourceID="@layout/card_thumbnail_layout"/>
 	    
             <!-- Empty view-->
             <View

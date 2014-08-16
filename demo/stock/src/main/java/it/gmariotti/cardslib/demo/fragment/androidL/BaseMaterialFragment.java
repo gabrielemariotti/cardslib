@@ -45,6 +45,11 @@ public abstract class BaseMaterialFragment extends BaseFragment {
         return R.string.app_name;
     }
 
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        setupBarHeader(view);
+    }
 
     protected void setupBarHeader(View rootView){
         mHeaderBox = rootView.findViewById(R.id.header_recap);

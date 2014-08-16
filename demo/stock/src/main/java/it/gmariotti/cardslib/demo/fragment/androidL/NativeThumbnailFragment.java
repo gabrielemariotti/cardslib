@@ -55,7 +55,7 @@ public class NativeThumbnailFragment extends BaseMaterialFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View mRootView = inflater.inflate(R.layout.demo_fragment_native_thumbnail, container, false);
-        setupBarHeader(mRootView);
+        //setupBarHeader(mRootView);
         return mRootView;
     }
 
