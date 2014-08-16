@@ -167,6 +167,8 @@ public class CardHeader extends BaseCard {
      */
     protected boolean mIsOverflowSelected=false;
 
+    private boolean couldUseNativeInnerLayout = false;
+
     // -------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------
@@ -189,6 +191,9 @@ public class CardHeader extends BaseCard {
     public CardHeader(Context context,int innerLayout) {
         super(context);
         mInnerLayout= innerLayout;
+
+        if (innerLayout == R.layout.inner_base_header)
+            couldUseNativeInnerLayout = true;
     }
 
 
@@ -343,6 +348,10 @@ public class CardHeader extends BaseCard {
      */
     @Override
     public View getInnerView(Context context, ViewGroup parent) {
+
+        //Check if the default inner layout could be the native layout
+        if (couldUseNativeInnerLayout && isNative())
+            mInnerLayout = R.layout.native_inner_base_header;
 
         View view= super.getInnerView(context, parent);
 
@@ -535,5 +544,14 @@ public class CardHeader extends BaseCard {
         mOtherButtonDrawable = otherButtonDrawable;
     }
 
+    /**
+     * Returns true if the card is using the native card
+     * @return
+     */
+    protected boolean isNative(){
+        if  (getParentCard() != null)
+            return getParentCard().isNative();
+        return false;
+    }
 
 }

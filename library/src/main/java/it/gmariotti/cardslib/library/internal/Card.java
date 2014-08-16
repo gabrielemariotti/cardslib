@@ -921,6 +921,10 @@ public class Card extends BaseCard {
         this.viewToClickToExpand = viewToClickToExpand;
     }
 
+    /**
+     * Returns true if the card is using the native card
+     * @return
+     */
     protected boolean isNative(){
         if (mCardView!=null)
             return mCardView.isNative();
