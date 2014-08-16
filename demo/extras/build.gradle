@@ -3,6 +3,8 @@ apply plugin: 'android'
 
 repositories {
     mavenCentral()
+    //used only for twowayview
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
 }
 
 android {
@@ -11,7 +13,7 @@ android {
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 19
+        targetSdkVersion 'L'
         versionName project.VERSION_NAME
         versionCode Integer.parseInt(project.VERSION_CODE)
     }
@@ -43,6 +45,7 @@ dependencies {
     // Cards Library
     compile project(':library')
     compile project(':library-extra')
+    compile project(':extra:extra-twoway')
 
     // Support Libraries
     compile 'com.android.support:support-v4:19.1.0'
@@ -54,7 +57,7 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.3.1'
 
     //Ion
-    compile 'com.koushikdutta.ion:ion:1.2.7'
+    compile 'com.koushikdutta.ion:ion:1.3.1'
 
     //universal-image-loader
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.1'
@@ -66,7 +69,7 @@ dependencies {
     compile 'com.nhaarman.listviewanimations:library:2.6.0'
 
     //Crouton
-    compile('de.keyboardsurfer.android.widget:crouton:1.8.4') {
+    compile('de.keyboardsurfer.android.widget:crouton:1.8.4@aar') {
         // exclusion is not neccessary, but generally a good idea.
         exclude group: 'com.google.android', module: 'support-v4'
     }

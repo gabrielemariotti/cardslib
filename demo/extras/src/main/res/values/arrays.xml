@@ -18,9 +18,8 @@
   -->
 
 <resources>
-
-    <!--Staggered -->
-    <integer name="carddemo_extras_basestaggered_nlines">4</integer>
-
-    <integer name="carddemo_extra_spannedgrid_numcols">3</integer>
+    <array name="layouts">
+        <item>@layout/carddemo_extras_native_grid_gplay</item>
+        <item>@layout/carddemo_extras_native_grid_gplay_spanned</item>
+    </array>
 </resources>

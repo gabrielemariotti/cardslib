@@ -35,6 +35,12 @@
     <color name="demoextra_card_background_color5">#FF4343</color>
     <color name="demoextra_card_background_color6">#A11143</color>
 
+
+    <color name="demo_2way_yellow_transparent">#ccba68c8</color>
+    <color name="demo_2way_green_transparent">#bb8bc34a</color>
+    <color name="demo_2way_blue_transparent">#bb7986cb</color>
+    <color name="demo_2way_red_transparent">#bbf36c60</color>
+
     <!-- Purchase -->
     <color name="demo_extras_purchase_normal">#ececec</color>
     <color name="demo_extras_purchase_pressed">#CCDF9F51</color>

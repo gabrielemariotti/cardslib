@@ -47,4 +47,6 @@
     <dimen name="carddemo_extras_basestaggered_height2">150dp</dimen>
     <dimen name="carddemo_extras_basestaggered_height3">180dp</dimen>
 
+    <dimen name="carddemo_gplay_height">300dp</dimen>
+
 </resources>

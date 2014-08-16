@@ -52,6 +52,7 @@ import it.gmariotti.cardslib.demo.extras.fragment.ListViewGridAnimationsFragment
 import it.gmariotti.cardslib.demo.extras.fragment.PicassoFragment;
 import it.gmariotti.cardslib.demo.extras.fragment.StaggeredGridFragment;
 import it.gmariotti.cardslib.demo.extras.fragment.StickyListHeadersFragment;
+import it.gmariotti.cardslib.demo.extras.fragment.TwoWayViewFragment;
 import it.gmariotti.cardslib.demo.extras.fragment.UniversalImageLoaderFragment;
 import it.gmariotti.cardslib.demo.extras.iabutils.IabHelper;
 import it.gmariotti.cardslib.demo.extras.iabutils.IabResult;
@@ -63,7 +64,7 @@ public class MainActivity extends Activity {
     private ListView mDrawerList;
     private DrawerLayout mDrawer;
     private CustomActionBarDrawerToggle mDrawerToggle;
-    private int mCurrentTitle = R.string.app_name;
+    public int mCurrentTitle = R.string.app_name;
     private int mSelectedFragment;
     private BaseFragment mBaseFragment;
 
@@ -89,6 +90,7 @@ public class MainActivity extends Activity {
     private static final int CASE_ALL = 11;
     private static final int CASE_DRAGDROP = 12;
     private static final int CASE_WEATHER = 13;
+    private static final int CASE_TWOSAY = 14;
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -321,6 +323,9 @@ public class MainActivity extends Activity {
             case CASE_WEATHER:
                 baseFragment = new CardWithListFragment();
                 break;
+            case CASE_TWOSAY:
+                baseFragment = new TwoWayViewFragment();
+                break;
             default:
                 break;
         }
@@ -372,7 +377,8 @@ public class MainActivity extends Activity {
             "StaggeredGrid",
             "AnimateStaggeredGrid",
             "Drag And Drop CardList",
-            "Card and Weather List"
+            "Card and Weather List",
+            "TwoWayView"
     };
 
 
