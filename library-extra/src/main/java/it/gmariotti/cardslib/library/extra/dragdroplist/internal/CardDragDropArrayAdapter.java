@@ -44,6 +44,9 @@ public class CardDragDropArrayAdapter extends CardArrayAdapter implements Swappa
      */
     protected CardListDragDropView mCardListView;
 
+    /**
+     * Flag to enable the drag and drop feature over the card
+     */
     protected boolean enableDragSupportOnLongClickOnCard = true;
 
     // -------------------------------------------------------------
@@ -158,11 +161,18 @@ public class CardDragDropArrayAdapter extends CardArrayAdapter implements Swappa
         this.mCardListView = cardListView;
     }
 
-
+    /**
+     * Indicates if the  drag and drop feature is enabled over the card
+     * @return
+     */
     public boolean isEnableDragSupportOnLongClickOnCard() {
         return enableDragSupportOnLongClickOnCard;
     }
 
+    /**
+     * Enables the drag and drop feature with the long click over the card
+     * @param enableDragSupportOnLongClickOnCard
+     */
     public void setEnableDragSupportOnLongClickOnCard(boolean enableDragSupportOnLongClickOnCard) {
         this.enableDragSupportOnLongClickOnCard = enableDragSupportOnLongClickOnCard;
     }

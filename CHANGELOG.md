@@ -1,6 +1,14 @@
 Change Log
 ===============================================================================
 
+Version 1.x.x *(2014-xx-xx)*
+----------------------------
+* LIB-EXTRA: Updated the drap and drop list. Now you can drag over the card [(doc)](/doc/DRAGDROPLIST.md) 
+* LIB-EXTRA: Updated ListViewAnimations dependency to 3.0.0
+
+It contains a little **BREAKING CHANGE** on the `mListView.setOnItemMovedListener`. listener [(doc)](/doc/DRAGDROPLIST.md) 
+
+ 
 Version 1.8.0 *(2014-07-14)*
 ----------------------------
 * LIB: Added a `SectionedCardAdapter` which allows to display a `CardList` with Sections [(doc)](/doc/CARDLIST.md#sectionedcardlist)

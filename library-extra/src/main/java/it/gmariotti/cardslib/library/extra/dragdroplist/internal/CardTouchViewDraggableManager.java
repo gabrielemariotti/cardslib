@@ -25,6 +25,9 @@ import android.view.View;
 import com.nhaarman.listviewanimations.itemmanipulation.dragdrop.DraggableManager;
 
 /**
+ * This class handles the single click on the card with the drag and drop feature enabled.
+ * It doesn't enable the drag feature with the single click over the card.
+ *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
 public class CardTouchViewDraggableManager implements DraggableManager {
@@ -35,7 +38,6 @@ public class CardTouchViewDraggableManager implements DraggableManager {
     public CardTouchViewDraggableManager(@IdRes final int touchViewResId) {
         mTouchViewResId = touchViewResId;
     }
-
 
     @Override
     public boolean isDraggable(@NonNull View view, int position, float x, float y) {

@@ -94,7 +94,7 @@ public class CardListDragDropView extends DynamicListView {
         //Set divider to 0dp
         setDividerHeight(0);
 
-        //enable the drag and drop feature
+        //enable and set the drag and drop feature
         enableDragAndDrop();
         setDraggableManager(new CardTouchViewDraggableManager(R.id.list_cardId));
         setOnItemLongClickListener(new OnItemLongClickListener() {
