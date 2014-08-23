@@ -1,5 +1,5 @@
 apply plugin: 'android-sdk-manager'
-apply plugin: 'android'
+apply plugin: 'com.android.application'
 
 repositories {
     mavenCentral()
@@ -63,8 +63,8 @@ dependencies {
     compile 'com.github.chrisbanes.actionbarpulltorefresh:library:0.9.9'
 
     //lListViewAnimations
-    compile 'com.nhaarman.listviewanimations:lib-core:3.0.+'
-    compile 'com.nhaarman.listviewanimations:lib-manipulation:3.0.+'
+    compile 'com.nhaarman.listviewanimations:lib-core:3.1.0'
+    compile 'com.nhaarman.listviewanimations:lib-manipulation:3.1.0'
 
     //Crouton
     compile('de.keyboardsurfer.android.widget:crouton:1.8.5@aar') {

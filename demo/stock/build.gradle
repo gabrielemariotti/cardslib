@@ -1,5 +1,5 @@
 apply plugin: 'android-sdk-manager'
-apply plugin: 'android'
+apply plugin: 'com.android.application'
 
 repositories {
     mavenCentral()
@@ -45,7 +45,7 @@ dependencies {
     // Cards Library
     compile project(':library')
     // Support Libraries
-    compile 'com.android.support:support-v4:19.1.0'
+    compile 'com.android.support:support-v4:20.0.0'
 
     //androidTestCompile 'com.jakewharton.espresso:espresso:1.1-r2'
 }
