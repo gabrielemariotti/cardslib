@@ -635,7 +635,7 @@ All considerations, [written above](#using-a-cardlist-in-multichoicemode), are v
 
  You can see an example in `ListGplayCursorCardCABFragment`  [(source)](/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/ListGplayCursorCardCABFragment.java).
  
-## SectionedCardList
+### SectionedCardList
 
 The `SectionedCardAdapter` allow to display a `CardList` with Sections.
 
@@ -767,3 +767,36 @@ You can extend the CardSection (it is not mandatory) to customize your section m
     }
 ```
 
+You can **update** dinamically the CardSections.
+
+``` java    
+   //add a single CardSection
+   mAdapter.addCardSection(new GplayCardSection(6,"New Section","More"));
+
+   //add CardSections
+   List<GplayCardSection> newSections =  new ArrayList<GplayCardSection>();   
+   newSections.add(new GplayCardSection(6,"Section 3","Other xx"));
+   newSections.add(new GplayCardSection(10,"Section 4","Other xx1"));
+   GplayCardSection[] dummy = new GplayCardSection[newSections.size()];   
+   mAdapter.addCardSections(newSections.toArray(dummy)); 
+   
+   //Change all card sections
+   mAdapter.setCardSections(newSections.toArray(dummy));
+   
+```
+
+If you would like to add Cards and CardSections dinamically you can use something like this:
+
+``` java
+        ArrayList<Card> newCards = new ArrayList<Card>();        
+        //Add cards to array.....
+        //newCards.add(card);        
+        mCardArrayAdapter.addAll(newCards);
+        
+        //Add a CardSection or check the code above to add more CardSections
+        mAdapter.addCardSection(new GplayCardSection(6,"New Section","More"));
+        
+        //Don't forget to notify change to your cards adapter
+        mCardArrayAdapter.notifyDataSetChanged();
+
+```
