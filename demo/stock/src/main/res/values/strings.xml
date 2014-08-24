@@ -106,6 +106,23 @@
 
     <string name="carddemo_title_native_card">Native Card</string>
 
+    <string name="carddemo_title_tag_header">Header</string>
+    <string name="carddemo_title_tag_shadow">Shadow</string>
+    <string name="carddemo_title_tag_thumbnail">Thumbnail</string>
+    <string name="carddemo_title_tag_card">Card</string>
+    <string name="carddemo_title_tag_card_expand">Expand</string>
+
+    <string name="carddemo_title_tag_gplay">Google Play</string>
+    <string name="carddemo_title_tag_gnow">Google Now</string>
+    <string name="carddemo_title_tag_gplus">Material Card</string>
+    <string name="carddemo_title_tag_birthday_card">BirthDay Card</string>
+    <string name="carddemo_title_tag_stock_card">Google Now Stock</string>
+    <string name="carddemo_title_tag_play_card">Google Play</string>
+    <string name="carddemo_title_tag_misc_card">Misc</string>
+    <string name="carddemo_title_tag_card_changevalue">Refresh card</string>
+
+    <string name="carddemo_title_tag_todo">Todo</string>
+
 
     <!-- Section -->
     <string name="demo_section_header_standard">Standard Header without buttons</string>

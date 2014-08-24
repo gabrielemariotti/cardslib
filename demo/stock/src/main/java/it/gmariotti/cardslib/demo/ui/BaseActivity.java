@@ -36,7 +36,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import it.gmariotti.cardslib.demo.MainActivity;
-import it.gmariotti.cardslib.demo.MainNativeActivity;
 import it.gmariotti.cardslib.demo.R;
 import it.gmariotti.cardslib.demo.Utils;
 import it.gmariotti.cardslib.demo.iabutils.IabHelper;
@@ -460,7 +459,7 @@ public abstract class BaseActivity extends Activity {
         Intent intent;
         switch (item) {
             case NAVDRAWER_ITEM_NATIVE_CARDSLIB:
-                intent = new Intent(this, MainNativeActivity.class);
+                intent = new Intent(this, NativeActivity.class);
                 startActivity(intent);
                 finish();
                 break;

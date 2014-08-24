@@ -23,6 +23,12 @@
         <attr name="actionBarInsetStart" format="dimension" />
         <attr name="popupItemBackground" format="dimension" />
         <attr name="actionBarOverlayTopOffset" format="dimension" />
+        <attr name="selectableItemBackgroundBorderless" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="CollectionView">
+        <attr name="internalPadding" format="dimension" />
+        <attr name="contentTopClearance" format="dimension" />
     </declare-styleable>
 
 </resources>

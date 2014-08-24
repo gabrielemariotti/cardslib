@@ -58,7 +58,6 @@
 
     <!--Material design-->
     <dimen name="navdrawer_width">240dp</dimen>
-
     <dimen name="headerbar_elevation">2dp</dimen>
 
     <dimen name="carddemo_keyline_1">16dp</dimen>
@@ -74,5 +73,11 @@
     <dimen name="keyline_2">72dp</dimen>
     <dimen name="keyline_2_minus_16dp">56dp</dimen>
 
+    <dimen name="menu_hz_margin">0dp</dimen>
+    <dimen name="hashtag_line_height">1dp</dimen>
+    <dimen name="hashtag_height">120dp</dimen>
+    <dimen name="hashtag_desc_size">40dp</dimen>
+    <dimen name="hashtag_text_size">14sp</dimen>
+    <dimen name="hashtag_hero_text_size">16sp</dimen>
 
 </resources>

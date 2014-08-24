@@ -39,7 +39,7 @@
         <item name="actionBarIconColor">#fff</item>
         <item name="actionBarInsetStart">@dimen/carddemo_keyline_2</item>
         <item name="actionBarOverlayTopOffset">0dp</item> <!-- action bars replaced by Toolbars -->
-
+        <item name="selectableItemBackgroundBorderless">?android:selectableItemBackgroundBorderless</item>
         <item name="android:colorPrimary">@color/demo_theme_main_color</item>
         <item name="android:colorPrimaryDark">@color/demo_theme_status_bar_color</item>
         <item name="android:colorAccent">@color/theme_accent_1</item>

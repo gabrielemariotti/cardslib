@@ -45,5 +45,7 @@
     <dimen name="carddemo_barheader_elevation">2dp</dimen>
     <dimen name="carddemo_barheader_height">72dp</dimen>
 
+    <dimen name="hashtag_text_size">16sp</dimen>
+    <dimen name="hashtag_hero_text_size">18sp</dimen>
 
 </resources>

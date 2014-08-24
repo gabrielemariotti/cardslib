@@ -26,7 +26,7 @@ import it.gmariotti.cardslib.demo.R;
 /**
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public class MainMenuNativeActivity extends BaseActivity {
+public class MainActivityMaterial extends BaseActivity {
 
     @Override
     protected int getSelfNavDrawerItem() {

@@ -44,7 +44,7 @@
 
         <item name="android:windowContentOverlay">@null</item>
         <item name="popupItemBackground">?android:selectableItemBackground</item>
-
+        <item name="selectableItemBackgroundBorderless">?android:selectableItemBackground</item>
         <item name="android:actionBarStyle">@style/ActionBar</item>
 
         <item name="android:popupMenuStyle">@style/Widget.Carddemo.PopupMenu</item>
