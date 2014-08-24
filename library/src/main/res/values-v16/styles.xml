@@ -37,7 +37,7 @@
 
     <style name="card.native.header_simple_title" parent="card.header_simple_title">
         <item name="android:textSize">@dimen/card_header_native_simple_title_text_size</item>
-        <item name="android:fontFamily">@string/card_font_fontFamily_medium</item>
+        <item name="android:fontFamily">@string/card_native_font_fontFamily_medium</item>
         <item name="android:layout_marginLeft">@dimen/card_header_native_simple_title_margin_left</item>
         <item name="android:layout_marginTop">@dimen/card_header_native_simple_title_margin_top</item>
         <item name="android:layout_marginRight">@dimen/card_header_native_simple_title_margin_right</item>
