@@ -60,6 +60,16 @@ public class NativeCardFragment extends BaseMaterialFragment {
         return R.string.header_title_card;
     }
 
+    @Override
+    protected String getDocUrl() {
+        return null;
+    }
+
+    @Override
+    protected String getSourceUrl() {
+        return null;
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

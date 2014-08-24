@@ -51,6 +51,16 @@ public class NativeThumbnailFragment extends BaseMaterialFragment {
         return R.string.header_title_cardthumbnail;
     }
 
+    @Override
+    protected String getDocUrl() {
+        return null;
+    }
+
+    @Override
+    protected String getSourceUrl() {
+        return null;
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

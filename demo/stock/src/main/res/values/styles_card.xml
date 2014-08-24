@@ -34,8 +34,8 @@
     </style>
 
     <!-- Other Button in Header -->
-    <style name="card.native.header_button_base.other" parent="card.header_button_base.other">
-
+    <style name="card.native.header_button_base.other">
+        <item name="android:background">@drawable/card_menu_button_other</item>
     </style>
 
     <!-- Button Base in Header on the left-->
@@ -50,6 +50,8 @@
         <item name="android:layout_centerVertical">true</item>
     </style>
 
+    <style name="card.native.header_button_base.left"/>
+
     <!-- Button Overflow in Header -->
     <style name="card.header_button_base.left.overflow" >
         <item name="android:background">@drawable/card_menu_button_overflow</item>
@@ -62,6 +64,20 @@
 
     <!-- Other Button in Header -->
     <style name="card.header_button_base.left.other">
+        <item name="android:background">@drawable/card_menu_button_other</item>
+    </style>
+
+    <style name="card.native.header_button_base.left.overflow" >
+        <item name="android:background">@drawable/card_menu_button_overflow</item>
+    </style>
+
+    <!-- Button to Expand/Collapse in Header -->
+    <style name="card.native.header_button_base.left.expand">
+        <item name="android:background">@drawable/card_menu_button_expand</item>
+    </style>
+
+    <!-- Other Button in Header -->
+    <style name="card.native.header_button_base.left.other">
         <item name="android:background">@drawable/card_menu_button_other</item>
     </style>
 

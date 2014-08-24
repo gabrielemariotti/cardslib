@@ -59,6 +59,16 @@ public class TodoNativeCardFragment extends BaseMaterialFragment{
         return R.string.header_title_examples;
     }
 
+    @Override
+    protected String getDocUrl() {
+        return null;
+    }
+
+    @Override
+    protected String getSourceUrl() {
+        return null;
+    }
+
     private void initCards() {
        init_simple_card();
     }

@@ -414,7 +414,8 @@ public class MainNativeActivity extends Activity {
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
             fragmentTransaction.replace(R.id.fragment_main, baseFragment);
-            //fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.addToBackStack(null);
+
             fragmentTransaction.commit();
             if (baseFragment.getTitleResourceId()>0)
                 mCurrentTitle = baseFragment.getTitleResourceId();

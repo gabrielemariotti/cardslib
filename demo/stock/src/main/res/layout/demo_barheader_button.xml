@@ -26,9 +26,10 @@
     android:gravity="center_horizontal"
     android:layout_width="match_parent"
     android:layout_height="32dp"
+    android:layout_marginBottom="8dp"
     tools:showIn="@layout/demo_fragment_native_card">
 
-    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    <TextView android:id="@+id/bar_button_source"
               android:background="@drawable/session_tag_chip"
               android:paddingLeft="8dp"
               android:paddingRight="8dp"
@@ -41,7 +42,7 @@
               android:layout_height="match_parent"
               android:layout_marginRight="16dp"/>
 
-    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    <TextView android:id="@+id/bar_button_doc"
               android:background="@drawable/session_tag_chip"
               android:paddingLeft="8dp"
               android:paddingRight="8dp"

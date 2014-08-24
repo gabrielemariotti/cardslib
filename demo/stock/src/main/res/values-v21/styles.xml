@@ -46,7 +46,7 @@
 
 
         <item name="popupItemBackground">@drawable/popup_item_background</item>
-
+        <item name="android:homeAsUpIndicator">@drawable/ic_up</item>
         <item name="android:actionBarTheme">@style/ActionBarThemeOverlay</item>
     </style>
 

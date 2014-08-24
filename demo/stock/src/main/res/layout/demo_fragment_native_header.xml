@@ -172,7 +172,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/card_external"
-                card:card_layout_resourceID="@layout/carddemo_example_card1_layout"/>
+                card:card_layout_resourceID="@layout/carddemo_native_example_card1_layout"/>
 
             <!-- Customize LayoutHeader -->
             <TextView
@@ -186,7 +186,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/card_external"
-                card:card_layout_resourceID="@layout/carddemo_example_buttonleft_layout"
+                card:card_layout_resourceID="@layout/carddemo_native_example_buttonleft_layout"
    />
 
             <!-- Empty view-->

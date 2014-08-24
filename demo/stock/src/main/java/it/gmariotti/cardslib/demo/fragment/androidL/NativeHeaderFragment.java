@@ -18,6 +18,7 @@
 
 package it.gmariotti.cardslib.demo.fragment.androidL;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -31,6 +32,7 @@ import it.gmariotti.cardslib.demo.R;
 import it.gmariotti.cardslib.demo.cards.CustomExpandCard;
 import it.gmariotti.cardslib.demo.cards.CustomHeaderExample1;
 import it.gmariotti.cardslib.demo.cards.CustomHeaderInnerCard;
+import it.gmariotti.cardslib.library.Constants;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardExpand;
 import it.gmariotti.cardslib.library.internal.CardHeader;
@@ -51,7 +53,6 @@ public class NativeHeaderFragment extends BaseMaterialFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View mRootView = inflater.inflate(R.layout.demo_fragment_native_header, container, false);
-        //setupBarHeader(mRootView);
         return mRootView;
     }
 
@@ -71,6 +72,16 @@ public class NativeHeaderFragment extends BaseMaterialFragment {
     @Override
     protected int getTitleHeaderResourceId() {
         return R.string.header_title_cardheader;
+    }
+
+    @Override
+    protected String getDocUrl() {
+        return "https://github.com/gabrielemariotti/cardslib/blob/master/doc/HEADER.md";
+    }
+
+    @Override
+    protected String getSourceUrl() {
+        return "https://github.com/gabrielemariotti/cardslib/blob/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/androidL/NativeHeaderFragment.java";
     }
 
 
@@ -358,7 +369,13 @@ public class NativeHeaderFragment extends BaseMaterialFragment {
         });
 
         //Use this code to set your drawable
-        header.setOtherButtonDrawable(R.drawable.card_menu_button_other_add);
+        if (Build.VERSION.SDK_INT >= Constants.API_L) {
+            // Use the simple png. It is the src in image (Android-L uses the ripple)
+            header.setOtherButtonDrawable(R.drawable.ic_action_add);
+        } else {
+            // Use a selector. It is the background in image
+            header.setOtherButtonDrawable(R.drawable.card_menu_button_other_add);
+        }
 
         //Add Header to card
         card.addCardHeader(header);
@@ -418,7 +435,7 @@ public class NativeHeaderFragment extends BaseMaterialFragment {
         Card card = new Card(getActivity());
 
         //Create a CardHeader
-        CardHeader header = new CardHeader(getActivity(),R.layout.carddemo_buttonleft_inner_header);
+        CardHeader header = new CardHeader(getActivity(),R.layout.carddemo_native_buttonleft_inner_header);
         //Set the header title
         header.setTitle(getString(R.string.demo_header_basetitle));
 
@@ -427,7 +444,11 @@ public class NativeHeaderFragment extends BaseMaterialFragment {
             @Override
             public void onButtonItemClick(Card card, View view) {
                 //Example to change dinamically the button resources
-                card.getCardHeader().setOtherButtonDrawable(R.drawable.card_menu_button_other_add);
+                if (Build.VERSION.SDK_INT >= Constants.API_L) {
+                    card.getCardHeader().setOtherButtonDrawable(R.drawable.ic_action_add);
+                } else {
+                    card.getCardHeader().setOtherButtonDrawable(R.drawable.card_menu_button_other_add);
+                }
                 card.getCardView().refreshCard(card);
             }
         });

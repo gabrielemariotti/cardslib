@@ -92,6 +92,7 @@
     </style>
 
     <style name="card.native.header_simple_title" parent="card.header_simple_title">
+        <item name="android:textSize">@dimen/card_header_native_simple_title_text_size</item>
         <item name="android:layout_marginLeft">@dimen/card_header_native_simple_title_margin</item>
         <item name="android:layout_marginTop">0dp</item>
         <item name="android:layout_marginRight">0dp</item>

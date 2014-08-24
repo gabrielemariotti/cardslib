@@ -23,11 +23,40 @@
 
     <!-- Other Button in Header -->
     <style name="card.header_button_base.other">
-        <item name="android:background">@drawable/ic_menu_other_action_more_normal</item>
+        <item name="android:src">@drawable/ic_menu_other_action_more_normal</item>
     </style>
 
     <!-- Other Button in Header -->
-    <style name="card.native.header_button_base.other" parent="card.header_button_base.other">
+    <style name="card.native.header_button_base.other">
+        <item name="android:src">@drawable/ic_menu_other_action_more_normal</item>
+    </style>
 
+
+    <style name="card.header_button_base.left.overflow" >
+        <item name="android:src">@drawable/card_menu_button_overflow</item>
+    </style>
+
+    <!-- Button to Expand/Collapse in Header -->
+    <style name="card.header_button_base.left.expand">
+        <item name="android:src">@drawable/card_menu_button_expand</item>
+    </style>
+
+    <!-- Other Button in Header -->
+    <style name="card.header_button_base.left.other">
+        <item name="android:src">@drawable/card_menu_button_other</item>
+    </style>
+
+    <style name="card.native.header_button_base.left.overflow" >
+        <item name="android:src">@drawable/ic_menu_overflow_card</item>
+    </style>
+
+    <!-- Button to Expand/Collapse in Header -->
+    <style name="card.native.header_button_base.left.expand">
+        <item name="android:src">@drawable/ic_menu_expand_card_dark_normal</item>
+    </style>
+
+    <!-- Other Button in Header -->
+    <style name="card.native.header_button_base.left.other">
+        <item name="android:src">@drawable/ic_menu_other_action_more_normal</item>
     </style>
 </resources>
