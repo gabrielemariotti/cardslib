@@ -60,6 +60,11 @@
         <item name="android:windowContentOverlay">@drawable/header_shadow</item>
     </style>
 
+    <style name="Theme.Carddemo.DemoSingleTopic" parent="Theme.Carddemo">
+        <item name="android:windowContentOverlay">@null</item>
+
+    </style>
+
     <style name="HeaderBar" />
 
 
@@ -92,7 +97,7 @@
         <item name="android:layout_marginBottom">@dimen/demo_title_section_margin_bottom</item>
         <item name="android:layout_marginTop">@dimen/demo_title_section_margin_top</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/demo_title_section_textcolor</item>
+        <item name="android:textColor">@color/theme_accent_1</item>
     </style>
 
     <style name="Theme.Carddemo.TrademarkText">

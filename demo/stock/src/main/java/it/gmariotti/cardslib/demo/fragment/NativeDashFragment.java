@@ -39,7 +39,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.gmariotti.cardslib.demo.R;
-import it.gmariotti.cardslib.demo.fragment.androidL.NativeHeaderFragment;
+import it.gmariotti.cardslib.demo.fragment.nativeview.NativeCardFragment;
+import it.gmariotti.cardslib.demo.fragment.nativeview.NativeHeaderFragment;
+import it.gmariotti.cardslib.demo.fragment.nativeview.NativeThumbnailFragment;
 import it.gmariotti.cardslib.demo.ui.widget.CollectionView;
 import it.gmariotti.cardslib.demo.ui.widget.CollectionViewCallbacks;
 
@@ -48,7 +50,24 @@ import it.gmariotti.cardslib.demo.ui.widget.CollectionViewCallbacks;
  */
 public class NativeDashFragment extends Fragment{
 
+    public static String VIEW_COLOR= "color";
+
     private CollectionView mCollectionView;
+
+    public interface Callbacks {
+        public void onTopicSelected(MenuEntry menuEntry, View clickedView);
+    }
+
+    private static Callbacks sDummyCallbacks = new Callbacks() {
+
+        @Override
+        public void onTopicSelected(MenuEntry menuEntry, View clickedView) {
+
+        }
+    };
+
+    private Callbacks mCallbacks = sDummyCallbacks;
+
 
     public static NativeDashFragment newInstance() {
         return new NativeDashFragment();
@@ -68,7 +87,8 @@ public class NativeDashFragment extends Fragment{
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        final NativeDashAdapter adapter = new NativeDashAdapter(getActivity(),buildMenuList());
+        final NativeDashAdapter adapter = buildAdapter();
+        adapter.setCallbacks(mCallbacks);
         mCollectionView.setCollectionAdapter(adapter);
         mCollectionView.updateInventory(adapter.getInventory());
         mCollectionView.setOnScrollListener(new AbsListView.OnScrollListener() {
@@ -82,13 +102,30 @@ public class NativeDashFragment extends Fragment{
         });
     }
 
-    private static class NativeDashAdapter extends ArrayAdapter<MenuEntry> implements CollectionViewCallbacks {
+    protected NativeDashAdapter buildAdapter(){
+        return new NativeDashAdapter(getActivity(),buildMenuList());
+    }
 
-        private final Context mContext;
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        mCallbacks = (Callbacks) activity;
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mCallbacks = sDummyCallbacks;
+    }
+
+    protected static class NativeDashAdapter extends ArrayAdapter<MenuEntry> implements CollectionViewCallbacks {
+
+        protected final Context mContext;
         private Toast mCurrentToast;
         int TOKEN = 0x1;
         int TOKEN2 = 0x2;
         int TOKEN3 = 0x2;
+        private Callbacks mCallbacks;
 
         public NativeDashAdapter(Context context, List<MenuEntry> objects) {
             super(context, 0, objects);
@@ -101,21 +138,21 @@ public class NativeDashFragment extends Fragment{
             inventory.addGroup(new CollectionView.InventoryGroup(TOKEN)
                     .setDisplayCols(mContext.getResources().getInteger(R.integer.menu_grid_columns))
                     .setItemCount(4)
-                    .setHeaderLabel("Card base features")
+                    .setHeaderLabel(mContext.getString(R.string.header_title_group1))
                     .setShowHeader(true));
 
             inventory.addGroup(new CollectionView.InventoryGroup(TOKEN2)
                     .setDisplayCols(mContext.getResources().getInteger(R.integer.menu_grid_columns))
                     .setItemCount(8)
                     .setDataIndexStart(4)
-                    .setHeaderLabel("Card examples")
+                    .setHeaderLabel(mContext.getString(R.string.header_title_group2))
                     .setShowHeader(true));
 
             inventory.addGroup(new CollectionView.InventoryGroup(TOKEN3)
                     .setDisplayCols(mContext.getResources().getInteger(R.integer.menu_grid_columns))
                     .setItemCount(4)
                     .setDataIndexStart(12)
-                    .setHeaderLabel("List and Grid")
+                    .setHeaderLabel(mContext.getString(R.string.header_title_group3))
                     .setShowHeader(true));
 
             return inventory;
@@ -168,7 +205,8 @@ public class NativeDashFragment extends Fragment{
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    MenyEntryUtils.openFragment(mContext, menuEntry);
+                    //MenyEntryUtils.openFragment(mContext, menuEntry);
+                    mCallbacks.onTopicSelected(menuEntry, view);
                 }
             });
 
@@ -205,13 +243,32 @@ public class NativeDashFragment extends Fragment{
             }
         }
 
+        public void setCallbacks(Callbacks callbacks) {
+            mCallbacks = callbacks;
+        }
+
         private static final class ViewHolder {
             TextView name;
             ImageButton description;
         }
     }
 
-    private static class MenyEntryUtils {
+    public static class MenyEntryUtils {
+
+        public static BaseFragment openFragment(Context context, String fragmentName) {
+
+            BaseFragment baseFragment;
+            try {
+                Class<? extends BaseFragment> mClass =   context.getClassLoader().loadClass(fragmentName).asSubclass(BaseFragment.class);
+                baseFragment = mClass.newInstance();
+
+            } catch (Exception e) {
+                throw new IllegalStateException("Could not load Fragment from class: " + fragmentName, e);
+            }
+
+           return baseFragment;
+        }
+
 
         public static void openFragment(Context context, MenuEntry menuEntry) {
 
@@ -236,14 +293,14 @@ public class NativeDashFragment extends Fragment{
         }
     }
 
-    private static class MenuEntry {
+    public static class MenuEntry {
 
-        private int titleId;
-        private int colorId;
-        private int descriptionId;
-        private Class mClass;
+        public int titleId;
+        public int colorId;
+        public int descriptionId;
+        public Class mClass;
 
-        private MenuEntry(int titleId, int colorId, int descriptionId, Class aClass) {
+        public MenuEntry(int titleId, int colorId, int descriptionId, Class aClass) {
             this.titleId = titleId;
             this.colorId = colorId;
             this.descriptionId = descriptionId;
@@ -254,9 +311,9 @@ public class NativeDashFragment extends Fragment{
     private static List<MenuEntry> buildMenuList(){
         ArrayList<MenuEntry> list = new ArrayList<MenuEntry>();
         list.add(new MenuEntry(R.string.carddemo_title_tag_header,R.color.md_indigo_200,R.string.header_title_cardheadersubtitle, NativeHeaderFragment.class));
-        list.add(new MenuEntry(R.string.carddemo_title_tag_thumbnail,R.color.md_orange_300,R.string.header_title_cardthumbnailsubtitle, NativeHeaderFragment.class));
-        list.add(new MenuEntry(R.string.carddemo_title_tag_card,R.color.md_yellow_700,R.string.header_title_cardsubtitle, NativeHeaderFragment.class));
-        list.add(new MenuEntry(R.string.carddemo_title_tag_card_expand,R.color.md_cyan_400,R.string.header_title_cardheadersubtitle, NativeHeaderFragment.class));
+        list.add(new MenuEntry(R.string.carddemo_title_tag_thumbnail,R.color.md_orange_300,R.string.header_title_cardthumbnailsubtitle, NativeThumbnailFragment.class));
+        list.add(new MenuEntry(R.string.carddemo_title_tag_card,R.color.md_yellow_700,R.string.header_title_cardsubtitle, NativeCardFragment.class));
+        list.add(new MenuEntry(R.string.carddemo_title_tag_card_expand,R.color.md_cyan_400,R.string.header_title_cardexpandsubtitle, NativeHeaderFragment.class));
 
         list.add(new MenuEntry(R.string.carddemo_title_tag_gplay,R.color.md_green_300,R.string.header_title_cardheadersubtitle, NativeHeaderFragment.class));
         list.add(new MenuEntry(R.string.carddemo_title_tag_gnow,R.color.md_teal_200,R.string.header_title_cardheadersubtitle, NativeHeaderFragment.class));

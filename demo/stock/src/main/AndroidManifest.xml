@@ -45,8 +45,12 @@
         </activity>
 
         <activity
-            android:name=".ui.MainActivityMaterial"
-            android:label="@string/app_name"
+            android:name=".ui.DemoSingleTopicActivity"
+            android:label="@string/app_name">
+        </activity>
+        <activity
+            android:name=".ui.NativeMenuActivity"
+            android:label="@string/navdrawer_item_native_cardslib"
             android:theme="@style/Theme.Carddemo.Main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -54,9 +58,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.NativeActivity"
-            android:label="@string/navdrawer_item_native_cardslib"
+            android:name=".ui.V1MenuActivity"
+            android:label="@string/navdrawer_item_cardslib_v1"
             android:theme="@style/Theme.Carddemo.Main">
+
         </activity>
         
         <provider

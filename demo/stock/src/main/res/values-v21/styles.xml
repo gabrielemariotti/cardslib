@@ -39,20 +39,27 @@
         <item name="actionBarIconColor">#fff</item>
         <item name="actionBarInsetStart">@dimen/carddemo_keyline_2</item>
         <item name="actionBarOverlayTopOffset">0dp</item> <!-- action bars replaced by Toolbars -->
+
         <item name="selectableItemBackgroundBorderless">?android:selectableItemBackgroundBorderless</item>
         <item name="android:colorPrimary">@color/demo_theme_main_color</item>
         <item name="android:colorPrimaryDark">@color/demo_theme_status_bar_color</item>
         <item name="android:colorAccent">@color/theme_accent_1</item>
 
-
         <item name="popupItemBackground">@drawable/popup_item_background</item>
-        <item name="android:homeAsUpIndicator">@drawable/ic_up</item>
         <item name="android:actionBarTheme">@style/ActionBarThemeOverlay</item>
     </style>
 
     <style name="Theme.Carddemo.Main" parent="Theme.Carddemo">
         <item name="android:windowActionBar">false</item> <!-- replaced by toolbar -->
         <item name="android:windowNoTitle">true</item>
+    </style>
+
+
+    <style name="Theme.Carddemo.DemoSingleTopic" parent="Theme.Carddemo">
+        <item name="android:windowActionBar">false</item> <!-- replaced by toolbar -->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBarOverlay">@null</item>
+
     </style>
 
     <style name="HeaderBar">

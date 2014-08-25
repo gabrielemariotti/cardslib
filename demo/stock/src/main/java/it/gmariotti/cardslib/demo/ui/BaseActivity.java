@@ -22,6 +22,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.widget.DrawerLayout;
@@ -35,7 +36,6 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import it.gmariotti.cardslib.demo.MainActivity;
 import it.gmariotti.cardslib.demo.R;
 import it.gmariotti.cardslib.demo.Utils;
 import it.gmariotti.cardslib.demo.iabutils.IabHelper;
@@ -459,12 +459,12 @@ public abstract class BaseActivity extends Activity {
         Intent intent;
         switch (item) {
             case NAVDRAWER_ITEM_NATIVE_CARDSLIB:
-                intent = new Intent(this, NativeActivity.class);
+                intent = new Intent(this, NativeMenuActivity.class);
                 startActivity(intent);
                 finish();
                 break;
             case NAVDRAWER_ITEM_CARDSLIB_V1:
-                intent = new Intent(this, MainActivity.class);
+                intent = new Intent(this, V1MenuActivity.class);
                 startActivity(intent);
                 finish();
                 break;
@@ -491,6 +491,51 @@ public abstract class BaseActivity extends Activity {
                 }
             }
         }
+    }
+
+    //----------------------------------------------------------------------------
+    // Bundle
+    //----------------------------------------------------------------------------
+
+    /**
+     * Converts an intent into a {@link Bundle} suitable for use as fragment arguments.
+     */
+    public static Bundle intentToFragmentArguments(Intent intent) {
+        Bundle arguments = new Bundle();
+        if (intent == null) {
+            return arguments;
+        }
+
+        final Uri data = intent.getData();
+        if (data != null) {
+            arguments.putParcelable("_uri", data);
+        }
+
+        final Bundle extras = intent.getExtras();
+        if (extras != null) {
+            arguments.putAll(intent.getExtras());
+        }
+
+        return arguments;
+    }
+
+    /**
+     * Converts a fragment arguments bundle into an intent.
+     */
+    public static Intent fragmentArgumentsToIntent(Bundle arguments) {
+        Intent intent = new Intent();
+        if (arguments == null) {
+            return intent;
+        }
+
+        final Uri data = arguments.getParcelable("_uri");
+        if (data != null) {
+            intent.setData(data);
+        }
+
+        intent.putExtras(arguments);
+        intent.removeExtra("_uri");
+        return intent;
     }
 
     //----------------------------------------------------------------------------

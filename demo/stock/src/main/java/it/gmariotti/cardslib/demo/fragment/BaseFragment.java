@@ -30,14 +30,18 @@ import android.view.MenuItem;
  */
 public abstract class BaseFragment extends Fragment {
 
+    public static final int TITLE_NONE = -1;
+
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        setTitle();
+        //setTitle();
     }
 
     protected void setTitle(){
-        getActivity().setTitle(getTitleResourceId());
+        int titleResId = getTitleResourceId();
+        if (titleResId != TITLE_NONE)
+          getActivity().setTitle(getTitleResourceId());
     }
 
     public abstract int getTitleResourceId();
