@@ -27,7 +27,7 @@ import java.util.List;
 import it.gmariotti.cardslib.library.extra.dragdroplist.view.CardListDragDropView;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
-import it.gmariotti.cardslib.library.view.base.CommonCardView;
+import it.gmariotti.cardslib.library.view.base.CardViewWrapper;
 
 
 /**
@@ -95,7 +95,7 @@ public class CardDragDropArrayAdapter extends CardArrayAdapter implements Dynami
      * @param card {@link Card}
      * @param cardView {@link it.gmariotti.cardslib.library.view.CardView}
      */
-    protected final void setupSwipeableAnimation(final Card card, CommonCardView cardView) {
+    protected final void setupSwipeableAnimation(final Card card, CardViewWrapper cardView) {
         card.setSwipeable(false);
         //cardView.setOnTouchListener(null);
     }
@@ -103,9 +103,9 @@ public class CardDragDropArrayAdapter extends CardArrayAdapter implements Dynami
     /**
      * Overrides the default collapse/expand animation in a List
      *
-     * @param cardView {@link CommonCardView}
+     * @param cardView {@link it.gmariotti.cardslib.library.view.base.CardViewWrapper}
      */
-    protected final void setupExpandCollapseListAnimation(CommonCardView cardView) {
+    protected final void setupExpandCollapseListAnimation(CardViewWrapper cardView) {
 
     }
 

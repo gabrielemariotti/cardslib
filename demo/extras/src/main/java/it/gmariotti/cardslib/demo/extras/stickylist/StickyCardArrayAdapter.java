@@ -30,7 +30,7 @@ import it.gmariotti.cardslib.demo.extras.cards.ColorCard;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
 import it.gmariotti.cardslib.library.view.CardListView;
-import it.gmariotti.cardslib.library.view.base.CommonCardView;
+import it.gmariotti.cardslib.library.view.base.CardViewWrapper;
 import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;
 
 /**
@@ -63,7 +63,7 @@ public class StickyCardArrayAdapter extends CardArrayAdapter implements StickyLi
         LayoutInflater mInflater = LayoutInflater.from(getContext());
         View view = mInflater.inflate(R.layout.carddemo_extras_sticky_header, null);
 
-        CommonCardView cardView= (CommonCardView)view.findViewById(R.id.carddemo_card_sticky_header_id);
+        CardViewWrapper cardView= (CardViewWrapper)view.findViewById(R.id.carddemo_card_sticky_header_id);
         Card card = getItem(position);
         char headerChar = card.getTitle().subSequence(0, 1).charAt(0);
 
