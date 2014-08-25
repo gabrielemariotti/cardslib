@@ -30,7 +30,12 @@ Creating a base `CardHeader` is pretty simple.
 
 `CardHeader` provides a base HeaderLayout with a InnerLayout and ButtonLayout.
 
-You can find it in `res/layout/base_header_layout.xml`.
+For the `CardView`:
+You can find it in `res/layout/base_header_layout.xml`
+
+For the `CardViewNative`:
+You can find it in `res/layout/native_base_header_layout.xml`
+
 
 The built-in ButtonLayout provides these features:
 
@@ -38,7 +43,8 @@ The built-in ButtonLayout provides these features:
 * a expand/collapse button
 * a customizable button for your custom action
 
-The built-in InnerLayout defined by `res/layout/inner_base_header.xml` provide these features:
+The built-in InnerLayout defined by `res/layout/inner_base_header.xml` (for the `CardView`) and by `res/layout/native_inner_base_header.xml` (for the `CardViewNative`)
+  provide these features:
 
 * a title
 
@@ -103,12 +109,32 @@ You can set a `CardHeader.OnPrepareCardHeaderPopupMenuListener` with `setPopupMe
 
 As described [below](#style), the overflow icon is defined with this style:
 
+Android API <21: (it uses a background selector)
 ``` xml
     <!-- Button Overflow in Header -->
     <style name="card.header_button_base.overflow" >
         <item name="android:background">@drawable/card_menu_button_rounded_overflow</item>
     </style>
+    
+    <!-- Button Overflow in Header for CardViewNative -->
+    <style name="card.native.header_button_base.overflow" >
+        <item name="android:background">@drawable/card_menu_button_rounded_overflow_selector</item>
+    </style>
 ```
+
+Android API >=21 (it uses a ripple animation)
+``` xml
+
+    <style name="card.header_button_base.overflow" >
+        <item name="android:background">@drawable/card_menu_button_rounded_overflow</item>
+    </style>
+    
+    <!-- Button Overflow in Header for CardViewNative -->
+    <style name="card.native.header_button_base.overflow" >
+        <item name="android:src">@drawable/ic_menu_overflow_card</item>
+    </style>
+``` 
+
 
 You can override it in your project.
 
@@ -150,8 +176,9 @@ You can add a PopupMenu entirely from code:
         });
 ```
 
-You can see an example in `'HeaderFragment' [(source)](/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/HeaderFragment.java).
-
+You can see an example in `'HeaderFragment':
+[(source v1)](/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/v1/HeaderFragment.java).
+[(source native)](/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/nativeview/NativeHeaderFragment.java).
 
 ### Standard Header with the expand/collpase button
 
@@ -227,12 +254,30 @@ You have to set your style and drawable for this button.
 
 The easiest way is to copy this style in your project and use your custom drawables.
 
+Android < 21 : (I suggest you using a selector)
 ``` xml
     <!-- Other Button in Header -->
     <style name="card.header_button_base.other">
         <item name="android:background">@drawable/card_menu_button_other</item>
     </style>
+    
+    <!-- Other Button in Header -->
+    <style name="card.native.header_button_base.other">
+         <item name="android:background">@drawable/card_menu_button_other</item>
+    </style>
 ```
+Android >= 21 : (I suggest a simple image because it use a ripple as background)
+``` xml
+    <!-- Other Button in Header -->
+    <style name="card.header_button_base.other">
+        <item name="android:src">@drawable/ic_menu_other_action_more_normal</item>
+    </style>
+
+    <!-- Other Button in Header -->
+    <style name="card.native.header_button_base.other">
+        <item name="android:src">@drawable/ic_menu_other_action_more_normal</item>
+    </style>
+```    
 
 You can use the listener  `CardHeader.OnClickCardHeaderOtherButtonListener` to listen callback when the other button is clicked.
 
@@ -242,7 +287,13 @@ If you want to set the other button programmatically you can use the same code a
 
 ``` java
         //Use this code to set your drawable
-        header.setOtherButtonDrawable(R.drawable.card_menu_button_other_add);
+        if (Build.VERSION.SDK_INT >= Constants.API_L) {
+            // Use the simple png. It is the src in image (Android-L uses the ripple)
+            header.setOtherButtonDrawable(R.drawable.ic_action_add);
+        } else {
+            // Use a selector. It is the background in image
+            header.setOtherButtonDrawable(R.drawable.card_menu_button_other_add);
+        }
 ```
 
 ![Screen](/demo/images/header/otherButtonAdd.png)
@@ -304,7 +355,36 @@ You can fully customize your header.
 
 You can set your header layout, customizing card layout and inflating your header xml layout file.
 
-First of all you have to provide your card layout .The quickest way to start with this would be to copy the `res/layout/card_layout.xml` or `res/layout/card_thumbnail_layout.xml`
+First of all you have to provide your card layout.
+
+The quickest way to start with this would be to copy the built-in layouts.
+
+For `CardViewNative`:
+ 
+clone `res/layout/native_card_layout.xml` or `res/layout/native_card_thumbnail_layout.xml`
+
+
+You can see `res/layout/carddemo_native_example_card1_layout.xml`.
+
+
+``` xml
+   <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                 xmlns:card="http://schemas.android.com/apk/res-auto">
+
+         <it.gmariotti.cardslib.library.view.component.CardHeaderView
+            style="@style/card.native.header_outer_layout"
+            android:id="@+id/card_header_layout"
+            android:layout_width="match_parent"
+            card:card_header_layout_resourceID="@layout/carddemo_example_card1_header_layout"
+            android:layout_height="wrap_content"/>
+
+   </LinearLayout>
+```
+
+For `CardView`:
+ 
+clone `res/layout/card_layout.xml` or `res/layout/card_thumbnail_layout.xml`
+
 
 You can see `res/layout/carddemo_example_card1_layout.xml`.
 
@@ -319,8 +399,6 @@ You can see `res/layout/carddemo_example_card1_layout.xml`.
              android:layout_width="match_parent"
              card:card_header_layout_resourceID="@layout/carddemo_example_card1_header_layout"
              android:layout_height="wrap_content"/>
-
-             
 
    </LinearLayout>
 ```
@@ -349,6 +427,7 @@ You can see an example in `res/layout/carddemo_example_card1_header_layout.xml`
          with setupInnerViewElements(android.view.ViewGroup, android.view.View) method in CardHeader class. -->
     <FrameLayout
         android:id="@+id/card_header_inner_frame"
+        style="@style/card.native.header_inner_frame"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />
@@ -369,6 +448,57 @@ Without this element, the `setupInnerViewElements` method in your `CardHeader` w
 You can customize some properties with your style and drawable files.
 The quickest way to start with this would be to copy the specific style or drawable in your project and
 change them.
+
+For the `CardViewNative`:
+
+These are the main **style properties**:
+
+* `card.native.header_outer_layout`: header layout style
+* `card.native.header_simple_title`: title style
+* `card.native.header_button_frame`: button frame style
+* `card.native.header_button_base`:  buttons style
+* `card.native.header_button_base.overflow`: overflow button style
+* `card.native.header_button_base.expand`: expand button style
+* `card.native.header_button_base.other`: other button style
+
+**color properties**:
+
+* `card_text_color_header`: default header text color
+
+Example to change header title color:
+
+``` xml
+   <color name="card_text_color_header">#990066</color>
+```
+
+![Screen](/demo/images/header/title_color.png)
+
+**drawable/selector properties** for android<21:
+
+* `card_menu_button_rounded_overflow_selector`: default selector used by overflow menu
+* `card_menu_button_expand`: default selector used by expand menu
+
+**drawable properties** for android>=21:
+
+* `ic_menu_overflow_card`: default image used by overflow menu (it has a ripple background)
+* `ic_menu_expand_card_dark_normal`: default image used by expand menu (it has a ripple background)
+
+**Text Size** 
+``` xml
+    <dimen name="card_header_native_simple_title_text_size">18sp</dimen>
+```
+
+**Text Font**
+values/fonts.xml
+``` xml
+    <string name="card_native_font_fontFamily_medium">sans-serif-medium</string>
+``` 
+values-v21/fonts.xml
+``` xml
+    <string name="card_native_font_fontFamily_medium">sans-serif-medium</string>
+```
+
+For the `CardView`:
 
 These are the main **style properties**:
 
@@ -392,11 +522,30 @@ Example to change header title color:
 
 ![Screen](/demo/images/header/title_color.png)
 
-**drawable/selector properties**:
+**drawable/selector properties** for android<21:
 
-* `card_menu_button_overflow`: default selector used by overflow menu
+* `card_menu_button_rounded_overflow_selector`: default selector used by overflow menu
 * `card_menu_button_expand`: default selector used by expand menu
 
+**drawable properties** for android>=21:
+
+* `ic_menu_overflow_card_rounded_dark_normal`: default image used by overflow menu (it has a ripple background)
+* `ic_menu_expand_card_dark_normal`: default image used by expand menu (it has a ripple background)
+
+**Text Size** 
+``` xml
+    <dimen name="card_header_simple_title_text_size">20sp</dimen>
+``` 
+
+**Text Font**
+values/fonts.xml
+``` xml
+    <string name="card_font_fontFamily_medium">sans-serif-condensed</string>
+``` 
+values-v21/fonts.xml
+``` xml
+    <string name="card_font_fontFamily_medium">sans-serif-condensed</string>
+```
 Examples:
 
 To change overflow button:

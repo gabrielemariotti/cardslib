@@ -19,5 +19,5 @@
 
 <resources>
     <string name="card_font_fontFamily_medium">sans-serif-condensed</string>
-    <string name="card_native_font_fontFamily_medium">sans-serif-condensed</string>
+    <string name="card_native_font_fontFamily_medium">sans-serif-medium</string>
 </resources>

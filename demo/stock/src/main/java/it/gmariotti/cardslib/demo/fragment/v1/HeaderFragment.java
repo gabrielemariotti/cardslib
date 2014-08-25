@@ -83,7 +83,7 @@ public class HeaderFragment extends MaterialV1Fragment {
 
     @Override
     protected String getSourceUrl() {
-        return "https://github.com/gabrielemariotti/cardslib/blob/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/androidL/NativeHeaderFragment.java";
+        return "https://github.com/gabrielemariotti/cardslib/blob/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/androidL/HeaderFragment.java";
     }
 
 

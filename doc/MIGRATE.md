@@ -4,7 +4,7 @@ In this page you can find info about:
 
 * [Intro](#intro)
 * [Breaking changes](#breaking-changes)
-* [Use the new CardViewNative](#use-the-new-cardviewnative)
+* [Migrate the old card to the new CardViewNative](#migrate-the-old-card-to-the-new-cardviewnative)
 
 ## Intro
 
@@ -23,7 +23,7 @@ In this page you will find all info to migrate from v1 to v2.
 
 The library 2.x introduces some breaking changes in your code. You can fix these issues following this guide:
 
-* if you are using the `getCardView()` you have to change your code using a cast to `CardView`. Now this code returns the `CommonCardView` interface.
+* if you are using the `getCardView()` you have to change your code using a cast to `CardView`. Now this code returns the `CardViewWrapper` interface.
 ``` java
    CardView cardView = (CardView) card.getCardView();
 ``` 
@@ -35,26 +35,44 @@ From:
 ```
 To
 ```java
-  public void onItemCheckedStateChanged(ActionMode mode, int position, long id, boolean checked, CommonCardView cardView, Card card) {
+  public void onItemCheckedStateChanged(ActionMode mode, int position, long id, boolean checked, CardViewWrapper cardView, Card card) {
 ```
 
 
-## Use the new CardViewNative
+## Migrate the old card to the new CardViewNative
 
 You can use the cardslib 2.+ with the `CardView`-v1 and with the new `CardViewNative`.
 If you would like to migrate the old cards to new view you have to follow these points:
 
 * Change your xml from `it.gmariotti.cardslib.library.view.CardView` to `it.gmariotti.cardslib.library.view.CardViewNative`
 
-* If you have a custom [(global layout)](/doc/OVERVIEW.md) you should migrate the style of each component:
+* If you have a **custom [(global layout)](/doc/OVERVIEW.md)** you have to remove the tag `CardShadowView` because the shadow is not natively supported.
+
+* If you have a **custom [(global layout)](/doc/OVERVIEW.md)** you should change the `LinearLayout` (with `id=@+id/card_main_layout`) with `it.gmariotti.cardslib.library.view.ForegroundLinearLayout`
+
+* If you are using the **other button in header** you can improve your code using a ripple for v21 and a selector for version<21 [(doc)](/doc/HEADER.md#standard-header-with-custom-button)
+
+* If you have a **custom [(global layout)](/doc/OVERVIEW.md)** you should migrate the style of each component:
 
 | Style CardView                          | Style CardViewNative                           | 
 | --------------------------------------- |------------------------------------------------| 
 | @style/card                             | @style/card.native                             | 
 | @style/card.main_layout                 | @style/card.native_main_layout                 | 
-| @style/card.header_outer_layout         | @style/card.native.header_outer_layout         | 
+| @style/card.header_outer_layout         | @style/card.native.header_outer_layout         |
+| @style/card.content_outer_layout        | @style/card.native.content_outer_layout        |
+
+
+* If you have a **custom layout for the header** you should migrate the style:
+ 
+| Style CardView                          | Style CardViewNative                           | 
+| --------------------------------------- |------------------------------------------------|
+| @style/card.header_compound_view        | @style/card.native.header_compound_view        |
+| @style/card.header_inner_frame          | @style/card.native.header_inner_frame          |
 | @style/card.header_button_base          | @style/card.native.header_button_base          |
 | @style/card.header_button_frame         | @style/card.native.header_button_frame         |
 | @style/card.header_button_base.overflow | @style/card.native.header_button_base.overflow |
 | @style/card.header_button_base.expand   | @style/card.native.header_button_base.expand   |
 | @style/card.header_button_base.other    | @style/card.native.header_button_base.other    |
+| @style/card.header_simple_title         | @style/card.native.header_simple_title         |
+
+
