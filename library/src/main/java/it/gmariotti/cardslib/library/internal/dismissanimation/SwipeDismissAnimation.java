@@ -24,7 +24,7 @@ import android.content.Context;
 import android.view.View;
 
 import it.gmariotti.cardslib.library.internal.Card;
-import it.gmariotti.cardslib.library.view.base.CommonCardView;
+import it.gmariotti.cardslib.library.view.base.CardViewWrapper;
 
 /**
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
@@ -43,7 +43,7 @@ public class SwipeDismissAnimation extends BaseDismissAnimation {
     }
 
     @Override
-    public void animate(final Card card, final CommonCardView cardView) {
+    public void animate(final Card card, final CardViewWrapper cardView) {
 
         ((View)cardView).animate()
                 .translationX(mDismissRight ? mListWidth : -mListWidth)

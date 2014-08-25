@@ -33,7 +33,7 @@ import it.gmariotti.cardslib.library.internal.multichoice.MultiChoiceAdapter;
 import it.gmariotti.cardslib.library.internal.multichoice.MultiChoiceAdapterHelperBase;
 import it.gmariotti.cardslib.library.internal.multichoice.OptionMultiChoice;
 import it.gmariotti.cardslib.library.view.CardListView;
-import it.gmariotti.cardslib.library.view.base.CommonCardView;
+import it.gmariotti.cardslib.library.view.base.CardViewWrapper;
 
 
 /**
@@ -97,7 +97,7 @@ public abstract class CardArrayMultiChoiceAdapter extends CardArrayAdapter imple
      * @param position
      */
     @Override
-    protected void setupMultichoice(View view, Card mCard, CommonCardView mCardView, long position) {
+    protected void setupMultichoice(View view, Card mCard, CardViewWrapper mCardView, long position) {
         super.setupMultichoice(view, mCard, mCardView, position);
         mHelper.setupMultichoice(view, mCard, mCardView, position);
     }

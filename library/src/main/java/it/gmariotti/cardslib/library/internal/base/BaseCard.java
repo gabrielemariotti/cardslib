@@ -24,7 +24,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import it.gmariotti.cardslib.library.internal.Card;
-import it.gmariotti.cardslib.library.view.base.CommonCardView;
+import it.gmariotti.cardslib.library.view.base.CardViewWrapper;
 
 /**
  * Base Abstract Card  model
@@ -46,7 +46,7 @@ public abstract class BaseCard implements CardUIInferface {
     /**
      * Outer View
      */
-    protected CommonCardView mCardView;
+    protected CardViewWrapper mCardView;
 
     /**
      * Inner View
@@ -92,7 +92,7 @@ public abstract class BaseCard implements CardUIInferface {
      * @return the complete View component
      */
 
-    public CommonCardView getCardView() {
+    public CardViewWrapper getCardView() {
         return mCardView;
     }
 
@@ -170,10 +170,10 @@ public abstract class BaseCard implements CardUIInferface {
     }
 
     /**
-     * Set the linked {@link CommonCardView}
-     * @param cardView {@link CommonCardView}
+     * Set the linked {@link it.gmariotti.cardslib.library.view.base.CardViewWrapper}
+     * @param cardView {@link it.gmariotti.cardslib.library.view.base.CardViewWrapper}
      */
-    public void setCardView(CommonCardView cardView) {
+    public void setCardView(CardViewWrapper cardView) {
         mCardView = cardView;
     }
 

@@ -32,7 +32,7 @@ import it.gmariotti.cardslib.library.view.component.CardThumbnailView;
  * <p>
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public interface CommonCardView {
+public interface CardViewWrapper {
 
     /**
      * Return the context
@@ -45,8 +45,8 @@ public interface CommonCardView {
      * Interface to listen any callbacks when expand/collapse animation starts
      */
     public interface OnExpandListAnimatorListener {
-        public void onExpandStart(CommonCardView viewCard,View expandingLayout);
-        public void onCollapseStart(CommonCardView viewCard,View expandingLayout);
+        public void onExpandStart(CardViewWrapper viewCard,View expandingLayout);
+        public void onCollapseStart(CardViewWrapper viewCard,View expandingLayout);
     }
 
     /**

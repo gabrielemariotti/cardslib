@@ -43,7 +43,7 @@ import it.gmariotti.cardslib.library.internal.CardExpand;
 import it.gmariotti.cardslib.library.internal.CardHeader;
 import it.gmariotti.cardslib.library.internal.CardThumbnail;
 import it.gmariotti.cardslib.library.internal.ViewToClickToExpand;
-import it.gmariotti.cardslib.library.view.base.CommonCardView;
+import it.gmariotti.cardslib.library.view.base.CardViewWrapper;
 import it.gmariotti.cardslib.library.view.component.CardHeaderView;
 import it.gmariotti.cardslib.library.view.component.CardThumbnailView;
 import it.gmariotti.cardslib.library.view.listener.SwipeDismissViewTouchListener;
@@ -101,7 +101,7 @@ import it.gmariotti.cardslib.library.view.listener.SwipeDismissViewTouchListener
 * </p>
 * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
 */
-public class CardViewNative extends CardView implements CommonCardView {
+public class CardViewNative extends CardView implements CardViewWrapper {
 
     protected static String TAG = "CardViewNative";
 
@@ -275,7 +275,10 @@ public class CardViewNative extends CardView implements CommonCardView {
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mInternalOuterView = inflater.inflate(card_layout_resourceID, this, true);
 
+        //Radius
         setRadius(getResources().getDimension(R.dimen.card_background_default_radius));
+
+
 
     }
 
@@ -529,7 +532,7 @@ public class CardViewNative extends CardView implements CommonCardView {
                 }
 
                 @Override
-                public void onDismiss(CommonCardView cardView, Card card) {
+                public void onDismiss(CardViewWrapper cardView, Card card) {
                     final ViewGroup vg = (ViewGroup)(((View)cardView).getParent());
                     if (vg!=null){
                         vg.removeView((View)cardView);
@@ -916,7 +919,7 @@ public class CardViewNative extends CardView implements CommonCardView {
      * @param onExpandListAnimatorListener listener
      */
     @Override
-    public void setOnExpandListAnimatorListener(CommonCardView.OnExpandListAnimatorListener onExpandListAnimatorListener) {
+    public void setOnExpandListAnimatorListener(CardViewWrapper.OnExpandListAnimatorListener onExpandListAnimatorListener) {
         this.mOnExpandListAnimatorListener = onExpandListAnimatorListener;
     }
 

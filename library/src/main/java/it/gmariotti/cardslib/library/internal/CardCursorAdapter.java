@@ -32,7 +32,7 @@ import java.util.List;
 import it.gmariotti.cardslib.library.R;
 import it.gmariotti.cardslib.library.internal.base.BaseCardCursorAdapter;
 import it.gmariotti.cardslib.library.view.CardListView;
-import it.gmariotti.cardslib.library.view.base.CommonCardView;
+import it.gmariotti.cardslib.library.view.base.CardViewWrapper;
 
 
 /**
@@ -112,12 +112,12 @@ public abstract class CardCursorAdapter extends BaseCardCursorAdapter  {
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
 
-        CommonCardView mCardView;
+        CardViewWrapper mCardView;
         Card mCard;
 
         mCard = (Card) getCardFromCursor(cursor);
         if (mCard != null) {
-            mCardView = (CommonCardView) view.findViewById(R.id.list_cardId);
+            mCardView = (CardViewWrapper) view.findViewById(R.id.list_cardId);
             if (mCardView != null) {
                 //It is important to set recycle value for inner layout elements
                 mCardView.setForceReplaceInnerLayout(Card.equalsInnerLayout(mCardView.getCard(),mCard));
@@ -159,7 +159,7 @@ public abstract class CardCursorAdapter extends BaseCardCursorAdapter  {
      * @param card {@link it.gmariotti.cardslib.library.internal.Card}
      * @param cardView {@link it.gmariotti.cardslib.library.view.CardView}
      */
-    protected void setupSwipeableAnimation(final Card card, CommonCardView cardView) {
+    protected void setupSwipeableAnimation(final Card card, CardViewWrapper cardView) {
 
         cardView.setOnTouchListener(null);
     }
@@ -169,7 +169,7 @@ public abstract class CardCursorAdapter extends BaseCardCursorAdapter  {
      *
      * @param cardView {@link it.gmariotti.cardslib.library.view.CardView}
      */
-    protected void setupExpandCollapseListAnimation(CommonCardView cardView) {
+    protected void setupExpandCollapseListAnimation(CardViewWrapper cardView) {
 
         if (cardView == null) return;
         cardView.setOnExpandListAnimatorListener(mCardListView);
@@ -239,7 +239,7 @@ public abstract class CardCursorAdapter extends BaseCardCursorAdapter  {
      * @param viewCard
      * @return
      */
-    public boolean onExpandStart(CommonCardView viewCard) {
+    public boolean onExpandStart(CardViewWrapper viewCard) {
         Card card = viewCard.getCard();
         if (card!=null){
             String itemId = card.getId();
@@ -256,7 +256,7 @@ public abstract class CardCursorAdapter extends BaseCardCursorAdapter  {
      * @param viewCard
      * @return
      */
-    public boolean onCollapseStart(CommonCardView viewCard) {
+    public boolean onCollapseStart(CardViewWrapper viewCard) {
         Card card = viewCard.getCard();
         if (card!=null){
             String itemId = card.getId();
@@ -272,7 +272,7 @@ public abstract class CardCursorAdapter extends BaseCardCursorAdapter  {
      *
      * @param viewCard
      */
-    public void onExpandEnd(CommonCardView viewCard) {
+    public void onExpandEnd(CardViewWrapper viewCard) {
         Card card = viewCard.getCard();
         if (card!=null){
             setExpanded(card);
@@ -284,7 +284,7 @@ public abstract class CardCursorAdapter extends BaseCardCursorAdapter  {
      *
      * @param viewCard
      */
-    public void onCollapseEnd(CommonCardView viewCard) {
+    public void onCollapseEnd(CardViewWrapper viewCard) {
         Card card = viewCard.getCard();
         if (card!=null){
             setCollapsed(card);

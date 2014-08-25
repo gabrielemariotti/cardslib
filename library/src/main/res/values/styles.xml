@@ -137,7 +137,7 @@
     </style>
 
     <style name="card.native.header_button_base.overflow" >
-        <item name="android:background">@drawable/card_menu_button_rounded_overflow</item>
+        <item name="android:background">@drawable/card_menu_button_rounded_overflow_selector</item>
     </style>
 
     <!-- Button to Expand/Collapse in Header -->

@@ -29,7 +29,7 @@ import android.widget.Toast;
 
 import it.gmariotti.cardslib.library.R;
 import it.gmariotti.cardslib.library.view.CardExpandableListView;
-import it.gmariotti.cardslib.library.view.base.CommonCardView;
+import it.gmariotti.cardslib.library.view.base.CardViewWrapper;
 
 
 /**
@@ -113,7 +113,7 @@ public class CardExpandableListAdapter<T> extends BaseExpandableListAdapter {
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
 
         View view = convertView;
-        CommonCardView mCardView;
+        CardViewWrapper mCardView;
 
         Card mCard = (Card) getGroup(groupPosition);
         if (mCard != null) {
@@ -129,7 +129,7 @@ public class CardExpandableListAdapter<T> extends BaseExpandableListAdapter {
             }
 
             //Setup card
-            mCardView = (CommonCardView) view.findViewById(R.id.list_cardId);
+            mCardView = (CardViewWrapper) view.findViewById(R.id.list_cardId);
             if (mCardView != null) {
                 //It is important to set recycle value for inner layout elements
                 mCardView.setForceReplaceInnerLayout(Card.equalsInnerLayout(mCardView.getCard(), mCard));

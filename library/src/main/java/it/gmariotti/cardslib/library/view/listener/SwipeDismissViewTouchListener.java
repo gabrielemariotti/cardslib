@@ -30,7 +30,7 @@ import android.view.ViewGroup;
 
 import it.gmariotti.cardslib.library.R;
 import it.gmariotti.cardslib.library.internal.Card;
-import it.gmariotti.cardslib.library.view.base.CommonCardView;
+import it.gmariotti.cardslib.library.view.base.CardViewWrapper;
 
 
 /**
@@ -53,7 +53,7 @@ public class SwipeDismissViewTouchListener implements View.OnTouchListener {
     private long mAnimationTime;
 
     // Fixed properties
-    private CommonCardView mCardView;
+    private CardViewWrapper mCardView;
     private DismissCallbacks mCallbacks;
     private int mViewWidth = 1; // 1 and not 0 to prevent dividing by zero
 
@@ -83,7 +83,7 @@ public class SwipeDismissViewTouchListener implements View.OnTouchListener {
          * @param cardView               The originating {@link it.gmariotti.cardslib.library.view.CardView}.
          * @parma card                   Card
          */
-        void onDismiss(CommonCardView cardView,Card card);
+        void onDismiss(CardViewWrapper cardView,Card card);
     }
 
     /**
@@ -92,7 +92,7 @@ public class SwipeDismissViewTouchListener implements View.OnTouchListener {
      * @param cardView  The card view which should be dismissable.
      * @param callbacks The callback to trigger when the user has indicated that she
      */
-    public SwipeDismissViewTouchListener(CommonCardView cardView,
+    public SwipeDismissViewTouchListener(CardViewWrapper cardView,
                                          Card card,
                                          DismissCallbacks callbacks) {
         ViewConfiguration vc = ViewConfiguration.get(cardView.getContext());

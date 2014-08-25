@@ -37,7 +37,7 @@ import java.util.ArrayList;
 
 import it.gmariotti.cardslib.library.R;
 import it.gmariotti.cardslib.library.internal.Card;
-import it.gmariotti.cardslib.library.view.base.CommonCardView;
+import it.gmariotti.cardslib.library.view.base.CardViewWrapper;
 
 public class MultiChoiceAdapterHelperBase implements AdapterView.OnItemLongClickListener,AdapterView.OnItemClickListener {
 
@@ -84,14 +84,14 @@ public class MultiChoiceAdapterHelperBase implements AdapterView.OnItemLongClick
      * @param mCardView
      * @param position
      */
-    public void setupMultichoice(View view, Card mCard, CommonCardView mCardView, long position) {
+    public void setupMultichoice(View view, Card mCard, CardViewWrapper mCardView, long position) {
         final MultiChoiceAdapter adapter = (MultiChoiceAdapter) owner;
 
 
         View.OnClickListener advanceClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final CommonCardView cardView = (CommonCardView) v;
+                final CardViewWrapper cardView = (CardViewWrapper) v;
                 int position = adapter.getPosition(cardView.getCard());
                 onItemClick(mAdapterView, v, position, adapter.getItemId(position));
             }

@@ -25,7 +25,7 @@ import android.widget.CursorAdapter;
 
 import it.gmariotti.cardslib.library.R;
 import it.gmariotti.cardslib.library.internal.Card;
-import it.gmariotti.cardslib.library.view.base.CommonCardView;
+import it.gmariotti.cardslib.library.view.base.CardViewWrapper;
 
 /**
  * Base Cursor Adapter
@@ -100,7 +100,7 @@ public abstract class BaseCardCursorAdapter extends CursorAdapter {
      * @param mCard
      * @param mCardView
      */
-    protected void setupMultichoice(View view,Card mCard,CommonCardView mCardView,long position){
+    protected void setupMultichoice(View view,Card mCard,CardViewWrapper mCardView,long position){
         //empty
     }
 

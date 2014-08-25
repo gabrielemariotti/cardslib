@@ -29,7 +29,7 @@ import android.widget.ListAdapter;
 import it.gmariotti.cardslib.library.R;
 import it.gmariotti.cardslib.library.internal.CardGridArrayAdapter;
 import it.gmariotti.cardslib.library.internal.CardGridCursorAdapter;
-import it.gmariotti.cardslib.library.view.base.CommonCardView;
+import it.gmariotti.cardslib.library.view.base.CardViewWrapper;
 
 /**
  * Card Grid View.
@@ -62,7 +62,7 @@ import it.gmariotti.cardslib.library.view.base.CommonCardView;
  * </p>
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public class CardGridView extends GridView implements CommonCardView.OnExpandListAnimatorListener {
+public class CardGridView extends GridView implements CardViewWrapper.OnExpandListAnimatorListener {
 
     protected static String TAG = "CardGridView";
 
@@ -233,13 +233,13 @@ public class CardGridView extends GridView implements CommonCardView.OnExpandLis
     //--------------------------------------------------------------------------
 
     @Override
-    public void onExpandStart(CommonCardView viewCard,View expandingLayout) {
+    public void onExpandStart(CardViewWrapper viewCard,View expandingLayout) {
         //do nothing. Don't use this kind of animation in a grid
         Log.w(TAG,"Don't use this kind of animation in a grid");
     }
 
     @Override
-    public void onCollapseStart(CommonCardView viewCard,View expandingLayout) {
+    public void onCollapseStart(CardViewWrapper viewCard,View expandingLayout) {
         //do nothing. Don't use this kind of animation in a grid
         Log.w(TAG,"Don't use this kind of animation in a grid");
     }

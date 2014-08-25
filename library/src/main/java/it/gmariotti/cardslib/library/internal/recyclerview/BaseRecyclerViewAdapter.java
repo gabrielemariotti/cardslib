@@ -26,7 +26,7 @@ import android.view.ViewGroup;
 
 import it.gmariotti.cardslib.library.R;
 import it.gmariotti.cardslib.library.internal.Card;
-import it.gmariotti.cardslib.library.view.base.CommonCardView;
+import it.gmariotti.cardslib.library.view.base.CardViewWrapper;
 
 /**
  * Base RecyclerViewAdapter
@@ -76,12 +76,12 @@ public abstract class BaseRecyclerViewAdapter extends RecyclerView.Adapter<BaseR
 
     public static class CardViewHolder extends RecyclerView.ViewHolder {
 
-        public final CommonCardView mCardView;
+        public final CardViewWrapper mCardView;
         public boolean recycled = false;
 
         public CardViewHolder(View view) {
             super(view);
-            mCardView = (CommonCardView) view.findViewById(R.id.list_cardId);
+            mCardView = (CardViewWrapper) view.findViewById(R.id.list_cardId);
         }
     }
 
@@ -100,7 +100,7 @@ public abstract class BaseRecyclerViewAdapter extends RecyclerView.Adapter<BaseR
     @Override
     public void onBindViewHolder(CardViewHolder cardViewHolder, int position) {
 
-        CommonCardView mCardView = cardViewHolder.mCardView;
+        CardViewWrapper mCardView = cardViewHolder.mCardView;
         Card mCard = getItem(position);
 
         //Setup card

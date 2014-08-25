@@ -41,7 +41,7 @@ import it.gmariotti.cardslib.library.internal.CardExpand;
 import it.gmariotti.cardslib.library.internal.CardHeader;
 import it.gmariotti.cardslib.library.internal.CardThumbnail;
 import it.gmariotti.cardslib.library.internal.ViewToClickToExpand;
-import it.gmariotti.cardslib.library.view.base.CommonCardView;
+import it.gmariotti.cardslib.library.view.base.CardViewWrapper;
 import it.gmariotti.cardslib.library.view.component.CardHeaderView;
 import it.gmariotti.cardslib.library.view.component.CardThumbnailView;
 import it.gmariotti.cardslib.library.view.listener.SwipeDismissViewTouchListener;
@@ -99,7 +99,7 @@ import it.gmariotti.cardslib.library.view.listener.SwipeDismissViewTouchListener
  * </p>
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public class CardView extends BaseCardView implements CommonCardView {
+public class CardView extends BaseCardView implements CardViewWrapper {
 
     //--------------------------------------------------------------------------
     //
@@ -453,7 +453,7 @@ public class CardView extends BaseCardView implements CommonCardView {
                 }
 
                 @Override
-                public void onDismiss(CommonCardView cardView, Card card) {
+                public void onDismiss(CardViewWrapper cardView, Card card) {
                     final ViewGroup vg = (ViewGroup)(((View)cardView).getParent());
                     if (vg!=null){
                         vg.removeView((View)cardView);
