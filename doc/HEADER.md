@@ -421,7 +421,7 @@ You can see an example in `res/layout/carddemo_example_card1_header_layout.xml`
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
-                style="@style/card.header_compound_view">
+                style="@style/card.native.header_compound_view">
 
     <!-- This is the Inner Content Header which you can populate runtime
          with setupInnerViewElements(android.view.ViewGroup, android.view.View) method in CardHeader class. -->
