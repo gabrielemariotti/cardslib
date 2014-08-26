@@ -3,7 +3,8 @@ Change Log
 
 Version 1.x.x *(2014-xx-xx)*
 ----------------------------
-* LIB: Added a method to add dinamically Sections to a `SectionedCardAdapter` [(doc)](/doc/CARDLIST.md#sectionedcardlist)  
+* LIB: Added a method to add dinamically Sections to a `SectionedCardAdapter` [(doc)](/doc/CARDLIST.md#sectionedcardlist)
+* LIB: Added a feature to restrict card swipe direction [(doc)](/doc/CARDLIST.md#swipe-and-dismissablemanager)
 * LIB-EXTRA: Updated the drap and drop list. Now you can drag over the card [(doc)](/doc/DRAGDROPLIST.md) 
 * LIB-EXTRA: Updated ListViewAnimations dependency to 3.1.0
 

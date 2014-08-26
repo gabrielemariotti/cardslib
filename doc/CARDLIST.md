@@ -5,6 +5,7 @@ In this page you can find info about:
 * [Creating a base CardList](#creating-a-base-cardlist)
 * [Use your custom layout for each row](#use-your-custom-layout-for-each-row)
 * [Cards with different inner layouts](#cards-with-different-inner-layouts)
+* [Swipe and DismissableManager](#swipe-and-dismissablemanager)
 * [Swipe and Undo in `CardListView`](#swipe-and-undo-in-cardlistview)
 * [Swipe and Undo with a custom UndoBar](#swipe-and-undo-with-a-custom-undobar)
 * [Swipe and custom OnScrollListener](#swipe-and-custom-onscrolllistener)
@@ -164,6 +165,25 @@ Moreover you can extend `CardArrayAdapter` and provide your logic.
 You can see the example in 'ListDifferentInnerBaseFragment'.
 
 ![Screen](/demo/images/card/different_inner.png)
+
+### Swipe and DismissableManager
+
+If you want to enable the swipe action, you can customize the card swipe direction.
+
+Cards in a CardListView can be swiped left, right or both. The default, if not set, is both.
+
+To change the default behaviour you can set:
+``` java
+     mCardArrayAdapter.setDismissable(new RightDismissableManager());
+
+     public class RightDismissableManager extends DefaultDismissableManager{
+
+        @Override
+        public SwipeDirection getSwipeDirectionAllowed() {
+            return SwipeDirection.RIGHT; 
+        }
+    }
+``` 
 
 
 ### Swipe and Undo in `CardListView`

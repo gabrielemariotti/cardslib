@@ -38,6 +38,7 @@ import java.util.List;
 
 import it.gmariotti.cardslib.library.R;
 import it.gmariotti.cardslib.library.internal.Card;
+import it.gmariotti.cardslib.library.view.listener.dismiss.Dismissable;
 
 /**
  * It is based on Roman Nurik code.
@@ -104,6 +105,12 @@ public class SwipeDismissListViewTouchListener implements View.OnTouchListener {
     private int mDownPosition;
     private View mDownView;
     private boolean mPaused;
+
+    /**
+     * Dismissable Manager
+     */
+    protected Dismissable mDismissable;
+
 
     private int swipeDistanceDivisor = 2;
 
@@ -221,10 +228,14 @@ public class SwipeDismissListViewTouchListener implements View.OnTouchListener {
                     mDownX = motionEvent.getRawX();
                     mDownY = motionEvent.getRawY();
                     mDownPosition = mListView.getPositionForView(mDownView);
-                    if (mListView.getAdapter().getItem(mDownPosition) instanceof Card) {
-                        if (mCallbacks.canDismiss(mDownPosition, (Card) mListView.getAdapter().getItem(mDownPosition))) {
-                            mVelocityTracker = VelocityTracker.obtain();
-                            mVelocityTracker.addMovement(motionEvent);
+                    if (mDownPosition != ListView.INVALID_POSITION && mDownPosition < mListView.getAdapter().getCount()) {
+                        if (mListView.getAdapter().getItem(mDownPosition) instanceof Card) {
+                            if (mCallbacks.canDismiss(mDownPosition, (Card) mListView.getAdapter().getItem(mDownPosition))) {
+                                mVelocityTracker = VelocityTracker.obtain();
+                                mVelocityTracker.addMovement(motionEvent);
+                            } else {
+                                mDownView = null;
+                            }
                         } else {
                             mDownView = null;
                         }
@@ -318,7 +329,8 @@ public class SwipeDismissListViewTouchListener implements View.OnTouchListener {
                 mVelocityTracker.addMovement(motionEvent);
                 float deltaX = motionEvent.getRawX() - mDownX;
                 float deltaY = motionEvent.getRawY() - mDownY;
-                if (Math.abs(deltaX) > mSlop && Math.abs(deltaY) < Math.abs(deltaX) / 2)  {
+                boolean movementAllowed = isSwipeMovementAllowed(deltaX);
+                if (Math.abs(deltaX) > mSlop && Math.abs(deltaY) < Math.abs(deltaX) / 2 && movementAllowed)  {
                     mSwiping = true;
                     mSwipingSlop = (deltaX > 0 ? mSlop : -mSlop);
                     mListView.requestDisallowInterceptTouchEvent(true);
@@ -443,5 +455,26 @@ public class SwipeDismissListViewTouchListener implements View.OnTouchListener {
 
         mPendingDismisses.add(new PendingDismissData(dismissPosition, dismissView));
         animator.start();
+    }
+
+    private boolean isSwipeMovementAllowed(float deltaX) {
+        switch (mDismissable.getSwipeDirectionAllowed()) {
+            case BOTH:
+                return Math.abs(deltaX) > 0;
+            case RIGHT:
+                return deltaX > 0;
+            case LEFT:
+                return deltaX < 0;
+            default:
+                return false;
+        }
+    }
+
+    /**
+     * Sets a custom DismissableManager
+     * @param dismissable
+     */
+    public void setDismissable(Dismissable dismissable) {
+        mDismissable = dismissable;
     }
 }
