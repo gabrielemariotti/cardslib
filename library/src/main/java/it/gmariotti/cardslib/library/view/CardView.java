@@ -428,7 +428,7 @@ public class CardView extends BaseCardView implements CardViewWrapper {
                             final int heightSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
                             mInternalExpandLayout.measure(widthSpec, heightSpec);
 
-                            mExpandAnimator = ExpandCollapseHelper.createSlideAnimator(mCard.getCardView(), 0, mInternalExpandLayout.getMeasuredHeight());
+                            mExpandAnimator = ExpandCollapseHelper.createSlideAnimator((CardView)mCard.getCardView(), 0, mInternalExpandLayout.getMeasuredHeight());
                             return true;
                         }
                     });
@@ -815,7 +815,7 @@ public class CardView extends BaseCardView implements CardViewWrapper {
         }
 
         public CardView getCardView() {
-            return card.getCardView();
+            return (CardView) card.getCardView();
         }
     }
 

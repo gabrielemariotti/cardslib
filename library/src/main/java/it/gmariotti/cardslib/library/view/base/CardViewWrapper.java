@@ -42,6 +42,21 @@ public interface CardViewWrapper {
     Context getContext();
 
     /**
+     * Expand the card
+     */
+    void doExpand();
+
+    /**
+     * Collapse the card
+     */
+    void doCollapse();
+
+    /**
+     * Toggle the card
+     */
+    void doToggleExpand();
+
+    /**
      * Interface to listen any callbacks when expand/collapse animation starts
      */
     public interface OnExpandListAnimatorListener {
