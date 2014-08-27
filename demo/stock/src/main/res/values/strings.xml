@@ -140,6 +140,8 @@
     <string name="demo_section_card_expand_example3">Expand clicking on the text</string>
     <string name="demo_section_card_expand_example4">Expand clicking on the image</string>
     <string name="demo_section_card_expand_example5">Expand section inside the card</string>
+    <string name="demo_section_card_expand_example6">Expand the card in programmatic way</string>
+    <string name="demo_section_card_expand_example6_text">Click here to expand/collapse the card</string>
 
     <string name="demo_section_card_changevalue_title">Click Refresh Icon to refresh card</string>
 

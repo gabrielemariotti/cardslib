@@ -3,6 +3,8 @@ Change Log
 
 Version 1.x.x *(2014-xx-xx)*
 ----------------------------
+* LIB: Added a method to expand and collpase the card in programmatic way [(doc)](/doc/EXPAND.md#expand-the-card-in-programmatic-way)
+* LIB: Added the ability to expand and collapse the card with a longClick [(doc)](/doc/EXPAND.md#expand-the-card-with-a-longclick)
 * LIB: Added a method to add dinamically Sections to a `SectionedCardAdapter` [(doc)](/doc/CARDLIST.md#sectionedcardlist)
 * LIB: Added a feature to restrict card swipe direction [(doc)](/doc/CARDLIST.md#swipe-and-dismissablemanager)
 * LIB-EXTRA: Updated the drap and drop list. Now you can drag over the card [(doc)](/doc/DRAGDROPLIST.md) 
@@ -10,6 +12,7 @@ Version 1.x.x *(2014-xx-xx)*
 
   It contains a little **BREAKING CHANGE** on the `mListView.setOnItemMovedListener`. listener [(doc)](/doc/DRAGDROPLIST.md) 
 
+* DEMO: Added an example to expand/collapse action in programmatic way
 * DEMO-EXTRA: Updated all dependencies to last releases
  
 Version 1.8.0 *(2014-07-14)*

@@ -580,6 +580,18 @@ public class Card extends BaseCard {
         this.mOnCollapseAnimatorEndListener = onCollapseAnimatorEndListener;
     }
 
+    public void doExpand(){
+        getCardView().doExpand();
+    }
+
+    public void doCollapse(){
+        getCardView().doCollapse();
+    }
+
+    public void doToogleExpand(){
+        getCardView().doToggleExpand();
+    }
+
     // -------------------------------------------------------------
 
     /**

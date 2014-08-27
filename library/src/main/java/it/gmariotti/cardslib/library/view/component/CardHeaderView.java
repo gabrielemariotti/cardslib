@@ -123,7 +123,7 @@ public class CardHeaderView extends FrameLayout implements CardViewInterface {
     /**
      * Listener invoked when expand/collapse button is clicked
      */
-    protected OnClickListener mOnClickExpandCollapseActionListener;
+    //protected OnClickListener mOnClickExpandCollapseActionListener;
 
     /**
      * Used to recycle ui elements.
@@ -466,23 +466,23 @@ public class CardHeaderView extends FrameLayout implements CardViewInterface {
     /**
      * Returns Listener invoked when expand/collpse button is clicked
      *
+     * @deprecated
      * @return listener
      */
-    public OnClickListener getOnClickExpandCollapseActionListener() {
+    /*public OnClickListener getOnClickExpandCollapseActionListener() {
         return mOnClickExpandCollapseActionListener;
-    }
+    }*/
 
     /**
      * Attaches Listener to expand/collapse button
      *
+     * @deprecated
      * @param onClickExpandCollapseActionListener listener
      */
-    public void setOnClickExpandCollapseActionListener(OnClickListener onClickExpandCollapseActionListener) {
+    /*public void setOnClickExpandCollapseActionListener(OnClickListener onClickExpandCollapseActionListener) {
         this.mOnClickExpandCollapseActionListener = onClickExpandCollapseActionListener;
-        /*if (mImageButtonExpand != null)
-            mImageButtonExpand.setOnClickListener(onClickExpandCollapseActionListener);
-            */
-    }
+
+    }*/
 
     /**
      * Indicates if view can recycle ui elements.
