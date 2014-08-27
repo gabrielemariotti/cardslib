@@ -92,8 +92,8 @@ public abstract class BaseActivity extends Activity {
 
     // icons for navdrawer items (indices must correspond to above array)
     private static final int[] NAVDRAWER_ICON_RES_ID = new int[] {
-            R.drawable.ic_drawer_map,
-            R.drawable.ic_drawer_map,
+            R.drawable.ic_launcher,
+            R.drawable.ic_launcher,
             R.drawable.ic_drawer_map,
             R.drawable.ic_drawer_map,
     };

@@ -62,9 +62,9 @@
     </style>
 
     <style name="card.native.header_outer_layout" parent="card.header_outer_layout">
-        <item name="android:paddingLeft">@dimen/card_header_default_padding</item>
-        <item name="android:paddingRight">@dimen/card_header_default_padding</item>
-        <item name="android:paddingTop">@dimen/card_header_default_padding</item>
+        <item name="android:paddingLeft">@dimen/card_header_native_default_paddingLeft</item>
+        <item name="android:paddingRight">@dimen/card_header_native_default_paddingRight</item>
+        <item name="android:paddingTop">@dimen/card_header_native_default_paddingTop</item>
     </style>
 
     <!--Style for Header Compound View -->
@@ -126,8 +126,8 @@
     </style>
 
     <style name="card.native.header_button_base" parent="card.header_button_base">
-        <item name="android:layout_marginLeft">@dimen/card_header_button_margin_right</item>
-        <item name="android:layout_marginRight">@dimen/card_header_button_margin_right</item>
+        <item name="android:layout_marginLeft">@dimen/card_header_native_button_margin_left</item>
+        <item name="android:layout_marginRight">@dimen/card_header_native_button_margin_right</item>
         <item name="android:paddingLeft">0dp</item>
     </style>
 
@@ -241,6 +241,14 @@
         <item name="android:padding">@dimen/card_expand_layout_padding</item>
     </style>
 
+    <style name="card.native.main_contentExpand" parent="card.main_contentExpand">
+        <item name="android:layout_marginLeft">@dimen/card_expand_native_margin_right</item>
+        <item name="android:layout_marginRight">@dimen/card_expand_native_margin_right</item>
+        <item name="android:paddingLeft">@dimen/card_expand_native_layout_padding_left</item>
+        <item name="android:paddingRight">@dimen/card_expand_native_layout_padding_right</item>
+        <item name="android:paddingTop">@dimen/card_expand_native_layout_padding_top</item>
+        <item name="android:paddingBottom">@dimen/card_expand_native_layout_padding_bottom</item>
+    </style>
 
     <!--Style for simple title expand/collapse inner view-->
     <style name="card.expand_simple_title">
@@ -270,6 +278,17 @@
 
     <style name="card.thumbnail_compound_view"></style>
 
+    <style name="card.native.card_thumbnail_image" parent="card_thumbnail_image">
+
+    </style>
+
+    <style name="card.native.card_thumbnail_outer_layout" parent="card_thumbnail_outer_layout">
+
+    </style>
+
+    <style name="card.native.thumbnail_compound_view" parent="card.thumbnail_compound_view">
+
+    </style>
 
     <!-- Style for Lists ******************************************************-->
 

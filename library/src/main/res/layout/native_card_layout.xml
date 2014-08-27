@@ -56,7 +56,7 @@
     <!-- Expand layout. You can customize this element with your CardExpand class -->
     <FrameLayout
         android:id="@+id/card_content_expand_layout"
-        style="@style/card.main_contentExpand"
+        style="@style/card.native.main_contentExpand"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         >

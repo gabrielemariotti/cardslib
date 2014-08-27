@@ -30,6 +30,7 @@
 
     <ScrollView
         android:id="@+id/card_scrollview"
+        style="@style/carddemo_default_container_padding"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -50,7 +51,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/card_external"
-                card:card_layout_resourceID="@layout/card_thumbnail_layout"/>
+                card:card_layout_resourceID="@layout/native_card_thumbnail_layout"/>
 
 
             <!-- Resource URL -->
@@ -65,7 +66,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/card_external"
-                card:card_layout_resourceID="@layout/card_thumbnail_layout"/>
+                card:card_layout_resourceID="@layout/native_card_thumbnail_layout"/>
 
 	    <!-- Customize you thumbnail -->
             <TextView
@@ -79,7 +80,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/card_external"
-                card:card_layout_resourceID="@layout/card_thumbnail_layout"/>
+                card:card_layout_resourceID="@layout/native_card_thumbnail_layout"/>
 
             <!-- Custom Source Thumbnail-->
             <TextView
@@ -93,7 +94,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/card_external"
-                card:card_layout_resourceID="@layout/card_thumbnail_layout"/>
+                card:card_layout_resourceID="@layout/native_card_thumbnail_layout"/>
 	    
             <!-- Empty view-->
             <View

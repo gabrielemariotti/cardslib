@@ -88,13 +88,13 @@
 
             <!-- Expand card with all card-->
             <TextView
-                style="@style/AppTheme.TitleText"
+                style="@style/Theme.Carddemo.TitleText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/demo_section_card_expand_example6"/>
 
             <TextView
-                style="@style/AppTheme.TitleText"
+                style="@style/Theme.Carddemo.TitleText"
                 android:id="@+id/carddemo_example_card_expand6_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

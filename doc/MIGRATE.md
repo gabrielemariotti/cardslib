@@ -46,13 +46,15 @@ If you would like to migrate the old cards to new view you have to follow these 
 
 * Change your xml from `it.gmariotti.cardslib.library.view.CardView` to `it.gmariotti.cardslib.library.view.CardViewNative`
 
-* If you have a **custom [(global layout)](/doc/OVERVIEW.md)** you have to remove the tag `CardShadowView` because the shadow is not natively supported.
-
-* If you have a **custom [(global layout)](/doc/OVERVIEW.md)** you should change the `LinearLayout` (with `id=@+id/card_main_layout`) with `it.gmariotti.cardslib.library.view.ForegroundLinearLayout`
-
+* If you have a **custom [(global layout)](/doc/OVERVIEW.md)** you have to:
+  - remove the tag `CardShadowView` because the shadow is not natively supported.
+  - change the `LinearLayout` (with `id=@+id/card_main_layout`) with `it.gmariotti.cardslib.library.view.ForegroundLinearLayout`
+  - if you haven't a custom innerLayout id in your `CardHeaderView` add the tag `card:card_header_layout_resourceID="@layout/native_base_header_layout"` (if you have, check the style below) 
+  - if you haven't a custom innerLayout id in your `CardThumbnailView` add the tag `card:card_thumbnail_layout_resourceID="@layout/native_base_thumbnail_layout"` (if you have, check the style below) 
+    
 * If you are using the **other button in header** you can improve your code using a ripple for v21 and a selector for version<21 [(doc)](/doc/HEADER.md#standard-header-with-custom-button)
 
-* If you have a **custom [(global layout)](/doc/OVERVIEW.md)** you should migrate the style of each component:
+* *Styles* : if you have a **custom [(global layout)](/doc/OVERVIEW.md)** you should migrate the style of each component:
 
 | Style CardView                          | Style CardViewNative                           | 
 | --------------------------------------- |------------------------------------------------| 
@@ -60,7 +62,8 @@ If you would like to migrate the old cards to new view you have to follow these 
 | @style/card.main_layout                 | @style/card.native_main_layout                 | 
 | @style/card.header_outer_layout         | @style/card.native.header_outer_layout         |
 | @style/card.content_outer_layout        | @style/card.native.content_outer_layout        |
-
+| @style/card_thumbnail_outer_layout      | @style/card.native.card_thumbnail_outer_layout |
+| @style/main_contentExpand               | @style/card.native.main_contentExpand          |
 
 * If you have a **custom layout for the header** you should migrate the style:
  
@@ -75,4 +78,8 @@ If you would like to migrate the old cards to new view you have to follow these 
 | @style/card.header_button_base.other    | @style/card.native.header_button_base.other    |
 | @style/card.header_simple_title         | @style/card.native.header_simple_title         |
 
+* If you have a **custom layout for the thumbnail** you should migrate the style:
 
+| Style CardView                          | Style CardViewNative                           | 
+| --------------------------------------- |------------------------------------------------|
+| @style/card_thumbnail_image             | @style/card.native.card_thumbnail_image        |

@@ -74,5 +74,6 @@
     <color name="navdrawer_icon_tint">#808080</color>
     <color name="navdrawer_icon_tint_selected">@color/theme_accent_1</color>
     <color name="gray_background">#fff3f3f3</color>
+    <color name="navdrawer_scrim">#6000</color>
 
 </resources>

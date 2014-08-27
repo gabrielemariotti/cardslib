@@ -30,6 +30,7 @@
 
     <ScrollView
         android:id="@+id/card_scrollview"
+        style="@style/carddemo_default_container_padding"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

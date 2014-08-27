@@ -40,6 +40,7 @@
             style="@style/card.native.header_outer_layout"
             android:id="@+id/card_header_layout"
             android:layout_width="match_parent"
+            card:card_header_layout_resourceID="@layout/native_base_header_layout"
             android:layout_height="wrap_content"/>
 
         <LinearLayout
@@ -49,15 +50,16 @@
             android:layout_height="wrap_content">
 
             <it.gmariotti.cardslib.library.view.component.CardThumbnailView
-                style="@style/card_thumbnail_outer_layout"
+                style="@style/card.native.card_thumbnail_outer_layout"
                 android:id="@+id/card_thumbnail_layout"
                 android:layout_width="wrap_content"
+                card:card_thumbnail_layout_resourceID="@layout/native_base_thumbnail_layout"
                 android:layout_height="match_parent"/>
 
             <!-- Main Content View -->
             <FrameLayout
                 android:id="@+id/card_main_content_layout"
-                style="@style/card.content_outer_layout"
+                style="@style/card.native.content_outer_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
 
@@ -68,7 +70,7 @@
     <!-- Expand layout. You can customize this element with your CardExpand class -->
     <FrameLayout
         android:id="@+id/card_content_expand_layout"
-        style="@style/card.main_contentExpand"
+        style="@style/card.native.main_contentExpand"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         >

@@ -43,7 +43,7 @@ public class V1DashFragment extends NativeDashFragment{
     }
 
     protected NativeDashAdapter buildAdapter(){
-        return new NativeDashAdapter(getActivity(),buildMenuList());
+        return new V1DashAdapter(getActivity(),buildMenuList());
     }
 
     private static class V1DashAdapter extends NativeDashFragment.NativeDashAdapter implements CollectionViewCallbacks {
