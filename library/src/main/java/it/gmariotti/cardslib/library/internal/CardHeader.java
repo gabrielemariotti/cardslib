@@ -228,14 +228,6 @@ public class CardHeader extends BaseCard {
     }
 
     /**
-     * Interface to handle callbacks when ExpandButton is clicked
-     * Currently is never used
-     */
-    public interface OnClickExpandListener {
-        public void onButtonExpandClick(BaseCard card, MenuItem item);
-    }
-
-    /**
      * Interface to handle callbacks when Other Button is clicked
      */
     public interface OnClickCardHeaderOtherButtonListener {

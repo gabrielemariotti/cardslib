@@ -19,8 +19,10 @@
 package it.gmariotti.cardslib.library.extra.dragdroplist.internal;
 
 import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
 
-import com.nhaarman.listviewanimations.widget.DynamicListView;
+import com.nhaarman.listviewanimations.util.Swappable;
 
 import java.util.List;
 
@@ -35,12 +37,17 @@ import it.gmariotti.cardslib.library.view.base.CardViewWrapper;
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public class CardDragDropArrayAdapter extends CardArrayAdapter implements DynamicListView.Swappable{
+public class CardDragDropArrayAdapter extends CardArrayAdapter implements Swappable {
 
     /**
      * {@link CardListDragDropView}
      */
     protected CardListDragDropView mCardListView;
+
+    /**
+     * Flag to enable the drag and drop feature over the card
+     */
+    protected boolean enableDragSupportOnLongClickOnCard = true;
 
     // -------------------------------------------------------------
     // Constructors
@@ -97,7 +104,6 @@ public class CardDragDropArrayAdapter extends CardArrayAdapter implements Dynami
      */
     protected final void setupSwipeableAnimation(final Card card, CardViewWrapper cardView) {
         card.setSwipeable(false);
-        //cardView.setOnTouchListener(null);
     }
 
     /**
@@ -109,6 +115,31 @@ public class CardDragDropArrayAdapter extends CardArrayAdapter implements Dynami
 
     }
 
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        View view = super.getView(position, convertView, parent);
+
+        if (enableDragSupportOnLongClickOnCard) {
+            Card mCard = (Card) getItem(position);
+            if (mCard != null) {
+                setupLongClickForDragSupport(position, mCard);
+            }
+        }
+        return  view;
+
+    }
+
+    /**
+     * Enables the longClick event to drag and drop cards
+     *
+     * @param position
+     * @param mCard
+     */
+    private void setupLongClickForDragSupport(int position, Card mCard) {
+
+        CardView mCardView = mCard.getCardView();
+        mCardView.setLongClickable(true);
+    }
 
     // -------------------------------------------------------------
     //  Getters and Setters
@@ -130,6 +161,21 @@ public class CardDragDropArrayAdapter extends CardArrayAdapter implements Dynami
         this.mCardListView = cardListView;
     }
 
+    /**
+     * Indicates if the  drag and drop feature is enabled over the card
+     * @return
+     */
+    public boolean isEnableDragSupportOnLongClickOnCard() {
+        return enableDragSupportOnLongClickOnCard;
+    }
+
+    /**
+     * Enables the drag and drop feature with the long click over the card
+     * @param enableDragSupportOnLongClickOnCard
+     */
+    public void setEnableDragSupportOnLongClickOnCard(boolean enableDragSupportOnLongClickOnCard) {
+        this.enableDragSupportOnLongClickOnCard = enableDragSupportOnLongClickOnCard;
+    }
 
 
 }

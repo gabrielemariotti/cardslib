@@ -5,6 +5,7 @@ In this page you can find info about:
 * [Creating a base CardList](#creating-a-base-cardlist)
 * [Use your custom layout for each row](#use-your-custom-layout-for-each-row)
 * [Cards with different inner layouts](#cards-with-different-inner-layouts)
+* [Swipe and DismissableManager](#swipe-and-dismissablemanager)
 * [Swipe and Undo in `CardListView`](#swipe-and-undo-in-cardlistview)
 * [Swipe and Undo with a custom UndoBar](#swipe-and-undo-with-a-custom-undobar)
 * [Swipe and custom OnScrollListener](#swipe-and-custom-onscrolllistener)
@@ -164,6 +165,25 @@ Moreover you can extend `CardArrayAdapter` and provide your logic.
 You can see the example in 'ListDifferentInnerBaseFragment'.
 
 ![Screen](/demo/images/card/different_inner.png)
+
+### Swipe and DismissableManager
+
+If you want to enable the swipe action, you can customize the card swipe direction.
+
+Cards in a CardListView can be swiped left, right or both. The default, if not set, is both.
+
+To change the default behaviour you can set:
+``` java
+     mCardArrayAdapter.setDismissable(new RightDismissableManager());
+
+     public class RightDismissableManager extends DefaultDismissableManager{
+
+        @Override
+        public SwipeDirection getSwipeDirectionAllowed() {
+            return SwipeDirection.RIGHT; 
+        }
+    }
+``` 
 
 
 ### Swipe and Undo in `CardListView`
@@ -635,7 +655,7 @@ All considerations, [written above](#using-a-cardlist-in-multichoicemode), are v
 
  You can see an example in `ListGplayCursorCardCABFragment`  [(source)](/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/ListGplayCursorCardCABFragment.java).
  
-## SectionedCardList
+### SectionedCardList
 
 The `SectionedCardAdapter` allow to display a `CardList` with Sections.
 
@@ -767,3 +787,36 @@ You can extend the CardSection (it is not mandatory) to customize your section m
     }
 ```
 
+You can **update** dinamically the CardSections.
+
+``` java    
+   //add a single CardSection
+   mAdapter.addCardSection(new GplayCardSection(6,"New Section","More"));
+
+   //add CardSections
+   List<GplayCardSection> newSections =  new ArrayList<GplayCardSection>();   
+   newSections.add(new GplayCardSection(6,"Section 3","Other xx"));
+   newSections.add(new GplayCardSection(10,"Section 4","Other xx1"));
+   GplayCardSection[] dummy = new GplayCardSection[newSections.size()];   
+   mAdapter.addCardSections(newSections.toArray(dummy)); 
+   
+   //Change all card sections
+   mAdapter.setCardSections(newSections.toArray(dummy));
+   
+```
+
+If you would like to add Cards and CardSections dinamically you can use something like this:
+
+``` java
+        ArrayList<Card> newCards = new ArrayList<Card>();        
+        //Add cards to array.....
+        //newCards.add(card);        
+        mCardArrayAdapter.addAll(newCards);
+        
+        //Add a CardSection or check the code above to add more CardSections
+        mAdapter.addCardSection(new GplayCardSection(6,"New Section","More"));
+        
+        //Don't forget to notify change to your cards adapter
+        mCardArrayAdapter.notifyDataSetChanged();
+
+```

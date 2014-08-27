@@ -22,12 +22,15 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListAdapter;
 
-import com.nhaarman.listviewanimations.widget.DynamicListView;
+import com.nhaarman.listviewanimations.itemmanipulation.DynamicListView;
 
 import it.gmariotti.cardslib.library.extra.R;
 import it.gmariotti.cardslib.library.extra.dragdroplist.internal.CardDragDropArrayAdapter;
+import it.gmariotti.cardslib.library.extra.dragdroplist.internal.CardTouchViewDraggableManager;
 import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
 
 /**
@@ -90,6 +93,17 @@ public class CardListDragDropView extends DynamicListView {
 
         //Set divider to 0dp
         setDividerHeight(0);
+
+        //enable and set the drag and drop feature
+        enableDragAndDrop();
+        setDraggableManager(new CardTouchViewDraggableManager(R.id.list_cardId));
+        setOnItemLongClickListener(new OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                startDragging(position - getHeaderViewsCount());
+                return true;
+            }
+        });
 
     }
 

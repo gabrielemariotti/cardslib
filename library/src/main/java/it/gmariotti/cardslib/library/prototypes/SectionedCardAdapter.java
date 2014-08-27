@@ -283,6 +283,54 @@ public class SectionedCardAdapter extends BaseAdapter {
         return view;
     }
 
+    /**
+     * Use this method to add a single {@link CardSection}.</p>
+     * If you want to add more CardSections use the method {@link #addCardSections(CardSection[])}
+     *
+     * @param cardSection to be added
+     */
+    public void addCardSection(CardSection cardSection) {
+
+        if (cardSection != null) {
+            int oldSize = mCardSections.size();
+            CardSection[] newCardSections = new CardSection[oldSize + 1];
+
+            //Get current sections
+            for (int i = 0; i < mCardSections.size(); i++) {
+                newCardSections[i] = mCardSections.valueAt(i);
+            }
+            //Add new section
+            newCardSections[oldSize] = cardSection;
+            setCardSections(newCardSections);
+        }
+    }
+
+    /**
+     * Adds card Sections
+     *
+     * @param cardSections card sections to be added
+     */
+    public void addCardSections(CardSection[] cardSections) {
+
+        if (cardSections != null && cardSections.length>0) {
+
+            int oldSize = mCardSections.size();
+
+            //Get current sections
+            CardSection[] newCardSections = new CardSection[oldSize + cardSections.length];
+            for (int i = 0; i < mCardSections.size(); i++) {
+                newCardSections[i] = mCardSections.valueAt(i);
+            }
+
+            //Add new sections
+            for (int i = 0; i < cardSections.length; i++){
+                newCardSections[i + oldSize] = cardSections[i];
+            }
+
+            setCardSections(newCardSections);
+        }
+    }
+
     // -------------------------------------------------------------
     // Getters and setters
     // -------------------------------------------------------------
@@ -294,6 +342,5 @@ public class SectionedCardAdapter extends BaseAdapter {
     public SparseArray<CardSection> getCardSections() {
         return mCardSections;
     }
-
 
 }

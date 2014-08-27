@@ -50,6 +50,16 @@ public class ViewToClickToExpand {
      */
     protected CardElementUI cardElementUIToClick;
 
+    /**
+     * Indicates the expand action will be used in programmatic way
+     */
+    protected boolean enableForCode = false;
+
+    /**
+     * Use the longClick to enable expand/collapse action
+     */
+    protected boolean useLongClick = false;
+
     // -------------------------------------------------------------
     //  Constructors
     // -------------------------------------------------------------
@@ -89,7 +99,7 @@ public class ViewToClickToExpand {
     // -------------------------------------------------------------
 
     /**
-     * Sets the view to click to enable the expand/collpase action
+     * Sets the view to click to enable the expand/collapse action
      *
      * @param viewToClick  view to click
      * @return
@@ -115,12 +125,33 @@ public class ViewToClickToExpand {
         return this;
     }
 
+    /**
+     * Indicates if the expand action will be enabled in a programmatic way
+     *
+     * @return
+     */
+    public ViewToClickToExpand enableForExpandAction() {
+        this.enableForCode = true;
+        return this;
+    }
+
+    /**
+     * Indicates if the expand action will be enabled with a long click
+     *
+     * @return
+     */
+    public ViewToClickToExpand useLongClick(boolean useLongClick) {
+        this.useLongClick = useLongClick;
+        return this;
+    }
+
+
     // -------------------------------------------------------------
     //  Getters
     // -------------------------------------------------------------
 
     /**
-     * Returns the view to Click to enable the expand/collapse action
+     * Returns the view to Click to enable the expand action
      * @return
      */
     public View getViewToClick() {
@@ -143,5 +174,19 @@ public class ViewToClickToExpand {
         return cardElementUIToClick;
     }
 
+    /**
+     * Indicates if the expand action will be enabled in a programmatic way
+     * @return
+     */
+    public boolean isEnableForCode() {
+        return enableForCode;
+    }
 
+
+    /**
+     * Indicates if the expand action will be enabled with a long click
+     */
+    public boolean isUseLongClick() {
+        return useLongClick;
+    }
 }

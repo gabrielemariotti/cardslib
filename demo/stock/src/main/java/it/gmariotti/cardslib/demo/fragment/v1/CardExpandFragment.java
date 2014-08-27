@@ -95,7 +95,9 @@ public class CardExpandFragment extends MaterialV1Fragment {
         init_custom_card_expand_clicking_text();
         init_custom_card_expand_clicking_image();
         init_custom_card_expand_inside();
+        init_custom_card_expand_programmatic();
     }
+
 
     /**
      * This method builds a standard header with base expand/collapse
@@ -241,6 +243,37 @@ public class CardExpandFragment extends MaterialV1Fragment {
 
         cardView.setCard(card);
     }
+
+    /**
+     * This method builds a card with a collpse/expand action in programmatic way
+     */
+    private void init_custom_card_expand_programmatic() {
+
+        //Create a Card
+        final Card card = new Card(getActivity());
+
+        //This provides a simple (and useless) expand area
+        CardExpand expand = new CardExpand(getActivity());
+        //Set inner title in Expand Area
+        expand.setTitle(getString(R.string.demo_expand_customtitle3));
+        card.addCardExpand(expand);
+
+        ViewToClickToExpand viewToClickToExpand = ViewToClickToExpand.builder().enableForExpandAction();
+        card.setViewToClickToExpand(viewToClickToExpand);
+
+        TextView tx = (TextView)getActivity().findViewById(R.id.carddemo_example_card_expand6_text);
+        tx.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                card.doToogleExpand();
+            }
+        });
+
+        //Set card in the cardView
+        CardView cardView = (CardView) getActivity().findViewById(R.id.carddemo_example_card_expand6);
+        cardView.setCard(card);
+    }
+
 
     class CustomCard2 extends Card{
 

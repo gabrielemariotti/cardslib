@@ -19,6 +19,14 @@ The library-extra provides a `@drawable/card_drag` icon kindly offered by [Taylo
 ![Screen](/demo/images/dragdrop.png)
 
 
+**Migration from 1.8.0 (and previous releases) - to 1.9.0**
+
+The 1.9.0 may introduce a little breaking in the OnItemMovedListener listener due to a change in the ListViewAnimation lib.
+To migrate your code you have to:
+
+* change the signature of `onItemMoved(int newPosition)` method to `onItemMoved(int originalPosition, int newPosition)`.
+
+
 ### Creating a base CardListDragDropView
 
 Creating a `CardListDragDropView` is pretty simple.
@@ -106,8 +114,12 @@ Last create a `CardDragDropArrayAdapter`, get a reference to the `CardListDragDr
    }
 ```
 
-Currently you can't enable the drag and drop feature clicking on the cards.
+By default you can also enable the drag and drop feature with a long click on the cards.
+You can disable this feature using this method:
 
+```java
+    adapter.setEnableDragSupportOnLongClickOnCard(false);
+```
 
 You can set a listener to be notified when an item is dropped:
 ``` java

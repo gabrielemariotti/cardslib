@@ -36,6 +36,9 @@ import it.gmariotti.cardslib.library.R;
 import it.gmariotti.cardslib.library.internal.base.BaseCardArrayAdapter;
 import it.gmariotti.cardslib.library.view.CardListView;
 import it.gmariotti.cardslib.library.view.base.CardViewWrapper;
+import it.gmariotti.cardslib.library.view.CardView;
+import it.gmariotti.cardslib.library.view.listener.dismiss.DefaultDismissableManager;
+import it.gmariotti.cardslib.library.view.listener.dismiss.Dismissable;
 import it.gmariotti.cardslib.library.view.listener.SwipeDismissListViewTouchListener;
 import it.gmariotti.cardslib.library.view.listener.SwipeOnScrollListener;
 import it.gmariotti.cardslib.library.view.listener.UndoBarController;
@@ -103,6 +106,10 @@ public class CardArrayAdapter extends BaseCardArrayAdapter implements UndoBarCon
      */
     protected HashMap<String /* id */,Card>  mInternalObjects;
 
+    /**
+     * Dismissable Manager
+     */
+    protected Dismissable mDismissable;
 
     // -------------------------------------------------------------
     // Constructors
@@ -193,6 +200,12 @@ public class CardArrayAdapter extends BaseCardArrayAdapter implements UndoBarCon
         if (card.isSwipeable()){
             if (mOnTouchListener == null){
                 mOnTouchListener = new SwipeDismissListViewTouchListener(mCardListView, mCallback);
+
+                //Configure the default DismissableManager
+                if (mDismissable == null) mDismissable = new DefaultDismissableManager();
+                mDismissable.setAdapter(this);
+                mOnTouchListener.setDismissable(mDismissable);
+
                 // Setting this scroll listener is required to ensure that during
                 // ListView scrolling, we don't look for swipes.
                 if (mCardListView.getOnScrollListener() == null){
@@ -236,7 +249,7 @@ public class CardArrayAdapter extends BaseCardArrayAdapter implements UndoBarCon
 
         @Override
         public boolean canDismiss(int position, Card card) {
-            return card.isSwipeable();
+            return mDismissable.isDismissable(position, card);
         }
 
         @Override
@@ -416,4 +429,13 @@ public class CardArrayAdapter extends BaseCardArrayAdapter implements UndoBarCon
     public UndoBarController getUndoBarController() {
         return mUndoBarController;
     }
+
+    /**
+     * Sets a custom DismissableManager
+     * @param dismissable
+     */
+    public void setDismissable(Dismissable dismissable) {
+        mDismissable = dismissable;
+    }
+
 }
