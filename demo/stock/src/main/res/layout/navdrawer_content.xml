@@ -21,6 +21,19 @@
     xmlns:iosched="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.MainMenuNativeActivity">
 
+    <FrameLayout
+        android:id="@+id/chosen_account_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/navdrawer_image_height">
+
+    <ImageView android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:scaleType="centerCrop"
+               android:src="@drawable/navdrawer_cover"
+               android:id="@+id/profile_cover_image" />
+
+    </FrameLayout>
+
     <FrameLayout android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
