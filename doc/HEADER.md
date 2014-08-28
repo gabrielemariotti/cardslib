@@ -491,11 +491,11 @@ Example to change header title color:
 **Text Font**
 values/fonts.xml
 ``` xml
-    <string name="card_native_font_fontFamily_medium">sans-serif-medium</string>
+    <string name="card_native_font_fontFamily_header">sans-serif-medium</string>
 ``` 
 values-v21/fonts.xml
 ``` xml
-    <string name="card_native_font_fontFamily_medium">sans-serif-medium</string>
+    <string name="card_native_font_fontFamily_header">sans-serif-medium</string>
 ```
 
 For the `CardView`:
@@ -540,11 +540,11 @@ Example to change header title color:
 **Text Font**
 values/fonts.xml
 ``` xml
-    <string name="card_font_fontFamily_medium">sans-serif-condensed</string>
+    <string name="card_font_fontFamily_header">sans-serif-condensed</string>
 ``` 
 values-v21/fonts.xml
 ``` xml
-    <string name="card_font_fontFamily_medium">sans-serif-condensed</string>
+    <string name="card_font_fontFamily_header">sans-serif-condensed</string>
 ```
 Examples:
 

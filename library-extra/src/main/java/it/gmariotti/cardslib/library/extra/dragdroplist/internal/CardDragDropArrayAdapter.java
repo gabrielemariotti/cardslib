@@ -137,7 +137,7 @@ public class CardDragDropArrayAdapter extends CardArrayAdapter implements Swappa
      */
     private void setupLongClickForDragSupport(int position, Card mCard) {
 
-        CardView mCardView = mCard.getCardView();
+        CardViewWrapper mCardView = mCard.getCardView();
         mCardView.setLongClickable(true);
     }
 

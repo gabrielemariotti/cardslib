@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!--
   ~ *******************************************************************************
   ~   Copyright (c) 2013-2014 Gabriele Mariotti.
@@ -17,10 +16,13 @@
   ~  *****************************************************************************
   -->
 
-<resources>
-    <string name="card_font_fontFamily_header">sans-serif-condensed</string>
-    <string name="card_native_font_fontFamily_header">sans-serif-medium</string>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="it.gmariotti.cardslib.library.extra.staggeredgrid">
 
-    <string name="card_font_fontFamily_main_content">sans-serif</string>
-    <string name="card_native_font_fontFamily_main_content">sans-serif</string>
-</resources>
+    <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="19" />
+
+    <application>
+
+    </application>
+
+</manifest>

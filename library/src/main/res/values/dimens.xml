@@ -35,12 +35,17 @@
     <dimen name="card_main_layout_view_margin_bottom">0dp</dimen>
     <dimen name="card_main_layout_view_margin_right">0dp</dimen>
 
+    <dimen name="card_main_layout_native_view_margin_top">0dp</dimen>
+    <dimen name="card_main_layout_native_view_margin_left">0dp</dimen>
+    <dimen name="card_main_layout_native_view_margin_bottom">0dp</dimen>
+    <dimen name="card_main_layout_native_view_margin_right">0dp</dimen>
+
     <!-- Header -->
     <dimen name="card_header_default_padding">12dp</dimen>
     <dimen name="card_header_native_default_paddingLeft">12dp</dimen>
     <dimen name="card_header_native_default_paddingRight">12dp</dimen>
     <dimen name="card_header_native_default_paddingTop">12dp</dimen>
-
+    <dimen name="card_header_native_default_paddingBottom">0dp</dimen>
 
     <dimen name="card_header_outer_view_margin_top">0dp</dimen>
     <dimen name="card_header_outer_view_margin_left">0dp</dimen>
@@ -78,11 +83,20 @@
     <dimen name="card_content_outer_view_margin_bottom">0dp</dimen>
     <dimen name="card_content_outer_view_margin_right">0dp</dimen>
 
+    <dimen name="card_main_content_native_default_paddingLeft">12dp</dimen>
+    <dimen name="card_main_content_native_default_paddingRight">12dp</dimen>
+    <dimen name="card_main_content_native_default_paddingTop">12dp</dimen>
+    <dimen name="card_main_content_native_default_paddingBottom">12dp</dimen>
+
     <dimen name="card_main_simple_title_margin_left">5dp</dimen>
     <dimen name="card_main_simple_title_margin_top">0dp</dimen>
+    <dimen name="card_main_simple_title_margin_right">0dp</dimen>
+    <dimen name="card_main_simple_title_margin_bottom">0dp</dimen>
 
     <dimen name="card_main_native_simple_title_margin_left">0dp</dimen>
     <dimen name="card_main_native_simple_title_margin_top">0dp</dimen>
+
+    <dimen name="card_main_content_native_simple_title_text_size">16sp</dimen>
 
     <!-- Shadow -->
     <dimen name="card_shadow_height">3dp</dimen>

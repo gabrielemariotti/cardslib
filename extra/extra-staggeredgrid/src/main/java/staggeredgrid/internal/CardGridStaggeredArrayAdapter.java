@@ -16,7 +16,7 @@
  *  *****************************************************************************
  */
 
-package it.gmariotti.cardslib.library.extra.staggeredgrid.internal;
+package staggeredgrid.internal;
 
 import android.content.Context;
 import android.util.Log;
@@ -26,16 +26,16 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
-import it.gmariotti.cardslib.library.extra.R;
-import it.gmariotti.cardslib.library.extra.staggeredgrid.view.CardGridStaggeredView;
+import it.gmariotti.cardslib.library.extra.staggeredgrid.R;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.base.BaseCardArrayAdapter;
 import it.gmariotti.cardslib.library.view.base.CardViewWrapper;
+import staggeredgrid.view.CardGridStaggeredView;
 
 
 /**
  * Array Adapter for {@link it.gmariotti.cardslib.library.internal.Card} model.
- * Use it with a {@link it.gmariotti.cardslib.library.extra.staggeredgrid.view.CardGridStaggeredView}.
+ * Use it with a {@link staggeredgrid.view.CardGridStaggeredView}.
  * </p>
  * Usage:
  * <pre><code>
@@ -53,7 +53,7 @@ import it.gmariotti.cardslib.library.view.base.CardViewWrapper;
  * It provides a default layout id for each row @layout/list_card_layout
  * Use can easily customize it using card:list_card_layout_resourceID attr in your xml layout:
  * <pre><code>
- *    <it.gmariotti.cardslib.library.extra.staggeredgrid.view.CardGridStaggeredView
+ *    <CardGridStaggeredView
  *      android:layout_width="match_parent"
  *      android:layout_height="match_parent"
  *      card:item_margin="8dp"
@@ -77,7 +77,7 @@ public class CardGridStaggeredArrayAdapter extends BaseCardArrayAdapter {
     protected static String TAG = "CardGridStaggeredArrayAdapters";
 
     /**
-     * {@link it.gmariotti.cardslib.library.extra.staggeredgrid.view.CardGridStaggeredView}
+     * {@link staggeredgrid.view.CardGridStaggeredView}
      */
     protected CardGridStaggeredView mCardGridView;
 

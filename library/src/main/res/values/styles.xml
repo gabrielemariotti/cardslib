@@ -65,6 +65,7 @@
         <item name="android:paddingLeft">@dimen/card_header_native_default_paddingLeft</item>
         <item name="android:paddingRight">@dimen/card_header_native_default_paddingRight</item>
         <item name="android:paddingTop">@dimen/card_header_native_default_paddingTop</item>
+        <item name="android:paddingBottom">@dimen/card_header_native_default_paddingBottom</item>
     </style>
 
     <!--Style for Header Compound View -->
@@ -93,10 +94,10 @@
 
     <style name="card.native.header_simple_title" parent="card.header_simple_title">
         <item name="android:textSize">@dimen/card_header_native_simple_title_text_size</item>
-        <item name="android:layout_marginLeft">@dimen/card_header_native_simple_title_margin</item>
-        <item name="android:layout_marginTop">0dp</item>
-        <item name="android:layout_marginRight">0dp</item>
-        <item name="android:layout_marginBottom">0dp</item>
+        <item name="android:layout_marginLeft">@dimen/card_header_native_simple_title_margin_left</item>
+        <item name="android:layout_marginTop">@dimen/card_header_native_simple_title_margin_top</item>
+        <item name="android:layout_marginRight">@dimen/card_header_native_simple_title_margin_right</item>
+        <item name="android:layout_marginBottom">@dimen/card_header_native_simple_title_margin_bottom</item>
     </style>
 
     <!-- Style for Header Buttons ***********************************************-->
@@ -173,9 +174,10 @@
 
     <!--Style for Content View-->
     <style name="card.native.content_outer_layout" parent="card.content_outer_layout">
-        <item name="android:paddingLeft">@dimen/card_header_default_padding</item>
-        <item name="android:paddingRight">@dimen/card_header_default_padding</item>
-        <item name="android:paddingBottom">@dimen/card_header_default_padding</item>
+        <item name="android:paddingLeft">@dimen/card_main_content_native_default_paddingLeft</item>
+        <item name="android:paddingRight">@dimen/card_main_content_native_default_paddingRight</item>
+        <item name="android:paddingTop">@dimen/card_main_content_native_default_paddingTop</item>
+        <item name="android:paddingBottom">@dimen/card_main_content_native_default_paddingBottom</item>
     </style>
 
     <!--Style for simple title inner main view-->
@@ -184,11 +186,14 @@
         <item name="android:layout_gravity">left|center_vertical</item>
         <item name="android:layout_marginLeft">@dimen/card_main_simple_title_margin_left</item>
         <item name="android:layout_marginTop">@dimen/card_main_simple_title_margin_top</item>
+        <item name="android:layout_marginRight">@dimen/card_main_simple_title_margin_right</item>
+        <item name="android:layout_marginBottom">@dimen/card_main_simple_title_margin_bottom</item>
     </style>
 
     <!--Style for simple title inner main view-->
     <style name="card.native.base_simple_title">
         <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/card_main_content_native_simple_title_text_size</item>
         <item name="android:layout_gravity">left|center_vertical</item>
         <item name="android:layout_marginLeft">@dimen/card_main_native_simple_title_margin_left</item>
         <item name="android:layout_marginTop">@dimen/card_main_native_simple_title_margin_top</item>
@@ -229,9 +234,13 @@
         <item name="android:foreground">@drawable/card_foreground_kitkat_selector</item>
     </style>
 
-    <style name="card.native.main_layout_foreground" parent="card.main_layout_foreground.kitkat">
+    <style name="card.native.main_layout_foreground">
         <item name="android:foreground">?android:selectableItemBackground</item>
         <item name="android:background">@android:color/transparent</item>
+        <item name="android:layout_marginTop">@dimen/card_main_layout_native_view_margin_top</item>
+        <item name="android:layout_marginBottom">@dimen/card_main_layout_native_view_margin_bottom</item>
+        <item name="android:layout_marginLeft">@dimen/card_main_layout_native_view_margin_left</item>
+        <item name="android:layout_marginRight">@dimen/card_main_layout_native_view_margin_right</item>
     </style>
 
     <!-- Style for Hidden Expand Layout ****************************************-->

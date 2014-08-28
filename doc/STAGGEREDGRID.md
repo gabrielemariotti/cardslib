@@ -27,7 +27,7 @@ Creating a `CardGridStaggeredView` is pretty simple.
 First, you need an XML layout that will display the `CardGridStaggeredView`.
 
 ``` xml
-       <it.gmariotti.cardslib.library.extra.staggeredgrid.view.CardGridStaggeredView
+       <CardGridStaggeredView
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            card:item_margin="8dp"

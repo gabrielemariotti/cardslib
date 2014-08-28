@@ -26,7 +26,7 @@
     <!--Style for simple title header inner view-->
     <style name="card.header_simple_title">
         <item name="android:layout_gravity">left|center_vertical</item>
-        <item name="android:fontFamily">@string/card_font_fontFamily_medium</item>
+        <item name="android:fontFamily">@string/card_font_fontFamily_header</item>
         <item name="android:textColor">@color/card_text_color_header</item>
         <item name="android:textSize">@dimen/card_header_simple_title_text_size</item>
         <item name="android:layout_marginLeft">@dimen/card_header_simple_title_margin_left</item>
@@ -37,7 +37,7 @@
 
     <style name="card.native.header_simple_title" parent="card.header_simple_title">
         <item name="android:textSize">@dimen/card_header_native_simple_title_text_size</item>
-        <item name="android:fontFamily">@string/card_native_font_fontFamily_medium</item>
+        <item name="android:fontFamily">@string/card_native_font_fontFamily_header</item>
         <item name="android:layout_marginLeft">@dimen/card_header_native_simple_title_margin_left</item>
         <item name="android:layout_marginTop">@dimen/card_header_native_simple_title_margin_top</item>
         <item name="android:layout_marginRight">@dimen/card_header_native_simple_title_margin_right</item>
@@ -50,10 +50,24 @@
     <!--Style for simple title inner main view-->
     <style name="card.base_simple_title">
         <item name="android:textStyle">bold</item>
-        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:fontFamily">@string/card_font_fontFamily_main_content</item>
         <item name="android:layout_gravity">left|center_vertical</item>
         <item name="android:layout_marginLeft">@dimen/card_main_simple_title_margin_left</item>
         <item name="android:layout_marginTop">@dimen/card_main_simple_title_margin_top</item>
+        <item name="android:layout_marginRight">@dimen/card_main_simple_title_margin_right</item>
+        <item name="android:layout_marginBottom">@dimen/card_main_simple_title_margin_bottom</item>
+    </style>
+
+    <!--Style for simple title inner main view-->
+    <style name="card.native.base_simple_title">
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@string/card_font_fontFamily_main_content</item>
+        <item name="android:textSize">@dimen/card_main_content_native_simple_title_text_size</item>
+        <item name="android:layout_gravity">left|center_vertical</item>
+        <item name="android:layout_marginLeft">@dimen/card_main_native_simple_title_margin_left</item>
+        <item name="android:layout_marginTop">@dimen/card_main_native_simple_title_margin_top</item>
+        <item name="android:layout_marginRight">@dimen/card_header_native_simple_title_margin_right</item>
+        <item name="android:layout_marginBottom">@dimen/card_header_native_simple_title_margin_bottom</item>
     </style>
 
     <!-- Style for Expand/Collapse *************************************************-->

@@ -46,6 +46,7 @@ dependencies {
     compile project(':library')
     compile project(':library-extra')
     compile project(':extra:extra-twoway')
+    compile project(':extra:extra-staggeredgrid')
 
     // Support Libraries
     compile 'com.android.support:support-v4:20.0.0'

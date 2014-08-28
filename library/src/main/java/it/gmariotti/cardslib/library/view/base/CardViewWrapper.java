@@ -56,6 +56,9 @@ public interface CardViewWrapper {
      */
     void doToggleExpand();
 
+    /** Support for longClickable**/
+    void setLongClickable(boolean b);
+
     /**
      * Interface to listen any callbacks when expand/collapse animation starts
      */

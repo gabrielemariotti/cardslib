@@ -16,7 +16,7 @@
  *  *****************************************************************************
  */
 
-package it.gmariotti.cardslib.library.extra.staggeredgrid.view;
+package staggeredgrid.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -26,17 +26,17 @@ import android.widget.ListAdapter;
 
 import com.etsy.android.grid.StaggeredGridView;
 
-import it.gmariotti.cardslib.library.extra.R;
-import it.gmariotti.cardslib.library.extra.staggeredgrid.internal.CardGridStaggeredArrayAdapter;
+import it.gmariotti.cardslib.library.extra.staggeredgrid.R;
+import staggeredgrid.internal.CardGridStaggeredArrayAdapter;
 
 /**
  * This class realizes a CardGridStaggeredView.
  *  * Card Grid View.
- * It uses an {@link it.gmariotti.cardslib.library.extra.staggeredgrid.internal.CardGridStaggeredArrayAdapter} to populate items.
+ * It uses an {@link staggeredgrid.internal.CardGridStaggeredArrayAdapter} to populate items.
  * </p>
  * Usage:
  * <pre><code>
- *    <it.gmariotti.cardslib.library.extra.staggeredgrid.view.CardGridStaggeredView
+ *    <CardGridStaggeredView
  *      android:layout_width="match_parent"
  *      android:layout_height="match_parent"
  *      card:item_margin="8dp"
