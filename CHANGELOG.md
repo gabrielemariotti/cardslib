@@ -4,6 +4,7 @@ Change Log
 Version 1.x.x *(2014-xx-xx)*
 ----------------------------
 * LIB: Added a method to expand and collpase the card in programmatic way [(doc)](/doc/EXPAND.md#expand-the-card-in-programmatic-way)
+* LIB: Added a callback at the start of the expansion/collapsing animation [(doc)](/doc/EXPAND.md#listeners)
 * LIB: Added the ability to expand and collapse the card with a longClick [(doc)](/doc/EXPAND.md#expand-the-card-with-a-longclick)
 * LIB: Added a method to add dinamically Sections to a `SectionedCardAdapter` [(doc)](/doc/CARDLIST.md#sectionedcardlist)
 * LIB: Added a feature to restrict card swipe direction [(doc)](/doc/CARDLIST.md#swipe-and-dismissablemanager)

@@ -833,6 +833,10 @@ public class CardView extends BaseCardView implements CardViewWrapper {
          */
         private static void animateExpanding(final ExpandContainerHelper helper) {
 
+            //Callback
+            if (helper.card.getOnExpandAnimatorStartListener() != null)
+                helper.card.getOnExpandAnimatorStartListener().onExpandStart(helper.card);
+
             if (helper.getCardView().getOnExpandListAnimatorListener()!=null){
                 //List Animator
                 helper.getCardView().getOnExpandListAnimatorListener().onExpandStart(helper.getCardView(), helper.contentParent);
@@ -863,7 +867,11 @@ public class CardView extends BaseCardView implements CardViewWrapper {
          */
         private static void animateCollapsing(final ExpandContainerHelper helper) {
 
-            if (helper.getCardView().getOnExpandListAnimatorListener()!=null){
+            //Callback
+            if (helper.card.getOnCollapseAnimatorStartListener() != null)
+                helper.card.getOnCollapseAnimatorStartListener().onCollapseStart(helper.card);
+
+            if (helper.getCardView().getOnExpandListAnimatorListener() != null) {
                 //There is a List Animator.
                 helper.getCardView().getOnExpandListAnimatorListener().onCollapseStart(helper.getCardView(), helper.contentParent);
             }else{
@@ -881,7 +889,7 @@ public class CardView extends BaseCardView implements CardViewWrapper {
                         helper.contentParent.setVisibility(View.GONE);
                         helper.card.setExpanded(false);
                         //Callback
-                        if (helper.card.getOnCollapseAnimatorEndListener()!=null)
+                        if (helper.card.getOnCollapseAnimatorEndListener() != null)
                             helper.card.getOnCollapseAnimatorEndListener().onCollapseEnd(helper.card);
                     }
 

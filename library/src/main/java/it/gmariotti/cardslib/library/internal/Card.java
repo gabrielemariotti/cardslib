@@ -125,6 +125,16 @@ public class Card extends BaseCard {
     protected OnCollapseAnimatorEndListener mOnCollapseAnimatorEndListener;
 
     /**
+     * Listener invoked when Expand Animator starts
+     */
+    protected OnExpandAnimatorStartListener mOnExpandAnimatorStartListener;
+
+    /**
+     * Listener invoked when Collapse Animator starts
+     */
+    protected OnCollapseAnimatorStartListener mOnCollapseAnimatorStartListener;
+
+    /**
      * Partial OnClickListener
      */
     protected HashMap<Integer, OnCardClickListener> mMultipleOnClickListener;
@@ -542,6 +552,40 @@ public class Card extends BaseCard {
         this.mOnExpandAnimatorEndListener = onExpandAnimatorEndListener;
     }
 
+    /**
+     * Interface to listen any callbacks when expand animation starts
+     */
+    public interface OnExpandAnimatorStartListener {
+        public void onExpandStart(Card card);
+    }
+
+    /**
+     * Called at the start of Expand Animator
+     */
+    public void onExpandStart() {
+        if (mOnExpandAnimatorStartListener != null) {
+            mOnExpandAnimatorStartListener.onExpandStart(this);
+        }
+    }
+
+    /**
+     * Returns the listener invoked when expand animation starts
+     *
+     * @return listener
+     */
+    public OnExpandAnimatorStartListener getOnExpandAnimatorStartListener() {
+        return mOnExpandAnimatorStartListener;
+    }
+
+    /**
+     * Sets the listener invoked when expand animation ends
+     *
+     * @param onExpandAnimatorStartListener listener
+     */
+    public void setOnExpandAnimatorStartListener(OnExpandAnimatorStartListener onExpandAnimatorStartListener) {
+        this.mOnExpandAnimatorStartListener = onExpandAnimatorStartListener;
+    }
+
     // -------------------------------------------------------------
     //  OnAnimationExpandEnd Interface and Listener
     // -------------------------------------------------------------
@@ -579,6 +623,41 @@ public class Card extends BaseCard {
     public void setOnCollapseAnimatorEndListener(OnCollapseAnimatorEndListener onCollapseAnimatorEndListener) {
         this.mOnCollapseAnimatorEndListener = onCollapseAnimatorEndListener;
     }
+
+    /**
+     * Interface to listen any callbacks when collapse animation starts
+     */
+    public interface OnCollapseAnimatorStartListener {
+        public void onCollapseStart(Card card);
+    }
+
+    /**
+     * Call at the beginning of collapse animation
+     */
+    public void onCollapseStart() {
+        if (mOnCollapseAnimatorStartListener != null) {
+            mOnCollapseAnimatorStartListener.onCollapseStart(this);
+        }
+    }
+
+    /**
+     * Returns the listener invoked when collapse animation starts
+     *
+     * @return listener
+     */
+    public OnCollapseAnimatorStartListener getOnCollapseAnimatorStartListener() {
+        return mOnCollapseAnimatorStartListener;
+    }
+
+    /**
+     * Sets the listener when collapse animation starts
+     *
+     * @param onCollapseAnimatorStartListener
+     */
+    public void setOnCollapseAnimatorStartListener(OnCollapseAnimatorStartListener onCollapseAnimatorStartListener) {
+        this.mOnCollapseAnimatorStartListener = onCollapseAnimatorStartListener;
+    }
+
 
     public void doExpand(){
         getCardView().doExpand();
