@@ -244,9 +244,12 @@ The `Card` class provides some listeners to handle callbacks.
 
 * `OnSwipeListener` : invoked when the card is swiped
 * `OnCardClickListener` : invoked when the card is clicked
+* `OnLongCardClickListener` : invoked when the card is long clicked
+* `OnExpandAnimatorStartListener` : invoked when the expand animation starts
+* `OnCollapseAnimatorStartListener` : invoked when the collapse animation starts
 * `OnExpandAnimatorEndListener` : invoked when the expand animation ends
 * `OnCollapseAnimatorEndListener` : invoked when the collapse animation ends
-* `OnLongCardClickListener` : invoked when the card is long clicked
+
 
 See [Card Header:](HEADER.md) for Header listeners.
 

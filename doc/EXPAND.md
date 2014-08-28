@@ -5,6 +5,7 @@ In this page you can find info about:
 * [Creating a base CardExpand](#creating-a-base-cardexpand)
 * [Standard Expand](#standard-expand)
 * [Custom Expand inflating your inner layout](#custom-expand-inflating-your-inner-layout)
+* [Listeners](#listeners)
 * [Expand the card by clicking on different view](#expand-the-card-by-clicking-on-different-view)
 * [Expand the card in programmatic way](#expand-the-card-in-programmatic-way)
 * [Expand the card with a longClick](#expand-the-card-with-a-longclick)
@@ -103,10 +104,13 @@ Then you can add this custom `CustomExpandCard` to your `Card`:
 
 ![Screen](/demo/images/header/expandCustom.png)
 
+
+### Listeners
+
 You can use these listeners to listen any callbacks when animations end.
 
-* `Card.OnExpandAnimatorEndListener` invoked  when expand animation ends
-* `Card.OnCollapseAnimatorEndListener` invoked when collapse animator ends.
+* `card.OnExpandAnimatorEndListener` invoked  when expand animation ends
+* `card.OnCollapseAnimatorEndListener` invoked when collapse animator ends.
 
 Example:
 
@@ -114,6 +118,22 @@ Example:
         card.setOnExpandAnimatorEndListener(new Card.OnExpandAnimatorEndListener() {
             @Override
             public void onExpandEnd(Card card) {
+                //Do something
+            }
+        });
+```
+
+Also you can use these listeners to listen any callbacks when animations start.
+
+* `card.OnExpandAnimatorStartListener` invoked  when expand animation starts.
+* `card.OnCollapseAnimatorStartListener` invoked when collapse animator starts.
+
+Example:
+
+``` java
+        card.setOnExpandAnimatorStartListener(new Card.OnExpandAnimatorStartListener() {
+            @Override
+            public void onExpandStart(Card card) {
                 //Do something
             }
         });
