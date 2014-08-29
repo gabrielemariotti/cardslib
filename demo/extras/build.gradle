@@ -48,8 +48,10 @@ dependencies {
     compile 'com.android.support:support-v4:20.0.0'
 
     //OkHttp
-    compile 'com.squareup.okhttp:okhttp:2.0.0'
-    compile 'com.squareup.okhttp:okhttp-urlconnection:2.0.0'
+    //temporary patch for android-L for Okio packaging problem (see https://gist.github.com/JakeWharton/017738659d4f38adedc2)
+    compile fileTree(dir: 'libs', include: 'repackaged-*.jar')
+    //compile 'com.squareup.okhttp:okhttp:2.0.0'
+    //compile 'com.squareup.okhttp:okhttp-urlconnection:2.0.0'
     //Picasso
     compile 'com.squareup.picasso:picasso:2.3.3'
 
