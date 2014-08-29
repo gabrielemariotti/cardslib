@@ -1,7 +1,7 @@
 Change Log
 ===============================================================================
 
-Version 1.x.x *(2014-xx-xx)*
+Version 1.9.0 *(2014-08-30)*
 ----------------------------
 * LIB: Added a method to expand and collpase the card in programmatic way [(doc)](/doc/EXPAND.md#expand-the-card-in-programmatic-way)
 * LIB: Added a callback at the start of the expansion/collapsing animation [(doc)](/doc/EXPAND.md#listeners)
