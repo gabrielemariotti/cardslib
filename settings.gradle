@@ -1,1 +1,1 @@
-include ':library' ,':demo:stock' , ':demo:extras' , ':library-extra' , ':extra:extra-twoway' , ':extra:extra-staggeredgrid'
+include ':library' ,':demo:stock' , ':demo:extras' ,  ':extra:extra-twoway' , ':extra:extra-staggeredgrid', ':extra:extra-dragdrop'

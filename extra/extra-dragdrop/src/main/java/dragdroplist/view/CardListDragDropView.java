@@ -28,7 +28,7 @@ import android.widget.ListAdapter;
 
 import com.nhaarman.listviewanimations.itemmanipulation.DynamicListView;
 
-import it.gmariotti.cardslib.library.extra.R;
+
 import it.gmariotti.cardslib.library.extra.dragdroplist.internal.CardDragDropArrayAdapter;
 import it.gmariotti.cardslib.library.extra.dragdroplist.internal.CardTouchViewDraggableManager;
 import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
