@@ -277,6 +277,9 @@ public class CardView extends BaseCardView implements CardViewWrapper {
         //Setup Expand View
         setupExpandView();
 
+        //Setup Supplemental Actions
+        setupSupplementalActions();
+
         //Setup Listeners
         setupListeners();
 
@@ -403,6 +406,11 @@ public class CardView extends BaseCardView implements CardViewWrapper {
                 changeBackgroundResource(mCard.getBackgroundResource());
             }
         }
+    }
+
+    protected void setupSupplementalActions() {
+        if (mCard != null)
+            mCard.setupSupplementalActions();
     }
 
     //--------------------------------------------------------------------------

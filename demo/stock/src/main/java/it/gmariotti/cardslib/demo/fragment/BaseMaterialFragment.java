@@ -89,32 +89,36 @@ public abstract class BaseMaterialFragment extends BaseFragment {
         final String sourceUrl = getSourceUrl();
         final String docUrl = getDocUrl();
 
-        if (sourceUrl == null){
-            mSourceButton.setEnabled(false);
-        }else {
+        if (mSourceButton != null) {
+            if (sourceUrl == null) {
+                mSourceButton.setEnabled(false);
+            } else {
 
-            mSourceButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent i = new Intent(Intent.ACTION_VIEW);
-                    i.setData(Uri.parse(sourceUrl));
-                    startActivity(i);
-                }
-            });
+                mSourceButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent i = new Intent(Intent.ACTION_VIEW);
+                        i.setData(Uri.parse(sourceUrl));
+                        startActivity(i);
+                    }
+                });
+            }
         }
 
-        if (docUrl == null){
-            mDocButton.setEnabled(false);
-        }else {
+        if (mDocButton != null) {
+            if (docUrl == null) {
+                mDocButton.setEnabled(false);
+            } else {
 
-            mDocButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent i = new Intent(Intent.ACTION_VIEW);
-                    i.setData(Uri.parse(docUrl));
-                    startActivity(i);
-                }
-            });
+                mDocButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent i = new Intent(Intent.ACTION_VIEW);
+                        i.setData(Uri.parse(docUrl));
+                        startActivity(i);
+                    }
+                });
+            }
         }
     }
 
@@ -127,12 +131,18 @@ public abstract class BaseMaterialFragment extends BaseFragment {
         float mMaxHeaderElevation = getResources().getDimensionPixelSize(
                 R.dimen.carddemo_barheader_elevation);
 
-        mHeaderShadow.setVisibility(lpu.hasLPreviewAPIs() ? View.GONE : View.VISIBLE);
-        lpu.setViewElevation(mHeaderBackgroundBox,  mMaxHeaderElevation);
-        lpu.setViewElevation(mHeaderContentBox,  mMaxHeaderElevation + 0.1f);
-    
-        mTitleHeader.setText(getString(getTitleHeaderResourceId()));
-        mSubTitleHeader.setText(getString(getSubTitleHeaderResourceId()));
+        if (mHeaderShadow != null)
+            mHeaderShadow.setVisibility(lpu.hasLPreviewAPIs() ? View.GONE : View.VISIBLE);
+        if (mHeaderBackgroundBox != null)
+            lpu.setViewElevation(mHeaderBackgroundBox,  mMaxHeaderElevation);
+        if (mHeaderContentBox != null)
+          lpu.setViewElevation(mHeaderContentBox,  mMaxHeaderElevation + 0.1f);
+
+        if (mTitleHeader != null)
+            mTitleHeader.setText(getString(getTitleHeaderResourceId()));
+
+        if (mSubTitleHeader != null)
+            mSubTitleHeader.setText(getString(getSubTitleHeaderResourceId()));
 
 
         if (colorResId != -1) {

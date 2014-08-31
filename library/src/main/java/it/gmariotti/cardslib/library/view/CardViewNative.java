@@ -357,6 +357,9 @@ public class CardViewNative extends android.support.v7.widget.CardView implement
         //Setup Expand View
         setupExpandView();
 
+        //Setup Supplemental Actions
+        setupSupplementalActions();
+
         //Setup Listeners
         setupListeners();
 
@@ -480,6 +483,11 @@ public class CardViewNative extends android.support.v7.widget.CardView implement
                 changeBackgroundResource(mCard.getBackgroundResource());
             }
         }
+    }
+
+    protected void setupSupplementalActions() {
+        if (mCard != null)
+            mCard.setupSupplementalActions();
     }
 
     //--------------------------------------------------------------------------

@@ -114,7 +114,7 @@
 
     <string name="carddemo_title_tag_gplay">Google Play</string>
     <string name="carddemo_title_tag_gnow">Google Now</string>
-    <string name="carddemo_title_tag_gplus">Material Card</string>
+    <string name="carddemo_title_tag_material">Material Card</string>
     <string name="carddemo_title_tag_birthday_card">BirthDay Card</string>
     <string name="carddemo_title_tag_stock_card">Google Now Stock</string>
     <string name="carddemo_title_tag_play_card">Google Play</string>

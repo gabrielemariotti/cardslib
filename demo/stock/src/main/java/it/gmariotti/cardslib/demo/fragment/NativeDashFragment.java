@@ -41,6 +41,7 @@ import java.util.List;
 import it.gmariotti.cardslib.demo.R;
 import it.gmariotti.cardslib.demo.fragment.nativeview.NativeCardFragment;
 import it.gmariotti.cardslib.demo.fragment.nativeview.NativeHeaderFragment;
+import it.gmariotti.cardslib.demo.fragment.nativeview.NativeMaterialCardFragment;
 import it.gmariotti.cardslib.demo.fragment.nativeview.NativeThumbnailFragment;
 import it.gmariotti.cardslib.demo.ui.widget.CollectionView;
 import it.gmariotti.cardslib.demo.ui.widget.CollectionViewCallbacks;
@@ -317,7 +318,7 @@ public class NativeDashFragment extends Fragment{
 
         list.add(new MenuEntry(R.string.carddemo_title_tag_gplay,R.color.md_green_300,R.string.header_title_cardheadersubtitle, NativeHeaderFragment.class));
         list.add(new MenuEntry(R.string.carddemo_title_tag_gnow,R.color.md_teal_200,R.string.header_title_cardheadersubtitle, NativeHeaderFragment.class));
-        list.add(new MenuEntry(R.string.carddemo_title_tag_gplus,R.color.md_indigo_600,R.string.header_title_cardheadersubtitle, NativeHeaderFragment.class));
+        list.add(new MenuEntry(R.string.carddemo_title_tag_material,R.color.md_indigo_600,R.string.header_title_cardheadersubtitle, NativeMaterialCardFragment.class));
         list.add(new MenuEntry(R.string.carddemo_title_tag_birthday_card,R.color.md_indigo_A400,R.string.header_title_cardheadersubtitle, NativeHeaderFragment.class));
         list.add(new MenuEntry(R.string.carddemo_title_tag_stock_card,R.color.md_pink_A200,R.string.header_title_cardheadersubtitle, NativeHeaderFragment.class));
         list.add(new MenuEntry(R.string.carddemo_title_tag_play_card,R.color.md_brown_300,R.string.header_title_cardheadersubtitle, NativeHeaderFragment.class));

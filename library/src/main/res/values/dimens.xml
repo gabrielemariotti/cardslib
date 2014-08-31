@@ -24,10 +24,10 @@
     <dimen name="card_background_default_radius">2dp</dimen>
 
     <!-- Native card margin -->
-    <dimen name="card_default_native_margin_top">4dp</dimen>
-    <dimen name="card_default_native_margin_bottom">4dp</dimen>
-    <dimen name="card_default_native_margin_left">4dp</dimen>
-    <dimen name="card_default_native_margin_right">4dp</dimen>
+    <dimen name="card_default_native_margin_top">8dp</dimen>
+    <dimen name="card_default_native_margin_bottom">8dp</dimen>
+    <dimen name="card_default_native_margin_left">8dp</dimen>
+    <dimen name="card_default_native_margin_right">8dp</dimen>
 
     <!-- Main -->
     <dimen name="card_main_layout_view_margin_top">0dp</dimen>
