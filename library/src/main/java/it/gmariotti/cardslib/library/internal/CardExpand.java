@@ -158,6 +158,7 @@ public class CardExpand extends BaseCard {
             if (mTitleView!=null)
                 mTitleView.setText(mTitle);
         }
+
     }
 
 }
