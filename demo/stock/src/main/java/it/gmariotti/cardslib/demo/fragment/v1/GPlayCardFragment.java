@@ -39,7 +39,6 @@ import it.gmariotti.cardslib.demo.R;
 import it.gmariotti.cardslib.demo.Utils;
 import it.gmariotti.cardslib.demo.cards.GooglePlaySmallCard;
 import it.gmariotti.cardslib.demo.cards.GplayCard;
-import it.gmariotti.cardslib.demo.fragment.BaseFragment;
 import it.gmariotti.cardslib.library.Constants;
 import it.gmariotti.cardslib.library.utils.BitmapUtils;
 import it.gmariotti.cardslib.library.view.CardView;
@@ -49,7 +48,7 @@ import it.gmariotti.cardslib.library.view.CardView;
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public class GPlayCardFragment extends BaseFragment {
+public class GPlayCardFragment extends MaterialV1Fragment {
 
     protected ScrollView mScrollView;
     private GooglePlaySmallCard cardGmap;
@@ -58,6 +57,26 @@ public class GPlayCardFragment extends BaseFragment {
     private ShareActionProvider mShareActionProvider;
     private File photofile;
     private ImageBroadcastReceiver mReceiver;
+
+    @Override
+    protected int getSubTitleHeaderResourceId() {
+        return R.string.header_title_cardexpandsubtitle;
+    }
+
+    @Override
+    protected int getTitleHeaderResourceId() {
+        return R.string.header_title_group2;
+    }
+
+    @Override
+    protected String getDocUrl() {
+        return "https://github.com/gabrielemariotti/cardslib/blob/master/doc/CARD.md";
+    }
+
+    @Override
+    protected String getSourceUrl() {
+        return "https://github.com/gabrielemariotti/cardslib/blob/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/v1/GPlayCardFragment.java";
+    }
 
     @Override
     public int getTitleResourceId() {

@@ -239,7 +239,8 @@
     <string name="header_title_group1">Card Base Features</string>
     <string name="header_title_group2">Card Examples</string>
     <string name="header_title_group3">List and Grid</string>
-
+    <string name="header_title_group4">Multichoice</string>
+    <string name="header_title_group5">Misc</string>
 
     <!--Nav drawer -->
     <string name="navdrawer_item_native_cardslib">CardViewNative</string>

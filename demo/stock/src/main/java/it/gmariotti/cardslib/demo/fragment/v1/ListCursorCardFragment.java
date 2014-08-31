@@ -52,6 +52,26 @@ public class ListCursorCardFragment extends BaseListFragment implements LoaderMa
     CardListView mListView;
 
     @Override
+    protected int getSubTitleHeaderResourceId() {
+        return R.string.header_title_cardexpandsubtitle;
+    }
+
+    @Override
+    protected int getTitleHeaderResourceId() {
+        return R.string.header_title_group1;
+    }
+
+    @Override
+    protected String getDocUrl() {
+        return "https://github.com/gabrielemariotti/cardslib/blob/master/doc/EXPAND.md";
+    }
+
+    @Override
+    protected String getSourceUrl() {
+        return "https://github.com/gabrielemariotti/cardslib/blob/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/v1/CardExpandFragment.java";
+    }
+
+    @Override
     public int getTitleResourceId() {
         return R.string.carddemo_title_list_cursor;
     }

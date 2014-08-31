@@ -30,7 +30,6 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import it.gmariotti.cardslib.demo.R;
-import it.gmariotti.cardslib.demo.fragment.BaseFragment;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
 import it.gmariotti.cardslib.library.internal.CardHeader;
@@ -42,9 +41,29 @@ import it.gmariotti.cardslib.library.view.CardListView;
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public class ListBaseFragment extends BaseFragment {
+public class ListBaseFragment extends MaterialV1Fragment {
 
     protected ScrollView mScrollView;
+
+    @Override
+    protected int getSubTitleHeaderResourceId() {
+        return R.string.header_title_cardexpandsubtitle;
+    }
+
+    @Override
+    protected int getTitleHeaderResourceId() {
+        return R.string.header_title_group1;
+    }
+
+    @Override
+    protected String getDocUrl() {
+        return "https://github.com/gabrielemariotti/cardslib/blob/master/doc/EXPAND.md";
+    }
+
+    @Override
+    protected String getSourceUrl() {
+        return "https://github.com/gabrielemariotti/cardslib/blob/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/v1/CardExpandFragment.java";
+    }
 
     @Override
     public int getTitleResourceId() {

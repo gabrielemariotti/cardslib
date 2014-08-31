@@ -33,7 +33,6 @@ import java.io.File;
 
 import it.gmariotti.cardslib.demo.R;
 import it.gmariotti.cardslib.demo.cards.GoogleNowStockCard;
-import it.gmariotti.cardslib.demo.fragment.BaseFragment;
 import it.gmariotti.cardslib.library.utils.BitmapUtils;
 import it.gmariotti.cardslib.library.view.CardView;
 
@@ -42,12 +41,32 @@ import it.gmariotti.cardslib.library.view.CardView;
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public class StockCardFragment extends BaseFragment {
+public class StockCardFragment extends MaterialV1Fragment {
 
     protected ScrollView mScrollView;
     private CardView cardView;
     private ShareActionProvider mShareActionProvider;
     private File photofile;
+
+    @Override
+    protected int getSubTitleHeaderResourceId() {
+        return R.string.header_title_cardexpandsubtitle;
+    }
+
+    @Override
+    protected int getTitleHeaderResourceId() {
+        return R.string.header_title_group2;
+    }
+
+    @Override
+    protected String getDocUrl() {
+        return "https://github.com/gabrielemariotti/cardslib/blob/master/doc/CARD.md";
+    }
+
+    @Override
+    protected String getSourceUrl() {
+        return "https://github.com/gabrielemariotti/cardslib/blob/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/v1/StockCardFragment.java";
+    }
 
     @Override
     public int getTitleResourceId() {

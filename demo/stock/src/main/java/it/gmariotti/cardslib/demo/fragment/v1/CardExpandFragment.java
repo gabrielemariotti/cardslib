@@ -332,5 +332,6 @@ public class CardExpandFragment extends MaterialV1Fragment {
                 img.setImageResource(R.drawable.rose);
             }
         }
+
     }
 }

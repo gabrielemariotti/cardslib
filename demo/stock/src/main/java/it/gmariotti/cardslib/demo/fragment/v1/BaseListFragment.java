@@ -22,13 +22,12 @@ import android.view.View;
 import android.view.animation.AnimationUtils;
 
 import it.gmariotti.cardslib.demo.R;
-import it.gmariotti.cardslib.demo.fragment.BaseFragment;
 
 
 /**
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public abstract class BaseListFragment extends BaseFragment {
+public abstract class BaseListFragment extends MaterialV1Fragment {
 
     protected boolean mListShown;
     protected View mProgressContainer;

@@ -37,7 +37,6 @@ import java.io.File;
 
 import it.gmariotti.cardslib.demo.R;
 import it.gmariotti.cardslib.demo.cards.GoogleNowBirthCard;
-import it.gmariotti.cardslib.demo.fragment.BaseFragment;
 import it.gmariotti.cardslib.library.Constants;
 import it.gmariotti.cardslib.library.utils.BitmapUtils;
 import it.gmariotti.cardslib.library.view.CardView;
@@ -47,7 +46,7 @@ import it.gmariotti.cardslib.library.view.CardView;
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public class BirthDayCardFragment extends BaseFragment {
+public class BirthDayCardFragment extends MaterialV1Fragment {
 
     protected ScrollView mScrollView;
     private CardView cardView;
@@ -57,6 +56,25 @@ public class BirthDayCardFragment extends BaseFragment {
     private File photofile;
     private ImageBroadcastReceiver mReceiver;
 
+    @Override
+    protected int getSubTitleHeaderResourceId() {
+        return R.string.header_title_cardexpandsubtitle;
+    }
+
+    @Override
+    protected int getTitleHeaderResourceId() {
+        return R.string.header_title_group2;
+    }
+
+    @Override
+    protected String getDocUrl() {
+        return "https://github.com/gabrielemariotti/cardslib/blob/master/doc/CARD.md";
+    }
+
+    @Override
+    protected String getSourceUrl() {
+        return "https://github.com/gabrielemariotti/cardslib/blob/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/v1/BirthDayCardFragment.java";
+    }
 
     @Override
     public int getTitleResourceId() {
