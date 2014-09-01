@@ -121,6 +121,9 @@
     <dimen name="card_expand_native_layout_padding_bottom">0dp</dimen>
     <dimen name="card_expand_native_margin_right">0dp</dimen>
     <dimen name="card_expand_native_margin_left">0dp</dimen>
+    <dimen name="card_expand_native_simple_title_text_size">14sp</dimen>
+    <dimen name="card_expand_native_simple_title_padding_left">0dp</dimen>
+    <dimen name="card_expand_native_simple_title_padding_right">0dp</dimen>
 
     <!-- List -->
     <dimen name="list_card_padding_left">8dp</dimen>

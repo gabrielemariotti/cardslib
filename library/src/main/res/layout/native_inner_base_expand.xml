@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <!--
   ~ *******************************************************************************
   ~   Copyright (c) 2013-2014 Gabriele Mariotti.
@@ -17,13 +18,17 @@
   ~  *****************************************************************************
   -->
 
-<resources>
-    <string name="card_font_fontFamily_header">sans-serif-condensed</string>
-    <string name="card_native_font_fontFamily_header">sans-serif-medium</string>
+<!-- This is the InnerContent of Expand/Collapse Area -->
 
-    <string name="card_font_fontFamily_main_content">sans-serif</string>
-    <string name="card_native_font_fontFamily_main_content">sans-serif</string>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
 
-    <string name="card_font_fontFamily_expand">sans-serif</string>
-    <string name="card_native_font_fontFamily_expand">sans-serif</string>
-</resources>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/card_expand_inner_simple_title"
+        style="@style/card.native.expand_simple_title"/>
+
+</LinearLayout>

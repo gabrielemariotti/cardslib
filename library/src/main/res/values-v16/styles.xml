@@ -61,7 +61,7 @@
     <!--Style for simple title inner main view-->
     <style name="card.native.base_simple_title">
         <item name="android:textStyle">bold</item>
-        <item name="android:fontFamily">@string/card_font_fontFamily_main_content</item>
+        <item name="android:fontFamily">@string/card_native_font_fontFamily_main_content</item>
         <item name="android:textSize">@dimen/card_main_content_native_simple_title_text_size</item>
         <item name="android:layout_gravity">left|center_vertical</item>
         <item name="android:layout_marginLeft">@dimen/card_main_native_simple_title_margin_left</item>
@@ -81,6 +81,17 @@
         <item name="android:paddingLeft">@dimen/card_expand_simple_title_paddingLeft</item>
         <item name="android:paddingRight">@dimen/card_expand_simple_title_paddingRight</item>
         <item name="android:textColor">@color/card_expand_title_color</item>
+    </style>
+
+    <!--Style for simple title expand/collapse inner view-->
+    <style name="card.native.expand_simple_title">
+        <item name="android:layout_gravity">left|center_vertical</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">@dimen/card_expand_native_simple_title_text_size</item>
+        <item name="android:paddingLeft">@dimen/card_expand_native_simple_title_padding_left</item>
+        <item name="android:paddingRight">@dimen/card_expand_native_simple_title_padding_right</item>
+        <item name="android:textColor">@color/card_expand_title_color</item>
+        <item name="android:fontFamily">@string/card_native_font_fontFamily_expand</item>
     </style>
 
 </resources>

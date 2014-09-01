@@ -199,6 +199,8 @@ public class Card extends BaseCard {
      */
     protected ViewToClickToExpand viewToClickToExpand=null;
 
+    private boolean couldUseNativeInnerLayout = false;
+
     // -------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------
@@ -222,6 +224,9 @@ public class Card extends BaseCard {
         super(context);
         mParentCard = null;
         mInnerLayout = innerLayout;
+
+        if (innerLayout == R.layout.inner_base_main)
+            couldUseNativeInnerLayout = true;
     }
 
     // -------------------------------------------------------------
@@ -245,6 +250,10 @@ public class Card extends BaseCard {
      */
     @Override
     public View getInnerView(Context context, ViewGroup parent) {
+
+        //Check if the default inner layout could be the native layout
+        if (couldUseNativeInnerLayout && isNative())
+            mInnerLayout = R.layout.native_inner_base_main;
 
         View view = super.getInnerView(context, parent);
 

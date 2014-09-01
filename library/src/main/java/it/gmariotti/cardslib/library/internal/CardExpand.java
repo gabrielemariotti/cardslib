@@ -83,6 +83,7 @@ import it.gmariotti.cardslib.library.internal.base.BaseCard;
  */
 public class CardExpand extends BaseCard {
 
+    private boolean couldUseNativeInnerLayout = false;
 
     // -------------------------------------------------------------
     // Constructors
@@ -106,6 +107,9 @@ public class CardExpand extends BaseCard {
     public CardExpand(Context context, int innerLayout) {
         super(context);
         mInnerLayout= innerLayout;
+
+        if (innerLayout == R.layout.inner_base_expand)
+            couldUseNativeInnerLayout = true;
     }
 
     // -------------------------------------------------------------
@@ -123,6 +127,10 @@ public class CardExpand extends BaseCard {
      */
     @Override
     public View getInnerView(Context context, ViewGroup parent) {
+
+        //Check if the default inner layout could be the native layout
+        if (couldUseNativeInnerLayout && isNative())
+            mInnerLayout = R.layout.native_inner_base_expand;
 
         //Inflate the inner layout
         View view= super.getInnerView(context, parent);
@@ -159,6 +167,16 @@ public class CardExpand extends BaseCard {
                 mTitleView.setText(mTitle);
         }
 
+    }
+
+    /**
+     * Returns true if the card is using the native card
+     * @return
+     */
+    protected boolean isNative(){
+        if  (getParentCard() != null)
+            return getParentCard().isNative();
+        return false;
     }
 
 }

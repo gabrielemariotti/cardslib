@@ -173,7 +173,9 @@
     </style>
 
     <!--Style for Content View-->
-    <style name="card.native.content_outer_layout" parent="card.content_outer_layout">
+    <style name="card.native.content_outer_layout" >
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:minHeight">@dimen/card_base_empty_height</item>
         <item name="android:paddingLeft">@dimen/card_main_content_native_default_paddingLeft</item>
         <item name="android:paddingRight">@dimen/card_main_content_native_default_paddingRight</item>
         <item name="android:paddingTop">@dimen/card_main_content_native_default_paddingTop</item>
@@ -269,6 +271,15 @@
         <item name="android:textColor">@color/card_expand_title_color</item>
     </style>
 
+    <!--Style for simple title expand/collapse inner view-->
+    <style name="card.native.expand_simple_title">
+        <item name="android:layout_gravity">left|center_vertical</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">@dimen/card_expand_native_simple_title_text_size</item>
+        <item name="android:paddingLeft">@dimen/card_expand_native_simple_title_padding_left</item>
+        <item name="android:paddingRight">@dimen/card_expand_native_simple_title_padding_right</item>
+        <item name="android:textColor">@color/card_expand_title_color</item>
+    </style>
 
     <!-- Style for Thumbnail ******************************************************-->
 
