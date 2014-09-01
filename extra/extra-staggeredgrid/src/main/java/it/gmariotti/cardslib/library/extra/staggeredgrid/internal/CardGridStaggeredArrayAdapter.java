@@ -16,7 +16,7 @@
  *  *****************************************************************************
  */
 
-package staggeredgrid.internal;
+package it.gmariotti.cardslib.library.extra.staggeredgrid.internal;
 
 import android.content.Context;
 import android.util.Log;
@@ -27,15 +27,16 @@ import android.view.ViewGroup;
 import java.util.List;
 
 import it.gmariotti.cardslib.library.extra.staggeredgrid.R;
+import it.gmariotti.cardslib.library.extra.staggeredgrid.view.CardGridStaggeredView;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.base.BaseCardArrayAdapter;
 import it.gmariotti.cardslib.library.view.base.CardViewWrapper;
-import staggeredgrid.view.CardGridStaggeredView;
+
 
 
 /**
  * Array Adapter for {@link it.gmariotti.cardslib.library.internal.Card} model.
- * Use it with a {@link staggeredgrid.view.CardGridStaggeredView}.
+ * Use it with a {@link CardGridStaggeredView}.
  * </p>
  * Usage:
  * <pre><code>
@@ -77,7 +78,7 @@ public class CardGridStaggeredArrayAdapter extends BaseCardArrayAdapter {
     protected static String TAG = "CardGridStaggeredArrayAdapters";
 
     /**
-     * {@link staggeredgrid.view.CardGridStaggeredView}
+     * {@link CardGridStaggeredView}
      */
     protected CardGridStaggeredView mCardGridView;
 
