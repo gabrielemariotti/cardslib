@@ -22,10 +22,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import it.gmariotti.cardslib.demo.R;
 import it.gmariotti.cardslib.demo.fragment.BaseMaterialFragment;
-import it.gmariotti.cardslib.library.cards.MaterialLargeImageCard;
+import it.gmariotti.cardslib.library.cards.actions.BaseSupplementalAction;
+import it.gmariotti.cardslib.library.cards.actions.TextSupplementalAction;
+import it.gmariotti.cardslib.library.cards.material.MaterialLargeImageCard;
+import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.view.CardViewNative;
 
 /**
@@ -74,12 +78,90 @@ public class NativeMaterialCardFragment extends BaseMaterialFragment {
 
         //Create a Card
         MaterialLargeImageCard card = new MaterialLargeImageCard(getActivity());
-        card.setTextOverImage("Top 10 Australian Beaches");
+        card.setTextOverImage("Italian Beaches");
         card.setDrawableCardThumbnail(R.drawable.sea);
+
+        card.setTitle("This is my favorite local beach");
+
+        TextSupplementalAction t1 = new TextSupplementalAction(getActivity(), R.id.text1);
+        t1.setOnActionClickListener(new BaseSupplementalAction.OnActionClickListener() {
+            @Override
+            public void onClick(Card card, View view) {
+                Toast.makeText(getActivity()," Click on Text SHARE ",Toast.LENGTH_SHORT).show();
+            }
+        });
+        card.addSupplementalAction(t1);
+
+        TextSupplementalAction t2 = new TextSupplementalAction(getActivity(), R.id.text2);
+        t2.setOnActionClickListener(new BaseSupplementalAction.OnActionClickListener() {
+            @Override
+            public void onClick(Card card, View view) {
+                Toast.makeText(getActivity()," Click on Text LEARN ",Toast.LENGTH_SHORT).show();
+            }
+        });
+        card.addSupplementalAction(t2);
+
+        card.setLayout_supplemental_actions_id(R.layout.carddemo_native_material_supplemental_actions_large);
+
         card.build();
 
         //Set card in the CardViewNative
         CardViewNative cardView = (CardViewNative) getActivity().findViewById(R.id.carddemo_largeimage);
         cardView.setCard(card);
     }
+
+    /*
+    //
+        //Create a Card
+        MaterialLargeImageCard cardx = new MaterialLargeImageCard(getActivity());
+        cardx.setTextOverImage("Italian Beaches");
+        cardx.addCardThumbnail(new MyMaterialCardThumbnail(getActivity()));
+
+        cardx.setTitle("This is my favorite local beach");
+
+        TextSupplementalAction t1 = new TextSupplementalAction(getActivity(), R.id.text1);
+        t1.setOnActionClickListener(new BaseSupplementalAction.OnActionClickListener() {
+            @Override
+            public void onClick(Card card, View view) {
+                Toast.makeText(getActivity()," Click on Text SHARE ",Toast.LENGTH_SHORT).show();
+            }
+        });
+        cardx.addSupplementalAction(t1);
+
+        TextSupplementalAction t2 = new TextSupplementalAction(getActivity(), R.id.text2);
+        t2.setOnActionClickListener(new BaseSupplementalAction.OnActionClickListener() {
+            @Override
+            public void onClick(Card card, View view) {
+                Toast.makeText(getActivity()," Click on Text LEARN ",Toast.LENGTH_SHORT).show();
+            }
+        });
+        cardx.addSupplementalAction(t2);
+
+        cardx.setLayout_supplemental_actions_id(R.layout.carddemo_native_material_supplemental_actions_large);
+
+        cardx.build();
+
+        //Set card in the CardViewNative
+        CardViewNative cardViewz = (CardViewNative) getActivity().findViewById(R.id.carddemo_largeimage);
+        cardViewz.setCard(cardx);
+    }
+
+    public class MyMaterialCardThumbnail extends MaterialLargeImageCardThumbnail {
+
+        public MyMaterialCardThumbnail(Context context) {
+            super(context);
+            setExternalUsage(true);
+        }
+
+        @Override
+        public void setupInnerViewElements(ViewGroup parent, View imageView) {
+            super.setupInnerViewElements(parent, imageView);
+
+            Picasso.with(getContext())
+                    .load("https://lh5.googleusercontent.com/-squZd7FxR8Q/UyN5UrsfkqI/AAAAAAAAbAo/VoDHSYAhC_E/s96/new%2520profile%2520%25282%2529.jpg")
+                    .into((ImageView) imageView);
+
+        }
+    }
+     */
 }
