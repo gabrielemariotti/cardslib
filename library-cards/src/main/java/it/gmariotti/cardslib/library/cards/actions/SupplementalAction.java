@@ -21,14 +21,18 @@ package it.gmariotti.cardslib.library.cards.actions;
 import android.view.View;
 
 import it.gmariotti.cardslib.library.internal.Card;
-import it.gmariotti.cardslib.library.view.base.CardViewWrapper;
 
 /**
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
 public interface SupplementalAction {
 
-    void doAction(Card card);
-
-    View build(CardViewWrapper cardView);
+    /**
+     * Build the Action
+     *
+     * @param card
+     * @param actionsLayout layout which contains the actions
+     * @return
+     */
+    View build(final Card card, View actionsLayout);
 }

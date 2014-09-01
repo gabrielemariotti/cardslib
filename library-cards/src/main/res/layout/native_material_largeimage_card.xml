@@ -43,10 +43,16 @@
         <!-- Main Content View -->
         <FrameLayout
             android:id="@+id/card_main_content_layout"
-            style="@style/card.native.content_outer_layout"
+            style="@style/card.native.material_large_image_content_outer_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
+
+        <ViewStub
+            android:id="@+id/card_supplemental_actions_vs"
+            android:inflatedId="@+id/card_supplemental_actions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
     </it.gmariotti.cardslib.library.view.ForegroundLinearLayout>
 

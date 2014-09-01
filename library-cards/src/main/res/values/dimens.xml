@@ -19,4 +19,20 @@
 
 <resources>
     <dimen name="card_material_largeimage_height">175dp</dimen>
+
+    <!-- Actions -->
+    <dimen name="actions_textsize">14sp</dimen>
+    <dimen name="actions_padding">16dp</dimen>
+    <dimen name="actions_padding_left">8dp</dimen>
+
+    <!-- Text over image -->
+    <dimen name="card_thumbnail_image_text_over_textsize">24sp</dimen>
+    <dimen name="card_thumbnail_image_text_over_padding_right">16dp</dimen>
+    <dimen name="card_thumbnail_image_text_over_padding_left">16dp</dimen>
+    <dimen name="card_thumbnail_image_text_over_padding_bottom">16dp</dimen>
+    <dimen name="card_thumbnail_image_text_over_padding_top">16dp</dimen>
+    <dimen name="card_main_content_native_material_large_image_paddingLeft">16dp</dimen>
+    <dimen name="card_main_content_native_material_large_image_paddingRight">16dp</dimen>
+    <dimen name="card_main_content_native_material_large_image_paddingBottom">16dp</dimen>
+    <dimen name="card_main_content_native_material_large_image_paddingTop">16dp</dimen>
 </resources>

@@ -21,7 +21,6 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="@dimen/card_material_largeimage_height"
-    android:layout_marginBottom="4dp"
     android:foreground="?android:attr/selectableItemBackground">
 
     <ImageView
@@ -34,17 +33,19 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="12dp">
+        android:paddingRight="@dimen/card_thumbnail_image_text_over_padding_right"
+        android:paddingLeft="@dimen/card_thumbnail_image_text_over_padding_left"
+        android:paddingTop="@dimen/card_thumbnail_image_text_over_padding_top"
+        android:paddingBottom="@dimen/card_thumbnail_image_text_over_padding_bottom">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:gravity="center_horizontal"
-            android:fontFamily="sans-serif-condensed"
+            android:fontFamily="@string/card_font_fontFamily_image_text_over"
             android:id="@+id/card_thumbnail_image_text_over"
-            android:textColor="#FFF"
-            android:textSize="24sp"/>
+            android:textColor="@color/card_thumbnail_image_text_over_textcolor"
+            android:textSize="@dimen/card_thumbnail_image_text_over_textsize"/>
 
     </FrameLayout>
 </FrameLayout>

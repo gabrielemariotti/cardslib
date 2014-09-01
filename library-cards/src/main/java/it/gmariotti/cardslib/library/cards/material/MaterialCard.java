@@ -1,4 +1,4 @@
-package it.gmariotti.cardslib.library.cards;
+package it.gmariotti.cardslib.library.cards.material;
 /*
  * ******************************************************************************
  *   Copyright (c) 2013-2014 Gabriele Mariotti.
@@ -18,8 +18,12 @@ package it.gmariotti.cardslib.library.cards;
  */
 
 import android.content.Context;
+import android.support.annotation.LayoutRes;
 import android.util.SparseArray;
+import android.view.View;
+import android.view.ViewStub;
 
+import it.gmariotti.cardslib.library.cards.R;
 import it.gmariotti.cardslib.library.cards.actions.BaseSupplementalAction;
 import it.gmariotti.cardslib.library.cards.actions.SupplementalAction;
 import it.gmariotti.cardslib.library.internal.Card;
@@ -27,9 +31,15 @@ import it.gmariotti.cardslib.library.internal.Card;
 /**
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public class MaterialCard extends Card {
+public abstract class MaterialCard extends Card {
 
+    /**
+     *  Supplemental Action
+     */
     private SparseArray<BaseSupplementalAction> mSupplementalActions;
+
+    protected @LayoutRes int layout_supplemental_actions_id;
+
 
     // -------------------------------------------------------------
     // Constructors
@@ -43,6 +53,40 @@ public class MaterialCard extends Card {
         super(context, innerLayout);
     }
 
+    // -------------------------------------------------------------
+    // Build
+    // -------------------------------------------------------------
+
+    public abstract void build();
+
+
+    protected View buildSupplementalActions() {
+
+        ViewStub stub = (ViewStub) ((View)getCardView()).findViewById(R.id.card_supplemental_actions_vs);
+        if (stub != null) {
+            stub.setLayoutResource(layout_supplemental_actions_id);
+            return stub.inflate();
+        }
+        return null;
+    }
+
+    // -------------------------------------------------------------
+    // Supplemental Action
+    // -------------------------------------------------------------
+
+    @Override
+    public void setupSupplementalActions() {
+        super.setupSupplementalActions();
+
+        View actionsLayout =  buildSupplementalActions();
+
+        if (actionsLayout!= null && mSupplementalActions != null){
+            for(int i = 0, nsize = mSupplementalActions.size(); i < nsize; i++) {
+                SupplementalAction action = mSupplementalActions.valueAt(i);
+                action.build(this,actionsLayout);
+            }
+        }
+    }
 
     public void addSupplementalAction(BaseSupplementalAction action){
         buildActions();
@@ -54,17 +98,8 @@ public class MaterialCard extends Card {
             mSupplementalActions = new SparseArray<BaseSupplementalAction>();
     }
 
-    @Override
-    public void setupSupplementalActions() {
-        super.setupSupplementalActions();
 
-        if (mSupplementalActions != null){
-            for(int i = 0, nsize = mSupplementalActions.size(); i < nsize; i++) {
-                SupplementalAction action = mSupplementalActions.valueAt(i);
-                action.build(getCardView());
-            }
-        }
+    public void setLayout_supplemental_actions_id(int layout_supplemental_actions_id) {
+        this.layout_supplemental_actions_id = layout_supplemental_actions_id;
     }
-
-
 }

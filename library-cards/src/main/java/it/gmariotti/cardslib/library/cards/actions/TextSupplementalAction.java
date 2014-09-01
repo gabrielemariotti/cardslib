@@ -22,12 +22,12 @@ import android.content.Context;
 import android.support.annotation.IdRes;
 import android.view.View;
 
-import it.gmariotti.cardslib.library.view.base.CardViewWrapper;
+import it.gmariotti.cardslib.library.internal.Card;
 
 /**
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public abstract class TextSupplementalAction extends BaseSupplementalAction {
+public class TextSupplementalAction extends BaseSupplementalAction {
 
     // -------------------------------------------------------------
     // Constructors
@@ -37,21 +37,30 @@ public abstract class TextSupplementalAction extends BaseSupplementalAction {
         super(context, id);
     }
 
+    // -------------------------------------------------------------
+    // Build
+    // -------------------------------------------------------------
+
 
     @Override
-    public View build(final CardViewWrapper cardView) {
+    public View build(final Card card, View actionsLayout) {
 
-        mActionView = ((View)cardView).findViewById(mActionId);
-        if (mActionView != null){
-            mActionView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    doAction(cardView.getCard());
+        if (actionsLayout != null) {
+            mActionView = actionsLayout.findViewById(mActionId);
+            if (mActionView != null) {
+                if (mOnActionClickListener != null) {
+                    mActionView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            mOnActionClickListener.onClick(card, view);
+                        }
+                    });
                 }
-            });
+            }
         }
         return mActionView;
     }
+
 
 
 }

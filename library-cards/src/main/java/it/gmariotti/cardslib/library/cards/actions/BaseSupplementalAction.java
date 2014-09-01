@@ -22,16 +22,29 @@ import android.content.Context;
 import android.support.annotation.IdRes;
 import android.view.View;
 
+import it.gmariotti.cardslib.library.internal.Card;
+
 /**
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
 public abstract class BaseSupplementalAction implements SupplementalAction {
 
+    /**
+     * Context
+     */
     protected Context mContext;
 
+    /**
+     * Action identifier
+     */
     protected @IdRes int mActionId;
 
+    /**
+     * Action View
+     */
     protected View mActionView;
+
+
 
     // -------------------------------------------------------------
     // Constructors
@@ -41,6 +54,49 @@ public abstract class BaseSupplementalAction implements SupplementalAction {
         mContext = context;
         mActionId = id;
     }
+
+    // -------------------------------------------------------------
+    // On Click Listener
+    // -------------------------------------------------------------
+
+    /**
+     * Listener invoked when the action is clicked
+     */
+    protected OnActionClickListener mOnActionClickListener;
+
+
+    /**
+     * Interface to listen for any callbacks when action is clicked
+     */
+    public interface OnActionClickListener{
+        void onClick(Card card, View view);
+    }
+
+    /**
+     * Returns listener invoked when action is clicked
+     * @return
+     */
+    public OnActionClickListener getOnActionClickListener() {
+        return mOnActionClickListener;
+    }
+
+    /**
+     * Sets listener invoked when action is clicked
+     * If listener is <code>null</code> then action is not clickable.
+     *
+     * @param onActionClickListener listener
+     */
+    public void setOnActionClickListener(OnActionClickListener onActionClickListener) {
+        mOnActionClickListener = onActionClickListener;
+
+        if (onActionClickListener == null)
+           mActionView.setClickable(true);
+    }
+
+
+    // -------------------------------------------------------------
+    // Getters and Setters
+    // -------------------------------------------------------------
 
 
     public int getActionId() {

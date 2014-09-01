@@ -16,101 +16,137 @@
  *  *****************************************************************************
  */
 
-package it.gmariotti.cardslib.library.cards;
+package it.gmariotti.cardslib.library.cards.material;
 
 import android.content.Context;
 import android.support.annotation.DrawableRes;
+import android.support.annotation.LayoutRes;
 import android.support.annotation.StringRes;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-
-import it.gmariotti.cardslib.library.internal.CardThumbnail;
 
 /**
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
 public class MaterialLargeImageCard extends MaterialCard {
 
-    protected CharSequence mTextOverImage;
-    protected @StringRes int mTextOverImageResId;
-
-    protected MaterialLargeImageCardThumbnail mCardThumbnail;
+    /**
+     *  Resource Drawable ID
+     */
     protected @DrawableRes int mDrawableCardThumbnail;
+
+    /**
+     * Resource Drawable URL
+     */
     protected String mUrlCardThumbnail;
 
-    protected TextView mTitleOverImageView;
+    /**
+     * Title to use for the title over the image
+     */
+    protected CharSequence mTextOverImage;
+
+    /**
+     * Resource Id to use for the title over the image
+     */
+    protected @StringRes int mTextOverImageResId;
+
+    // -------------------------------------------------------------
+    // Constructors
+    // -------------------------------------------------------------
 
     public MaterialLargeImageCard(Context context) {
         super(context);
     }
 
-    public MaterialLargeImageCard(Context context, int innerLayout) {
+    public MaterialLargeImageCard(Context context, @LayoutRes int innerLayout) {
         super(context, innerLayout);
     }
 
+    // -------------------------------------------------------------
+    // Build
+    // -------------------------------------------------------------
+
+    @Override
     public void build(){
 
         //Set CardThumbnail
-        if (mCardThumbnail == null){
+        if (mCardThumbnail == null) {
             mCardThumbnail = new MaterialLargeImageCardThumbnail(mContext);
+
             if (mDrawableCardThumbnail != 0) {
                 mCardThumbnail.setDrawableResource(mDrawableCardThumbnail);
             }else if (mUrlCardThumbnail != null){
                 mCardThumbnail.setUrlResource(mUrlCardThumbnail);
             }
         }
+
+        ((MaterialLargeImageCardThumbnail)mCardThumbnail).setTextOverImage(mTextOverImage);
+        ((MaterialLargeImageCardThumbnail)mCardThumbnail).setTextOverImageResId(mTextOverImageResId);
+
     }
 
-    public class MaterialLargeImageCardThumbnail extends CardThumbnail{
 
-        public MaterialLargeImageCardThumbnail(Context context) {
-            super(context);
-        }
+    // -------------------------------------------------------------
+    // Getters and setters
+    // -------------------------------------------------------------
 
-        @Override
-        public void setupInnerViewElements(ViewGroup parent, View imageView) {
-            super.setupInnerViewElements(parent, imageView);
-
-            mTitleOverImageView = (TextView) parent.findViewById(R.id.card_thumbnail_image_text_over);
-            if (mTitleOverImageView != null)
-                if (mTextOverImageResId != 0) {
-                    mTitleOverImageView.setText(mContext.getResources().getString(mTextOverImageResId));
-                } else {
-                    mTitleOverImageView.setText(mTextOverImage);
-                }
-        }
-    }
-
-    @Override
-    public CardThumbnail getCardThumbnail() {
-        return mCardThumbnail;
-    }
-
-    public void setCardThumbnail(MaterialLargeImageCardThumbnail cardThumbnail) {
-        mCardThumbnail = cardThumbnail;
-    }
-
+    /**
+     * Returns
+     * the title over the image
+     * @return
+     */
     public CharSequence getTextOverImage() {
         return mTextOverImage;
     }
 
+    /**
+     * Sets the title over the image
+     *
+     * @param textOverImage
+     */
     public void setTextOverImage(CharSequence textOverImage) {
         mTextOverImage = textOverImage;
     }
 
+
+    /**
+     * Sets the Resource Id to use for the title over the image
+     * @param textOverImageResId
+     */
+    public void setTextOverImageResId(int textOverImageResId) {
+        mTextOverImageResId = textOverImageResId;
+    }
+
+
+    /**
+     * Returns the Resource Drawable ID
+     *
+     * @return
+     */
     public int getDrawableCardThumbnail() {
         return mDrawableCardThumbnail;
     }
 
+    /**
+     * Sets the Resource Drawable ID
+     *
+     * @param drawableCardThumbnail
+     */
     public void setDrawableCardThumbnail(int drawableCardThumbnail) {
         mDrawableCardThumbnail = drawableCardThumbnail;
     }
 
+    /**
+     * Returns the Drawable URL
+     * @return
+     */
     public String getUrlCardThumbnail() {
         return mUrlCardThumbnail;
     }
 
+    /**
+     * Sets the Drawable URL
+     *
+     * @param urlCardThumbnail
+     */
     public void setUrlCardThumbnail(String urlCardThumbnail) {
         mUrlCardThumbnail = urlCardThumbnail;
     }
