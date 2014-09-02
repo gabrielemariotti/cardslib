@@ -40,6 +40,12 @@
             card:card_thumbnail_layout_resourceID="@layout/native_thumbnail_largematerial"
             android:layout_height="match_parent"/>
 
+        <!-- Main Content View -->
+        <FrameLayout
+            android:id="@+id/card_main_content_layout"
+            style="@style/card.native.material_large_image_content_outer_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
 
     </it.gmariotti.cardslib.library.view.ForegroundLinearLayout>

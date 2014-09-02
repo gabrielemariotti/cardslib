@@ -23,12 +23,19 @@
         <item name="android:textSize">@dimen/actions_textsize</item>
     </style>
 
+    <style name="card.native.actions.button">
+        <item name="android:layout_height">@dimen/actions_icon_height</item>
+        <item name="android:layout_width">@dimen/actions_icon_width</item>
+    </style>
+
+
     <style name="card.native.material_large_image_content_outer_layout" parent="card.native.content_outer_layout">
         <item name="android:paddingLeft">@dimen/card_main_content_native_material_large_image_paddingLeft</item>
         <item name="android:paddingRight">@dimen/card_main_content_native_material_large_image_paddingRight</item>
         <item name="android:paddingTop">@dimen/card_main_content_native_material_large_image_paddingTop</item>
         <item name="android:paddingBottom">@dimen/card_main_content_native_material_large_image_paddingBottom</item>
     </style>
+
 
 
 </resources>

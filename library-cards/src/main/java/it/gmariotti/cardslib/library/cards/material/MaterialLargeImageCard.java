@@ -22,6 +22,11 @@ import android.content.Context;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.StringRes;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import it.gmariotti.cardslib.library.cards.R;
 
 /**
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
@@ -48,12 +53,17 @@ public class MaterialLargeImageCard extends MaterialCard {
      */
     protected @StringRes int mTextOverImageResId;
 
+    /**
+     * The subtitle
+     */
+    protected CharSequence mSubTitle;
+
     // -------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------
 
     public MaterialLargeImageCard(Context context) {
-        super(context);
+        this(context, R.layout.native_material_largeimage_inner_base_main);
     }
 
     public MaterialLargeImageCard(Context context, @LayoutRes int innerLayout) {
@@ -83,6 +93,18 @@ public class MaterialLargeImageCard extends MaterialCard {
 
     }
 
+    @Override
+    public void setupInnerViewElements(ViewGroup parent, View view) {
+        //Use the title in super method
+        super.setupInnerViewElements(parent, view);
+
+        //Add a simple subtitle
+        if (view != null) {
+            TextView mTitleView = (TextView) view.findViewById(R.id.card_main_inner_simple_subtitle);
+            if (mTitleView != null)
+                mTitleView.setText(mSubTitle);
+        }
+    }
 
     // -------------------------------------------------------------
     // Getters and setters
@@ -151,6 +173,19 @@ public class MaterialLargeImageCard extends MaterialCard {
         mUrlCardThumbnail = urlCardThumbnail;
     }
 
+    /**
+     * Returns the subtitle
+     * @return
+     */
+    public CharSequence getSubTitle() {
+        return mSubTitle;
+    }
 
-
+    /**
+     * Sets the subtitle
+     * @param subTitle
+     */
+    public void setSubTitle(CharSequence subTitle) {
+        mSubTitle = subTitle;
+    }
 }

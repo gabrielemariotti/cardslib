@@ -18,12 +18,14 @@
   -->
 
 <resources>
-    <dimen name="card_material_largeimage_height">175dp</dimen>
+    <dimen name="card_material_largeimage_height">200dp</dimen>
 
     <!-- Actions -->
     <dimen name="actions_textsize">14sp</dimen>
     <dimen name="actions_padding">16dp</dimen>
     <dimen name="actions_padding_left">8dp</dimen>
+    <dimen name="actions_icon_height">54dp</dimen>
+    <dimen name="actions_icon_width">54dp</dimen>
 
     <!-- Text over image -->
     <dimen name="card_thumbnail_image_text_over_textsize">24sp</dimen>
