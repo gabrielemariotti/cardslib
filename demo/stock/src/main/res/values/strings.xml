@@ -165,6 +165,9 @@
 
     <string name="demo_section_card_changevalue_title">Click Refresh Icon to refresh card</string>
 
+    <string name="demo_section_material_large_image_text">Material Card with Large Image and Text</string>
+    <string name="demo_section_material_large_image">Material Card with Large Image and supplemental actions</string>
+
     <!-- Header Examples -->
     <string name="demo_header_basetitle">Card Header Title</string>
     <string name="demo_expand_basetitle">Card Expand Title</string>
@@ -247,6 +250,9 @@
     <string name="navdrawer_item_cardslib_v1">CardView v1</string>
     <string name="navdrawer_item_donate">Donate</string>
     <string name="navdrawer_item_info">About</string>
+    <string name="navdrawer_item_github">Github code</string>
+    <string name="navdrawer_item_googleplus">G+ community</string>
+
 
 
 </resources>

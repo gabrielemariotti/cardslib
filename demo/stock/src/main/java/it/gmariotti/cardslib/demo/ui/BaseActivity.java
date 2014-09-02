@@ -71,8 +71,10 @@ public abstract class BaseActivity extends Activity {
 
     protected static final int NAVDRAWER_ITEM_NATIVE_CARDSLIB = 0;
     protected static final int NAVDRAWER_ITEM_CARDSLIB_V1 = 1;
-    protected static final int NAVDRAWER_ITEM_DONATE = 2;
-    protected static final int NAVDRAWER_ITEM_INFO = 3;
+    protected static final int NAVDRAWER_ITEM_GITHUB = 2;
+    protected static final int NAVDRAWER_ITEM_DONATE = 3;
+    protected static final int NAVDRAWER_ITEM_INFO = 4;
+
 
     protected static final int NAVDRAWER_ITEM_INVALID = -1;
     protected static final int NAVDRAWER_ITEM_SEPARATOR = -2;
@@ -86,6 +88,7 @@ public abstract class BaseActivity extends Activity {
     private static final int[] NAVDRAWER_TITLE_RES_ID = new int[]{
             R.string.navdrawer_item_native_cardslib ,
             R.string.navdrawer_item_cardslib_v1,
+            R.string.navdrawer_item_github,
             R.string.navdrawer_item_donate,
             R.string.navdrawer_item_info
     };
@@ -94,8 +97,9 @@ public abstract class BaseActivity extends Activity {
     private static final int[] NAVDRAWER_ICON_RES_ID = new int[] {
             R.drawable.ic_launcher,
             R.drawable.ic_launcher,
-            R.drawable.ic_drawer_map,
-            R.drawable.ic_drawer_map,
+            R.drawable.ic_github,
+            R.drawable.ic_money,
+            R.drawable.ic_l_info
     };
 
     // delay to launch nav drawer item, to allow close animation to play
@@ -338,8 +342,10 @@ public abstract class BaseActivity extends Activity {
 
         mNavDrawerItems.add(NAVDRAWER_ITEM_SEPARATOR_SPECIAL);
 
+        mNavDrawerItems.add(NAVDRAWER_ITEM_GITHUB);
         mNavDrawerItems.add(NAVDRAWER_ITEM_DONATE);
         mNavDrawerItems.add(NAVDRAWER_ITEM_INFO);
+
 
         createNavDrawerItems();
     }
@@ -448,7 +454,7 @@ public abstract class BaseActivity extends Activity {
     }
 
     private boolean isSpecialItem(int itemId) {
-        return itemId == NAVDRAWER_ITEM_DONATE || itemId == NAVDRAWER_ITEM_INFO;
+        return itemId == NAVDRAWER_ITEM_DONATE || itemId == NAVDRAWER_ITEM_INFO || itemId == NAVDRAWER_ITEM_GITHUB;
     }
 
     private boolean isSeparator(int itemId) {
@@ -474,7 +480,12 @@ public abstract class BaseActivity extends Activity {
             case NAVDRAWER_ITEM_INFO:
                 Utils.showAbout(this);
                 break;
-
+            case NAVDRAWER_ITEM_GITHUB:
+                String url = "https://github.com/gabrielemariotti/cardslib/";
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+                break;
         }
     }
 

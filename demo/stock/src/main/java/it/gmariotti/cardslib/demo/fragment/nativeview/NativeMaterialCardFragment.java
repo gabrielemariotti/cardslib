@@ -27,6 +27,7 @@ import android.widget.Toast;
 import it.gmariotti.cardslib.demo.R;
 import it.gmariotti.cardslib.demo.fragment.BaseMaterialFragment;
 import it.gmariotti.cardslib.library.cards.actions.BaseSupplementalAction;
+import it.gmariotti.cardslib.library.cards.actions.IconSupplementalAction;
 import it.gmariotti.cardslib.library.cards.actions.TextSupplementalAction;
 import it.gmariotti.cardslib.library.cards.material.MaterialLargeImageCard;
 import it.gmariotti.cardslib.library.internal.Card;
@@ -71,18 +72,26 @@ public class NativeMaterialCardFragment extends BaseMaterialFragment {
     }
 
     private void initCards() {
+
+        init_largeimage_text();
         init_largeimage();
     }
 
-    private void init_largeimage() {
+    /**
+     * Builds a Material Card with Large Image and Text
+     */
+    private void init_largeimage_text() {
 
-        //Create a Card
+        //Create a Card, set the title over the image and set the thumbnail
         MaterialLargeImageCard card = new MaterialLargeImageCard(getActivity());
         card.setTextOverImage("Italian Beaches");
         card.setDrawableCardThumbnail(R.drawable.sea);
 
+        //Set the title and subtitle in the card
         card.setTitle("This is my favorite local beach");
+        card.setSubTitle("A wonderful place");
 
+        // Set supplemental actions
         TextSupplementalAction t1 = new TextSupplementalAction(getActivity(), R.id.text1);
         t1.setOnActionClickListener(new BaseSupplementalAction.OnActionClickListener() {
             @Override
@@ -101,8 +110,50 @@ public class NativeMaterialCardFragment extends BaseMaterialFragment {
         });
         card.addSupplementalAction(t2);
 
+        //Set the layout for supplemental actions
         card.setLayout_supplemental_actions_id(R.layout.carddemo_native_material_supplemental_actions_large);
 
+        //Very important call: build the card
+        card.build();
+
+        //Set card in the CardViewNative
+        CardViewNative cardView = (CardViewNative) getActivity().findViewById(R.id.carddemo_largeimage_text);
+        cardView.setCard(card);
+    }
+
+    /**
+     * Builds a Material Card with Large and small icons as supplemental actions
+     */
+    private void init_largeimage() {
+
+        //Create a Card, set the title over the image and set the thumbnail
+        MaterialLargeImageCard card = new MaterialLargeImageCard(getActivity());
+        card.setTextOverImage("Italian Beaches");
+        card.setDrawableCardThumbnail(R.drawable.im_beach);
+
+        // Set supplemental actions as icon
+        IconSupplementalAction t1 = new IconSupplementalAction(getActivity(), R.id.ic1);
+        t1.setOnActionClickListener(new BaseSupplementalAction.OnActionClickListener() {
+            @Override
+            public void onClick(Card card, View view) {
+                Toast.makeText(getActivity()," Click on Text SHARE ",Toast.LENGTH_SHORT).show();
+            }
+        });
+        card.addSupplementalAction(t1);
+
+        IconSupplementalAction t2 = new IconSupplementalAction(getActivity(), R.id.ic2);
+        t2.setOnActionClickListener(new BaseSupplementalAction.OnActionClickListener() {
+            @Override
+            public void onClick(Card card, View view) {
+                Toast.makeText(getActivity()," Click on Text LEARN ",Toast.LENGTH_SHORT).show();
+            }
+        });
+        card.addSupplementalAction(t2);
+
+        //Set the layout for supplemental actions
+        card.setLayout_supplemental_actions_id(R.layout.carddemo_native_material_supplemental_actions_large_icon);
+
+        //Very important call: build the card
         card.build();
 
         //Set card in the CardViewNative
