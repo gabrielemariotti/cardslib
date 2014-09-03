@@ -4,6 +4,7 @@ In this page you can find info about:
 
 * [Creating a base CardExpand](#creating-a-base-cardexpand)
 * [Standard Expand](#standard-expand)
+* [Background Color](#background-color)
 * [Custom Expand inflating your inner layout](#custom-expand-inflating-your-inner-layout)
 * [Listeners](#listeners)
 * [Expand the card by clicking on different view](#expand-the-card-by-clicking-on-different-view)
@@ -104,6 +105,23 @@ Then you can add this custom `CustomExpandCard` to your `Card`:
 
 ![Screen](/demo/images/header/expandCustom.png)
 
+### Background Color
+
+You can change the background color overriding this value in your project:
+
+``` xml
+   <color name="card_backgroundExpand">#515254</color>
+```
+
+If you would like to change the color dynamically, in your `CardExpand` you can use this;
+
+``` java
+        @Override
+        public void setupInnerViewElements(ViewGroup parent, View view) {
+             parent.setBackgroundColor(mContext.getResources().
+                      getColor(R.color.demo_card_background_color1));
+        }
+```
 
 ### Listeners
 
