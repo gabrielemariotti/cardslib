@@ -19,6 +19,7 @@
 package it.gmariotti.cardslib.library.internal.recyclerview;
 
 import android.content.Context;
+import android.support.annotation.LayoutRes;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,11 +30,11 @@ import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.view.base.CardViewWrapper;
 
 /**
- * Base RecyclerViewAdapter
+ * Base RecyclerViewAdapter for RecyclerView and its implemetations.
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public abstract class BaseRecyclerViewAdapter extends RecyclerView.Adapter<BaseRecyclerViewAdapter.CardViewHolder> {
+public abstract class BaseRecyclerViewAdapter extends RecyclerView.Adapter<BaseRecyclerViewAdapter.CardViewHolder> implements ViewAdapterImpl {
 
     /**
      * Current context
@@ -43,7 +44,7 @@ public abstract class BaseRecyclerViewAdapter extends RecyclerView.Adapter<BaseR
     /**
      * Default layout used for each row
      */
-    protected int mRowLayoutId = R.layout.list_card_layout;
+    protected @LayoutRes int mRowLayoutId = R.layout.list_card_layout;
 
     /**
      * Used to set the viewTypeCount
@@ -53,7 +54,7 @@ public abstract class BaseRecyclerViewAdapter extends RecyclerView.Adapter<BaseR
     /**
      *  Array of layout resource ids
      */
-    protected int[] mRowLayoutIds;
+    protected @LayoutRes int[] mRowLayoutIds;
 
     // -------------------------------------------------------------
     // Constructors
@@ -67,7 +68,6 @@ public abstract class BaseRecyclerViewAdapter extends RecyclerView.Adapter<BaseR
     public BaseRecyclerViewAdapter(Context context) {
         super();
         mContext = context;
-
     }
 
     // -------------------------------------------------------------
@@ -150,7 +150,7 @@ public abstract class BaseRecyclerViewAdapter extends RecyclerView.Adapter<BaseR
      *
      * @param rowLayoutId layout resource id
      */
-    public void setRowLayoutId(int rowLayoutId) {
+    public void setRowLayoutId(@LayoutRes int rowLayoutId) {
         this.mRowLayoutId = rowLayoutId;
     }
 
@@ -159,7 +159,7 @@ public abstract class BaseRecyclerViewAdapter extends RecyclerView.Adapter<BaseR
      *
      * @param rowLayoutIds array of layout resource ids
      */
-    public void setRowLayoutIds(int[] rowLayoutIds) {
+    public void setRowLayoutIds(@LayoutRes int[] rowLayoutIds) {
         mRowLayoutIds = rowLayoutIds;
         if (rowLayoutIds != null)
             typeCardCount = rowLayoutIds.length;

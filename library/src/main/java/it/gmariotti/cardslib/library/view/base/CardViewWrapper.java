@@ -111,7 +111,7 @@ public interface CardViewWrapper {
     void setRecycle(boolean recycle);
 
     /**
-     * Implement Refreshes the card content (it doesn't inflate layouts again)
+     * Implement to refresh the card content (it doesn't inflate layouts again)
      *
      * @param card
      */
@@ -145,4 +145,11 @@ public interface CardViewWrapper {
 
 
     boolean isNative();
+
+    /**
+     * Retrieves the InternalMainCardGlobalLayout.
+     *
+     * @return
+     */
+    View getInternalMainCardLayout();
 }

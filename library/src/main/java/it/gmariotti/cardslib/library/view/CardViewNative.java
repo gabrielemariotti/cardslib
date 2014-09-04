@@ -26,6 +26,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.support.annotation.LayoutRes;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -116,7 +117,8 @@ public class CardViewNative extends android.support.v7.widget.CardView implement
     /**
      * Default layout to apply to card
      */
-    protected int card_layout_resourceID = R.layout.native_card_layout;
+    protected @LayoutRes
+    int card_layout_resourceID = R.layout.native_card_layout;
 
     /**
      * Global View for this Component
@@ -1189,5 +1191,14 @@ public class CardViewNative extends android.support.v7.widget.CardView implement
     @Override
     public boolean isNative() {
         return true;
+    }
+
+    /**
+     * Retrieves the InternalMainCardGlobalLayout.
+     *
+     * @return
+     */
+    public View getInternalMainCardLayout() {
+        return mInternalMainCardLayout;
     }
 }
