@@ -38,8 +38,12 @@ public abstract class MaterialCard extends Card {
      */
     private SparseArray<BaseSupplementalAction> mSupplementalActions;
 
-    protected @LayoutRes int layout_supplemental_actions_id;
+    /**
+     * Layout id for supplemental actions
+     */
+    protected @LayoutRes int layout_supplemental_actions_id  = INVALID_SUPPLEMENTAL_ACTIONS_LAYOUT;
 
+    protected static final int INVALID_SUPPLEMENTAL_ACTIONS_LAYOUT = 0;
 
     // -------------------------------------------------------------
     // Constructors
@@ -57,15 +61,24 @@ public abstract class MaterialCard extends Card {
     // Build
     // -------------------------------------------------------------
 
+    /**
+     * Implements this method to build the custom card
+     */
     public abstract void build();
 
 
+    /**
+     * Build the
+     * @return
+     */
     protected View buildSupplementalActions() {
 
-        ViewStub stub = (ViewStub) ((View)getCardView()).findViewById(R.id.card_supplemental_actions_vs);
-        if (stub != null) {
-            stub.setLayoutResource(layout_supplemental_actions_id);
-            return stub.inflate();
+        if (getLayout_supplemental_actions_id() != INVALID_SUPPLEMENTAL_ACTIONS_LAYOUT) {
+            ViewStub stub = (ViewStub) ((View) getCardView()).findViewById(R.id.card_supplemental_actions_vs);
+            if (stub != null) {
+                stub.setLayoutResource(getLayout_supplemental_actions_id());
+                return stub.inflate();
+            }
         }
         return null;
     }
@@ -88,18 +101,36 @@ public abstract class MaterialCard extends Card {
         }
     }
 
+    /**
+     *  Adds a Supplemental Action
+     * @param action
+     */
     public void addSupplementalAction(BaseSupplementalAction action){
-        buildActions();
+        buildActionsHelper();
         mSupplementalActions.put(action.getActionId(), action);
     }
 
-    private void buildActions() {
+    /**
+     *
+     */
+    private void buildActionsHelper() {
         if (mSupplementalActions == null)
             mSupplementalActions = new SparseArray<BaseSupplementalAction>();
     }
 
-
+    /**
+     * Sets the layout id for the supplemental actions
+     * @param layout_supplemental_actions_id
+     */
     public void setLayout_supplemental_actions_id(int layout_supplemental_actions_id) {
         this.layout_supplemental_actions_id = layout_supplemental_actions_id;
+    }
+
+    /**
+     * Returns the layout id for the supplemental actions
+     * @return
+     */
+    public int getLayout_supplemental_actions_id() {
+        return layout_supplemental_actions_id;
     }
 }
