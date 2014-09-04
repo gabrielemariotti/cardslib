@@ -131,6 +131,12 @@
     <dimen name="list_card_padding_bottom">6dp</dimen>
     <dimen name="list_card_padding_top">2dp</dimen>
 
+    <!-- List -->
+    <dimen name="native_list_card_margin_left">16dp</dimen>
+    <dimen name="native_list_card_margin_right">16dp</dimen>
+    <dimen name="native_list_card_margin_bottom">4dp</dimen>
+    <dimen name="native_list_card_margin_top">4dp</dimen>
+
     <!-- Grid -->
     <dimen name="grid_card_padding_left">2dp</dimen>
     <dimen name="grid_card_padding_right">2dp</dimen>

@@ -27,9 +27,7 @@
     android:id="@+id/list_cardId"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="8dp"
-    android:layout_marginRight="8dp"
-    style="@style/list_card.base"
+    style="@style/native_list_card.base"
     card:card_layout_resourceID="@layout/native_card_layout"/>
 
 

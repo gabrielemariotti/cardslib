@@ -330,6 +330,25 @@
 
     </style>
 
+
+    <style name="native_list_card">
+        <item name="android:layout_marginLeft">@dimen/native_list_card_margin_left</item>
+        <item name="android:layout_marginRight">@dimen/native_list_card_margin_right</item>
+        <item name="android:layout_marginBottom">@dimen/native_list_card_margin_bottom</item>
+        <item name="android:layout_marginTop">@dimen/native_list_card_margin_top</item>
+    </style>
+
+    <!-- Base list -->
+    <style name="native_list_card.base">
+
+    </style>
+
+
+    <!-- Thumbnail list -->
+    <style name="native_list_card.thumbnail">
+
+    </style>
+
     <style name="grid_card">
         <item name="android:paddingLeft">@dimen/grid_card_padding_left</item>
         <item name="android:paddingRight">@dimen/grid_card_padding_right</item>
