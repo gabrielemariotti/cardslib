@@ -928,6 +928,13 @@ public class Card extends BaseCard {
     }
 
     /**
+     * Refreshes the card content (it doesn't inflate layouts again)
+     */
+    public void notifyDataSetChanged(){
+        getCardView().refreshCard(this);
+    }
+
+    /**
      * Sets the background drawable resource to override the style of MainLayout (card.main_layout)
      *
      * @param drawableResourceId drawable resource Id
