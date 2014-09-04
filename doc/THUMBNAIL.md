@@ -21,13 +21,16 @@ In this page you can find info about:
 * The built-in thumbnail uses an `AsyncTask` and `LRUCache` to improve performance.
 * You have to provide a layout with a thumbnail
 
-The default layout doesn't contain the thumbnail. You to use the `res/layout/card_thumbnail_layout.xml` or a your custom layout. Read [Customizing the Thumbnail Layout](#customizing-the-thumbnail-layout) paragraph for more info.
+The default layout doesn't contain the thumbnail. 
+You have to use the `res/layout/native_card_thumbnail_layout.xml` (or `res/layout/card_thumbnail_layout.xml` for the `CardView`) or a your custom layout.
+ 
+Read [Customizing the Thumbnail Layout](#customizing-the-thumbnail-layout) paragraph for more info.
 
 Example:
 
 ``` xml
-        <it.gmariotti.cardslib.library.view.CardView
-            card:card_layout_resourceID="@layout/card_thumbnail_layout" />
+        <it.gmariotti.cardslib.library.view.CardViewNative
+            card:card_layout_resourceID="@layout/native_card_thumbnail_layout" />
 ```
 
 
@@ -48,7 +51,7 @@ Creating a base `CardThumbnail` is pretty simple.
 
 `CardThumbnail` provides a base ThumbnailLayout with an ImageView.
 
-You can find it in `res/layout/base_thumbnail_layout.xml`.
+You can find it in `res/layout/native_base_thumbnail_layout.xml` (or `res/layout/base_thumbnail_layout.xml` for the `CardView`)
 
 With your `CardThumbnail` you can:
 
@@ -73,7 +76,7 @@ If you want to load an image from a resource ID:
         card.addCardThumbnail(thumb);
 
         //Set card in the cardView
-        CardView cardView = (CardView) getActivity().findViewById(R.id.carddemo_thumb_id);
+        CardViewNative cardView = (CardViewNative) getActivity().findViewById(R.id.carddemo_thumb_id);
         cardView.setCard(card);
 ```
 
@@ -97,7 +100,7 @@ If you want to load an image from an url:
         card.addCardThumbnail(thumb);
 
         //Set card in the cardView
-        CardView cardView = (CardView) getActivity().findViewById(R.id.carddemo_thumb_url);
+        CardViewNative cardView = (CardViewNative) getActivity().findViewById(R.id.carddemo_thumb_url);
         cardView.setCard(card);
 ```
 
@@ -291,7 +294,7 @@ You can see an exmple in `res/layout/carddemo_googlenowbirth_thumbnail_layout`
     android:id="@+id/card_thumbnail_image"
     android:layout_width="125dp"
     android:layout_height="125dp"
-    style="@style/card_thumbnail_image"/>
+    style="@style/native_card_thumbnail_image"/>
 ```
 
 

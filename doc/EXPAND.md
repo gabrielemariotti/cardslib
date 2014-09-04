@@ -29,7 +29,7 @@ Creating a base `CardExpand` is pretty simple.
 
 `CardExpand` provides a base Expand InnerLayout.
 
-You can find it in `res/layout/inner_base_expand.xml`.
+You can find it in [`res/layout/native_inner_base_expand.xml`](/demo/stock/src/main/res/layout/native_inner_base_expand.xml)  (or [`res/layout/inner_base_expand.xml`](/demo/stock/src/main/res/layout/inner_base_expand.xml) for the `CardView`).
 
 The built-in InnerLayout provide these features:
 

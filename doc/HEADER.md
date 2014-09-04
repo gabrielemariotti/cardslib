@@ -31,10 +31,10 @@ Creating a base `CardHeader` is pretty simple.
 `CardHeader` provides a base HeaderLayout with a InnerLayout and ButtonLayout.
 
 For the `CardView`:
-You can find it in `res/layout/base_header_layout.xml`
+You can find it in [`res/layout/base_header_layout.xml`](/demo/stock/src/main/res/layout/base_header_layout.xml)
 
 For the `CardViewNative`:
-You can find it in `res/layout/native_base_header_layout.xml`
+You can find it in [`res/layout/native_base_header_layout.xml`](/demo/stock/src/main/res/layout/native_base_header_layout.xml)
 
 
 The built-in ButtonLayout provides these features:
@@ -43,7 +43,7 @@ The built-in ButtonLayout provides these features:
 * a expand/collapse button
 * a customizable button for your custom action
 
-The built-in InnerLayout defined by `res/layout/inner_base_header.xml` (for the `CardView`) and by `res/layout/native_inner_base_header.xml` (for the `CardViewNative`)
+The built-in InnerLayout defined by [`res/layout/inner_base_header.xml`](/demo/stock/src/main/res/layout/inner_base_header.xml) (for the `CardView`) and by [`res/layout/native_inner_base_header.xml`](/demo/stock/src/main/res/layout/native_inner_base_header.xml) (for the `CardViewNative`)
   provide these features:
 
 * a title
@@ -177,8 +177,9 @@ You can add a PopupMenu entirely from code:
 ```
 
 You can see an example in `'HeaderFragment':
-[(source v1)](/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/v1/HeaderFragment.java).
 [(source native)](/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/nativeview/NativeHeaderFragment.java).
+[(source v1)](/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/v1/HeaderFragment.java).
+
 
 ### Standard Header with the expand/collpase button
 

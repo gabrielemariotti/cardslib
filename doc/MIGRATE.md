@@ -44,7 +44,7 @@ To
 You can use the cardslib 2.+ with the `CardView`-v1 and with the new `CardViewNative`.
 If you would like to migrate the old cards to new view you have to follow these points:
 
-* Change your xml from `it.gmariotti.cardslib.library.view.CardView` to `it.gmariotti.cardslib.library.view.CardViewNative`
+* Change your xml from `it.gmariotti.cardslib.library.view.CardView` to `it.gmariotti.cardslib.library.view.CardViewNative` and adapt your java code.
 
 * If you have a **custom [(global layout)](/doc/OVERVIEW.md)** you have to:
   - remove the tag `CardShadowView` because the shadow is not natively supported.
@@ -83,3 +83,15 @@ If you would like to migrate the old cards to new view you have to follow these 
 | Style CardView                          | Style CardViewNative                           | 
 | --------------------------------------- |------------------------------------------------|
 | @style/card_thumbnail_image             | @style/card.native.card_thumbnail_image        |
+
+* If you have a **custom layout for the main area** you should migrate the style:
+
+| Style CardView                          | Style CardViewNative                           | 
+| --------------------------------------- |------------------------------------------------|
+| @style/card.base_simple_title           | @style/card.native.base_simple_title           |
+
+* If you have a **custom layout for the expand area** you should migrate the style:
+
+| Style CardView                          | Style CardViewNative                           | 
+| --------------------------------------- |------------------------------------------------|
+| @style/card.expand_simple_title         | @style/card.native.expand_simple_title         |

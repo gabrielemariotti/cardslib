@@ -1,6 +1,6 @@
 # Cards Library: How to build/use library
 
-The library is written with Android Studio and has Gradle support.
+The library is written with Android Studio and has the Gradle support.
 
 You can add this library to your project adding a dependency to your `build.gradle`, or your can reference this project as a library (from Eclipse) or add it as a module (from Android Studio/IntelliJ).
 
@@ -21,9 +21,23 @@ Card Library is pushed to Maven Central as a AAR, so you just need to add the fo
 
         //Extra card library, it is required only if you want to use integrations with other libraries
         compile 'com.github.gabrielemariotti.cards:library-extra:1.9.0'
+        
+        //Core card library
+        compile 'com.github.gabrielemariotti.cards:cardslib-core:2.0.0'
+        
+        //Optional for built-in cards
+        compile 'com.github.gabrielemariotti.cards:cardslib-cards:2.0.0'      
+          
+        //Optional for staggered grid view support
+        compile 'com.github.gabrielemariotti.cards:cardslib-extra-staggeredgrid:2.0.0'       
+         
+        //Optional for twowayview support
+        compile 'com.github.gabrielemariotti.cards:cardslib-extra-twoway:2.0.0'     
+           
+        //Optional for drag and drop support
+        compile 'com.github.gabrielemariotti.cards:cardslib-extra-dragdrop:2.0.0'    
     }
 
-The library-extra is optional. It contains code to use integrations with other libraries, as StaggeredGridView and CardListDragDropView.
 
 
 ## Building locally in Android Studio with Gradle
@@ -38,7 +52,7 @@ The library-extra is optional. It contains code to use integrations with other l
           build.gradle
       libraries
           cardslib
-              library
+              library-core
                   build.gradle
       build.gradle
       settings.gradle
@@ -47,14 +61,14 @@ The library-extra is optional. It contains code to use integrations with other l
  - clone a copy of this repository inside your project in a libraries folder.
  - modify your `settings.gradle`
  ```
- include ':MyModule', ':libraries:cardslib:library'
+ include ':MyModule', ':libraries:cardslib:library-core'
  ```
 
  - modify `MyModule/build.gradle`
  ```
   dependencies {
       // Cards Library
-      compile project(':libraries:cardslib:library')
+      compile project(':libraries:cardslib:library-core')
   }
  ```
 
@@ -81,24 +95,12 @@ If you would like to build also the **library-extra** module (it is optional,it 
  ```
 
  - check your `library-extra/build.gradle`. It requires external dependencies.
- ```
-  dependencies {
-      // Cards Library
-      compile project(':libraries:cardslib:library')
-
-     //StaggeredGrid
-     compile 'com.etsy.android.grid:library:1.0.5'
-
-     //Drag and drop list base on DynamicList
-     compile 'com.nhaarman.listviewanimations:library:3.1.0'
-  }
- ```
-
+ 
  - modify `MyModule/build.gradle`
   ```
    dependencies {
        // Cards Library
-       compile project(':libraries:cardslib:library')
+       compile project(':libraries:cardslib:library-core')
        // Cards Library-extra
        compile project(':libraries:cardslib:library-extra')
    }

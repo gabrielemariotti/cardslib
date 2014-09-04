@@ -5,7 +5,7 @@ Travis dev: [![Build Status](https://travis-ci.org/gabrielemariotti/cardslib.svg
 
 **Card Library** provides an easy way to display a UI Card in your Android app.
 
-You can display **single cards**, **list** of cards and **grid** or **staggered grid** of Cards.
+You can display **single cards**, **list** of cards, **grid** , **staggered grid** and **spannable grid** of Cards and many other views, using the **Official Google CardView**.
 
 ![Screen](/demo/images/screen.png)
 
@@ -45,15 +45,28 @@ a place to discuss the library, share screenshots, ask for tips, talk with the a
 ## Doc
 
 See the **[Card Library Guide](/doc/GUIDE.md)** to know all card library features and all customizations.
-The Guide provides a extensive doc, with all tips and full examples. Don't miss it.
+The Guide provides an extensive doc, with all tips and full examples. **Don't miss it**.
 
 
-## Quick Start
+## Setup
 
 Card Library is pushed to Maven Central as an AAR, so you just need to add the following dependency to your `build.gradle`.
 
     dependencies {
-        compile 'com.github.gabrielemariotti.cards:library:1.9.0'
+        //Core
+        compile 'com.github.gabrielemariotti.cards:cardslib-core:2.0.0'
+        
+        //Optional for built-in cards
+        compile 'com.github.gabrielemariotti.cards:cardslib-cards:2.0.0'      
+          
+        //Optional for staggered grid view
+        compile 'com.github.gabrielemariotti.cards:cardslib-extra-staggeredgrid:2.0.0'       
+         
+        //Optional for twoway
+        compile 'com.github.gabrielemariotti.cards:cardslib-extra-twoway:2.0.0'     
+           
+        //Optional for drag and drop
+        compile 'com.github.gabrielemariotti.cards:cardslib-extra-dragdrop:2.0.0'          
     }
 
 
