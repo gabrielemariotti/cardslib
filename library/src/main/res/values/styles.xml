@@ -61,7 +61,7 @@
         <item name="android:layout_marginRight">@dimen/card_header_outer_view_margin_right</item>
     </style>
 
-    <style name="card.native.header_outer_layout" parent="card.header_outer_layout">
+    <style name="card.native.header_outer_layout" >
         <item name="android:paddingLeft">@dimen/card_header_native_default_paddingLeft</item>
         <item name="android:paddingRight">@dimen/card_header_native_default_paddingRight</item>
         <item name="android:paddingTop">@dimen/card_header_native_default_paddingTop</item>
@@ -92,8 +92,10 @@
         <item name="android:layout_marginBottom">@dimen/card_header_simple_title_margin_bottom</item>
     </style>
 
-    <style name="card.native.header_simple_title" parent="card.header_simple_title">
+    <style name="card.native.header_simple_title" >
         <item name="android:textSize">@dimen/card_header_native_simple_title_text_size</item>
+        <item name="android:textColor">@color/card_text_color_header</item>
+        <item name="android:layout_gravity">left|center_vertical</item>
         <item name="android:layout_marginLeft">@dimen/card_header_native_simple_title_margin_left</item>
         <item name="android:layout_marginTop">@dimen/card_header_native_simple_title_margin_top</item>
         <item name="android:layout_marginRight">@dimen/card_header_native_simple_title_margin_right</item>
@@ -126,7 +128,15 @@
         <item name="android:layout_marginRight">@dimen/card_header_button_margin_right</item>
     </style>
 
-    <style name="card.native.header_button_base" parent="card.header_button_base">
+    <style name="card.native.header_button_base">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:focusable">false</item>
+        <item name="android:focusableInTouchMode">false</item>
+        <item name="android:clickable">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_gravity">center_vertical</item>
         <item name="android:layout_marginLeft">@dimen/card_header_native_button_margin_left</item>
         <item name="android:layout_marginRight">@dimen/card_header_native_button_margin_right</item>
         <item name="android:paddingLeft">0dp</item>
@@ -217,8 +227,12 @@
         <item name="android:background">@drawable/card_kitkat_selector</item>
     </style>
 
-    <style name="card.native_main_layout" parent="card.main_layout">
+    <style name="card.native.main_layout" >
         <item name="android:background">?android:selectableItemBackground</item>
+        <item name="android:layout_marginTop">@dimen/card_main_layout_native_view_margin_top</item>
+        <item name="android:layout_marginBottom">@dimen/card_main_layout_native_view_margin_bottom</item>
+        <item name="android:layout_marginLeft">@dimen/card_main_layout_native_view_margin_left</item>
+        <item name="android:layout_marginRight">@dimen/card_main_layout_native_view_margin_right</item>
     </style>
 
     <!-- Style for Main Layout with foreground selector-->
@@ -252,7 +266,8 @@
         <item name="android:padding">@dimen/card_expand_layout_padding</item>
     </style>
 
-    <style name="card.native.main_contentExpand" parent="card.main_contentExpand">
+    <style name="card.native.main_contentExpand" >
+        <item name="android:background">@color/card_backgroundExpand</item>
         <item name="android:layout_marginLeft">@dimen/card_expand_native_margin_right</item>
         <item name="android:layout_marginRight">@dimen/card_expand_native_margin_right</item>
         <item name="android:paddingLeft">@dimen/card_expand_native_layout_padding_left</item>
@@ -298,15 +313,20 @@
 
     <style name="card.thumbnail_compound_view"></style>
 
-    <style name="card.native.card_thumbnail_image" parent="card_thumbnail_image">
-
+    <style name="card.native.card_thumbnail_image">
+        <item name="android:layout_width">@dimen/card_thumbnail_width</item>
+        <item name="android:layout_height">@dimen/card_thumbnail_height</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:scaleType">centerCrop</item>
     </style>
 
-    <style name="card.native.card_thumbnail_outer_layout" parent="card_thumbnail_outer_layout">
-
+    <style name="card.native.card_thumbnail_outer_layout">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
     </style>
 
-    <style name="card.native.thumbnail_compound_view" parent="card.thumbnail_compound_view">
+    <style name="card.native.thumbnail_compound_view">
 
     </style>
 

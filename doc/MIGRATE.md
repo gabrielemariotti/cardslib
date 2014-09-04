@@ -59,7 +59,7 @@ If you would like to migrate the old cards to new view you have to follow these 
 | Style CardView                          | Style CardViewNative                           | 
 | --------------------------------------- |------------------------------------------------| 
 | @style/card                             | @style/card.native                             | 
-| @style/card.main_layout                 | @style/card.native_main_layout                 | 
+| @style/card.main_layout                 | card.native.main_layout_foreground             |
 | @style/card.header_outer_layout         | @style/card.native.header_outer_layout         |
 | @style/card.content_outer_layout        | @style/card.native.content_outer_layout        |
 | @style/card_thumbnail_outer_layout      | @style/card.native.card_thumbnail_outer_layout |
