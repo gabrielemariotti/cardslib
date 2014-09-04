@@ -27,6 +27,7 @@ import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 
 import it.gmariotti.cardslib.demo.R;
 
@@ -63,6 +64,14 @@ public class LPreviewUtilsBase {
         } else {
             mActivity.getActionBar().hide();
         }
+    }
+
+    //----------------------------------------------------------------------------
+    // Circle Button
+    //----------------------------------------------------------------------------
+
+    public void setupCircleButton(ImageButton sourceButton) {
+        // Do nothing pre-L
     }
     //----------------------------------------------------------------------------
     // Navigation Drawer

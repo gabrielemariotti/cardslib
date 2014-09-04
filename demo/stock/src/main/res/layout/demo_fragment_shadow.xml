@@ -24,9 +24,7 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <include layout="@layout/demo_barheader"/>
-
-    <include layout="@layout/demo_barheader_button"/>
+    <include layout="@layout/demo_barheader_full"/>
 
     <ScrollView
         android:id="@+id/card_scrollview"

@@ -20,6 +20,7 @@ package it.gmariotti.cardslib.library.extra.twoway.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.support.annotation.LayoutRes;
 import android.util.AttributeSet;
 
 import org.lucasr.twowayview.TwoWayView;
@@ -29,12 +30,14 @@ import it.gmariotti.cardslib.library.internal.recyclerview.BaseRecyclerViewAdapt
 
 
 /**
+ * TwoWayView's implementation for cards
+ *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
 public class CardTwowayView extends TwoWayView {
 
     /**
-     *  Card Grid Staggered Array Adapter
+     *  Card Adapter
      */
     protected BaseRecyclerViewAdapter mAdapter;
 
@@ -45,12 +48,13 @@ public class CardTwowayView extends TwoWayView {
     /**
      * Default layout to apply to card
      */
-    protected int list_card_layout_resourceID = R.layout.list_card_layout;
+    protected @LayoutRes
+    int list_card_layout_resourceID = R.layout.list_card_layout;
 
     /**
      * Layouts to apply to card
      */
-    protected int[] list_card_layout_resourceIDs;
+    protected @LayoutRes int[] list_card_layout_resourceIDs;
 
     //--------------------------------------------------------------------------
     // Constructors

@@ -65,6 +65,8 @@
     <dimen name="carddemo_keyline_1">16dp</dimen>
     <dimen name="carddemo_keyline_1_minus_8dp">8dp</dimen>
     <dimen name="carddemo_keyline_margin">16dp</dimen>
+
+    <dimen name="carddemo_keyline_content_new">56dp</dimen>
     <dimen name="carddemo_keyline_content_start">72dp</dimen>
     <dimen name="carddemo_barheader_elevation">2dp</dimen>
     <dimen name="carddemo_barheader_height">72dp</dimen>
@@ -82,5 +84,8 @@
     <dimen name="hashtag_text_size">14sp</dimen>
     <dimen name="hashtag_hero_text_size">16sp</dimen>
 
+    <dimen name="hd_fab_size">52dp</dimen>
+    <dimen name="hd_button_elevation">2dp</dimen>
+    <dimen name="hd_button_press_elevation">4dp</dimen>
 
 </resources>

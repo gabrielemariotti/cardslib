@@ -40,6 +40,7 @@ import it.gmariotti.cardslib.demo.fragment.v1.ListBaseFragment;
 import it.gmariotti.cardslib.demo.fragment.v1.ListColorFragment;
 import it.gmariotti.cardslib.demo.fragment.v1.ListCursorCardFragment;
 import it.gmariotti.cardslib.demo.fragment.v1.ListDifferentInnerBaseFragment;
+import it.gmariotti.cardslib.demo.fragment.v1.ListExpandCardFragment;
 import it.gmariotti.cardslib.demo.fragment.v1.ListGplayCardCABFragment;
 import it.gmariotti.cardslib.demo.fragment.v1.ListGplayCursorCardCABFragment;
 import it.gmariotti.cardslib.demo.fragment.v1.ListGplayUndoCardFragment;
@@ -121,35 +122,35 @@ public class V1DashFragment extends NativeDashFragment{
 
     private static List<MenuEntry> buildMenuList(){
         ArrayList<MenuEntry> list = new ArrayList<MenuEntry>();
-        list.add(new MenuEntry(R.string.carddemo_title_tag_header,R.color.md_indigo_200,R.string.header_title_cardheadersubtitle, HeaderFragment.class));
-        list.add(new MenuEntry(R.string.carddemo_title_tag_shadow,R.color.md_green_300,R.string.header_title_cardshadowsubtitle, ShadowFragment.class));
-        list.add(new MenuEntry(R.string.carddemo_title_tag_thumbnail,R.color.md_orange_300,R.string.header_title_cardthumbnailsubtitle, ThumbnailFragment.class));
-        list.add(new MenuEntry(R.string.carddemo_title_tag_card,R.color.md_yellow_700,R.string.header_title_cardsubtitle, CardFragment.class));
-        list.add(new MenuEntry(R.string.carddemo_title_tag_card_expand,R.color.md_cyan_400,R.string.header_title_cardexpandsubtitle, CardExpandFragment.class));
+        list.add(new MenuEntry(R.string.carddemo_title_tag_base_header,R.color.md_indigo_200,R.string.header_title_cardheadersubtitle, HeaderFragment.class));
+        list.add(new MenuEntry(R.string.carddemo_title_tag_base_shadow,R.color.md_green_300,R.string.header_title_cardshadowsubtitle, ShadowFragment.class));
+        list.add(new MenuEntry(R.string.carddemo_title_tag_base_thumbnail,R.color.md_orange_300,R.string.header_title_cardthumbnailsubtitle, ThumbnailFragment.class));
+        list.add(new MenuEntry(R.string.carddemo_title_tag_base_card,R.color.md_yellow_700,R.string.header_title_cardsubtitle, CardFragment.class));
+        list.add(new MenuEntry(R.string.carddemo_title_tag_base_card_expand,R.color.md_cyan_400,R.string.header_title_cardexpandsubtitle, CardExpandFragment.class));
 
-        list.add(new MenuEntry(R.string.carddemo_title_tag_birthday_card,R.color.md_green_300,R.string.header_title_cardheadersubtitle, BirthDayCardFragment.class));
-        list.add(new MenuEntry(R.string.carddemo_title_tag_gplay,R.color.md_teal_200,R.string.header_title_cardheadersubtitle, GPlayCardFragment.class));
-        list.add(new MenuEntry(R.string.carddemo_title_tag_stock_card,R.color.md_indigo_600,R.string.header_title_cardheadersubtitle, StockCardFragment.class));
-        list.add(new MenuEntry(R.string.carddemo_title_tag_misc_card,R.color.md_indigo_A400,R.string.header_title_cardheadersubtitle, MiscCardFragment.class));
-        list.add(new MenuEntry(R.string.carddemo_title_tag_card_changevalue,R.color.md_pink_A200,R.string.header_title_cardheadersubtitle, ChangeValueCardFragment.class));
+        list.add(new MenuEntry(R.string.carddemo_title_tag_ex_birthday_card,R.color.md_green_300,R.string.header_title_subtitle_ex_gbirth, BirthDayCardFragment.class));
+        list.add(new MenuEntry(R.string.carddemo_title_tag_ex_gplay,R.color.md_teal_200,R.string.header_title_subtitle_ex_gplay, GPlayCardFragment.class));
+        list.add(new MenuEntry(R.string.carddemo_title_tag_ex_stock_card,R.color.md_indigo_600,R.string.header_title_subtitle_ex_gstock, StockCardFragment.class));
+        list.add(new MenuEntry(R.string.carddemo_title_tag_ex_misc_card,R.color.md_indigo_A400,R.string.header_title_subtitle_ex_misc, MiscCardFragment.class));
+        list.add(new MenuEntry(R.string.carddemo_title_tag_ex_card_changevalue,R.color.md_pink_A200,R.string.header_title_subtitle_ex_refresh, ChangeValueCardFragment.class));
 
-        list.add(new MenuEntry(R.string.carddemo_title_tag_todo,R.color.md_brown_300,R.string.header_title_cardheadersubtitle, ListBaseFragment.class));
-        list.add(new MenuEntry(R.string.carddemo_title_tag_todo,R.color.md_green_600,R.string.header_title_cardheadersubtitle, ListDifferentInnerBaseFragment.class));
-        list.add(new MenuEntry(R.string.carddemo_title_tag_todo,R.color.md_blue_600,R.string.header_title_cardheadersubtitle, CardExpandFragment.class));
-        list.add(new MenuEntry(R.string.carddemo_title_tag_todo,R.color.md_blue_A200,R.string.header_title_cardheadersubtitle, ListGplayUndoCardFragment.class));
-        list.add(new MenuEntry(R.string.carddemo_title_tag_todo,R.color.md_cyan_700,R.string.header_title_cardheadersubtitle, GridBaseFragment.class));
-        list.add(new MenuEntry(R.string.carddemo_title_tag_todo,R.color.md_red_800,R.string.header_title_cardheadersubtitle, GridGplayFragment.class));
-        list.add(new MenuEntry(R.string.carddemo_title_tag_todo,R.color.md_blue_900,R.string.header_title_cardheadersubtitle, ListColorFragment.class));
-        list.add(new MenuEntry(R.string.carddemo_title_tag_todo,R.color.md_blue_900,R.string.header_title_cardheadersubtitle, ListCursorCardFragment.class));
-        list.add(new MenuEntry(R.string.carddemo_title_tag_todo,R.color.md_blue_900,R.string.header_title_cardheadersubtitle, GridCursorCardFragment.class));
+        list.add(new MenuEntry(R.string.carddemo_title_tag_list_base,R.color.md_brown_300,R.string.header_title_subtitle_lbase, ListBaseFragment.class));
+        list.add(new MenuEntry(R.string.carddemo_title_tag_list_base_different_layout,R.color.md_green_600,R.string.header_title_subtitle_ldiff, ListDifferentInnerBaseFragment.class));
+        list.add(new MenuEntry(R.string.carddemo_title_tag_list_expandable_card,R.color.md_blue_600,R.string.header_title_subtitle_lexpand, ListExpandCardFragment.class));
+        list.add(new MenuEntry(R.string.carddemo_title_tag_list_google_play,R.color.md_blue_A200,R.string.header_title_subtitle_lgplay, ListGplayUndoCardFragment.class));
+        list.add(new MenuEntry(R.string.carddemo_title_tag_list_grid_base,R.color.md_cyan_700,R.string.header_title_subtitle_gbase, GridBaseFragment.class));
+        list.add(new MenuEntry(R.string.carddemo_title_tag_list_grid_google_play,R.color.md_red_800,R.string.header_title_subtitle_ggplay, GridGplayFragment.class));
+        list.add(new MenuEntry(R.string.carddemo_title_tag_list_colored,R.color.md_blue_900,R.string.header_title_subtitle_lcolored, ListColorFragment.class));
+        list.add(new MenuEntry(R.string.carddemo_title_tag_list_cursor,R.color.md_orange_800,R.string.header_title_subtitle_lcursor, ListCursorCardFragment.class));
+        list.add(new MenuEntry(R.string.carddemo_title_tag_list_grid_cursor,R.color.md_brown_400,R.string.header_title_subtitle_gcursor, GridCursorCardFragment.class));
 
-        list.add(new MenuEntry(R.string.carddemo_title_tag_todo,R.color.md_blue_900,R.string.header_title_cardheadersubtitle, ListGplayCardCABFragment.class));
-        list.add(new MenuEntry(R.string.carddemo_title_tag_todo,R.color.md_blue_900,R.string.header_title_cardheadersubtitle, GridGplayCABFragment.class));
-        list.add(new MenuEntry(R.string.carddemo_title_tag_todo,R.color.md_blue_900,R.string.header_title_cardheadersubtitle, ListGplayCursorCardCABFragment.class));
+        list.add(new MenuEntry(R.string.carddemo_title_tag_cab_multichoice,R.color.md_green_500,R.string.header_title_subtitle_cab_multi, ListGplayCardCABFragment.class));
+        list.add(new MenuEntry(R.string.carddemo_title_tag_cab_grid_multichoice,R.color.md_deep_orange_900,R.string.header_title_subtitle_cab_gmulti, GridGplayCABFragment.class));
+        list.add(new MenuEntry(R.string.carddemo_title_tag_cab_cursor_multichoice,R.color.md_purple_400,R.string.header_title_subtitle_cab_lcursor, ListGplayCursorCardCABFragment.class));
 
-        list.add(new MenuEntry(R.string.carddemo_title_tag_todo,R.color.md_blue_900,R.string.header_title_cardheadersubtitle, CardWithListFragment.class));
-        list.add(new MenuEntry(R.string.carddemo_title_tag_todo,R.color.md_blue_900,R.string.header_title_cardheadersubtitle, ListSectionedCardFragment.class));
-        list.add(new MenuEntry(R.string.carddemo_title_tag_todo,R.color.md_blue_900,R.string.header_title_cardheadersubtitle, DismissAnimFragment.class));
+        list.add(new MenuEntry(R.string.carddemo_title_tag_misc_cardwithlist,R.color.md_deep_purple_500,R.string.header_title_subtitle_cardwithlist, CardWithListFragment.class));
+        list.add(new MenuEntry(R.string.carddemo_title_tag_misc_sectioned,R.color.md_indigo_300,R.string.header_title_subtitle_sectioned, ListSectionedCardFragment.class));
+        list.add(new MenuEntry(R.string.carddemo_title_tag_misc_dismiss,R.color.md_teal_300,R.string.header_title_subtitle_dismiss, DismissAnimFragment.class));
 
         return list;
     }

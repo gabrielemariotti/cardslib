@@ -58,7 +58,7 @@ public class BirthDayCardFragment extends MaterialV1Fragment {
 
     @Override
     protected int getSubTitleHeaderResourceId() {
-        return R.string.header_title_cardexpandsubtitle;
+        return R.string.header_title_subtitle_ex_gbirth;
     }
 
     @Override

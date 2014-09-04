@@ -18,18 +18,23 @@
   ~  *****************************************************************************
   -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:card="http://schemas.android.com/apk/res-auto"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
-
-    <include layout="@layout/demo_barheader_full"/>
-
-    <it.gmariotti.cardslib.library.view.CardListView
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:id="@+id/carddemo_list_expand"/>
-
-
-</LinearLayout>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:state_enabled="true"
+        android:state_pressed="true">
+        <objectAnimator
+            android:duration="@android:integer/config_shortAnimTime"
+            android:propertyName="translationZ"
+            android:valueFrom="@dimen/hd_button_elevation"
+            android:valueTo="@dimen/hd_button_press_elevation"
+            android:valueType="floatType" />
+    </item>
+    <item>
+        <objectAnimator
+            android:duration="@android:integer/config_shortAnimTime"
+            android:propertyName="translationZ"
+            android:valueFrom="@dimen/hd_button_press_elevation"
+            android:valueTo="@dimen/hd_button_elevation"
+            android:valueType="floatType" />
+    </item>
+</selector>

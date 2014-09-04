@@ -23,6 +23,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import it.gmariotti.cardslib.demo.R;
@@ -43,8 +44,8 @@ public abstract class BaseMaterialFragment extends BaseFragment {
     TextView mTitleHeader;
     TextView mSubTitleHeader;
 
-    TextView mSourceButton;
-    TextView mDocButton;
+    ImageButton mSourceButton;
+    ImageButton mDocButton;
 
     private int colorResId = -1;
     
@@ -83,13 +84,16 @@ public abstract class BaseMaterialFragment extends BaseFragment {
     }
 
     protected void setupBarButton(View rootView) {
-        mSourceButton = (TextView) rootView.findViewById(R.id.bar_button_source);
-        mDocButton = (TextView) rootView.findViewById(R.id.bar_button_doc);
+        mSourceButton = (ImageButton) rootView.findViewById(R.id.bar_button_source);
+        //mDocButton = (ImageButton) rootView.findViewById(R.id.bar_button_doc);
 
         final String sourceUrl = getSourceUrl();
         final String docUrl = getDocUrl();
 
         if (mSourceButton != null) {
+
+            ((BaseActivity) getActivity()).getLPreviewUtils().setupCircleButton(mSourceButton);
+
             if (sourceUrl == null) {
                 mSourceButton.setEnabled(false);
             } else {

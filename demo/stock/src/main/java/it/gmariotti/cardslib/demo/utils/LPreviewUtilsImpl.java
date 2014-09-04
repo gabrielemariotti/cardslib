@@ -28,12 +28,14 @@ import android.app.ActivityOptions;
 import android.app.SharedElementListener;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Outline;
 import android.os.Build;
 import android.support.v4.widget.DrawerLayout;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.Toolbar;
 
 import java.util.List;
@@ -87,6 +89,20 @@ public class LPreviewUtilsImpl extends LPreviewUtilsBase {
 
     public boolean shouldChangeActionBarForDrawer() {
         return false;
+    }
+
+    //----------------------------------------------------------------------------
+    // Circle Button
+    //----------------------------------------------------------------------------
+
+    public void setupCircleButton(ImageButton sourceButton) {
+        if (sourceButton != null){
+            int size = mActivity.getResources().getDimensionPixelSize(R.dimen.hd_fab_size);
+            Outline outline = new Outline();
+            outline.setOval(0, 0, size, size);
+            sourceButton.setOutline(outline);
+            sourceButton.setClipToOutline(true);
+        }
     }
 
     //----------------------------------------------------------------------------
