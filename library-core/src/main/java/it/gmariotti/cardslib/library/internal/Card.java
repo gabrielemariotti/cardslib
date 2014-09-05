@@ -60,6 +60,8 @@ public class Card extends BaseCard {
 
     protected static String TAG = "Card";
 
+    public static int DEFAULT_COLOR= 0;
+
     /**
      * Used to enable a onClick Action on card
      */
@@ -172,7 +174,7 @@ public class Card extends BaseCard {
      * It identifies the background resource of view with this id:
      * android:id="@+id/card_main_layout"
      * <p/>
-     * In a standard card it identifies the main background.
+     * In a native card it identifies the main background.
      */
     private int mBackgroundResourceId =0;
 
@@ -180,9 +182,15 @@ public class Card extends BaseCard {
      * It identifies the background resource of view with this id:
      * android:id="@+id/card_main_layout"
      * <p/>
-     * In a standard card it identifies the main background.
+     * In a native card it identifies the main background.
      */
     private Drawable mBackgroundResource =null;
+
+    /**
+     * In a native card it identifies the main background color.
+     * Use it only with a NativeCard
+     */
+    private int mBackgroundColorResourceId =0;
 
     /**
      * Used to enable a onLongClick Action on multichoiceAdapter
@@ -1044,5 +1052,21 @@ public class Card extends BaseCard {
         if (mCardView!=null)
             return mCardView.isNative();
         return false;
+    }
+
+    /**
+     *
+     * @param backgroundColorResourceId
+     */
+    public void setBackgroundColorResourceId(int backgroundColorResourceId) {
+        mBackgroundColorResourceId = backgroundColorResourceId;
+    }
+
+    /**
+     * Returns the background color assigned to the Native CardView
+     * @return
+     */
+    public int getBackgroundColorResourceId() {
+        return mBackgroundColorResourceId;
     }
 }

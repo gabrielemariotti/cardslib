@@ -82,6 +82,13 @@ public interface CardViewWrapper {
     void changeBackgroundResource(Drawable drawableResource);
 
     /**
+     * Changes dynamically the background color
+     *
+     * @param colorResourceId
+     */
+    void changeBackgroundColorResourceId(int colorResourceId);
+
+    /**
      * Returns {@link Card} model
      *
      * @return  {@link Card} model

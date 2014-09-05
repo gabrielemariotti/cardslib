@@ -27,7 +27,6 @@ import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -516,11 +515,8 @@ public class CardView extends BaseCardView implements CardViewWrapper {
 
                                 //Add Selector to this view
                                 if (key > Card.CLICK_LISTENER_ALL_VIEW) {
-                                    if (Build.VERSION.SDK_INT >= 16){
-                                        viewClickable.setBackground(getResources().getDrawable(R.drawable.card_selector));
-                                    } else {
-                                        viewClickable.setBackgroundDrawable(getResources().getDrawable(R.drawable.card_selector));
-                                    }
+                                    mHelperImpl.setCardSelector(viewClickable, getResources().getDrawable(R.drawable.card_selector));
+
                                 }
                             }
                         }
@@ -1071,11 +1067,13 @@ public class CardView extends BaseCardView implements CardViewWrapper {
     public void changeBackgroundResource(Drawable drawableResource) {
         if (drawableResource!=null){
             if (mInternalMainCardLayout!=null){
-                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)
-                    mInternalMainCardLayout.setBackground(drawableResource);
-                else
-                    mInternalMainCardLayout.setBackgroundDrawable(drawableResource);
+                mHelperImpl.setBackground(mInternalMainCardLayout, drawableResource);
             }
         }
+    }
+
+    @Override
+    public void changeBackgroundColorResourceId(int colorResourceId) {
+        //TODO : do nothing for now
     }
 }

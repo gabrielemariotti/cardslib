@@ -21,7 +21,6 @@ package it.gmariotti.cardslib.library.view.component;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.os.Build;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
@@ -32,10 +31,11 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
 
-import it.gmariotti.cardslib.library.Constants;
 import it.gmariotti.cardslib.library.R;
 import it.gmariotti.cardslib.library.internal.CardHeader;
 import it.gmariotti.cardslib.library.view.base.CardViewInterface;
+import it.gmariotti.cardslib.library.view.helper.CardViewHelper;
+import it.gmariotti.cardslib.library.view.helper.CardViewHelperUtil;
 
 /**
  * Compound View for Header Component.
@@ -141,23 +141,25 @@ public class CardHeaderView extends FrameLayout implements CardViewInterface {
      */
     protected PopupMenu mPopupMenu;
 
+    protected CardViewHelper mHelperImpl;
+
     //--------------------------------------------------------------------------
     // Constructors
     //--------------------------------------------------------------------------
 
     public CardHeaderView(Context context) {
-        super(context);
-        init(null, 0);
+       this(context, null, 0);
     }
 
     public CardHeaderView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        init(attrs, 0);
+        this(context, attrs, 0);
     }
 
     public CardHeaderView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init(attrs, defStyle);
+
+        mHelperImpl = CardViewHelperUtil.getInstance(context);
     }
 
     //--------------------------------------------------------------------------
@@ -276,13 +278,7 @@ public class CardHeaderView extends FrameLayout implements CardViewInterface {
                     //Check if button is not null
                     if (mImageButtonOther != null) {
                         if (mCardHeader.getOtherButtonDrawable() > 0) {
-                            if (Build.VERSION.SDK_INT >= Constants.API_L) {
-                                mImageButtonOther.setImageResource(mCardHeader.getOtherButtonDrawable());
-                            }else if (Build.VERSION.SDK_INT >= 16) {
-                                mImageButtonOther.setBackground(getResources().getDrawable(mCardHeader.getOtherButtonDrawable()));
-                            } else {
-                                mImageButtonOther.setBackgroundDrawable(getResources().getDrawable(mCardHeader.getOtherButtonDrawable()));
-                            }
+                            mHelperImpl.setButtonBackground(mImageButtonOther, mCardHeader.getOtherButtonDrawable() );
                         }
                         addOtherListener();
                     }

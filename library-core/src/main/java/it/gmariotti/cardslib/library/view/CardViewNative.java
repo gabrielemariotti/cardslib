@@ -25,7 +25,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.support.annotation.LayoutRes;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -46,6 +45,8 @@ import it.gmariotti.cardslib.library.internal.ViewToClickToExpand;
 import it.gmariotti.cardslib.library.view.base.CardViewWrapper;
 import it.gmariotti.cardslib.library.view.component.CardHeaderView;
 import it.gmariotti.cardslib.library.view.component.CardThumbnailView;
+import it.gmariotti.cardslib.library.view.helper.CardViewHelper;
+import it.gmariotti.cardslib.library.view.helper.CardViewHelperUtil;
 import it.gmariotti.cardslib.library.view.listener.SwipeDismissViewTouchListener;
 
 /**
@@ -148,6 +149,8 @@ public class CardViewNative extends android.support.v7.widget.CardView implement
     protected boolean mForceReplaceInnerLayout =false;
 
 
+    protected CardViewHelper mHelperImpl;
+
     //--------------------------------------------------------------------------
     // CardView attribute
     //--------------------------------------------------------------------------
@@ -214,18 +217,18 @@ public class CardViewNative extends android.support.v7.widget.CardView implement
 
 
     public CardViewNative(Context context) {
-        super(context);
-        init(null, 0);
+        this(context, null, 0);
     }
 
     public CardViewNative(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        init(attrs, 0);
+        this(context, attrs, 0);
     }
 
     public CardViewNative(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(attrs, defStyleAttr);
+
+        mHelperImpl = CardViewHelperUtil.getInstance(context);
     }
 
     //--------------------------------------------------------------------------
@@ -479,10 +482,14 @@ public class CardViewNative extends android.support.v7.widget.CardView implement
 
         //Card
         if (mCard!=null){
-            if (mCard.getBackgroundResourceId()!=0){
+            if (mCard.getBackgroundResourceId()!= Card.DEFAULT_COLOR){
                 changeBackgroundResourceId(mCard.getBackgroundResourceId());
             }else if (mCard.getBackgroundResource()!=null){
                 changeBackgroundResource(mCard.getBackgroundResource());
+            }
+
+            if (mCard.getBackgroundColorResourceId() != Card.DEFAULT_COLOR){
+                changeBackgroundColorResourceId(mCard.getBackgroundColorResourceId());
             }
         }
     }
@@ -595,11 +602,7 @@ public class CardViewNative extends android.support.v7.widget.CardView implement
 
                                 //Add Selector to this view
                                 if (key > Card.CLICK_LISTENER_ALL_VIEW) {
-                                    if (Build.VERSION.SDK_INT >= 16){
-                                        viewClickable.setBackground(getResources().getDrawable(R.drawable.card_selector));
-                                    } else {
-                                        viewClickable.setBackgroundDrawable(getResources().getDrawable(R.drawable.card_selector));
-                                    }
+                                    mHelperImpl.setBackground(viewClickable, getResources().getDrawable(R.drawable.card_selector));
                                 }
                             }
                         }
@@ -1041,10 +1044,8 @@ public class CardViewNative extends android.support.v7.widget.CardView implement
      */
     @Override
     public void changeBackgroundResourceId(int drawableResourceId) {
-        if (drawableResourceId!=0){
-            if (mInternalMainCardLayout!=null){
-                mInternalMainCardLayout.setBackgroundResource(drawableResourceId);
-            }
+        if (drawableResourceId!=Card.DEFAULT_COLOR){
+            changeBackgroundResource(getResources().getDrawable(drawableResourceId));
         }
     }
 
@@ -1057,14 +1058,22 @@ public class CardViewNative extends android.support.v7.widget.CardView implement
     public void changeBackgroundResource(Drawable drawableResource) {
         if (drawableResource!=null){
             if (mInternalMainCardLayout!=null){
-                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)
-                    mInternalMainCardLayout.setBackground(drawableResource);
-                else
-                    mInternalMainCardLayout.setBackgroundDrawable(drawableResource);
+                mHelperImpl.setBackground(mInternalMainCardLayout, drawableResource);
             }
         }
     }
 
+    /**
+     * Changes dynamically the color of the background card
+     *
+     * @param colorResourceId color resource Id
+     */
+    @Override
+    public void changeBackgroundColorResourceId(int colorResourceId) {
+        if (colorResourceId!=Card.DEFAULT_COLOR){
+            this.setBackgroundColor(getResources().getColor(colorResourceId));
+        }
+    }
 
     //--------------------------------------------------------------------------
     // Getters and Setters
