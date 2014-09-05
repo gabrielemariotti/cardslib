@@ -43,7 +43,8 @@ android {
 
 dependencies {
     // Cards Library
-    compile project(':library')
+    compile project(':library-core')
+    compile project(':library-cards')
     compile project(':extra:extra-twoway')
     compile project(':extra:extra-staggeredgrid')
     compile project(':extra:extra-dragdrop')
@@ -86,6 +87,11 @@ dependencies {
 
     // Fading ActionBar
     compile 'com.github.manuelpeinado.fadingactionbar:fadingactionbar:3.0.0'
+
+    //Google Progress Bar
+    compile 'com.jpardogo.googleprogressbar:library:1.1.0'
+
+    compile 'com.github.castorflex.smoothprogressbar:library-circular:1.0.1-SNAPSHOT@aar'
 }
 
 

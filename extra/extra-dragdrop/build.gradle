@@ -24,7 +24,7 @@ android {
 
 dependencies {
     // Cards Library
-    compile project(':library')
+    compile project(':library-core')
 
     //DynamicList
     compile ('com.nhaarman.listviewanimations:lib-core:3.1.0')

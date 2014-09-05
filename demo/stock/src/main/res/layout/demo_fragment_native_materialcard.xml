@@ -35,24 +35,23 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <!-- Standard Header without buttons -->
+            <!-- Progress card -->
             <TextView
                 style="@style/Theme.Carddemo.TitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/demo_section_material_large_image_text"/>
+                android:text="@string/demo_section_material_progress_card"/>
 
 
             <it.gmariotti.cardslib.library.view.CardViewNative
-                android:id="@+id/carddemo_largeimage_text"
+                android:id="@+id/carddemo_progress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                card:card_layout_resourceID="@layout/native_material_largeimage_text_card"
+                card:card_layout_resourceID="@layout/native_card_thumbnail_layout_progress"
                 style="@style/card_external"
                 />
 
-
-            <!-- Standard Header without buttons -->
+            <!-- Material card with image and icon as supplemental actions -->
             <TextView
                 style="@style/Theme.Carddemo.TitleText"
                 android:layout_width="wrap_content"
@@ -65,6 +64,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 card:card_layout_resourceID="@layout/native_material_largeimage_card"
+                style="@style/card_external"
+                />
+
+            <!-- Material card with image , text and supplemental actions -->
+            <TextView
+                style="@style/Theme.Carddemo.TitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/demo_section_material_large_image_text"/>
+
+
+            <it.gmariotti.cardslib.library.view.CardViewNative
+                android:id="@+id/carddemo_largeimage_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card:card_layout_resourceID="@layout/native_material_largeimage_text_card"
                 style="@style/card_external"
                 />
 

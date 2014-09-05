@@ -18,25 +18,33 @@
 
 package it.gmariotti.cardslib.demo.fragment.nativeview;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
 import it.gmariotti.cardslib.demo.R;
 import it.gmariotti.cardslib.demo.fragment.BaseMaterialFragment;
+import it.gmariotti.cardslib.library.cards.ProgressCard;
 import it.gmariotti.cardslib.library.cards.actions.BaseSupplementalAction;
 import it.gmariotti.cardslib.library.cards.actions.IconSupplementalAction;
 import it.gmariotti.cardslib.library.cards.actions.TextSupplementalAction;
 import it.gmariotti.cardslib.library.cards.material.MaterialLargeImageCard;
 import it.gmariotti.cardslib.library.internal.Card;
+import it.gmariotti.cardslib.library.internal.CardHeader;
+import it.gmariotti.cardslib.library.internal.base.BaseCard;
 import it.gmariotti.cardslib.library.view.CardViewNative;
 
 /**
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
 public class NativeMaterialCardFragment extends BaseMaterialFragment {
+
+    public static final int SIMULATED_REFRESH_LENGTH = 3000;
+    ProgressCard progressCard;
 
     @Override
     protected int getSubTitleHeaderResourceId() {
@@ -69,12 +77,14 @@ public class NativeMaterialCardFragment extends BaseMaterialFragment {
         super.onActivityCreated(savedInstanceState);
 
         initCards();
+
     }
 
     private void initCards() {
 
         init_largeimage_text();
         init_largeimage();
+        initProgressCard();
     }
 
     /**
@@ -159,6 +169,72 @@ public class NativeMaterialCardFragment extends BaseMaterialFragment {
         //Set card in the CardViewNative
         CardViewNative cardView = (CardViewNative) getActivity().findViewById(R.id.carddemo_largeimage);
         cardView.setCard(card);
+    }
+
+    private void initProgressCard(){
+
+
+        progressCard = new ProgressCard(getActivity());
+        progressCard.setUseProgressBar(true);
+
+        CardHeader header = new CardHeader(getActivity());
+        header.setTitle("Progress Card");
+        header.setPopupMenu(R.menu.update,new CardHeader.OnClickCardHeaderPopupMenuListener() {
+            @Override
+            public void onMenuItemClick(BaseCard card, MenuItem item) {
+                if (item.getItemId() == R.id.action_update){
+                    new UpdateAsyncTask(4000).execute();
+                    progressCard.updateProgressBar(false, false);
+                    progressCard.notifyDataSetChanged();
+                }
+
+            }
+        });
+        progressCard.addCardHeader(header);
+
+        //Set card in the CardViewNative
+        final CardViewNative cardView = (CardViewNative) getActivity().findViewById(R.id.carddemo_progress);
+        cardView.setCard(progressCard);
+
+
+        /**
+         * Simulate Refresh with 4 seconds sleep
+         */
+        new UpdateAsyncTask(SIMULATED_REFRESH_LENGTH).execute();
+        progressCard.updateProgressBar(false, false);
+    }
+
+    /**
+     * Only for test
+     */
+    class UpdateAsyncTask extends AsyncTask<Void, Void, Void>{
+
+        int mRefresh_lenght = SIMULATED_REFRESH_LENGTH;
+
+        UpdateAsyncTask(int refresh_lenght){
+            mRefresh_lenght = refresh_lenght;
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            try {
+                Thread.sleep(mRefresh_lenght);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            super.onPostExecute(result);
+
+            // Notify PullToRefreshAttacher that the refresh has finished
+            progressCard.setTitle("Updated card ");
+            progressCard.updateProgressBar(true, true);
+            progressCard.notifyDataSetChanged();
+
+        }
     }
 
     /*

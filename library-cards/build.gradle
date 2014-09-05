@@ -24,7 +24,7 @@ android {
 
 dependencies {
     // Cards Library
-    compile project(':library')
+    compile project(':library-core')
 
     //Annotation
     compile 'com.android.support:support-annotations:20.0.0'

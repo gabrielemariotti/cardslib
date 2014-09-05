@@ -43,7 +43,7 @@ android {
 
 dependencies {
     // Cards Library
-    compile project(':library')
+    compile project(':library-core')
     compile project(':library-cards')
     // Support Libraries
     compile 'com.android.support:support-v4:21+'

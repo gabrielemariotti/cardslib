@@ -24,7 +24,7 @@ android {
 
 dependencies {
     // Cards Library
-    compile project(':library')
+    compile project(':library-core')
 
     //StaggeredGrid
     compile 'com.etsy.android.grid:library:1.0.5'
