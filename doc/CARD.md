@@ -355,19 +355,18 @@ If you need to change same value in a card, you can use your `Card` model:
     card.setOnClickListener(null);
     card.setClickable(false);
 ```
-and then call `refreshCard` method on `cardView`:
+and then call `notifyDataSetChanged();` method on the `Card`:
 
 ``` java
     //Call refresh
-    cardView = (CardView) getActivity().findViewById(R.id.carddemo_card_changevalue_id);
-    cardView.refreshCard(card);
+    card.notifyDataSetChanged();
 ```
 You can see the example in 'ChangeValueCardFragment'.
 
 
 #### Replace inner layout in a card
 
-If you need to replace the inner layout in a card, you can use your `Card` model and call `refreshCard` method on `cardView`:
+If you need to replace the inner layout in a card, you can use your `Card` model and call `replaceCard` method on `cardView`:
 
 ``` java
     //Call replace

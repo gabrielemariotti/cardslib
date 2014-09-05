@@ -1,6 +1,19 @@
 Change Log
 ===============================================================================
 
+Version 2.0.0 *(2014-XX-XX)*
+----------------------------
+* LIB: Added the new CardViewNative !
+* LIB: New aar modules.
+* LIB: Added a CardRecyclerView and a CardArrayRecyclerViewAdapter
+* LIB: new method to change the color in NativeCard
+* LIB-CARDS: New module with built-in cards.
+* LIB-CARDS: MaterialCard and ProgressCard.
+* EXTRA-TWOWAY: New support for the TwoWayView
+* EXTRA-STAGGERED and EXTRA-DRAGDROP: split from old extra lib.
+
+
+
 Version 1.9.0 *(2014-08-30)*
 ----------------------------
 * LIB: Added a method to expand and collpase the card in programmatic way [(doc)](/doc/EXPAND.md#expand-the-card-in-programmatic-way)

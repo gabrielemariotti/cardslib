@@ -31,22 +31,22 @@ Creating a base `CardHeader` is pretty simple.
 `CardHeader` provides a base HeaderLayout with a InnerLayout and ButtonLayout.
 
 For the `CardView`:
-You can find it in [`res/layout/base_header_layout.xml`](/demo/stock/src/main/res/layout/base_header_layout.xml)
+You can find it in [`res/layout/base_header_layout.xml`](/library-core/src/main/res/layout/base_header_layout.xml)
 
 For the `CardViewNative`:
-You can find it in [`res/layout/native_base_header_layout.xml`](/demo/stock/src/main/res/layout/native_base_header_layout.xml)
+You can find it in [`res/layout/native_base_header_layout.xml`](/library-core/src/main/res/layout/native_base_header_layout.xml)
 
 
 The built-in ButtonLayout provides these features:
 
-* a overflow button with popup and listener
-* a expand/collapse button
-* a customizable button for your custom action
+* a **overflow button** with popup and listener
+* a **expand/collapse** button
+* a **customizable button** for your custom action
 
-The built-in InnerLayout defined by [`res/layout/inner_base_header.xml`](/demo/stock/src/main/res/layout/inner_base_header.xml) (for the `CardView`) and by [`res/layout/native_inner_base_header.xml`](/demo/stock/src/main/res/layout/native_inner_base_header.xml) (for the `CardViewNative`)
+The built-in InnerLayout defined by [`res/layout/inner_base_header.xml`](/library-core/src/main/res/layout/inner_base_header.xml) (for the `CardView`) and by [`res/layout/native_inner_base_header.xml`](/library-core/src/main/res/layout/native_inner_base_header.xml) (for the `CardViewNative`)
   provide these features:
 
-* a title
+* a **title**
 
 There are many ways you can customize the card header.
 
@@ -60,7 +60,7 @@ If you want a `CardHeader` without buttons you can use this simple code:
         card.addCardHeader(header);
 ```
 
-![Screen](/demo/images/header/nobotton.png)
+![Screen](/demo/images/header/native/nobotton.png)
 
 ### Standard Header with the overflow botton and Popup Menu
 
@@ -138,16 +138,8 @@ Android API >=21 (it uses a ripple animation)
 
 You can override it in your project.
 
-Version 1.1 introduced the 3 rounded dots as default icon. If you would like to use the old icon with 3 square dots you can use:
 
-``` xml
-    <!-- Button Overflow in Header -->
-    <style name="card.header_button_base.overflow" >
-        <item name="android:background">@drawable/card_menu_button_overflow</item>
-    </style>
-```
-
-![Screen](/demo/images/header/overflow.png)
+![Screen](/demo/images/header/native/overflow.png)
 
 
 ### Standard Header with the overflow botton and PopupMenu built programmatically
@@ -155,7 +147,7 @@ Version 1.1 introduced the 3 rounded dots as default icon. If you would like to 
 You can add a PopupMenu entirely from code:
 
 ``` java
-        //Add a popup menu. This method set OverFlow button to visible
+        //Add a popup menu. This method sets OverFlow button to visible
         //If you would like to add all menu entries without xml file you have to set this value
         header.setButtonOverflowVisible(true);
         //Add the listener
@@ -207,7 +199,7 @@ If you want a `CardHeader` with the expand/collapse button you can use this simp
         card.addCardExpand(expand);
 ```
 
-![Screen](/demo/images/header/expand.png)
+![Screen](/demo/images/header/native/expand.png)
 
 If you want to customize the expand area you can simply extend `CardExpand` class. See this [page](EXPAND.md) for more information.
 
@@ -282,7 +274,7 @@ Android >= 21 : (I suggest a simple image because it use a ripple as background)
 
 You can use the listener  `CardHeader.OnClickCardHeaderOtherButtonListener` to listen callback when the other button is clicked.
 
-![Screen](/demo/images/header/otherButton.png)
+![Screen](/demo/images/header/native/otherbutton.png)
 
 If you want to set the other button programmatically you can use the same code above and add:
 
@@ -297,7 +289,7 @@ If you want to set the other button programmatically you can use the same code a
         }
 ```
 
-![Screen](/demo/images/header/otherButtonAdd.png)
+![Screen](/demo/images/header/native/otherbuttonAdd.png)
 
 ### Customizing the innerContent Header Layout
 
@@ -348,7 +340,7 @@ Then you can add this custom `CustomHeaderInnerCard` to your `Card`:
         cardView.setCard(card);
 ```
 
-![Screen](/demo/images/header/inner.png)
+![Screen](/demo/images/header/native/inner.png)
 
 ### Customizing the HeaderLayout
 
@@ -362,10 +354,10 @@ The quickest way to start with this would be to copy the built-in layouts.
 
 For `CardViewNative`:
  
-clone `res/layout/native_card_layout.xml` or `res/layout/native_card_thumbnail_layout.xml`
+clone [`res/layout/native_card_layout.xml`](/library-core/src/main/res/layout/native_card_layout.xml) or [`res/layout/native_card_thumbnail_layout.xml`](/library-core/src/main/res/layout/native_card_thumbnail_layout.xml)
 
 
-You can see `res/layout/carddemo_native_example_card1_layout.xml`.
+You can see [`res/layout/carddemo_native_example_card1_layout.xml`](/demo/stock/src/main/res/layout/carddemo_native_example_card1_layout.xml).
 
 
 ``` xml
@@ -384,10 +376,10 @@ You can see `res/layout/carddemo_native_example_card1_layout.xml`.
 
 For `CardView`:
  
-clone `res/layout/card_layout.xml` or `res/layout/card_thumbnail_layout.xml`
+clone [`res/layout/card_layout.xml`](/library-core/src/main/res/layout/card_layout.xml) or [`res/layout/card_thumbnail_layout.xml`](/library-core/src/main/res/layout/card_thumbnail_layout.xml)
 
 
-You can see `res/layout/carddemo_example_card1_layout.xml`.
+You can see [`res/layout/carddemo_example_card1_layout.xml`](/demo/stock/src/main/res/layout/carddemo_example_card1_layout.xml).
 
 ``` xml
    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -412,7 +404,7 @@ When you use a custom card layout with a custom header (general) layout is impor
 
 Then you have to define your header layout:
 
-You can see an example in `res/layout/carddemo_example_card1_header_layout.xml`
+You can see an example in [`res/layout/carddemo_example_card1_header_layout.xml`](/demo/stock/src/main/res/layout/carddemo_example_card1_header_layout.xml)
 
 ``` xml
 <!-- This is the Header Layout -->
@@ -442,7 +434,7 @@ It is very important to preserve the element with `android:id="@+id/card_header_
 
 Without this element, the `setupInnerViewElements` method in your `CardHeader` will not be called.
 
-![Screen](/demo/images/header/layout.png)
+![Screen](/demo/images/header/native/layout.png)
 
 ### Style
 
