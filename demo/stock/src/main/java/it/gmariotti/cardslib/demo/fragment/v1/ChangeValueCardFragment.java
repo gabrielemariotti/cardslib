@@ -176,7 +176,8 @@ public class ChangeValueCardFragment extends MaterialV1Fragment {
         card1.setShadow(false);
 
         //Call refresh
-        cardView1.refreshCard(card1);
+        //cardView1.refreshCard(card1);
+        card1.notifyDataSetChanged();
 
     }
 
@@ -192,7 +193,8 @@ public class ChangeValueCardFragment extends MaterialV1Fragment {
         card2.getCardThumbnail().setDrawableResource(R.drawable.ic_std_launcher);
 
         //Call refresh
-        cardView2.refreshCard(card2);
+        //cardView2.refreshCard(card2);
+        card2.notifyDataSetChanged();
     }
 
     /**
@@ -216,7 +218,8 @@ public class ChangeValueCardFragment extends MaterialV1Fragment {
         newDrawable.addState(new int[] {}, getResources().getDrawable(R.drawable.demo_card_background_color2));
 
         card4.setBackgroundResource(newDrawable);
-        cardView4.refreshCard(card4);
+        //cardView4.refreshCard(card4);
+        card4.notifyDataSetChanged();
 
     }
 

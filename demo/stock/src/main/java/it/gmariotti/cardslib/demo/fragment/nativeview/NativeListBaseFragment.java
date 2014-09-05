@@ -30,7 +30,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import it.gmariotti.cardslib.demo.R;
-import it.gmariotti.cardslib.demo.fragment.BaseFragment;
+import it.gmariotti.cardslib.demo.fragment.v1.MaterialV1Fragment;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
 import it.gmariotti.cardslib.library.internal.CardHeader;
@@ -42,7 +42,7 @@ import it.gmariotti.cardslib.library.view.CardListView;
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public class NativeListBaseFragment extends BaseFragment {
+public class NativeListBaseFragment extends MaterialV1Fragment {
 
     protected ScrollView mScrollView;
 
@@ -61,6 +61,26 @@ public class NativeListBaseFragment extends BaseFragment {
         super.onActivityCreated(savedInstanceState);
 
         initCards();
+    }
+
+    @Override
+    protected int getSubTitleHeaderResourceId() {
+        return R.string.header_title_subtitle_lbase;
+    }
+
+    @Override
+    protected int getTitleHeaderResourceId() {
+        return R.string.header_title_group3;
+    }
+
+    @Override
+    protected String getDocUrl() {
+        return "https://github.com/gabrielemariotti/cardslib/blob/master/doc/LIST.md";
+    }
+
+    @Override
+    protected String getSourceUrl() {
+        return "https://github.com/gabrielemariotti/cardslib/blob/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/nativeview/ListBaseFragment.java";
     }
 
 

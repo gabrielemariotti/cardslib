@@ -16,7 +16,7 @@
  *  *****************************************************************************
  */
 
-package it.gmariotti.cardslib.demo.fragment.v1;
+package it.gmariotti.cardslib.demo.fragment.nativeview;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -28,6 +28,7 @@ import java.util.ArrayList;
 
 import it.gmariotti.cardslib.demo.R;
 import it.gmariotti.cardslib.demo.cards.ColorCard;
+import it.gmariotti.cardslib.demo.fragment.v1.MaterialV1Fragment;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
 import it.gmariotti.cardslib.library.view.CardListView;
@@ -37,7 +38,7 @@ import it.gmariotti.cardslib.library.view.CardListView;
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public class ListColorFragment extends MaterialV1Fragment {
+public class NativeListColorFragment extends MaterialV1Fragment {
 
     protected ScrollView mScrollView;
 
@@ -58,7 +59,7 @@ public class ListColorFragment extends MaterialV1Fragment {
 
     @Override
     protected String getSourceUrl() {
-        return "https://github.com/gabrielemariotti/cardslib/blob/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/v1/ListColorFragment.java";
+        return "https://github.com/gabrielemariotti/cardslib/blob/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/nativeview/ListColorFragment.java";
     }
 
     @Override
@@ -68,7 +69,7 @@ public class ListColorFragment extends MaterialV1Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.demo_fragment_colors, container, false);
+        return inflater.inflate(R.layout.demo_fragment_native_colors, container, false);
     }
 
     @Override
@@ -89,19 +90,19 @@ public class ListColorFragment extends MaterialV1Fragment {
             card.setCount(i);
             switch (i) {
                 case 0:
-                    card.setBackgroundResourceId(R.drawable.demo_card_selector_color5);
+                    card.setBackgroundColorResourceId(R.color.demo_card_background_color5);
                     break;
                 case 1:
-                    card.setBackgroundResourceId(R.drawable.demo_card_selector_color4);
+                    card.setBackgroundColorResourceId(R.color.demo_card_background_color4);
                     break;
                 case 2:
-                    card.setBackgroundResourceId(R.drawable.demo_card_selector_color3);
+                    card.setBackgroundColorResourceId(R.color.demo_card_background_color3);
                     break;
                 case 3:
-                    card.setBackgroundResourceId(R.drawable.demo_card_selector_color2);
+                    card.setBackgroundColorResourceId(R.color.demo_card_background_color2);
                     break;
                 case 4:
-                    card.setBackgroundResourceId(R.drawable.demo_card_selector_color1);
+                    card.setBackgroundColorResourceId(R.color.demo_card_background_color1);
                     break;
             }
 

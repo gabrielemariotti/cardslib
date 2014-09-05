@@ -42,6 +42,8 @@ import it.gmariotti.cardslib.demo.R;
 import it.gmariotti.cardslib.demo.fragment.nativeview.NativeCardExpandFragment;
 import it.gmariotti.cardslib.demo.fragment.nativeview.NativeCardFragment;
 import it.gmariotti.cardslib.demo.fragment.nativeview.NativeHeaderFragment;
+import it.gmariotti.cardslib.demo.fragment.nativeview.NativeListBaseFragment;
+import it.gmariotti.cardslib.demo.fragment.nativeview.NativeListColorFragment;
 import it.gmariotti.cardslib.demo.fragment.nativeview.NativeMaterialCardFragment;
 import it.gmariotti.cardslib.demo.fragment.nativeview.NativeThumbnailFragment;
 import it.gmariotti.cardslib.demo.ui.widget.CollectionView;
@@ -326,8 +328,8 @@ public class NativeDashFragment extends Fragment{
         list.add(new MenuEntry(R.string.carddemo_title_tag_ex_misc_card,R.color.md_green_600,R.string.header_title_cardheadersubtitle, NativeHeaderFragment.class));
         list.add(new MenuEntry(R.string.carddemo_title_tag_ex_card_changevalue,R.color.md_blue_600,R.string.header_title_cardheadersubtitle, NativeHeaderFragment.class));
 
-        list.add(new MenuEntry(R.string.carddemo_title_tag_todo,R.color.md_blue_A200,R.string.header_title_cardheadersubtitle, NativeHeaderFragment.class));
-        list.add(new MenuEntry(R.string.carddemo_title_tag_todo,R.color.md_cyan_700,R.string.header_title_cardheadersubtitle, NativeHeaderFragment.class));
+        list.add(new MenuEntry(R.string.carddemo_title_tag_list_colored,R.color.md_blue_A200,R.string.header_title_subtitle_lcolored, NativeListColorFragment.class));
+        list.add(new MenuEntry(R.string.carddemo_title_tag_list_base,R.color.md_cyan_700,R.string.header_title_subtitle_lbase, NativeListBaseFragment.class));
         list.add(new MenuEntry(R.string.carddemo_title_tag_todo,R.color.md_red_800,R.string.header_title_cardheadersubtitle, NativeHeaderFragment.class));
         list.add(new MenuEntry(R.string.carddemo_title_tag_todo,R.color.md_blue_900,R.string.header_title_cardheadersubtitle, NativeHeaderFragment.class));
 
