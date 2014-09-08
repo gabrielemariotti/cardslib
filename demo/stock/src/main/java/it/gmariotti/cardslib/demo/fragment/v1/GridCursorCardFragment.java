@@ -53,22 +53,22 @@ public class GridCursorCardFragment extends BaseListFragment implements LoaderMa
 
     @Override
     protected int getSubTitleHeaderResourceId() {
-        return R.string.header_title_cardexpandsubtitle;
+        return R.string.header_title_subtitle_gcursor;
     }
 
     @Override
     protected int getTitleHeaderResourceId() {
-        return R.string.header_title_group1;
+        return R.string.header_title_group3;
     }
 
     @Override
     protected String getDocUrl() {
-        return "https://github.com/gabrielemariotti/cardslib/blob/master/doc/EXPAND.md";
+        return "https://github.com/gabrielemariotti/cardslib/blob/master/doc/CARDGRID.md";
     }
 
     @Override
     protected String getSourceUrl() {
-        return "https://github.com/gabrielemariotti/cardslib/blob/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/v1/CardExpandFragment.java";
+        return "https://github.com/gabrielemariotti/cardslib/blob/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/v1/GridCursorCardFragment.java";
     }
 
     @Override

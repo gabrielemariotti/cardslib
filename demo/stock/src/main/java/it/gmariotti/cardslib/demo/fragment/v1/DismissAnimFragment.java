@@ -49,12 +49,12 @@ public class DismissAnimFragment extends MaterialV1Fragment {
 
     @Override
     protected int getSubTitleHeaderResourceId() {
-        return R.string.header_title_cardexpandsubtitle;
+        return R.string.header_title_subtitle_dismiss;
     }
 
     @Override
     protected int getTitleHeaderResourceId() {
-        return R.string.header_title_group1;
+        return R.string.header_title_group5;
     }
 
     @Override
@@ -64,7 +64,7 @@ public class DismissAnimFragment extends MaterialV1Fragment {
 
     @Override
     protected String getSourceUrl() {
-        return "https://github.com/gabrielemariotti/cardslib/blob/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/v1/CardExpandFragment.java";
+        return "https://github.com/gabrielemariotti/cardslib/blob/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/v1/DismissAnimFragment.java";
     }
 
     @Override

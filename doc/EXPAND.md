@@ -52,7 +52,7 @@ If you want a standard `CardExpand` you can use this simple code:
         card.addCardExpand(expand);
 ```
 
-![Screen](/demo/images/header/expand.png)
+![Screen](/demo/images/header/native/expand.png)
 
 
 ### Custom Expand inflating your inner layout

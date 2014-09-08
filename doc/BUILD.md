@@ -17,7 +17,7 @@ Card Library is pushed to Maven Central as a AAR, so you just need to add the fo
 
     dependencies {
         //Core card library
-        compile 'com.github.gabrielemariotti.cards:library:1.9.0'
+        compile 'com.github.gabrielemariotti.cards:library:2.0.0'
 
         //Extra card library, it is required only if you want to use integrations with other libraries
         compile 'com.github.gabrielemariotti.cards:library-extra:1.9.0'

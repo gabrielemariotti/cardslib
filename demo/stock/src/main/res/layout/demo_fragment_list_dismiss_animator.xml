@@ -18,19 +18,20 @@
   ~  ******************************************************************************/
   -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:card="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <include layout="@layout/demo_barheader_full"/>
+    <include android:id="@id/hb_full" layout="@layout/demo_barheader_full"/>
 
     <it.gmariotti.cardslib.library.view.CardListView
+        android:layout_below="@id/hb_full"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         card:list_card_layout_resourceID="@layout/carddemo_list_dismissanim_layout"
         android:id="@+id/carddemo_list_dismissanim"/>
 
 
-</LinearLayout>
+</RelativeLayout>

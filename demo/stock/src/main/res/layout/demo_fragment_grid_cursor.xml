@@ -26,6 +26,7 @@
     <include layout="@layout/demo_barheader_full"/>
 
     <LinearLayout
+        android:layout_above="@id/hb_full"
         android:id="@+id/carddemo_progressContainer"
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -49,6 +50,7 @@
     </LinearLayout>
 
     <FrameLayout
+        android:layout_above="@id/hb_full"
         android:id="@+id/carddemo_listContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent">

@@ -18,15 +18,16 @@
   ~  *****************************************************************************
   -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:card="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <include layout="@layout/demo_barheader_full"/>
+    <include android:id="@id/hb_full" layout="@layout/demo_barheader_full"/>
 
    <it.gmariotti.cardslib.library.view.CardGridView
+       android:layout_above="@id/hb_full"
        android:layout_width="match_parent"
        android:layout_height="match_parent"
        android:columnWidth="@dimen/carddemo_base_grid_columnwidth"
@@ -40,4 +41,4 @@
        card:list_card_layout_resourceID="@layout/carddemo_grid_base"
        android:id="@+id/carddemo_grid_base"/>
 
-</LinearLayout>
+</RelativeLayout>

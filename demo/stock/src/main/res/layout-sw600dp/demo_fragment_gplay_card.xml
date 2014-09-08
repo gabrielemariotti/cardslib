@@ -23,11 +23,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-    <include layout="@layout/demo_barheader"/>
-
-    <include layout="@layout/demo_barheader_button"/>
+    <include android:id="@id/hb_full" layout="@layout/demo_barheader_full"/>
 
     <ScrollView
+        android:layout_above="@id/hb_full"
         style="@style/carddemo_default_container_padding"
         android:id="@+id/card_scrollview"
         android:layout_width="match_parent"

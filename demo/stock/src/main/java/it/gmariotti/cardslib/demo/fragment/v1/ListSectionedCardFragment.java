@@ -31,7 +31,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.gmariotti.cardslib.demo.R;
-import it.gmariotti.cardslib.demo.fragment.BaseFragment;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
 import it.gmariotti.cardslib.library.internal.CardThumbnail;
@@ -48,12 +47,12 @@ public class ListSectionedCardFragment extends MaterialV1Fragment {
 
     @Override
     protected int getSubTitleHeaderResourceId() {
-        return R.string.header_title_cardexpandsubtitle;
+        return R.string.header_title_subtitle_sectioned;
     }
 
     @Override
     protected int getTitleHeaderResourceId() {
-        return R.string.header_title_group1;
+        return R.string.header_title_group5;
     }
 
     @Override
@@ -63,7 +62,7 @@ public class ListSectionedCardFragment extends MaterialV1Fragment {
 
     @Override
     protected String getSourceUrl() {
-        return "https://github.com/gabrielemariotti/cardslib/blob/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/v1/CardExpandFragment.java";
+        return "https://github.com/gabrielemariotti/cardslib/blob/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/v1/ListSectionedCardFragment.java";
     }
 
     @Override
