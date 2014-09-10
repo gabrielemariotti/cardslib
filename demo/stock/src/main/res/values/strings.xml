@@ -133,8 +133,8 @@
     <string name="carddemo_title_tag_list_grid_cursor">Grid with Cursor</string>
 
     <string name="carddemo_title_tag_cab_multichoice">Multichoice</string>
-    <string name="carddemo_title_tag_cab_grid_multichoice">Grid with Multichoice</string>
-    <string name="carddemo_title_tag_cab_cursor_multichoice">Multichoice and Cursor</string>
+    <string name="carddemo_title_tag_cab_grid_multichoice">Grid with CAB</string>
+    <string name="carddemo_title_tag_cab_cursor_multichoice">CAB and Cursor</string>
 
     <string name="carddemo_title_tag_misc_cardwithlist">Card with List</string>
     <string name="carddemo_title_tag_misc_sectioned">Sectioned List</string>

@@ -41,6 +41,7 @@ import java.util.List;
 import it.gmariotti.cardslib.demo.R;
 import it.gmariotti.cardslib.demo.fragment.nativeview.NativeCardExpandFragment;
 import it.gmariotti.cardslib.demo.fragment.nativeview.NativeCardFragment;
+import it.gmariotti.cardslib.demo.fragment.nativeview.NativeCardWithListFragment;
 import it.gmariotti.cardslib.demo.fragment.nativeview.NativeHeaderFragment;
 import it.gmariotti.cardslib.demo.fragment.nativeview.NativeListBaseFragment;
 import it.gmariotti.cardslib.demo.fragment.nativeview.NativeListColorFragment;
@@ -331,7 +332,7 @@ public class NativeDashFragment extends Fragment{
         list.add(new MenuEntry(R.string.carddemo_title_tag_list_colored,R.color.md_blue_A200,R.string.header_title_subtitle_lcolored, NativeListColorFragment.class));
         list.add(new MenuEntry(R.string.carddemo_title_tag_list_base,R.color.md_cyan_700,R.string.header_title_subtitle_lbase, NativeListBaseFragment.class));
         list.add(new MenuEntry(R.string.carddemo_title_tag_todo,R.color.md_red_800,R.string.header_title_cardheadersubtitle, NativeHeaderFragment.class));
-        list.add(new MenuEntry(R.string.carddemo_title_tag_todo,R.color.md_blue_900,R.string.header_title_cardheadersubtitle, NativeHeaderFragment.class));
+        list.add(new MenuEntry(R.string.carddemo_title_tag_misc_cardwithlist,R.color.md_deep_purple_500,R.string.header_title_subtitle_cardwithlist, NativeCardWithListFragment.class));
 
         return list;
     }
