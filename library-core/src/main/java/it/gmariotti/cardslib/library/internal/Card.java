@@ -260,8 +260,7 @@ public class Card extends BaseCard {
     public View getInnerView(Context context, ViewGroup parent) {
 
         //Check if the default inner layout could be the native layout
-        if (couldUseNativeInnerLayout && isNative())
-            mInnerLayout = R.layout.native_inner_base_main;
+        setupInnerLayout();
 
         View view = super.getInnerView(context, parent);
 
@@ -300,6 +299,14 @@ public class Card extends BaseCard {
         }
     }
 
+    /**
+     * Setup the inner layout
+     */
+    protected void setupInnerLayout(){
+        //Check if the default inner layout could be the native layout
+        if (couldUseNativeInnerLayout && isNative())
+            mInnerLayout = R.layout.native_inner_base_main;
+    }
 
     // -------------------------------------------------------------
     // CardThumbnail

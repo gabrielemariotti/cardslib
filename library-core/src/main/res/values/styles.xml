@@ -392,6 +392,16 @@
         <item name="android:background">@color/card_base_cardwithlist_background_list_color</item>
     </style>
 
+    <style name="native_cardwithlist">
+        <item name="android:layout_marginTop">@dimen/card_base_cardwithlist_list_margin_top</item>
+        <item name="android:layout_marginLeft">@dimen/card_base_cardwithlist_list_margin_left</item>
+        <item name="android:divider">@color/card_native_base_cardwithlist_divider_color</item>
+        <item name="android:showDividers">middle|beginning</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/card_native_base_cardwithlist_background_list_color</item>
+    </style>
+
 
     <!-- Style used for Sectioned List -->
     <style name="card_section_container">

@@ -120,6 +120,9 @@ public abstract class CardWithList extends Card {
      */
     private boolean observerRegistered = false;
 
+    private boolean couldUseNativeInnerLayout = false;
+
+
     private DataSetObserver mDataObserver = new DataSetObserver() {
 
         @Override
@@ -155,6 +158,10 @@ public abstract class CardWithList extends Card {
      */
     public CardWithList(Context context, int innerLayout) {
         super(context, innerLayout);
+
+        if (innerLayout == R.layout.inner_base_main_cardwithlist) {
+            couldUseNativeInnerLayout = true;
+        }
     }
 
     // -------------------------------------------------------------
@@ -277,6 +284,13 @@ public abstract class CardWithList extends Card {
      */
     protected int getListViewId() {
         return listViewId;
+    }
+
+    @Override
+    protected void setupInnerLayout() {
+        //Check if the default inner layout could be the native layout
+        if (couldUseNativeInnerLayout && isNative())
+            mInnerLayout = R.layout.native_inner_base_main_cardwithlist;
     }
 
     /**
