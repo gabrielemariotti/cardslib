@@ -236,6 +236,12 @@ If you want to enable the swipe action with an Undo Action you have to:
   </FrameLayout>
 ```
 
+The library provides also these undo layout (check the images below):
+
+- `res/layout/list_card_undo_material_message.xml'
+- `res/layout/list_card_undo_materialmobile_message.xml'
+
+
 It is not mandatory. You can set a `Card.OnSwipeListener` to listen the swipe action.
 
 ``` java
@@ -273,6 +279,10 @@ The default value is `2` = half card.
 
 
 ![Screen](/demo/images/card/cardWithUndo.png)
+
+| list_card_undo_material_message   | list_card_undo_materialmobile_message |
+| --------------------------------- |:-------------------------------------:| 
+| ![Screen](/demo/images/card/cardWithUndo_1.png)   | ![Screen](/demo/images/card/cardWithUndo_2.png) |
 
 
 ### Swipe and Undo with a custom UndoBar
