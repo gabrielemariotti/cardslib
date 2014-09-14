@@ -27,10 +27,12 @@
     <TextView
         tools:text="Marked as read"
         android:id="@+id/list_card_undobar_message"
+        android:fontFamily="@string/font_fontFamily_regular"
         style="@style/list_card_UndoBarMessage_material"/>
 
     <TextView
         android:id="@+id/list_card_undobar_button"
+        android:fontFamily="@string/font_fontFamily_medium"
         style="@style/list_card_UndoBarButton_material"/>
 
 </LinearLayout>
