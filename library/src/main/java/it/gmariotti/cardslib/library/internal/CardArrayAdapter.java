@@ -328,6 +328,8 @@ public class CardArrayAdapter extends BaseCardArrayAdapter implements UndoBarCon
                                 // now permanently removed from the underlying Array.
                                 if (!undoOccurred) {
                                     for (Card card : removedCards) {
+                                        if (card.getOnUndoHideSwipeListListener()!=null)
+                                            card.getOnUndoHideSwipeListListener().onUndoHideSwipe(card);
                                         mInternalObjects.remove(card.getId());
                                     }
                                 }
