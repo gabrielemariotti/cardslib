@@ -29,6 +29,8 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
@@ -36,12 +38,12 @@ import it.gmariotti.cardslib.library.R;
 import it.gmariotti.cardslib.library.internal.base.BaseCardArrayAdapter;
 import it.gmariotti.cardslib.library.view.CardListView;
 import it.gmariotti.cardslib.library.view.CardView;
-import it.gmariotti.cardslib.library.view.listener.dismiss.DefaultDismissableManager;
-import it.gmariotti.cardslib.library.view.listener.dismiss.Dismissable;
 import it.gmariotti.cardslib.library.view.listener.SwipeDismissListViewTouchListener;
 import it.gmariotti.cardslib.library.view.listener.SwipeOnScrollListener;
 import it.gmariotti.cardslib.library.view.listener.UndoBarController;
 import it.gmariotti.cardslib.library.view.listener.UndoCard;
+import it.gmariotti.cardslib.library.view.listener.dismiss.DefaultDismissableManager;
+import it.gmariotti.cardslib.library.view.listener.dismiss.Dismissable;
 
 /**
  * Array Adapter for {@link Card} model
@@ -258,6 +260,9 @@ public class CardArrayAdapter extends BaseCardArrayAdapter implements UndoBarCon
             String[] itemIds=new String[reverseSortedPositions.length];
             int i=0;
 
+            // Keep track of the cards that will be removed
+            final ArrayList<Card> removedCards = new ArrayList<Card>();
+
             //Remove cards and notifyDataSetChanged
             for (int position : reverseSortedPositions) {
 
@@ -278,6 +283,7 @@ public class CardArrayAdapter extends BaseCardArrayAdapter implements UndoBarCon
                             card.getCardView().getOnExpandListAnimatorListener().onCollapseStart(card.getCardView(), card.getCardView().getInternalExpandLayout());
                         }
                     }*/
+                    removedCards.add(card);
                     remove(card);
                     if (card.getOnSwipeListener() != null) {
                         card.getOnSwipeListener().onSwipe(card);
@@ -313,7 +319,20 @@ public class CardArrayAdapter extends BaseCardArrayAdapter implements UndoBarCon
                 mUndoBarController.showUndoBar(
                         false,
                         messageUndoBar,
-                        itemUndo);
+                        itemUndo,
+                        new UndoBarController.UndoBarHideListener() {
+                            @Override
+                            public void onUndoBarHide(boolean undoOccurred) {
+                                // Remove the items from mInternalObjects, if
+                                // the undo was not triggered, since they are
+                                // now permanently removed from the underlying Array.
+                                if (!undoOccurred) {
+                                    for (Card card : removedCards) {
+                                        mInternalObjects.remove(card.getId());
+                                    }
+                                }
+                            }
+                        });
             }
         }
     };
@@ -395,6 +414,57 @@ public class CardArrayAdapter extends BaseCardArrayAdapter implements UndoBarCon
             }
         }else{
             mUndoBarController=null;
+        }
+    }
+
+    // ---------------------------------------------------------------------
+    //  Override Array Manipulation Methods To Keep mInternalObjects in Sync
+    // ---------------------------------------------------------------------
+
+    // public void remove() intentionally omitted, since mInternalObjects needs
+    // to keep a reference so the remove can be undone, if necessary.
+
+    @Override
+    public void add(Card card) {
+        super.add(card);
+        if (mEnableUndo) {
+            mInternalObjects.put(card.getId(), card);
+        }
+    }
+
+    @Override
+    public void addAll(Collection<? extends Card> cardCollection) {
+        super.addAll(cardCollection);
+        if (mEnableUndo) {
+            for (Card card : cardCollection) {
+                mInternalObjects.put(card.getId(), card);
+            }
+        }
+    }
+
+    @Override
+    public void addAll(Card...cards) {
+        super.addAll(cards);
+        if (mEnableUndo) {
+            for (Card card : cards) {
+                mInternalObjects.put(card.getId(), card);
+            }
+        }
+    }
+
+    @Override
+    public void clear() {
+        super.clear();
+        if (mEnableUndo) {
+            mInternalObjects.clear();
+        }
+    }
+
+    @Override
+    public void insert(Card card, int index) {
+        super.insert(card, index);
+        if (mEnableUndo) {
+            mInternalObjects.put(card.getId(), card);
         }
     }
 
