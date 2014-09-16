@@ -169,6 +169,13 @@ public class ListGplayUndoCardFragment extends BaseFragment {
                 }
             });
 
+            setOnUndoHideSwipeListListener(new OnUndoHideSwipeListListener() {
+                @Override
+                public void onUndoHideSwipe(Card card) {
+                    Toast.makeText(getContext(), "Hide undo card=" + title, Toast.LENGTH_SHORT).show();
+                }
+            });
+
         }
 
         @Override

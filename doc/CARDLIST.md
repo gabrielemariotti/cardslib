@@ -265,6 +265,17 @@ Then you can set a `Card.OnUndoSwipeListListener` to listen the undo action.
             });
 ```
 
+There is also a callback to listener when the Undo controller hides the Undo Bar.
+
+``` java
+            card.setOnUndoHideSwipeListListener(new OnUndoHideSwipeListListener() {
+                @Override
+                public void onUndoHideSwipe(Card card) {
+                    //Do something
+                }
+            });
+```
+
 You can customize the undo bar. The easiest way is to copy the styles inside `res/values/styles_undo.xml` in your project.
 
 You can see the example in `ListGplayUndoCardFragment`.
