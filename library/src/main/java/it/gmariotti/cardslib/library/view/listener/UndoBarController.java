@@ -150,6 +150,7 @@ public class UndoBarController {
                 // The undo has occurred only if mUndoToken was set to null.
                 mUndoBarHideListener.onUndoBarHide(mUndoToken == null);
             }
+            mUndoBarHideListener = null;
             mUndoToken = null;
         } else {
             mBarAnimator.cancel();
