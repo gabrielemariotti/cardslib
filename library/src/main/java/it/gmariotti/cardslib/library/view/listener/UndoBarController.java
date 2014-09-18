@@ -103,8 +103,16 @@ public class UndoBarController {
                     }
                 });
 
+        setupAnimation();
+
+        if (mUndoBarUIElements.isEnabledUndoBarSwipeAction() != UndoBarUIElements.SwipeDirectionEnabled.NONE){
+            setupSwipeActionOnUndoBar();
+        }
+
         hideUndoBar(true);
     }
+
+
 
     public void showUndoBar(boolean immediate, CharSequence message,
                             Parcelable undoToken, UndoBarHideListener undoBarHideListener) {
@@ -130,13 +138,28 @@ public class UndoBarController {
         if (immediate) {
             mBarView.setAlpha(1);
         } else {
-            mBarAnimator.cancel();
-            mBarAnimator
-                    .alpha(1)
-                    .setDuration(
-                            mBarView.getResources()
-                                    .getInteger(android.R.integer.config_shortAnimTime))
-                    .setListener(null);
+
+            if (mUndoBarUIElements.getAnimationType() == UndoBarUIElements.AnimationType.ALPHA) {
+
+                mBarAnimator.cancel();
+                mBarAnimator
+                        .alpha(1)
+                        .setDuration(
+                                mBarView.getResources()
+                                        .getInteger(android.R.integer.config_shortAnimTime))
+                        .setListener(null);
+            } else if (mUndoBarUIElements.getAnimationType() == UndoBarUIElements.AnimationType.TOPBOTTOM){
+
+                mBarAnimator.cancel();
+                mBarAnimator
+                        .alpha(1)
+                        .translationY(0)
+                        .setDuration(
+                                mBarView.getResources()
+                                        .getInteger(android.R.integer.config_mediumAnimTime))
+                        .setListener(null);
+
+            }
         }
     }
 
@@ -154,23 +177,45 @@ public class UndoBarController {
             mUndoToken = null;
         } else {
             mBarAnimator.cancel();
-            mBarAnimator
-                    .alpha(0)
-                    .setDuration(mBarView.getResources()
-                            .getInteger(android.R.integer.config_shortAnimTime))
-                    .setListener(new AnimatorListenerAdapter() {
-                        @Override
-                        public void onAnimationEnd(Animator animation) {
-                            mBarView.setVisibility(View.GONE);
-                            mUndoMessage = null;
-                            if (mUndoBarHideListener != null) {
-                                // The undo has occurred only if mUndoToken was set to null.
-                                mUndoBarHideListener.onUndoBarHide(mUndoToken == null);
+
+            if (mUndoBarUIElements.getAnimationType() == UndoBarUIElements.AnimationType.ALPHA) {
+                mBarAnimator
+                        .alpha(0)
+                        .setDuration(mBarView.getResources()
+                                .getInteger(android.R.integer.config_shortAnimTime))
+                        .setListener(new AnimatorListenerAdapter() {
+                            @Override
+                            public void onAnimationEnd(Animator animation) {
+                                mBarView.setVisibility(View.GONE);
+                                mUndoMessage = null;
+                                if (mUndoBarHideListener != null) {
+                                    // The undo has occurred only if mUndoToken was set to null.
+                                    mUndoBarHideListener.onUndoBarHide(mUndoToken == null);
+                                }
+                                mUndoBarHideListener = null;
+                                mUndoToken = null;
                             }
-                            mUndoBarHideListener = null;
-                            mUndoToken = null;
-                        }
-                    });
+                        });
+            } else if (mUndoBarUIElements.getAnimationType() == UndoBarUIElements.AnimationType.TOPBOTTOM){
+                mBarAnimator
+                        .alpha(0)
+                        .translationY(+mBarView.getHeight())
+                        .setDuration(mBarView.getResources()
+                                .getInteger(android.R.integer.config_shortAnimTime))
+                        .setListener(new AnimatorListenerAdapter() {
+                            @Override
+                            public void onAnimationEnd(Animator animation) {
+                                mBarView.setVisibility(View.GONE);
+                                mUndoMessage = null;
+                                if (mUndoBarHideListener != null) {
+                                    // The undo has occurred only if mUndoToken was set to null.
+                                    mUndoBarHideListener.onUndoBarHide(mUndoToken == null);
+                                }
+                                mUndoBarHideListener = null;
+                                mUndoToken = null;
+                            }
+                        });
+            }
         }
     }
 
@@ -201,6 +246,53 @@ public class UndoBarController {
         return mUndoToken;
     }
 
+    private void setupAnimation(){
+        if (mUndoBarUIElements.getAnimationType() == UndoBarUIElements.AnimationType.TOPBOTTOM) {
+            mBarView.setTranslationY(mBarView.getHeight());
+        }
+    }
+
+    private void setupSwipeActionOnUndoBar() {
+        if (mBarView != null) {
+
+            if (mUndoBarUIElements.isEnabledUndoBarSwipeAction() == UndoBarUIElements.SwipeDirectionEnabled.LEFTRIGHT) {
+
+                mBarView.setOnTouchListener(new SwipeDismissTouchListener(mBarView, null,
+                        new SwipeDismissTouchListener.DismissCallbacks() {
+                            @Override
+                            public boolean canDismiss(Object token) {
+                                return mUndoBarUIElements.isEnabledUndoBarSwipeAction() != UndoBarUIElements.SwipeDirectionEnabled.NONE;
+                            }
+
+                            @Override
+                            public void onDismiss(View view, Object token) {
+                                hideUndoBar(true);
+                                mUndoListener.onUndo(mUndoToken);
+                                // Remove the reference to the undo token, since the undo has occurred.
+                                mUndoToken = null;
+                            }
+                        }));
+            } else if (mUndoBarUIElements.isEnabledUndoBarSwipeAction() == UndoBarUIElements.SwipeDirectionEnabled.TOPBOTTOM) {
+
+                mBarView.setOnTouchListener(new SwipeDismissTopBottomTouchListener(mBarView, null,
+                        new SwipeDismissTopBottomTouchListener.DismissCallbacks() {
+                            @Override
+                            public boolean canDismiss(Object token) {
+                                return mUndoBarUIElements.isEnabledUndoBarSwipeAction() != UndoBarUIElements.SwipeDirectionEnabled.NONE;
+                            }
+
+                            @Override
+                            public void onDismiss(View view, Object token) {
+                                hideUndoBar(true);
+                                mUndoListener.onUndo(mUndoToken);
+                                // Remove the reference to the undo token, since the undo has occurred.
+                                mUndoToken = null;
+                            }
+                        }));
+            }
+        }
+
+    }
 
     // -------------------------------------------------------------
     //  Undo Custom Bar
@@ -245,6 +337,42 @@ public class UndoBarController {
          */
         public String getMessageUndo(CardArrayAdapter cardArrayAdapter,String[] itemIds,int[] itemPositions);
 
+
+        public SwipeDirectionEnabled isEnabledUndoBarSwipeAction();
+
+        public AnimationType getAnimationType();
+
+
+        public enum AnimationType {
+            ALPHA(0),
+            TOPBOTTOM(1);
+
+            private final int mValue;
+
+            private AnimationType(int value) {
+                mValue = value;
+            }
+
+            public int getValue() {
+                return mValue;
+            }
+        }
+
+        public enum SwipeDirectionEnabled {
+            NONE(0),
+            LEFTRIGHT(1),
+            TOPBOTTOM(2);
+
+            private final int mValue;
+
+            private SwipeDirectionEnabled(int value) {
+                mValue = value;
+            }
+
+            public int getValue() {
+                return mValue;
+            }
+        }
 
     }
 
@@ -299,6 +427,16 @@ public class UndoBarController {
                     return res.getQuantityString(R.plurals.list_card_undo_items, itemPositions.length, itemPositions.length);
             }
             return null;
+        }
+
+        @Override
+        public SwipeDirectionEnabled isEnabledUndoBarSwipeAction() {
+            return SwipeDirectionEnabled.NONE;
+        }
+
+        @Override
+        public AnimationType getAnimationType() {
+            return AnimationType.ALPHA;
         }
 
     };
