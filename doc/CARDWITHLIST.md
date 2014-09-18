@@ -343,7 +343,7 @@ You can change the string simply overriding this string in your project:
     <string name="card_empty_cardwithlist_text">No data....</string>
 ```
 
-The default layout [inner_base_main_cardwithlist](/library/library/src/main/res/layout/inner_base_main_cardwithlist) uses a `ViewStub`.
+The default layout [inner_base_main_cardwithlist](/library/src/main/res/layout/inner_base_main_cardwithlist.xml) uses a `ViewStub`.
 You can dynamically change the the layout resource to inflate when the ViewStub becomes visible, using the method `setEmptyViewViewStubLayoutId`.
 
 Example:
@@ -402,7 +402,7 @@ You can change the string used simply overriding this string in your project:
     <string name="card_progressbar_cardwithlist_text"></string>
 ```
 
-The default layout [inner_base_main_cardwithlist](/library/library/src/main/res/layout/inner_base_main_cardwithlist) uses a `ViewStub`.
+The default layout [inner_base_main_cardwithlist](/library/src/main/res/layout/inner_base_main_cardwithlist.xml) uses a `ViewStub`.
 You can dynamically change the the layout resource to inflate when the ViewStub becomes visible, using the method `setProgressBarViewStubLayoutId`.
 
 Example:
@@ -419,7 +419,7 @@ In this you can use your favorite View.
 
 ## Using a custom inner layout
 
-As other cards you can use a custom inner layout instead of the [default layout](/library/library/src/main/res/layout/inner_base_main_cardwithlist).
+As other cards you can use a custom inner layout instead of the [default layout](/library/src/main/res/layout/inner_base_main_cardwithlist.xml).
 You can set it in your constructor for example:
 ``` java
     public WeatherCard(Context context) {
