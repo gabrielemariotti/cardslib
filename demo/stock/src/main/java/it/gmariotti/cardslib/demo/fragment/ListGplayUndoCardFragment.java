@@ -96,6 +96,20 @@ public class ListGplayUndoCardFragment extends BaseFragment {
 
         mCardArrayAdapter = new CardArrayAdapter(getActivity(),cards);
 
+        mCardArrayAdapter.setUndoBarUIElements(new UndoBarController.DefaultUndoBarUIElements(){
+
+            @Override
+            public SwipeDirectionEnabled isEnabledUndoBarSwipeAction() {
+                return SwipeDirectionEnabled.TOPBOTTOM;
+            }
+
+            @Override
+            public AnimationType getAnimationType() {
+                return AnimationType.TOPBOTTOM;
+            }
+        });
+
+
         //Enable undo controller!
         mCardArrayAdapter.setEnableUndo(true);
 

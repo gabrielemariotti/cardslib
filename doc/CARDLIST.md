@@ -58,15 +58,15 @@ Last create a `CardArrayAdapter`, get a reference to the `CardListView` from you
         }
 ```
 
-This `CardListView` uses for each row the row-list layout `res/layout/list_card_layout.xml`.
+This `CardListView` uses for each row the row-list layout [`res/layout/list_card_layout.xml`](/library/src/main/res/layout/list_card_layout.xml).
 
 
 ### Use your custom layout for each row
 
 Card Library provides 2 built-in row-list layouts.
 
-* `res/layout/list_card_layout.xml`.
-* `res/layout/list_card_thumbnail_layout.xml`.
+* [`res/layout/list_card_layout.xml`](/library/src/main/res/layout/list_card_layout.xml).
+* [`res/layout/list_card_thumbnail_layout.xml`](/library/src/main/res/layout/list_card_thumbnail_layout.xml.xml).
 
 You can customize the layout used for each item in ListView using the attr: `card:list_card_layout_resourceID="@layout/my_layout`
 
@@ -209,7 +209,7 @@ If you want to enable the swipe action with an Undo Action you have to:
         //Enable undo controller!
         mCardArrayAdapter.setEnableUndo(true);
  ```
-4. include the undo bar in your layout. You can use the build-in layout `res/layout/list_card_undo_message.xml'.
+4. include the undo bar in your layout. You can use the build-in layout [`res/layout/list_card_undo_message.xml'](/library/src/main/res/layout/list_card_undo_message.xml).
 ``` xml
   <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
                xmlns:card="http://schemas.android.com/apk/res-auto"
@@ -236,10 +236,10 @@ If you want to enable the swipe action with an Undo Action you have to:
   </FrameLayout>
 ```
 
-The library provides also these undo layout (check the images below):
+The library provides also these undo layouts (check the images below):
 
-- `res/layout/list_card_undo_material_message.xml'
-- `res/layout/list_card_undo_materialmobile_message.xml'
+- [`res/layout/list_card_undo_material_message.xml'](/library/src/main/res/layout/list_card_undo_material_message.xml)
+- [`res/layout/list_card_undo_materialmobile_message.xml'](/library/src/main/res/layout/list_card_undo_materialmobile_message.xml)
 
 
 It is not mandatory. You can set a `Card.OnSwipeListener` to listen the swipe action.
@@ -276,7 +276,7 @@ There is also a callback to listener when the Undo controller hides the Undo Bar
             });
 ```
 
-You can customize the undo bar. The easiest way is to copy the styles inside `res/values/styles_undo.xml` in your project.
+You can customize the undo bar. The easiest way is to copy the styles inside [`res/values/styles_undo.xml`](/library/src/main/res/values/styles_undo.xml) in your project.
 
 You can see the example in `ListGplayUndoCardFragment`.
 
@@ -296,6 +296,14 @@ The default value is `2` = half card.
 | ![Screen](/demo/images/card/cardWithUndo_1.png)   | ![Screen](/demo/images/card/cardWithUndo_2.png) |
 
 
+If you are using a material undobar you can customize these colors overriding them in your project:
+
+```xml
+    <color name="card_undobar_material_text_color">#4CAF50</color>
+    <color name="card_undobar_material_background_color">#323232</color>
+```
+
+
 ### Swipe and Undo with a custom UndoBar
 
 You can provide a custom UndoBar.
@@ -308,7 +316,7 @@ This UndoBar has to contains these elements:
 
 3. A root element with an id attribute
 
-You should use the same Ids provided in the default layout `list_card_undo_message`, but if you have to use different ids you can use the `CardArrayAdapter.setUndoBarUIElements`:
+You should use the same Ids provided in the default layout [`list_card_undo_message`](/library/src/main/res/layout/list_card_undo_message.xml), but if you have to use different ids you can use the `CardArrayAdapter.setUndoBarUIElements`:
 
 Example:
 ``` xml
@@ -360,7 +368,7 @@ If you would like to use more ListViews in the same screen, you have to use the 
 
 Also you can customize your Undobar message.
 
-You can clone in your res/values/strings.xml these strings and override them:
+You can clone in your `res/values/strings.xml` these strings and override them:
 
 ```xml
     <!-- Undo Controller-->
@@ -396,6 +404,28 @@ Otherwise you can override the method `getMessageUndo` in your `UndoBarControlle
             }
         });
 ```
+
+You can also customize the animation of the UndoBar and you can enable a swipe action over it to swipe the undobar off the screen.
+The default undobar has an alpha animation and no swipe action enabled. 
+
+```java  
+  mCardArrayAdapter.setUndoBarUIElements(new UndoBarController.DefaultUndoBarUIElements(){
+  
+              @Override
+              public SwipeDirectionEnabled isEnabledUndoBarSwipeAction() {
+                  return SwipeDirectionEnabled.TOPBOTTOM;   // it enables a swipe action from TOP to BOTTOM
+                  //return SwipeDirectionEnabled.LEFTRIGHT; // it enables a swipe action FROM LEFT RO RIGHT
+                  //return SwipeDirectionEnabled.NONEM      // it is the default. No action.
+              }
+  
+              @Override
+              public AnimationType getAnimationType() {
+                  return AnimationType.TOPBOTTOM;  // Translation from bottom to top
+                  //return AnimationType.ALPHA;    // Default: alpha animator
+              }
+          });
+  
+
 
 **Migration from 1.6.0 (and previous releases) - to 1.7.0**
 

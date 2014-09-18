@@ -1,6 +1,15 @@
 Change Log
 ===============================================================================
 
+Version 1.9.1 *(2014-09-18)*
+----------------------------
+* LIB: Added two built-in `Undobar`s with Material Design [(doc)](/doc/CARDLIST.md#swipe-and-undo-in-cardlistview)
+* LIB: Now you can customize the animation of the UndoBar and you can enable an action to swipe it off the screen [(doc)](/doc/CARDLIST.md#swipe-and-undo-with-a-custom-undobar)
+* LIB: Added a new OnUndoHideSwipeListListener to listen for when the Undo controller hides the Undo Bar [(doc)](/doc/CARDLIST.md#swipe-and-undo-in-cardlistview)
+* LIB: Fixed a bug in UndoBar to Keep mInternalObjects in sync for CardArrayAdapter so that undo always works as expected
+* DEMO: Updated example with UndoBar (List with swipe and undo)
+
+
 Version 1.9.0 *(2014-08-30)*
 ----------------------------
 * LIB: Added a method to expand and collpase the card in programmatic way [(doc)](/doc/EXPAND.md#expand-the-card-in-programmatic-way)

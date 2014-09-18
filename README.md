@@ -53,7 +53,7 @@ The Guide provides a extensive doc, with all tips and full examples. Don't miss 
 Card Library is pushed to Maven Central as an AAR, so you just need to add the following dependency to your `build.gradle`.
 
     dependencies {
-        compile 'com.github.gabrielemariotti.cards:library:1.9.0'
+        compile 'com.github.gabrielemariotti.cards:library:1.9.1'
     }
 
 
