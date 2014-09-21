@@ -337,12 +337,23 @@ public class UndoBarController {
          */
         public String getMessageUndo(CardArrayAdapter cardArrayAdapter,String[] itemIds,int[] itemPositions);
 
-
+        /**
+         * Define the swipe action to remove the undobar.
+         * @return
+         */
         public SwipeDirectionEnabled isEnabledUndoBarSwipeAction();
 
+        /**
+         * Define the animation type for the undobar when it appears.
+         * @return
+         */
         public AnimationType getAnimationType();
 
 
+        /**
+         * Enum to define the animation type of the undobar.<p/>
+         * Use the {@link AnimationType#ALPHA} for an alpha animation, or {@link AnimationType#TOPBOTTOM} for a translation from bottom to top.
+         */
         public enum AnimationType {
             ALPHA(0),
             TOPBOTTOM(1);
@@ -358,6 +369,12 @@ public class UndoBarController {
             }
         }
 
+        /**
+         *  Enum to define the direction of the swipe action.
+         *  <p/>
+         *  You can use {@link SwipeDirectionEnabled#NONE}  to disable the swipe action or  {@link SwipeDirectionEnabled#LEFTRIGHT} to enable an action in left-right direction
+         *  or {@link SwipeDirectionEnabled#TOPBOTTOM} to define a swipe action from top to bottom.
+         */
         public enum SwipeDirectionEnabled {
             NONE(0),
             LEFTRIGHT(1),
