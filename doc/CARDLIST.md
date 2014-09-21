@@ -424,7 +424,7 @@ The default undobar has an alpha animation and no swipe action enabled.
                   //return AnimationType.ALPHA;    // Default: alpha animator
               }
           });
-  
+```  
 
 
 **Migration from 1.6.0 (and previous releases) - to 1.7.0**
