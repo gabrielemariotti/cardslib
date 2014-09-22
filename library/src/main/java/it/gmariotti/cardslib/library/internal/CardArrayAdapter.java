@@ -470,6 +470,18 @@ public class CardArrayAdapter extends BaseCardArrayAdapter implements UndoBarCon
         }
     }
 
+    @Override
+    public void notifyDataSetChanged() {
+        super.notifyDataSetChanged();
+        if (mEnableUndo) {
+            mInternalObjects = new HashMap<String, Card>();
+            for (int i = 0; i < getCount(); i++) {
+                Card card = getItem(i);
+                mInternalObjects.put(card.getId(), card);
+            }
+        }
+    }
+
     // -------------------------------------------------------------
     //  Getters and Setters
     // -------------------------------------------------------------
