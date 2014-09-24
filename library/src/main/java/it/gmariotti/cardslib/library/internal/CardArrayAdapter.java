@@ -294,6 +294,14 @@ public class CardArrayAdapter extends BaseCardArrayAdapter implements UndoBarCon
             }
             notifyDataSetChanged();
 
+            // Add back the cards that were removed into mInternalObjects,
+            // since notifyDataSetChanged rebuilt it.
+            if (isEnableUndo()) {
+                for (Card card : removedCards) {
+                    mInternalObjects.put(card.getId(), card);
+                }
+            }
+
             //Check for a undo message to confirm
             if (isEnableUndo() && mUndoBarController!=null){
 
