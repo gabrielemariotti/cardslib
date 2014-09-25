@@ -2,12 +2,13 @@
 
 In this page you can find info about:
 
-* [Including in your project and building](#including-in-your-project)
-* [Feature](#feature)
+* [Including in your project and building](#including-in-your-project) : how to include this library in your project
+* [Feature](#feature) 
 * [Quick Usage](#quick-usage)
-* [Customization](https://github.com/gabrielemariotti/cardslib/tree/master/doc/CUSTOMIZATION.md)
+* [Customization](/doc/CUSTOMIZATION.md): *it is the real doc! Don't miss it!*
 
 **THIS LIBRARY requires API 14+**
+
 
 ## Including in your project
 
@@ -81,7 +82,7 @@ Then create a model:
       card.addCardHeader(header);
 ```
 
-Last get a reference to the `CardView` from your code, and set your `Card`.
+Last get a reference to the `CardViewNative` from your code, and set your `Card`.
 
 ``` java
        //Set card in the cardView
@@ -92,7 +93,8 @@ Last get a reference to the `CardView` from your code, and set your `Card`.
 
 ## Customization
 
-Check [this page](CUSTOMIZATION.md) to customize these tags.
+Check [this page](CUSTOMIZATION.md) to customize your code.
+
 
 
 [1] : https://github.com/lucasr/twoway-view
