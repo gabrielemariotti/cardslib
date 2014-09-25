@@ -35,12 +35,12 @@ It has these basic parts:
 This library provides 2 global layouts:
 
 For the `CardViewNative`:
-* **Default** : `res/layout/native_card_layout.xml` (without a `CardThumbnail`)  
-* `res/layout/native_card_thumbnail_layout.xml`
+* **Default** : [`res/layout/native_card_layout.xml`](/library-core/src/main/res/layout/native_card_layout.xml) (without a `CardThumbnail`)  
+* [`res/layout/native_card_thumbnail_layout.xml`](/library-core/src/main/res/layout/native_card_thumbnail_layout.xml) 
 
 For the `CardView`:
-* **Default** : `res/layout/card_layout.xml` (without a `CardThumbnail`) 
-* `res/layout/card_thumbnail_layout.xml`
+* **Default** : [`res/layout/card_layout.xml`](/library-core/src/main/res/layout/card_layout.xml) (without a `CardThumbnail`) 
+* [`res/layout/card_thumbnail_layout.xml`](/library-core/src/main/res/layout/ard_thumbnail_layout.xml)
 
 
 
