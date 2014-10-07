@@ -29,6 +29,7 @@ import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.text.Html;
 import android.util.Log;
 import android.view.ActionMode;
 import android.view.Menu;
@@ -422,6 +423,10 @@ public class MainActivity extends Activity {
         }
     }
 
+    private static String trademark;
+    static {
+        trademark = Html.fromHtml("&#8482;").toString();
+    }
 
     public static final String[] options = {
             "CardHeader",
@@ -430,17 +435,17 @@ public class MainActivity extends Activity {
             "Card",
             "Card Expand",
             "Google Birthday",
-            "Google Play",
+            "Google Play"+trademark,
             "Google Stock",
             "Misc",
             "Refresh Card",
             "List base",
             "List base with different Inner Layouts" ,
             "List and expandable card",
-            "List Google Play",
+            "List Google Play"+trademark,
             "List with swipe and undo",
             "Grid base",
-            "Grid Google Play",
+            "Grid Google Play"+trademark,
             "List colored cards",
             "List with Cursor",
             "Grid with Cursor",
