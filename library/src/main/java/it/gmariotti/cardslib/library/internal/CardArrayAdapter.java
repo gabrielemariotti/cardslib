@@ -294,6 +294,14 @@ public class CardArrayAdapter extends BaseCardArrayAdapter implements UndoBarCon
             }
             notifyDataSetChanged();
 
+            // Add back the cards that were removed into mInternalObjects,
+            // since notifyDataSetChanged rebuilt it.
+            if (isEnableUndo()) {
+                for (Card card : removedCards) {
+                    mInternalObjects.put(card.getId(), card);
+                }
+            }
+
             //Check for a undo message to confirm
             if (isEnableUndo() && mUndoBarController!=null){
 
@@ -467,6 +475,18 @@ public class CardArrayAdapter extends BaseCardArrayAdapter implements UndoBarCon
         super.insert(card, index);
         if (mEnableUndo) {
             mInternalObjects.put(card.getId(), card);
+        }
+    }
+
+    @Override
+    public void notifyDataSetChanged() {
+        super.notifyDataSetChanged();
+        if (mEnableUndo) {
+            mInternalObjects = new HashMap<String, Card>();
+            for (int i = 0; i < getCount(); i++) {
+                Card card = getItem(i);
+                mInternalObjects.put(card.getId(), card);
+            }
         }
     }
 
