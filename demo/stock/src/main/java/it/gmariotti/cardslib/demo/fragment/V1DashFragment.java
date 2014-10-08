@@ -47,6 +47,7 @@ import it.gmariotti.cardslib.demo.fragment.v1.ListGplayCursorCardCABFragment;
 import it.gmariotti.cardslib.demo.fragment.v1.ListGplayUndoCardFragment;
 import it.gmariotti.cardslib.demo.fragment.v1.ListSectionedCardFragment;
 import it.gmariotti.cardslib.demo.fragment.v1.MiscCardFragment;
+import it.gmariotti.cardslib.demo.fragment.v1.RecyclerViewFragment;
 import it.gmariotti.cardslib.demo.fragment.v1.ShadowFragment;
 import it.gmariotti.cardslib.demo.fragment.v1.StockCardFragment;
 import it.gmariotti.cardslib.demo.fragment.v1.ThumbnailFragment;
@@ -96,7 +97,7 @@ public class V1DashFragment extends NativeDashFragment{
 
             inventory.addGroup(new CollectionView.InventoryGroup(TOKEN3)
                     .setDisplayCols(mContext.getResources().getInteger(R.integer.menu_grid_columns))
-                    .setItemCount(10)
+                    .setItemCount(11)
                     .setDataIndexStart(10)
                     .setHeaderLabel(mContext.getString(R.string.header_title_group3))
                     .setShowHeader(true));
@@ -104,14 +105,14 @@ public class V1DashFragment extends NativeDashFragment{
             inventory.addGroup(new CollectionView.InventoryGroup(TOKEN4)
                     .setDisplayCols(mContext.getResources().getInteger(R.integer.menu_grid_columns))
                     .setItemCount(3)
-                    .setDataIndexStart(20)
+                    .setDataIndexStart(21)
                     .setHeaderLabel(mContext.getString(R.string.header_title_group4))
                     .setShowHeader(true));
 
             inventory.addGroup(new CollectionView.InventoryGroup(TOKEN5)
                     .setDisplayCols(mContext.getResources().getInteger(R.integer.menu_grid_columns))
                     .setItemCount(3)
-                    .setDataIndexStart(23)
+                    .setDataIndexStart(24)
                     .setHeaderLabel(mContext.getString(R.string.header_title_group5))
                     .setShowHeader(true));
 
@@ -145,6 +146,7 @@ public class V1DashFragment extends NativeDashFragment{
         list.add(new MenuEntry(R.string.carddemo_title_tag_list_colored,R.color.md_blue_900,R.string.header_title_subtitle_lcolored, ListColorFragment.class));
         list.add(new MenuEntry(R.string.carddemo_title_tag_list_cursor,R.color.md_orange_800,R.string.header_title_subtitle_lcursor, ListCursorCardFragment.class));
         list.add(new MenuEntry(R.string.carddemo_title_tag_list_grid_cursor,R.color.md_brown_400,R.string.header_title_subtitle_gcursor, GridCursorCardFragment.class));
+        list.add(new MenuEntry(R.string.carddemo_title_tag_list_recyclerView,R.color.md_orange_200,R.string.header_title_subtitle_recyclerview, RecyclerViewFragment.class));
 
         list.add(new MenuEntry(R.string.carddemo_title_tag_cab_multichoice,R.color.md_green_500,R.string.header_title_subtitle_cab_multi, ListGplayCardCABFragment.class));
         list.add(new MenuEntry(R.string.carddemo_title_tag_cab_grid_multichoice,R.color.md_deep_orange_900,R.string.header_title_subtitle_cab_gmulti, GridGplayCABFragment.class));

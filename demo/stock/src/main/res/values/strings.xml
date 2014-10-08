@@ -131,6 +131,7 @@
     <string name="carddemo_title_tag_list_colored">Colored cards</string>
     <string name="carddemo_title_tag_list_cursor">List and Cursor</string>
     <string name="carddemo_title_tag_list_grid_cursor">Grid with Cursor</string>
+    <string name="carddemo_title_tag_list_recyclerView">Recycler View</string>
 
     <string name="carddemo_title_tag_cab_multichoice">Multichoice</string>
     <string name="carddemo_title_tag_cab_grid_multichoice">Grid with CAB</string>
@@ -281,6 +282,7 @@
     <string name="header_title_subtitle_cab_gmulti">A Grid with Multichoice</string>
     <string name="header_title_subtitle_cab_lcursor">A List with Cursor and Multichoice</string>
 
+    <string name="header_title_subtitle_recyclerview">How to use a RecyclerView</string>
 
     <string name="header_title_subtitle_cardwithlist">Card wih List</string>
     <string name="header_title_subtitle_sectioned">Sectioned List</string>
@@ -290,7 +292,7 @@
 
     <string name="header_title_group1">Card Base Features</string>
     <string name="header_title_group2">Card Examples</string>
-    <string name="header_title_group3">List and Grid</string>
+    <string name="header_title_group3">List,Grid and RecyclerView</string>
     <string name="header_title_group4">Multichoice</string>
     <string name="header_title_group5">Misc</string>
 
