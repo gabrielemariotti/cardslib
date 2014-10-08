@@ -27,6 +27,7 @@ import android.view.ViewGroup;
 
 import it.gmariotti.cardslib.library.R;
 import it.gmariotti.cardslib.library.internal.Card;
+import it.gmariotti.cardslib.library.view.CardRecyclerView;
 import it.gmariotti.cardslib.library.view.base.CardViewWrapper;
 
 /**
@@ -55,6 +56,11 @@ public abstract class BaseRecyclerViewAdapter extends RecyclerView.Adapter<BaseR
      *  Array of layout resource ids
      */
     protected @LayoutRes int[] mRowLayoutIds;
+
+    /**
+     * {@link it.gmariotti.cardslib.library.view.CardRecyclerView}
+     */
+    protected CardRecyclerView mCardRecyclerView;
 
     // -------------------------------------------------------------
     // Constructors
@@ -120,7 +126,25 @@ public abstract class BaseRecyclerViewAdapter extends RecyclerView.Adapter<BaseR
             //Set originalValue
             mCard.setSwipeable(origianlSwipeable);
 
+            //If card has an expandable button override animation
+            if ((mCard.getCardHeader() != null && mCard.getCardHeader().isButtonExpandVisible()) || mCard.getViewToClickToExpand()!=null ){
+                setupExpandCollapseListAnimation(mCardView);
+            }
+
+            //Setup swipeable animation
+            //setupSwipeableAnimation(mCard, mCardView);
         }
+    }
+
+    /**
+     * Overrides the default collapse/expand animation in a List
+     *
+     * @param cardView {@link it.gmariotti.cardslib.library.view.base.CardViewWrapper}
+     */
+    protected void setupExpandCollapseListAnimation(CardViewWrapper cardView) {
+
+        if (cardView == null) return;
+        cardView.setOnExpandListAnimatorListener(mCardRecyclerView);
     }
 
     // -------------------------------------------------------------
@@ -167,5 +191,21 @@ public abstract class BaseRecyclerViewAdapter extends RecyclerView.Adapter<BaseR
             typeCardCount = 1;
     }
 
+    /**
+     *
+     * @return the RecyclerView
+     */
+    public CardRecyclerView getCardRecyclerView() {
+        return mCardRecyclerView;
+    }
+
+    /**
+     * Sets the RecyclerView
+     *
+     * @param cardRecyclerView
+     */
+    public void setCardRecyclerView(CardRecyclerView cardRecyclerView) {
+        mCardRecyclerView = cardRecyclerView;
+    }
 
 }
