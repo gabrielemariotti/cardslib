@@ -1,4 +1,4 @@
-package it.gmariotti.cardslib.library.cards.material;
+package it.gmariotti.cardslib.library.cards.base;
 /*
  * ******************************************************************************
  *   Copyright (c) 2013-2014 Gabriele Mariotti.
@@ -31,7 +31,7 @@ import it.gmariotti.cardslib.library.internal.Card;
 /**
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public abstract class MaterialCard extends Card {
+public abstract class BaseMaterialCard extends Card {
 
     /**
      *  Supplemental Action
@@ -49,11 +49,11 @@ public abstract class MaterialCard extends Card {
     // Constructors
     // -------------------------------------------------------------
 
-    public MaterialCard(Context context) {
+    public BaseMaterialCard(Context context) {
         super(context);
     }
 
-    public MaterialCard(Context context, int innerLayout) {
+    public BaseMaterialCard(Context context, int innerLayout) {
         super(context, innerLayout);
     }
 
@@ -68,7 +68,7 @@ public abstract class MaterialCard extends Card {
 
 
     /**
-     * Build the
+     * Build the supplemental actions
      * @return
      */
     protected View buildSupplementalActions() {

@@ -27,11 +27,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import it.gmariotti.cardslib.library.cards.R;
+import it.gmariotti.cardslib.library.cards.base.BaseMaterialCard;
 
 /**
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public class MaterialLargeImageCard extends MaterialCard {
+public class MaterialLargeImageCard extends BaseMaterialCard {
 
     /**
      *  Resource Drawable ID
