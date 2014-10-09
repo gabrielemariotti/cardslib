@@ -24,10 +24,12 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import it.gmariotti.cardslib.demo.R;
 import it.gmariotti.cardslib.demo.fragment.BaseMaterialFragment;
+import it.gmariotti.cardslib.library.cards.HalfColoredCard;
 import it.gmariotti.cardslib.library.cards.ProgressCard;
 import it.gmariotti.cardslib.library.cards.actions.BaseSupplementalAction;
 import it.gmariotti.cardslib.library.cards.actions.IconSupplementalAction;
@@ -85,7 +87,9 @@ public class NativeMaterialCardFragment extends BaseMaterialFragment {
         init_largeimage_text();
         init_largeimage();
         initProgressCard();
+        init_HalfColoredCard();
     }
+
 
     /**
      * Builds a Material Card with Large Image and Text
@@ -101,7 +105,7 @@ public class NativeMaterialCardFragment extends BaseMaterialFragment {
         card.setTitle("This is my favorite local beach");
         card.setSubTitle("A wonderful place");
 
-        // Set supplemental actions
+         // Set supplemental actions
         TextSupplementalAction t1 = new TextSupplementalAction(getActivity(), R.id.text1);
         t1.setOnActionClickListener(new BaseSupplementalAction.OnActionClickListener() {
             @Override
@@ -203,6 +207,34 @@ public class NativeMaterialCardFragment extends BaseMaterialFragment {
         new UpdateAsyncTask(SIMULATED_REFRESH_LENGTH).execute();
         progressCard.updateProgressBar(false, false);
     }
+
+    /**
+     * Builds a Material HalfColored Card
+     */
+    private void init_HalfColoredCard() {
+
+        //Create a Card, set the title over the image and set the thumbnail
+        HalfColoredCard card = new HalfColoredCard(getActivity()) {
+            @Override
+            protected void setupInnerViewElementsSecondHalf(View secondHalfView) {
+
+                TextView mSimpleTitleView = (TextView) secondHalfView.findViewById(R.id.carddemo_halfcolored_simple_title);
+                if (mSimpleTitleView!=null) {
+                    mSimpleTitleView.setText("It is just an example!");
+                }
+
+            }
+        };
+        card.setTitleOverColor("22 mins to Ancona");
+        card.setSubTitleOverColor("Light traffic on SS16");
+        card.setColorResourceId(R.color.carddemo_halfcolored_color);
+        card.setSecondHalfViewStubLayoutId(R.layout.carddemo_native_halfcolored_simple_title);
+
+        //Set card in the CardViewNative
+        CardViewNative cardView = (CardViewNative) getActivity().findViewById(R.id.carddemo_halfcolored);
+        cardView.setCard(card);
+    }
+
 
     /**
      * Only for test

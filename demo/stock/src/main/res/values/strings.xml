@@ -190,6 +190,7 @@
     <string name="demo_section_material_large_image_text">Material Card with Large Image and Text</string>
     <string name="demo_section_material_large_image">Material Card with Large Image and supplemental actions</string>
     <string name="demo_section_material_progress_card">Progress Card</string>
+    <string name="demo_section_material_halfcolored">Halfcolored Card</string>
 
     <!-- Header Examples -->
     <string name="demo_header_basetitle">Card Header Title</string>

@@ -83,6 +83,22 @@
                 style="@style/card_external"
                 />
 
+            <!-- Progress card -->
+            <TextView
+                style="@style/Theme.Carddemo.TitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/demo_section_material_halfcolored"/>
+
+
+            <it.gmariotti.cardslib.library.view.CardViewNative
+                android:id="@+id/carddemo_halfcolored"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                card:card_layout_resourceID="@layout/native_material_halfcolored_card"
+                style="@style/card_external"
+                />
+
         </LinearLayout>
 
 

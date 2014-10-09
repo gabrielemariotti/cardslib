@@ -76,4 +76,6 @@
     <color name="gray_background">#fff3f3f3</color>
     <color name="navdrawer_scrim">#6000</color>
 
+    <color name="carddemo_halfcolored_color">#109D58</color>
+
 </resources>

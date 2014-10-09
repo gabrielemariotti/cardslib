@@ -19,29 +19,19 @@
   -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="horizontal"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:padding="@dimen/actions_padding"
-              android:paddingLeft="@dimen/actions_padding_left"
-              android:paddingRight="@dimen/actions_padding_left">
+              android:orientation="vertical"
+              android:layout_gravity="center"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content">
 
+
+    <!-- This is the base Inner View inside a Card.
+         You can customize it with your layout xml file and your Card.
+         You can populate your element with Card#setupInnerViewElements() method -->
     <TextView
-        android:id="@+id/text1"
-        android:text="SHARE"
-        android:background="?android:selectableItemBackground"
-        android:layout_width="wrap_content"
-        style="@style/card.native.actions"
-        android:layout_height="wrap_content"/>
-
-
-    <TextView
-        android:id="@+id/text2"
-        android:text="LEARN MORE"
-        android:background="?android:selectableItemBackground"
-        android:textColor="@color/md_orange_500"
-        android:layout_width="wrap_content"
-        style="@style/card.native.actions"
-        android:layout_height="wrap_content"/>
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/carddemo_halfcolored_simple_title"
+        style="@style/card.native.base_simple_title"/>
 
 </LinearLayout>
