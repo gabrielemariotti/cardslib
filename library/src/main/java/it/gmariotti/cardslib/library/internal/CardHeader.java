@@ -142,6 +142,20 @@ public class CardHeader extends BaseCard {
      *  </pre>
      */
     protected int mOtherButtonDrawable=0;
+    
+    /**
+     * Drawable used by Popup Button.
+     * </p>
+     * Otherwise you can use this your xml style.
+     * <pre>
+     * <code>
+     *  <style name="card.header_button_base.overflow">
+     *      <item name="android:background">@drawable/card_menu_button</item>
+     *  </style>
+     *  </code>
+     *  </pre>
+     */
+    protected int mPopupButtonDrawable=0;
 
     /**
      * Use this value to remove popup on overflow button
@@ -525,6 +539,30 @@ public class CardHeader extends BaseCard {
      */
     public void setOtherButtonDrawable(int otherButtonDrawable) {
         mOtherButtonDrawable = otherButtonDrawable;
+    }
+    
+    /**
+     * Returns resource drawable ID for Popup Button
+     *
+     * @return resource ID
+     */
+    public int getPopupButtonDrawable() {
+        return mPopupButtonDrawable;
+    }
+
+    /**
+     * Set resource drawable ID for other Button
+     * You can customize this button also with your styles.xml file using:
+     * <pre><code>
+     *     <style name="card.header_button_base.overflow">
+     *      <item name="android:background">@drawable/card_menu_button</item>
+     *  </style>
+     * </code></pre>
+     *
+     * @param popupButtonDrawable
+     */
+    public void setPopupButtonDrawable(int popupButtonDrawable) {
+        mPopupButtonDrawable = popupButtonDrawable;
     }
 
 
