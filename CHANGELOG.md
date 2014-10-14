@@ -3,12 +3,14 @@ Change Log
 
 Version 2.0.0 *(2014-XX-XX)*
 ----------------------------
-* LIB: Added the new CardViewNative !
-* LIB: New aar modules.
-* LIB: Added a CardRecyclerView and a CardArrayRecyclerViewAdapter
+* LIB: Added the new **CardViewNative**![(Learn how to migrate your cards)](/doc/MIGRATE)
+* LIB: New aar modules. [(doc)[(BUILD.md#including-in-your-project-with-gradle)
 * LIB: new method to change the color in NativeCard
+* LIB: new method to change the elevation in NativeCard (SHADOW.md#elavation-in-cardviewnative)
+* LIB: Added a CardRecyclerView and a CardArrayRecyclerViewAdapter [(doc)](/doc/CARDRECYCLERVIEW.md)
 * LIB-CARDS: New module with built-in cards.
 * LIB-CARDS: MaterialCard and ProgressCard.
+
 * EXTRA-TWOWAY: New support for the TwoWayView
 * EXTRA-STAGGERED and EXTRA-DRAGDROP: split from old extra lib.
 

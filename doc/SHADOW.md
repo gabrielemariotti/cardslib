@@ -2,6 +2,7 @@
 
 In this page you can find info about:
 
+* [Elevation in CardViewNative](#elavation-in-cardviewnative)
 * [Built-in shadow](#built-in-shadow)
 * [Hidden Shadow](#hidden-shadow)
 * [Customizing Shadow](#customizing-shadow)
@@ -10,6 +11,8 @@ In this page you can find info about:
 
 **Pay attention**: the `CardViewNative` doesn't use this view, because it is natively supported.
 
+### Elevation in CardViewNative
+
 In the `CardViewNative` you can change the elevation simply using:
 
 ``` java
@@ -17,7 +20,10 @@ In the `CardViewNative` you can change the elevation simply using:
     card.setCardElevation(getResources().getDimension(R.dimen.carddemo_shadow_elevation));
 ```
 
-All the features below are supported only by *CardView*
+
+--------------------------------------------------------
+
+**All the features below are supported only by CardView**
 
 ### Built-in shadow
 

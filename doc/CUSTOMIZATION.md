@@ -1,7 +1,10 @@
 # Card Library : Customization
 
-Here you can find some pages to customize these tags.
+Here you can find some pages to customize your cards.
 
+* [Migrate cards from v1 to v2:](MIGRATE.md)
+
+**Basic Features**
 * [Overview:](OVERVIEW.md)
 * [Card Header:](HEADER.md) How to customize all header features
 * [Card Shadow:](SHADOW.md) How to customize the shadow
@@ -12,13 +15,12 @@ Here you can find some pages to customize these tags.
 **List - Grid - RecyclerView**
 * [CardList:](CARDLIST.md) How to work with the `CardListView`
 * [CardGrid:](CARDGRID.md) How to work with the `CardGridView`
-* [RecyclerView:](RECYCLERVIEW.md) How to work with the `CardRecylerView`
+* [RecyclerView:](CARDRECYCLERVIEW.md) How to work with the `CardRecylerView`
 * [StaggeredGrid:](STAGGEREDGRID.md) How to work with the `CardGridStaggeredView`
 * [CardList with Drag and Drop:](DRAGDROPLIST.md) How to work with the `CardListDragDropView`
 * [Integration with other libraries:](OTHERLIBRARIES.md) How to work with other main libraries
 
-** Built-in Cards**
+**Built-in Cards**
 * [Card with a List inside](CARDWITHLIST.md) How to build a card with a List Inside.
 
 
-* [Migrate from v1 to v2:](MIGRATE.md)
