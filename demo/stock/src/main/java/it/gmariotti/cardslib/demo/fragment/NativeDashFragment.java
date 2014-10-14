@@ -47,6 +47,7 @@ import it.gmariotti.cardslib.demo.fragment.nativeview.NativeListBaseFragment;
 import it.gmariotti.cardslib.demo.fragment.nativeview.NativeListColorFragment;
 import it.gmariotti.cardslib.demo.fragment.nativeview.NativeMaterialCardFragment;
 import it.gmariotti.cardslib.demo.fragment.nativeview.NativeRecyclerViewFragment;
+import it.gmariotti.cardslib.demo.fragment.nativeview.NativeShadowFragment;
 import it.gmariotti.cardslib.demo.fragment.nativeview.NativeThumbnailFragment;
 import it.gmariotti.cardslib.demo.ui.widget.CollectionView;
 import it.gmariotti.cardslib.demo.ui.widget.CollectionViewCallbacks;
@@ -143,21 +144,21 @@ public class NativeDashFragment extends Fragment{
 
             inventory.addGroup(new CollectionView.InventoryGroup(TOKEN)
                     .setDisplayCols(mContext.getResources().getInteger(R.integer.menu_grid_columns))
-                    .setItemCount(4)
+                    .setItemCount(5)
                     .setHeaderLabel(mContext.getString(R.string.header_title_group1))
                     .setShowHeader(true));
 
             inventory.addGroup(new CollectionView.InventoryGroup(TOKEN2)
                     .setDisplayCols(mContext.getResources().getInteger(R.integer.menu_grid_columns))
                     .setItemCount(8)
-                    .setDataIndexStart(4)
+                    .setDataIndexStart(5)
                     .setHeaderLabel(mContext.getString(R.string.header_title_group2))
                     .setShowHeader(true));
 
             inventory.addGroup(new CollectionView.InventoryGroup(TOKEN3)
                     .setDisplayCols(mContext.getResources().getInteger(R.integer.menu_grid_columns))
                     .setItemCount(4)
-                    .setDataIndexStart(12)
+                    .setDataIndexStart(13)
                     .setHeaderLabel(mContext.getString(R.string.header_title_group3))
                     .setShowHeader(true));
 
@@ -317,6 +318,7 @@ public class NativeDashFragment extends Fragment{
     private static List<MenuEntry> buildMenuList(){
         ArrayList<MenuEntry> list = new ArrayList<MenuEntry>();
         list.add(new MenuEntry(R.string.carddemo_title_tag_base_header,R.color.md_indigo_200,R.string.header_title_cardheadersubtitle, NativeHeaderFragment.class));
+        list.add(new MenuEntry(R.string.carddemo_title_tag_base_shadow,R.color.md_green_300,R.string.header_title_cardshadowsubtitle, NativeShadowFragment.class));
         list.add(new MenuEntry(R.string.carddemo_title_tag_base_thumbnail,R.color.md_orange_300,R.string.header_title_cardthumbnailsubtitle, NativeThumbnailFragment.class));
         list.add(new MenuEntry(R.string.carddemo_title_tag_base_card,R.color.md_yellow_700,R.string.header_title_cardsubtitle, NativeCardFragment.class));
         list.add(new MenuEntry(R.string.carddemo_title_tag_base_card_expand,R.color.md_cyan_400,R.string.header_title_cardexpandsubtitle, NativeCardExpandFragment.class));

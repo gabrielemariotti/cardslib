@@ -162,6 +162,8 @@
     <string name="demo_section_shadow_no">Card without shadow</string>
     <string name="demo_section_shadow_customizing">Customizing shadow</string>
     <string name="demo_section_shadow_layout">Customizing the ShadowLayout</string>
+    <string name="demo_section_shadow_elevation">Change the elevation</string>
+    <string name="demo_section_shadow_animation">Animation</string>
 
     <string name="demo_section_thumb_id">Thumbnail from resource ID</string>
     <string name="demo_section_thumb_url">Thumbnail from resource URL</string>

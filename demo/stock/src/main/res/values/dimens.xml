@@ -38,6 +38,11 @@
     <dimen name="card_birth_width">350dp</dimen>
     <dimen name="card_mayknow_margin_top">3dp</dimen>
 
+    <!-- elevation -->
+    <dimen name="carddemo_shadow_elevation">6dp</dimen>
+    <dimen name="carddemo_shadow_start_elevation">2dp</dimen>
+    <dimen name="carddemo_shadow_end_elevation">4dp</dimen>
+
     <!-- Grid -->
     <dimen name="carddemo_base_grid_columnwidth">140dp</dimen>
     <dimen name="carddemo_base_grid_columnwidth_card">125dp</dimen>
