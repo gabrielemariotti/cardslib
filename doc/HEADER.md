@@ -77,7 +77,7 @@ If you want a `CardHeader` with the overflow button you can use this simple code
         //Set the header title
         header.setTitle(getString(R.string.demo_header_basetitle));
 
-        //Add a popup menu. This method set OverFlow button to visibile
+        //Add a popup menu. This method sets OverFlow button to visibile
         header.setPopupMenu(R.menu.popupmain, new CardHeader.onClickCardHeaderPopupMenuListener(){
             @Override
             public void onMenuItemClick(BaseCard card, MenuItem item) {
@@ -330,7 +330,7 @@ First of all you have to provide your card layout.
 
 The quickest way to start with this would be to copy the built-in layouts.
 
-For `CardViewNative`:
+For **CardViewNative**:
  
 clone [`res/layout/native_card_layout.xml`](/library-core/src/main/res/layout/native_card_layout.xml) or [`res/layout/native_card_thumbnail_layout.xml`](/library-core/src/main/res/layout/native_card_thumbnail_layout.xml)
 
@@ -352,7 +352,7 @@ You can see [`res/layout/carddemo_native_example_card1_layout.xml`](/demo/stock/
    </LinearLayout>
 ```
 
-For `CardView`:
+For **CardView**:
  
 clone [`res/layout/card_layout.xml`](/library-core/src/main/res/layout/card_layout.xml) or [`res/layout/card_thumbnail_layout.xml`](/library-core/src/main/res/layout/card_thumbnail_layout.xml)
 
@@ -414,13 +414,25 @@ Without this element, the `setupInnerViewElements` method in your `CardHeader` w
 
 ![Screen](/demo/images/header/native/layout.png)
 
+In the CardViewNative override these dimens to change the margins:
+
+```xml
+    <dimen name="card_header_native_default_paddingLeft">0dp</dimen>
+    <dimen name="card_header_native_default_paddingRight">0dp</dimen>
+    <dimen name="card_header_native_default_paddingTop">0dp</dimen>
+    <dimen name="card_header_native_default_paddingBottom">0dp</dimen>
+```
+
+![Screen](/demo/images/header/native/header_0.png)
+
+
 ### Style
 
 You can customize some properties with your style and drawable files.
 The quickest way to start with this would be to copy the specific style or drawable in your project and
 change them.
 
-For the `CardViewNative`:
+For the **CardViewNative**:
 
 These are the main **style properties**:
 
@@ -431,6 +443,15 @@ These are the main **style properties**:
 * `card.native.header_button_base.overflow`: overflow button style
 * `card.native.header_button_base.expand`: expand button style
 * `card.native.header_button_base.other`: other button style
+
+**margins**:
+
+``` xml
+    <dimen name="card_header_native_default_paddingLeft">12dp</dimen>
+    <dimen name="card_header_native_default_paddingRight">12dp</dimen>
+    <dimen name="card_header_native_default_paddingTop">12dp</dimen>
+    <dimen name="card_header_native_default_paddingBottom">0dp</dimen>
+``` 
 
 **color properties**:
 
@@ -495,7 +516,7 @@ values-v21/fonts.xml
     <string name="card_native_font_fontFamily_header">sans-serif-medium</string>
 ```
 
-For the `CardView`:
+For the **CardView**:
 
 These are the main **style properties**:
 
