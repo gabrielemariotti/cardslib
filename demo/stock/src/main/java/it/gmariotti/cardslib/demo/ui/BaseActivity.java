@@ -180,7 +180,7 @@ public abstract class BaseActivity extends Activity {
         Log.d(TAG, "onActivityResult(" + requestCode + "," + resultCode + "," + data);
 
         // Pass on the activity result to the helper for handling
-        if (!mHelper.handleActivityResult(requestCode, resultCode, data)) {
+        if (mHelper!=null && !mHelper.handleActivityResult(requestCode, resultCode, data)) {
             // not handled, so handle it ourselves (here's where you'd
             // perform any handling of activity results not related to in-app
             // billing...
