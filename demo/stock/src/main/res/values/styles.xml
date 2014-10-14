@@ -146,7 +146,7 @@
         <item name="android:clipToPadding">false</item>
         <item name="android:scrollbarStyle">outsideOverlay</item>
         <item name="android:paddingLeft">@dimen/carddemo_keyline_1_minus_8dp</item>
-        <item name="android:paddingRight">@dimen/carddemo_keyline_1_minus_8dp</item>ù
+        <item name="android:paddingRight">@dimen/carddemo_keyline_1_minus_8dp</item>
         <item name="android:paddingTop">@dimen/carddemo_keyline_1_minus_8dp</item>
         <item name="android:paddingBottom">@dimen/carddemo_keyline_1_minus_8dp</item>
     </style>
