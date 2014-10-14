@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <!--
   ~ *******************************************************************************
   ~   Copyright (c) 2013-2014 Gabriele Mariotti.
@@ -17,11 +18,20 @@
   ~  *****************************************************************************
   -->
 
-<resources>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
 
-    <!--Staggered -->
-    <integer name="carddemo_extras_basestaggered_nlines">4</integer>
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:textStyle="@integer/font_textStyle_medium"
+        android:fontFamily="@string/font_fontFamily_medium"
+        android:textSize="@dimen/hashtag_hero_text_size"
+        android:textColor="@color/md_indigo_600"/>
 
-    <integer name="carddemo_extra_spannedgrid_numcols">3</integer>
-    <integer name="menu_grid_columns">3</integer>
-</resources>
+</FrameLayout>

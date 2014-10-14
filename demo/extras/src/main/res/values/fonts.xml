@@ -18,10 +18,9 @@
   -->
 
 <resources>
+    <integer name="font_textStyle_medium">1</integer> <!-- bold -->
+    <string name="font_fontFamily_medium">sans-serif</string>
 
-    <!--Staggered -->
-    <integer name="carddemo_extras_basestaggered_nlines">4</integer>
-
-    <integer name="carddemo_extra_spannedgrid_numcols">3</integer>
-    <integer name="menu_grid_columns">3</integer>
+    <integer name="font_textStyle_drawer_item">0</integer> <!-- normal -->
+    <string name="font_fontFamily_drawer_item">sans-serif</string>
 </resources>

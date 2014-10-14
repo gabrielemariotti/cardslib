@@ -18,6 +18,138 @@
 
 <resources>
 
+    <style name="FrameworkRoot.Theme" parent="android:Theme.Holo.Light.DarkActionBar" />
+    <style name="FrameworkRoot.ActionBar" parent="android:Widget.Holo.ActionBar" />
+    <style name="FrameworkRoot.ActionBar.TitleText" parent="android:TextAppearance.Holo.Widget.ActionBar.Title" />
+    <style name="FrameworkRoot.ActionBar.TabBar" parent="android:Widget.Holo.ActionBar.TabBar" />
+    <style name="FrameworkRoot.EditText" parent="android:Widget.Holo.Light.EditText" />
+    <style name="FrameworkRoot.Widget" parent="android:Theme.Holo" />
+    <style name="FrameworkRoot.Widget.ActionButton.Overflow" parent="android:Widget.Holo.ActionButton.Overflow" />
+    <style name="FrameworkRoot.Widget.Spinner" parent="android:Widget.Holo.Light.Spinner" />
+    <style name="FrameworkRoot.Widget.ListView.DropDown" parent="android:Widget.Holo.Light.ListView.DropDown" />
+    <style name="FrameworkRoot.Widget.PopupMenu" parent="android:Widget.Holo.Light.PopupMenu" />
+    <style name="FrameworkRoot.TextAppearance.Widget.PopupMenu.Large" parent="android:TextAppearance.Holo.Widget.PopupMenu.Large" />
+
+    <!-- Immediate parent theme to specify base values for custom attributes -->
+    <style name="Theme" parent="FrameworkRoot.Theme">
+        <!-- Only needed for pre-L -->
+        <item name="android:actionOverflowButtonStyle">@style/ActionButton.Overflow</item>
+        <item name="android:actionBarWidgetTheme">@style/Theme.Carddemo.Widget</item>
+    </style>
+
+    <style name="Theme.Carddemo.Base" parent="Theme">
+        <item name="actionBarOverlayTopOffset">?android:actionBarSize</item>
+        <item name="actionBarInsetStart">?android:actionBarSize</item>
+
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="popupItemBackground">?android:selectableItemBackground</item>
+        <item name="selectableItemBackgroundBorderless">?android:selectableItemBackground</item>
+        <item name="android:actionBarStyle">@style/ActionBar</item>
+
+        <item name="android:popupMenuStyle">@style/Widget.Carddemo.PopupMenu</item>
+        <item name="android:listPopupWindowStyle">@style/Widget.Carddemo.PopupMenu</item>
+        <item name="android:dropDownListViewStyle">@style/Widget.Carddemo.ListView.DropDown</item>
+        <item name="android:textAppearanceLargePopupMenu">@style/TextAppearance.LargePopupMenu</item>
+
+    </style>
+
+    <style name="Theme.Carddemo" parent="Theme.Carddemo.Base" />
+
+    <style name="Theme.Carddemo.Main" parent="Theme.Carddemo">
+        <item name="android:windowContentOverlay">@drawable/header_shadow</item>
+    </style>
+
+    <style name="Theme.Carddemo.DemoSingleTopic" parent="Theme.Carddemo">
+        <item name="android:windowContentOverlay">@null</item>
+
+    </style>
+
+    <style name="HeaderBar" />
+
+
+    <!-- Action bar -->
+    <style name="ActionBar.Base" parent="FrameworkRoot.ActionBar">
+        <item name="android:background">@drawable/actionbar_background</item>
+        <item name="android:icon">@drawable/ic_launcher</item>
+        <item name="android:displayOptions">showHome|showTitle</item>
+        <item name="android:titleTextStyle">@style/ActionBar.TitleText</item>
+        <item name="android:logo">@drawable/ic_launcher</item>
+    </style>
+
+    <style name="ActionBar" parent="ActionBar.Base" />
+
+    <style name="ActionBar.TitleText" parent="FrameworkRoot.ActionBar.TitleText">
+        <item name="android:textColor">#fff</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+
+    <style name="ActionButton.Overflow" parent="FrameworkRoot.Widget.ActionButton.Overflow">
+        <item name="android:src">@drawable/demo_ic_action_overflow</item>
+    </style>
+
+    <!-- Text for sections -->
+    <style name="Theme.Carddemo.TitleText">
+        <item name="android:textSize">@dimen/demo_title_section_textsize</item>
+        <item name="android:layout_marginLeft">@dimen/demo_title_section_margin</item>
+        <item name="android:layout_marginRight">@dimen/demo_title_section_margin</item>
+        <item name="android:layout_marginBottom">@dimen/demo_title_section_margin_bottom</item>
+        <item name="android:layout_marginTop">@dimen/demo_title_section_margin_top</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/theme_accent_1</item>
+    </style>
+
+    <style name="Theme.Carddemo.TrademarkText">
+        <item name="android:textSize">12dp</item>
+        <item name="android:layout_marginLeft">@dimen/demo_title_section_margin</item>
+        <item name="android:layout_marginRight">@dimen/demo_title_section_margin</item>
+        <item name="android:layout_marginBottom">@dimen/demo_title_section_margin_bottom</item>
+        <item name="android:textColor">@android:color/darker_gray</item>
+    </style>
+
+    <style name="Theme.Carddemo.Widget" parent="FrameworkRoot.Widget">
+        <item name="android:popupMenuStyle">@style/Widget.Carddemo.PopupMenu</item>
+        <item name="android:listPopupWindowStyle">@style/Widget.Carddemo.PopupMenu</item>
+        <item name="android:dropDownListViewStyle">@style/Widget.Carddemo.ListView.DropDown</item>
+        <item name="android:textAppearanceLargePopupMenu">@style/TextAppearance.LargePopupMenu</item>
+    </style>
+
+    <style name="Widget.Carddemo.PopupMenu" parent="FrameworkRoot.Widget.PopupMenu">
+        <item name="android:dropDownSelector">?popupItemBackground</item>
+    </style>
+
+    <style name="Widget.Carddemo.ListView.DropDown" parent="FrameworkRoot.Widget.ListView.DropDown">
+        <item name="android:listSelector">?popupItemBackground</item>
+        <item name="android:divider">@null</item>
+        <item name="android:dividerHeight">0dp</item>
+    </style>
+
+    <style name="TextAppearance.LargePopupMenu" parent="FrameworkRoot.TextAppearance.Widget.PopupMenu.Large">
+        <item name="android:textColor">@color/body_text_1</item>
+    </style>
+
+
+
+    <style name="TextBody">
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:textColor">@color/body_text_1</item>
+        <item name="android:lineSpacingMultiplier">1.1</item>
+    </style>
+
+    <style name="SessionTimeHint" parent="TextBody">
+        <item name="android:textStyle">italic</item>
+        <item name="android:textColor">@color/body_text_2</item>
+    </style>
+
+    <style name="carddemo_default_container_padding">
+        <item name="android:clipToPadding">false</item>
+        <item name="android:scrollbarStyle">outsideOverlay</item>
+        <item name="android:paddingLeft">@dimen/carddemo_keyline_1_minus_8dp</item>
+        <item name="android:paddingRight">@dimen/carddemo_keyline_1_minus_8dp</item>
+        <item name="android:paddingTop">@dimen/carddemo_keyline_1_minus_8dp</item>
+        <item name="android:paddingBottom">@dimen/carddemo_keyline_1_minus_8dp</item>
+    </style>
+
     <!--
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
@@ -57,138 +189,5 @@
     </style>
 
 
-    <!-- Google Now -->
 
-    <style name="Now_extras"></style>
-
-    <style name="Now_extras.card_expand_inner_layout">
-        <item name="android:paddingLeft">10dp</item>
-        <item name="android:paddingRight">10dp</item>
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">32dp</item>
-        <item name="android:gravity">center_vertical</item>
-    </style>
-
-    <style name="Now_extras.card_expand_inner_layout.light_gray">
-        <item name="android:background">#515254</item>
-        <item name="android:textColor">#B3B2B2</item>
-    </style>
-
-    <style name="Now_extras.card_expand_inner_layout.light_gray.bold">
-        <item name="android:textStyle">bold</item>
-    </style>
-
-    <style name="Now_extras.card_expand_inner_layout.dark">
-        <item name="android:background">#4A4B4D</item>
-        <item name="android:textColor">#FFF</item>
-    </style>
-
-    <style name="Now_extras.card_expand_inner_layout.dark.bold" parent="@style/Now_extras.card_expand_inner_layout.dark">
-        <item name="android:textStyle">bold</item>
-    </style>
-
-
-    <style name="Birth_extras.card.content_outer_layout" parent="@style/card.content_outer_layout">
-        <!--Style for Content View-->
-        <item name="android:minHeight">60dp</item>
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_marginTop">@dimen/card_content_outer_view_margin_top</item>
-        <item name="android:layout_marginBottom">@dimen/card_content_outer_view_margin_bottom</item>
-        <item name="android:layout_marginLeft">@dimen/card_content_outer_view_margin_left</item>
-        <item name="android:layout_marginRight">@dimen/card_content_outer_view_margin_right</item>
-    </style>
-
-    <!-- Base Style text -->
-
-    <style name="carddemo_extra_base_main_inner_secondarytitle">
-        <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@android:color/darker_gray</item>
-    </style>
-
-    <style name="carddemo_extra_base_main_inner_title">
-        <item name="android:textSize">18sp</item>
-        <item name="android:textColor">@android:color/black</item>
-        <item name="android:layout_marginTop">2dp</item>
-    </style>
-
-
-    <style name="Play.card.content_outer_layout" parent="@style/card.content_outer_layout">
-        <!--Style for Content View-->
-        <item name="android:minHeight">60dp</item>
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_marginTop">@dimen/card_content_outer_view_margin_top</item>
-        <item name="android:layout_marginBottom">@dimen/card_content_outer_view_margin_bottom</item>
-        <item name="android:layout_marginLeft">@dimen/card_content_outer_view_margin_left</item>
-        <item name="android:layout_marginRight">@dimen/card_content_outer_view_margin_right</item>
-    </style>
-
-    <style name="Play.native.card.content_outer_layout" parent="@style/card.native.content_outer_layout">
-        <!--Style for Content View-->
-        <item name="android:minHeight">60dp</item>
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_marginTop">@dimen/card_content_outer_view_margin_top</item>
-        <item name="android:layout_marginBottom">@dimen/card_content_outer_view_margin_bottom</item>
-        <item name="android:layout_marginLeft">@dimen/card_content_outer_view_margin_left</item>
-        <item name="android:layout_marginRight">@dimen/card_content_outer_view_margin_right</item>
-    </style>
-
-    <style name="carddemo_extras_myapps_main_inner_ratingbar"  >
-        <item name="android:indeterminateOnly">false</item>
-        <item name="android:progressDrawable">@drawable/ratingbar_extras_small_holo_dark</item>
-        <item name="android:indeterminateDrawable">@drawable/ratingbar_extras_small_holo_dark</item>
-        <item name="android:minHeight">12dip</item>
-        <item name="android:maxHeight">12dip</item>
-        <item name="android:thumb">@null</item>
-        <item name="android:isIndicator">true</item>
-    </style>
-
-    <style name="carddemo_extras_myapps_main_inner_secondarytitle">
-        <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@android:color/darker_gray</item>
-    </style>
-
-    <style name="carddemo_extras_myapps_main_inner_title">
-        <item name="android:textSize">18sp</item>
-        <item name="android:textColor">@android:color/black</item>
-        <item name="android:layout_marginTop">2dp</item>
-    </style>
-
-    <!--Style for Crouton View-->
-    <style name="card.content_outer_crouton_layout">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:minHeight">32dp</item>
-        <item name="android:layout_marginTop">@dimen/card_content_outer_view_margin_top</item>
-        <item name="android:layout_marginBottom">@dimen/card_content_outer_view_margin_bottom</item>
-        <item name="android:layout_marginLeft">@dimen/card_content_outer_view_margin_left</item>
-        <item name="android:layout_marginRight">@dimen/card_content_outer_view_margin_right</item>
-    </style>
-
-    <style name="card_thumbnail_crouton_image">
-        <item name="android:layout_width">24dp</item>
-        <item name="android:layout_height">24dp</item>
-        <item name="android:layout_gravity">center</item>
-        <item name="android:gravity">center</item>
-        <item name="android:scaleType">centerCrop</item>
-    </style>
-
-    <!-- Expand inside -->
-    <style name="card.main_layout_expandinside" parent="card.main_layout">
-        <item name="android:background">@drawable/card_background</item>
-    </style>
-
-    <style name="card.header_expand_simple_title" parent="card.header_simple_title">
-        <item name="android:textColor">#CC2A84A5</item>
-        <item name="android:textSize">16sp</item>
-    </style>
-
-    <style name="card.main_contentExpand_inside">
-        <item name="android:background">@color/card_background</item>
-        <item name="android:padding">@dimen/card_expand_layout_padding</item>
-    </style>
-
-    <!--Staggered-->
-    <!--Style for Content View-->
-    <style name="card.content_outer_layout.staggered">
-        <item name="android:minHeight">20dp</item>
-    </style>
 </resources>

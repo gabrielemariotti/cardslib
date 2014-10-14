@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!--
   ~ *******************************************************************************
   ~   Copyright (c) 2013-2014 Gabriele Mariotti.
@@ -17,11 +16,20 @@
   ~  *****************************************************************************
   -->
 
-<resources>
+<!-- Main layout -->
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/headerbar"
+    android:orientation="vertical"
+    tools:context=".ui.DemoSingleTopicActivity">
 
-    <!--Staggered -->
-    <integer name="carddemo_extras_basestaggered_nlines">4</integer>
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+</LinearLayout>
 
-    <integer name="carddemo_extra_spannedgrid_numcols">3</integer>
-    <integer name="menu_grid_columns">3</integer>
-</resources>

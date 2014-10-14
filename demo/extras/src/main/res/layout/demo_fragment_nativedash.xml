@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <!--
   ~ *******************************************************************************
   ~   Copyright (c) 2013-2014 Gabriele Mariotti.
@@ -17,11 +18,16 @@
   ~  *****************************************************************************
   -->
 
-<resources>
-
-    <!--Staggered -->
-    <integer name="carddemo_extras_basestaggered_nlines">4</integer>
-
-    <integer name="carddemo_extra_spannedgrid_numcols">3</integer>
-    <integer name="menu_grid_columns">3</integer>
-</resources>
+<it.gmariotti.cardslib.demo.extras.ui.widget.CollectionView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:iosched="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/menu_collection_vew"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="4dp"
+    android:layout_marginStart="@dimen/menu_hz_margin"
+    android:layout_marginEnd="@dimen/menu_hz_margin"
+    android:clipToPadding="false"
+    iosched:internalPadding="4dp"
+    tools:context="it.gmariotti.cardslib.demo.fragment.NativeDashFragment" />

@@ -91,7 +91,7 @@ dependencies {
     //Google Progress Bar
     compile 'com.jpardogo.googleprogressbar:library:1.1.0'
 
-    compile 'com.github.castorflex.smoothprogressbar:library-circular:1.0.1-SNAPSHOT@aar'
+    compile 'com.github.castorflex.smoothprogressbar:library-circular:1.0.1'
 }
 
 

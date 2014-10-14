@@ -17,11 +17,19 @@
   ~  *****************************************************************************
   -->
 
-<resources>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/navdrawer_width"
+    android:layout_height="match_parent"
+    android:id="@+id/navdrawer"
+    android:layout_gravity="start"
+    android:background="@color/navdrawer_background">
 
-    <!--Staggered -->
-    <integer name="carddemo_extras_basestaggered_nlines">4</integer>
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-    <integer name="carddemo_extra_spannedgrid_numcols">3</integer>
-    <integer name="menu_grid_columns">3</integer>
-</resources>
+        <include layout="@layout/navdrawer_content" />
+
+    </LinearLayout>
+
+</ScrollView>

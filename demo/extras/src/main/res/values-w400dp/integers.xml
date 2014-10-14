@@ -18,10 +18,5 @@
   -->
 
 <resources>
-
-    <!--Staggered -->
-    <integer name="carddemo_extras_basestaggered_nlines">4</integer>
-
-    <integer name="carddemo_extra_spannedgrid_numcols">3</integer>
-    <integer name="menu_grid_columns">3</integer>
+    <integer name="menu_grid_columns">4</integer>
 </resources>
