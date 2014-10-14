@@ -350,6 +350,9 @@ public class CardViewNative extends android.support.v7.widget.CardView implement
         }
         mCard.setCardView(this);
 
+        //Shadow
+        setupShadowView();
+
         //Setup Header view
         setupHeaderView();
 
@@ -395,6 +398,17 @@ public class CardViewNative extends android.support.v7.widget.CardView implement
 
         //Get ThumbnailLayout
         mInternalThumbnailLayout = (CardThumbnailView) findViewById(R.id.card_thumbnail_layout);
+    }
+
+    /**
+     * Sets up Shadow visibility
+     *
+     * @return
+     */
+    protected void setupShadowView() {
+        if (mCard != null && mCard.getCardElevation() != null) {
+            setElevation(mCard.getCardElevation());
+        }
     }
 
     /**

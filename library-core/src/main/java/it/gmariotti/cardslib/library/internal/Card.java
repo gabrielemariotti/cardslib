@@ -207,6 +207,12 @@ public class Card extends BaseCard {
      */
     protected ViewToClickToExpand viewToClickToExpand=null;
 
+    /**
+     *  Custom Elevation
+     */
+    protected Float mCardElevation;
+
+
     private boolean couldUseNativeInnerLayout = false;
 
     // -------------------------------------------------------------
@@ -717,6 +723,24 @@ public class Card extends BaseCard {
     // -------------------------------------------------------------
     //  Getters and Setters
     // -------------------------------------------------------------
+
+    /**
+     * Sets the shadow elevation.
+     * This method works only with the CardViewNative.
+     * @param elevation
+     */
+    public void setCardElevation(float elevation) {
+        this.mCardElevation = elevation;
+    }
+
+    /**
+     * Returns the elevation
+     *
+     * @return
+     */
+    public Float getCardElevation() {
+        return mCardElevation;
+    }
 
     /**
      * Indicates if card has a shadow
