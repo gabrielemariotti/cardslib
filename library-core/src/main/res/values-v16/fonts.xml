@@ -24,6 +24,6 @@
     <string name="card_font_fontFamily_main_content">sans-serif</string>
     <string name="card_native_font_fontFamily_main_content">sans-serif</string>
 
-    <string name="card_font_fontFamily_expand">sans-serif</string>
+    <string name="card_font_fontFamily_expand">sans-serif-condensed</string>
     <string name="card_native_font_fontFamily_expand">sans-serif</string>
 </resources>

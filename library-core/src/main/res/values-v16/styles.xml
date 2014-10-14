@@ -78,7 +78,7 @@
     <style name="card.expand_simple_title">
         <item name="android:layout_gravity">left|center_vertical</item>
         <item name="android:gravity">center_vertical</item>
-        <item name="android:fontFamily">sans-serif-condensed</item>
+        <item name="android:fontFamily">@string/card_font_fontFamily_expand</item>
         <item name="android:textSize">@dimen/card_expand_simple_title_text_size</item>
         <item name="android:paddingLeft">@dimen/card_expand_simple_title_paddingLeft</item>
         <item name="android:paddingRight">@dimen/card_expand_simple_title_paddingRight</item>
