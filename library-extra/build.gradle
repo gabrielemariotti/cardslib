@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 19
+        targetSdkVersion 21
         versionName project.VERSION_NAME
         versionCode Integer.parseInt(project.VERSION_CODE)
     }
@@ -26,7 +26,7 @@ dependencies {
     // Cards Library
     compile project(':library')
     //Annotation
-    compile 'com.android.support:support-annotations:20.0.0'
+    compile 'com.android.support:support-annotations:21.0.0'
     //StaggeredGrid
     compile 'com.etsy.android.grid:library:1.0.5'
     //DynamicList
