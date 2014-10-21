@@ -13,7 +13,7 @@ android {
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 'L'
+        targetSdkVersion 21
         versionName project.VERSION_NAME
         versionCode Integer.parseInt(project.VERSION_CODE)
     }
@@ -29,7 +29,7 @@ dependencies {
     compile project(':library-core')
 
     //Twowayview
-    compile 'com.android.support:recyclerview-v7:+'
+    compile 'com.android.support:recyclerview-v7:21.0.0'
     compile 'org.lucasr.twowayview:core:1.0.0-SNAPSHOT@aar'
     compile 'org.lucasr.twowayview:layouts:1.0.0-SNAPSHOT@aar'
 

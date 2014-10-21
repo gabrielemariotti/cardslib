@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 'L'
+        targetSdkVersion 21
         versionName project.VERSION_NAME
         versionCode Integer.parseInt(project.VERSION_CODE)
     }
@@ -23,8 +23,8 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:cardview-v7:+'
-    compile 'com.android.support:recyclerview-v7:+'
+    compile 'com.android.support:cardview-v7:21.0.0'
+    compile 'com.android.support:recyclerview-v7:21.0.0'
 }
 
 // Used to update in Maven

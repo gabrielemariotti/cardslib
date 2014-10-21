@@ -5,14 +5,14 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.12.2'
+        classpath 'com.android.tools.build:gradle:0.13.+'
         classpath 'com.jakewharton.sdkmanager:gradle-plugin:0.12.0'
     }
 }
 
 ext {
-    compileSdkVersion = 'android-L'
-    buildToolsVersion = "20.0.0"
+    compileSdkVersion = 21
+    buildToolsVersion = "21.0.1"
 }
 
 def isReleaseBuild() {

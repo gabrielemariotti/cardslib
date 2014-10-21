@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 'L'
+        targetSdkVersion 21
         versionName project.VERSION_NAME
         versionCode Integer.parseInt(project.VERSION_CODE)
 
@@ -46,7 +46,8 @@ dependencies {
     compile project(':library-core')
     compile project(':library-cards')
     // Support Libraries
-    compile 'com.android.support:support-v4:21+'
+    compile 'com.android.support:support-v4:21.0.0'
+    compile 'com.android.support:appcompat-v7:21.0.0'
 
     //androidTestCompile 'com.jakewharton.espresso:espresso:1.1-r2'
 }

@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 'L'
+        targetSdkVersion 21
         versionName project.VERSION_NAME
         versionCode Integer.parseInt(project.VERSION_CODE)
     }

@@ -42,7 +42,7 @@ public class CardGridStaggeredGridLayoutManager extends StaggeredGridLayoutManag
     }
 
     public CardGridStaggeredGridLayoutManager(Context context, Orientation orientation, int numColumns, int numRows) {
-        super(context, orientation, numColumns, numRows);
+        super(orientation, numColumns, numRows);
     }
 
 
