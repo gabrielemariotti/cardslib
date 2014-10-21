@@ -18,7 +18,6 @@
 
 package it.gmariotti.cardslib.demo.ui;
 
-import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -46,7 +45,6 @@ public class V1MenuActivity extends BaseActivity implements NativeDashFragment.C
         }
 
         setContentView(R.layout.carddemo_activity_native);
-        getLPreviewUtils().trySetActionBar();
 
         if (null == savedInstanceState) {
             getFragmentManager().beginTransaction()
@@ -57,26 +55,6 @@ public class V1MenuActivity extends BaseActivity implements NativeDashFragment.C
         overridePendingTransition(0, 0);
     }
 
-    @Override
-    protected void onNavDrawerStateChanged(boolean isOpen, boolean isAnimating) {
-        super.onNavDrawerStateChanged(isOpen, isAnimating);
-        updateActionBarNavigation();
-    }
-
-    private void updateActionBarNavigation() {
-        boolean show = !isNavDrawerOpen();
-        if (getLPreviewUtils().shouldChangeActionBarForDrawer()) {
-            ActionBar ab = getActionBar();
-            ab.setDisplayShowTitleEnabled(show);
-            ab.setDisplayUseLogoEnabled(!show);
-        }
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        invalidateOptionsMenu();
-    }
 
     @Override
     public void onTopicSelected(NativeDashFragment.MenuEntry menuEntry, View clickedView) {

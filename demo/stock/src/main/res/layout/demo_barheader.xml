@@ -32,7 +32,7 @@
     <View
         android:id="@+id/header_background"
         android:layout_width="match_parent"
-        android:background="@color/demo_theme_main_color"
+        android:background="@color/demo_primary_color"
         android:layout_height="@dimen/carddemo_barheader_height"/>
 
     <LinearLayout

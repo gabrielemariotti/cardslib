@@ -70,7 +70,7 @@ public abstract class BaseMaterialFragment extends BaseFragment {
         setupBarHeader(view);
         setupBarButton(view);
 
-        ((BaseActivity) getActivity()).getLPreviewUtils().setViewName(mHeaderBox, NativeDashFragment.VIEW_COLOR);
+        //((BaseActivity) getActivity()).getLPreviewUtils().setViewName(mHeaderBox, NativeDashFragment.VIEW_COLOR);
     }
 
     protected void setupBarHeader(View rootView){
@@ -130,13 +130,13 @@ public abstract class BaseMaterialFragment extends BaseFragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        LPreviewUtilsBase lpu = LPreviewUtils.getInstance(getActivity());
+        LPreviewUtilsBase lpu = LPreviewUtils.getInstance(((BaseActivity)getActivity()));
 
         float mMaxHeaderElevation = getResources().getDimensionPixelSize(
                 R.dimen.carddemo_barheader_elevation);
 
         if (mHeaderShadow != null)
-            mHeaderShadow.setVisibility(lpu.hasLPreviewAPIs() ? View.GONE : View.VISIBLE);
+            mHeaderShadow.setVisibility(lpu.hasL() ? View.GONE : View.VISIBLE);
         if (mHeaderBackgroundBox != null)
             lpu.setViewElevation(mHeaderBackgroundBox,  mMaxHeaderElevation);
         if (mHeaderContentBox != null)

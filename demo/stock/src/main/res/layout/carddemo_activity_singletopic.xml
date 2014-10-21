@@ -26,6 +26,8 @@
     android:orientation="vertical"
     tools:context=".ui.DemoSingleTopicActivity">
 
+    <include layout="@layout/toolbar_actionbar_with_headerbar" />
+
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="match_parent"

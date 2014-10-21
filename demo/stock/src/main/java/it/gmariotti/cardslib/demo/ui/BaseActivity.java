@@ -18,19 +18,24 @@
 
 package it.gmariotti.cardslib.demo.ui;
 
-import android.app.ActionBar;
-import android.app.Activity;
+import android.animation.ArgbEvaluator;
+import android.animation.ObjectAnimator;
+import android.animation.TypeEvaluator;
+import android.animation.ValueAnimator;
 import android.content.Intent;
-import android.content.res.Configuration;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -41,7 +46,6 @@ import it.gmariotti.cardslib.demo.Utils;
 import it.gmariotti.cardslib.demo.iabutils.IabHelper;
 import it.gmariotti.cardslib.demo.iabutils.IabResult;
 import it.gmariotti.cardslib.demo.iabutils.IabUtil;
-import it.gmariotti.cardslib.demo.utils.LPreviewUtils;
 import it.gmariotti.cardslib.demo.utils.LPreviewUtilsBase;
 import it.gmariotti.cardslib.demo.utils.PrefUtils;
 
@@ -50,7 +54,7 @@ import static it.gmariotti.cardslib.demo.utils.LogUtils.makeLogTag;
 /**
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public abstract class BaseActivity extends Activity {
+public abstract class BaseActivity extends ActionBarActivity {
 
     private static final String TAG = makeLogTag(BaseActivity.class);
 
@@ -60,7 +64,22 @@ public abstract class BaseActivity extends Activity {
 
     // Navigation drawer:
     private DrawerLayout mDrawerLayout;
-    private LPreviewUtilsBase.ActionBarDrawerToggleWrapper mDrawerToggle;
+
+    private static final TypeEvaluator ARGB_EVALUATOR = new ArgbEvaluator();
+    private ObjectAnimator mStatusBarColorAnimator;
+    private int mThemedStatusBarColor;
+    private int mNormalStatusBarColor;
+
+    // When set, these components will be shown/hidden in sync with the action bar
+    // to implement the "quick recall" effect (the Action Bar and the header views disappear
+    // when you scroll down a list, and reappear quickly when you scroll up).
+    private ArrayList<View> mHideableHeaderViews = new ArrayList<View>();
+
+    // Primary toolbar and drawer toggle
+    private Toolbar mActionBarToolbar;
+
+    // Durations for certain animations we use:
+    private static final int HEADER_HIDE_ANIM_DURATION = 300;
 
     // list of navdrawer items that were actually added to the navdrawer, in order
     private ArrayList<Integer> mNavDrawerItems = new ArrayList<Integer>();
@@ -126,12 +145,11 @@ public abstract class BaseActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        ActionBar ab = getActionBar();
-        if (ab != null) {
-            ab.setDisplayHomeAsUpEnabled(true);
-        }
 
-        mLPreviewUtils = LPreviewUtils.getInstance(this);
+        mLPreviewUtils = LPreviewUtilsBase.getInstance(this);
+
+        mThemedStatusBarColor = getResources().getColor(R.color.demo_colorPrimaryDark);
+        mNormalStatusBarColor = mThemedStatusBarColor;
 
         mHandler = new Handler();
         // ---------------------------------------------------------------
@@ -162,11 +180,18 @@ public abstract class BaseActivity extends Activity {
     }
 
     @Override
+    public void setContentView(int layoutResID) {
+        super.setContentView(layoutResID);
+        getActionBarToolbar();
+    }
+
+    @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         setupNavDrawer();
-
     }
+
+
 
     @Override
     public void onDestroy() {
@@ -191,24 +216,6 @@ public abstract class BaseActivity extends Activity {
         }
     }
 
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        if (mDrawerToggle != null) {
-            mDrawerToggle.onConfigurationChanged(newConfig);
-        }
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (mDrawerToggle != null && mDrawerToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
     //----------------------------------------------------------------------------
     // Navigation Drawer
     //----------------------------------------------------------------------------
@@ -226,6 +233,10 @@ public abstract class BaseActivity extends Activity {
         if (mDrawerLayout == null) {
             return;
         }
+
+        mDrawerLayout.setStatusBarBackgroundColor(
+                getResources().getColor(R.color.demo_colorPrimaryDark));
+
         if (selfItem == NAVDRAWER_ITEM_INVALID) {
             // do not show a nav drawer
             View navDrawer = mDrawerLayout.findViewById(R.id.navdrawer);
@@ -236,7 +247,17 @@ public abstract class BaseActivity extends Activity {
             return;
         }
 
-        mDrawerToggle = mLPreviewUtils.setupDrawerToggle(mDrawerLayout, new DrawerLayout.DrawerListener() {
+        if (mActionBarToolbar != null) {
+            mActionBarToolbar.setNavigationIcon(R.drawable.ic_navigation_drawer);
+            mActionBarToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mDrawerLayout.openDrawer(Gravity.START);
+                }
+            });
+        }
+
+        mDrawerLayout.setDrawerListener(new DrawerLayout.DrawerListener() {
             @Override
             public void onDrawerClosed(View drawerView) {
                 // run deferred action, if we have one
@@ -244,40 +265,38 @@ public abstract class BaseActivity extends Activity {
                     mDeferredOnDrawerClosedRunnable.run();
                     mDeferredOnDrawerClosedRunnable = null;
                 }
-
-                invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
-                updateStatusBarForNavDrawerSlide(0f);
+                //invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
+                //updateStatusBarForNavDrawerSlide(0f);
                 onNavDrawerStateChanged(false, false);
             }
 
             @Override
             public void onDrawerOpened(View drawerView) {
-                invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
-                updateStatusBarForNavDrawerSlide(1f);
+                //invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
+                //updateStatusBarForNavDrawerSlide(1f);
                 onNavDrawerStateChanged(true, false);
             }
 
             @Override
             public void onDrawerStateChanged(int newState) {
-                invalidateOptionsMenu();
+                //invalidateOptionsMenu();
                 onNavDrawerStateChanged(isNavDrawerOpen(), newState != DrawerLayout.STATE_IDLE);
             }
 
             @Override
             public void onDrawerSlide(View drawerView, float slideOffset) {
-                updateStatusBarForNavDrawerSlide(slideOffset);
+                //updateStatusBarForNavDrawerSlide(slideOffset);
                 onNavDrawerSlide(slideOffset);
             }
         });
+
         mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, Gravity.START);
 
-        getActionBar().setDisplayHomeAsUpEnabled(true);
-        getActionBar().setHomeButtonEnabled(true);
+        //getActionBar().setDisplayHomeAsUpEnabled(true);
+        //getActionBar().setHomeButtonEnabled(true);
 
         // populate the nav drawer with the correct items
         populateNavDrawer();
-
-        mDrawerToggle.syncState();
 
         // When the user runs the app for the first time, we want to land them with the
         // navigation drawer open. But just the first time.
@@ -313,7 +332,7 @@ public abstract class BaseActivity extends Activity {
             return;
         }
         mActionBarShown = show;
-        getLPreviewUtils().showHideActionBarIfPartOfDecor(show);
+        onActionBarAutoShowOrHide(show);
 
     }
 
@@ -430,6 +449,11 @@ public abstract class BaseActivity extends Activity {
             // change the active item on the list so the user can see the item changed
             setSelectedNavDrawerItem(itemId);
 
+            // fade out the main content
+            View mainContent = findViewById(R.id.container);
+            if (mainContent != null) {
+                mainContent.animate().alpha(0).setDuration(MAIN_CONTENT_FADEOUT_DURATION);
+            }
         }
 
         mDrawerLayout.closeDrawer(Gravity.START);
@@ -504,6 +528,8 @@ public abstract class BaseActivity extends Activity {
         }
     }
 
+
+
     //----------------------------------------------------------------------------
     // Bundle
     //----------------------------------------------------------------------------
@@ -549,6 +575,80 @@ public abstract class BaseActivity extends Activity {
         return intent;
     }
 
+    //----------------------------------------------------------------------------
+    // Toolbar
+    //----------------------------------------------------------------------------
+
+    protected Toolbar getActionBarToolbar() {
+        if (mActionBarToolbar == null) {
+            mActionBarToolbar = (Toolbar) findViewById(R.id.toolbar_actionbar);
+            if (mActionBarToolbar != null) {
+                setSupportActionBar(mActionBarToolbar);
+            }
+        }
+        return mActionBarToolbar;
+    }
+
+    protected void registerHideableHeaderView(View hideableHeaderView) {
+        if (!mHideableHeaderViews.contains(hideableHeaderView)) {
+            mHideableHeaderViews.add(hideableHeaderView);
+        }
+    }
+
+    protected void deregisterHideableHeaderView(View hideableHeaderView) {
+        if (mHideableHeaderViews.contains(hideableHeaderView)) {
+            mHideableHeaderViews.remove(hideableHeaderView);
+        }
+    }
+
+    public int getThemedStatusBarColor() {
+        return mThemedStatusBarColor;
+    }
+
+    public void setNormalStatusBarColor(int color) {
+        mNormalStatusBarColor = color;
+        if (mDrawerLayout != null) {
+            mDrawerLayout.setStatusBarBackgroundColor(mNormalStatusBarColor);
+        }
+    }
+
+    protected void onActionBarAutoShowOrHide(boolean shown) {
+        if (mStatusBarColorAnimator != null) {
+            mStatusBarColorAnimator.cancel();
+        }
+        mStatusBarColorAnimator = ObjectAnimator.ofInt(
+                (mDrawerLayout != null) ? mDrawerLayout : mLPreviewUtils,
+                (mDrawerLayout != null) ? "statusBarBackgroundColor" : "statusBarColor",
+                shown ? Color.BLACK : mNormalStatusBarColor,
+                shown ? mNormalStatusBarColor : Color.BLACK)
+                .setDuration(250);
+        if (mDrawerLayout != null) {
+            mStatusBarColorAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                @Override
+                public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                    ViewCompat.postInvalidateOnAnimation(mDrawerLayout);
+                }
+            });
+        }
+        mStatusBarColorAnimator.setEvaluator(ARGB_EVALUATOR);
+        mStatusBarColorAnimator.start();
+
+        for (View view : mHideableHeaderViews) {
+            if (shown) {
+                view.animate()
+                        .translationY(0)
+                        .alpha(1)
+                        .setDuration(HEADER_HIDE_ANIM_DURATION)
+                        .setInterpolator(new DecelerateInterpolator());
+            } else {
+                view.animate()
+                        .translationY(-view.getBottom())
+                        .alpha(0)
+                        .setDuration(HEADER_HIDE_ANIM_DURATION)
+                        .setInterpolator(new DecelerateInterpolator());
+            }
+        }
+    }
     //----------------------------------------------------------------------------
     // Getters and Setters
     //----------------------------------------------------------------------------

@@ -32,14 +32,15 @@
     <View
         android:id="@+id/header_background"
         android:layout_width="match_parent"
-        android:background="@color/demo_theme_main_color"
+        style="@style/subheader"
+        android:background="@color/demo_primary_color"
         android:layout_height="@dimen/carddemo_barheader_height"/>
 
     <LinearLayout
         android:id="@+id/header_contents"
         android:layout_width="match_parent"
         android:orientation="vertical"
-        android:paddingLeft="@dimen/carddemo_keyline_content_start"
+        android:paddingLeft="@dimen/keyline_2"
         android:paddingTop="8dp"
         android:paddingRight="@dimen/carddemo_keyline_margin"
         android:paddingBottom="16dp"
@@ -90,7 +91,7 @@
         />
 
     <View
-        android:id="@+id/header_shadow"
+         android:id="@+id/header_shadow"
         android:layout_width="match_parent"
         android:layout_height="6dp"
         android:layout_gravity="bottom"

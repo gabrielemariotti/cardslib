@@ -18,10 +18,12 @@
 
 package it.gmariotti.cardslib.demo.ui;
 
-import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 
 import it.gmariotti.cardslib.demo.R;
 import it.gmariotti.cardslib.demo.fragment.BaseFragment;
@@ -36,6 +38,7 @@ public class DemoSingleTopicActivity extends BaseActivity {
     public static final String EXTRA_FRAGMENT_COLOR = "topic_fragment_color";
 
     private BaseFragment mFragment;
+    private Handler mHandler = new Handler();
 
     @Override
     protected int getSelfNavDrawerItem() {
@@ -47,12 +50,27 @@ public class DemoSingleTopicActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.carddemo_activity_singletopic);
 
-        if (getIntent().hasExtra(Intent.EXTRA_TITLE)) {
-            setTitle(getIntent().getStringExtra(Intent.EXTRA_TITLE));
-        }
+        final Toolbar toolbar = getActionBarToolbar();
+        toolbar.setNavigationIcon(R.drawable.ic_up21);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         final String customTitle = getIntent().getStringExtra(Intent.EXTRA_TITLE);
-        setTitle(customTitle != null ? customTitle : getTitle());
+
+        mHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                if (getIntent().hasExtra(Intent.EXTRA_TITLE)) {
+                    toolbar.setTitle(getIntent().getStringExtra(Intent.EXTRA_TITLE));
+                }
+                toolbar.setTitle(customTitle != null ? customTitle : getTitle());
+                //toolbar.setTitle("");
+            }
+        });
 
         if (savedInstanceState == null) {
             mFragment = getFragmentFromIntent();
@@ -63,36 +81,12 @@ public class DemoSingleTopicActivity extends BaseActivity {
         } else {
             mFragment = (BaseFragment) getFragmentManager().findFragmentByTag("single_pane");
         }
-
-        //getLPreviewUtils().trySetActionBar();
     }
 
     private BaseFragment getFragmentFromIntent() {
         Intent intent = getIntent();
         String fragmentName = intent.getStringExtra(EXTRA_FRAGMENT_NAME);
         return NativeDashFragment.MenyEntryUtils.openFragment(this,fragmentName);
-    }
-
-
-    @Override
-    protected void onNavDrawerStateChanged(boolean isOpen, boolean isAnimating) {
-        super.onNavDrawerStateChanged(isOpen, isAnimating);
-        updateActionBarNavigation();
-    }
-
-    private void updateActionBarNavigation() {
-        boolean show = !isNavDrawerOpen();
-        if (getLPreviewUtils().shouldChangeActionBarForDrawer()) {
-            ActionBar ab = getActionBar();
-            ab.setDisplayShowTitleEnabled(show);
-            ab.setDisplayUseLogoEnabled(!show);
-        }
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        invalidateOptionsMenu();
     }
 
     @Override
