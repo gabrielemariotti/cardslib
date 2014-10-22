@@ -19,9 +19,10 @@
   -->
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:card="http://schemas.android.com/apk/res-auto"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+    xmlns:card="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <include android:id="@+id/hb_full" layout="@layout/demo_barheader_full"/>
 
@@ -49,31 +50,17 @@
 
     </LinearLayout>
 
-    <FrameLayout
-        android:layout_below="@+id/hb_full"
-        android:id="@+id/carddemo_listContainer"
-        android:visibility="gone"
+    <!-- You can customize this layout.
+     You need to have in your layout a `CardView` with the ID `list_cardId` -->
+    <it.gmariotti.cardslib.library.view.CardListView
+        android:layout_below="@id/hb_full"
         android:layout_width="match_parent"
-        android:paddingLeft="12dp"
+        android:layout_height="match_parent"
         android:paddingRight="12dp"
-        android:layout_height="match_parent">
+        android:paddingLeft="12dp"
+        style="@style/native_list_external"
+        android:id="@+id/carddemo_list_gplaycard"
+        card:list_card_layout_resourceID="@layout/native_list_card_thumbnail_layout" />
 
-        <it.gmariotti.cardslib.library.view.CardRecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            card:list_card_layout_resourceID="@layout/native_recyclerview_card_layout"
-            android:id="@+id/carddemo_recyclerview"/>
-
-
-        <TextView
-            android:visibility="gone"
-            android:id="@android:id/empty"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:textAppearance="?android:textAppearanceMedium"
-            android:text="No data..."/>
-
-    </FrameLayout>
 
 </RelativeLayout>

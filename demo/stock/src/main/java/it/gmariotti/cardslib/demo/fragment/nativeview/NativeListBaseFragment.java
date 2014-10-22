@@ -30,7 +30,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import it.gmariotti.cardslib.demo.R;
-import it.gmariotti.cardslib.demo.fragment.v1.MaterialV1Fragment;
+import it.gmariotti.cardslib.demo.fragment.BaseMaterialFragment;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
 import it.gmariotti.cardslib.library.internal.CardHeader;
@@ -42,7 +42,7 @@ import it.gmariotti.cardslib.library.view.CardListView;
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public class NativeListBaseFragment extends MaterialV1Fragment {
+public class NativeListBaseFragment extends BaseMaterialFragment {
 
     protected ScrollView mScrollView;
 

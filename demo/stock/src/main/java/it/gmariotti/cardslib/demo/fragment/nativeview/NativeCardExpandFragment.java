@@ -29,7 +29,7 @@ import android.widget.TextView;
 
 import it.gmariotti.cardslib.demo.R;
 import it.gmariotti.cardslib.demo.cards.CustomCard;
-import it.gmariotti.cardslib.demo.fragment.v1.MaterialV1Fragment;
+import it.gmariotti.cardslib.demo.fragment.BaseMaterialFragment;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardExpand;
 import it.gmariotti.cardslib.library.internal.CardHeader;
@@ -42,7 +42,7 @@ import it.gmariotti.cardslib.library.view.CardViewNative;
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public class NativeCardExpandFragment extends MaterialV1Fragment {
+public class NativeCardExpandFragment extends BaseMaterialFragment {
 
 
     ScrollView mScrollView;

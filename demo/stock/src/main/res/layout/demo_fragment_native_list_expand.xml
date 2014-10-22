@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <!--
   ~ *******************************************************************************
   ~   Copyright (c) 2013-2014 Gabriele Mariotti.
@@ -17,6 +18,25 @@
   ~  *****************************************************************************
   -->
 
-<resources>
-    <string name="font_fontFamily_medium">sans-serif</string>
-</resources>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:card="http://schemas.android.com/apk/res-auto"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/hb_full"
+        layout="@layout/demo_barheader_full"/>
+
+    <it.gmariotti.cardslib.library.view.CardListView
+        android:layout_below="@id/hb_full"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingRight="12dp"
+        android:paddingLeft="12dp"
+        style="@style/native_list_external"
+        card:list_card_layout_resourceID="@layout/native_list_card_layout"
+        android:id="@+id/carddemo_list_expand"/>
+
+
+</RelativeLayout>

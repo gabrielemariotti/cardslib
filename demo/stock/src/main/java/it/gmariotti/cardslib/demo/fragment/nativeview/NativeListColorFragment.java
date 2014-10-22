@@ -28,7 +28,7 @@ import java.util.ArrayList;
 
 import it.gmariotti.cardslib.demo.R;
 import it.gmariotti.cardslib.demo.cards.ColorCard;
-import it.gmariotti.cardslib.demo.fragment.v1.MaterialV1Fragment;
+import it.gmariotti.cardslib.demo.fragment.BaseMaterialFragment;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
 import it.gmariotti.cardslib.library.view.CardListView;
@@ -38,7 +38,7 @@ import it.gmariotti.cardslib.library.view.CardListView;
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public class NativeListColorFragment extends MaterialV1Fragment {
+public class NativeListColorFragment extends BaseMaterialFragment {
 
     protected ScrollView mScrollView;
 

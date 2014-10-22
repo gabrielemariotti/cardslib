@@ -16,4 +16,5 @@
 
 <resources>
     <item name="header_shadow" type="drawable">@null</item>
+    <item name="hd_fab_ripple" type="drawable">@null</item>
 </resources>

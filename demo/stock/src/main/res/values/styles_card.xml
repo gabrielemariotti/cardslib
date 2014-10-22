@@ -170,7 +170,7 @@
     </style>
 
     <style name="Now.card_expand_inner_layout.dark">
-        <item name="android:background">#4A4B4D</item>
+        <item name="android:background">#515254</item>
         <item name="android:textColor">#FFF</item>
     </style>
 

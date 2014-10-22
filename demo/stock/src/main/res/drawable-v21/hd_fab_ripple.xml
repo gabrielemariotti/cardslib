@@ -17,7 +17,7 @@
   ~   limitations under the License.
   ~  *****************************************************************************
   -->
-<ripple xmlns:android="http://schemas.android.com/apk/res/android" android:color="@color/md_blue_100">
+<ripple xmlns:android="http://schemas.android.com/apk/res/android" android:color="@color/demo_colorPrimaryDark">
     <item>
         <shape android:shape="oval">
             <solid android:color="#FFFFFF" />

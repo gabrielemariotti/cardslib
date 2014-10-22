@@ -41,6 +41,7 @@
                 android:id="@+id/carddemo_weathercard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                card:card_layout_resourceID="@layout/native_cardwithlist_layout"
                 style="@style/card_external"/>
 
             <!-- Empty view-->
@@ -52,6 +53,7 @@
                 android:id="@+id/carddemo_stockcard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                card:card_layout_resourceID="@layout/native_cardwithlist_layout"
                 style="@style/card_external"/>
 
             <!-- Empty view-->

@@ -131,6 +131,7 @@ public abstract class BaseMaterialFragment extends BaseFragment {
         super.onActivityCreated(savedInstanceState);
 
         LPreviewUtilsBase lpu = LPreviewUtils.getInstance(((BaseActivity)getActivity()));
+        getActivity().getWindow().getDecorView().setBackgroundColor(getResources().getColor(R.color.native_background));
 
         float mMaxHeaderElevation = getResources().getDimensionPixelSize(
                 R.dimen.carddemo_barheader_elevation);

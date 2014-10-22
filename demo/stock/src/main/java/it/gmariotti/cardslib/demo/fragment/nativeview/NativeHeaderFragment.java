@@ -61,6 +61,7 @@ public class NativeHeaderFragment extends BaseMaterialFragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+
         mScrollView = (ScrollView) getActivity().findViewById(R.id.card_scrollview);
         initCards();
     }
