@@ -468,36 +468,36 @@ Example to change header title color:
 **drawable/selector properties**
  values/styles.xml
 
-* [`card_menu_button_rounded_overflow_selector`](/library-core/src/main/res/drawable/card_menu_button_rounded_overflow_selector.xml): default selector used by overflow menu
-* [`card_menu_button_expand`](/library-core/src/main/res/drawable/card_menu_button_expand.xml): default selector used by expand menu
+* [`card_menu_button_overflow_material`](/library-core/src/main/res/drawable/card_menu_button_overflow_material.xml): default selector used by overflow menu
+* [`card_menu_button_expand_material`](/library-core/src/main/res/drawable/card_menu_button_expand_material.xml): default selector used by expand menu
 
 ``` xml
     <!-- Button Overflow in Header -->
     <style name="card.native.header_button_base.overflow" >
-        <item name="android:background">@drawable/card_menu_button_rounded_overflow_selector</item>
+        <item name="android:background">@drawable/card_menu_button_overflow_material</item>
     </style>
     
     <!-- Button to Expand/Collapse in Header -->
     <style name="card.native.header_button_base.expand">
-        <item name="android:background">@drawable/card_menu_button_expand</item>
+        <item name="android:background">@drawable/card_menu_button_expand_material</item>
     </style>
 ```
 
 **drawable properties** 
 values-v21/styles.xml
 
-* [`ic_menu_overflow_card`](/library-core/src/main/res/drawable-xxhdpi/ic_menu_overflow_card.png): default image used by overflow menu (it has a ripple background)
-* [`card_menu_button_expand`](/library-core/src/main/res/drawable-v21/card_menu_button_expand.xml): default image selector used by expand menu (it has a ripple background)
+* [`card_menu_button_overflow_material`](/library-core/src/main/res/drawable-v21/card_menu_button_overflow_material.png): default image selector used by overflow menu (it has a ripple background)
+* [`card_menu_button_expand_material`](/library-core/src/main/res/drawable-v21/card_menu_button_expand_material.xml): default image selector used by expand menu (it has a ripple background)
 
 ``` xml
     <!-- Button Overflow in Header -->
     <style name="card.native.header_button_base.overflow" >
-        <item name="android:src">@drawable/ic_menu_overflow_card</item>
+        <item name="android:src">@drawable/card_menu_button_overflow_material</item>
     </style>
 
     <!-- Button to Expand/Collapse in Header -->
     <style name="card.native.header_button_base.expand">
-        <item name="android:src">@drawable/card_menu_button_expand</item>
+        <item name="android:src">@drawable/card_menu_button_expand_material</item>
     </style>
 ``` 
 
