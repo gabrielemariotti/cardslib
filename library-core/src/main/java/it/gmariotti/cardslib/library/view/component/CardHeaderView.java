@@ -419,8 +419,10 @@ public class CardHeaderView extends FrameLayout implements CardViewInterface {
                             //PopupMenu is built inside onClick() method to avoid building the menu when it is not necessary
                             mPopupMenu = _buildPopupMenu();
                         }
-                        if (mPopupMenu!=null)
+                        if (mPopupMenu!=null) {
                             mPopupMenu.show();
+                            mImageButtonOverflow.setSelected(true);
+                        }
                     }
                 });
             } else {
@@ -457,6 +459,15 @@ public class CardHeaderView extends FrameLayout implements CardViewInterface {
                 return false;
             }
         });
+
+        popup.setOnDismissListener(new PopupMenu.OnDismissListener() {
+            @Override
+            public void onDismiss(PopupMenu menu) {
+                if (mImageButtonOverflow != null)
+                    mImageButtonOverflow.setSelected(false);
+            }
+        });
+
 
         return popup;
     }

@@ -18,17 +18,25 @@
   ~  *****************************************************************************
   -->
 
-<ripple xmlns:android="http://schemas.android.com/apk/res/android"
-        android:color="?android:attr/colorControlHighlight">
-    <item android:drawable="@android:color/transparent"/>
-    <item>
-        <selector
-            android:exitFadeDuration="@android:integer/config_mediumAnimTime">
-            <item
-                android:state_activated="true"
-                android:drawable="@drawable/activated_foreground_kitkat_card"/>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
 
-            <item android:drawable="@android:color/transparent"/>
-        </selector>
+    <item
+        android:drawable="@drawable/ic_more_vert_black_24dp"
+        android:state_focused="true"/>
+    <item
+        android:drawable="@drawable/ic_more_vert_black_24dp"
+        android:state_selected="true"/>
+
+    <item android:state_pressed="true">
+        <ripple xmlns:android="http://schemas.android.com/apk/res/android"
+                android:color="?android:attr/colorControlHighlight">
+            <item android:id="@android:id/mask">
+                <shape android:shape="oval" android:innerRadius="40dp"/>
+            </item>
+            <item android:drawable="@drawable/ic_more_vert_black_24dp"/>
+        </ripple>
     </item>
-</ripple>
+
+    <item android:drawable="@drawable/ic_more_vert_grey600_24dp"/>
+
+</selector>

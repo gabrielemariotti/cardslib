@@ -20,6 +20,7 @@
 
 <ripple xmlns:android="http://schemas.android.com/apk/res/android"
         android:color="?android:attr/colorControlHighlight">
+    <item android:drawable="@android:color/transparent"/>
     <item>
         <selector
             android:exitFadeDuration="@android:integer/config_mediumAnimTime">

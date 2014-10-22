@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <!--
   ~ *******************************************************************************
   ~   Copyright (c) 2013-2014 Gabriele Mariotti.
@@ -18,17 +17,14 @@
   ~  *****************************************************************************
   -->
 
-<ripple xmlns:android="http://schemas.android.com/apk/res/android"
-        android:color="?android:attr/colorControlHighlight">
-    <item android:drawable="@android:color/transparent"/>
-    <item>
-        <selector
-            android:exitFadeDuration="@android:integer/config_mediumAnimTime">
-            <item
-                android:state_activated="true"
-                android:drawable="@drawable/activated_foreground_kitkat_card"/>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
 
-            <item android:drawable="@android:color/transparent"/>
-        </selector>
-    </item>
-</ripple>
+    <item android:drawable="@drawable/ic_more_vert_black_24dp"
+          android:state_pressed="true"/>
+    <item android:drawable="@drawable/ic_more_vert_black_24dp"
+          android:state_focused="true"/>
+    <item android:drawable="@drawable/ic_more_vert_black_24dp"
+          android:state_selected="true"/>
+    <item android:drawable="@drawable/ic_more_vert_grey600_24dp"/>
+
+</selector>
