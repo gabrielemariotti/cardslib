@@ -330,6 +330,17 @@
 
     </style>
 
+    <!-- CardWithList ******************************************************-->
+
+    <!--Style for Content View-->
+    <style name="card.native.content_outer_layout.cardwithlist" >
+        <item name="android:paddingLeft">@dimen/card_main_content_native_cardwithlist_paddingLeft</item>
+        <item name="android:paddingRight">@dimen/card_main_content_native_cardwithlist_paddingRight</item>
+        <item name="android:paddingTop">@dimen/card_main_content_native_cardwithlist_paddingTop</item>
+        <item name="android:paddingBottom">@dimen/card_main_content_native_cardwithlist_paddingBottom</item>
+    </style>
+
+
     <!-- Style for Lists ******************************************************-->
 
     <style name="list_card">
@@ -364,7 +375,7 @@
     </style>
 
     <!-- Base list -->
-    <style name="native_list_card.base">
+    <style name="native_list_card.base" >
 
     </style>
 

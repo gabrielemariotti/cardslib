@@ -18,13 +18,15 @@
 
 package it.gmariotti.cardslib.library;
 
+import android.os.Build;
+
 /**
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
 public class Constants {
 
 
-    public static int API_L = 20;
+    public static int API_L = Build.VERSION_CODES.LOLLIPOP;
 
     public static class IntentManager{
 

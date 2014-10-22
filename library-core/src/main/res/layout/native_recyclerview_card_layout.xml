@@ -20,19 +20,15 @@
 
 <!-- You can customize this layout.
      You need to have in your layout a `CardView` with the ID `list_cardId` -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_height="wrap_content"
-              android:layout_width="match_parent">
-
-<it.gmariotti.cardslib.library.view.CardViewNative
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/list_cardId"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    style="@style/native_list_card.thumbnail"
-    card:card_layout_resourceID="@layout/native_card_thumbnail_layout"
-    />
 
 
-</LinearLayout>
+    <it.gmariotti.cardslib.library.view.CardViewNative
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/list_cardId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/native_list_card.base"
+        card:card_layout_resourceID="@layout/native_card_layout"/>
+
+

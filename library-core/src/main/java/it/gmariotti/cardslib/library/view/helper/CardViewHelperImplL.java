@@ -21,12 +21,13 @@ package it.gmariotti.cardslib.library.view.helper;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
+import android.view.View;
 import android.widget.ImageButton;
 
 /**
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-@TargetApi(Build.VERSION_CODES.L)
+@TargetApi(Build.VERSION_CODES.LOLLIPOP)
 public class CardViewHelperImplL extends CardViewHelperImplKK {
 
     public CardViewHelperImplL(Context context) {
@@ -38,5 +39,11 @@ public class CardViewHelperImplL extends CardViewHelperImplKK {
         imageButton.setImageResource(buttonDrawableResource);
     }
 
+    @Override
+    public void setElevation(View view, float elevation) {
+        if (view != null){
+            view.setElevation(elevation);
+        }
+    }
 
 }

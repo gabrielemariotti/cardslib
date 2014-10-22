@@ -88,6 +88,12 @@
     <dimen name="card_main_content_native_default_paddingTop">12dp</dimen>
     <dimen name="card_main_content_native_default_paddingBottom">12dp</dimen>
 
+    <dimen name="card_main_content_native_cardwithlist_paddingLeft">0dp</dimen>
+    <dimen name="card_main_content_native_cardwithlist_paddingRight">0dp</dimen>
+    <dimen name="card_main_content_native_cardwithlist_paddingTop">12dp</dimen>
+    <dimen name="card_main_content_native_cardwithlist_paddingBottom">12dp</dimen>
+
+
     <dimen name="card_main_simple_title_margin_left">5dp</dimen>
     <dimen name="card_main_simple_title_margin_top">0dp</dimen>
     <dimen name="card_main_simple_title_margin_right">0dp</dimen>
@@ -133,8 +139,8 @@
     <dimen name="list_card_padding_top">2dp</dimen>
 
     <!-- List -->
-    <dimen name="native_list_card_margin_left">16dp</dimen>
-    <dimen name="native_list_card_margin_right">16dp</dimen>
+    <dimen name="native_list_card_margin_left">0dp</dimen>
+    <dimen name="native_list_card_margin_right">0dp</dimen>
     <dimen name="native_list_card_margin_bottom">4dp</dimen>
     <dimen name="native_list_card_margin_top">4dp</dimen>
 

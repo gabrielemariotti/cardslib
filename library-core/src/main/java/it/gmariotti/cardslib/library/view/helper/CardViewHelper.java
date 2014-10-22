@@ -18,6 +18,7 @@
 
 package it.gmariotti.cardslib.library.view.helper;
 
+import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.ImageButton;
@@ -43,5 +44,11 @@ public interface CardViewHelper {
 
 
     void setCardSelector(View viewClickable, Drawable defaultDrawable);
+
+
+    void setElevation(View view,float elevation);
+
+
+    Drawable getResourceFromAttrs(Context themedContext, int attr);
 
 }

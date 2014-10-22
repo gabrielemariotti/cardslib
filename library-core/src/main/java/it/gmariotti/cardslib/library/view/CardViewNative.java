@@ -25,6 +25,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.support.annotation.LayoutRes;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -407,7 +408,10 @@ public class CardViewNative extends android.support.v7.widget.CardView implement
      */
     protected void setupShadowView() {
         if (mCard != null && mCard.getCardElevation() != null) {
-            setElevation(mCard.getCardElevation());
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP)
+                setMaxCardElevation(mCard.getCardElevation());
+            else
+                setCardElevation(mCard.getCardElevation());
         }
     }
 
@@ -616,7 +620,7 @@ public class CardViewNative extends android.support.v7.widget.CardView implement
 
                                 //Add Selector to this view
                                 if (key > Card.CLICK_LISTENER_ALL_VIEW) {
-                                    mHelperImpl.setBackground(viewClickable, getResources().getDrawable(R.drawable.card_selector));
+                                    mHelperImpl.setBackground(viewClickable, mHelperImpl.getResourceFromAttrs(getContext(),android.R.attr.selectableItemBackground));
                                 }
                             }
                         }

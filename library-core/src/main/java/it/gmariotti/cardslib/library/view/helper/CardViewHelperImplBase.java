@@ -19,6 +19,7 @@
 package it.gmariotti.cardslib.library.view.helper;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.ImageButton;
@@ -50,5 +51,31 @@ public class CardViewHelperImplBase implements CardViewHelper {
         setBackground(viewClickable, defaultDrawable);
     }
 
+    @Override
+    public void setElevation(View view, float elevation) {
+
+    }
+
+    @Override
+    public Drawable getResourceFromAttrs(Context themedContext, int attr){
+        // Create an array of the attributes we want to resolve
+        // using values from a theme
+        int[] attrs = new int[] { attr /* index 0 */};
+
+        // Obtain the styled attributes. 'themedContext' is a context with a
+        // theme, typically the current Activity (i.e. 'this')
+        TypedArray ta = themedContext.obtainStyledAttributes(attrs);
+
+        // To get the value of the 'listItemBackground' attribute that was
+        // set in the theme used in 'themedContext'. The parameter is the index
+        // of the attribute in the 'attrs' array. The returned Drawable
+        // is what you are after
+        Drawable drawableFromTheme = ta.getDrawable(0 /* index */);
+
+        // Finally, free the resources used by TypedArray
+        ta.recycle();
+
+        return drawableFromTheme;
+    }
 
 }
