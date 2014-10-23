@@ -58,4 +58,41 @@
     <!--override the listlayout background-->
     <color name="card_base_cardwithlist_background_list_color">@color/card_background</color>
 
+    <integer-array name="gplus_colors">
+        <item>@color/gplus_color_1</item>
+        <item>@color/gplus_color_2</item>
+        <item>@color/gplus_color_3</item>
+        <item>@color/gplus_color_4</item>
+    </integer-array>
+
+    <color name="gplus_color_1">#3e802f</color>
+    <color name="gplus_color_2">#f4b400</color>
+    <color name="gplus_color_3">#427fed</color>
+    <color name="gplus_color_4">#b23424</color>
+
+
+
+    <!-- Material -->
+    <color name="body_text_1">#de000000</color>
+    <color name="body_text_2">#8a000000</color>
+    <color name="body_text_3">#60000000</color>
+    <color name="body_text_disabled">#44000000</color>
+
+    <color name="body_text_1_inverse">#deffffff</color>
+    <color name="body_text_2_inverse">#8affffff</color>
+
+    <color name="theme_accent_1">@color/md_red_900</color>
+    <color name="theme_accent_1_light">@color/md_red_300</color>
+    <color name="theme_accent_2">#e91e63</color>
+
+    <color name="demo_theme_main_color">@color/md_orange_500</color>
+    <color name="demo_theme_status_bar_color">@color/md_orange_700</color>
+
+    <color name="navdrawer_background">#ffffffff</color>
+    <color name="navdrawer_text_color">@color/body_text_1</color>
+    <color name="navdrawer_text_color_selected">@color/theme_accent_1</color>
+    <color name="navdrawer_icon_tint">#808080</color>
+    <color name="navdrawer_icon_tint_selected">@color/theme_accent_1</color>
+    <color name="gray_background">#fff3f3f3</color>
+    <color name="navdrawer_scrim">#6000</color>
 </resources>

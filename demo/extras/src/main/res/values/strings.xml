@@ -120,6 +120,12 @@
     <!-- Staggered -->
     <string name="carddemo_extras_title_stag">More details...</string>
 
+    <string name="carddemo_extras_title_list2viewway">TwoWay - List</string>
+    <string name="carddemo_extras_title_staggered2viewway">TwoWay - Staggered Grid</string>
+    <string name="carddemo_extras_title_spannable2viewway">TwoWay - Spannable Grid</string>
+    <string name="carddemo_extras_title_googleprogress">GoogleProgressCard</string>
+    <string name="carddemo_extras_title_smoothprogress">SmoothProgressCard</string>
+
 
     <!-- Expand inside -->
     <string name="carddemo_extras_header_expand_area_inside_rose">Rose...[click for more details]</string>
@@ -131,10 +137,22 @@
     <string name="carddemo_extras_2way_spannable">SpannableGrid</string>
     <string name="carddemo_extras_2way_grid">Grid</string>
     <string name="carddemo_extras_2way_list">List</string>
-    <string name="carddemo_extras_title_list2viewway">TwoWay - List</string>
-    <string name="carddemo_extras_title_staggered2viewway">TwoWay - Staggered Grid</string>
-    <string name="carddemo_extras_title_spannable2viewway">TwoWay - Spannable Grid</string>
 
+    <string name="header_title_card">Card Base Features</string>
+
+    <string name="header_title_group1">Card Base Features</string>
+    <string name="header_title_group2">Card Examples</string>
+    <string name="header_title_group3">List,Grid and RecyclerView</string>
+    <string name="header_title_group4">Multichoice</string>
+    <string name="header_title_group5">Misc</string>
+
+    <!--Nav drawer -->
+    <string name="navdrawer_item_native_cardslib">CardViewNative</string>
+    <string name="navdrawer_item_cardslib_v1">CardView v1</string>
+    <string name="navdrawer_item_donate">Donate</string>
+    <string name="navdrawer_item_info">About</string>
+    <string name="navdrawer_item_github">Github code</string>
+    <string name="navdrawer_item_googleplus">G+ community</string>
 
     <!-- Weather Card Empty-->
 
