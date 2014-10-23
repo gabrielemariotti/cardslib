@@ -10,7 +10,7 @@ In this page you can find info about:
 * [Expand the card in programmatic way](#expand-the-card-in-programmatic-way)
 * [Expand the card with a longClick](#expand-the-card-with-a-longclick)
 * [CardExpand and CardListView](#cardexpand-and-cardlistview)
-
+* [Style](#style)
 
 ### Creating a base CardExpand
 

@@ -144,6 +144,12 @@
     <dimen name="native_list_card_margin_bottom">4dp</dimen>
     <dimen name="native_list_card_margin_top">4dp</dimen>
 
+    <!-- RecyclerView -->
+    <dimen name="native_recyclerview_card_margin_left">0dp</dimen>
+    <dimen name="native_recyclerview_card_margin_right">0dp</dimen>
+    <dimen name="native_recyclerview_card_margin_bottom">4dp</dimen>
+    <dimen name="native_recyclerview_card_margin_top">4dp</dimen>
+
     <!-- Grid -->
     <dimen name="grid_card_padding_left">2dp</dimen>
     <dimen name="grid_card_padding_right">2dp</dimen>

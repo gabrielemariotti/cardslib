@@ -12,8 +12,9 @@ The cardslib 2.+ introduces a new view called `CardViewNative` which extends the
  (`com.android.support:cardview-v7`). 
 
 With this release you can build your `Cards` using one of 2 supported views:
-* `it.gmariotti.cardslib.library.view.CardView`: it is the `CardView`-v1. 
 * `it.gmariotti.cardslib.library.view.CardViewNative` which extends the Google's CardView.
+* `it.gmariotti.cardslib.library.view.CardView`: it is the `CardView`-v1. 
+
 
 You can continue to use the old `CardView`-v1 with a few changes in your code, or you can migrate to the `CardViewNative`.
 In this page you will find all info to migrate from v1 to v2.
@@ -95,3 +96,27 @@ If you would like to migrate the old cards to new view you have to follow these 
 | Style CardView                          | Style CardViewNative                           | 
 | --------------------------------------- |------------------------------------------------|
 | @style/card.expand_simple_title         | @style/card.native.expand_simple_title         |
+
+* **Lists**. To migrate a list you have to:
+   - if you have the default layout add this tag to you list: `card:list_card_layout_resourceID="@layout/native_list_card_layout"`
+   - if you are using the default layout with the thumbnail change your tag in your list: `card:list_card_layout_resourceID="@layout/native_list_card_thumbnail_layout"`
+   - if you are using a custom `CardView` xml file for your item you have update the view type, the layout and the style:
+     
+     Example:
+     ```xml
+         <it.gmariotti.cardslib.library.view.CardViewNative           //change the tag with the new CardViewNative
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:card="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/list_cardId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/native_list_card.base"                       //use the native style
+            card:card_layout_resourceID="@layout/native_card_layout"   //use the native layout or native_card_thumbnail_layout or YOUR LAYOUR
+            />  
+     ```
+     If you are using a **CUSTOM LAYOUT**, check the points above and pay attention to this:
+     I am investigating about it, but you have to add a container to your `CardViewNative`
+     Check this file: [`res/layout/native_list_card_layout`](/library-core/src/main/res/layout/native_list_card_layout.xml).
+    
+     
+     
