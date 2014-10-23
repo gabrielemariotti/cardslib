@@ -42,6 +42,6 @@
     </RelativeLayout>
 
     <!-- Include undo message layout -->
-    <include layout="@layout/list_card_undo_message"/>
+    <include layout="@layout/list_card_undo_materialmobile_message"/>
 
 </RelativeLayout>

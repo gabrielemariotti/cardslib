@@ -49,12 +49,13 @@
         <b><a href="https://github.com/frankiesardo/LinearListView">LinearListView</a></b><br>
         <i>by Frankie Sardo</i><br><br>
 
-        <br>
-        Google and the Google Maps logo are registered trademarks of Google Inc.
+        <br><br><br>
+        Google, Google Play and the Google Maps logo are registered trademarks of Google Inc.
 
     ]]></string>
 
-    <string name="demo_trademark">Google and the Google Maps logo are registered trademarks of Google Inc.</string>
+    <string name="demo_trademark">Google, Google Play and the Google Maps logo are registered trademarks of Google Inc.</string>
+    <string name="trademark">&#8482;</string>
 
     <!--Menu -->
     <string name="action_menu_about">About</string>
@@ -77,20 +78,20 @@
     <string name="carddemo_title_thumbnail">Card Thumbnail</string>
     <string name="carddemo_title_card">Card</string>
     <string name="carddemo_title_card_expand">Card Expand</string>
-    <string name="carddemo_title_gplay">Google Play</string>
+    <string name="carddemo_title_gplay">Google Play &#8482;</string>
     <string name="carddemo_title_gnow">Google Now</string>
     <string name="carddemo_title_gplus">Misc</string>
     <string name="carddemo_title_birthday_card">BirthDay Card</string>
     <string name="carddemo_title_stock_card">Google Now Stock</string>
-    <string name="carddemo_title_play_card">Google Play</string>
+    <string name="carddemo_title_play_card">Google Play &#8482;</string>
     <string name="carddemo_title_misc_card">Misc</string>
     <string name="carddemo_title_card_changevalue">Refresh card</string>
     <string name="carddemo_title_list_base">List Base</string>
     <string name="carddemo_title_list_base_different_inner">List base with different Inner Layouts</string>
     <string name="carddemo_title_list_expand">List with expandable card</string>
-    <string name="carddemo_title_list_gplaycard">List Google Play</string>
+    <string name="carddemo_title_list_gplaycard">List Google Play &#8482;</string>
     <string name="carddemo_title_grid_base">Grid Base</string>
-    <string name="carddemo_title_grid_gplay">Grid Google Play</string>
+    <string name="carddemo_title_grid_gplay">Grid Google Play &#8482;</string>
     <string name="carddemo_title_list_gplaycard_undo">List with undo</string>
     <string name="carddemo_title_list_color">Colored cards</string>
     <string name="carddemo_title_list_cursor">List with Cursor</string>
@@ -212,7 +213,7 @@
 
     <!-- Card Examples -->
     <string name="demo_card_basetitle">My Inner Text</string>
-    <string name="demo_custom_card_google_maps">Google Maps</string>
+    <string name="demo_custom_card_google_maps">Google Maps &#8482;</string>
     <string name="demo_custom_card_googleinc">Google Inc.</string>
     <string name="demo_custom_shorttitle">Header</string>
     <string name="demo_card_shorttitle">Content</string>
@@ -226,7 +227,7 @@
 
     <!-- Suggested communities -->
     <string name="demo_suggested_header">Suggested communities</string>
-    <string name="demo_suggested_title">Android</string>
+    <string name="demo_suggested_title">Android &#8482;</string>
     <string name="demo_suggested_member">199990 members</string>
     <string name="demo_suggested_subtitle">Brought to you by Android Central......</string>
     <string name="demo_suggested_community">View community</string>

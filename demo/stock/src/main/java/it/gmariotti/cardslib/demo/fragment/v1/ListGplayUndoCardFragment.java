@@ -116,6 +116,20 @@ public class ListGplayUndoCardFragment extends MaterialV1Fragment {
 
         mCardArrayAdapter = new CardArrayAdapter(getActivity(),cards);
 
+        mCardArrayAdapter.setUndoBarUIElements(new UndoBarController.DefaultUndoBarUIElements(){
+
+            @Override
+            public SwipeDirectionEnabled isEnabledUndoBarSwipeAction() {
+                return SwipeDirectionEnabled.TOPBOTTOM;
+            }
+
+            @Override
+            public AnimationType getAnimationType() {
+                return AnimationType.TOPBOTTOM;
+            }
+        });
+
+
         //Enable undo controller!
         mCardArrayAdapter.setEnableUndo(true);
 
@@ -186,6 +200,13 @@ public class ListGplayUndoCardFragment extends MaterialV1Fragment {
                 @Override
                 public void onUndoSwipe(Card card) {
                     Toast.makeText(getContext(), "Undo card=" + title, Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            setOnUndoHideSwipeListListener(new OnUndoHideSwipeListListener() {
+                @Override
+                public void onUndoHideSwipe(Card card) {
+                    Toast.makeText(getContext(), "Hide undo card=" + title, Toast.LENGTH_SHORT).show();
                 }
             });
 

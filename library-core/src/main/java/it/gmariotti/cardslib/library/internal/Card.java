@@ -171,6 +171,11 @@ public class Card extends BaseCard {
     protected OnUndoSwipeListListener mOnUndoSwipeListListener;
 
     /**
+     * Listener invoked when the Undo controller hides the Undo Bar after a swipe action in a List
+     */
+    protected OnUndoHideSwipeListListener mOnUndoHideSwipeListListener;
+
+    /**
      * It identifies the background resource of view with this id:
      * android:id="@+id/card_main_layout"
      * <p/>
@@ -452,6 +457,13 @@ public class Card extends BaseCard {
     }
 
     /**
+     * Interface to listen for when the Undo controller hides the Undo Bar
+     */
+    public interface OnUndoHideSwipeListListener {
+        public void onUndoHideSwipe(Card card);
+    }
+
+    /**
      * Called when user undo a swipe action
      */
     public void onUndoSwipeListCard() {
@@ -478,6 +490,23 @@ public class Card extends BaseCard {
         this.mOnUndoSwipeListListener = onUndoSwipeListListener;
     }
 
+    /**
+     * Returns listener invoked the Undo controller hides the Undo Bar
+     *
+     * @return listener
+     */
+    public OnUndoHideSwipeListListener getOnUndoHideSwipeListListener() {
+        return mOnUndoHideSwipeListListener;
+    }
+
+    /**
+     * Sets listener invoked when the Undo controller hides the Undo Bar
+     *
+     * @param onUndoHideSwipeListListener
+     */
+    public void setOnUndoHideSwipeListListener(OnUndoHideSwipeListListener onUndoHideSwipeListListener) {
+        mOnUndoHideSwipeListListener = onUndoHideSwipeListListener;
+    }
 
     // -------------------------------------------------------------
     //  OnClickListener

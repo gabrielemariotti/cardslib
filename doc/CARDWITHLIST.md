@@ -19,7 +19,7 @@ In this page you can find info about:
 * [How to enable the progressbar](#how-to-enable-the-progressbar)
 * [How to customize the ProgressBar](#how-to-customize-the-progressbar)
 * [Using a custom inner layout](#using-a-custom-inner-layout)
-* [Note about CardListView](#note-about-cardlistview)
+* [Style](#style)
 
 
 ## How to build a card with a LinearList
@@ -343,7 +343,7 @@ You can change the string simply overriding this string in your project:
     <string name="card_empty_cardwithlist_text">No data....</string>
 ```
 
-The default layout [inner_base_main_cardwithlist](/library/library/src/main/res/layout/inner_base_main_cardwithlist) uses a `ViewStub`.
+The default layout [inner_base_main_cardwithlist](/library/src/main/res/layout/inner_base_main_cardwithlist.xml) uses a `ViewStub`.
 You can dynamically change the the layout resource to inflate when the ViewStub becomes visible, using the method `setEmptyViewViewStubLayoutId`.
 
 Example:
@@ -402,7 +402,7 @@ You can change the string used simply overriding this string in your project:
     <string name="card_progressbar_cardwithlist_text"></string>
 ```
 
-The default layout [inner_base_main_cardwithlist](/library/library/src/main/res/layout/inner_base_main_cardwithlist) uses a `ViewStub`.
+The default layout [inner_base_main_cardwithlist](/library/src/main/res/layout/inner_base_main_cardwithlist.xml) uses a `ViewStub`.
 You can dynamically change the the layout resource to inflate when the ViewStub becomes visible, using the method `setProgressBarViewStubLayoutId`.
 
 Example:
@@ -419,7 +419,7 @@ In this you can use your favorite View.
 
 ## Using a custom inner layout
 
-As other cards you can use a custom inner layout instead of the [default layout](/library/library/src/main/res/layout/inner_base_main_cardwithlist).
+As other cards you can use a custom inner layout instead of the [default layout](/library/src/main/res/layout/inner_base_main_cardwithlist.xml).
 You can set it in your constructor for example:
 ``` java
     public WeatherCard(Context context) {
@@ -460,7 +460,19 @@ Also you can add other elements inside you layout. In this case you have to set 
     }
 ```
 
+## Style
 
-## Note about CardListView
+The list inside has these own dimens:
 
-Currently this kind of `Card` is not supported to be used inside a `CardListView`.
+```xml
+    <dimen name="card_base_cardwithlist_layout_leftmargin">0dp</dimen>
+    <dimen name="card_base_cardwithlist_layout_rightmargin">0dp</dimen>
+    <dimen name="card_base_cardwithlist_list_margin_top">10dp</dimen>
+    <dimen name="card_base_cardwithlist_list_margin_left">0dp</dimen>
+```
+
+If you would like to customize the header, you can avoid the margin below the CardHeader overriding the top margin value.
+
+```xml
+   <dimen name="card_base_cardwithlist_list_margin_top">0dp</dimen>
+```

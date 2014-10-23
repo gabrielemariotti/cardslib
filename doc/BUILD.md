@@ -15,7 +15,7 @@ In this page you can find info about:
 
 Card Library is pushed to Maven Central as a AAR, so you just need to add the following dependency to your `build.gradle`.
 
-    dependencies {
+     dependencies {
         //Core card library
         compile 'com.github.gabrielemariotti.cards:cardslib-core:2.0.0'
         
