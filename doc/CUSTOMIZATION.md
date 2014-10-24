@@ -22,5 +22,5 @@ Here you can find some pages to customize your cards.
 
 **Built-in Cards**
 * [Card with a List inside](CARDWITHLIST.md) How to build a card with a List Inside.
-
+* [Material card](MATERIALCARD.md) How to build a Material Card
 

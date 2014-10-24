@@ -20,15 +20,14 @@
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/card_material_largeimage_height"
-    android:foreground="?android:attr/selectableItemBackground">
+    android:layout_height="@dimen/card_material_largeimage_height">
 
     <ImageView
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/card_thumbnail_image"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
-        style="@style/card_thumbnail_image"/>
+        style="@style/card.native.card_thumbnail_image"/>
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -44,8 +43,8 @@
             android:layout_gravity="bottom"
             android:fontFamily="@string/card_font_fontFamily_image_text_over"
             android:id="@+id/card_thumbnail_image_text_over"
-            android:textColor="@color/card_thumbnail_image_text_over_textcolor"
-            android:textSize="@dimen/card_thumbnail_image_text_over_textsize"/>
+            style="@style/card_thumbnail_image_text_over_textstyle"
+         />
 
     </FrameLayout>
 </FrameLayout>

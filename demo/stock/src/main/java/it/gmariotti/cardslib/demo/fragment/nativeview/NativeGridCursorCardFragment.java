@@ -34,7 +34,6 @@ import android.widget.Toast;
 
 import it.gmariotti.cardslib.demo.R;
 import it.gmariotti.cardslib.demo.db.CardCursorContract;
-import it.gmariotti.cardslib.demo.fragment.v1.BaseListFragment;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardGridCursorAdapter;
 import it.gmariotti.cardslib.library.internal.CardHeader;
@@ -47,7 +46,7 @@ import it.gmariotti.cardslib.library.view.CardGridView;
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public class GridCursorCardFragment extends BaseListFragment implements LoaderManager.LoaderCallbacks<Cursor> {
+public class NativeGridCursorCardFragment extends BaseNativeListFragment implements LoaderManager.LoaderCallbacks<Cursor> {
 
     MyCursorCardAdapter mAdapter;
     CardGridView mGridView;
@@ -69,7 +68,7 @@ public class GridCursorCardFragment extends BaseListFragment implements LoaderMa
 
     @Override
     protected String getSourceUrl() {
-        return "https://github.com/gabrielemariotti/cardslib/blob/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/v1/GridCursorCardFragment.java";
+        return "https://github.com/gabrielemariotti/cardslib/blob/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/nativeview/NativeGridCursorCardFragment.java";
     }
 
     @Override
@@ -79,7 +78,7 @@ public class GridCursorCardFragment extends BaseListFragment implements LoaderMa
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.demo_fragment_grid_cursor, container, false);
+        View root = inflater.inflate(R.layout.demo_fragment_native_grid_cursor, container, false);
         setupListFragment(root);
         return root;
     }

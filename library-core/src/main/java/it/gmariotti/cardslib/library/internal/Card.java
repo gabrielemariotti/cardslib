@@ -166,6 +166,12 @@ public class Card extends BaseCard {
     public static final int CLICK_LISTENER_CONTENT_VIEW = 10;
 
     /**
+     * All card area except the supplemental area with actions.
+     It is used by partial click listener
+     */
+    public static final int CLICK_LISTENER_ACTIONAREA1_VIEW = 9;
+
+    /**
      * Listener invoked when the user undo a swipe action in a List
      */
     protected OnUndoSwipeListListener mOnUndoSwipeListListener;
@@ -1115,7 +1121,7 @@ public class Card extends BaseCard {
     }
 
     /**
-     *
+     * Set the background color assigned to the Native CardView
      * @param backgroundColorResourceId
      */
     public void setBackgroundColorResourceId(int backgroundColorResourceId) {

@@ -49,6 +49,10 @@ public class MaterialLargeImageCardThumbnail extends CardThumbnail {
     protected @StringRes
     int mTextOverImageResId;
 
+    /**
+     *
+     */
+    protected MaterialLargeImageCard.DrawableExternal mExternalCardThumbnail;
 
     protected @IdRes
     int default_text_id = R.id.card_thumbnail_image_text_over;
@@ -69,9 +73,14 @@ public class MaterialLargeImageCardThumbnail extends CardThumbnail {
     public void setupInnerViewElements(ViewGroup parent, View imageView) {
         super.setupInnerViewElements(parent, imageView);
 
+        if (mExternalCardThumbnail != null){
+            mExternalCardThumbnail.setupInnerViewElements(parent,imageView);
+        }
+
         //Title over the image
         mTitleOverImageView = (TextView) parent.findViewById(default_text_id);
         buildTextOverImage();
+
     }
 
     // -------------------------------------------------------------
@@ -119,4 +128,8 @@ public class MaterialLargeImageCardThumbnail extends CardThumbnail {
         mTextOverImageResId = textOverImageResId;
     }
 
+
+    public void setExternalCardThumbnail(MaterialLargeImageCard.DrawableExternal externalCardThumbnail) {
+        mExternalCardThumbnail = externalCardThumbnail;
+    }
 }

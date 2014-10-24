@@ -26,7 +26,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 import it.gmariotti.cardslib.library.cards.R;
+import it.gmariotti.cardslib.library.cards.actions.BaseSupplementalAction;
 import it.gmariotti.cardslib.library.cards.base.BaseMaterialCard;
 
 /**
@@ -37,12 +40,17 @@ public class MaterialLargeImageCard extends BaseMaterialCard {
     /**
      *  Resource Drawable ID
      */
-    protected @DrawableRes int mDrawableCardThumbnail;
+    protected @DrawableRes int mDrawableIdCardThumbnail;
 
     /**
      * Resource Drawable URL
      */
     protected String mUrlCardThumbnail;
+
+    /**
+     * Interface for external usage for Thumbnail
+     */
+    protected DrawableExternal mExternalCardThumbnail;
 
     /**
      * Title to use for the title over the image
@@ -59,6 +67,10 @@ public class MaterialLargeImageCard extends BaseMaterialCard {
      */
     protected CharSequence mSubTitle;
 
+    public static interface DrawableExternal{
+        void setupInnerViewElements(ViewGroup parent, View viewImage);
+    }
+
     // -------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------
@@ -72,6 +84,99 @@ public class MaterialLargeImageCard extends BaseMaterialCard {
     }
 
     // -------------------------------------------------------------
+    // Builder
+    // -------------------------------------------------------------
+
+    public static SetupWizard with(Context context) {
+        return new SetupWizard(context);
+    }
+
+    public static final class SetupWizard {
+        private final Context mContext;
+        private
+        @DrawableRes
+        int mDrawableCardThumbnail;
+        private String mUrlCardThumbnail;
+        private DrawableExternal mExternalCardThumbnail;
+        private CharSequence mTextOverImage;
+        private
+        @StringRes
+        int mTextOverImageResId;
+        private CharSequence mTitle;
+        private CharSequence mSubTitle;
+        private ArrayList<BaseSupplementalAction> mActions;
+        private int mSupplementalActionLayoutId;
+
+        private SetupWizard(Context context) {
+            mContext = context;
+        }
+
+        public SetupWizard useDrawableId(@DrawableRes int drawableIdCardThumbnail){
+            mDrawableCardThumbnail = drawableIdCardThumbnail;
+            return this;
+        }
+
+        public SetupWizard useDrawableUrl(String drawableUrlCardThumbnail){
+            mUrlCardThumbnail = drawableUrlCardThumbnail;
+            return this;
+        }
+
+        public SetupWizard useDrawableExternal(DrawableExternal externalCardThumbnail){
+            mExternalCardThumbnail = externalCardThumbnail;
+            return this;
+        }
+
+        public SetupWizard setTextOverImage(CharSequence textOverImage){
+            mTextOverImage = textOverImage;
+            return this;
+        }
+
+        public SetupWizard setTextOverImage(int textOverImageResId){
+            mTextOverImageResId = textOverImageResId;
+            return this;
+        }
+
+        public SetupWizard setTitle(CharSequence title){
+            mTitle = title;
+            return this;
+        }
+
+        public SetupWizard setSubTitle(CharSequence subTitle){
+            mSubTitle = subTitle;
+            return this;
+        }
+
+        public SetupWizard setupSupplementalActions(@LayoutRes int layoutId,ArrayList<BaseSupplementalAction> actions){
+           mSupplementalActionLayoutId = layoutId;
+           mActions = actions;
+           return this;
+        }
+
+        public MaterialLargeImageCard build() {
+            MaterialLargeImageCard card = new MaterialLargeImageCard(mContext);
+            if (mExternalCardThumbnail != null){
+                card.setExternalCardThumbnail(mExternalCardThumbnail);
+            } else {
+                card.setDrawableIdCardThumbnail(mDrawableCardThumbnail);
+                card.setUrlCardThumbnail(mUrlCardThumbnail);
+            }
+            card.setTextOverImage(mTextOverImage);
+            card.setTextOverImageResId(mTextOverImageResId);
+            if (mTitle != null)
+                card.setTitle(mTitle.toString());
+            card.setSubTitle(mSubTitle);
+
+            if (mActions != null){
+                for (BaseSupplementalAction ac:mActions)
+                    card.addSupplementalAction(ac);
+            }
+            card.setLayout_supplemental_actions_id(mSupplementalActionLayoutId);
+            card.build();
+            return card;
+        }
+    }
+
+    // -------------------------------------------------------------
     // Build
     // -------------------------------------------------------------
 
@@ -82,10 +187,15 @@ public class MaterialLargeImageCard extends BaseMaterialCard {
         if (mCardThumbnail == null) {
             mCardThumbnail = new MaterialLargeImageCardThumbnail(mContext);
 
-            if (mDrawableCardThumbnail != 0) {
-                mCardThumbnail.setDrawableResource(mDrawableCardThumbnail);
-            }else if (mUrlCardThumbnail != null){
-                mCardThumbnail.setUrlResource(mUrlCardThumbnail);
+            if (mExternalCardThumbnail != null){
+                mCardThumbnail.setExternalUsage(true);
+                ((MaterialLargeImageCardThumbnail)mCardThumbnail).setExternalCardThumbnail(mExternalCardThumbnail);
+            } else {
+                if (mDrawableIdCardThumbnail != 0) {
+                    mCardThumbnail.setDrawableResource(mDrawableIdCardThumbnail);
+                } else if (mUrlCardThumbnail != null) {
+                    mCardThumbnail.setUrlResource(mUrlCardThumbnail);
+                }
             }
         }
 
@@ -106,6 +216,12 @@ public class MaterialLargeImageCard extends BaseMaterialCard {
                 mTitleView.setText(mSubTitle);
         }
     }
+
+    @Override
+    public void setOnClickListener(OnCardClickListener onClickListener) {
+        addPartialOnClickListener(CLICK_LISTENER_ACTIONAREA1_VIEW, onClickListener);
+    }
+
 
     // -------------------------------------------------------------
     // Getters and setters
@@ -144,17 +260,17 @@ public class MaterialLargeImageCard extends BaseMaterialCard {
      *
      * @return
      */
-    public int getDrawableCardThumbnail() {
-        return mDrawableCardThumbnail;
+    public int getDrawableIdCardThumbnail() {
+        return mDrawableIdCardThumbnail;
     }
 
     /**
      * Sets the Resource Drawable ID
      *
-     * @param drawableCardThumbnail
+     * @param drawableIdCardThumbnail
      */
-    public void setDrawableCardThumbnail(int drawableCardThumbnail) {
-        mDrawableCardThumbnail = drawableCardThumbnail;
+    public void setDrawableIdCardThumbnail(int drawableIdCardThumbnail) {
+        mDrawableIdCardThumbnail = drawableIdCardThumbnail;
     }
 
     /**
@@ -173,6 +289,15 @@ public class MaterialLargeImageCard extends BaseMaterialCard {
     public void setUrlCardThumbnail(String urlCardThumbnail) {
         mUrlCardThumbnail = urlCardThumbnail;
     }
+
+    /**
+     * Sets the interface to be called with the thumbnail
+     * @param externalCardThumbnail
+     */
+    public void setExternalCardThumbnail(DrawableExternal externalCardThumbnail) {
+        mExternalCardThumbnail = externalCardThumbnail;
+    }
+
 
     /**
      * Returns the subtitle

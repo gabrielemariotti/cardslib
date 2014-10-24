@@ -32,7 +32,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import it.gmariotti.cardslib.demo.R;
-import it.gmariotti.cardslib.demo.fragment.v1.MaterialV1Fragment;
+import it.gmariotti.cardslib.demo.fragment.BaseMaterialFragment;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardGridArrayAdapter;
 import it.gmariotti.cardslib.library.internal.CardHeader;
@@ -45,7 +45,7 @@ import it.gmariotti.cardslib.library.view.CardGridView;
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public class GridGplayFragment extends MaterialV1Fragment {
+public class NativeGridGplayFragment extends BaseMaterialFragment {
 
     protected ScrollView mScrollView;
 
@@ -66,7 +66,7 @@ public class GridGplayFragment extends MaterialV1Fragment {
 
     @Override
     protected String getSourceUrl() {
-        return "https://github.com/gabrielemariotti/cardslib/blob/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/v1/GridGplayFragment.java";
+        return "https://github.com/gabrielemariotti/cardslib/blob/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/nativeview/NativeGridGplayFragment.java";
     }
 
     @Override
@@ -76,7 +76,7 @@ public class GridGplayFragment extends MaterialV1Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.demo_fragment_grid_gplay, container, false);
+        return inflater.inflate(R.layout.demo_fragment_native_grid_gplay, container, false);
     }
 
     @Override

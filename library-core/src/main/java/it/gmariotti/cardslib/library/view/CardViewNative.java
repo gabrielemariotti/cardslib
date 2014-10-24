@@ -691,6 +691,9 @@ public class CardViewNative extends android.support.v7.widget.CardView implement
             case Card.CLICK_LISTENER_CONTENT_VIEW:
                 view=mInternalContentLayout;
                 break;
+            case Card.CLICK_LISTENER_ACTIONAREA1_VIEW:
+                view=mInternalMainCardLayout;
+                break;
             default:
                 break;
         }

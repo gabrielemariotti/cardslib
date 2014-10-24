@@ -411,6 +411,13 @@
         <item name="android:paddingTop">@dimen/grid_card_padding_top</item>
     </style>
 
+    <style name="native_grid_card">
+        <item name="android:paddingLeft">@dimen/grid_card_padding_left</item>
+        <item name="android:paddingRight">@dimen/grid_card_padding_right</item>
+        <item name="android:paddingBottom">@dimen/grid_card_padding_bottom</item>
+        <item name="android:paddingTop">@dimen/grid_card_padding_top</item>
+    </style>
+
     <!-- Style for card with list -->
     <style name="cardwithlist">
         <item name="android:layout_marginTop">@dimen/card_base_cardwithlist_list_margin_top</item>

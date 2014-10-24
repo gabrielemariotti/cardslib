@@ -35,7 +35,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+
             <!-- Progress card -->
+            <!--
             <TextView
                 style="@style/Theme.Carddemo.TitleText"
                 android:layout_width="wrap_content"
@@ -50,6 +52,7 @@
                 card:card_layout_resourceID="@layout/native_card_thumbnail_layout_progress"
                 style="@style/card_external"
                 />
+                -->
 
             <!-- Material card with image and icon as supplemental actions -->
             <TextView

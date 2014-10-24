@@ -36,6 +36,10 @@
         <item name="android:paddingBottom">@dimen/card_main_content_native_material_large_image_paddingBottom</item>
     </style>
 
+    <style name="card_thumbnail_image_text_over_textstyle">
+        <item name="android:textColor">@color/card_thumbnail_image_text_over_textcolor</item>
+        <item name="android:textSize">@dimen/card_thumbnail_image_text_over_textsize</item>
+    </style>
 
 
 </resources>

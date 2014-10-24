@@ -30,7 +30,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import it.gmariotti.cardslib.demo.R;
-import it.gmariotti.cardslib.demo.fragment.v1.MaterialV1Fragment;
+import it.gmariotti.cardslib.demo.fragment.BaseMaterialFragment;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
 import it.gmariotti.cardslib.library.internal.CardThumbnail;
@@ -42,7 +42,7 @@ import it.gmariotti.cardslib.library.view.listener.UndoBarController;
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public class ListGplayUndoCardFragment extends MaterialV1Fragment {
+public class NativeListGplayUndoCardFragment extends BaseMaterialFragment {
 
     private CardArrayAdapter mCardArrayAdapter;
     private UndoBarController mUndoBarController;
@@ -68,7 +68,7 @@ public class ListGplayUndoCardFragment extends MaterialV1Fragment {
 
     @Override
     protected String getSourceUrl() {
-        return "https://github.com/gabrielemariotti/cardslib/blob/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/v1/ListGplayUndoCardFragment.java";
+        return "https://github.com/gabrielemariotti/cardslib/blob/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/nativeview/NativeListGplayUndoCardFragment.java";
     }
 
     @Override
@@ -78,7 +78,7 @@ public class ListGplayUndoCardFragment extends MaterialV1Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.demo_fragment_list_gplaycard_undo, container, false);
+        return inflater.inflate(R.layout.demo_fragment_native_list_gplaycard_undo, container, false);
     }
 
     @Override
@@ -117,8 +117,22 @@ public class ListGplayUndoCardFragment extends MaterialV1Fragment {
 
         mCardArrayAdapter = new CardArrayAdapter(getActivity(),cards);
 
+        mCardArrayAdapter.setUndoBarUIElements(new UndoBarController.DefaultUndoBarUIElements(){
+
+            @Override
+            public SwipeDirectionEnabled isEnabledUndoBarSwipeAction() {
+                return SwipeDirectionEnabled.TOPBOTTOM;
+            }
+
+            @Override
+            public AnimationType getAnimationType() {
+                return AnimationType.TOPBOTTOM;
+            }
+        });
+
         //Enable undo controller!
         mCardArrayAdapter.setEnableUndo(true);
+
 
         //CardListView listView = (CardListView) getActivity().findViewById(R.id.carddemo_list_gplaycard);
         if (mListView!=null){
@@ -187,6 +201,13 @@ public class ListGplayUndoCardFragment extends MaterialV1Fragment {
                 @Override
                 public void onUndoSwipe(Card card) {
                     Toast.makeText(getContext(), "Undo card=" + title, Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            setOnUndoHideSwipeListListener(new OnUndoHideSwipeListListener() {
+                @Override
+                public void onUndoHideSwipe(Card card) {
+                    Toast.makeText(getContext(), "Hide undo card=" + title, Toast.LENGTH_SHORT).show();
                 }
             });
 

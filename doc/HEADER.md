@@ -30,10 +30,10 @@ Creating a base `CardHeader` is pretty simple.
 
 `CardHeader` provides a base HeaderLayout with a InnerLayout and ButtonLayout.
 
-For the `CardViewNative`:
+For the **CardViewNative**:
 You can find it in [`res/layout/native_base_header_layout.xml`](/library-core/src/main/res/layout/native_base_header_layout.xml)
 
-For the `CardView`:
+For the **CardView**:
 You can find it in [`res/layout/base_header_layout.xml`](/library-core/src/main/res/layout/base_header_layout.xml)
 
 
