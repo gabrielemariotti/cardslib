@@ -24,9 +24,7 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <include layout="@layout/demo_barheader_full"/>
-
-    <it.gmariotti.cardslib.library.view.CardExpandableListView
+     <it.gmariotti.cardslib.library.view.CardExpandableListView
        android:layout_width="match_parent"
        android:layout_height="match_parent"
        android:id="@+id/carddemo_list_expand"/>

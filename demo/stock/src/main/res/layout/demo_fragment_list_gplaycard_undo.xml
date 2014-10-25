@@ -18,17 +18,13 @@
   ~  *****************************************************************************
   -->
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:card="http://schemas.android.com/apk/res-auto"
              android:layout_width="match_parent"
              android:layout_height="match_parent">
 
-    <include android:id="@+id/hb_full" layout="@layout/demo_barheader_full"/>
-
-
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_below="@id/hb_full"
         android:layout_height="match_parent">
 
         <!-- You can customize this layout.
@@ -44,4 +40,4 @@
     <!-- Include undo message layout -->
     <include layout="@layout/list_card_undo_materialmobile_message"/>
 
-</RelativeLayout>
+</FrameLayout>

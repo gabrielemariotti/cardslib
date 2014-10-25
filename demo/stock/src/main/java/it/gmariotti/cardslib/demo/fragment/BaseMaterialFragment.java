@@ -74,17 +74,17 @@ public abstract class BaseMaterialFragment extends BaseFragment {
     }
 
     protected void setupBarHeader(View rootView){
-        mHeaderBox = rootView.findViewById(R.id.header_recap);
-        mHeaderContentBox = rootView.findViewById(R.id.header_contents);
-        mHeaderBackgroundBox = rootView.findViewById(R.id.header_background);
-        mHeaderShadow = rootView.findViewById(R.id.header_shadow);
+        mHeaderBox = getActivity().findViewById(R.id.header_recap);
+        mHeaderContentBox = getActivity().findViewById(R.id.header_contents);
+        mHeaderBackgroundBox = getActivity().findViewById(R.id.header_background);
+        mHeaderShadow = getActivity().findViewById(R.id.header_shadow);
         
-        mTitleHeader = (TextView) rootView.findViewById(R.id.header_title);
-        mSubTitleHeader = (TextView) rootView.findViewById(R.id.header_subtitle);
+        mTitleHeader = (TextView) getActivity().findViewById(R.id.header_title);
+        mSubTitleHeader = (TextView) getActivity().findViewById(R.id.header_subtitle);
     }
 
     protected void setupBarButton(View rootView) {
-        mSourceButton = (ImageButton) rootView.findViewById(R.id.bar_button_source);
+        mSourceButton = (ImageButton) getActivity().findViewById(R.id.bar_button_source);
         //mDocButton = (ImageButton) rootView.findViewById(R.id.bar_button_doc);
 
         final String sourceUrl = getSourceUrl();

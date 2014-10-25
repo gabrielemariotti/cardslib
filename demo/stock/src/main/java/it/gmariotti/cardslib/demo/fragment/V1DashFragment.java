@@ -49,7 +49,6 @@ import it.gmariotti.cardslib.demo.fragment.v1.ListSectionedCardFragment;
 import it.gmariotti.cardslib.demo.fragment.v1.MiscCardFragment;
 import it.gmariotti.cardslib.demo.fragment.v1.RecyclerViewFragment;
 import it.gmariotti.cardslib.demo.fragment.v1.ShadowFragment;
-import it.gmariotti.cardslib.demo.fragment.v1.StockCardFragment;
 import it.gmariotti.cardslib.demo.fragment.v1.ThumbnailFragment;
 import it.gmariotti.cardslib.demo.ui.widget.CollectionView;
 import it.gmariotti.cardslib.demo.ui.widget.CollectionViewCallbacks;
@@ -90,7 +89,7 @@ public class V1DashFragment extends NativeDashFragment{
 
             inventory.addGroup(new CollectionView.InventoryGroup(TOKEN2)
                     .setDisplayCols(mContext.getResources().getInteger(R.integer.menu_grid_columns))
-                    .setItemCount(5)
+                    .setItemCount(4)
                     .setDataIndexStart(5)
                     .setHeaderLabel(mContext.getString(R.string.header_title_group2))
                     .setShowHeader(true));
@@ -98,21 +97,21 @@ public class V1DashFragment extends NativeDashFragment{
             inventory.addGroup(new CollectionView.InventoryGroup(TOKEN3)
                     .setDisplayCols(mContext.getResources().getInteger(R.integer.menu_grid_columns))
                     .setItemCount(11)
-                    .setDataIndexStart(10)
+                    .setDataIndexStart(9)
                     .setHeaderLabel(mContext.getString(R.string.header_title_group3))
                     .setShowHeader(true));
 
             inventory.addGroup(new CollectionView.InventoryGroup(TOKEN4)
                     .setDisplayCols(mContext.getResources().getInteger(R.integer.menu_grid_columns))
                     .setItemCount(3)
-                    .setDataIndexStart(21)
+                    .setDataIndexStart(20)
                     .setHeaderLabel(mContext.getString(R.string.header_title_group4))
                     .setShowHeader(true));
 
             inventory.addGroup(new CollectionView.InventoryGroup(TOKEN5)
                     .setDisplayCols(mContext.getResources().getInteger(R.integer.menu_grid_columns))
                     .setItemCount(3)
-                    .setDataIndexStart(24)
+                    .setDataIndexStart(23)
                     .setHeaderLabel(mContext.getString(R.string.header_title_group5))
                     .setShowHeader(true));
 
@@ -132,7 +131,7 @@ public class V1DashFragment extends NativeDashFragment{
 
         list.add(new MenuEntry(R.string.carddemo_title_tag_ex_birthday_card,R.color.md_green_300,R.string.header_title_subtitle_ex_gbirth, BirthDayCardFragment.class));
         list.add(new MenuEntry(R.string.carddemo_title_tag_ex_gplay,R.color.md_teal_200,R.string.header_title_subtitle_ex_gplay, GPlayCardFragment.class));
-        list.add(new MenuEntry(R.string.carddemo_title_tag_ex_stock_card,R.color.md_indigo_600,R.string.header_title_subtitle_ex_gstock, StockCardFragment.class));
+        //list.add(new MenuEntry(R.string.carddemo_title_tag_ex_stock_card,R.color.md_indigo_600,R.string.header_title_subtitle_ex_gstock, StockCardFragment.class));
         list.add(new MenuEntry(R.string.carddemo_title_tag_ex_misc_card,R.color.md_indigo_A400,R.string.header_title_subtitle_ex_misc, MiscCardFragment.class));
         list.add(new MenuEntry(R.string.carddemo_title_tag_ex_card_changevalue,R.color.md_pink_A200,R.string.header_title_subtitle_ex_refresh, ChangeValueCardFragment.class));
 

@@ -140,7 +140,7 @@ public class NativeGridCursorCardFragment extends BaseNativeListFragment impleme
             setCardFromCursor(card,cursor);
 
             //Create a CardHeader
-            CardHeader header = new CardHeader(getActivity(),R.layout.carddemo_inner_gridcursor_header);
+            CardHeader header = new CardHeader(getActivity(),R.layout.native_inner_gplay2_header);
             //Set the header title
 
             header.setTitle(card.mainHeader);
@@ -221,7 +221,7 @@ public class NativeGridCursorCardFragment extends BaseNativeListFragment impleme
         int resourceIdThumb;
 
         public MyCursorCard(Context context) {
-            super(context, R.layout.carddemo_cursor_inner_content);
+            super(context, R.layout.carddemo_cursor_native_inner_content);
         }
 
         @Override

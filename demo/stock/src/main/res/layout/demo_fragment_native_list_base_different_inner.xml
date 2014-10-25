@@ -24,10 +24,7 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <include android:id="@+id/hb_full" layout="@layout/demo_barheader_full"/>
-
    <it.gmariotti.cardslib.library.view.CardListView
-       android:layout_below="@id/hb_full"
        android:layout_width="match_parent"
        android:layout_height="match_parent"
        android:paddingRight="12dp"

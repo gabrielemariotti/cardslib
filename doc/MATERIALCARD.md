@@ -71,7 +71,7 @@ The supplemental actions are built with this code:
           actions.add(t2);
 ```
 
-To build the actions you can clone [these layouts](/library-cards/src/main/res/layout/carddemo_native_material_supplemental_actions_large_icon.xml) or (/library-cards/src/main/res/layout/carddemo_native_material_supplemental_actions_large.xml)  or use something like this 
+To build the actions you can clone [this layout](/library-cards/src/main/res/layout/carddemo_native_material_supplemental_actions_large_icon.xml) or [this layout](/library-cards/src/main/res/layout/carddemo_native_material_supplemental_actions_large.xml)  or use something like this 
 
 ```xml
     <!-- element for a IconSupplementalAction -->

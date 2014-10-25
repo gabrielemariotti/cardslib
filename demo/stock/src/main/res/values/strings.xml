@@ -113,22 +113,22 @@
     <string name="carddemo_title_tag_base_card">Card</string>
     <string name="carddemo_title_tag_base_card_expand">Expand</string>
 
-    <string name="carddemo_title_tag_ex_gplay">Google Play</string>
-    <string name="carddemo_title_tag_ex_gnow">Google Now</string>
+    <string name="carddemo_title_tag_ex_gplay">Google Play &#8482;</string>
+    <string name="carddemo_title_tag_ex_gnow">Google Now &#8482;</string>
     <string name="carddemo_title_tag_ex_material">Material Card</string>
     <string name="carddemo_title_tag_ex_birthday_card">BirthDay Card</string>
-    <string name="carddemo_title_tag_ex_stock_card">Google Now Stock</string>
-    <string name="carddemo_title_tag_ex_play_card">Google Play</string>
+    <string name="carddemo_title_tag_ex_stock_card">Google Now Stock &#8482;</string>
+    <string name="carddemo_title_tag_ex_play_card">Google Play &#8482;</string>
     <string name="carddemo_title_tag_ex_misc_card">Misc</string>
     <string name="carddemo_title_tag_ex_card_changevalue">Refresh card</string>
 
     <string name="carddemo_title_tag_list_base">List base</string>
     <string name="carddemo_title_tag_list_base_different_layout">Different layouts</string>
     <string name="carddemo_title_tag_list_expandable_card">Expandable cards</string>
-    <string name="carddemo_title_tag_list_google_play">Google Play</string>
+    <string name="carddemo_title_tag_list_google_play">Google Play &#8482;</string>
     <string name="carddemo_title_tag_list_swipe_undo">Swipe and undo</string>
     <string name="carddemo_title_tag_list_grid_base">Grid base</string>
-    <string name="carddemo_title_tag_list_grid_google_play">Grid Google Play</string>
+    <string name="carddemo_title_tag_list_grid_google_play">Grid Google Play &#8482;</string>
     <string name="carddemo_title_tag_list_colored">Colored cards</string>
     <string name="carddemo_title_tag_list_cursor">List and Cursor</string>
     <string name="carddemo_title_tag_list_grid_cursor">Grid with Cursor</string>
@@ -265,22 +265,23 @@
     <string name="header_title_cardexpandsubtitle">How to use the CardExpand</string>
 
     <string name="header_title_subtitle_ex_gbirth">Google Birthday</string>
-    <string name="header_title_subtitle_ex_gplay">Google Play</string>
-    <string name="header_title_subtitle_ex_gstock">Google Stock</string>
+    <string name="header_title_subtitle_ex_gplay">Google Play &#8482;</string>
+    <string name="header_title_subtitle_ex_gstock">Google Stock &#8482;</string>
     <string name="header_title_subtitle_ex_misc">Misc Cards</string>
     <string name="header_title_subtitle_ex_refresh">How to refresh card</string>
-
+    <string name="header_title_subtitle_ex_material">Material Card</string>
 
     <string name="header_title_subtitle_lbase">How to build a simple list</string>
     <string name="header_title_subtitle_ldiff">List with card with different layouts</string>
     <string name="header_title_subtitle_lexpand">List and expandable cards</string>
-    <string name="header_title_subtitle_lgplay">A list like the Google Play</string>
+    <string name="header_title_subtitle_lgplay">A list like the Google Play &#8482;</string>
     <string name="header_title_subtitle_swipe">A list with the swipe and undo actions</string>
     <string name="header_title_subtitle_gbase">A basic grid</string>
-    <string name="header_title_subtitle_ggplay">A Grid like the Google Play</string>
+    <string name="header_title_subtitle_ggplay">A Grid like the Google Play &#8482;</string>
     <string name="header_title_subtitle_lcolored">A list with colored cards</string>
     <string name="header_title_subtitle_lcursor">A list with Cursor</string>
     <string name="header_title_subtitle_gcursor">A grid with Cursor</string>
+
 
     <string name="header_title_subtitle_cab_multi">A List with Multichoice</string>
     <string name="header_title_subtitle_cab_gmulti">A Grid with Multichoice</string>

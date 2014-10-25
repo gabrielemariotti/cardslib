@@ -17,13 +17,17 @@
   ~   limitations under the License.
   ~  *****************************************************************************
   -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_height="wrap_content"
+              android:layout_width="match_parent">
 
-<it.gmariotti.cardslib.library.view.CardViewNative
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/list_cardId"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    style="@style/native_list_card"
-    card:card_layout_resourceID="@layout/carddemo_native_cursor_layout"
-    />
+    <it.gmariotti.cardslib.library.view.CardViewNative
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/list_cardId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/native_list_card"
+        card:card_layout_resourceID="@layout/carddemo_native_cursor_layout"
+        />
+</LinearLayout>

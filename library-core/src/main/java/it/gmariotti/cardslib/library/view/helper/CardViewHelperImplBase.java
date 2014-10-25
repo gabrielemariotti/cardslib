@@ -21,6 +21,7 @@ package it.gmariotti.cardslib.library.view.helper;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
+import android.support.v4.view.ViewCompat;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -53,7 +54,7 @@ public class CardViewHelperImplBase implements CardViewHelper {
 
     @Override
     public void setElevation(View view, float elevation) {
-
+        ViewCompat.setElevation(view, elevation);
     }
 
     @Override

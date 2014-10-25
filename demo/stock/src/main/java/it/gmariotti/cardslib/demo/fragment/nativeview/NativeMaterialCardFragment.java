@@ -49,12 +49,11 @@ public class NativeMaterialCardFragment extends BaseMaterialFragment {
 
     @Override
     protected int getSubTitleHeaderResourceId() {
-        return 0;
+        return R.string.header_title_subtitle_ex_material;
     }
 
     @Override
-    protected int getTitleHeaderResourceId() {
-        return 0;
+    protected int getTitleHeaderResourceId() {  return R.string.header_title_group3;
     }
 
     @Override
@@ -64,7 +63,7 @@ public class NativeMaterialCardFragment extends BaseMaterialFragment {
 
     @Override
     protected String getSourceUrl() {
-        return null;
+        return "https://github.com/gabrielemariotti/cardslib/blob/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/nativeview/NativeMaterialCardFragment.java";
     }
 
     @Override

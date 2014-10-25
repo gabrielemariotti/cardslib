@@ -18,7 +18,7 @@
   -->
 
 <resources>
-    <dimen name="drawer_width">280dp</dimen>
+    <dimen name="drawer_width">320dp</dimen>
 
     <dimen name="carddemo_base_grid_columnwidth">175dp</dimen>
     <dimen name="carddemo_base_grid_columnwidth_card">175dp</dimen>

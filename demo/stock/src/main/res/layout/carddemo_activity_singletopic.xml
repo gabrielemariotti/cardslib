@@ -26,7 +26,7 @@
     android:orientation="vertical"
     tools:context=".ui.DemoSingleTopicActivity">
 
-    <include layout="@layout/toolbar_actionbar_with_headerbar" />
+    <include layout="@layout/toolbar_actionbar_extended"/>
 
     <FrameLayout
         android:id="@+id/container"

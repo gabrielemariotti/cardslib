@@ -42,7 +42,7 @@
 
 
         <it.gmariotti.cardslib.library.view.component.CardHeaderView
-            style="@style/card.native.header_outer_layout"
+            style="@style/card.native.header_gplay_outer_layout"
             card:card_header_layout_resourceID="@layout/native_base_header_layout"
             android:id="@+id/card_header_layout"
             android:layout_width="wrap_content"
@@ -51,7 +51,7 @@
         <!-- Main Content View -->
         <FrameLayout
             android:id="@+id/card_main_content_layout"
-            style="@style/card.native.content_outer_layout"
+            style="@style/card.native.content_gplay_outer_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 

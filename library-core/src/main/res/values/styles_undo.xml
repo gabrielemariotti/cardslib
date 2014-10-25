@@ -95,7 +95,7 @@
         <item name="android:gravity">right</item>
         <item name="android:background">?android:selectableItemBackground</item>
         <item name="android:textSize">14sp</item>
-        <item name="android:layout_marginLeft">24dp</item>
+        <item name="android:paddingLeft">24dp</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/card_undobar_material_text_color</item>
@@ -112,7 +112,7 @@
         <item name="android:layout_marginRight">0dp</item>
         <item name="android:layout_marginBottom">0dp</item>
         <item name="android:paddingLeft">24dp</item>
-        <item name="android:paddingRight">24dp</item>
+        <item name="android:paddingRight">0dp</item>
         <item name="android:orientation">horizontal</item>
         <item name="android:background">@color/card_undobar_material_background_color</item>
         <item name="android:clickable">true</item>
@@ -136,12 +136,10 @@
         <item name="android:gravity">right</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginLeft">0dp</item>
-        <item name="android:layout_marginRight">0dp</item>
-        <item name="android:layout_marginBottom">18dp</item>
-        <item name="android:layout_marginTop">18dp</item>
-        <item name="android:paddingLeft">0dp</item>
-        <item name="android:paddingRight">0dp</item>
+        <item name="android:paddingBottom">18dp</item>
+        <item name="android:paddingTop">18dp</item>
+        <item name="android:paddingLeft">24dp</item>
+        <item name="android:paddingRight">24dp</item>
         <item name="android:background">?android:selectableItemBackground</item>
         <item name="android:textSize">14sp</item>
         <item name="android:textAllCaps">true</item>

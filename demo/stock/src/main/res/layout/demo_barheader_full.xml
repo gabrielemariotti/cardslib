@@ -60,7 +60,7 @@
             android:textStyle="@integer/font_textStyle_medium"
             android:fontFamily="@string/font_fontFamily_medium"
             android:textColor="@color/body_text_1_inverse"
-            android:textAlignment="viewStart"/>
+            />
 
         <!-- Session subtitle -->
         <TextView
@@ -72,7 +72,7 @@
             android:ellipsize="end"
             android:textSize="16sp"
             android:textColor="@color/body_text_2_inverse"
-            android:textAlignment="viewStart"/>
+            />
 
     </LinearLayout>
 

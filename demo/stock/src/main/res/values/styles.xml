@@ -45,7 +45,6 @@
         <item name="windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
 
-        <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowBackground">@android:color/white</item>
         <item name="android:homeAsUpIndicator">@drawable/ic_up21</item>
 
@@ -64,7 +63,6 @@
     </style>
 
     <style name="Theme.Carddemo.DemoSingleTopic" parent="Theme.Carddemo">
-        <item name="android:windowContentOverlay">@null</item>
         <item name="windowActionModeOverlay">true</item>
     </style>
 
@@ -117,10 +115,12 @@
     </style>
 
     <style name="Widget.Carddemo.PopupMenu" parent="Widget.AppCompat.Light.PopupMenu">
+        <item name="android:background">#FFF</item>
         <item name="android:dropDownSelector">?popupItemBackground</item>
     </style>
 
     <style name="Widget.Carddemo.ListView.DropDown" parent="Widget.AppCompat.Light.ListView.DropDown">
+        <item name="android:background">#FFF</item>
         <item name="android:listSelector">?popupItemBackground</item>
         <item name="android:divider">@null</item>
         <item name="android:dividerHeight">0dp</item>

@@ -5,6 +5,7 @@ In this page you can find info about:
 * [Intro](#intro)
 * [Breaking changes](#breaking-changes)
 * [Migrate the old card to the new CardViewNative](#migrate-the-old-card-to-the-new-cardviewnative)
+* [Current open points](#current-open-points)
 
 ## Intro
 
@@ -119,4 +120,12 @@ If you would like to migrate the old cards to new view you have to follow these 
      Check this file: [`res/layout/native_list_card_layout`](/library-core/src/main/res/layout/native_list_card_layout.xml).
     
      
-     
+### Current open points     
+
+There are some open points:
+
+- **change color dynamically** (the current method is not a valid solution)
+- **Contextual Action Bar and Toolbar** : the code inside the library works with the CAB and the classic ActionBar.
+  Now you should migrate to the toolbar, and I have to find a good solution.
+
+

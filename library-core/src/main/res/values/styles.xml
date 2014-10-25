@@ -68,6 +68,13 @@
         <item name="android:paddingBottom">@dimen/card_header_native_default_paddingBottom</item>
     </style>
 
+    <style name="card.native.header_outer_layout.nomargin" >
+        <item name="android:paddingLeft">0dp</item>
+        <item name="android:paddingRight">0dp</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
+    </style>
+
     <!--Style for Header Compound View -->
     <style name="card.header_compound_view">
 

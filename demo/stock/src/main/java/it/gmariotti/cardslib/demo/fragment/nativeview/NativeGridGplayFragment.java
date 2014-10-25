@@ -137,7 +137,7 @@ public class NativeGridGplayFragment extends BaseMaterialFragment {
         protected float rating;
 
         public GplayGridCard(Context context) {
-            super(context, R.layout.carddemo_gplay_inner_content);
+            super(context, R.layout.carddemo_native_gplay_inner_content);
         }
 
         public GplayGridCard(Context context, int innerLayout) {
@@ -145,7 +145,7 @@ public class NativeGridGplayFragment extends BaseMaterialFragment {
         }
 
         private void init() {
-            CardHeader header = new CardHeader(getContext());
+            CardHeader header = new CardHeader(getContext(),R.layout.native_inner_gplay_header);
             header.setButtonOverflowVisible(true);
             header.setTitle(headerTitle);
             header.setPopupMenu(R.menu.popupmain, new CardHeader.OnClickCardHeaderPopupMenuListener() {

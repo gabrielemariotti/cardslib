@@ -20,6 +20,7 @@
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 style="@style/card_section_container"
+                android:background="#ececec"
                 android:layout_height="60dp">
 
     <TextView

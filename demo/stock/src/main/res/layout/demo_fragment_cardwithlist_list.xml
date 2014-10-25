@@ -24,8 +24,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include layout="@layout/demo_barheader_full"/>
-
     <!-- You can customize this layout.
      You need to have in your layout a `CardView` with the ID `list_cardId` -->
     <it.gmariotti.cardslib.library.view.CardListView

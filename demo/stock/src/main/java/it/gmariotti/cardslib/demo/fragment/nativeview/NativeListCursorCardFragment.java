@@ -78,9 +78,7 @@ public class NativeListCursorCardFragment extends BaseNativeListFragment impleme
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View root= inflater.inflate(R.layout.demo_fragment_native_list_cursor, container, false);
-        setupListFragment(root);
-        return root;
+        return  inflater.inflate(R.layout.demo_fragment_native_list_cursor, container, false);
     }
 
     @Override
@@ -231,7 +229,7 @@ public class NativeListCursorCardFragment extends BaseNativeListFragment impleme
         int resourceIdThumb;
 
         public MyCursorCard(Context context) {
-            super(context, R.layout.carddemo_cursor_inner_content);
+            super(context, R.layout.carddemo_cursor_native_inner_content);
         }
 
         @Override

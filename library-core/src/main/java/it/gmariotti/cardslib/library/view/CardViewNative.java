@@ -27,6 +27,7 @@ import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.LayoutRes;
+import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -409,9 +410,9 @@ public class CardViewNative extends android.support.v7.widget.CardView implement
     protected void setupShadowView() {
         if (mCard != null && mCard.getCardElevation() != null) {
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP)
-                setMaxCardElevation(mCard.getCardElevation());
+                ViewCompat.setElevation(this,mCard.getCardElevation());
             else
-                setCardElevation(mCard.getCardElevation());
+                ViewCompat.setElevation(this,mCard.getCardElevation());
         }
     }
 
@@ -1092,7 +1093,8 @@ public class CardViewNative extends android.support.v7.widget.CardView implement
     @Override
     public void changeBackgroundColorResourceId(int colorResourceId) {
         if (colorResourceId!=Card.DEFAULT_COLOR){
-            this.setBackgroundColor(getResources().getColor(colorResourceId));
+            //this.setBackgroundDrawable(mHelperImpl.getResourceFromAttrs(getContext(),R.attr.cardBackgroundColor));
+            mInternalMainCardLayout.setBackgroundColor(getResources().getColor(colorResourceId));
         }
     }
 

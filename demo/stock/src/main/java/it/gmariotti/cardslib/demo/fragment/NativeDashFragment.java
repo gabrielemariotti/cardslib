@@ -42,6 +42,7 @@ import it.gmariotti.cardslib.demo.R;
 import it.gmariotti.cardslib.demo.fragment.nativeview.NativeCardExpandFragment;
 import it.gmariotti.cardslib.demo.fragment.nativeview.NativeCardFragment;
 import it.gmariotti.cardslib.demo.fragment.nativeview.NativeCardWithListFragment;
+import it.gmariotti.cardslib.demo.fragment.nativeview.NativeChangeValueCardFragment;
 import it.gmariotti.cardslib.demo.fragment.nativeview.NativeGridCursorCardFragment;
 import it.gmariotti.cardslib.demo.fragment.nativeview.NativeGridGplayFragment;
 import it.gmariotti.cardslib.demo.fragment.nativeview.NativeHeaderFragment;
@@ -52,7 +53,9 @@ import it.gmariotti.cardslib.demo.fragment.nativeview.NativeListDifferentInnerBa
 import it.gmariotti.cardslib.demo.fragment.nativeview.NativeListExpandCardFragment;
 import it.gmariotti.cardslib.demo.fragment.nativeview.NativeListGplayCardFragment;
 import it.gmariotti.cardslib.demo.fragment.nativeview.NativeListGplayUndoCardFragment;
+import it.gmariotti.cardslib.demo.fragment.nativeview.NativeListSectionedCardFragment;
 import it.gmariotti.cardslib.demo.fragment.nativeview.NativeMaterialCardFragment;
+import it.gmariotti.cardslib.demo.fragment.nativeview.NativeMiscCardFragment;
 import it.gmariotti.cardslib.demo.fragment.nativeview.NativeRecyclerViewFragment;
 import it.gmariotti.cardslib.demo.fragment.nativeview.NativeShadowFragment;
 import it.gmariotti.cardslib.demo.fragment.nativeview.NativeThumbnailFragment;
@@ -157,7 +160,7 @@ public class NativeDashFragment extends Fragment{
 
             inventory.addGroup(new CollectionView.InventoryGroup(TOKEN2)
                     .setDisplayCols(mContext.getResources().getInteger(R.integer.menu_grid_columns))
-                    .setItemCount(8)
+                    .setItemCount(9)
                     .setDataIndexStart(5)
                     .setHeaderLabel(mContext.getString(R.string.header_title_group2))
                     .setShowHeader(true));
@@ -165,7 +168,7 @@ public class NativeDashFragment extends Fragment{
             inventory.addGroup(new CollectionView.InventoryGroup(TOKEN3)
                     .setDisplayCols(mContext.getResources().getInteger(R.integer.menu_grid_columns))
                     .setItemCount(11)
-                    .setDataIndexStart(13)
+                    .setDataIndexStart(14)
                     .setHeaderLabel(mContext.getString(R.string.header_title_group3))
                     .setShowHeader(true));
 
@@ -333,11 +336,12 @@ public class NativeDashFragment extends Fragment{
         list.add(new MenuEntry(R.string.carddemo_title_tag_ex_gplay,R.color.md_green_300,R.string.header_title_cardheadersubtitle, NativeHeaderFragment.class));
         list.add(new MenuEntry(R.string.carddemo_title_tag_ex_gnow,R.color.md_teal_200,R.string.header_title_cardheadersubtitle, NativeHeaderFragment.class));
         list.add(new MenuEntry(R.string.carddemo_title_tag_ex_material,R.color.md_indigo_600,R.string.header_title_cardheadersubtitle, NativeMaterialCardFragment.class));
+        list.add(new MenuEntry(R.string.carddemo_title_tag_misc_cardwithlist,R.color.md_orange_800,R.string.header_title_subtitle_cardwithlist, NativeCardWithListFragment.class));
         list.add(new MenuEntry(R.string.carddemo_title_tag_ex_birthday_card,R.color.md_indigo_A400,R.string.header_title_cardheadersubtitle, NativeHeaderFragment.class));
         list.add(new MenuEntry(R.string.carddemo_title_tag_ex_stock_card,R.color.md_pink_A200,R.string.header_title_cardheadersubtitle, NativeHeaderFragment.class));
         list.add(new MenuEntry(R.string.carddemo_title_tag_ex_play_card,R.color.md_brown_300,R.string.header_title_cardheadersubtitle, NativeHeaderFragment.class));
-        list.add(new MenuEntry(R.string.carddemo_title_tag_ex_misc_card,R.color.md_green_600,R.string.header_title_cardheadersubtitle, NativeHeaderFragment.class));
-        list.add(new MenuEntry(R.string.carddemo_title_tag_ex_card_changevalue,R.color.md_blue_600,R.string.header_title_cardheadersubtitle, NativeHeaderFragment.class));
+        list.add(new MenuEntry(R.string.carddemo_title_tag_ex_misc_card,R.color.md_green_600,R.string.header_title_subtitle_ex_misc, NativeMiscCardFragment.class));
+        list.add(new MenuEntry(R.string.carddemo_title_tag_ex_card_changevalue,R.color.md_pink_A200,R.string.header_title_subtitle_ex_refresh, NativeChangeValueCardFragment.class));
 
         list.add(new MenuEntry(R.string.carddemo_title_tag_list_recyclerView,R.color.md_blue_A200,R.string.header_title_subtitle_recyclerview, NativeRecyclerViewFragment.class));
         list.add(new MenuEntry(R.string.carddemo_title_tag_list_colored,R.color.md_cyan_700,R.string.header_title_subtitle_lcolored, NativeListColorFragment.class));
@@ -348,10 +352,9 @@ public class NativeDashFragment extends Fragment{
         list.add(new MenuEntry(R.string.carddemo_title_tag_list_swipe_undo,R.color.md_cyan_700,R.string.header_title_subtitle_swipe, NativeListGplayUndoCardFragment.class));
         //list.add(new MenuEntry(R.string.carddemo_title_tag_list_grid_base,R.color.md_cyan_700,R.string.header_title_subtitle_gbase, NativeGridBaseFragment.class));
         list.add(new MenuEntry(R.string.carddemo_title_tag_list_grid_google_play,R.color.md_red_800,R.string.header_title_subtitle_ggplay, NativeGridGplayFragment.class));
-
         list.add(new MenuEntry(R.string.carddemo_title_tag_list_cursor,R.color.md_orange_800,R.string.header_title_subtitle_lcursor, NativeListCursorCardFragment.class));
         list.add(new MenuEntry(R.string.carddemo_title_tag_list_grid_cursor,R.color.md_brown_400,R.string.header_title_subtitle_gcursor, NativeGridCursorCardFragment.class));
-        list.add(new MenuEntry(R.string.carddemo_title_tag_misc_cardwithlist,R.color.md_cyan_700,R.string.header_title_subtitle_cardwithlist, NativeCardWithListFragment.class));
+        list.add(new MenuEntry(R.string.carddemo_title_tag_misc_sectioned,R.color.md_indigo_300,R.string.header_title_subtitle_sectioned, NativeListSectionedCardFragment.class));
 
         return list;
     }
