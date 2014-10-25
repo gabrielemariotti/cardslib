@@ -25,7 +25,7 @@
         android:id="@+id/purchase_app_name_and_version"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/ic_launcher"
+        android:drawableLeft="@mipmap/ic_launcher"
         android:drawablePadding="8dp"
         android:gravity="center_vertical"
         android:fontFamily="sans-serif-condensed"
