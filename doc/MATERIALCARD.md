@@ -5,6 +5,7 @@ In this page you can find info about:
 * [Intro](#intro)
 * [How to build a Material Card with an image](#how-to-build-a-material-card-with-an-image)
 * [How to build a Material Card with an image and text](#how-to-build-a-material-card-with-an-image-and-text)
+* [Rounded corners on Android 4.x](#rounded-corners-on-android-4.x)
 * [Style](#style)
 
 ### Intro
@@ -203,6 +204,17 @@ Here a full example:
         });
 
 ```
+
+### Rounded corners on Android 4.x
+
+The Card provides a built-in method to obtain rounded corners in Android<5.0 for the image.
+If you are using a custom method (example Picasso) you have to provide to call this method to transform the image.
+
+``` java
+    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) 
+        RoundCornersDrawable.applyRoundedCorners(materialCardThumbnail,imageView,bitmap);
+```
+
 
 ### Style
 

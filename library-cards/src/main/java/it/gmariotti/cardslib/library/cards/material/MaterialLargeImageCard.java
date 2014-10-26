@@ -197,6 +197,7 @@ public class MaterialLargeImageCard extends BaseMaterialCard {
                     mCardThumbnail.setUrlResource(mUrlCardThumbnail);
                 }
             }
+            addCardThumbnail(mCardThumbnail);
         }
 
         ((MaterialLargeImageCardThumbnail)mCardThumbnail).setTextOverImage(mTextOverImage);

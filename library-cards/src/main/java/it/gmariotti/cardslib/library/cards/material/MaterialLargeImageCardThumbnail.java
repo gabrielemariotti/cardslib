@@ -19,6 +19,8 @@
 package it.gmariotti.cardslib.library.cards.material;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.os.Build;
 import android.support.annotation.IdRes;
 import android.support.annotation.StringRes;
 import android.view.View;
@@ -26,6 +28,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import it.gmariotti.cardslib.library.cards.R;
+import it.gmariotti.cardslib.library.cards.material.utils.RoundCornersDrawable;
 import it.gmariotti.cardslib.library.internal.CardThumbnail;
 
 /**
@@ -80,6 +83,17 @@ public class MaterialLargeImageCardThumbnail extends CardThumbnail {
         //Title over the image
         mTitleOverImageView = (TextView) parent.findViewById(default_text_id);
         buildTextOverImage();
+
+    }
+
+    @Override
+    public boolean applyBitmap(View imageView, Bitmap bitmap) {
+
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+            return RoundCornersDrawable.applyRoundedCorners(this,imageView,bitmap);
+        } else {
+            return super.applyBitmap(imageView, bitmap);
+        }
 
     }
 
