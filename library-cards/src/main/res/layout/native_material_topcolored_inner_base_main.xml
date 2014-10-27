@@ -20,31 +20,27 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
-              android:id="@+id/card_main_inner_halfcolored_layout"
-              android:layout_width="match_parent"
-              android:padding="16dp"
-              android:layout_height="wrap_content">
+              android:id="@+id/card_main_inner_topcolored_layout"
+              style="@style/card.native.top_colored_layout"
+              android:background="@drawable/topcolored_bg"
+              >
 
 
-    <!-- This is the base Inner View inside a Card.
-         You can customize it with your layout xml file and your Card.
-         You can populate your element with Card#setupInnerViewElements() method -->
+    <!-- This is the base for the top colored card -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="@style/card.native.top_colored_title"
         android:textColor="#FFF"
         android:textSize="22dp"
-        android:id="@+id/card_main_inner_halfcolored_title"
-        style="@style/card.native.base_simple_title"/>
+        android:fontFamily="@string/card_native_font_fontFamily_top_colored"
+        android:id="@+id/card_main_inner_topcolored_title"
+        />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="16dp"
-        android:textSize="18dp"
-        android:textStyle="normal"
-        android:textColor="#FFF"
-        android:id="@+id/card_main_inner_halfcolored_subtitle"
-        style="@style/card.native.base_simple_title"/>
+        style="@style/card.native.top_colored_subtitle"
+        android:fontFamily="@string/card_native_font_fontFamily_top_colored"
+        android:id="@+id/card_main_inner_topcolored_subtitle"
+        />
 
 </LinearLayout>

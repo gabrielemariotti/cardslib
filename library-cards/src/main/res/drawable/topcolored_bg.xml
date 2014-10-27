@@ -17,9 +17,14 @@
   ~  *****************************************************************************
   -->
 
-<resources>
-    <color name="card_thumbnail_image_text_over_textcolor">#FFF</color>
+<shape
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
 
-    <color name="card_topcolored_title_textcolor">#FFF</color>
-    <color name="card_topcolored_subtitle_textcolor">#80FFFFFF</color>
-</resources>
+    <corners android:radius="@dimen/card_background_default_radius" />
+    <corners android:bottomRightRadius="0dp"
+             android:bottomLeftRadius="0dp"
+             android:topLeftRadius="@dimen/card_background_default_radius"
+             android:topRightRadius="@dimen/card_background_default_radius"/>
+    <solid android:color="@android:color/white" />
+</shape>

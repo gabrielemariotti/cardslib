@@ -18,8 +18,5 @@
   -->
 
 <resources>
-    <color name="card_thumbnail_image_text_over_textcolor">#FFF</color>
-
-    <color name="card_topcolored_title_textcolor">#FFF</color>
-    <color name="card_topcolored_subtitle_textcolor">#80FFFFFF</color>
+    <string name="card_native_font_fontFamily_top_colored">sans-serif</string>
 </resources>

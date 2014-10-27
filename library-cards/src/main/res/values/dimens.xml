@@ -27,7 +27,7 @@
     <dimen name="actions_icon_height">54dp</dimen>
     <dimen name="actions_icon_width">54dp</dimen>
 
-    <!-- Text over image -->
+    <!-- Material Card Text over image -->
     <dimen name="card_thumbnail_image_text_over_textsize">24sp</dimen>
     <dimen name="card_thumbnail_image_text_over_padding_right">16dp</dimen>
     <dimen name="card_thumbnail_image_text_over_padding_left">16dp</dimen>
@@ -37,4 +37,11 @@
     <dimen name="card_main_content_native_material_large_image_paddingRight">16dp</dimen>
     <dimen name="card_main_content_native_material_large_image_paddingBottom">16dp</dimen>
     <dimen name="card_main_content_native_material_large_image_paddingTop">16dp</dimen>
+
+    <!-- TopColored -->
+    <dimen name="card_topcolored_title_textsize">22dp</dimen>
+    <dimen name="card_topcolored_subtitle_textsize">14dp</dimen>
+    <dimen name="card_topcolored_subtitle_paddingtop">18dp</dimen>
+    <dimen name="card_topcolored_layout_padding">16dp</dimen>
+    <dimen name="card_topcolored_layout_minHeigth">72dp</dimen>
 </resources>

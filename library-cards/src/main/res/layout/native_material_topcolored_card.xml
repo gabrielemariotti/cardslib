@@ -40,16 +40,19 @@
             android:paddingLeft="0dp"
             android:paddingRight="0dp"
             android:paddingTop="0dp"
+            android:paddingBottom="0dp"
             android:layout_width="match_parent"
-            android:layout_weight="1"
-            android:layout_height="0dp"/>
+            android:layout_height="wrap_content"/>
 
         <ViewStub
-            android:layout_weight="1"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp"
             android:id="@+id/card_halfcolored_secondhalf"
             android:inflatedId="@+id/card_halfcolored_secondhalf_layout"
             android:layout_width="match_parent"
-            android:layout_height="0dp"/>
+            android:layout_height="wrap_content"/>
 
     </it.gmariotti.cardslib.library.view.ForegroundLinearLayout>
 

@@ -16,9 +16,11 @@
  *  *****************************************************************************
  */
 
-package it.gmariotti.cardslib.library.cards;
+package it.gmariotti.cardslib.library.cards.topcolored;
 
 import android.content.Context;
+import android.graphics.drawable.GradientDrawable;
+import android.os.Build;
 import android.support.annotation.ColorRes;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.StringRes;
@@ -28,12 +30,14 @@ import android.view.ViewStub;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import it.gmariotti.cardslib.library.cards.R;
 import it.gmariotti.cardslib.library.cards.base.BaseMaterialCard;
+import it.gmariotti.cardslib.library.view.CardViewNative;
 
 /**
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public abstract class HalfColoredCard extends BaseMaterialCard {
+public class TopColoredCard extends BaseMaterialCard {
 
     /**
      *  Resource Background Color ID
@@ -69,16 +73,96 @@ public abstract class HalfColoredCard extends BaseMaterialCard {
     private @LayoutRes int mSecondHalfViewStubLayoutId;
 
 
+    private OnSetupInnerElements mOnSetupInnerElements;
+
+    /**
+     * Callback to setup inner Elements
+     */
+    public interface OnSetupInnerElements {
+        void setupInnerViewElementsSecondHalf(View secondHalfView);
+    }
+
     // -------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------
 
-    public HalfColoredCard(Context context) {
-        this(context, R.layout.native_material_halfcolored_inner_base_main);
+    public TopColoredCard(Context context) {
+        this(context, R.layout.native_material_topcolored_inner_base_main);
     }
 
-    public HalfColoredCard(Context context, @LayoutRes int innerLayout) {
+    public TopColoredCard(Context context, @LayoutRes int innerLayout) {
         super(context, innerLayout);
+    }
+
+    // -------------------------------------------------------------
+    // Builder
+    // -------------------------------------------------------------
+
+    public static SetupWizard with(Context context) {
+        return new SetupWizard(context);
+    }
+
+    public static final class SetupWizard {
+        private final Context mContext;
+        protected @ColorRes   int mColorResourceId;
+        protected CharSequence mTitleOverColor;
+        protected @StringRes  int mTitleOverColorResId;
+        protected CharSequence mSubTitleOverColor;
+        protected @StringRes   int mSubTitleOverColorResId;
+        private @LayoutRes int mSecondHalfViewStubLayoutId;
+        private OnSetupInnerElements mOnSetupInnerElements;
+
+        private SetupWizard(Context context) {
+            mContext = context;
+        }
+
+        public SetupWizard setColorResId(@ColorRes int colorId){
+            mColorResourceId = colorId;
+            return this;
+        }
+
+        public SetupWizard setTitleOverColor(CharSequence textOverColor){
+            mTitleOverColor = textOverColor;
+            return this;
+        }
+
+        public SetupWizard setTitleOverColor(int textOverColorResId){
+            mTitleOverColorResId = textOverColorResId;
+            return this;
+        }
+
+        public SetupWizard setSubTitleOverColor(CharSequence subtitleOverColor){
+            mSubTitleOverColor = subtitleOverColor;
+            return this;
+        }
+
+        public SetupWizard setSubTitleOverColor(int subtitleOverColorResId){
+            mSubTitleOverColorResId = subtitleOverColorResId;
+            return this;
+        }
+
+        public SetupWizard setupSubLayoutId(@LayoutRes int layoutId){
+            mSecondHalfViewStubLayoutId = layoutId;
+            return this;
+        }
+
+        public SetupWizard setupInnerElements(OnSetupInnerElements innerElements){
+            mOnSetupInnerElements = innerElements;
+            return this;
+        }
+
+        public TopColoredCard build() {
+            TopColoredCard card = new TopColoredCard(mContext);
+            card.setColorResourceId(mColorResourceId);
+            card.setTitleOverColor(mTitleOverColor);
+            card.setTitleOverColorResId(mTitleOverColorResId);
+            card.setSubTitleOverColor(mSubTitleOverColor);
+            card.setSubTitleOverColorResId(mSubTitleOverColorResId);
+            card.setSecondHalfViewStubLayoutId(mSecondHalfViewStubLayoutId);
+            card.setOnSetupInnerElements(mOnSetupInnerElements);
+            card.build();
+            return card;
+        }
     }
 
     // -------------------------------------------------------------
@@ -102,9 +186,9 @@ public abstract class HalfColoredCard extends BaseMaterialCard {
             ViewHolder holder = (ViewHolder) view.getTag();
             if (holder == null) {
                 holder = new ViewHolder();
-                holder.mLinearLayoutContainer = (LinearLayout) view.findViewById(R.id.card_main_inner_halfcolored_layout);
-                holder.mTitleView = (TextView) view.findViewById(R.id.card_main_inner_halfcolored_title);
-                holder.mSubTitleView = (TextView) view.findViewById(R.id.card_main_inner_halfcolored_subtitle);
+                holder.mLinearLayoutContainer = (LinearLayout) view.findViewById(R.id.card_main_inner_topcolored_layout);
+                holder.mTitleView = (TextView) view.findViewById(R.id.card_main_inner_topcolored_title);
+                holder.mSubTitleView = (TextView) view.findViewById(R.id.card_main_inner_topcolored_subtitle);
                 View viewStub = ((View)getCardView()).findViewById(R.id.card_halfcolored_secondhalf);
                 if (viewStub != null) {
                     ((ViewStub)viewStub).setLayoutResource(mSecondHalfViewStubLayoutId);
@@ -116,7 +200,13 @@ public abstract class HalfColoredCard extends BaseMaterialCard {
 
             //Color the LinearLayout
             if (holder.mLinearLayoutContainer != null && mColorResourceId != 0) {
-                holder.mLinearLayoutContainer.setBackgroundColor(mContext.getResources().getColor(mColorResourceId));
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+                    holder.mLinearLayoutContainer.setBackgroundColor(mContext.getResources().getColor(mColorResourceId));
+                else{
+                    ((CardViewNative)(getCardView()) ).setPreventCornerOverlap(false);
+                    GradientDrawable shapeDrawable = (GradientDrawable) (holder.mLinearLayoutContainer.getBackground());
+                    shapeDrawable.setColor(mContext.getResources().getColor(mColorResourceId));
+                }
             }
 
             //Set the text elements
@@ -155,7 +245,12 @@ public abstract class HalfColoredCard extends BaseMaterialCard {
 
     }
 
-    protected abstract void setupInnerViewElementsSecondHalf(View secondHalfView);
+    protected  void setupInnerViewElementsSecondHalf(View secondHalfView){
+
+        if (mOnSetupInnerElements != null)
+            mOnSetupInnerElements.setupInnerViewElementsSecondHalf(secondHalfView);
+
+    };
 
 
     /**
@@ -180,10 +275,14 @@ public abstract class HalfColoredCard extends BaseMaterialCard {
 
         if (viewHolder != null && viewHolder.mSubTitleView != null) {
             if (mSubTitleOverColorResId != 0) {
+                viewHolder.mSubTitleView.setVisibility(View.VISIBLE);
                 if (mContext != null)
                     viewHolder.mSubTitleView.setText(mContext.getResources().getString(mSubTitleOverColorResId));
-            } else {
+            } else if (mSubTitleOverColor != null) {
                 viewHolder.mSubTitleView.setText(mSubTitleOverColor);
+                viewHolder.mSubTitleView.setVisibility(View.VISIBLE);
+            } else {
+                viewHolder.mSubTitleView.setVisibility(View.GONE);
             }
         }
     }
@@ -235,5 +334,10 @@ public abstract class HalfColoredCard extends BaseMaterialCard {
 
     public void setSecondHalfViewStubLayoutId(int secondHalfViewStubLayoutId) {
         mSecondHalfViewStubLayoutId = secondHalfViewStubLayoutId;
+    }
+
+
+    public void setOnSetupInnerElements(OnSetupInnerElements onSetupInnerElements) {
+        mOnSetupInnerElements = onSetupInnerElements;
     }
 }

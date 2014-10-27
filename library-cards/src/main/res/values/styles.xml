@@ -19,6 +19,7 @@
 
 <resources>
 
+    <!-- Actions -->
     <style name="card.native.actions">
         <item name="android:textSize">@dimen/actions_textsize</item>
     </style>
@@ -29,6 +30,7 @@
     </style>
 
 
+    <!-- Material card -->
     <style name="card.native.material_large_image_content_outer_layout" parent="card.native.content_outer_layout">
         <item name="android:paddingLeft">@dimen/card_main_content_native_material_large_image_paddingLeft</item>
         <item name="android:paddingRight">@dimen/card_main_content_native_material_large_image_paddingRight</item>
@@ -39,6 +41,34 @@
     <style name="card_thumbnail_image_text_over_textstyle">
         <item name="android:textColor">@color/card_thumbnail_image_text_over_textcolor</item>
         <item name="android:textSize">@dimen/card_thumbnail_image_text_over_textsize</item>
+    </style>
+
+
+    <!-- Top Colored -->
+    <style name="card.native.top_colored_layout">
+        <item name="android:minHeight">@dimen/card_topcolored_layout_minHeigth</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">@dimen/card_topcolored_layout_padding</item>
+    </style>
+
+    <style name="card.native.top_colored_title" >
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/card_topcolored_title_textsize</item>
+        <item name="android:textColor">@color/card_topcolored_title_textcolor</item>
+        <item name="android:layout_gravity">left|center_vertical</item>
+    </style>
+
+    <style name="card.native.top_colored_subtitle" >
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">@dimen/card_topcolored_subtitle_textsize</item>
+        <item name="android:textColor">@color/card_topcolored_subtitle_textcolor</item>
+        <item name="android:layout_gravity">left|center_vertical</item>
+        <item name="android:paddingTop">@dimen/card_topcolored_subtitle_paddingtop</item>
     </style>
 
 
