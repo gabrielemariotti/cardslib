@@ -121,6 +121,8 @@
     <string name="carddemo_title_tag_ex_play_card">Google Play &#8482;</string>
     <string name="carddemo_title_tag_ex_misc_card">Misc</string>
     <string name="carddemo_title_tag_ex_card_changevalue">Refresh card</string>
+    <string name="carddemo_title_tag_ex_topcolored">Top Colored Card</string>
+
 
     <string name="carddemo_title_tag_list_base">List base</string>
     <string name="carddemo_title_tag_list_base_different_layout">Different layouts</string>
@@ -133,6 +135,7 @@
     <string name="carddemo_title_tag_list_cursor">List and Cursor</string>
     <string name="carddemo_title_tag_list_grid_cursor">Grid with Cursor</string>
     <string name="carddemo_title_tag_list_recyclerView">Recycler View</string>
+
 
     <string name="carddemo_title_tag_cab_multichoice">Multichoice</string>
     <string name="carddemo_title_tag_cab_grid_multichoice">Grid with CAB</string>
@@ -193,7 +196,7 @@
     <string name="demo_section_material_large_image_text">Material Card with Large Image and Text</string>
     <string name="demo_section_material_large_image">Material Card with Large Image and supplemental actions</string>
     <string name="demo_section_material_progress_card">Progress Card</string>
-    <string name="demo_section_material_halfcolored">Halfcolored Card</string>
+    <string name="demo_section_material_halfcolored">Top Colored Card</string>
 
     <!-- Header Examples -->
     <string name="demo_header_basetitle">Card Header Title</string>
@@ -268,8 +271,9 @@
     <string name="header_title_subtitle_ex_gplay">Google Play &#8482;</string>
     <string name="header_title_subtitle_ex_gstock">Google Stock &#8482;</string>
     <string name="header_title_subtitle_ex_misc">Misc Cards</string>
-    <string name="header_title_subtitle_ex_refresh">How to refresh card</string>
-    <string name="header_title_subtitle_ex_material">Material Card</string>
+    <string name="header_title_subtitle_ex_refresh">How to refresh the card content</string>
+    <string name="header_title_subtitle_ex_material">Built-in card:Material Card</string>
+    <string name="header_title_subtitle_ex_topcolored">Built-in card:Top Colored</string>
 
     <string name="header_title_subtitle_lbase">How to build a simple list</string>
     <string name="header_title_subtitle_ldiff">List with card with different layouts</string>
@@ -308,7 +312,7 @@
     <string name="navdrawer_item_info">About</string>
     <string name="navdrawer_item_github">Github code</string>
     <string name="navdrawer_item_googleplus">G+ community</string>
-
+    <string name="carddemo_match">Team A - Team B</string>
 
 
 </resources>

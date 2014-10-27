@@ -24,14 +24,6 @@
               android:layout_width="wrap_content"
               android:layout_height="wrap_content">
 
-
-    <ImageView
-        android:scaleType="fitStart"
-        android:background="@drawable/map"
-        android:layout_width="wrap_content"
-        android:layout_height="200dp"
-        />
-
     <TextView
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
@@ -42,7 +34,7 @@
         android:textSize="16dp"
         android:textColor="@color/body_text_2"
         android:fontFamily="@string/card_font_fontFamily_image_text_over"
-        android:id="@+id/carddemo_halfcolored_simple_title"
+        android:id="@+id/carddemo_blackcolored_simple_title"
         style="@style/card.native.base_simple_title"
         />
 

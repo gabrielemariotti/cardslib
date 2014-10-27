@@ -16,21 +16,22 @@
   ~  *****************************************************************************
   -->
 
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item android:id="@+id/action_settings"
         android:title="Item1"
         android:orderInCategory="100"
-        android:showAsAction="always" />
+        app:showAsAction="always" />
 
     <item android:id="@+id/action_settings2"
           android:title="Item2"
           android:orderInCategory="101"
-          android:showAsAction="always" />
+          app:showAsAction="always" />
 
 
     <item android:id="@+id/action_settings3"
           android:title="Item3"
           android:orderInCategory="102"
-          android:showAsAction="always" />
+          app:showAsAction="always" />
 </menu>

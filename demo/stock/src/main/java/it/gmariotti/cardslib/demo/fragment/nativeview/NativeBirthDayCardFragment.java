@@ -16,7 +16,7 @@
  *  *****************************************************************************
  */
 
-package it.gmariotti.cardslib.demo.fragment.v1;
+package it.gmariotti.cardslib.demo.fragment.nativeview;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
@@ -38,19 +38,20 @@ import java.io.File;
 
 import it.gmariotti.cardslib.demo.R;
 import it.gmariotti.cardslib.demo.cards.GoogleNowBirthCard;
+import it.gmariotti.cardslib.demo.fragment.BaseMaterialFragment;
 import it.gmariotti.cardslib.library.Constants;
 import it.gmariotti.cardslib.library.utils.BitmapUtils;
-import it.gmariotti.cardslib.library.view.CardView;
+import it.gmariotti.cardslib.library.view.CardViewNative;
 
 /**
  * Card Examples.
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public class BirthDayCardFragment extends MaterialV1Fragment {
+public class NativeBirthDayCardFragment extends BaseMaterialFragment {
 
     protected ScrollView mScrollView;
-    private CardView cardView;
+    private CardViewNative cardView;
     private GoogleNowBirthCard birthCard;
 
     private ShareActionProvider mShareActionProvider;
@@ -74,7 +75,7 @@ public class BirthDayCardFragment extends MaterialV1Fragment {
 
     @Override
     protected String getSourceUrl() {
-        return "https://github.com/gabrielemariotti/cardslib/blob/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/v1/BirthDayCardFragment.java";
+        return "https://github.com/gabrielemariotti/cardslib/blob/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/nativeview/NativeBirthDayCardFragment.java";
     }
 
     @Override
@@ -90,7 +91,7 @@ public class BirthDayCardFragment extends MaterialV1Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.demo_fragment_birthday_card, container, false);
+        return inflater.inflate(R.layout.demo_fragment_native_birthday_card, container, false);
     }
 
     @Override
@@ -147,7 +148,7 @@ public class BirthDayCardFragment extends MaterialV1Fragment {
         birthCard.setId("myId");
 
         //Set card in the cardView
-        cardView = (CardView) getActivity().findViewById(R.id.carddemo_cardBirth);
+        cardView = (CardViewNative) getActivity().findViewById(R.id.carddemo_cardBirth);
         cardView.setCard(birthCard);
     }
 
@@ -157,7 +158,7 @@ public class BirthDayCardFragment extends MaterialV1Fragment {
         card2.USE_VIGNETTE=1;
 
         //Set card in the cardView
-        CardView cardView2 = (CardView) getActivity().findViewById(R.id.carddemo_cardBirth2);
+        CardViewNative cardView2 = (CardViewNative) getActivity().findViewById(R.id.carddemo_cardBirth2);
         cardView2.setCard(card2);
 
     }
@@ -168,7 +169,7 @@ public class BirthDayCardFragment extends MaterialV1Fragment {
         card3.USE_VIGNETTE=2;
 
         //Set card in the cardView
-        CardView cardView3 = (CardView) getActivity().findViewById(R.id.carddemo_cardBirth3);
+        CardViewNative cardView3 = (CardViewNative) getActivity().findViewById(R.id.carddemo_cardBirth3);
         cardView3.setCard(card3);
     }
 

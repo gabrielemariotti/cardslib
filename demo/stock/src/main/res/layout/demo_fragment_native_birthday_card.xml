@@ -26,8 +26,8 @@
 
     <ScrollView
         android:id="@+id/card_scrollview"
-        android:layout_width="match_parent"
         style="@style/carddemo_default_container_padding"
+        android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
@@ -35,60 +35,42 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-
-            <!-- Progress card -->
-            <!--
-            <TextView
-                style="@style/Theme.Carddemo.TitleText"
-                android:layout_width="wrap_content"
+            <it.gmariotti.cardslib.library.view.CardViewNative
+                android:id="@+id/carddemo_cardBirth"
+                android:layout_width="@dimen/card_birth_width"
                 android:layout_height="wrap_content"
-                android:text="@string/demo_section_material_progress_card"/>
-
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                card:card_layout_resourceID="@layout/carddemo_native_googlenowbirth_layout"
+                android:layout_marginTop="12dp"/>
 
             <it.gmariotti.cardslib.library.view.CardViewNative
-                android:id="@+id/carddemo_progress"
-                android:layout_width="match_parent"
+                android:id="@+id/carddemo_cardBirth2"
+                android:layout_width="@dimen/card_birth_width"
                 android:layout_height="wrap_content"
-                card:card_layout_resourceID="@layout/native_card_thumbnail_layout_progress"
-                style="@style/card_external"
-                />
-                -->
-
-            <!-- Material card with image and icon as supplemental actions -->
-            <TextView
-                style="@style/Theme.Carddemo.TitleText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/demo_section_material_large_image"/>
-
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                card:card_layout_resourceID="@layout/carddemo_native_googlenowbirth_layout"
+                android:layout_marginTop="12dp"/>
 
             <it.gmariotti.cardslib.library.view.CardViewNative
-                android:id="@+id/carddemo_largeimage"
+                android:id="@+id/carddemo_cardBirth3"
+                android:layout_width="@dimen/card_birth_width"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                card:card_layout_resourceID="@layout/carddemo_native_googlenowbirth_layout"
+                android:layout_marginTop="12dp"/>
+
+            <!-- Empty view-->
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                card:card_layout_resourceID="@layout/native_material_largeimage_card"
-                style="@style/card_external"
-                />
-
-            <!-- Material card with image , text and supplemental actions -->
-            <TextView
-                style="@style/Theme.Carddemo.TitleText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/demo_section_material_large_image_text"/>
-
-
-            <it.gmariotti.cardslib.library.view.CardViewNative
-                android:id="@+id/carddemo_largeimage_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                card:card_layout_resourceID="@layout/native_material_largeimage_text_card"
-                style="@style/card_external"
-                />
-
+                android:layout_height="15dp"/>
 
         </LinearLayout>
-
 
     </ScrollView>
 

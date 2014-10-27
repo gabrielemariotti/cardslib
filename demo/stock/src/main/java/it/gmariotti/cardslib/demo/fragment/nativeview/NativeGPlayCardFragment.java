@@ -16,7 +16,7 @@
  *  *****************************************************************************
  */
 
-package it.gmariotti.cardslib.demo.fragment.v1;
+package it.gmariotti.cardslib.demo.fragment.nativeview;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
@@ -37,21 +37,24 @@ import android.widget.ScrollView;
 import java.io.File;
 
 import it.gmariotti.cardslib.demo.R;
-import it.gmariotti.cardslib.demo.cards.GoogleNowBirthCard;
+import it.gmariotti.cardslib.demo.Utils;
+import it.gmariotti.cardslib.demo.cards.GooglePlaySmallCard;
+import it.gmariotti.cardslib.demo.cards.GplayCard;
+import it.gmariotti.cardslib.demo.fragment.BaseMaterialFragment;
 import it.gmariotti.cardslib.library.Constants;
 import it.gmariotti.cardslib.library.utils.BitmapUtils;
-import it.gmariotti.cardslib.library.view.CardView;
+import it.gmariotti.cardslib.library.view.CardViewNative;
 
 /**
- * Card Examples.
+ * Card Examples
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public class BirthDayCardFragment extends MaterialV1Fragment {
+public class NativeGPlayCardFragment extends BaseMaterialFragment {
 
     protected ScrollView mScrollView;
-    private CardView cardView;
-    private GoogleNowBirthCard birthCard;
+    private GooglePlaySmallCard cardGmap;
+    private CardViewNative cardViewGmap;
 
     private ShareActionProvider mShareActionProvider;
     private File photofile;
@@ -59,7 +62,7 @@ public class BirthDayCardFragment extends MaterialV1Fragment {
 
     @Override
     protected int getSubTitleHeaderResourceId() {
-        return R.string.header_title_subtitle_ex_gbirth;
+        return R.string.header_title_subtitle_ex_gplay;
     }
 
     @Override
@@ -74,12 +77,12 @@ public class BirthDayCardFragment extends MaterialV1Fragment {
 
     @Override
     protected String getSourceUrl() {
-        return "https://github.com/gabrielemariotti/cardslib/blob/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/v1/BirthDayCardFragment.java";
+        return "https://github.com/gabrielemariotti/cardslib/blob/master/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/nativeview/NativeGPlayCardFragment.java";
     }
 
     @Override
     public int getTitleResourceId() {
-        return R.string.carddemo_title_birthday_card;
+        return R.string.carddemo_title_gplay;
     }
 
     @Override
@@ -90,7 +93,7 @@ public class BirthDayCardFragment extends MaterialV1Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.demo_fragment_birthday_card, container, false);
+        return inflater.inflate(R.layout.demo_fragment_native_gplay_card, container, false);
     }
 
     @Override
@@ -98,7 +101,9 @@ public class BirthDayCardFragment extends MaterialV1Fragment {
         super.onActivityCreated(savedInstanceState);
 
         mScrollView = (ScrollView) getActivity().findViewById(R.id.card_scrollview);
-        initCard();
+
+        initCardSmallCard();
+        initCardGooglePlay();
     }
 
     @Override
@@ -134,49 +139,52 @@ public class BirthDayCardFragment extends MaterialV1Fragment {
     /**
      * This method builds a simple card
      */
-    private void initCard() {
-        init1();
-        init2();
-        init3();
-    }
+    private void initCardSmallCard() {
 
-
-    private void init1(){
         //Create a Card
-        birthCard= new GoogleNowBirthCard(getActivity());
-        birthCard.setId("myId");
+        cardGmap= new GooglePlaySmallCard(getActivity());
+        cardGmap.setId("gplaysmall");
 
         //Set card in the cardView
-        cardView = (CardView) getActivity().findViewById(R.id.carddemo_cardBirth);
-        cardView.setCard(birthCard);
+        cardViewGmap = (CardViewNative) getActivity().findViewById(R.id.carddemo_gmaps);
+        cardViewGmap.setCard(cardGmap);
     }
 
-    private void init2(){
-        GoogleNowBirthCard card2 = new GoogleNowBirthCard(getActivity());
-        card2.setId("myId2");
-        card2.USE_VIGNETTE=1;
+
+    /**
+     * This method builds a simple card
+     */
+    private void initCardGooglePlay() {
+
+        //Create a Card
+        GplayCard card= new GplayCard(getActivity());
 
         //Set card in the cardView
-        CardView cardView2 = (CardView) getActivity().findViewById(R.id.carddemo_cardBirth2);
+        CardViewNative cardView = (CardViewNative) getActivity().findViewById(R.id.carddemo_Gplay1);
+        cardView.setCard(card);
+
+        //Create a Card
+        GplayCard card2= new GplayCard(getActivity());
+
+        //Set card in the cardView
+        CardViewNative cardView2 = (CardViewNative) getActivity().findViewById(R.id.carddemo_Gplay2);
         cardView2.setCard(card2);
 
+        if (Utils.isTablet(getActivity())){
+            //Create a Card
+            GplayCard card3= new GplayCard(getActivity());
+
+            //Set card in the cardView
+            CardViewNative cardView3 = (CardViewNative) getActivity().findViewById(R.id.carddemo_Gplay3);
+            if (cardView3!=null)
+                cardView3.setCard(card3);
+        }
     }
-
-    private void init3(){
-        GoogleNowBirthCard card3 = new GoogleNowBirthCard(getActivity());
-        card3.setId("myId3");
-        card3.USE_VIGNETTE=2;
-
-        //Set card in the cardView
-        CardView cardView3 = (CardView) getActivity().findViewById(R.id.carddemo_cardBirth3);
-        cardView3.setCard(card3);
-    }
-
 
     private void updateIntentToShare(){
         if (mShareActionProvider != null) {
 
-            photofile = BitmapUtils.createFileFromBitmap(cardView.createBitmap());
+            photofile = BitmapUtils.createFileFromBitmap(cardViewGmap.createBitmap());
             getActivity().invalidateOptionsMenu();
         }
     }
@@ -204,7 +212,7 @@ public class BirthDayCardFragment extends MaterialV1Fragment {
     /**
      * Broadcast for image downloaded by CardThumbnail
      */
-    private class ImageBroadcastReceiver extends BroadcastReceiver{
+    private class ImageBroadcastReceiver extends BroadcastReceiver {
 
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -212,14 +220,14 @@ public class BirthDayCardFragment extends MaterialV1Fragment {
             if (extras!=null){
                 boolean result = extras.getBoolean(Constants.IntentManager.INTENT_ACTION_IMAGE_DOWNLOADED_EXTRA_RESULT);
                 String id = extras.getString(Constants.IntentManager.INTENT_ACTION_IMAGE_DOWNLOADED_EXTRA_CARD_ID);
-                boolean processError = extras.getBoolean(Constants.IntentManager.INTENT_ACTION_IMAGE_DOWNLOADED_EXTRA_ERROR_LOADING);
                 if (result){
-                    if (id!=null && id.equalsIgnoreCase(birthCard.getId())){
+                    if (id!=null && id.equalsIgnoreCase(cardGmap.getId())){
                         updateIntentToShare();
                     }
                 }
             }
         }
     }
+
 
 }

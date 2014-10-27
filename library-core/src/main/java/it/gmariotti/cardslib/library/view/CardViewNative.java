@@ -24,6 +24,8 @@ import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.LayoutRes;
@@ -1096,6 +1098,28 @@ public class CardViewNative extends android.support.v7.widget.CardView implement
             //this.setBackgroundDrawable(mHelperImpl.getResourceFromAttrs(getContext(),R.attr.cardBackgroundColor));
             mInternalMainCardLayout.setBackgroundColor(getResources().getColor(colorResourceId));
         }
+    }
+
+    // -------------------------------------------------------------
+    //  Bitmap export
+    // -------------------------------------------------------------
+
+    /**
+     * Create a {@link android.graphics.Bitmap} from CardView
+     * @return
+     */
+    public Bitmap createBitmap(){
+
+        if (getWidth()<=0 && getHeight()<=0){
+            int spec = MeasureSpec.makeMeasureSpec( 0,MeasureSpec.UNSPECIFIED);
+            measure(spec,spec);
+            layout(0, 0, getMeasuredWidth(), getMeasuredHeight());
+        }
+
+        Bitmap b = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas c = new Canvas(b);
+        draw(c);
+        return b;
     }
 
     //--------------------------------------------------------------------------

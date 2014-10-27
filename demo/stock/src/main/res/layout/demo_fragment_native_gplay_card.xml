@@ -34,14 +34,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <it.gmariotti.cardslib.library.view.CardView
+            <it.gmariotti.cardslib.library.view.CardViewNative
                 android:id="@+id/carddemo_gmaps"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                card:card_layout_resourceID="@layout/card_thumbnail_layout"
-                android:layout_marginTop="12dp"/>
+                style="@style/card_external"
+                card:card_layout_resourceID="@layout/native_card_thumbnail_layout"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -50,24 +48,26 @@
                 android:layout_marginRight="12dp"
                 android:orientation="horizontal">
 
-                <it.gmariotti.cardslib.library.view.CardView
+                <it.gmariotti.cardslib.library.view.CardViewNative
                     android:id="@+id/carddemo_Gplay1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginRight="4dp"
-                    card:card_layout_resourceID="@layout/carddemo_googleplay_layout"
+                    android:layout_marginBottom="12dp"
+                    card:card_layout_resourceID="@layout/carddemo_native_googleplay_layout"
                     android:layout_marginTop="12dp"/>
 
-                <it.gmariotti.cardslib.library.view.CardView
+                <it.gmariotti.cardslib.library.view.CardViewNative
                     android:id="@+id/carddemo_Gplay2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="4dp"
                     android:layout_weight="1"
                     android:layout_marginRight="4dp"
-                    card:card_layout_resourceID="@layout/carddemo_googleplay_layout"
-                    android:layout_marginTop="12dp"/>
+                    card:card_layout_resourceID="@layout/carddemo_native_googleplay_layout"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"/>
 
             </LinearLayout>
 

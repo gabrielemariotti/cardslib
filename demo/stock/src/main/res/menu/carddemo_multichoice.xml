@@ -18,17 +18,18 @@
   ~  *****************************************************************************
   -->
 
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/menu_share"
         android:icon="@drawable/ic_action_share"
-        android:showAsAction="always"
+        app:showAsAction="always"
         android:title="@string/menu_share"/>
     <item
         android:id="@+id/menu_discard"
         android:icon="@drawable/ic_action_discard"
-        android:showAsAction="always"
+        app:showAsAction="always"
         android:title="@string/menu_discard"/>
 
 </menu>
