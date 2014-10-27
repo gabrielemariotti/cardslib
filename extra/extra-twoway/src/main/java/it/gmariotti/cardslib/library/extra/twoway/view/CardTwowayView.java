@@ -23,7 +23,7 @@ import android.content.res.TypedArray;
 import android.support.annotation.LayoutRes;
 import android.util.AttributeSet;
 
-import org.lucasr.twowayview.TwoWayView;
+import org.lucasr.twowayview.widget.TwoWayView;
 
 import it.gmariotti.cardslib.library.extra.twoway.R;
 import it.gmariotti.cardslib.library.internal.recyclerview.BaseRecyclerViewAdapter;
