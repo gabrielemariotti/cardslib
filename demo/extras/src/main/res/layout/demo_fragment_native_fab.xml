@@ -18,10 +18,12 @@
   ~  *****************************************************************************
   -->
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:card="http://schemas.android.com/apk/res-auto"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:card="http://schemas.android.com/apk/res-auto"
+             xmlns:fab="http://schemas.android.com/apk/res-auto"
+             android:orientation="vertical"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
 
     <LinearLayout
         android:id="@+id/carddemo_progressContainer"
@@ -50,25 +52,29 @@
         android:id="@+id/carddemo_listContainer"
         android:visibility="gone"
         android:layout_width="match_parent"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
         android:layout_height="match_parent">
 
-        <it.gmariotti.cardslib.library.extra.twoway.view.CardTwowayView
+        <it.gmariotti.cardslib.library.view.CardListView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            card:twowayview_layoutManager="ListLayoutManager"
-            card:list_card_layout_resourceID="@layout/carddemo_extras_list_card_thumbnail_layout"
-            android:id="@+id/carddemo_extras_list_2wayview"/>
+            android:paddingRight="12dp"
+            android:paddingLeft="12dp"
+            style="@style/native_list_external"
+            card:list_card_layout_resourceID="@layout/native_list_card_layout"
+            android:id="@+id/carddemo_list_base1"/>
 
-
-        <TextView
-            android:visibility="gone"
-            android:id="@android:id/empty"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:textAppearance="?android:textAppearanceMedium"
-            android:text="No data..."/>
+        <com.melnykov.fab.FloatingActionButton
+            android:id="@+id/button_floating_action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_add_white_24dp"
+            fab:fab_colorNormal="@android:color/holo_red_dark"
+            fab:fab_colorPressed="@android:color/holo_red_light"/>
 
     </FrameLayout>
 
-</RelativeLayout>
+</FrameLayout>

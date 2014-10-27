@@ -36,7 +36,7 @@
 
             <!-- No shadow -->
             <TextView
-                style="@style/AppTheme.TitleText"
+                style="@style/Theme.Carddemo.TitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/carddemo_extras_simpletext"/>
@@ -49,7 +49,7 @@
 
             <!-- No shadow -->
             <TextView
-                style="@style/AppTheme.TitleText"
+                style="@style/Theme.Carddemo.TitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/carddemo_extras_simpletext"/>
@@ -62,7 +62,7 @@
 
             <!-- No shadow -->
             <TextView
-                style="@style/AppTheme.TitleText"
+                style="@style/Theme.Carddemo.TitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/carddemo_extras_simpletext"/>
@@ -75,7 +75,7 @@
 
             <!-- No shadow -->
             <TextView
-                style="@style/AppTheme.TitleText"
+                style="@style/Theme.Carddemo.TitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/carddemo_extras_simpletext"/>
@@ -88,7 +88,7 @@
 
             <!-- No shadow -->
             <TextView
-                style="@style/AppTheme.TitleText"
+                style="@style/Theme.Carddemo.TitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/carddemo_extras_simpletext"/>
@@ -101,7 +101,7 @@
 
             <!-- No shadow -->
             <TextView
-                style="@style/AppTheme.TitleText"
+                style="@style/Theme.Carddemo.TitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/carddemo_extras_simpletext"/>

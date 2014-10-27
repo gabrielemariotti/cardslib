@@ -18,52 +18,48 @@
 
 package it.gmariotti.cardslib.demo.extras.utils;
 
-import android.app.Activity;
+import android.annotation.TargetApi;
+import android.app.ActivityOptions;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.graphics.Color;
-import android.support.v4.app.ActionBarDrawerToggle;
+import android.graphics.Outline;
+import android.os.Build;
 import android.support.v4.widget.DrawerLayout;
-import android.view.MenuItem;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.ViewOutlineProvider;
 import android.widget.ImageButton;
 
 import it.gmariotti.cardslib.demo.extras.R;
 
 
+@TargetApi(Build.VERSION_CODES.LOLLIPOP)
 public class LPreviewUtilsBase {
 
-    protected Activity mActivity;
+    protected ActionBarActivity mActivity;
     private ActionBarDrawerToggle mDrawerToggle;
-    private ActionBarDrawerToggleWrapper mDrawerToggleWrapper;
+    private Toolbar mActionBarToolbar;
 
-    LPreviewUtilsBase(Activity activity) {
+    LPreviewUtilsBase(ActionBarActivity activity) {
         mActivity = activity;
     }
 
-    public boolean hasLPreviewAPIs() {
-        return false;
+    public static LPreviewUtilsBase getInstance(ActionBarActivity activity) {
+        return new LPreviewUtilsBase(activity);
+    }
+
+    public boolean hasL() {
+        return  Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP;
     }
 
     //----------------------------------------------------------------------------
     // ActionBar
     //----------------------------------------------------------------------------
 
-    public void trySetActionBar() {
-        // Do nothing pre-L
-    }
-
     public boolean shouldChangeActionBarForDrawer() {
-        return true;
-    }
-
-    public void showHideActionBarIfPartOfDecor(boolean show) {
-        // pre-L, action bar is always part of the window decor
-        if (show) {
-            mActivity.getActionBar().show();
-        } else {
-            mActivity.getActionBar().hide();
-        }
+        return false;
     }
 
     //----------------------------------------------------------------------------
@@ -71,98 +67,76 @@ public class LPreviewUtilsBase {
     //----------------------------------------------------------------------------
 
     public void setupCircleButton(ImageButton sourceButton) {
-        // Do nothing pre-L
+       if (hasL()){
+           if (sourceButton != null){
+               final int size = mActivity.getResources().getDimensionPixelSize(R.dimen.hd_fab_size);
+               sourceButton.setOutlineProvider(
+               new ViewOutlineProvider(){
+                   @Override
+                   public void getOutline(View view, Outline outline) {
+                       outline.setOval(0, 0, size, size);
+                   }
+               });
+               sourceButton.setClipToOutline(true);
+           }
+       }
     }
     //----------------------------------------------------------------------------
     // Navigation Drawer
     //----------------------------------------------------------------------------
 
-    public class ActionBarDrawerToggleWrapper {
-        public void syncState() {
-            if (mDrawerToggle != null) {
-                mDrawerToggle.syncState();
-            }
-        }
+    public ActionBarDrawerToggle setupDrawerToggle(DrawerLayout drawerLayout,
+                                                   final DrawerLayout.DrawerListener drawerListener){
+        mDrawerToggle = new ActionBarDrawerToggle(
+                mActivity,                  /* host Activity */
+                drawerLayout,          /* DrawerLayout object */
+                mActionBarToolbar,     /* nav drawer icon to replace 'Up' caret */
+                R.string.app_name,  /* "open drawer" description */
+                R.string.app_name  /* "close drawer" description */
+        );
 
-        public void onConfigurationChanged(Configuration newConfig) {
-            if (mDrawerToggle != null) {
-                mDrawerToggle.onConfigurationChanged(newConfig);
-            }
-        }
-
-        public boolean onOptionsItemSelected(MenuItem item) {
-            if (mDrawerToggle != null) {
-                return mDrawerToggle.onOptionsItemSelected(item);
-            }
-            return false;
-        }
-    }
-
-    public ActionBarDrawerToggleWrapper setupDrawerToggle(DrawerLayout drawerLayout,
-                                                          final DrawerLayout.DrawerListener drawerListener) {
-        mDrawerToggle = new ActionBarDrawerToggle(mActivity, drawerLayout,
-                R.drawable.ic_navigation_drawer, R.string.app_name, R.string.app_name) {
-            @Override
-            public void onDrawerClosed(View drawerView) {
-                super.onDrawerClosed(drawerView);
-                drawerListener.onDrawerClosed(drawerView);
-            }
-
-            @Override
-            public void onDrawerOpened(View drawerView) {
-                super.onDrawerOpened(drawerView);
-                drawerListener.onDrawerOpened(drawerView);
-            }
-
-            @Override
-            public void onDrawerStateChanged(int newState) {
-                super.onDrawerStateChanged(newState);
-                drawerListener.onDrawerStateChanged(newState);
-            }
-
-            @Override
-            public void onDrawerSlide(View drawerView, float slideOffset) {
-                super.onDrawerSlide(drawerView, slideOffset);
-                drawerListener.onDrawerSlide(drawerView, slideOffset);
-            }
-        };
         drawerLayout.setDrawerListener(mDrawerToggle);
-        mDrawerToggleWrapper = new ActionBarDrawerToggleWrapper();
-        return mDrawerToggleWrapper;
+        return mDrawerToggle;
     }
 
     //----------------------------------------------------------------------------
     // Methods
     //----------------------------------------------------------------------------
 
-    public void startActivityWithTransition(Intent intent, View clickedView,
-            String sharedElementName) {
-        mActivity.startActivity(intent);
+
+    public void startActivityWithTransition(Intent intent, final View clickedView,
+                                            final String transitionName) {
+        ActivityOptions options = null;
+//        if (hasL() && clickedView != null && !TextUtils.isEmpty(transitionName)) {
+//            options = ActivityOptions.makeSceneTransitionAnimation(
+//                    mActivity, clickedView, transitionName);
+//        }
+
+        mActivity.startActivity(intent, (options != null) ? options.toBundle() : null);
     }
 
-    public void setViewName(View v, String viewName) {
-        // Can't do this pre-L
-    }
-
-    public void postponeEnterTransition() {
-        // Can't do this pre-L
-    }
-
-    public void startPostponedEnterTransition() {
-        // Can't do this pre-L
-    }
 
     public int getStatusBarColor() {
-        // On pre-L devices, you can have any status bar color so long as it's black.
-        return Color.BLACK;
+        if (!hasL()) {
+            // On pre-L devices, you can have any status bar color so long as it's black.
+            return Color.BLACK;
+        }
+
+        return mActivity.getWindow().getStatusBarColor();
     }
 
     public void setStatusBarColor(int color) {
-        // Only black.
+        if (!hasL()) {
+            return;
+        }
+
+        mActivity.getWindow().setStatusBarColor(color);
     }
 
     public void setViewElevation(View v, float elevation) {
-        // Can't do this pre-L
+        if (hasL()) {
+            v.setElevation(elevation);
+        }
     }
 
 

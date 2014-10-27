@@ -58,8 +58,8 @@
             android:scrollbarStyle="outsideOverlay"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            card:layoutManager="SpannableGridLayoutManager"
-            card:numColumns="@integer/carddemo_extra_spannedgrid_numcols"
+            card:twowayview_layoutManager="SpannableGridLayoutManager"
+            card:twowayview_numColumns="@integer/carddemo_extra_spannedgrid_numcols"
             card:list_card_layout_resourceIDs="@array/layouts"
             android:id="@+id/carddemo_extras_span_2wayview"/>
 

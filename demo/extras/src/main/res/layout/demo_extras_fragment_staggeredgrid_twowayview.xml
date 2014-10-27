@@ -55,9 +55,9 @@
         <it.gmariotti.cardslib.library.extra.twoway.view.CardTwowayView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            card:layoutManager="StaggeredGridLayoutManager"
-            card:numColumns="3"
-            card:numRows="3"
+            card:twowayview_layoutManager="StaggeredGridLayoutManager"
+            card:twowayview_numColumns="3"
+            card:twowayview_numRows="3"
             card:list_card_layout_resourceID="@layout/carddemo_extras_staggered_card"
             android:id="@+id/carddemo_extras_grid_stag_2wayview"/>
 

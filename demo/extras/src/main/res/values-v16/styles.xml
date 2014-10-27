@@ -29,7 +29,7 @@
     </style>
 
     <!-- Text for sections -->
-    <style name="AppTheme.TitleText">
+    <style name="Theme.Carddemo.TitleText">
         <item name="android:textSize">@dimen/demo_title_section_textsize</item>
         <item name="android:layout_marginLeft">@dimen/demo_title_section_margin</item>
         <item name="android:layout_marginRight">@dimen/demo_title_section_margin</item>

@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-
 <!--
   ~ *******************************************************************************
   ~   Copyright (c) 2013-2014 Gabriele Mariotti.
@@ -17,18 +15,19 @@
   ~   limitations under the License.
   ~  *****************************************************************************
   -->
-<ripple xmlns:android="http://schemas.android.com/apk/res/android" android:color="@color/theme_accent_1">
-    <item android:id="@android:id/mask">
-        <shape android:shape="rectangle">
-            <corners android:radius="4dp" />
-        </shape>
-    </item>
-    <item>
-        <shape android:shape="rectangle">
-            <stroke android:width="1dp" android:color="@color/demo_primary_color" />
-            <solid android:color="@android:color/transparent" />
-            <corners android:radius="4dp" />
-        </shape>
-    </item>
 
-</ripple>
+<android.support.v7.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/HeaderBar"
+    app:theme="@style/ActionBarThemeOverlay"
+    app:popupTheme="@style/ActionBarPopupThemeOverlay"
+    android:id="@+id/toolbar_actionbar"
+    android:minHeight="?android:attr/actionBarSize"
+    android:layout_width="match_parent"
+    android:gravity="bottom"
+    android:layout_height="@dimen/toolbar_x2" >
+
+    <include layout="@layout/demo_barheader_full_include"></include>
+
+</android.support.v7.widget.Toolbar>

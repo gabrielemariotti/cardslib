@@ -18,8 +18,7 @@
 
 package it.gmariotti.cardslib.demo.extras.utils;
 
-import android.app.Activity;
-import android.os.Build;
+import android.support.v7.app.ActionBarActivity;
 
 /**
  * An abstract interface to use SDK-L and SDK-19
@@ -29,11 +28,7 @@ public class LPreviewUtils {
     private LPreviewUtils() {
     }
 
-    public static LPreviewUtilsBase getInstance(Activity activity) {
-        if ("L".equals(Build.VERSION.CODENAME)) {
-            return new LPreviewUtilsImpl(activity);
-        } else {
+    public static LPreviewUtilsBase getInstance(ActionBarActivity activity) {
             return new LPreviewUtilsBase(activity);
-        }
     }
 }

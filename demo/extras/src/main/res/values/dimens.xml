@@ -21,6 +21,10 @@
     <dimen name="navdrawer_image_height">120dp</dimen>
 
     <dimen name="headerbar_elevation">2dp</dimen>
+    <!-- elevation -->
+    <dimen name="carddemo_shadow_elevation">6dp</dimen>
+    <dimen name="carddemo_shadow_start_elevation">2dp</dimen>
+    <dimen name="carddemo_shadow_end_elevation">4dp</dimen>
 
     <dimen name="carddemo_keyline_1">16dp</dimen>
     <dimen name="carddemo_keyline_1_minus_8dp">8dp</dimen>
@@ -80,5 +84,6 @@
     <dimen name="carddemo_extras_basestaggered_height3">180dp</dimen>
 
     <dimen name="carddemo_gplay_height">300dp</dimen>
+    <dimen name="toolbar_x2">112dp</dimen>
 
 </resources>
