@@ -35,8 +35,8 @@ import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardExpand;
 import it.gmariotti.cardslib.library.internal.CardHeader;
 import it.gmariotti.cardslib.library.internal.base.BaseCard;
-import it.gmariotti.cardslib.library.internal.recyclerview.CardArrayRecyclerViewAdapter;
-import it.gmariotti.cardslib.library.view.CardRecyclerView;
+import it.gmariotti.cardslib.library.recyclerview.internal.CardArrayRecyclerViewAdapter;
+import it.gmariotti.cardslib.library.recyclerview.view.CardRecyclerView;
 
 /**
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)

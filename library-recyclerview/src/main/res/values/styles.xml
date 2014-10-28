@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <!--
   ~ *******************************************************************************
   ~   Copyright (c) 2013-2014 Gabriele Mariotti.
@@ -18,15 +17,21 @@
   ~  *****************************************************************************
   -->
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:card="http://schemas.android.com/apk/res-auto"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+<resources>
+    <!--Recycler view-->
+    <style name="native_recyclerview_card">
+        <item name="android:layout_marginLeft">@dimen/native_recyclerview_card_margin_left</item>
+        <item name="android:layout_marginRight">@dimen/native_recyclerview_card_margin_right</item>
+        <item name="android:layout_marginBottom">@dimen/native_recyclerview_card_margin_bottom</item>
+        <item name="android:layout_marginTop">@dimen/native_recyclerview_card_margin_top</item>
+    </style>
 
-        <it.gmariotti.cardslib.library.recyclerview.view.CardRecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            card:list_card_layout_resourceID="@layout/carddemo_extras_list_card_progress_layout"
-            android:id="@+id/carddemo_extras_recycler_progress"/>
+    <style name="native_recyclerview_card.base" >
 
-</RelativeLayout>
+    </style>
+
+    <!-- Thumbnail list -->
+    <style name="native_recyclerview_card.thumbnail">
+
+    </style>
+</resources>

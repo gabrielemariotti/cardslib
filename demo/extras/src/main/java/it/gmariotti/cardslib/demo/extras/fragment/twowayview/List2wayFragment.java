@@ -34,7 +34,8 @@ import it.gmariotti.cardslib.demo.extras.cards.PicassoCard;
 import it.gmariotti.cardslib.demo.extras.fragment.BaseListFragment;
 import it.gmariotti.cardslib.library.extra.twoway.view.CardTwowayView;
 import it.gmariotti.cardslib.library.internal.Card;
-import it.gmariotti.cardslib.library.internal.recyclerview.CardArrayRecyclerViewAdapter;
+import it.gmariotti.cardslib.library.recyclerview.internal.CardArrayRecyclerViewAdapter;
+
 
 /**
  * This example uses a staggered card with different different photos and text.

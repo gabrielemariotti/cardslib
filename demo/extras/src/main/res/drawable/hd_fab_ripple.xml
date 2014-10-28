@@ -18,15 +18,11 @@
   ~  *****************************************************************************
   -->
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:card="http://schemas.android.com/apk/res-auto"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-        <it.gmariotti.cardslib.library.recyclerview.view.CardRecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            card:list_card_layout_resourceID="@layout/carddemo_extras_list_card_progress_layout"
-            android:id="@+id/carddemo_extras_recycler_progress"/>
-
-</RelativeLayout>
+<selector xmlns:android="http://schemas.android.com/apk/res/android"
+          android:exitFadeDuration="@android:integer/config_mediumAnimTime">
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="#FFFFFF" />
+        </shape>
+    </item>
+</selector>

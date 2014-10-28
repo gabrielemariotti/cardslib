@@ -16,7 +16,7 @@
  *  *****************************************************************************
  */
 
-package it.gmariotti.cardslib.library.view;
+package it.gmariotti.cardslib.library.recyclerview.view;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -29,9 +29,9 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 
-import it.gmariotti.cardslib.library.R;
+import it.gmariotti.cardslib.library.recyclerview.R;
 import it.gmariotti.cardslib.library.internal.Card;
-import it.gmariotti.cardslib.library.internal.recyclerview.BaseRecyclerViewAdapter;
+import it.gmariotti.cardslib.library.recyclerview.internal.BaseRecyclerViewAdapter;
 import it.gmariotti.cardslib.library.view.base.CardViewWrapper;
 
 
@@ -42,7 +42,7 @@ import it.gmariotti.cardslib.library.view.base.CardViewWrapper;
  * </p>
  * Usage:
  * <pre><code>
- *    <it.gmariotti.cardslib.library.view.CardRecyclerView
+ *    <it.gmariotti.cardslib.library.recyclerview.view.CardRecyclerView
  *      android:layout_width="match_parent"
  *      android:layout_height="match_parent"
  *      android:id="@+id/listId"
@@ -152,9 +152,9 @@ public class CardRecyclerView extends RecyclerView implements CardViewWrapper.On
     //--------------------------------------------------------------------------
 
     /**
-     * Set {@link it.gmariotti.cardslib.library.internal.recyclerview.BaseRecyclerViewAdapter} and layout used by items in RecyclerView
+     * Set {@link it.gmariotti.cardslib.library.recyclerview.internal.BaseRecyclerViewAdapter} and layout used by items in RecyclerView
      *
-     * @param adapter {@link it.gmariotti.cardslib.library.internal.recyclerview.BaseRecyclerViewAdapter}
+     * @param adapter {@link it.gmariotti.cardslib.library.recyclerview.internal.BaseRecyclerViewAdapter}
      */
     public void setAdapter(BaseRecyclerViewAdapter adapter) {
         super.setAdapter(adapter);

@@ -2,9 +2,15 @@
 
 In this page you can find info about:
 
+* [Intro](#intro)
 * [Creating a base CardRecyclerView](#creating-a-base-cardrecyclerview)
 * [Use your custom layout for each row](#use-your-custom-layout-for-each-row)
 * [Style](#style)
+
+### Intro
+
+> **PAY ATTENTION:** to use this feature you have to use the **library-recyclerview**.
+> [for more info](GUIDE.md#including-in-your-project).
 
 ### Creating a base CardRecyclerView
 
@@ -13,7 +19,7 @@ Creating a `CardRecyclerView` is pretty simple.
 First, you need an XML layout that will display the `CardRecyclerView`.
 
 ``` xml
-    <it.gmariotti.cardslib.library.view.CardRecyclerView
+    <it.gmariotti.cardslib.library.recyclerview.view.CardRecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         card:list_card_layout_resourceID="@layout/native_recyclerview_card_layout"
@@ -75,7 +81,7 @@ For the `CardView`:
 You can customize the layout used for each item in the RecyclerView using the attr: `card:list_card_layout_resourceID="@layout/my_layout`
 
 ``` xml
-    <it.gmariotti.cardslib.library.view.CardRecyclerView
+    <it.gmariotti.cardslib.library.recyclerview.view.CardRecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/carddemo_list_gplaycard"

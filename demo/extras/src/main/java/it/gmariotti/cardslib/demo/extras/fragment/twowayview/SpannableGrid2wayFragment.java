@@ -44,7 +44,8 @@ import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardHeader;
 import it.gmariotti.cardslib.library.internal.CardThumbnail;
 import it.gmariotti.cardslib.library.internal.base.BaseCard;
-import it.gmariotti.cardslib.library.internal.recyclerview.CardArrayRecyclerViewAdapter;
+import it.gmariotti.cardslib.library.recyclerview.internal.CardArrayRecyclerViewAdapter;
+
 
 /**
  * This example uses a staggered card with different different photos and text.

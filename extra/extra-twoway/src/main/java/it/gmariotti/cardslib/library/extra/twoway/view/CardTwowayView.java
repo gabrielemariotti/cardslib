@@ -26,7 +26,7 @@ import android.util.AttributeSet;
 import org.lucasr.twowayview.widget.TwoWayView;
 
 import it.gmariotti.cardslib.library.extra.twoway.R;
-import it.gmariotti.cardslib.library.internal.recyclerview.BaseRecyclerViewAdapter;
+import it.gmariotti.cardslib.library.recyclerview.internal.BaseRecyclerViewAdapter;
 
 
 /**

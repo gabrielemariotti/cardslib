@@ -24,16 +24,12 @@ android {
 
 dependencies {
     // Cards Library
-    compile project(':library')
+    compile project(':library-core')
+
     //Annotation
     compile 'com.android.support:support-annotations:21.0.0'
-    //StaggeredGrid
-    compile 'com.etsy.android.grid:library:1.0.5'
-    //DynamicList
-    compile ('com.nhaarman.listviewanimations:lib-core:3.1.0')
-    compile ('com.nhaarman.listviewanimations:lib-manipulation:3.1.0')
-
-
+    //Recycler View
+    compile 'com.android.support:recyclerview-v7:21.0.0'
 }
 
 // Used to update in Maven

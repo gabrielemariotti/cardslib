@@ -1,1 +1,1 @@
-include ':library-core' , ':library-cards', ':demo:stock' , ':demo:extras' ,  ':extra:extra-twoway' , ':extra:extra-staggeredgrid', ':extra:extra-dragdrop'
+include ':library-core' , ':library-cards', ':library-recyclerview', ':demo:stock' , ':demo:extras' ,  ':extra:extra-twoway' , ':extra:extra-staggeredgrid', ':extra:extra-dragdrop'

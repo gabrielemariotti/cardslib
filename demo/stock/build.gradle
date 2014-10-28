@@ -45,6 +45,7 @@ dependencies {
     // Cards Library
     compile project(':library-core')
     compile project(':library-cards')
+    compile project(':library-recyclerview')
     // Support Libraries
     compile 'com.android.support:support-v4:21.0.0'
     compile 'com.android.support:appcompat-v7:21.0.0'

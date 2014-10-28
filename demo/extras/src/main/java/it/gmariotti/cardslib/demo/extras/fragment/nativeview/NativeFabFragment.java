@@ -85,7 +85,6 @@ public class NativeFabFragment extends BaseNativeListFragment {
         if (listView!=null){
             listView.setAdapter(mCardArrayAdapter);
         }
-        FloatingActionButton.FabOnScrollListener fabScrollListener = new FloatingActionButton.FabOnScrollListener();
 
         FloatingActionButton floatingActionButton = (FloatingActionButton) getActivity().findViewById(R.id.button_floating_action);
         floatingActionButton.attachToListView(listView);

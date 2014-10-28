@@ -16,7 +16,7 @@
  *  *****************************************************************************
  */
 
-package it.gmariotti.cardslib.library.internal.recyclerview;
+package it.gmariotti.cardslib.library.recyclerview.internal;
 
 import android.content.Context;
 import android.support.annotation.LayoutRes;
@@ -25,9 +25,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import it.gmariotti.cardslib.library.R;
+import it.gmariotti.cardslib.library.recyclerview.R;
 import it.gmariotti.cardslib.library.internal.Card;
-import it.gmariotti.cardslib.library.view.CardRecyclerView;
+import it.gmariotti.cardslib.library.recyclerview.view.CardRecyclerView;
 import it.gmariotti.cardslib.library.view.base.CardViewWrapper;
 
 /**

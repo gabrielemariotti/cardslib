@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ /*******************************************************************************
-  ~   Copyright (c) 2014 Gabriele Mariotti.
+  ~ *******************************************************************************
+  ~   Copyright (c) 2013-2014 Gabriele Mariotti.
   ~
   ~   Licensed under the Apache License, Version 2.0 (the "License");
   ~   you may not use this file except in compliance with the License.
@@ -14,10 +13,16 @@
   ~   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   ~   See the License for the specific language governing permissions and
   ~   limitations under the License.
-  ~  ******************************************************************************/
+  ~  *****************************************************************************
   -->
 
-<lint>
-    <!-- Disable MissingTranslation: Incomplete translation -->
-    <issue id="MissingTranslation" severity="ignore" />
-</lint>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="it.gmariotti.cardslib.library.recyclerview">
+
+    <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="19" />
+
+    <application>
+
+    </application>
+
+</manifest>

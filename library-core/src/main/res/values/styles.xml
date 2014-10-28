@@ -393,22 +393,7 @@
     </style>
 
 
-    <!--Recycler view-->
-    <style name="native_recyclerview_card">
-        <item name="android:layout_marginLeft">@dimen/native_recyclerview_card_margin_left</item>
-        <item name="android:layout_marginRight">@dimen/native_recyclerview_card_margin_right</item>
-        <item name="android:layout_marginBottom">@dimen/native_recyclerview_card_margin_bottom</item>
-        <item name="android:layout_marginTop">@dimen/native_recyclerview_card_margin_top</item>
-    </style>
 
-    <style name="native_recyclerview_card.base" >
-
-    </style>
-
-    <!-- Thumbnail list -->
-    <style name="native_recyclerview_card.thumbnail">
-
-    </style>
 
 
     <style name="grid_card">
