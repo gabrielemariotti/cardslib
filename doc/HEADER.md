@@ -469,7 +469,7 @@ Example to change header title color:
  values/styles.xml
 
 * [`card_menu_button_overflow_material`](/library-core/src/main/res/drawable/card_menu_button_overflow_material.xml): default selector used by overflow menu
-* [`card_menu_button_expand_material`](/library-core/src/main/res/drawable/card_menu_button_expand_material.xml): default selector used by expand menu
+* [`card_menu_button_expand_material_animator`](/library-core/src/main/res/drawable/card_menu_button_expand_material_animator.xml): default selector used by expand menu
 
 ``` xml
     <!-- Button Overflow in Header -->
@@ -487,7 +487,7 @@ Example to change header title color:
 values-v21/styles.xml
 
 * [`card_menu_button_overflow_material`](/library-core/src/main/res/drawable-v21/card_menu_button_overflow_material.png): default image selector used by overflow menu (it has a ripple background)
-* [`card_menu_button_expand_material`](/library-core/src/main/res/drawable-v21/card_menu_button_expand_material.xml): default image selector used by expand menu (it has a ripple background)
+* [`card_menu_button_expand_material_animator`](/library-core/src/main/res/drawable-v21/card_menu_button_expand_material_animator.xml): default image selector used by expand menu (it has a ripple background)
 
 ``` xml
     <!-- Button Overflow in Header -->
@@ -497,7 +497,7 @@ values-v21/styles.xml
 
     <!-- Button to Expand/Collapse in Header -->
     <style name="card.native.header_button_base.expand">
-        <item name="android:src">@drawable/card_menu_button_expand_material</item>
+        <item name="android:src">@drawable/card_menu_button_expand_material_animator</item>
     </style>
 ``` 
 
