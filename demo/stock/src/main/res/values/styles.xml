@@ -58,7 +58,9 @@
 
     <style name="Theme.Carddemo" parent="Theme.Carddemo.Base" />
 
-    <style name="Theme.Carddemo.Main" parent="Theme.Carddemo">
+    <style name="Theme.Carddemo.WithNavDrawer" parent="Theme.Carddemo"/>
+
+    <style name="Theme.Carddemo.Main" parent="Theme.Carddemo.WithNavDrawer">
         <!--<item name="android:windowContentOverlay">@drawable/header_shadow</item>-->
     </style>
 

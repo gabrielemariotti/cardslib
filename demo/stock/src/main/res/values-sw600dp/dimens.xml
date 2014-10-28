@@ -18,6 +18,7 @@
   -->
 
 <resources>
+    <dimen name="navdrawer_width">400dp</dimen>
     <dimen name="drawer_width">320dp</dimen>
     <dimen name="text_size_medium">14sp</dimen>
     <dimen name="text_size_large">18sp</dimen>
