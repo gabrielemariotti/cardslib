@@ -86,7 +86,7 @@ Acknowledgements
 * Thanks to [Chris Banes][6] for [ForegroundLinearLayout][7] class (See this [post][8] for more info).
 * Thanks to [Taylor Ling][9] for drag and drop icon.
 * Thanks to [Frankie Sardo][10] for some ideas and code taken from his [LinearListView][11]
-
+* Thanks to Google for code and idea from [Google IO 14][12]
 
 Credits
 -------
@@ -140,3 +140,4 @@ Google and the Google Maps logo are registered trademarks of Google Inc., used w
  [9]: https://plus.google.com/+TaylorLing
  [10]: https://plus.google.com/+FrankieSardo
  [11]: https://github.com/frankiesardo/LinearListView
+ [12]: https://github.com/google/iosched

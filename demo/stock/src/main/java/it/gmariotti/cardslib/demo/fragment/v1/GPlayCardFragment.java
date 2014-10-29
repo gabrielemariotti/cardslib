@@ -18,30 +18,16 @@
 
 package it.gmariotti.cardslib.demo.fragment.v1;
 
-import android.app.Activity;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
-import android.support.v4.view.MenuItemCompat;
-import android.support.v7.widget.ShareActionProvider;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ScrollView;
-
-import java.io.File;
 
 import it.gmariotti.cardslib.demo.R;
 import it.gmariotti.cardslib.demo.Utils;
 import it.gmariotti.cardslib.demo.cards.GooglePlaySmallCard;
 import it.gmariotti.cardslib.demo.cards.GplayCard;
-import it.gmariotti.cardslib.library.Constants;
-import it.gmariotti.cardslib.library.utils.BitmapUtils;
 import it.gmariotti.cardslib.library.view.CardView;
 
 /**
@@ -54,10 +40,6 @@ public class GPlayCardFragment extends MaterialV1Fragment {
     protected ScrollView mScrollView;
     private GooglePlaySmallCard cardGmap;
     private CardView cardViewGmap;
-
-    private ShareActionProvider mShareActionProvider;
-    private File photofile;
-    private ImageBroadcastReceiver mReceiver;
 
     @Override
     protected int getSubTitleHeaderResourceId() {
@@ -85,12 +67,6 @@ public class GPlayCardFragment extends MaterialV1Fragment {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.demo_fragment_gplay_card, container, false);
     }
@@ -103,36 +79,6 @@ public class GPlayCardFragment extends MaterialV1Fragment {
 
         initCardSmallCard();
         initCardGooglePlay();
-    }
-
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        if (mReceiver==null)
-            mReceiver = new ImageBroadcastReceiver();
-        activity.registerReceiver(mReceiver,new IntentFilter(Constants.IntentManager.INTENT_ACTION_IMAGE_DOWNLOADED));
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        if (mReceiver!=null)
-            getActivity().unregisterReceiver(mReceiver);
-    }
-
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.sharemenu, menu);
-
-        // Locate MenuItem with ShareActionProvider
-        MenuItem item = menu.findItem(R.id.carddemo_menu_item_share);
-
-        // Fetch and store ShareActionProvider
-        mShareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(item);
-        mShareActionProvider.setShareIntent(getShareIntent());
-
-        super.onCreateOptionsMenu(menu,inflater);
     }
 
     /**
@@ -179,54 +125,5 @@ public class GPlayCardFragment extends MaterialV1Fragment {
                 cardView3.setCard(card3);
         }
     }
-
-    private void updateIntentToShare(){
-        if (mShareActionProvider != null) {
-
-            photofile = BitmapUtils.createFileFromBitmap(cardViewGmap.createBitmap());
-            getActivity().invalidateOptionsMenu();
-        }
-    }
-
-    private Intent getShareIntent(){
-        if (photofile!=null){
-            return BitmapUtils.createIntentFromImage(photofile);
-        }else{
-            return getDefaultIntent();
-        }
-    }
-
-    /** Defines a default (dummy) share intent to initialze the action provider.
-     * However, as soon as the actual content to be used in the intent
-     * is known or changes, you must update the share intent by again calling
-     * mShareActionProvider.setShareIntent()
-     */
-    private Intent getDefaultIntent() {
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setType("image/*");
-        return intent;
-    }
-
-
-    /**
-     * Broadcast for image downloaded by CardThumbnail
-     */
-    private class ImageBroadcastReceiver extends BroadcastReceiver {
-
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            Bundle extras = intent.getExtras();
-            if (extras!=null){
-                boolean result = extras.getBoolean(Constants.IntentManager.INTENT_ACTION_IMAGE_DOWNLOADED_EXTRA_RESULT);
-                String id = extras.getString(Constants.IntentManager.INTENT_ACTION_IMAGE_DOWNLOADED_EXTRA_CARD_ID);
-                if (result){
-                    if (id!=null && id.equalsIgnoreCase(cardGmap.getId())){
-                        updateIntentToShare();
-                    }
-                }
-            }
-        }
-    }
-
 
 }

@@ -32,6 +32,11 @@
         <item name="android:alertDialogTheme">@style/Theme.Carddemo.AlertDialog</item>
     </style>
 
+    <style name="HeaderBar">
+        <item name="android:background">?colorPrimary</item>
+        <item name="android:elevation">4dp</item>
+    </style>
+
     <style name="subheader">
         <item name="android:elevation">@dimen/headerbar_elevation</item>
     </style>

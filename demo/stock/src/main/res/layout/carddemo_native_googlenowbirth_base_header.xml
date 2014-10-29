@@ -56,7 +56,7 @@
         <ImageButton
             android:layout_gravity="top"
             android:id="@+id/card_header_button_expand"
-            style="@style/card.header_button_base.expand"
+            style="@style/card.native.header_button_base.expand"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 

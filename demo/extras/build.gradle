@@ -87,7 +87,7 @@ dependencies {
     compile 'com.survivingwithandroid:weatherlib:1.3.2'
 
     // Fading ActionBar
-    compile 'com.github.manuelpeinado.fadingactionbar:fadingactionbar:3.0.0'
+    //compile 'com.github.manuelpeinado.fadingactionbar:fadingactionbar:3.0.0'
 
     //Google Progress Bar
     compile 'com.jpardogo.googleprogressbar:library:1.1.0'
@@ -95,7 +95,7 @@ dependencies {
     compile 'com.github.castorflex.smoothprogressbar:library-circular:1.0.1'
 
     //FAB
-    compile 'com.melnykov:floatingactionbutton:1.0.5'
+    compile 'com.melnykov:floatingactionbutton:1.0.6'
 }
 
 

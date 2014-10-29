@@ -164,7 +164,7 @@
     </style>
 
     <style name="card.native.header_button_base.expand">
-        <item name="android:background">@drawable/card_menu_button_expand_material</item>
+        <item name="android:background">@drawable/card_menu_button_expand_material_animator</item>
     </style>
 
 

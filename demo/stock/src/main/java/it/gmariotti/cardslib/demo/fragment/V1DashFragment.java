@@ -33,7 +33,6 @@ import it.gmariotti.cardslib.demo.fragment.v1.DismissAnimFragment;
 import it.gmariotti.cardslib.demo.fragment.v1.GPlayCardFragment;
 import it.gmariotti.cardslib.demo.fragment.v1.GridBaseFragment;
 import it.gmariotti.cardslib.demo.fragment.v1.GridCursorCardFragment;
-import it.gmariotti.cardslib.demo.fragment.v1.GridGplayCABFragment;
 import it.gmariotti.cardslib.demo.fragment.v1.GridGplayFragment;
 import it.gmariotti.cardslib.demo.fragment.v1.HeaderFragment;
 import it.gmariotti.cardslib.demo.fragment.v1.ListBaseFragment;
@@ -41,9 +40,7 @@ import it.gmariotti.cardslib.demo.fragment.v1.ListColorFragment;
 import it.gmariotti.cardslib.demo.fragment.v1.ListCursorCardFragment;
 import it.gmariotti.cardslib.demo.fragment.v1.ListDifferentInnerBaseFragment;
 import it.gmariotti.cardslib.demo.fragment.v1.ListExpandCardFragment;
-import it.gmariotti.cardslib.demo.fragment.v1.ListGplayCardCABFragment;
 import it.gmariotti.cardslib.demo.fragment.v1.ListGplayCardFragment;
-import it.gmariotti.cardslib.demo.fragment.v1.ListGplayCursorCardCABFragment;
 import it.gmariotti.cardslib.demo.fragment.v1.ListGplayUndoCardFragment;
 import it.gmariotti.cardslib.demo.fragment.v1.ListSectionedCardFragment;
 import it.gmariotti.cardslib.demo.fragment.v1.MiscCardFragment;
@@ -101,17 +98,17 @@ public class V1DashFragment extends NativeDashFragment{
                     .setHeaderLabel(mContext.getString(R.string.header_title_group3))
                     .setShowHeader(true));
 
-            inventory.addGroup(new CollectionView.InventoryGroup(TOKEN4)
+       /*     inventory.addGroup(new CollectionView.InventoryGroup(TOKEN4)
                     .setDisplayCols(mContext.getResources().getInteger(R.integer.menu_grid_columns))
                     .setItemCount(3)
                     .setDataIndexStart(20)
                     .setHeaderLabel(mContext.getString(R.string.header_title_group4))
                     .setShowHeader(true));
-
+       */
             inventory.addGroup(new CollectionView.InventoryGroup(TOKEN5)
                     .setDisplayCols(mContext.getResources().getInteger(R.integer.menu_grid_columns))
                     .setItemCount(3)
-                    .setDataIndexStart(23)
+                    .setDataIndexStart(20)
                     .setHeaderLabel(mContext.getString(R.string.header_title_group5))
                     .setShowHeader(true));
 
@@ -147,9 +144,9 @@ public class V1DashFragment extends NativeDashFragment{
         list.add(new MenuEntry(R.string.carddemo_title_tag_list_grid_cursor,R.color.md_brown_400,R.string.header_title_subtitle_gcursor, GridCursorCardFragment.class));
         list.add(new MenuEntry(R.string.carddemo_title_tag_list_recyclerView,R.color.md_orange_200,R.string.header_title_subtitle_recyclerview, RecyclerViewFragment.class));
 
-        list.add(new MenuEntry(R.string.carddemo_title_tag_cab_multichoice,R.color.md_green_500,R.string.header_title_subtitle_cab_multi, ListGplayCardCABFragment.class));
-        list.add(new MenuEntry(R.string.carddemo_title_tag_cab_grid_multichoice,R.color.md_deep_orange_900,R.string.header_title_subtitle_cab_gmulti, GridGplayCABFragment.class));
-        list.add(new MenuEntry(R.string.carddemo_title_tag_cab_cursor_multichoice,R.color.md_purple_400,R.string.header_title_subtitle_cab_lcursor, ListGplayCursorCardCABFragment.class));
+        //list.add(new MenuEntry(R.string.carddemo_title_tag_cab_multichoice,R.color.md_green_500,R.string.header_title_subtitle_cab_multi, ListGplayCardCABFragment.class));
+        //list.add(new MenuEntry(R.string.carddemo_title_tag_cab_grid_multichoice,R.color.md_deep_orange_900,R.string.header_title_subtitle_cab_gmulti, GridGplayCABFragment.class));
+        //list.add(new MenuEntry(R.string.carddemo_title_tag_cab_cursor_multichoice,R.color.md_purple_400,R.string.header_title_subtitle_cab_lcursor, ListGplayCursorCardCABFragment.class));
 
         list.add(new MenuEntry(R.string.carddemo_title_tag_misc_cardwithlist,R.color.md_deep_purple_500,R.string.header_title_subtitle_cardwithlist, CardWithListFragment.class));
         list.add(new MenuEntry(R.string.carddemo_title_tag_misc_sectioned,R.color.md_indigo_300,R.string.header_title_subtitle_sectioned, ListSectionedCardFragment.class));

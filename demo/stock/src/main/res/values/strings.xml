@@ -37,19 +37,18 @@
         Get: <a href="https://github.com/gabrielemariotti/cardslib">Source and doc</a><br>
         Get on Google Play: <a href="https://play.google.com/store/apps/details?id=it.gmariotti.cardslib.demo.extras">Cardslib Demo Extras</a><br>
         <br><br>
-        <b>Many thanks to these open source tools:</b><br>
+        <b>Many thanks for code and ideas to:</b><br>
         <b><a href="https://github.com/romannurik/Android-SwipeToDismiss">SwipeToDismiss</a></b><br>
         <i>by Roman Nurik</i><br><br>
         <b><a href="https://gist.github.com/chrisbanes/9091754">ForegroundLinearLayout</a></b><br>
         <i>by Chris Banes</i><br><br>
-
-        <b>Thanks for some ideas and code:</b><br>
         <b><a href="https://github.com/nhaarman/ListViewAnimations">ListViewAnimations</a></b><br>
         <i>by Niek Haarman</i><br><br>
         <b><a href="https://github.com/frankiesardo/LinearListView">LinearListView</a></b><br>
         <i>by Frankie Sardo</i><br><br>
-
-        <br><br><br>
+        <b><a href="https://github.com/google/iosched">Google IO14</a></b><br>
+        <i>by Google</i><br><br>
+        <br>
         Google, Google Play and the Google Maps logo are registered trademarks of Google Inc.
 
     ]]></string>
