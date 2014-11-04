@@ -33,6 +33,8 @@
        android:horizontalSpacing="2dp"
        android:stretchMode="columnWidth"
        android:gravity="center"
+       android:scrollbarStyle="outsideOverlay"
+       android:clipToPadding="false"
        card:list_card_layout_resourceID="@layout/carddemo_native_grid_gplay"
        android:id="@+id/carddemo_grid_base1"/>
 

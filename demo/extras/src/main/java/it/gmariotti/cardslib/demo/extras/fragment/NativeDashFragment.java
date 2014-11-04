@@ -40,6 +40,8 @@ import java.util.List;
 
 import it.gmariotti.cardslib.demo.extras.R;
 import it.gmariotti.cardslib.demo.extras.fragment.nativeview.NativeFabFragment;
+import it.gmariotti.cardslib.demo.extras.fragment.nativeview.NativePicassoFragment;
+import it.gmariotti.cardslib.demo.extras.fragment.nativeview.NativeStaggeredGridFragment;
 import it.gmariotti.cardslib.demo.extras.ui.widget.CollectionView;
 import it.gmariotti.cardslib.demo.extras.ui.widget.CollectionViewCallbacks;
 
@@ -136,7 +138,7 @@ public class NativeDashFragment extends Fragment{
 
             inventory.addGroup(new CollectionView.InventoryGroup(TOKEN)
                     .setDisplayCols(mContext.getResources().getInteger(R.integer.menu_grid_columns))
-                    .setItemCount(1)
+                    .setItemCount(3)
                     .setHeaderLabel(mContext.getString(R.string.header_title_group1))
                     .setShowHeader(true));
 /*
@@ -311,6 +313,8 @@ public class NativeDashFragment extends Fragment{
         ArrayList<MenuEntry> list = new ArrayList<MenuEntry>();
 
         list.add(new MenuEntry(R.string.carddemo_extras_title_fab,R.color.md_indigo_200,R.string.subtitle_fab, NativeFabFragment.class));
+        list.add(new MenuEntry(R.string.carddemo_extras_title_picasso,R.color.md_green_700,R.string.subtitle_picasso, NativePicassoFragment.class));
+        list.add(new MenuEntry(R.string.carddemo_extras_title_picasso,R.color.md_green_700,R.string.subtitle_picasso, NativeStaggeredGridFragment.class));
 
         return list;
     }

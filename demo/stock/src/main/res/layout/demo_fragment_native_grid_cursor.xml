@@ -48,6 +48,8 @@
 
     <FrameLayout
         android:id="@+id/carddemo_listContainer"
+        android:clipToPadding="false"
+        android:scrollbarStyle="outsideOverlay"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -62,6 +64,8 @@
             android:horizontalSpacing="2dp"
             android:stretchMode="columnWidth"
             android:gravity="center"
+            android:clipToPadding="false"
+            android:scrollbarStyle="outsideOverlay"
             card:list_card_layout_resourceID="@layout/carddemo_native_grid_cursor_layout"
             android:id="@+id/carddemo_grid_cursor"/>
 

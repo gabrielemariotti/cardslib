@@ -163,6 +163,7 @@
 
     <!-- SubTitle -->
     <string name="subtitle_fab">Integration with FAB Library</string>
+    <string name="subtitle_picasso">Integration with Picasso Library</string>
     <string name="placeholder_session_title">placeholder</string>
 
 </resources>

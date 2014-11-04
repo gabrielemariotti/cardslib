@@ -1,4 +1,4 @@
-# Cards Library: CardList
+# Cards Library: CardRecyclerView
 
 In this page you can find info about:
 

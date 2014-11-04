@@ -48,8 +48,10 @@
 
     <FrameLayout
         android:id="@+id/carddemo_listContainer"
-        android:paddingLeft="12dp"
-        android:paddingRight="12dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:clipToPadding="false"
+        android:scrollbarStyle="outsideOverlay"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

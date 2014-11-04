@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!--
-  ~ *******************************************************************************
-  ~   Copyright (c) 2013-2014 Gabriele Mariotti.
+  ~ /*******************************************************************************
+  ~   Copyright (c) 2014 Gabriele Mariotti.
   ~
   ~   Licensed under the Apache License, Version 2.0 (the "License");
   ~   you may not use this file except in compliance with the License.
@@ -15,23 +15,24 @@
   ~   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   ~   See the License for the specific language governing permissions and
   ~   limitations under the License.
-  ~  *****************************************************************************
+  ~  ******************************************************************************/
   -->
-
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:card="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-   <it.gmariotti.cardslib.library.view.CardListView
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:paddingRight="8dp"
-       android:paddingLeft="8dp"
-       style="@style/native_list_external"
-       card:list_card_layout_resourceID="@layout/native_list_card_layout"
-       android:id="@+id/carddemo_list_base1"/>
+    <!-- You can customize this layout.
+     You need to have in your layout a `CardView` with the ID `list_cardId` -->
+    <it.gmariotti.cardslib.library.view.CardListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/carddemo_extra_list_picasso"
+        android:paddingRight="8dp"
+        android:paddingLeft="8dp"
+        style="@style/native_list_external"
+        card:list_card_layout_resourceID="@layout/carddemo_extras_native_list_card_thumbnail_layout"/>
 
 
-</RelativeLayout>
+</LinearLayout>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!--
-  ~ *******************************************************************************
-  ~   Copyright (c) 2013-2014 Gabriele Mariotti.
+  ~ /*******************************************************************************
+  ~   Copyright (c) 2014 Gabriele Mariotti.
   ~
   ~   Licensed under the Apache License, Version 2.0 (the "License");
   ~   you may not use this file except in compliance with the License.
@@ -15,14 +15,13 @@
   ~   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   ~   See the License for the specific language governing permissions and
   ~   limitations under the License.
-  ~  *****************************************************************************
+  ~  ******************************************************************************/
   -->
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+                xmlns:card="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
     <LinearLayout
         android:id="@+id/carddemo_progressContainer"
@@ -47,16 +46,32 @@
 
     </LinearLayout>
 
-    <!-- You can customize this layout.
-     You need to have in your layout a `CardView` with the ID `list_cardId` -->
-    <it.gmariotti.cardslib.library.view.CardListView
+    <FrameLayout
+        android:id="@+id/carddemo_listContainer"
+        android:visibility="gone"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingRight="8dp"
-        android:paddingLeft="8dp"
-        style="@style/native_list_external"
-        android:id="@+id/carddemo_list_gplaycard"
-        card:list_card_layout_resourceID="@layout/native_list_card_thumbnail_layout" />
+        android:layout_height="match_parent">
 
+        <it.gmariotti.cardslib.library.extra.staggeredgrid.view.CardGridStaggeredView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            card:item_margin="8dp"
+            card:column_count_portrait="3"
+            card:column_count_landscape="3"
+            card:grid_paddingRight="8dp"
+            card:grid_paddingLeft="8dp"
+            card:list_card_layout_resourceID="@layout/carddemo_extras_native_staggered_card"
+            android:id="@+id/carddemo_extras_grid_stag"/>
+
+
+        <TextView
+            android:id="@android:id/empty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:text="No data..."/>
+
+    </FrameLayout>
 
 </RelativeLayout>

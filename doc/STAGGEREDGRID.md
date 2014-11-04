@@ -11,11 +11,12 @@ In this page you can find info about:
 
 ### Intro
 
-> **PAY ATTENTION:** to use this feature you have to use the **library-extra**.
+> **PAY ATTENTION:** to use this feature you have to use the **cardslib-extra-staggeredgrid**.
 > [for more info](GUIDE.md#including-in-your-project).
 
+
 This feature is base on [AndroidStaggeredGrid](https://github.com/etsy/AndroidStaggeredGrid) provided by [Etsy](https://github.com/etsy).
-Check the [`build.gradle`](/library-extra/build.gradle) to know the last version used.
+Check the [`build.gradle`](/extra/extra-staggered/build.gradle) to know the last version used.
 
 ![Screen](/demo/images/demo/staggered.png)
 

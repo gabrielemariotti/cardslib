@@ -346,17 +346,19 @@ public class NativeDashFragment extends Fragment{
         list.add(new MenuEntry(R.string.carddemo_title_tag_ex_card_changevalue,R.color.md_pink_A200,R.string.header_title_subtitle_ex_refresh, NativeChangeValueCardFragment.class));
 
         list.add(new MenuEntry(R.string.carddemo_title_tag_list_recyclerView,R.color.md_blue_A200,R.string.header_title_subtitle_recyclerview, NativeRecyclerViewFragment.class));
-        list.add(new MenuEntry(R.string.carddemo_title_tag_list_colored,R.color.md_cyan_700,R.string.header_title_subtitle_lcolored, NativeListColorFragment.class));
         list.add(new MenuEntry(R.string.carddemo_title_tag_list_base,R.color.md_red_800,R.string.header_title_subtitle_lbase, NativeListBaseFragment.class));
-        list.add(new MenuEntry(R.string.carddemo_title_tag_list_base_different_layout,R.color.md_green_600,R.string.header_title_subtitle_ldiff, NativeListDifferentInnerBaseFragment.class));
         list.add(new MenuEntry(R.string.carddemo_title_tag_list_expandable_card,R.color.md_blue_600,R.string.header_title_subtitle_lexpand, NativeListExpandCardFragment.class));
+        list.add(new MenuEntry(R.string.carddemo_title_tag_misc_sectioned,R.color.md_indigo_300,R.string.header_title_subtitle_sectioned, NativeListSectionedCardFragment.class));
         list.add(new MenuEntry(R.string.carddemo_title_tag_list_google_play,R.color.md_blue_A200,R.string.header_title_subtitle_lgplay, NativeListGplayCardFragment.class));
         list.add(new MenuEntry(R.string.carddemo_title_tag_list_swipe_undo,R.color.md_cyan_700,R.string.header_title_subtitle_swipe, NativeListGplayUndoCardFragment.class));
+        list.add(new MenuEntry(R.string.carddemo_title_tag_list_base_different_layout,R.color.md_green_600,R.string.header_title_subtitle_ldiff, NativeListDifferentInnerBaseFragment.class));
+        list.add(new MenuEntry(R.string.carddemo_title_tag_list_cursor,R.color.md_orange_800,R.string.header_title_subtitle_lcursor, NativeListCursorCardFragment.class));
+        list.add(new MenuEntry(R.string.carddemo_title_tag_list_colored,R.color.md_cyan_700,R.string.header_title_subtitle_lcolored, NativeListColorFragment.class));
+
         //list.add(new MenuEntry(R.string.carddemo_title_tag_list_grid_base,R.color.md_cyan_700,R.string.header_title_subtitle_gbase, NativeGridBaseFragment.class));
         list.add(new MenuEntry(R.string.carddemo_title_tag_list_grid_google_play,R.color.md_red_800,R.string.header_title_subtitle_ggplay, NativeGridGplayFragment.class));
-        list.add(new MenuEntry(R.string.carddemo_title_tag_list_cursor,R.color.md_orange_800,R.string.header_title_subtitle_lcursor, NativeListCursorCardFragment.class));
         list.add(new MenuEntry(R.string.carddemo_title_tag_list_grid_cursor,R.color.md_brown_400,R.string.header_title_subtitle_gcursor, NativeGridCursorCardFragment.class));
-        list.add(new MenuEntry(R.string.carddemo_title_tag_misc_sectioned,R.color.md_indigo_300,R.string.header_title_subtitle_sectioned, NativeListSectionedCardFragment.class));
+
 
         return list;
     }
