@@ -22,7 +22,7 @@
               xmlns:tools="http://schemas.android.com/tools"
               android:orientation="vertical"
               android:gravity="center_vertical"
-              style="@style/card.native"
+              style="@style/card"
               android:layout_width="match_parent"
               android:layout_height="65dp">
 
@@ -32,7 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/card_header_inner_simple_title"
-        style="@style/card.native.header_simple_title"
+        style="@style/card.header_simple_title"
         android:textSize="24sp"
         />
 

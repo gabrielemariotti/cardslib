@@ -307,11 +307,16 @@
     <!--Nav drawer -->
     <string name="navdrawer_item_native_cardslib">CardViewNative</string>
     <string name="navdrawer_item_cardslib_v1">CardView v1</string>
+    <string name="navdrawer_item_guidelines">Guidelines</string>
     <string name="navdrawer_item_donate">Donate</string>
     <string name="navdrawer_item_info">About</string>
     <string name="navdrawer_item_github">Github code</string>
     <string name="navdrawer_item_googleplus">G+ community</string>
     <string name="carddemo_match">Team A - Team B</string>
+    <string name="guidelines_title">Warning !!</string>
+    <string name="guidelines_text"><![CDATA[ Before using this library I recommend that you check out the new Google Material Guidelines.</br> <b>Don\'t over cardify your UI</b>.
+    <br><br>
+    You can find all the Material Design Guidelines on the usage of cards <a href="http://www.google.com/design/spec/components/cards.html">here</a>]]></string>
 
 
 </resources>

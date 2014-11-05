@@ -46,7 +46,7 @@ public class GoogleNowStockCardwithList extends CardWithList {
     protected CardHeader initCardHeader() {
 
         //Add Header
-        CardHeader header = new CardHeader(getContext(), R.layout.carddemo_googlenowstock_withlist_inner_header) {
+        CardHeader header = new CardHeader(getContext(), R.layout.carddemo_googlenowstock_withlist_native_inner_header) {
 
             @Override
             public void setupInnerViewElements(ViewGroup parent, View view) {

@@ -12,6 +12,17 @@ Here you can find some pages to customize your cards.
 * [Card Thumbnail:](THUMBNAIL.md) How to display a thumbnail
 * [Card:](CARD.md) How to customize all card features
 
+
+**Built-in Cards**
+* [Card with a List inside](CARDWITHLIST.md) How to build a card with a List Inside.
+* [Material card](MATERIALCARD.md) How to build a Material Card
+* [Top Colored card](TOPCOLORED.md) How to build a Top Colored Card
+
+
+Before using this library for Lists,Grids and RecyclerViews, I recommend that you check out the new Google Material Guidelines.
+
+You can find all the Material Design Guidelines on the usage of cards [here](http://www.google.com/design/spec/components/cards.html)
+
 **List - Grid - RecyclerView**
 * [CardList:](CARDLIST.md) How to work with the `CardListView`
 * [CardGrid:](CARDGRID.md) How to work with the `CardGridView`
@@ -20,8 +31,4 @@ Here you can find some pages to customize your cards.
 * [CardList with Drag and Drop:](DRAGDROPLIST.md) How to work with the `CardListDragDropView`
 * [Integration with other libraries:](OTHERLIBRARIES.md) How to work with other main libraries
 
-**Built-in Cards**
-* [Card with a List inside](CARDWITHLIST.md) How to build a card with a List Inside.
-* [Material card](MATERIALCARD.md) How to build a Material Card
-* [Top Colored card](TOPCOLORED.md) How to build a Top Colored Card
 

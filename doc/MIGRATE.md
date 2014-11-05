@@ -98,6 +98,9 @@ If you would like to migrate the old cards to new view you have to follow these 
 | --------------------------------------- |------------------------------------------------|
 | @style/card.expand_simple_title         | @style/card.native.expand_simple_title         |
 
+* If you are using a **CardWithList**, you should change the CardView to CardViewNative and add the attribute 
+  `card:card_layout_resourceID="@layout/native_cardwithlist_layout"` in your CardView tag.
+
 * **Lists**. To migrate a list you have to:
    - if you have the default layout add this tag to you list: `card:list_card_layout_resourceID="@layout/native_list_card_layout"`
    - if you are using the default layout with the thumbnail change your tag in your list: `card:list_card_layout_resourceID="@layout/native_list_card_thumbnail_layout"`

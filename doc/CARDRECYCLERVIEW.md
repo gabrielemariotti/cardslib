@@ -61,7 +61,7 @@ Last create a `CardArrayAdapter`, get a reference to the `CardListView` from you
 
 This `CardRecyclerView` uses for each row the row-list layout:
  
- - for the `CardViewNative`: [`res/layout/native_recyclerview_card_layout`](/library-core/src/main/res/layout/native_recyclerview_card_layout.xml).
+ - for the `CardViewNative`: [`res/layout/native_recyclerview_card_layout`](/library-recyclerview/src/main/res/layout/native_recyclerview_card_layout.xml).
  - for the `CardView`: [`res/layout/list_card_layout`](/library-core/src/main/res/layout/list_card_layout.xml).
 
 
@@ -70,8 +70,8 @@ This `CardRecyclerView` uses for each row the row-list layout:
 Card Library provides 2 built-in row-list layouts.
 
 For the `CardViewNative`:
-* [`res/layout/native_recyclerview_card_layout.xml`](/library-core/src/main/res/layout/native_recyclerview_card_layout.xml).
-* [`res/layout/native_recyclerview_card_thumbnail_layout.xml`](/library-core/src/main/res/layout/native_recyclerview_card_thumbnail_layout.xml).
+* [`res/layout/native_recyclerview_card_layout.xml`](/library-recyclerview/src/main/res/layout/native_recyclerview_card_layout.xml).
+* [`res/layout/native_recyclerview_card_thumbnail_layout.xml`](/library-recyclerview/src/main/res/layout/native_recyclerview_card_thumbnail_layout.xml).
 
 For the `CardView`:
 * [`res/layout/list_card_layout.xml`](/library-core/src/main/res/layout/list_card_layout.xml).

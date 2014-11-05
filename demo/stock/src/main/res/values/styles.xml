@@ -40,7 +40,7 @@
         <item name="colorPrimaryDark">@color/demo_colorPrimaryDark</item>
         <item name="colorAccent">@color/theme_accent_1</item>
 
-        <item name="android:textColorLink">@color/theme_accent_2</item>
+        <item name="android:textColorLink">@color/theme_accent_1</item>
 
         <item name="windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>

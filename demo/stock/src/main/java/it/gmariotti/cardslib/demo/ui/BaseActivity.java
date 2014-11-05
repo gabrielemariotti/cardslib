@@ -90,9 +90,10 @@ public abstract class BaseActivity extends ActionBarActivity {
 
     protected static final int NAVDRAWER_ITEM_NATIVE_CARDSLIB = 0;
     protected static final int NAVDRAWER_ITEM_CARDSLIB_V1 = 1;
-    protected static final int NAVDRAWER_ITEM_GITHUB = 2;
-    protected static final int NAVDRAWER_ITEM_DONATE = 3;
-    protected static final int NAVDRAWER_ITEM_INFO = 4;
+    protected static final int NAVDRAWER_ITEM_GUIDELINES = 2;
+    protected static final int NAVDRAWER_ITEM_GITHUB = 3;
+    protected static final int NAVDRAWER_ITEM_DONATE = 4;
+    protected static final int NAVDRAWER_ITEM_INFO = 5;
 
 
     protected static final int NAVDRAWER_ITEM_INVALID = -1;
@@ -107,6 +108,7 @@ public abstract class BaseActivity extends ActionBarActivity {
     private static final int[] NAVDRAWER_TITLE_RES_ID = new int[]{
             R.string.navdrawer_item_native_cardslib ,
             R.string.navdrawer_item_cardslib_v1,
+            R.string.navdrawer_item_guidelines,
             R.string.navdrawer_item_github,
             R.string.navdrawer_item_donate,
             R.string.navdrawer_item_info
@@ -114,6 +116,7 @@ public abstract class BaseActivity extends ActionBarActivity {
 
     // icons for navdrawer items (indices must correspond to above array)
     private static final int[] NAVDRAWER_ICON_RES_ID = new int[] {
+            R.drawable.ic_launcher,
             R.drawable.ic_launcher,
             R.drawable.ic_launcher,
             R.drawable.ic_github,
@@ -361,6 +364,8 @@ public abstract class BaseActivity extends ActionBarActivity {
 
         mNavDrawerItems.add(NAVDRAWER_ITEM_SEPARATOR_SPECIAL);
 
+        mNavDrawerItems.add(NAVDRAWER_ITEM_GUIDELINES);
+
         mNavDrawerItems.add(NAVDRAWER_ITEM_GITHUB);
         mNavDrawerItems.add(NAVDRAWER_ITEM_DONATE);
         mNavDrawerItems.add(NAVDRAWER_ITEM_INFO);
@@ -495,6 +500,11 @@ public abstract class BaseActivity extends ActionBarActivity {
                 break;
             case NAVDRAWER_ITEM_CARDSLIB_V1:
                 intent = new Intent(this, V1MenuActivity.class);
+                startActivity(intent);
+                finish();
+                break;
+            case NAVDRAWER_ITEM_GUIDELINES:
+                intent = new Intent(this, GuidelinesActivity.class);
                 startActivity(intent);
                 finish();
                 break;

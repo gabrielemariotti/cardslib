@@ -23,7 +23,7 @@
     app:theme="@style/ActionBarThemeOverlay"
     app:popupTheme="@style/ActionBarPopupThemeOverlay"
     android:id="@+id/toolbar_actionbar"
-    android:minHeight="?android:attr/actionBarSize"
+    android:minHeight="?attr/actionBarSize"
     android:layout_width="match_parent"
     android:gravity="bottom"
     android:layout_height="@dimen/toolbar_x2" >
