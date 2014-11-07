@@ -240,10 +240,12 @@ public class CardRecyclerView extends RecyclerView implements CardViewWrapper.On
             final int heightSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
             expandingLayout.measure(widthSpec, heightSpec);
 
+
             ValueAnimator animator = createHeightAnimator(expandingLayout, 0, expandingLayout.getMeasuredHeight());
             animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                 final int listViewHeight = recyclerView.getHeight();
                 final int listViewBottomPadding = recyclerView.getPaddingBottom();
+
                 final View v = findDirectChild(expandingLayout, recyclerView);
 
                 @Override
@@ -253,8 +255,9 @@ public class CardRecyclerView extends RecyclerView implements CardViewWrapper.On
                         if (bottom > listViewHeight) {
                             final int top = v.getTop();
                             if (top > 0) {
-                                //TODO: should use the smoothScrollBy method
-                                recyclerView.scrollBy(0,Math.min(bottom - listViewHeight + listViewBottomPadding, top));
+                                //recyclerView.scrollBy(0,Math.min(bottom - listViewHeight + listViewBottomPadding, top));
+                                recyclerView.smoothScrollBy(0,Math.min(bottom - listViewHeight + listViewBottomPadding + 4, top));
+
                             }
                         }
                     }

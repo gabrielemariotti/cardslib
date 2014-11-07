@@ -58,7 +58,7 @@ public abstract class BaseRecyclerViewAdapter extends RecyclerView.Adapter<BaseR
     protected @LayoutRes int[] mRowLayoutIds;
 
     /**
-     * {@link it.gmariotti.cardslib.library.view.CardRecyclerView}
+     * {@link CardRecyclerView}
      */
     protected CardRecyclerView mCardRecyclerView;
 
