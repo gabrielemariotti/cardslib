@@ -32,7 +32,7 @@
             android:layout_height="match_parent"
             android:layout_marginTop="10dp"
             android:id="@+id/carddemo_extra_list_dragdrop"
-            card:list_card_layout_resourceID="@layout/carddemo_extras_list_card_dragdrop_layout"/>
+            card:list_card_layout_resourceID="@layout/carddemo_extras_native_list_card_dragdrop_layout"/>
 
 
 </LinearLayout>

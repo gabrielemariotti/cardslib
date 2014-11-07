@@ -51,5 +51,6 @@
 
     <dimen name="navdrawer_image_height">140dp</dimen>
     <dimen name="toolbar_x2">128dp</dimen>
+    <dimen name="carddemo_list_padding">16dp</dimen>
 
 </resources>

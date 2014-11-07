@@ -52,8 +52,8 @@
     <it.gmariotti.cardslib.library.view.CardListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingRight="8dp"
-        android:paddingLeft="8dp"
+        android:paddingRight="@dimen/carddemo_list_padding"
+        android:paddingLeft="@dimen/carddemo_list_padding"
         style="@style/native_list_external"
         android:id="@+id/carddemo_list_gplaycard"
         card:list_card_layout_resourceID="@layout/native_list_card_thumbnail_layout" />

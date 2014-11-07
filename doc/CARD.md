@@ -387,7 +387,7 @@ You can see the example in `ChangeValueCardFragment`.
 
 **For CardViewNative**:
 
-//TODO
+> PAY ATTENTION:Don't use with CardViewNative 
 
 
 **For CardView**:
@@ -432,6 +432,8 @@ If you want to change the rounded corners, the quickest way would be to customiz
 If you need to change dynamically the card background you can use this code:
 
 **For CardViewNative**:
+
+> PAY ATTENTION:Don't use with CardViewNative (not yet supported). 
 
 ``` java
     ColorCard card = new ColorCard(this.getActivity());
@@ -511,6 +513,8 @@ You can see the example in `BirthDayCardFragment` and `StockCardFragment` where 
 
 
 #### Using Card with contextual action mode
+
+> PAY ATTENTION:Don't use with CardViewNative and/or Toolbar (not yet supported)
 
 If you would like to use a card with  you can use a code like this:
 

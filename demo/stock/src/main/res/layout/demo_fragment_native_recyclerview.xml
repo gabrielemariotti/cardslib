@@ -50,8 +50,8 @@
         android:id="@+id/carddemo_listContainer"
         android:visibility="gone"
         android:layout_width="match_parent"
-        android:paddingLeft="8dp"
-        android:paddingRight="8dp"
+        android:paddingLeft="@dimen/carddemo_list_padding"
+        android:paddingRight="@dimen/carddemo_list_padding"
         android:layout_height="match_parent">
 
         <it.gmariotti.cardslib.library.recyclerview.view.CardRecyclerView

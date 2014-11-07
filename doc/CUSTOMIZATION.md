@@ -29,6 +29,9 @@ You can find all the Material Design Guidelines on the usage of cards [here](htt
 * [RecyclerView:](CARDRECYCLERVIEW.md) How to work with the `CardRecylerView`
 * [StaggeredGrid:](STAGGEREDGRID.md) How to work with the `CardGridStaggeredView`
 * [CardList with Drag and Drop:](DRAGDROPLIST.md) How to work with the `CardListDragDropView`
+
+
+**Other libs**
 * [Integration with other libraries:](OTHERLIBRARIES.md) How to work with other main libraries
 
 

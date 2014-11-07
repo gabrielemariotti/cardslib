@@ -17,6 +17,9 @@
   ~   limitations under the License.
   ~  *****************************************************************************
   -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_height="wrap_content"
+              android:layout_width="match_parent">
 
     <it.gmariotti.cardslib.library.view.CardViewNative
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -27,3 +30,4 @@
         style="@style/native_list_card"
         card:card_layout_resourceID="@layout/carddemo_native_cursor_layout"
         />
+</LinearLayout>

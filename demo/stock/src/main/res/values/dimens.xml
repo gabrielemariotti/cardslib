@@ -95,5 +95,6 @@
     <dimen name="toolbar_x2">112dp</dimen>
     <dimen name="circle_elevation">4dp</dimen>
     <dimen name="circle_size">70dp</dimen>
+    <dimen name="carddemo_list_padding">8dp</dimen>
 
 </resources>

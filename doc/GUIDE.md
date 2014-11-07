@@ -27,11 +27,22 @@ Card Library is pushed to Maven Central as an AAR, so you just need to add the f
         //Optional for staggered grid view support
         compile 'com.github.gabrielemariotti.cards:cardslib-extra-staggeredgrid:2.0.0'       
          
-        //Optional for twowayview support (coming soon)
-        //compile 'com.github.gabrielemariotti.cards:cardslib-extra-twoway:2.0.0'     
-           
         //Optional for drag and drop support
-        compile 'com.github.gabrielemariotti.cards:cardslib-extra-dragdrop:2.0.0'    
+        compile 'com.github.gabrielemariotti.cards:cardslib-extra-dragdrop:2.0.0'
+                
+        //Optional for twowayview support (coming soon)
+        //compile 'com.github.gabrielemariotti.cards:cardslib-extra-twoway:2.0.0'
+            
+    }
+    
+ If you would like to use the last **v1 stable version** you can use:
+    
+    dependencies {
+        //Core card library
+        compile 'com.github.gabrielemariotti.cards:library:1.9.1'
+
+        //Extra card library, it is required only if you want to use integrations with other libraries
+        compile 'com.github.gabrielemariotti.cards:library-extra:1.9.1'
     }
 
 

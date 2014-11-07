@@ -118,6 +118,9 @@ If you would like to migrate the old cards to new view you have to follow these 
             card:card_layout_resourceID="@layout/native_card_layout"   //use the native layout or native_card_thumbnail_layout or YOUR LAYOUR
             />  
      ```
+     If you are using a **CUSTOM LAYOUT**, check the points above and pay attention to this:
+     You have to add a container to your `CardViewNative`
+     Check this file: [`res/layout/native_list_card_layout`](/library-core/src/main/res/layout/native_list_card_layout.xml).
      
      
 ### Current open points     

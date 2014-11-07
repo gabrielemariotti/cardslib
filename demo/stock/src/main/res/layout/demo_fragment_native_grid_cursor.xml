@@ -48,20 +48,18 @@
 
     <FrameLayout
         android:id="@+id/carddemo_listContainer"
-        android:clipToPadding="false"
-        android:scrollbarStyle="outsideOverlay"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <it.gmariotti.cardslib.library.view.CardGridView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="2dp"
+            android:paddingLeft="@dimen/carddemo_list_padding"
+            android:paddingRight="@dimen/carddemo_list_padding"
             android:numColumns="auto_fit"
             android:columnWidth="@dimen/carddemo_gricursor_width"
-            android:verticalSpacing="3dp"
-            android:horizontalSpacing="2dp"
+            android:verticalSpacing="8dp"
+            android:horizontalSpacing="8dp"
             android:stretchMode="columnWidth"
             android:gravity="center"
             android:clipToPadding="false"
