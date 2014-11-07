@@ -24,8 +24,10 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.view.Gravity;
+import android.view.MotionEvent;
 import android.widget.LinearLayout;
 
 import it.gmariotti.cardslib.library.R;
@@ -219,5 +221,15 @@ public class ForegroundLinearLayout extends LinearLayout {
 
             foreground.draw(canvas);
         }
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent e) {
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {
+            if (e.getActionMasked() == MotionEvent.ACTION_DOWN) {
+                mForeground.setHotspot(e.getX(), e.getY());
+            }
+        }
+        return super.onTouchEvent(e);
     }
 }

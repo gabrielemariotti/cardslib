@@ -667,6 +667,10 @@ public class CardViewNative extends android.support.v7.widget.CardView implement
         viewClickable= decodeAreaOnClickListener(Card.CLICK_LISTENER_CONTENT_VIEW);
         if (viewClickable!=null)
             viewClickable.setClickable(false);
+
+        viewClickable= decodeAreaOnClickListener(Card.CLICK_LISTENER_ACTIONAREA1_VIEW);
+        if (viewClickable!=null)
+            viewClickable.setClickable(false);
     }
 
     /**

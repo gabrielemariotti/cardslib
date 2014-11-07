@@ -24,8 +24,8 @@
     <dimen name="card_background_default_radius">2dp</dimen>
 
     <!-- Native card margin -->
-    <dimen name="card_default_native_margin_top">8dp</dimen>
-    <dimen name="card_default_native_margin_bottom">8dp</dimen>
+    <dimen name="card_default_native_margin_top">12dp</dimen>
+    <dimen name="card_default_native_margin_bottom">12dp</dimen>
     <dimen name="card_default_native_margin_left">8dp</dimen>
     <dimen name="card_default_native_margin_right">8dp</dimen>
 
@@ -141,14 +141,14 @@
     <!-- List -->
     <dimen name="native_list_card_margin_left">0dp</dimen>
     <dimen name="native_list_card_margin_right">0dp</dimen>
-    <dimen name="native_list_card_margin_bottom">4dp</dimen>
-    <dimen name="native_list_card_margin_top">4dp</dimen>
+    <dimen name="native_list_card_margin_bottom">6dp</dimen>
+    <dimen name="native_list_card_margin_top">6dp</dimen>
 
     <!-- RecyclerView -->
     <dimen name="native_recyclerview_card_margin_left">0dp</dimen>
     <dimen name="native_recyclerview_card_margin_right">0dp</dimen>
-    <dimen name="native_recyclerview_card_margin_bottom">4dp</dimen>
-    <dimen name="native_recyclerview_card_margin_top">4dp</dimen>
+    <dimen name="native_recyclerview_card_margin_bottom">6dp</dimen>
+    <dimen name="native_recyclerview_card_margin_top">6dp</dimen>
 
     <!-- Grid -->
     <dimen name="grid_card_padding_left">2dp</dimen>

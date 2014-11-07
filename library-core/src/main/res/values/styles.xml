@@ -372,10 +372,6 @@
     <style name="native_list_external">
         <item name="android:clipToPadding">false</item>
         <item name="android:scrollbarStyle">outsideOverlay</item>
-        <item name="android:layout_marginTop">@dimen/card_default_native_margin_top</item>
-        <item name="android:layout_marginBottom">@dimen/card_default_native_margin_bottom</item>
-        <item name="android:layout_marginLeft">@dimen/card_default_native_margin_left</item>
-        <item name="android:layout_marginRight">@dimen/card_default_native_margin_right</item>
     </style>
 
     <style name="native_list_card">
