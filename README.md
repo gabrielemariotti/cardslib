@@ -7,9 +7,7 @@ Travis dev: [![Build Status](https://travis-ci.org/gabrielemariotti/cardslib.svg
 
 Before using this library I recommend that you check out the new Google Material Guidelines.Don't over cardify your UI.
 
-![Screen](/demo/images/screen.png)
-
-![Screen](/demo/images/screen3.png)
+![Screen](/demo/images/cardsv2_small.png)
 
 
 ## Examples
