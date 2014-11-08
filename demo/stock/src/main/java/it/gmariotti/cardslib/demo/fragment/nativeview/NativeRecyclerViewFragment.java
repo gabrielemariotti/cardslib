@@ -111,8 +111,11 @@ public class NativeRecyclerViewFragment extends BaseNativeListFragment {
         protected ArrayList<Card> doInBackground(Void... params) {
             //elaborate images
             SystemClock.sleep(1000); //delay to simulate download, don't use it in a real app
-            ArrayList<Card> cards = initCard();
-            return cards;
+            if (isAdded()) {
+                ArrayList<Card> cards = initCard();
+                return cards;
+            }else
+                return null;
         }
 
         @Override

@@ -41,7 +41,6 @@
         </activity>
         <activity
             android:name=".ui.NativeMenuActivity"
-            android:label="@string/navdrawer_item_native_cardslib"
             android:theme="@style/Theme.Carddemo.Main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

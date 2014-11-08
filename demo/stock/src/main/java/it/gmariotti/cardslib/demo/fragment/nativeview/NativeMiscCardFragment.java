@@ -79,11 +79,16 @@ public class NativeMiscCardFragment extends MaterialV1Fragment {
         return inflater.inflate(R.layout.demo_fragment_native_misc_card, container, false);
     }
 
+    float mElevationCircle;
+    int mSizeCircle;
+
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
         mScrollView = (ScrollView) getActivity().findViewById(R.id.card_scrollview);
+        mElevationCircle = getResources().getDimension(R.dimen.circle_elevation);
+        mSizeCircle = getResources().getDimensionPixelSize(R.dimen.circle_size);
 
         initCard();
     }
@@ -165,15 +170,14 @@ public class NativeMiscCardFragment extends MaterialV1Fragment {
                 imageView.setBackgroundDrawable(circle);
 
 
-            ViewCompat.setElevation(imageView, getResources().getDimension(R.dimen.circle_elevation));
+            ViewCompat.setElevation(imageView, mElevationCircle);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
-                final int size = getResources().getDimensionPixelSize(R.dimen.circle_size);
                 imageView.setOutlineProvider(
                         new ViewOutlineProvider(){
                             @TargetApi(Build.VERSION_CODES.LOLLIPOP)
                             @Override
                             public void getOutline(View view, Outline outline) {
-                                outline.setOval(0, 0, size, size);
+                                outline.setOval(0, 0, mSizeCircle, mSizeCircle);
                             }
                         });
                 imageView.setClipToOutline(true);

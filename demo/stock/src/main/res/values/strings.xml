@@ -20,7 +20,7 @@
 <resources>
 
     <!--App name -->
-    <string name="app_name">CardsLibDemo</string>
+    <string name="app_name">CardsLib Demo</string>
 
     <!--Authority -->
     <string name="config_authority">it.gmariotti.cardslib.demo.provider</string>

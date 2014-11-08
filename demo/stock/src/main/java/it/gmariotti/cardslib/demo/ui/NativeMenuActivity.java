@@ -45,6 +45,9 @@ public class NativeMenuActivity extends BaseActivity implements NativeDashFragme
 
         setContentView(R.layout.carddemo_activity_native);
 
+        if (getSupportActionBar() != null)
+            getSupportActionBar().setTitle(R.string.navdrawer_item_native_cardslib);
+
         if (null == savedInstanceState) {
             getFragmentManager().beginTransaction()
                     .replace(R.id.container, NativeDashFragment.newInstance())
