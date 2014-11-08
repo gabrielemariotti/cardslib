@@ -1,7 +1,7 @@
 Change Log
 ===============================================================================
 
-Version 2.0.0 *(2014-XX-XX)*
+Version 2.0.0 *(2014-11-07)*
 ----------------------------
 * LIB: Added the new **CardViewNative**! based on Google CardView [(Learn how to migrate your cards)](/doc/MIGRATE)
 * LIB: New aar modules. [(doc)[(BUILD.md#including-in-your-project-with-gradle)

@@ -32,7 +32,7 @@
     <string name="about_ok">OK</string>
     <string name="about_body"><![CDATA[
         <b>Library & Demo</b><br>
-        Author: <a href="https://plus.google.com/114432517923423045208">Gabriele Mariotti</a><br>
+        Author: <b><a href="https://plus.google.com/114432517923423045208">Gabriele Mariotti</a></b><br>
         <br>
         Get: <a href="https://github.com/gabrielemariotti/cardslib">Source and doc</a><br>
         Get on Google Play: <a href="https://play.google.com/store/apps/details?id=it.gmariotti.cardslib.demo.extras">Cardslib Demo Extras</a><br>

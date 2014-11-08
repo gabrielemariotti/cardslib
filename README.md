@@ -3,9 +3,9 @@ Travis master: [![Build Status](https://travis-ci.org/gabrielemariotti/cardslib.
 Travis dev: [![Build Status](https://travis-ci.org/gabrielemariotti/cardslib.svg?branch=dev)](https://travis-ci.org/gabrielemariotti/cardslib)
 
 
-**Card Library** provides an easy way to display a UI Card in your Android app.
+**Card Library** provides an easy way to display a UI Card using the **Official Google CardView** in your Android app.
 
-You can display **single cards**, **list** of cards, **grid** , **staggered grid** and **spannable grid** of Cards and many other views, using the **Official Google CardView**.
+Before using this library I recommend that you check out the new Google Material Guidelines.Don't over cardify your UI.
 
 ![Screen](/demo/images/screen.png)
 
@@ -25,12 +25,6 @@ You can display **single cards**, **list** of cards, **grid** , **staggered grid
 	
 	[![Get it on Google Play](http://www.android.com/images/brand/get_it_on_play_logo_small.png)](https://play.google.com/store/apps/details?id=it.gmariotti.cardslib.demo.extras)
 
-
-* Browse the [source code of the sample application](/demo) for a complete example of use.
-
-* [Card Gallery:](/doc/EXAMPLE.md) How to realize simple and nice cards.
-
-  [See this page for more info about demo and samples](/demo/README.md)
   
 ## Support
 Join the [**Google+ Community**](https://plus.google.com/u/0/communities/111800040690738372803): 

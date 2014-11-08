@@ -31,4 +31,4 @@ dependencies {
 }
 
 // Used to update in Maven
-//apply from: '../maven_push.gradle'
+//apply from: '../../maven_push.gradle'
