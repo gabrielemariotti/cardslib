@@ -19,6 +19,7 @@
 
 package it.gmariotti.cardslib.library.view;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -223,11 +224,13 @@ public class ForegroundLinearLayout extends LinearLayout {
         }
     }
 
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
     public boolean onTouchEvent(MotionEvent e) {
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             if (e.getActionMasked() == MotionEvent.ACTION_DOWN) {
-                mForeground.setHotspot(e.getX(), e.getY());
+                if (mForeground != null)
+                    mForeground.setHotspot(e.getX(), e.getY());
             }
         }
         return super.onTouchEvent(e);
