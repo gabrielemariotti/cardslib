@@ -65,8 +65,8 @@
     <color name="theme_accent_1_light">#8ad4fa</color>
     <color name="theme_accent_2">#e91e63</color>
 
-    <color name="demo_primary_color">#6CB7F0</color>
-    <color name="demo_colorPrimaryDark">#588CB3</color>
+    <color name="demo_primary_color">#2196F3</color>
+    <color name="demo_colorPrimaryDark">#0288D1</color>
 
     <color name="navdrawer_background">#ffffffff</color>
     <color name="navdrawer_text_color">@color/body_text_1</color>

@@ -31,8 +31,8 @@
     </style>
 
     <style name="Theme.Carddemo.WithNavDrawer" parent="Theme.Carddemo">
-        <item name="android:statusBarColor">@color/demo_colorPrimaryDark</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
     <style name="HeaderBar">

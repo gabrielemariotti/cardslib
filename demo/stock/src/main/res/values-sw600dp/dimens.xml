@@ -49,7 +49,7 @@
     <dimen name="hashtag_text_size">16sp</dimen>
     <dimen name="hashtag_hero_text_size">18sp</dimen>
 
-    <dimen name="navdrawer_image_height">140dp</dimen>
+    <dimen name="navdrawer_image_height">170dp</dimen>
     <dimen name="toolbar_x2">128dp</dimen>
     <dimen name="carddemo_list_padding">16dp</dimen>
 

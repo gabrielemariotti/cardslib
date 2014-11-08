@@ -118,7 +118,7 @@ public abstract class BaseActivity extends ActionBarActivity {
     private static final int[] NAVDRAWER_ICON_RES_ID = new int[] {
             R.drawable.ic_launcher,
             R.drawable.ic_launcher,
-            R.drawable.ic_launcher,
+            R.drawable.ic_warning_black_36dp,
             R.drawable.ic_github,
             R.drawable.ic_money,
             R.drawable.ic_l_info

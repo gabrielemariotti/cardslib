@@ -17,13 +17,16 @@
   ~  *****************************************************************************
   -->
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<it.gmariotti.cardslib.demo.ui.widget.ScrimInsetsScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="@dimen/navdrawer_width"
     android:layout_height="match_parent"
-    android:id="@+id/navdrawer"
     android:layout_gravity="start"
+    android:id="@+id/navdrawer"
+    android:background="@color/navdrawer_background"
     android:fitsSystemWindows="true"
-    android:background="@color/navdrawer_background">
+    app:insetForeground="#2000">
 
     <LinearLayout android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -33,4 +36,4 @@
 
     </LinearLayout>
 
-</ScrollView>
+</it.gmariotti.cardslib.demo.ui.widget.ScrimInsetsScrollView>

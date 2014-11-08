@@ -30,7 +30,7 @@
        android:columnWidth="@dimen/carddemo_gplay_grid_columnwidth"
        android:numColumns="auto_fit"
        android:verticalSpacing="4dp"
-       android:horizontalSpacing="6dp"
+       android:horizontalSpacing="4dp"
        android:paddingLeft="4dp"
        android:paddingRight="4dp"
        android:stretchMode="columnWidth"

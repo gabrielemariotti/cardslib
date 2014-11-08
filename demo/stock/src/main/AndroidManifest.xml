@@ -34,15 +34,6 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/Theme.Carddemo">
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name">
-        </activity>
-
-        <activity
-            android:name=".MainNativeActivity"
-            android:label="@string/app_name">
-        </activity>
 
         <activity
             android:name=".ui.DemoSingleTopicActivity"
