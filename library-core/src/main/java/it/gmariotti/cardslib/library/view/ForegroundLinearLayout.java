@@ -28,7 +28,6 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.view.Gravity;
-import android.view.MotionEvent;
 import android.widget.LinearLayout;
 
 import it.gmariotti.cardslib.library.R;
@@ -224,15 +223,15 @@ public class ForegroundLinearLayout extends LinearLayout {
         }
     }
 
+
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
-    public boolean onTouchEvent(MotionEvent e) {
+    public void drawableHotspotChanged(float x, float y) {
+        super.drawableHotspotChanged(x, y);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            if (e.getActionMasked() == MotionEvent.ACTION_DOWN) {
-                if (mForeground != null)
-                    mForeground.setHotspot(e.getX(), e.getY());
+            if (mForeground != null) {
+                mForeground.setHotspot(x, y);
             }
         }
-        return super.onTouchEvent(e);
     }
 }

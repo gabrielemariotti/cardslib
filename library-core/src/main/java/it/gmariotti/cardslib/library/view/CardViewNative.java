@@ -22,6 +22,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
@@ -288,6 +289,15 @@ public class CardViewNative extends android.support.v7.widget.CardView implement
 
 
 
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    @Override
+    public void drawableHotspotChanged(float x, float y) {
+        super.drawableHotspotChanged(x, y);
+        if (mInternalMainCardLayout != null && mInternalMainCardLayout instanceof ForegroundLinearLayout) {
+            mInternalMainCardLayout.drawableHotspotChanged(x,y);
+        }
     }
 
     //--------------------------------------------------------------------------
