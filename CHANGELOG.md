@@ -1,6 +1,12 @@
 Change Log
 ===============================================================================
 
+Version 2.0.1 *(2014-11-12)*
+----------------------------
+* LIB-CORE:Fixed NPE in ForegroundLinearLayout
+* LIB-CORE:Fixed expand area with CardWithList
+
+
 Version 2.0.0 *(2014-11-07)*
 ----------------------------
 * LIB: Added the new **CardViewNative**! based on Google CardView [(Learn how to migrate your cards)](/doc/MIGRATE)

@@ -16,22 +16,22 @@ Card Library is pushed to Maven Central as a AAR, so you just need to add the fo
 
      dependencies {
         //Core card library
-        compile 'com.github.gabrielemariotti.cards:cardslib-core:2.0.0'
+        compile 'com.github.gabrielemariotti.cards:cardslib-core:2.0.1'
         
         //Optional for built-in cards
-        compile 'com.github.gabrielemariotti.cards:cardslib-cards:2.0.0'
+        compile 'com.github.gabrielemariotti.cards:cardslib-cards:2.0.1'
                 
         //Optional for RecyclerView
-        compile 'com.github.gabrielemariotti.cards:cardslib-recyclerview:2.0.0'  
+        compile 'com.github.gabrielemariotti.cards:cardslib-recyclerview:2.0.1'  
           
         //Optional for staggered grid view support
-        compile 'com.github.gabrielemariotti.cards:cardslib-extra-staggeredgrid:2.0.0'       
+        compile 'com.github.gabrielemariotti.cards:cardslib-extra-staggeredgrid:2.0.1'       
          
         //Optional for drag and drop support
-        compile 'com.github.gabrielemariotti.cards:cardslib-extra-dragdrop:2.0.0'  
+        compile 'com.github.gabrielemariotti.cards:cardslib-extra-dragdrop:2.0.1'  
         
         //Optional for twowayview support (coming soon)
-        //compile 'com.github.gabrielemariotti.cards:cardslib-extra-twoway:2.0.0'
+        //compile 'com.github.gabrielemariotti.cards:cardslib-extra-twoway:2.0.1'
           
     }
 
