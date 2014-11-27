@@ -66,11 +66,11 @@ Card Library provides 2 built-in row-list layouts.
 
 For the `CardViewNative`:
 * [`res/layout/native_list_card_layout.xml`](/library-core/src/main/res/layout/native_list_card_layout.xml)..
-* [`res/layout/native_list_card_thumbnail_layout.xml`](/library-core/src/main/res/layout/native_list_card_layout.xml).
+* [`res/layout/native_list_card_thumbnail_layout.xml`](/library-core/src/main/res/layout/native_list_card_thumbnail_layout.xml).
 
 For the `CardView`:
 * [`res/layout/list_card_layout.xml`](/library-core/src/main/res/layout/list_card_layout.xml)..
-* [`res/layout/list_card_thumbnail_layout.xml`](/library-core/src/main/res/layout/list_card_layout.xml).
+* [`res/layout/list_card_thumbnail_layout.xml`](/library-core/src/main/res/layout/list_card_thumbnail_layout.xml).
 
 
 You can customize the layout used for each item in ListView using the attr: `card:list_card_layout_resourceID="@layout/my_layout`
