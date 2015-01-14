@@ -50,8 +50,8 @@ dependencies {
     compile project(':extra:extra-dragdrop')
 
     // Support Libraries
-    compile 'com.android.support:support-v4:21.0.0'
-    compile 'com.android.support:appcompat-v7:21.0.0'
+    compile 'com.android.support:support-v4:21.0.3'
+    compile 'com.android.support:appcompat-v7:21.0.3'
 
     //OkHttp
     //temporary patch for android-L for Okio packaging problem (see https://gist.github.com/JakeWharton/017738659d4f38adedc2)

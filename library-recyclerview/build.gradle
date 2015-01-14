@@ -27,9 +27,9 @@ dependencies {
     compile project(':library-core')
 
     //Annotation
-    compile 'com.android.support:support-annotations:21.0.0'
+    compile 'com.android.support:support-annotations:21.0.3'
     //Recycler View
-    compile 'com.android.support:recyclerview-v7:21.0.0'
+    compile 'com.android.support:recyclerview-v7:21.0.3'
 }
 
 // Used to update in Maven

@@ -24,13 +24,13 @@ android {
 
 dependencies {
     //CardView
-    compile 'com.android.support:cardview-v7:21.0.0'
+    compile 'com.android.support:cardview-v7:21.0.3'
 
     //Support lib
-    compile 'com.android.support:support-v4:21.0.0'
+    compile 'com.android.support:support-v4:21.0.3'
 
     //Annotation
-    compile 'com.android.support:support-annotations:21.0.0'
+    compile 'com.android.support:support-annotations:21.0.3'
 }
 
 // Used to update in Maven
