@@ -78,7 +78,7 @@ If you want a `CardHeader` with the overflow button you can use this simple code
         header.setTitle(getString(R.string.demo_header_basetitle));
 
         //Add a popup menu. This method sets OverFlow button to visibile
-        header.setPopupMenu(R.menu.popupmain, new CardHeader.onClickCardHeaderPopupMenuListener(){
+        header.setPopupMenu(R.menu.popupmain, new CardHeader.OnClickCardHeaderPopupMenuListener(){
             @Override
             public void onMenuItemClick(BaseCard card, MenuItem item) {
                 Toast.makeText(getActivity(), "Click on "+item.getTitle(), Toast.LENGTH_SHORT).show();
