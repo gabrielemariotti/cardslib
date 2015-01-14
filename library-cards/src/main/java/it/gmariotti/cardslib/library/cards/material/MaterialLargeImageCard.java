@@ -153,7 +153,10 @@ public class MaterialLargeImageCard extends BaseMaterialCard {
         }
 
         public MaterialLargeImageCard build() {
-            MaterialLargeImageCard card = new MaterialLargeImageCard(mContext);
+            return build(new MaterialLargeImageCard(mContext));
+        }
+
+        public MaterialLargeImageCard build(MaterialLargeImageCard card) {
             if (mExternalCardThumbnail != null){
                 card.setExternalCardThumbnail(mExternalCardThumbnail);
             } else {
@@ -185,7 +188,7 @@ public class MaterialLargeImageCard extends BaseMaterialCard {
 
         //Set CardThumbnail
         if (mCardThumbnail == null) {
-            mCardThumbnail = new MaterialLargeImageCardThumbnail(mContext);
+            mCardThumbnail = initializeCardThumbnail();
 
             if (mExternalCardThumbnail != null){
                 mCardThumbnail.setExternalUsage(true);
@@ -223,6 +226,13 @@ public class MaterialLargeImageCard extends BaseMaterialCard {
         addPartialOnClickListener(CLICK_LISTENER_ACTIONAREA1_VIEW, onClickListener);
     }
 
+    /**
+     * Initialize the MaterialLargeImageCardThumbnail
+     * @return
+     */
+    protected MaterialLargeImageCardThumbnail initializeCardThumbnail(){
+        return new MaterialLargeImageCardThumbnail(mContext);
+    }
 
     // -------------------------------------------------------------
     // Getters and setters
