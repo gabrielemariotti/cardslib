@@ -26,12 +26,12 @@ import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.support.annotation.NonNull;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.widget.LinearLayout;
 
 import it.gmariotti.cardslib.library.R;
-
 
 public class ForegroundLinearLayout extends LinearLayout {
 
@@ -43,8 +43,6 @@ public class ForegroundLinearLayout extends LinearLayout {
     private int mForegroundGravity = Gravity.FILL;
 
     protected boolean mForegroundInPadding = true;
-
-    boolean mForegroundBoundsChanged = false;
 
     public ForegroundLinearLayout(Context context) {
         super(context);
@@ -183,46 +181,47 @@ public class ForegroundLinearLayout extends LinearLayout {
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
-        mForegroundBoundsChanged = changed;
+        if (changed) {
+            setForegroundBounds();
+        }
     }
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-        mForegroundBoundsChanged = true;
+        setForegroundBounds();
     }
 
     @Override
-    public void draw(Canvas canvas) {
+    public void draw(@NonNull Canvas canvas) {
         super.draw(canvas);
 
         if (mForeground != null) {
-            final Drawable foreground = mForeground;
-
-            if (mForegroundBoundsChanged) {
-                mForegroundBoundsChanged = false;
-                final Rect selfBounds = mSelfBounds;
-                final Rect overlayBounds = mOverlayBounds;
-
-                final int w = getRight() - getLeft();
-                final int h = getBottom() - getTop();
-
-                if (mForegroundInPadding) {
-                    selfBounds.set(0, 0, w, h);
-                } else {
-                    selfBounds.set(getPaddingLeft(), getPaddingTop(),
-                            w - getPaddingRight(), h - getPaddingBottom());
-                }
-
-                Gravity.apply(mForegroundGravity, foreground.getIntrinsicWidth(),
-                        foreground.getIntrinsicHeight(), selfBounds, overlayBounds);
-                foreground.setBounds(overlayBounds);
-            }
-
-            foreground.draw(canvas);
+            mForeground.draw(canvas);
         }
     }
 
+    private void setForegroundBounds() {
+        if (mForeground != null) {
+
+            final Rect selfBounds = mSelfBounds;
+            final Rect overlayBounds = mOverlayBounds;
+
+            final int w = getRight() - getLeft();
+            final int h = getBottom() - getTop();
+
+            if (mForegroundInPadding) {
+                selfBounds.set(0, 0, w, h);
+            } else {
+                selfBounds.set(getPaddingLeft(), getPaddingTop(),
+                        w - getPaddingRight(), h - getPaddingBottom());
+            }
+
+            Gravity.apply(mForegroundGravity, mForeground.getIntrinsicWidth(),
+                    mForeground.getIntrinsicHeight(), selfBounds, overlayBounds);
+            mForeground.setBounds(overlayBounds);
+        }
+    }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
