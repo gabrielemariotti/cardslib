@@ -26,12 +26,12 @@ import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.support.annotation.NonNull;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.widget.LinearLayout;
 
 import it.gmariotti.cardslib.library.R;
-
 
 public class ForegroundLinearLayout extends LinearLayout {
 
@@ -183,7 +183,7 @@ public class ForegroundLinearLayout extends LinearLayout {
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
-        mForegroundBoundsChanged = changed;
+        mForegroundBoundsChanged = true;
     }
 
     @Override
@@ -193,7 +193,7 @@ public class ForegroundLinearLayout extends LinearLayout {
     }
 
     @Override
-    public void draw(Canvas canvas) {
+    public void draw(@NonNull Canvas canvas) {
         super.draw(canvas);
 
         if (mForeground != null) {
@@ -222,7 +222,6 @@ public class ForegroundLinearLayout extends LinearLayout {
             foreground.draw(canvas);
         }
     }
-
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
