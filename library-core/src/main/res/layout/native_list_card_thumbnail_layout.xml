@@ -27,10 +27,12 @@
 <it.gmariotti.cardslib.library.view.CardViewNative
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/list_cardId"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     style="@style/native_list_card.thumbnail"
+    card_view:cardUseCompatPadding="true"
     card:card_layout_resourceID="@layout/native_card_thumbnail_layout"
     />
 
