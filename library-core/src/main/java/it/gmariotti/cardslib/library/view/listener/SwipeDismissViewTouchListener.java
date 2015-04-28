@@ -224,7 +224,8 @@ public class SwipeDismissViewTouchListener implements View.OnTouchListener {
                 mVelocityTracker.addMovement(motionEvent);
                 float deltaX = motionEvent.getRawX() - mDownX;
                 float deltaY = motionEvent.getRawY() - mDownY;
-                if (Math.abs(deltaX) > mSlop && Math.abs(deltaY) < Math.abs(deltaX) / 2) {
+                if (Math.abs(deltaX) > mSlop && Math.abs(deltaY) < Math.abs(deltaX) / 2
+                        && !mSwiping) {
                     mSwiping = true;
                     ((View)mCardView).getParent().requestDisallowInterceptTouchEvent(true);
                     mSwipingSlop = (deltaX > 0 ? mSlop : -mSlop);
