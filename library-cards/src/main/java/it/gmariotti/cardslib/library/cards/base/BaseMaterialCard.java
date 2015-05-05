@@ -79,6 +79,9 @@ public abstract class BaseMaterialCard extends Card {
                 stub.setLayoutResource(getLayout_supplemental_actions_id());
                 return stub.inflate();
             }
+            else {
+                return ((View) getCardView()).findViewById(R.id.card_supplemental_actions);
+            }
         }
         return null;
     }
