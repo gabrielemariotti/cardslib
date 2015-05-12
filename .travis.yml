@@ -9,11 +9,10 @@ android:
       - extra-android-m2repository
 
 
-
 branches:
   only:
-    - travis
-
+    - master
+    - dev
 
 notifications:
   email: false
@@ -30,6 +29,3 @@ before_install:
 # Let's try to build...
 #install: ./gradlew clean build
 script: ./gradlew check
-
-
-
