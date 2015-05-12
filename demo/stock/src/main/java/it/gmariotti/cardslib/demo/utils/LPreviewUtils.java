@@ -19,7 +19,7 @@
 
 package it.gmariotti.cardslib.demo.utils;
 
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 
 /**
  * An abstract interface to use SDK-L and SDK-19
@@ -29,7 +29,7 @@ public class LPreviewUtils {
     private LPreviewUtils() {
     }
 
-    public static LPreviewUtilsBase getInstance(ActionBarActivity activity) {
+    public static LPreviewUtilsBase getInstance(AppCompatActivity activity) {
             return new LPreviewUtilsBase(activity);
     }
 }

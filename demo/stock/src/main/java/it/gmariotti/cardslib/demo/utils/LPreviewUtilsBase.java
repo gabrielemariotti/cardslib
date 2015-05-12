@@ -26,8 +26,8 @@ import android.graphics.Color;
 import android.graphics.Outline;
 import android.os.Build;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewOutlineProvider;
@@ -38,15 +38,15 @@ import it.gmariotti.cardslib.demo.R;
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
 public class LPreviewUtilsBase {
 
-    protected ActionBarActivity mActivity;
+    protected AppCompatActivity mActivity;
     private ActionBarDrawerToggle mDrawerToggle;
     private Toolbar mActionBarToolbar;
 
-    LPreviewUtilsBase(ActionBarActivity activity) {
+    LPreviewUtilsBase(AppCompatActivity activity) {
         mActivity = activity;
     }
 
-    public static LPreviewUtilsBase getInstance(ActionBarActivity activity) {
+    public static LPreviewUtilsBase getInstance(AppCompatActivity activity) {
         return new LPreviewUtilsBase(activity);
     }
 
