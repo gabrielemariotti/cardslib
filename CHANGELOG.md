@@ -1,6 +1,11 @@
 Change Log
 ===============================================================================
 
+Version 2.1.0 *(2015-05-12)*
+----------------------------
+* Updated to support libraries 22.1.1
+
+
 Version 2.0.1 *(2014-11-12)*
 ----------------------------
 * LIB-CORE:Fixed NPE in ForegroundLinearLayout
