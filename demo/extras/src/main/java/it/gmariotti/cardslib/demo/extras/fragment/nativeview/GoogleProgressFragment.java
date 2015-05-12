@@ -78,6 +78,7 @@ public class GoogleProgressFragment extends BaseFragment {
      */
     private void initCard() {
 
+
         //Init an array of Cards
         ArrayList<Card> cards = new ArrayList<Card>();
         for (int i = 0; i < 20; i++) {

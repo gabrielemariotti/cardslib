@@ -25,13 +25,14 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
+    <!--
     <com.jpardogo.android.googleprogressbar.library.GoogleProgressBar
         android:id="@+id/google_progress"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
         gpb:type="nexus_rotation_cross"/>
-
+-->
 
     <TextView
         android:layout_width="wrap_content"
