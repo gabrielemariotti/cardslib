@@ -9,8 +9,8 @@ android:
 
 branches:
   only:
-    - master
-    - dev
+    - travis
+
 
 notifications:
   email: false
