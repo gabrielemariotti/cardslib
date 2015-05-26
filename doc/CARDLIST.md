@@ -58,7 +58,7 @@ Last create a `CardArrayAdapter`, get a reference to the `CardListView` from you
         }
 ```
 
-This `CardListView` uses for each row the row-list layout [`res/layout/native_list_card_layout.xml`](/library/src/main/res/layout/native_list_card_layout.xml).
+This `CardListView` uses for each row the row-list layout [`res/layout/native_list_card_layout.xml`](/library-core/src/main/res/layout/native_list_card_layout.xml).
 
 
 ### Use your custom layout for each row
