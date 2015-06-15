@@ -43,6 +43,7 @@
 
         <item name="windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
+        <item name="windowNoTitle">true</item>
 
         <item name="android:windowBackground">@android:color/white</item>
         <item name="android:homeAsUpIndicator">@drawable/ic_up21</item>
