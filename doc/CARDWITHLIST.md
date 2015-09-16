@@ -343,7 +343,7 @@ You can change the string simply overriding this string in your project:
     <string name="card_empty_cardwithlist_text">No data....</string>
 ```
 
-The default layout [inner_base_main_cardwithlist](/library/src/main/res/layout/inner_base_main_cardwithlist.xml) uses a `ViewStub`.
+The default layout [inner_base_main_cardwithlist](/library-core/src/main/res/layout/inner_base_main_cardwithlist.xml) uses a `ViewStub`.
 You can dynamically change the the layout resource to inflate when the ViewStub becomes visible, using the method `setEmptyViewViewStubLayoutId`.
 
 Example:
