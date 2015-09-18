@@ -726,10 +726,10 @@ You can use it with our CardArrayAdapter without changing your code:
         CardArrayAdapter mCardArrayAdapter = new CardArrayAdapter(getActivity(),cards);
 
         // Define your sections
-        List<GplayCardSection> sections =  new ArrayList<GplayCardSection>();
+        List<CardSection> sections =  new ArrayList<CardSection>();
         sections.add(new CardSection(1,"Section 1"));
         sections.add(new CardSection(3,"Section 2"));
-        GplayCardSection[] dummy = new GplayCardSection[sections.size()];
+        CardSection[] dummy = new CardSection[sections.size()];
 
         //Define your Sectioned adapter
         SectionedCardAdapter mAdapter = new SectionedCardAdapter(getActivity(), mCardArrayAdapter);
@@ -783,7 +783,7 @@ It is very easy o obtain it you have to extend the SectionedCardAdapter:
             //Override this method to customize your section's view
 
             //Get the section
-            MyCardSection section = (MyCardSection) getCardSections().get(position);
+            CardSection section = (CardSection) getCardSections().get(position);
 
             if (section != null ) {
                 //Set the title
@@ -809,11 +809,11 @@ And then use it with the same code described above.
         CardArrayAdapter mCardArrayAdapter = new CardArrayAdapter(getActivity(),cards);
 
         // Define your sections
-        List<MyCardSection> sections = new ArrayList<MyCardSection>();
-        sections.add(new MyCardSection(1,"Section 1","More"));
-        sections.add(new MyCardSection(3,"Section 2","Other"));
+        List<CardSection> sections = new ArrayList<CardSection>();
+        sections.add(new CardSection(1,"Section 1","More"));
+        sections.add(new CardSection(3,"Section 2","Other"));
 
-        MyCardSection[] dummy = new MyCardSection[sections.size()];
+        CardSection[] dummy = new CardSection[sections.size()];
 
         //Define your Sectioned adapter
         MySectionedAdapter mAdapter = new MySectionedAdapter(getActivity(), mCardArrayAdapter);
