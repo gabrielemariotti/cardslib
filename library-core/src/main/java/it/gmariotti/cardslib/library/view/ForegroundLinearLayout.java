@@ -183,7 +183,9 @@ public class ForegroundLinearLayout extends LinearLayout {
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
-        mForegroundBoundsChanged = changed;
+        if (changed) {
+            mForegroundBoundsChanged = true;
+        }
     }
 
     @Override
