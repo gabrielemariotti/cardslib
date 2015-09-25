@@ -29,7 +29,7 @@ You have to use the [`res/layout/native_card_thumbnail_layout.xml`](/library-cor
 For the **CardView**:
 [`res/layout/card_thumbnail_layout.xml`](/library-core/src/main/res/layout/card_thumbnail_layout.xml) 
  
-or a your custom layout.
+or your custom layout.
  
 Read [Customizing the Thumbnail Layout](#customizing-the-thumbnail-layout) paragraph for more info.
 
