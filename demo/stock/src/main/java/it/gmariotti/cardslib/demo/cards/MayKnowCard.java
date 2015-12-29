@@ -27,7 +27,7 @@ import it.gmariotti.cardslib.demo.R;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardHeader;
 import it.gmariotti.cardslib.library.internal.CardThumbnail;
-import it.gmariotti.cardslib.library.view.CardView;
+import it.gmariotti.cardslib.library.view.base.CardViewWrapper;
 import it.gmariotti.cardslib.library.view.component.CardThumbnailView;
 
 /**
@@ -80,7 +80,7 @@ public class MayKnowCard extends Card {
         subtitle.setText(getContext().getString(R.string.may_know_card_inner_subtitle));
         add.setClickable(true);
 
-        CardView cardView = getCardView();
+        CardViewWrapper cardView = getCardView();
         CardThumbnailView thumb = cardView.getInternalThumbnailLayout();
         if (thumb != null) {
             ViewGroup.LayoutParams lp = thumb.getLayoutParams();

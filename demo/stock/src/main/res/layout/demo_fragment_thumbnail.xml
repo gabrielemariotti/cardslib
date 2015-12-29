@@ -26,6 +26,7 @@
 
     <ScrollView
         android:id="@+id/card_scrollview"
+        style="@style/carddemo_default_container_padding"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -36,7 +37,7 @@
 
             <!-- Resource ID-->
             <TextView
-                style="@style/AppTheme.TitleText"
+                style="@style/Theme.Carddemo.TitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/demo_section_thumb_id"/>
@@ -53,7 +54,7 @@
 
             <!-- Resource URL -->
             <TextView
-                style="@style/AppTheme.TitleText"
+                style="@style/Theme.Carddemo.TitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/demo_section_thumb_url"/>
@@ -69,7 +70,7 @@
 
 	    <!-- Customize you thumbnail -->
             <TextView
-                style="@style/AppTheme.TitleText"
+                style="@style/Theme.Carddemo.TitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/demo_section_thumb_style"/>
@@ -85,7 +86,7 @@
 
             <!-- Custom Source Thumbnail-->
             <TextView
-                style="@style/AppTheme.TitleText"
+                style="@style/Theme.Carddemo.TitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/demo_section_thumb_customsource"/>

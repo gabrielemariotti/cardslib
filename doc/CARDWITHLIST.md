@@ -32,13 +32,13 @@ Technically it is a special `LinearLayout` that works with an ArrayAdapter, so y
 First, you need an XML layout that will display the `Card`.
 
 ``` xml
-        <it.gmariotti.cardslib.library.view.CardView
+        <it.gmariotti.cardslib.library.view.CardViewNative
             android:id="@+id/carddemo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="12dp"
-            android:layout_marginRight="12dp"
-            android:layout_marginTop="12dp"/>
+            card:card_layout_resourceID="@layout/native_cardwithlist_layout"
+            style="@style/card_external"
+            />
 ```
 
 Then create a model. 
@@ -190,7 +190,7 @@ You can customize the background behind the items cloning this color in your pro
 
 ``` xml
     <!-- Used by card with list -->
-    <color name="card_base_cardwithlist_background_list_color">#10000000</color>
+    <color name="card_native_base_cardwithlist_background_list_color">#10000000</color>
 ``` 
 
 Otherwise you can customize this style in your project:
@@ -296,7 +296,7 @@ You can change the color of the divider cloning this color in your project:
 
 ``` xml
     <!-- Used by card with list -->
-    <color name="card_base_cardwithlist_divider_color">#E5E5E5</color>
+    <color name="card_native_base_cardwithlist_divider_color">#E5E5E5</color>
 ```
 
 Finally you can clone this style in your project:
@@ -306,11 +306,11 @@ Finally you can clone this style in your project:
     <style name="cardwithlist">
         <item name="android:layout_marginTop">@dimen/card_base_cardwithlist_list_margin_top</item>
         <item name="android:layout_marginLeft">@dimen/card_base_cardwithlist_list_margin_left</item>
-        <item name="android:divider">@color/card_base_cardwithlist_divider_color</item>
+        <item name="android:divider">@color/card_native_base_cardwithlist_divider_color</item>
         <item name="android:showDividers">middle</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
-        <item name="android:background">@color/card_base_cardwithlist_background_list_color</item>
+        <item name="android:background">@color/card_native_base_cardwithlist_background_list_color</item>
     </style>
 ``` 
 
@@ -343,7 +343,7 @@ You can change the string simply overriding this string in your project:
     <string name="card_empty_cardwithlist_text">No data....</string>
 ```
 
-The default layout [inner_base_main_cardwithlist](/library/src/main/res/layout/inner_base_main_cardwithlist.xml) uses a `ViewStub`.
+The default layout [inner_base_main_cardwithlist](/library-core/src/main/res/layout/inner_base_main_cardwithlist.xml) uses a `ViewStub`.
 You can dynamically change the the layout resource to inflate when the ViewStub becomes visible, using the method `setEmptyViewViewStubLayoutId`.
 
 Example:

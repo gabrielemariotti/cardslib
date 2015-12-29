@@ -15,6 +15,7 @@
  *   limitations under the License.
  *  *****************************************************************************
  */
+
 package it.gmariotti.cardslib.demo.extras.fragment;
 
 
@@ -23,7 +24,6 @@ import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
 
-
 /**
  * Base Fragment
  *
@@ -31,23 +31,18 @@ import android.view.MenuItem;
  */
 public abstract class BaseFragment extends Fragment {
 
+    public static final int TITLE_NONE = -1;
+
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        setTitle();
+        //setTitle();
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        setTitle();
-    }
-
-    protected void setTitle() {
-        if (getActivity() != null) {
-            getActivity().setTitle(getTitleResourceId());
-            getActivity().getActionBar().setTitle(getTitleResourceId());
-        }
+    protected void setTitle(){
+        int titleResId = getTitleResourceId();
+        if (titleResId != TITLE_NONE)
+          getActivity().setTitle(getTitleResourceId());
     }
 
     public abstract int getTitleResourceId();

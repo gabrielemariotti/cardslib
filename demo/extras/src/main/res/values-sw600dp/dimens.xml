@@ -29,4 +29,21 @@
 
     <dimen name="card_rose">250dp</dimen>
 
+    <!--Material design-->
+    <dimen name="keyline_1">24dp</dimen>
+    <dimen name="keyline_1_minus_8dp">16dp</dimen>
+    <dimen name="keyline_2">80dp</dimen>
+    <dimen name="keyline_2_minus_16dp">64dp</dimen>
+    <dimen name="keyline_2_session_detail">104dp</dimen>
+
+    <dimen name="carddemo_keyline_margin">24dp</dimen>
+    <dimen name="carddemo_keyline_content_start">80dp</dimen>
+    <dimen name="carddemo_barheader_elevation">2dp</dimen>
+    <dimen name="carddemo_barheader_height">72dp</dimen>
+
+    <dimen name="hashtag_text_size">16sp</dimen>
+    <dimen name="hashtag_hero_text_size">18sp</dimen>
+
+    <dimen name="navdrawer_image_height">140dp</dimen>
+    <dimen name="toolbar_x2">128dp</dimen>
 </resources>

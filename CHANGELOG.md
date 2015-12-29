@@ -1,6 +1,29 @@
 Change Log
 ===============================================================================
 
+Version 2.1.0 *(2015-05-12)*
+----------------------------
+* Updated to support libraries 22.1.1
+
+
+Version 2.0.1 *(2014-11-12)*
+----------------------------
+* LIB-CORE:Fixed NPE in ForegroundLinearLayout
+* LIB-CORE:Fixed expand area with CardWithList
+
+
+Version 2.0.0 *(2014-11-07)*
+----------------------------
+* LIB: Added the new **CardViewNative**! based on Google CardView [(Learn how to migrate your cards)](/doc/MIGRATE.md)
+* LIB: New aar modules. [(doc)[(BUILD.md#including-in-your-project-with-gradle)
+* LIB-CARDS: New module with built-in cards.
+* LIB-CARDS: Material Cards [(doc)](/doc/MATERIALCARD.md)
+* LIB-CARDS: Top Colored Cards [(doc)](/doc/TOPCOLORED.md)
+* LIB-RECYCLERVIEW: Ner module with support for the new RecyclerView
+* LIB-RECYCLERVIEW: Added a CardRecyclerView and a CardArrayRecyclerViewAdapter [(doc)](/doc/CARDRECYCLERVIEW.md)
+* EXTRA-STAGGERED and EXTRA-DRAGDROP: split from old extra lib.
+
+
 Version 1.9.1 *(2014-09-18)*
 ----------------------------
 * LIB: Added two built-in `Undobar`s with Material Design [(doc)](/doc/CARDLIST.md#swipe-and-undo-in-cardlistview)

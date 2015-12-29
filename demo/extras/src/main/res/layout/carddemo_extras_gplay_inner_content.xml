@@ -22,7 +22,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_marginLeft="3dp"
-                android:layout_height="60dp"
+                android:minHeight="60dp"
+                android:layout_height="wrap_content"
     >
 
     <RatingBar
@@ -45,6 +46,7 @@
         android:layout_height="wrap_content"/>
 
     <TextView
+        android:layout_below="@id/carddemo_extras_gplay_main_inner_title"
         android:id="@+id/carddemo_extras_gplay_main_inner_subtitle"
         android:textSize="12sp"
         android:textColor="#BBB"

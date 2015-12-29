@@ -8,7 +8,7 @@ In this page you can find info about:
 
 ### Intro
 
-> **PAY ATTENTION:** to use this feature you have to use the **library-extra**.
+> **PAY ATTENTION:** to use this feature you have to use the **cardslib-extra-dragdrop**.
 > [for more info](GUIDE.md#including-in-your-project).
 
 This feature is base on [ListViewAnimation](https://github.com/nhaarman/ListViewAnimations) provided by [Niek Haarman](https://plus.google.com/+NiekHaarman).

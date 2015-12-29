@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ *******************************************************************************
+  ~   Copyright (c) 2013-2014 Gabriele Mariotti.
+  ~
+  ~   Licensed under the Apache License, Version 2.0 (the "License");
+  ~   you may not use this file except in compliance with the License.
+  ~   You may obtain a copy of the License at
+  ~
+  ~   http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~   Unless required by applicable law or agreed to in writing, software
+  ~   distributed under the License is distributed on an "AS IS" BASIS,
+  ~   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~   See the License for the specific language governing permissions and
+  ~   limitations under the License.
+  ~  *****************************************************************************
+  -->
+
+<resources>
+
+
+    <style name="Theme" parent="FrameworkRoot.Theme" /> <!-- doesn't contain the pre-L code from the values/styles.xml -->
+
+    <style name="Theme.Carddemo" parent="Theme.Carddemo.Base">
+
+        <item name="popupItemBackground">@drawable/popup_item_background</item>
+        <item name="android:alertDialogTheme">@style/Theme.Carddemo.AlertDialog</item>
+
+        <item name="android:statusBarColor">@color/demo_colorPrimaryDark</item>
+    </style>
+
+    <style name="Theme.Carddemo.WithNavDrawer" parent="Theme.Carddemo">
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="HeaderBar">
+        <item name="android:background">?colorPrimary</item>
+        <item name="android:elevation">4dp</item>
+    </style>
+
+    <style name="subheader">
+        <item name="android:elevation">@dimen/headerbar_elevation</item>
+    </style>
+
+    <style name="Theme.Carddemo.AlertDialog" parent="android:Theme.Material.Light.Dialog.Alert">
+        <item name="android:colorPrimary">@color/demo_primary_color</item>
+        <item name="android:colorPrimaryDark">@color/demo_colorPrimaryDark</item>
+        <item name="android:colorAccent">@color/theme_accent_1</item>
+    </style>
+
+
+</resources>

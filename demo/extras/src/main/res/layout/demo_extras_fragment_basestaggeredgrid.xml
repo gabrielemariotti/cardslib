@@ -24,7 +24,7 @@
               android:layout_width="match_parent"
               android:layout_height="wrap_content">
 
-   <it.gmariotti.cardslib.library.extra.staggeredgrid.view.CardGridStaggeredView
+   <staggeredgrid.view.CardGridStaggeredView
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        card:item_margin="8dp"

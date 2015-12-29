@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<!--
+  ~ *******************************************************************************
+  ~   Copyright (c) 2013-2014 Gabriele Mariotti.
+  ~
+  ~   Licensed under the Apache License, Version 2.0 (the "License");
+  ~   you may not use this file except in compliance with the License.
+  ~   You may obtain a copy of the License at
+  ~
+  ~   http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~   Unless required by applicable law or agreed to in writing, software
+  ~   distributed under the License is distributed on an "AS IS" BASIS,
+  ~   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~   See the License for the specific language governing permissions and
+  ~   limitations under the License.
+  ~  *****************************************************************************
+  -->
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:clipChildren="false"
+             android:clipToPadding="false"
+             android:id="@+id/header_recap"
+             tools:showIn="@layout/demo_fragment_native_card">
+
+
+    <LinearLayout
+        android:id="@+id/header_contents"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <!-- Session title -->
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="@string/placeholder_session_title"
+            android:id="@+id/header_title"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
+            android:textColor="@color/body_text_1_inverse"
+            />
+
+        <!-- Session subtitle -->
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="@string/placeholder_session_subtitle"
+            android:id="@+id/header_subtitle"
+            android:maxLines="1"
+            android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Subtitle"
+            android:textColor="@color/body_text_2_inverse"
+            />
+
+    </LinearLayout>
+
+
+    <ImageButton
+        android:id="@+id/bar_button_source"
+        android:layout_width="@dimen/hd_fab_size"
+        android:layout_height="@dimen/hd_fab_size"
+        android:layout_gravity="bottom|right"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/hd_fab_ripple"
+        android:stateListAnimator="@anim/hd_fab_anim"
+        android:src="@drawable/ic_github"
+        android:elevation="2dp"
+        />
+
+</FrameLayout>

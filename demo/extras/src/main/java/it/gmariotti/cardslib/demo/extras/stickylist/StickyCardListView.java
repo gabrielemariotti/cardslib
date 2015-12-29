@@ -35,6 +35,7 @@ import it.gmariotti.cardslib.library.R;
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
 import it.gmariotti.cardslib.library.view.CardView;
+import it.gmariotti.cardslib.library.view.base.CardViewWrapper;
 import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;
 import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
 
@@ -175,12 +176,12 @@ public class StickyCardListView extends StickyListHeadersListView implements Car
 
 
     @Override
-    public void onExpandStart(CardView viewCard, View expandingLayout) {
+    public void onExpandStart(CardViewWrapper viewCard, View expandingLayout) {
         ExpandCollapseHelper.animateExpanding(expandingLayout, viewCard, this);
     }
 
     @Override
-    public void onCollapseStart(CardView viewCard, View expandingLayout) {
+    public void onCollapseStart(CardViewWrapper viewCard, View expandingLayout) {
         ExpandCollapseHelper.animateCollapsing(expandingLayout, viewCard, this);
     }
 
@@ -196,7 +197,7 @@ public class StickyCardListView extends StickyListHeadersListView implements Car
          * @param cardView        cardView
          * @param listView        listView
          */
-        public static void animateCollapsing(final View expandingLayout, final CardView cardView, final StickyCardListView listView) {
+        public static void animateCollapsing(final View expandingLayout, final CardViewWrapper cardView, final StickyCardListView listView) {
             int origHeight = expandingLayout.getHeight();
 
             ValueAnimator animator = createHeightAnimator(expandingLayout, origHeight, 0);
@@ -225,7 +226,7 @@ public class StickyCardListView extends StickyListHeadersListView implements Car
          * @param cardView        cardView
          * @param listView        listView
          */
-        public static void animateExpanding(final View expandingLayout, final CardView cardView, final StickyCardListView listView) {
+        public static void animateExpanding(final View expandingLayout, final CardViewWrapper cardView, final StickyCardListView listView) {
             /* Update the layout so the extra content becomes visible.*/
             expandingLayout.setVisibility(View.VISIBLE);
 

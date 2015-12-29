@@ -2,12 +2,28 @@
 
 In this page you can find info about:
 
+* [Elevation in CardViewNative](#elavation-in-cardviewnative)
 * [Built-in shadow](#built-in-shadow)
 * [Hidden Shadow](#hidden-shadow)
 * [Customizing Shadow](#customizing-shadow)
 * [Customizing the ShadowLayout](#customizing-the-shadowlayout)
 * [Removing Shadow](#removing-shadow)
 
+**Pay attention**: the `CardViewNative` doesn't use this view, because it is natively supported.
+
+### Elevation in CardViewNative
+
+In the `CardViewNative` you can change the elevation simply using:
+
+``` java
+    //Card elevation
+    card.setCardElevation(getResources().getDimension(R.dimen.carddemo_shadow_elevation));
+```
+
+
+--------------------------------------------------------
+
+**All the features below are supported only by CardView**
 
 ### Built-in shadow
 
@@ -17,7 +33,7 @@ The built-in Shadow Layout provides these features:
 
 * a shadow image
 
-You can find it in `res/layout/base_shadow_layout.xml`.
+You can find it in [`res/layout/base_shadow_layout.xml`](/library-core/src/main/res/layout/base_shadow_layout.xml).
 
 There are many ways you can customize the card shadow.
 
@@ -56,7 +72,7 @@ The quickest way to start with this would be to copy `card.shadow_image` style i
 
 ```
 
-Otherwise you can simply copy `res/drawable/card_shadow.xml` in your project and change it.
+Otherwise you can simply copy [`res/drawable/card_shadow.xml`](/library-core/src/main/res/drawable/card_shadow.xml) in your project and change it.
 
 ``` xml
     <shape xmlns:android="http://schemas.android.com/apk/res/android">
@@ -77,9 +93,9 @@ You can fully customize your shadow.
 
 You can set your shadow layout inflating your shadow xml layout file.
 
-First of all you have to provide your card layout .The quickest way to start with this would be to copy the `res/layout/card_layout.xml` or `res/layout/card_thumbnail_layout.xml`
+First of all you have to provide your card layout .The quickest way to start with this would be to copy the [`res/layout/card_layout.xml`](/library-core/src/main/res/layout/card_layout.xml) or [`res/layout/card_thumbnail_layout.xml`](/library-core/src/main/res/layout/card_thumbnail_layout.xml)
 
-You can see `res/layout/carddemo_example_card2_layout.xml`.
+You can see [`res/layout/carddemo_example_card2_layout.xml`](/demo/stock/src/main/res/layout/carddemo_example_card2_layout.xml).
 
 ``` xml
 
@@ -109,7 +125,7 @@ You can specify your shadow layout (compound layout) using this attr:`card:card_
 
 Then you have to define your shadow layout:
 
-You can see an exmple in `res/layout/carddemo_example_card2_shadow_layout.xml`
+You can see an exmple in [`res/layout/carddemo_example_card2_shadow_layout.xml`](/demo/stock/src/main/res/layout/carddemo_example_card2_layout.xml)
 
 ``` xml
     <!-- Image view used for shadow.

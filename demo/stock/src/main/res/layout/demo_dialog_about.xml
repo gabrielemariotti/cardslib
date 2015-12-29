@@ -18,14 +18,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:divider="?android:dividerVertical"
-    android:showDividers="middle">
+    android:orientation="vertical">
 
     <TextView android:id="@+id/app_name_and_version"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/ic_launcher"
+        android:drawableLeft="@mipmap/ic_launcher"
         android:drawablePadding="8dp"
         android:gravity="center_vertical"
         android:fontFamily="sans-serif-condensed"
@@ -44,9 +42,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="16dp"
-        android:textSize="@dimen/text_size_medium"
-        android:background="@android:color/white"
-        android:textColor="@android:color/black" />
+        android:textSize="@dimen/text_size_medium" />
 
     </ScrollView>
 

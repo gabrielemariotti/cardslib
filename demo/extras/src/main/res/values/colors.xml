@@ -35,6 +35,12 @@
     <color name="demoextra_card_background_color5">#FF4343</color>
     <color name="demoextra_card_background_color6">#A11143</color>
 
+
+    <color name="demo_2way_yellow_transparent">#ccba68c8</color>
+    <color name="demo_2way_green_transparent">#bb8bc34a</color>
+    <color name="demo_2way_blue_transparent">#bb7986cb</color>
+    <color name="demo_2way_red_transparent">#bbf36c60</color>
+
     <!-- Purchase -->
     <color name="demo_extras_purchase_normal">#ececec</color>
     <color name="demo_extras_purchase_pressed">#CCDF9F51</color>
@@ -52,4 +58,42 @@
     <!--override the listlayout background-->
     <color name="card_base_cardwithlist_background_list_color">@color/card_background</color>
 
+    <integer-array name="gplus_colors">
+        <item>@color/gplus_color_1</item>
+        <item>@color/gplus_color_2</item>
+        <item>@color/gplus_color_3</item>
+        <item>@color/gplus_color_4</item>
+    </integer-array>
+
+    <color name="gplus_color_1">#3e802f</color>
+    <color name="gplus_color_2">#f4b400</color>
+    <color name="gplus_color_3">#427fed</color>
+    <color name="gplus_color_4">#b23424</color>
+
+
+
+    <!-- Material -->
+    <color name="body_text_1">#de000000</color>
+    <color name="body_text_2">#8a000000</color>
+    <color name="body_text_3">#60000000</color>
+    <color name="body_text_disabled">#44000000</color>
+
+    <color name="body_text_1_inverse">#deffffff</color>
+    <color name="body_text_2_inverse">#8affffff</color>
+
+    <color name="theme_accent_1">@color/md_red_700</color>
+    <color name="theme_accent_1_light">@color/md_red_300</color>
+    <color name="theme_accent_2">#e91e63</color>
+
+    <color name="demo_primary_color">@color/md_orange_500</color>
+    <color name="demo_colorPrimaryDark">@color/md_orange_700</color>
+
+    <color name="navdrawer_background">#ffffffff</color>
+    <color name="navdrawer_text_color">@color/body_text_1</color>
+    <color name="navdrawer_text_color_selected">@color/theme_accent_1</color>
+    <color name="navdrawer_icon_tint">#808080</color>
+    <color name="navdrawer_icon_tint_selected">@color/theme_accent_1</color>
+    <color name="gray_background">#fff3f3f3</color>
+    <color name="navdrawer_scrim">#6000</color>
+    <color name="native_background">#ececec</color>
 </resources>

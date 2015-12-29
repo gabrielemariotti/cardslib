@@ -19,4 +19,6 @@
 
 <resources>
     <color name="pressed_carddemo">#CC2A84A5</color>
+
+    <color name="card_undobar_material_text_color">@color/demo_primary_color</color>
 </resources>

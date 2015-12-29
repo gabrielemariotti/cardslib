@@ -11,7 +11,7 @@ In this page you can find info about:
 * [Expand the card in programmatic way](#expand-the-card-in-programmatic-way)
 * [Expand the card with a longClick](#expand-the-card-with-a-longclick)
 * [CardExpand and CardListView](#cardexpand-and-cardlistview)
-
+* [Style](#style)
 
 ### Creating a base CardExpand
 
@@ -30,11 +30,15 @@ Creating a base `CardExpand` is pretty simple.
 
 `CardExpand` provides a base Expand InnerLayout.
 
-You can find it in `res/layout/inner_base_expand.xml`.
+For the **CardViewNative**:
+You can find it in [`res/layout/native_inner_base_expand.xml`](/library-core/src/main/res/layout/native_inner_base_expand.xml) 
+  
+For the **CardView**
+You can find it in [`res/layout/inner_base_expand.xml`](/library-core/src/main/res/layout/inner_base_expand.xml).
 
 The built-in InnerLayout provide these features:
 
-* a title
+* a **title**
 
 There are many ways you can customize the card expand.
 
@@ -53,7 +57,7 @@ If you want a standard `CardExpand` you can use this simple code:
         card.addCardExpand(expand);
 ```
 
-![Screen](/demo/images/header/expand.png)
+![Screen](/demo/images/header/native/expand.png)
 
 
 ### Custom Expand inflating your inner layout
@@ -258,7 +262,7 @@ How to enable expand/collapse action by clicking on the image on Thumbnail.
 
 ```
 
-You can see some examples in [`CardExpandFragment`](/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/CardExpandFragment.java).
+You can see some examples in [`CardExpandFragment`](/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/native/NativeCardExpandFragment.java).
 
 
 How to enable the custom expand/collapse in a `ListView`.
@@ -321,7 +325,7 @@ You can also use this feature with a `ListView`.
        }
 ```
 
-You can see some examples in [`ExpandPicassoFragment`](/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/fragment/ExpandPicassoFragment.java).
+You can see some examples in [`ExpandPicassoFragment`](/demo/extras/src/main/java/it/gmariotti/cardslib/demo/extras/fragment/native/ExpandPicassoFragment.java).
 
 ### Expand the card in programmatic way
 
@@ -386,7 +390,7 @@ You can use the `CardExpand` inside the `CardListView`.
 
 With a **`CardArrayAdapter`** you can use the same code described above.
 
-You can find an example in [`ListExpandCardFragment`](/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/ListExpandCardFragment.java).
+You can find an example in [`ListExpandCardFragment`](/demo/stock/src/main/java/it/gmariotti/cardslib/demo/fragment/native/NativeListExpandCardFragment.java).
 
 ``` java
         Card card = new Card(getActivity());
@@ -518,3 +522,80 @@ To migrate your code you have to:
 * call `card.setId("xxxx)";` in your `getCardFromCursor` method
 * remove `card.setExpanded(true/false)` from your adapter code
 * use `mAdapter.setExpanded(card);` as described above to expand/collapse your cards.
+
+
+### Style
+
+You can customize some properties with your style and drawable files.
+The quickest way to start with this would be to copy the specific style or drawable in your project and
+change them.
+
+For the **CardViewNative**:
+
+These are the main **style properties**:
+
+* `card.native.main_contentExpand`: expand layout style
+* `card.native.expand_simple_title`: title style
+
+**margins**:
+
+``` xml
+    <dimen name="card_expand_native_layout_padding_left">12dp</dimen>
+    <dimen name="card_expand_native_layout_padding_right">12dp</dimen>
+    <dimen name="card_expand_native_layout_padding_top">12dp</dimen>
+    <dimen name="card_expand_native_layout_padding_bottom">12dp</dimen>
+```
+**color properties**:
+
+* `card_expand_title_color`: default expand text color
+
+Example to change header title color:
+
+```xml
+    <color name="card_expand_title_color">#B3B2B2</color>
+```
+
+**Text Size** 
+```xml
+<dimen name="card_expand_native_simple_title_text_size">14sp</dimen>
+```
+ 
+**Text Font**
+values-v16/fonts.xml
+``` xml
+ <string name="card_native_font_fontFamily_expand">sans-serif</string>
+``` 
+values-v21/fonts.xml
+``` xml
+ <string name="card_native_font_fontFamily_expand">sans-serif</string>
+```
+ 
+For the **CardView**:
+ 
+These are the main **style properties**:
+
+* `card.main_contentExpand`: expand layout style
+* `card.expand_simple_title`: title style
+
+```
+**color properties**:
+
+* `card_expand_title_color`: default expand text color
+
+Example to change header title color:
+
+```xml
+ <color name="card_expand_title_color">#B3B2B2</color>
+```
+
+**Text Size** 
+```xml
+ <dimen name="card_expand_simple_title_text_size">14sp</dimen>
+```
+  
+**Text Font**
+values-v16/fonts.xml
+``` xml
+  <string name="card_font_fontFamily_expand">sans-serif-condensed</string>
+``` 
+  

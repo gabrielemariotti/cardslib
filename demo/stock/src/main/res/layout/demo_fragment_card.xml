@@ -24,7 +24,10 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
+
+
     <ScrollView
+        style="@style/carddemo_default_container_padding"
         android:id="@+id/card_scrollview"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -36,7 +39,7 @@
 
             <!-- Simple Title -->
             <TextView
-                style="@style/AppTheme.TitleText"
+                style="@style/Theme.Carddemo.TitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/demo_section_card_title"/>
@@ -52,7 +55,7 @@
 
             <!-- Card with custom inner layout -->
             <TextView
-                style="@style/AppTheme.TitleText"
+                style="@style/Theme.Carddemo.TitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/demo_section_card_inner"/>
@@ -67,7 +70,7 @@
 
             <!-- Extending card -->
             <TextView
-                style="@style/AppTheme.TitleText"
+                style="@style/Theme.Carddemo.TitleText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/demo_section_card_example"/>
@@ -83,7 +86,7 @@
             <!-- Swipe listener -->
             <TextView
                 android:id="@+id/carddemo_card3_text"
-                style="@style/AppTheme.TitleText"
+                style="@style/Theme.Carddemo.TitleText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/demo_section_card_example_swipe"/>
@@ -98,7 +101,7 @@
 
             <!-- Clickable card -->
             <TextView
-                style="@style/AppTheme.TitleText"
+                style="@style/Theme.Carddemo.TitleText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/demo_section_card_example_clickable"/>
@@ -113,7 +116,7 @@
 
             <!-- Partial clickable -->
             <TextView
-                style="@style/AppTheme.TitleText"
+                style="@style/Theme.Carddemo.TitleText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/demo_section_card_example_partial_listeners"/>
@@ -145,7 +148,7 @@
 
             <!-- CAB card -->
             <TextView
-                style="@style/AppTheme.TitleText"
+                style="@style/Theme.Carddemo.TitleText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/demo_section_card_example_cab"/>

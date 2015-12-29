@@ -25,6 +25,7 @@ First, you need an XML layout that will display the `CardGridView`.
           android:horizontalSpacing="2dp"
           android:stretchMode="columnWidth"
           android:gravity="center"
+          card:list_card_layout_resourceID="@layout/native_list_card_thumbnail_layout"
           android:id="@+id/myGrid"/>
 ```
 
@@ -63,8 +64,14 @@ This `CardGridView` uses for each row the row-list layout `res/layout/list_card_
 
 Card Library provides 2 built-in row-list layouts.
 
-* `res/layout/list_card_layout.xml`.
-* `res/layout/list_card_thumbnail_layout.xml`.
+For the `CardViewNative`:
+* [`res/layout/native_list_card_layout.xml`](/library-core/src/main/res/layout/native_list_card_layout.xml)..
+* [`res/layout/native_list_card_thumbnail_layout.xml`](/library-core/src/main/res/layout/native_list_card_thumbnail_layout.xml).
+
+For the `CardView`:
+* [`res/layout/list_card_layout.xml`](/library-core/src/main/res/layout/list_card_layout.xml)..
+* [`res/layout/list_card_thumbnail_layout.xml`](/library-core/src/main/res/layout/list_card_thumbnail_layout.xml).
+
 
 You can customize the layout used for each item in ListView using the attr: `card:list_card_layout_resourceID="@layout/my_layout`
 
@@ -86,7 +93,7 @@ In your row-list layout you can use your `CardView` with some its features and i
 Example `carddemo_grid_gplay.xml`:
 
 ``` xml
-    <it.gmariotti.cardslib.library.view.CardView
+    <it.gmariotti.cardslib.library.view.CardViewNative
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:card="http://schemas.android.com/apk/res-auto"
         android:id="@+id/list_cardId"
@@ -199,6 +206,8 @@ With the this type of adapter, currently you can't use the swipe and undo action
 
 
 ### Using a CardGrid in MultiChoiceMode
+
+> PAY ATTENTION:Don't use with CardViewNative and/or Toolbar (not yet supported)
 
 If you would like to have a `CardGrid` with a MultiChoiceMode built-in feature you can use a `CardGridArrayMultiChoiceAdapter`.
 

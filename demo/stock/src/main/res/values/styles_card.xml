@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ *******************************************************************************
+  ~   Copyright (c) 2013-2014 Gabriele Mariotti.
+  ~
+  ~   Licensed under the Apache License, Version 2.0 (the "License");
+  ~   you may not use this file except in compliance with the License.
+  ~   You may obtain a copy of the License at
+  ~
+  ~   http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~   Unless required by applicable law or agreed to in writing, software
+  ~   distributed under the License is distributed on an "AS IS" BASIS,
+  ~   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~   See the License for the specific language governing permissions and
+  ~   limitations under the License.
+  ~  *****************************************************************************
+  -->
+
+<resources>
+
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++   -->
+
+    <!-- Customize Button Overflow in Header -->
+    <!--
+    <style name="card.header_button_base.overflow" >
+        <item name="android:background">@drawable/ic_action_arrow_bottom</item>
+    </style>
+    -->
+
+    <!-- Other Button in Header -->
+    <style name="card.header_button_base.other">
+        <item name="android:background">@drawable/card_menu_button_other</item>
+    </style>
+
+    <!-- Other Button in Header -->
+    <style name="card.native.header_button_base.other">
+        <item name="android:background">@drawable/card_menu_button_other</item>
+    </style>
+
+    <!-- Button Base in Header on the left-->
+    <style name="card.header_button_base.left">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:paddingLeft">@dimen/card_header_button_padding_left</item>
+        <item name="android:focusable">false</item>
+        <item name="android:focusableInTouchMode">false</item>
+        <item name="android:clickable">true</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
+    <style name="card.native.header_button_base.left"/>
+
+    <!-- Button Overflow in Header -->
+    <style name="card.header_button_base.left.overflow" >
+        <item name="android:background">@drawable/card_menu_button_overflow</item>
+    </style>
+
+    <!-- Button to Expand/Collapse in Header -->
+    <style name="card.header_button_base.left.expand">
+        <item name="android:background">@drawable/card_menu_button_expand</item>
+    </style>
+
+    <!-- Other Button in Header -->
+    <style name="card.header_button_base.left.other">
+        <item name="android:background">@drawable/card_menu_button_other</item>
+    </style>
+
+    <style name="card.native.header_button_base.left.overflow" >
+        <item name="android:background">@drawable/card_menu_button_overflow</item>
+    </style>
+
+    <!-- Button to Expand/Collapse in Header -->
+    <style name="card.native.header_button_base.left.expand">
+        <item name="android:background">@drawable/card_menu_button_expand</item>
+    </style>
+
+    <!-- Other Button in Header -->
+    <style name="card.native.header_button_base.left.other">
+        <item name="android:background">@drawable/card_menu_button_other</item>
+    </style>
+
+
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++   -->
+
+    <!-- Customize Shadow -->
+    <!--Style for shadow image-->
+    <!--
+    <style name="card.shadow_image">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">5dp</item>
+        <item name="android:src">@drawable/democard_my_shadow</item>
+        <item name="android:layout_below">@+id/card_main_content_layout</item>
+    </style>
+    -->
+
+    <style name="card.shadow_my_image">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">10dp</item>
+        <item name="android:src">@drawable/democard_my_shadow</item>
+        <item name="android:layout_below">@+id/card_main_content_layout</item>
+    </style>
+
+
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++   -->
+
+    <!-- Myapps style -->
+
+    <style name="carddemo_myapps_main_inner_ratingbar"  >
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/ratingbar_small_holo_dark</item>
+        <item name="android:indeterminateDrawable">@drawable/ratingbar_small_holo_dark</item>
+        <item name="android:minHeight">12dip</item>
+        <item name="android:maxHeight">12dip</item>
+        <item name="android:thumb">@null</item>
+        <item name="android:isIndicator">true</item>
+    </style>
+
+    <style name="carddemo_myapps_main_inner_secondarytitle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@android:color/darker_gray</item>
+    </style>
+
+    <style name="carddemo_myapps_main_inner_title">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:layout_marginTop">2dp</item>
+    </style>
+
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++   -->
+
+
+
+    <style name="carddemo_googlenow_main_inner_lastupdate">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@android:color/darker_gray</item>
+        <item name="android:layout_marginLeft">@dimen/card_header_simple_title_margin_left</item>
+    </style>
+
+    <style name="Birth.card.content_outer_layout" parent="@style/card.content_outer_layout">
+        <!--Style for Content View-->
+        <item name="android:minHeight">60dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginTop">@dimen/card_content_outer_view_margin_top</item>
+        <item name="android:layout_marginBottom">@dimen/card_content_outer_view_margin_bottom</item>
+        <item name="android:layout_marginLeft">@dimen/card_content_outer_view_margin_left</item>
+        <item name="android:layout_marginRight">@dimen/card_content_outer_view_margin_right</item>
+    </style>
+
+
+
+    <style name="Now"></style>
+
+    <style name="Now.card_expand_inner_layout">
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">32dp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="Now.card_expand_inner_layout.light_gray">
+        <item name="android:background">#515254</item>
+        <item name="android:textColor">#B3B2B2</item>
+    </style>
+
+    <style name="Now.card_expand_inner_layout.light_gray.bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Now.card_expand_inner_layout.dark">
+        <item name="android:background">#515254</item>
+        <item name="android:textColor">#FFF</item>
+    </style>
+
+    <style name="Now.card_expand_inner_layout.dark.bold" parent="@style/Now.card_expand_inner_layout.dark">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+
+    <!--You may know card -->
+    <style name="carddemo_mayknow_main_inner_title">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:layout_marginLeft">@dimen/card_header_simple_title_margin_left</item>
+    </style>
+
+    <style name="carddemo_mayknow_main_inner_title.sub">
+        <item name="android:textSize">1sp</item>
+        <item name="android:textColor">@android:color/darker_gray</item>
+    </style>
+
+    <!-- Suggested community -->
+
+    <style name="carddemo_suggested_header_text"></style>
+
+    <style name="carddemo_suggested_text">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">#D0D0D0</item>
+    </style>
+
+    <style name="carddemo_suggested_text_bold">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="carddemo_suggested_text_bold1">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+
+    <!-- Expand inside -->
+    <style name="card.main_layout_expandinside" parent="card.main_layout">
+        <item name="android:background">@drawable/card_background</item>
+    </style>
+
+
+    <!--Dismiss Animation -->
+    <style name="card.dismiss_name">
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_gravity">left|center_vertical</item>
+        <item name="android:layout_marginTop">@dimen/card_main_simple_title_margin_top</item>
+    </style>
+
+
+    <!-- GPlay section list -->
+    <style name="carddemo_section_textmore">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">@dimen/carddemo_section_textmore_text</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">#98CC00</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:paddingLeft">@dimen/carddemo_section_textmore_padding_left</item>
+        <item name="android:paddingTop">@dimen/carddemo_section_textmore_padding_top</item>
+        <item name="android:paddingRight">@dimen/carddemo_section_textmore_padding_right</item>
+        <item name="android:paddingBottom">@dimen/carddemo_section_textmore_padding_bottom</item>
+        <item name="android:layout_marginLeft">@dimen/carddemo_section_textmore_margin_left</item>
+        <item name="android:layout_marginTop">@dimen/card_section_title_margin_top</item>
+    </style>
+
+
+    <!-- Grid gplay -->
+    <style name="card.native.header_gplay_outer_layout" >
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">4dp</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
+    </style>
+
+    <!--Style for Content View-->
+    <style name="card.native.content_gplay_outer_layout" >
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:minHeight">@dimen/card_base_empty_height</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">4dp</item>
+        <item name="android:paddingTop">2dp</item>
+        <item name="android:paddingBottom">@dimen/card_main_content_native_default_paddingBottom</item>
+    </style>
+</resources>

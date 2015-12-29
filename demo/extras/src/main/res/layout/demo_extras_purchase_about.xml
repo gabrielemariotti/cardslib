@@ -16,11 +16,10 @@
   ~  *****************************************************************************
   -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:divider="?android:dividerVertical"
-    android:showDividers="middle">
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
 
     <TextView
         android:id="@+id/purchase_app_name_and_version"
@@ -31,133 +30,164 @@
         android:gravity="center_vertical"
         android:fontFamily="sans-serif-condensed"
         android:textSize="24sp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="8dp" />
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="16dp"
+        tools:text="CardsLibDemo Extras"
+        android:textStyle="bold"/>
 
-    <RelativeLayout
-        android:id="@+id/purchase_small_layout"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/demo_extras_purchase"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp">
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/purchase_small_layout_text"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:padding="12dp"
-            android:textSize="18sp"
-            android:textColor="@android:color/black" />
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/purchase_small_layout_text_price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="12dp"
-            android:layout_marginRight="5dp"
-            android:gravity="center_vertical"
-            android:layout_alignParentRight="true"
-            android:textSize="18sp"
-            android:textColor="@android:color/black" />
-    </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/purchase_small_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="56dp"
+                android:background="?android:selectableItemBackground"
+                android:gravity="center_vertical"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp">
 
-    <RelativeLayout
-        android:id="@+id/purchase_medium_layout"
-        android:layout_width="match_parent"
-        android:background="@drawable/demo_extras_purchase"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp">
+                <TextView
+                    android:id="@+id/purchase_small_layout_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:fontFamily="sans-serif-condensed"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:textSize="18sp"
+                    tools:text="Donate1"
+                    android:textColor="@android:color/black"/>
 
-        <TextView
-            android:id="@+id/purchase_medium_layout_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="12dp"
-            android:gravity="center_vertical"
-            android:textSize="18sp"
-            android:textColor="@android:color/black" />
+                <TextView
+                    android:id="@+id/purchase_small_layout_text_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center_vertical"
+                    android:layout_alignParentRight="true"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:textSize="18sp"
+                    tools:text="1.00 €"
+                    android:textColor="@android:color/black"/>
+            </RelativeLayout>
 
-        <TextView
-            android:id="@+id/purchase_medium_layout_text_price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="12dp"
-            android:layout_marginRight="5dp"
-            android:gravity="center_vertical"
-            android:layout_alignParentRight="true"
-            android:textSize="18sp"
-            android:textColor="@android:color/black" />
-    </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/purchase_medium_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="56dp"
+                android:background="?android:selectableItemBackground"
+                android:gravity="center_vertical"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp">
 
-    <RelativeLayout
-        android:id="@+id/purchase_large_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/demo_extras_purchase"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp">
+                <TextView
+                    android:id="@+id/purchase_medium_layout_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:textSize="18sp"
+                    tools:text="Donate1"
+                    android:textColor="@android:color/black"/>
 
-        <TextView
-            android:id="@+id/purchase_large_layout_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="12dp"
-            android:gravity="center_vertical"
-            android:textSize="18sp"
-            android:textColor="@android:color/black" />
+                <TextView
+                    android:id="@+id/purchase_medium_layout_text_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center_vertical"
+                    android:layout_alignParentRight="true"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:textSize="18sp"
+                    tools:text="1.00 €"
+                    android:textColor="@android:color/black"/>
+            </RelativeLayout>
 
-        <TextView
-            android:id="@+id/purchase_large_layout_text_price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="12dp"
-            android:layout_marginRight="5dp"
-            android:gravity="center_vertical"
-            android:layout_alignParentRight="true"
-            android:textSize="18sp"
-            android:textColor="@android:color/black" />
-    </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/purchase_large_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="56dp"
+                android:background="?android:selectableItemBackground"
+                android:gravity="center_vertical"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp">
 
-    <RelativeLayout
-        android:id="@+id/purchase_xlarge_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/demo_extras_purchase"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp">
+                <TextView
+                    android:id="@+id/purchase_large_layout_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:textSize="18sp"
+                    tools:text="Donate1"
+                    android:textColor="@android:color/black"/>
 
-        <TextView
-            android:id="@+id/purchase_xlarge_layout_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="12dp"
-            android:gravity="center_vertical"
-            android:textSize="18sp"
-            android:textColor="@android:color/black" />
+                <TextView
+                    android:id="@+id/purchase_large_layout_text_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center_vertical"
+                    android:layout_alignParentRight="true"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:textSize="18sp"
+                    tools:text="1.00 €"
+                    android:textColor="@android:color/black"/>
+            </RelativeLayout>
 
-        <TextView
-            android:id="@+id/purchase_xlarge_layout_text_price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="12dp"
-            android:layout_marginRight="5dp"
-            android:gravity="center_vertical"
-            android:layout_alignParentRight="true"
-            android:textSize="18sp"
-            android:textColor="@android:color/black" />
-    </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/purchase_xlarge_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="56dp"
+                android:background="?android:selectableItemBackground"
+                android:gravity="center_vertical"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp">
+
+                <TextView
+                    android:id="@+id/purchase_xlarge_layout_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:textSize="18sp"
+                    tools:text="Donate1"
+                    android:textColor="@android:color/black"/>
+
+                <TextView
+                    android:id="@+id/purchase_xlarge_layout_text_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center_vertical"
+                    android:layout_alignParentRight="true"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:textSize="18sp"
+                    tools:text="1.00 €"
+                    android:textColor="@android:color/black"/>
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

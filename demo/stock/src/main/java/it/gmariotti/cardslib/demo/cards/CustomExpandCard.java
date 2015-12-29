@@ -39,11 +39,11 @@ public class CustomExpandCard extends CardExpand {
     int count;
 
     public CustomExpandCard(Context context) {
-        super(context, R.layout.carddemo_example_inner_expand);
+        super(context, R.layout.carddemo_example_native_inner_expand);
     }
 
     public CustomExpandCard(Context context,int i) {
-        super(context, R.layout.carddemo_example_inner_expand);
+        super(context, R.layout.carddemo_example_native_inner_expand);
         count = i;
     }
 

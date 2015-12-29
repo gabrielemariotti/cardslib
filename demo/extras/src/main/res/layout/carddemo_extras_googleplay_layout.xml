@@ -22,6 +22,7 @@
               xmlns:card="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
               android:layout_width="match_parent"
+              android:minHeight="@dimen/carddemo_gplay_height"
               android:layout_height="wrap_content">
 
     <!-- Card visible layout -->

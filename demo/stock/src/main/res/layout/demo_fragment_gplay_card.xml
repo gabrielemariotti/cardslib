@@ -23,7 +23,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+
     <ScrollView
+        style="@style/carddemo_default_container_padding"
         android:id="@+id/card_scrollview"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -81,7 +83,7 @@
 
     <TextView
         android:layout_alignParentBottom="true"
-        style="@style/AppTheme.TrademarkText"
+        style="@style/Theme.Carddemo.TrademarkText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/demo_trademark"/>

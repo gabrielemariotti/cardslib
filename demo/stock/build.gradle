@@ -1,4 +1,3 @@
-apply plugin: 'android-sdk-manager'
 apply plugin: 'com.android.application'
 
 repositories {
@@ -11,7 +10,7 @@ android {
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 19
+        targetSdkVersion 22
         versionName project.VERSION_NAME
         versionCode Integer.parseInt(project.VERSION_CODE)
 
@@ -43,9 +42,12 @@ android {
 
 dependencies {
     // Cards Library
-    compile project(':library')
+    compile project(':library-core')
+    compile project(':library-cards')
+    compile project(':library-recyclerview')
     // Support Libraries
-    compile 'com.android.support:support-v4:20.0.0'
+    compile 'com.android.support:support-v4:22.1.1'
+    compile 'com.android.support:appcompat-v7:22.1.1'
 
     //androidTestCompile 'com.jakewharton.espresso:espresso:1.1-r2'
 }

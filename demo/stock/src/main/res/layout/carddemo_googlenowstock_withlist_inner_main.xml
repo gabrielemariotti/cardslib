@@ -25,7 +25,7 @@
                 android:layout_marginRight="12dp"
                 android:layout_gravity="center_vertical"
                 android:layout_height="wrap_content"
-                android:background="@drawable/demo_item_selector"
+                android:background="@drawable/demo_native_item_selector"
                 android:minHeight="45dp">
 
     <TextView

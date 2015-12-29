@@ -21,13 +21,23 @@ In this page you can find info about:
 * The built-in thumbnail uses an `AsyncTask` and `LRUCache` to improve performance.
 * You have to provide a layout with a thumbnail
 
-The default layout doesn't contain the thumbnail. You to use the `res/layout/card_thumbnail_layout.xml` or a your custom layout. Read [Customizing the Thumbnail Layout](#customizing-the-thumbnail-layout) paragraph for more info.
+The default layout doesn't contain the thumbnail. 
+
+For the **CardViewNative**:
+You have to use the [`res/layout/native_card_thumbnail_layout.xml`](/library-core/src/main/res/layout/native_card_thumbnail_layout.xml) 
+
+For the **CardView**:
+[`res/layout/card_thumbnail_layout.xml`](/library-core/src/main/res/layout/card_thumbnail_layout.xml) 
+ 
+or a your custom layout.
+ 
+Read [Customizing the Thumbnail Layout](#customizing-the-thumbnail-layout) paragraph for more info.
 
 Example:
 
 ``` xml
-        <it.gmariotti.cardslib.library.view.CardView
-            card:card_layout_resourceID="@layout/card_thumbnail_layout" />
+        <it.gmariotti.cardslib.library.view.CardViewNative
+            card:card_layout_resourceID="@layout/native_card_thumbnail_layout" />
 ```
 
 
@@ -48,7 +58,7 @@ Creating a base `CardThumbnail` is pretty simple.
 
 `CardThumbnail` provides a base ThumbnailLayout with an ImageView.
 
-You can find it in `res/layout/base_thumbnail_layout.xml`.
+You can find it in [`res/layout/native_base_thumbnail_layout.xml`](/library-core/src/main/res/layout/native_base_thumbnail_layout.xml)  (or [`res/layout/base_thumbnail_layout.xml`](/library-core/src/main/res/layout/base_thumbnail_layout.xml)  for the `CardView`)
 
 With your `CardThumbnail` you can:
 
@@ -73,7 +83,7 @@ If you want to load an image from a resource ID:
         card.addCardThumbnail(thumb);
 
         //Set card in the cardView
-        CardView cardView = (CardView) getActivity().findViewById(R.id.carddemo_thumb_id);
+        CardViewNative cardView = (CardViewNative) getActivity().findViewById(R.id.carddemo_thumb_id);
         cardView.setCard(card);
 ```
 
@@ -97,7 +107,7 @@ If you want to load an image from an url:
         card.addCardThumbnail(thumb);
 
         //Set card in the cardView
-        CardView cardView = (CardView) getActivity().findViewById(R.id.carddemo_thumb_url);
+        CardViewNative cardView = (CardViewNative) getActivity().findViewById(R.id.carddemo_thumb_url);
         cardView.setCard(card);
 ```
 
@@ -252,7 +262,7 @@ You can fully customize your thumbnail layout.
 
 You can set your thumbnail layout, customizing card layout and inflating your thumbnail xml layout file.
 
-First of all you have to provide your card layout .The quickest way to start with this would be to copy the `res/layout/card_thumbnail_layout.xml`
+First of all you have to provide your card layout .The quickest way to start with this would be to copy the [`res/layout/native_card_thumbnail_layout.xml`](/library-core/src/main/res/layout/native_card_thumbnail_layout.xml) 
 
 You can see `res/layout/carddemo_googlenownbirth_layout.xml`.
 
@@ -291,7 +301,7 @@ You can see an exmple in `res/layout/carddemo_googlenowbirth_thumbnail_layout`
     android:id="@+id/card_thumbnail_image"
     android:layout_width="125dp"
     android:layout_height="125dp"
-    style="@style/card_thumbnail_image"/>
+    style="@style/native_card_thumbnail_image"/>
 ```
 
 
@@ -430,4 +440,4 @@ You can see an example [here](/demo/stock/src/main/java/it/gmariotti/cardslib/de
 
 ---
 
-Google and the Google Maps logo are registered trademarks of Google Inc.
+Google, Google Play and the Google Maps logo are registered trademarks of Google Inc.

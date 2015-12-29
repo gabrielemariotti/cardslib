@@ -18,7 +18,7 @@
   ~  *****************************************************************************
   -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:card="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
               android:layout_width="match_parent"
@@ -31,4 +31,4 @@
        android:id="@+id/carddemo_list_base1"/>
 
 
-</LinearLayout>
+</RelativeLayout>

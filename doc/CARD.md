@@ -27,7 +27,7 @@ Creating a `Card` is pretty simple.
 First, you need an XML layout that will display the `Card`.
 
 ``` xml
-        <it.gmariotti.cardslib.library.view.CardView
+        <it.gmariotti.cardslib.library.view.CardViewNative
             android:id="@+id/carddemo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -53,7 +53,7 @@ Last get a reference to the `CardView` from your code, and set your `Card.
 
 ``` java
        //Set card in the cardView
-       CardView cardView = (CardView) getActivity().findViewById(R.id.carddemo);
+       CardViewNative cardView = (CardViewNative) getActivity().findViewById(R.id.carddemo);
 
        cardView.setCard(card);
 ```
@@ -62,26 +62,30 @@ Last get a reference to the `CardView` from your code, and set your `Card.
 
 Card Library provides 2 built-in card layouts.
 
-* `res/layout/card_layout.xml`: this is the default layout and doesn't contain the thumbnail.
-* `res/layout/card_thumbnail_layout.xml` : this contains the thumbnail
+For the **CardViewNative**:
+* [`res/layout/native_card_layout.xml`](/library-core/src/main/res/layout/native_card_layout.xml): this is the default layout and doesn't contain the thumbnail.
+* [`res/layout/native_card_thumbnail_layout.xml`](/library-core/src/main/res/layout/native_card_thumbnail_layout.xml) : this contains the thumbnail
 
+For the **CardView**:
+* [`res/layout/card_layout.xml`](/library-core/src/main/res/layout/card_layout.xml): this is the default layout and doesn't contain the thumbnail.
+* [`res/layout/card_thumbnail_layout.xml`](/library-core/src/main/res/layout/card_thumbnail_layout.xml) : this contains the thumbnail
 
 You can easily *build your layout*.
 
 The quickest way to start with this would be to copy one of this files and create your layout.
 
-Then you can inflate your layout in the `CardView` using the attr: `card:card_layout_resourceID="@layout/my_layout`
+Then you can inflate your layout in the `CardViewNative` using the attr: `card:card_layout_resourceID="@layout/my_layout`
 
 Example:
 
 ``` xml
-        <it.gmariotti.cardslib.library.view.CardView
+        <it.gmariotti.cardslib.library.view.CardViewNative
             android:id="@+id/carddemo_thumb_url"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
-            card:card_layout_resourceID="@layout/card_thumbnail_layout"
+            card:card_layout_resourceID="@layout/native_card_thumbnail_layout"
             android:layout_marginTop="12dp"/>
 ```
 
@@ -105,7 +109,7 @@ The built-in content inner layout is quite useless, and provides a simple title.
 
 
       //Set card in the cardView
-      CardView cardView = (CardView) getActivity().findViewById(R.id.carddemo_card_id);
+      CardViewNative cardView = (CardViewNative) getActivity().findViewById(R.id.carddemo_card_id);
       cardView.setCard(card);
 ```
 
@@ -123,7 +127,7 @@ To do this you can use the `Card` constructor
         card.setTitle(getString(R.string.demo_card_basetitle));
 
         //Set card in the cardView
-        CardView cardView = (CardView) getActivity().findViewById(R.id.carddemo_card_id);
+        CardViewNative cardView = (CardViewNative) getActivity().findViewById(R.id.carddemo_card_id);
         cardView.setCard(card);
 ```
 
@@ -232,7 +236,7 @@ Then you can simply do:
         Card card = new CustomCard(getActivity());
 
         //Set card in the cardView
-        CardView cardView = (CardView) getActivity().findViewById(R.id.carddemo_example_card3);
+        CardViewNative cardView = (CardViewNative) getActivity().findViewById(R.id.carddemo_example_card3);
         cardView.setCard(card);
 ```
 
@@ -265,7 +269,7 @@ If you want to enable the swipe action on a `Card` is very simple:
         card.setSwipeable(true);
 
         //Set card in the cardView
-        CardView cardView = (CardView) getActivity().findViewById(R.id.carddemo_example_card3);
+        CardViewNative cardView = (CardViewNative) getActivity().findViewById(R.id.carddemo_example_card3);
         cardView.setCard(card);
 ```
 
@@ -298,7 +302,7 @@ If you want a clickable card, enable a `Card.OnCardClickListener`
         });
 
         //Set card in the cardView
-        CardView cardView = (CardView) getActivity().findViewById(R.id.carddemo_example_card3);
+        CardViewNative cardView = (CardViewNative) getActivity().findViewById(R.id.carddemo_example_card3);
         cardView.setCard(card);
 ```
 ![Screen](/demo/images/card/clickable.png)
@@ -355,24 +359,23 @@ If you need to change same value in a card, you can use your `Card` model:
     card.setOnClickListener(null);
     card.setClickable(false);
 ```
-and then call `refreshCard` method on `cardView`:
+and then call `notifyDataSetChanged();` method on the `Card`:
 
 ``` java
     //Call refresh
-    cardView = (CardView) getActivity().findViewById(R.id.carddemo_card_changevalue_id);
-    cardView.refreshCard(card);
+    card.notifyDataSetChanged();
 ```
 You can see the example in 'ChangeValueCardFragment'.
 
 
 #### Replace inner layout in a card
 
-If you need to replace the inner layout in a card, you can use your `Card` model and call `refreshCard` method on `cardView`:
+If you need to replace the inner layout in a card, you can use your `Card` model and call `replaceCard` method on `cardView`:
 
 ``` java
     //Call replace
     card3.setInnerLayout(R.layout.carddemo_suggested_inner_content);
-    cardView3 = (CardView) getActivity().findViewById(R.id.carddemo_card_changevalue_id3);
+    cardView3 = (CardViewNative) getActivity().findViewById(R.id.carddemo_card_changevalue_id3);
     cardView3.replaceCard(card3);
 ```
 
@@ -381,6 +384,13 @@ You can see the example in `ChangeValueCardFragment`.
 
 
 #### Customize Card background
+
+**For CardViewNative**:
+
+> PAY ATTENTION:Don't use with CardViewNative 
+
+
+**For CardView**:
 
 The quickest way to customize the card background would be to copy the styles/drawables in your project.
 
@@ -416,21 +426,24 @@ If you want to change the rounded corners, the quickest way would be to customiz
     <dimen name="card_background_default_radius">2dip</dimen>
 ```
 
-Pay attention. The default card has a min height.
-
-Check this style:
-``` xml
- <style name="card.content_outer_layout">
-```
-
-You can override this value in your dimens.xml:
-``` xml
-    <dimen name="card_base_empty_height">96dp</dimen>
-```
 
 #### Change dynamically Card background
 
 If you need to change dynamically the card background you can use this code:
+
+**For CardViewNative**:
+
+> PAY ATTENTION:Don't use with CardViewNative (not yet supported). 
+
+``` java
+    ColorCard card = new ColorCard(this.getActivity());
+
+    //Set Background resource
+    card.setBackgroundColorResourceId(R.color.demo_card_background_color5);
+```
+Where `R.color.demo_card_background_color5` is a color.
+
+**For CardView**:
 
 ``` java
     ColorCard card = new ColorCard(this.getActivity());
@@ -458,6 +471,8 @@ You can see this example:  Colored cards example [(source)](/demo/stock/src/main
 
 #### Change dynamically Card background with a Drawable object
 
+**Only for CardView**.
+
 Also you can customize your background using a Drawable object:
 
 ``` java
@@ -480,7 +495,7 @@ You can export your `Card` as a Bitmap.
 It is very simple.
 
 ``` java
-    CardView cardView = (CardView) getActivity().findViewById(R.id.myCard);
+    CardViewNative cardView = (CardViewNative) getActivity().findViewById(R.id.myCard);
     Bitmap bitmap = cardView.createBitmap();
 ```
 
@@ -498,6 +513,8 @@ You can see the example in `BirthDayCardFragment` and `StockCardFragment` where 
 
 
 #### Using Card with contextual action mode
+
+> PAY ATTENTION:Don't use with CardViewNative and/or Toolbar (not yet supported)
 
 If you would like to use a card with  you can use a code like this:
 
@@ -584,6 +601,8 @@ You can see this example:  [(source)](/demo/stock/src/main/java/it/gmariotti/car
 
 ### Using a ForegroundLinearLayout
 
+This paragraph is only for **CardView**. The default layout used by the **CardViewNative** is a ForegroundLinearLayout.
+
 You can draw the stateful drawable on top, using a foreground selector.
 
 To achieve this behaviour you have to do these steps:
@@ -627,3 +646,18 @@ This style uses a foreground selector using the `android:foreground` attribute, 
  ```
 
 You can see this example:  [(source)](/demo/extras/src/main/res/layout/carddemo_extras_base_staggered_layout.xml).
+
+
+### Style
+
+Pay attention. The default card has a min height.
+
+Check this style:
+``` xml
+ <style name="card.content_outer_layout">
+```
+
+You can override this value in your dimens.xml:
+``` xml
+    <dimen name="card_base_empty_height">96dp</dimen>
+```

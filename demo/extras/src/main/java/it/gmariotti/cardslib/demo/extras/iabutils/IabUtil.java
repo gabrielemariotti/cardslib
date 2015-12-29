@@ -41,6 +41,7 @@ import java.util.List;
 
 import it.gmariotti.cardslib.demo.extras.MainActivity;
 import it.gmariotti.cardslib.demo.extras.R;
+import it.gmariotti.cardslib.demo.extras.ui.BaseActivity;
 
 
 /**
@@ -271,7 +272,7 @@ public class IabUtil {
             View rootView = layoutInflater.inflate(R.layout.demo_extras_purchase_about, null);
 
             if (mHelper==null)
-                mHelper= ((MainActivity)getActivity()).getHelper();
+                mHelper= ((BaseActivity)getActivity()).getHelper();
 
             IabUtil iabUtil = getInstance();
 

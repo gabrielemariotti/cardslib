@@ -1,0 +1,33 @@
+apply plugin: 'com.android.library'
+
+repositories {
+    mavenCentral()
+}
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 22
+        versionName project.VERSION_NAME
+        versionCode Integer.parseInt(project.VERSION_CODE)
+    }
+
+    // This is important, it will run lint checks but won't abort build
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    // Cards Library
+    compile project(':library-core')
+
+    //StaggeredGrid
+    compile 'com.etsy.android.grid:library:1.0.5'
+}
+
+// Used to update in Maven
+//apply from: '../../maven_push.gradle'

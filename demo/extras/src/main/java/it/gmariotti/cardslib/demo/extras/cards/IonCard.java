@@ -21,11 +21,8 @@ package it.gmariotti.cardslib.demo.extras.cards;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.koushikdutta.ion.Ion;
 
 import it.gmariotti.cardslib.demo.extras.R;
 import it.gmariotti.cardslib.library.internal.Card;
@@ -108,7 +105,7 @@ public class IonCard extends Card {
             //Only for test, use a Resource Id and a Url
 
             //It is just an example !
-
+/*
             if (((IonCard) getParentCard()).getCount() % 2 == 0) {
 
                 Ion.with((ImageView) viewImage)
@@ -122,7 +119,7 @@ public class IonCard extends Card {
                 setExternalUsage(false);
                 setDrawableResource(R.drawable.ic_tris);
             }
-
+*/
             /*
             viewImage.getLayoutParams().width = 96;
             viewImage.getLayoutParams().height = 96;

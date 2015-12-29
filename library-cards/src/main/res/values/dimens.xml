@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ *******************************************************************************
+  ~   Copyright (c) 2013-2014 Gabriele Mariotti.
+  ~
+  ~   Licensed under the Apache License, Version 2.0 (the "License");
+  ~   you may not use this file except in compliance with the License.
+  ~   You may obtain a copy of the License at
+  ~
+  ~   http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~   Unless required by applicable law or agreed to in writing, software
+  ~   distributed under the License is distributed on an "AS IS" BASIS,
+  ~   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~   See the License for the specific language governing permissions and
+  ~   limitations under the License.
+  ~  *****************************************************************************
+  -->
+
+<resources>
+    <dimen name="card_material_largeimage_height">200dp</dimen>
+
+    <!-- Actions -->
+    <dimen name="actions_textsize">14sp</dimen>
+    <dimen name="actions_padding">16dp</dimen>
+    <dimen name="actions_padding_left">8dp</dimen>
+    <dimen name="actions_icon_height">54dp</dimen>
+    <dimen name="actions_icon_width">54dp</dimen>
+
+    <!-- Material Card Text over image -->
+    <dimen name="card_thumbnail_image_text_over_textsize">24sp</dimen>
+    <dimen name="card_thumbnail_image_text_over_padding_right">16dp</dimen>
+    <dimen name="card_thumbnail_image_text_over_padding_left">16dp</dimen>
+    <dimen name="card_thumbnail_image_text_over_padding_bottom">16dp</dimen>
+    <dimen name="card_thumbnail_image_text_over_padding_top">16dp</dimen>
+    <dimen name="card_main_content_native_material_large_image_paddingLeft">16dp</dimen>
+    <dimen name="card_main_content_native_material_large_image_paddingRight">16dp</dimen>
+    <dimen name="card_main_content_native_material_large_image_paddingBottom">16dp</dimen>
+    <dimen name="card_main_content_native_material_large_image_paddingTop">16dp</dimen>
+
+    <!-- TopColored -->
+    <dimen name="card_topcolored_title_textsize">22dp</dimen>
+    <dimen name="card_topcolored_subtitle_textsize">14dp</dimen>
+    <dimen name="card_topcolored_subtitle_paddingtop">18dp</dimen>
+    <dimen name="card_topcolored_layout_padding">16dp</dimen>
+    <dimen name="card_topcolored_layout_minHeigth">72dp</dimen>
+</resources>

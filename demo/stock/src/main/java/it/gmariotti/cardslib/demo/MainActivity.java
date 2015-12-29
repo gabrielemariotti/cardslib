@@ -29,6 +29,7 @@ import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.text.Html;
 import android.util.Log;
 import android.view.ActionMode;
 import android.view.Menu;
@@ -43,33 +44,32 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.gmariotti.cardslib.demo.fragment.BaseFragment;
-import it.gmariotti.cardslib.demo.fragment.BirthDayCardFragment;
-import it.gmariotti.cardslib.demo.fragment.CardExpandFragment;
-import it.gmariotti.cardslib.demo.fragment.CardFragment;
-import it.gmariotti.cardslib.demo.fragment.CardWithListFragment;
-import it.gmariotti.cardslib.demo.fragment.ChangeValueCardFragment;
-import it.gmariotti.cardslib.demo.fragment.DismissAnimFragment;
-import it.gmariotti.cardslib.demo.fragment.GPlayCardFragment;
-import it.gmariotti.cardslib.demo.fragment.GridBaseFragment;
-import it.gmariotti.cardslib.demo.fragment.GridCursorCardFragment;
-import it.gmariotti.cardslib.demo.fragment.GridGplayCABFragment;
-import it.gmariotti.cardslib.demo.fragment.GridGplayFragment;
-import it.gmariotti.cardslib.demo.fragment.HeaderFragment;
-import it.gmariotti.cardslib.demo.fragment.ListBaseFragment;
-import it.gmariotti.cardslib.demo.fragment.ListColorFragment;
-import it.gmariotti.cardslib.demo.fragment.ListCursorCardFragment;
-import it.gmariotti.cardslib.demo.fragment.ListDifferentInnerBaseFragment;
-import it.gmariotti.cardslib.demo.fragment.ListExpandCardFragment;
-import it.gmariotti.cardslib.demo.fragment.ListGplayCardCABFragment;
-import it.gmariotti.cardslib.demo.fragment.ListGplayCardFragment;
-import it.gmariotti.cardslib.demo.fragment.ListGplayCursorCardCABFragment;
-import it.gmariotti.cardslib.demo.fragment.ListGplayUndoCardFragment;
-import it.gmariotti.cardslib.demo.fragment.ListSectionedCardFragment;
-import it.gmariotti.cardslib.demo.fragment.MiscCardFragment;
-import it.gmariotti.cardslib.demo.fragment.OverflowAnimFragment;
-import it.gmariotti.cardslib.demo.fragment.ShadowFragment;
-import it.gmariotti.cardslib.demo.fragment.StockCardFragment;
-import it.gmariotti.cardslib.demo.fragment.ThumbnailFragment;
+import it.gmariotti.cardslib.demo.fragment.v1.BirthDayCardFragment;
+import it.gmariotti.cardslib.demo.fragment.v1.CardExpandFragment;
+import it.gmariotti.cardslib.demo.fragment.v1.CardFragment;
+import it.gmariotti.cardslib.demo.fragment.v1.CardWithListFragment;
+import it.gmariotti.cardslib.demo.fragment.v1.ChangeValueCardFragment;
+import it.gmariotti.cardslib.demo.fragment.v1.DismissAnimFragment;
+import it.gmariotti.cardslib.demo.fragment.v1.GPlayCardFragment;
+import it.gmariotti.cardslib.demo.fragment.v1.GridBaseFragment;
+import it.gmariotti.cardslib.demo.fragment.v1.GridCursorCardFragment;
+import it.gmariotti.cardslib.demo.fragment.v1.GridGplayCABFragment;
+import it.gmariotti.cardslib.demo.fragment.v1.GridGplayFragment;
+import it.gmariotti.cardslib.demo.fragment.v1.HeaderFragment;
+import it.gmariotti.cardslib.demo.fragment.v1.ListBaseFragment;
+import it.gmariotti.cardslib.demo.fragment.v1.ListColorFragment;
+import it.gmariotti.cardslib.demo.fragment.v1.ListCursorCardFragment;
+import it.gmariotti.cardslib.demo.fragment.v1.ListDifferentInnerBaseFragment;
+import it.gmariotti.cardslib.demo.fragment.v1.ListExpandCardFragment;
+import it.gmariotti.cardslib.demo.fragment.v1.ListGplayCardCABFragment;
+import it.gmariotti.cardslib.demo.fragment.v1.ListGplayCardFragment;
+import it.gmariotti.cardslib.demo.fragment.v1.ListGplayCursorCardCABFragment;
+import it.gmariotti.cardslib.demo.fragment.v1.ListGplayUndoCardFragment;
+import it.gmariotti.cardslib.demo.fragment.v1.ListSectionedCardFragment;
+import it.gmariotti.cardslib.demo.fragment.v1.MiscCardFragment;
+import it.gmariotti.cardslib.demo.fragment.v1.ShadowFragment;
+import it.gmariotti.cardslib.demo.fragment.v1.StockCardFragment;
+import it.gmariotti.cardslib.demo.fragment.v1.ThumbnailFragment;
 import it.gmariotti.cardslib.demo.iabutils.IabHelper;
 import it.gmariotti.cardslib.demo.iabutils.IabResult;
 import it.gmariotti.cardslib.demo.iabutils.IabUtil;
@@ -122,7 +122,7 @@ public class MainActivity extends Activity {
     private static final int CASE_CARDWITHLIST = 23;
     private static final int CASE_SECTIONED_LIST = 24;
     private static final int CASE_DISMISS_ANIM = 25;
-    private static final int CASE_OVERFLOW_ANIM = 26;
+    //private static final int CASE_OVERFLOW_ANIM = 26;
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -383,9 +383,9 @@ public class MainActivity extends Activity {
             case CASE_DISMISS_ANIM:
                 baseFragment = new DismissAnimFragment();
                 break;
-            case CASE_OVERFLOW_ANIM:
-                baseFragment = new OverflowAnimFragment();
-                break;
+            //case CASE_OVERFLOW_ANIM:
+            //    baseFragment = new OverflowAnimFragment();
+            //    break;
             default:
                 break;
         }
@@ -422,6 +422,10 @@ public class MainActivity extends Activity {
         }
     }
 
+    private static String trademark;
+    static {
+        trademark = Html.fromHtml("&#8482;").toString();
+    }
 
     public static final String[] options = {
             "CardHeader",
@@ -430,17 +434,17 @@ public class MainActivity extends Activity {
             "Card",
             "Card Expand",
             "Google Birthday",
-            "Google Play",
+            "Google Play"+trademark,
             "Google Stock",
             "Misc",
             "Refresh Card",
             "List base",
             "List base with different Inner Layouts" ,
             "List and expandable card",
-            "List Google Play",
+            "List Google Play"+trademark,
             "List with swipe and undo",
             "Grid base",
-            "Grid Google Play",
+            "Grid Google Play"+trademark,
             "List colored cards",
             "List with Cursor",
             "Grid with Cursor",

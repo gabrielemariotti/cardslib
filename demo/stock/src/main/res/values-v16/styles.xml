@@ -23,98 +23,21 @@
         AppBaseTheme from BOTH res/values/styles.xml and
         res/values-v11/styles.xml on API 14+ devices.
     -->
-    <style name="AppBaseTheme" parent="Theme.Carddemo">
-        <!-- API 14 theme customizations can go here. -->
-    </style>
+
 
     <!-- Text for sections -->
-    <style name="AppTheme.TitleText">
+    <style name="Theme.Carddemo.TitleText">
         <item name="android:textSize">@dimen/demo_title_section_textsize</item>
+        <item name="android:fontFamily">@string/font_fontFamily_medium</item>
         <item name="android:layout_marginLeft">@dimen/demo_title_section_margin</item>
         <item name="android:layout_marginRight">@dimen/demo_title_section_margin</item>
         <item name="android:layout_marginBottom">@dimen/demo_title_section_margin_bottom</item>
         <item name="android:layout_marginTop">@dimen/demo_title_section_margin_top</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/demo_title_section_textcolor</item>
-        <item name="android:fontFamily">sans-serif-condensed</item>
-    </style>
-
-    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++   -->
-
-    <style name="carddemo_example1_header_text">
-        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">@color/theme_accent_1</item>
     </style>
 
 
-
-    <style name="carddemo_myapps_main_inner_secondarytitle">
-        <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@android:color/darker_gray</item>
-        <item name="android:fontFamily">sans-serif-condensed</item>
-    </style>
-
-    <style name="carddemo_myapps_main_inner_title">
-        <item name="android:textSize">18sp</item>
-        <item name="android:textColor">@android:color/black</item>
-        <item name="android:fontFamily">sans-serif-condensed</item>
-    </style>
-
-
-    <!-- Google Now Expand Layout -->
-
-    <style name="Now.card_expand_inner_layout">
-        <item name="android:paddingLeft">10dp</item>
-        <item name="android:paddingRight">10dp</item>
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">32dp</item>
-        <item name="android:gravity">center_vertical</item>
-        <item name="android:fontFamily">sans-serif-light</item>
-    </style>
-
-
-    <!--You may know card -->
-    <style name="carddemo_mayknow_main_inner_title">
-        <item name="android:textSize">18sp</item>
-        <item name="android:textColor">@android:color/black</item>
-        <item name="android:fontFamily">sans-serif-condensed</item>
-    </style>
-
-    <style name="carddemo_mayknow_main_inner_title.sub">
-        <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@android:color/darker_gray</item>
-    </style>
-
-     <!-- Suggested communities-->
-    <style name="carddemo_suggested_header_text">
-        <item name="android:fontFamily">sans-serif</item>
-    </style>
-
-    <style name="carddemo_suggested_text">
-        <item name="android:textSize">13sp</item>
-        <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textColor">#D0D0D0</item>
-    </style>
-
-    <style name="carddemo_suggested_text_bold">
-        <item name="android:textSize">16sp</item>
-        <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textColor">@android:color/black</item>
-    </style>
-
-    <style name="carddemo_suggested_text_bold1">
-        <item name="android:textSize">14sp</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:fontFamily">sans-serif-condensed</item>
-        <item name="android:textColor">@android:color/black</item>
-    </style>
-
-    <!--Dismiss Animation -->
-    <style name="card.dismiss_name">
-        <item name="android:textStyle">bold</item>
-        <item name="android:fontFamily">sans-serif</item>
-        <item name="android:layout_gravity">left|center_vertical</item>
-        <item name="android:layout_marginTop">@dimen/card_main_simple_title_margin_top</item>
-    </style>
 
 
 </resources>

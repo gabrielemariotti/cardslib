@@ -24,7 +24,9 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
+
     <ScrollView
+        style="@style/carddemo_default_container_padding"
         android:id="@+id/card_scrollview"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -36,7 +38,7 @@
 
             <!-- Simple Title -->
             <TextView
-                style="@style/AppTheme.TitleText"
+                style="@style/Theme.Carddemo.TitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/demo_section_card_changevalue_title"/>

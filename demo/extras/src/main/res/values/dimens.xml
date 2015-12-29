@@ -17,6 +17,42 @@
   -->
 
 <resources>
+    <dimen name="navdrawer_width">240dp</dimen>
+    <dimen name="navdrawer_image_height">120dp</dimen>
+
+    <dimen name="headerbar_elevation">2dp</dimen>
+    <!-- elevation -->
+    <dimen name="carddemo_shadow_elevation">6dp</dimen>
+    <dimen name="carddemo_shadow_start_elevation">2dp</dimen>
+    <dimen name="carddemo_shadow_end_elevation">4dp</dimen>
+
+    <dimen name="carddemo_keyline_1">16dp</dimen>
+    <dimen name="carddemo_keyline_1_minus_8dp">8dp</dimen>
+    <dimen name="carddemo_keyline_margin">16dp</dimen>
+
+    <dimen name="carddemo_keyline_content_new">56dp</dimen>
+    <dimen name="carddemo_keyline_content_start">72dp</dimen>
+    <dimen name="carddemo_barheader_elevation">2dp</dimen>
+    <dimen name="carddemo_barheader_height">72dp</dimen>
+    <dimen name="carddemo_keyline_2">72dp</dimen>
+
+    <dimen name="keyline_1">16dp</dimen>
+    <dimen name="keyline_1_minus_8dp">8dp</dimen>
+    <dimen name="keyline_2">72dp</dimen>
+    <dimen name="keyline_2_minus_16dp">56dp</dimen>
+
+    <dimen name="menu_hz_margin">0dp</dimen>
+    <dimen name="hashtag_line_height">1dp</dimen>
+    <dimen name="hashtag_height">120dp</dimen>
+    <dimen name="hashtag_desc_size">40dp</dimen>
+    <dimen name="hashtag_text_size">14sp</dimen>
+    <dimen name="hashtag_hero_text_size">16sp</dimen>
+
+    <dimen name="hd_fab_size">52dp</dimen>
+    <dimen name="hd_button_elevation">2dp</dimen>
+    <dimen name="hd_button_press_elevation">4dp</dimen>
+
+
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
@@ -46,5 +82,8 @@
     <dimen name="carddemo_extras_basestaggered_height1">120dp</dimen>
     <dimen name="carddemo_extras_basestaggered_height2">150dp</dimen>
     <dimen name="carddemo_extras_basestaggered_height3">180dp</dimen>
+
+    <dimen name="carddemo_gplay_height">300dp</dimen>
+    <dimen name="toolbar_x2">112dp</dimen>
 
 </resources>

@@ -21,8 +21,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/card_thumbnail_image"
     android:scaleType="centerCrop"
-    android:layout_width="70dp"
-    android:layout_height="70dp"
+    android:layout_width="@dimen/circle_size"
+    android:layout_height="@dimen/circle_size"
     style="@style/card_thumbnail_image"/>
 
 

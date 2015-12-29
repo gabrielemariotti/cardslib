@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ *******************************************************************************
+  ~   Copyright (c) 2013-2014 Gabriele Mariotti.
+  ~
+  ~   Licensed under the Apache License, Version 2.0 (the "License");
+  ~   you may not use this file except in compliance with the License.
+  ~   You may obtain a copy of the License at
+  ~
+  ~   http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~   Unless required by applicable law or agreed to in writing, software
+  ~   distributed under the License is distributed on an "AS IS" BASIS,
+  ~   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~   See the License for the specific language governing permissions and
+  ~   limitations under the License.
+  ~  *****************************************************************************
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:card="http://schemas.android.com/apk/res-auto"
+              xmlns:card_view="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/card_scrollview"
+        android:layout_width="match_parent"
+        style="@style/carddemo_default_container_padding"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- Standard Header without buttons -->
+            <TextView
+                style="@style/Theme.Carddemo.TitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/demo_section_header_standard"/>
+
+
+            <it.gmariotti.cardslib.library.view.CardViewNative
+                android:id="@+id/carddemo_header_std"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/card_external"
+             />
+
+            <!-- Standard Header with overflow button -->
+            <TextView
+                style="@style/Theme.Carddemo.TitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/demo_section_header_overflow"/>
+
+            <it.gmariotti.cardslib.library.view.CardViewNative
+                android:id="@+id/carddemo_header_overflow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/card_external"/>
+
+            <!-- Standard Header with overflow button with dynamic menu-->
+            <TextView
+                style="@style/Theme.Carddemo.TitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/demo_section_header_overflow_dynamic"/>
+
+            <it.gmariotti.cardslib.library.view.CardViewNative
+                android:id="@+id/carddemo_header_overflow_dynamic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/card_external"/>
+
+            <!-- Standard Header with overflow button with dynamic menu-->
+            <TextView
+                style="@style/Theme.Carddemo.TitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/demo_section_header_overflow_dynamic2"/>
+
+            <it.gmariotti.cardslib.library.view.CardViewNative
+                android:id="@+id/carddemo_header_overflow_dynamic2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/card_external"/>
+
+            <!-- Standard Header with collapse/expand button -->
+            <TextView
+                style="@style/Theme.Carddemo.TitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/demo_section_header_expand"/>
+
+            <it.gmariotti.cardslib.library.view.CardViewNative
+                android:id="@+id/carddemo_header_expand"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/card_external"/>
+
+            <!-- Standard Header with collapse/expand button custom area-->
+            <TextView
+                style="@style/Theme.Carddemo.TitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/demo_section_header_expand_custom_area"/>
+
+            <it.gmariotti.cardslib.library.view.CardViewNative
+                android:id="@+id/carddemo_header_expand_custom_area"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/card_external"/>
+
+            <!-- Standard Header with other button -->
+            <TextView
+                style="@style/Theme.Carddemo.TitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/demo_section_header_otherButton"/>
+
+            <it.gmariotti.cardslib.library.view.CardViewNative
+                android:id="@+id/carddemo_header_other_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/card_external"/>
+
+            <!-- Standard Header with other buttonw programmatically -->
+            <TextView
+                style="@style/Theme.Carddemo.TitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/demo_section_header_otherButton_programmatically"/>
+
+            <it.gmariotti.cardslib.library.view.CardViewNative
+                android:id="@+id/carddemo_header_other_button_programmatically"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/card_external"/>
+
+
+            <!-- Customize InnerContentHeader -->
+            <TextView
+                style="@style/Theme.Carddemo.TitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/demo_section_header_inner"/>
+
+            <it.gmariotti.cardslib.library.view.CardViewNative
+                android:id="@+id/carddemo_header_inner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/card_external"/>
+
+            <!-- Customize LayoutHeader -->
+            <TextView
+                style="@style/Theme.Carddemo.TitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/demo_section_header_layout"/>
+
+            <it.gmariotti.cardslib.library.view.CardViewNative
+                android:id="@+id/carddemo_header_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/card_external"
+                card:card_layout_resourceID="@layout/carddemo_native_example_card1_layout"/>
+
+            <!-- Customize LayoutHeader -->
+            <TextView
+                style="@style/Theme.Carddemo.TitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/demo_section_header_buttonleft_layout"/>
+
+            <it.gmariotti.cardslib.library.view.CardViewNative
+                android:id="@+id/carddemo_header_buttonleft"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/card_external"
+                card:card_layout_resourceID="@layout/carddemo_native_example_buttonleft_layout"
+   />
+
+            <!-- Empty view-->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="15dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

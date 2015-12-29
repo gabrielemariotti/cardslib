@@ -15,7 +15,7 @@ In this page you can find info about:
 * [Using a CardList in MultiChoiceMode and CursorAdapter](#using-a-cardlist-in-multichoicemode-and-cursoradapter)
 * [CardList with Drag and Drop:](DRAGDROPLIST.md)
 * [SectionedCardList](#sectionedcardlist)
-
+* [Style](#style)
 
 ### Creating a base CardList
 
@@ -58,15 +58,21 @@ Last create a `CardArrayAdapter`, get a reference to the `CardListView` from you
         }
 ```
 
-This `CardListView` uses for each row the row-list layout [`res/layout/list_card_layout.xml`](/library/src/main/res/layout/list_card_layout.xml).
+This `CardListView` uses for each row the row-list layout [`res/layout/native_list_card_layout.xml`](/library/src/main/res/layout/native_list_card_layout.xml).
 
 
 ### Use your custom layout for each row
 
 Card Library provides 2 built-in row-list layouts.
 
-* [`res/layout/list_card_layout.xml`](/library/src/main/res/layout/list_card_layout.xml).
-* [`res/layout/list_card_thumbnail_layout.xml`](/library/src/main/res/layout/list_card_thumbnail_layout.xml.xml).
+For the `CardViewNative`:
+* [`res/layout/native_list_card_layout.xml`](/library-core/src/main/res/layout/native_list_card_layout.xml)..
+* [`res/layout/native_list_card_thumbnail_layout.xml`](/library-core/src/main/res/layout/native_list_card_layout.xml).
+
+For the `CardView`:
+* [`res/layout/list_card_layout.xml`](/library-core/src/main/res/layout/list_card_layout.xml)..
+* [`res/layout/list_card_thumbnail_layout.xml`](/library-core/src/main/res/layout/list_card_layout.xml).
+
 
 You can customize the layout used for each item in ListView using the attr: `card:list_card_layout_resourceID="@layout/my_layout`
 
@@ -75,28 +81,27 @@ You can customize the layout used for each item in ListView using the attr: `car
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/carddemo_list_gplaycard"
-        card:list_card_layout_resourceID="@layout/list_card_thumbnail_layout" />
+        card:list_card_layout_resourceID="@layout/native_list_card_thumbnail_layout" />
 ```
 
-In your row-list layout you can use your `CardView` with all its features and its possibilities.
-Example `list_card_thumbnail_layout.xml`:
+In your row-list layout you can use your `CardViewNative` with all its features and its possibilities.
+Example `native_list_card_thumbnail_layout.xml`:
 
 ``` xml
-    <it.gmariotti.cardslib.library.view.CardView
+    <it.gmariotti.cardslib.library.view.CardViewNative
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:card="http://schemas.android.com/apk/res-auto"
         android:id="@+id/list_cardId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/list_card.thumbnail"
-        card:card_layout_resourceID="@layout/card_thumbnail_layout"
+        style="@style/native_list_card.thumbnail"
+        card:card_layout_resourceID="@layout/native_card_thumbnail_layout"
         />
 ```
 
 You can build your layout, but need to have:
 
- 1. a `CardView` with the ID `list_cardId`
-
+ 1. a `CardViewNative` with the ID `list_cardId`
 
 
 ![Screen](/demo/images/demo/list_gplay.png)
@@ -226,7 +231,7 @@ If you want to enable the swipe action with an Undo Action you have to:
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:id="@+id/carddemo_list_gplaycard"
-              card:list_card_layout_resourceID="@layout/list_card_thumbnail_layout"/>
+              card:list_card_layout_resourceID="@layout/native_list_card_thumbnail_layout"/>
 
       </RelativeLayout>
 
@@ -870,4 +875,43 @@ If you would like to add Cards and CardSections dinamically you can use somethin
         //Don't forget to notify change to your cards adapter
         mCardArrayAdapter.notifyDataSetChanged();
 
+```
+
+### Style
+
+You can customize some properties with your style and drawable files.
+The quickest way to start with this would be to copy the specific style or drawable in your project and
+change them.
+
+For the **CardViewNative**:
+
+These are the main **style properties**:
+
+* `native_list_card`: common style applied to the single card item
+* `native_list_card.base`: style applied for base layout
+* `native_list_card.thumbnail`: style applied for thumbnail layout
+
+**margins**:
+``` xml
+    <dimen name="native_list_card_margin_left">0dp</dimen>
+    <dimen name="native_list_card_margin_right">0dp</dimen>
+    <dimen name="native_list_card_margin_bottom">4dp</dimen>
+    <dimen name="native_list_card_margin_top">4dp</dimen>
+```
+
+For the **CardView**:
+
+These are the main **style properties**:
+
+* `list_card`: common style applied to the single card item
+* `list_card.base`: style applied for base layout
+* `list_card.thumbnail`: style applied for thumbnail layout
+
+**margins**:
+
+``` xml
+    <dimen name="list_card_padding_left">8dp</dimen>
+    <dimen name="list_card_padding_right">8dp</dimen>
+    <dimen name="list_card_padding_bottom">6dp</dimen>
+    <dimen name="list_card_padding_top">2dp</dimen>
 ```
