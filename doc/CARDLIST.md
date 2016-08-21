@@ -58,7 +58,7 @@ Last create a `CardArrayAdapter`, get a reference to the `CardListView` from you
         }
 ```
 
-This `CardListView` uses for each row the row-list layout [`res/layout/native_list_card_layout.xml`](/library/src/main/res/layout/native_list_card_layout.xml).
+This `CardListView` uses for each row the row-list layout [`res/layout/native_list_card_layout.xml`](/library-core/src/main/res/layout/native_list_card_layout.xml).
 
 
 ### Use your custom layout for each row
@@ -214,7 +214,7 @@ If you want to enable the swipe action with an Undo Action you have to:
         //Enable undo controller!
         mCardArrayAdapter.setEnableUndo(true);
  ```
-4. include the undo bar in your layout. You can use the build-in layout [`res/layout/list_card_undo_message.xml'](/library/src/main/res/layout/list_card_undo_message.xml).
+4. include the undo bar in your layout. You can use the build-in layout [`res/layout/list_card_undo_message.xml'](/library-core/src/main/res/layout/list_card_undo_message.xml).
 ``` xml
   <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
                xmlns:card="http://schemas.android.com/apk/res-auto"
@@ -243,8 +243,8 @@ If you want to enable the swipe action with an Undo Action you have to:
 
 The library provides also these undo layouts (check the images below):
 
-- [`res/layout/list_card_undo_material_message.xml'](/library/src/main/res/layout/list_card_undo_material_message.xml)
-- [`res/layout/list_card_undo_materialmobile_message.xml'](/library/src/main/res/layout/list_card_undo_materialmobile_message.xml)
+- [`res/layout/list_card_undo_material_message.xml'](/library-core/src/main/res/layout/list_card_undo_material_message.xml)
+- [`res/layout/list_card_undo_materialmobile_message.xml'](/library-core/src/main/res/layout/list_card_undo_materialmobile_message.xml)
 
 
 It is not mandatory. You can set a `Card.OnSwipeListener` to listen the swipe action.
@@ -281,7 +281,7 @@ There is also a callback to listener when the Undo controller hides the Undo Bar
             });
 ```
 
-You can customize the undo bar. The easiest way is to copy the styles inside [`res/values/styles_undo.xml`](/library/src/main/res/values/styles_undo.xml) in your project.
+You can customize the undo bar. The easiest way is to copy the styles inside [`res/values/styles_undo.xml`](/library-core/src/main/res/values/styles_undo.xml) in your project.
 
 You can see the example in `ListGplayUndoCardFragment`.
 
@@ -321,7 +321,7 @@ This UndoBar has to contains these elements:
 
 3. A root element with an id attribute
 
-You should use the same Ids provided in the default layout [`list_card_undo_message`](/library/src/main/res/layout/list_card_undo_message.xml), but if you have to use different ids you can use the `CardArrayAdapter.setUndoBarUIElements`:
+You should use the same Ids provided in the default layout [`list_card_undo_message`](/library-core/src/main/res/layout/list_card_undo_message.xml), but if you have to use different ids you can use the `CardArrayAdapter.setUndoBarUIElements`:
 
 Example:
 ``` xml
@@ -748,7 +748,7 @@ You have to follow these steps:
 2. Define your `SectionedCardAdapter`
 3. Set the externalAdapter to your `CardListView`
     
-This code uses a default layout for the sections  [`res/layout/base_section_layout`](/library/src/main/res/layout/base_section_layout.xml)   
+This code uses a default layout for the sections  [`res/layout/base_section_layout`](/library-core/src/main/res/layout/base_section_layout.xml)   
 
 Using the code `new CardSection(1,"Section 1"))` you define the position (in the original array) where the section will be inserted and a title to be displayed. 
 
