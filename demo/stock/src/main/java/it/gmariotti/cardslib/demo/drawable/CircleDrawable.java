@@ -56,7 +56,19 @@ public class CircleDrawable extends Drawable {
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
         mPaint.setShader(mBitmapShader);
+    }
 
+    public CircleDrawable(Bitmap bitmap, boolean mUseStroke) {
+        this(bitmap);
+
+        if (mUseStroke) {
+            this.mUseStroke = true;
+            mStrokePadding = 4;
+            mWhitePaint = new Paint();
+            mWhitePaint.setStyle(Paint.Style.FILL_AND_STROKE);
+            mWhitePaint.setStrokeWidth(0.75f);
+            mWhitePaint.setColor(Color.WHITE);
+        }
     }
 
     public CircleDrawable(Bitmap bitmap, boolean mUseStroke) {
@@ -115,4 +127,11 @@ public class CircleDrawable extends Drawable {
         this.mUseStroke = mUseStroke;
     }
 
+    public boolean ismUseStroke() {
+        return mUseStroke;
+    }
+
+    public void setmUseStroke(boolean mUseStroke) {
+        this.mUseStroke = mUseStroke;
+    }
 }
