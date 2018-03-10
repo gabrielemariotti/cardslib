@@ -162,7 +162,7 @@ public class CardExpand extends BaseCard {
 
         //Add simple title to expand area
         if (view!=null){
-            TextView mTitleView=(TextView) view.findViewById(R.id.card_expand_inner_simple_title);
+            TextView mTitleView= view.findViewById(R.id.card_expand_inner_simple_title);
             if (mTitleView!=null)
                 mTitleView.setText(mTitle);
         }

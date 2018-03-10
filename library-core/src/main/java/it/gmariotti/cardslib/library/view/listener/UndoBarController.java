@@ -91,7 +91,7 @@ public class UndoBarController {
             undoBarUIElements = new DefaultUndoBarUIElements();
         mUndoBarUIElements = undoBarUIElements;
 
-        mMessageView = (TextView) mBarView.findViewById(mUndoBarUIElements.getUndoBarMessageId());
+        mMessageView = mBarView.findViewById(mUndoBarUIElements.getUndoBarMessageId());
         mBarView.findViewById(mUndoBarUIElements.getUndoBarButtonId())
                 .setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -307,21 +307,21 @@ public class UndoBarController {
          * UndoBar id
          * @return
          */
-        public int getUndoBarId();
+        int getUndoBarId();
 
         /**
          * TextView Id which displays message
          *
          * @return
          */
-        public int getUndoBarMessageId();
+        int getUndoBarMessageId();
 
         /**
          * UndoButton Id
          *
          * @return
          */
-        public int getUndoBarButtonId();
+        int getUndoBarButtonId();
 
         /**
          * UndoMessage.
@@ -335,32 +335,32 @@ public class UndoBarController {
          * @param itemPositions     position of removed items
          * @return
          */
-        public String getMessageUndo(CardArrayAdapter cardArrayAdapter,String[] itemIds,int[] itemPositions);
+        String getMessageUndo(CardArrayAdapter cardArrayAdapter, String[] itemIds, int[] itemPositions);
 
         /**
          * Define the swipe action to remove the undobar.
          * @return
          */
-        public SwipeDirectionEnabled isEnabledUndoBarSwipeAction();
+        SwipeDirectionEnabled isEnabledUndoBarSwipeAction();
 
         /**
          * Define the animation type for the undobar when it appears.
          * @return
          */
-        public AnimationType getAnimationType();
+        AnimationType getAnimationType();
 
 
         /**
          * Enum to define the animation type of the undobar.<p/>
          * Use the {@link AnimationType#ALPHA} for an alpha animation, or {@link AnimationType#TOPBOTTOM} for a translation from bottom to top.
          */
-        public enum AnimationType {
+        enum AnimationType {
             ALPHA(0),
             TOPBOTTOM(1);
 
             private final int mValue;
 
-            private AnimationType(int value) {
+            AnimationType(int value) {
                 mValue = value;
             }
 
@@ -375,14 +375,14 @@ public class UndoBarController {
          *  You can use {@link SwipeDirectionEnabled#NONE}  to disable the swipe action or  {@link SwipeDirectionEnabled#LEFTRIGHT} to enable an action in left-right direction
          *  or {@link SwipeDirectionEnabled#TOPBOTTOM} to define a swipe action from top to bottom.
          */
-        public enum SwipeDirectionEnabled {
+        enum SwipeDirectionEnabled {
             NONE(0),
             LEFTRIGHT(1),
             TOPBOTTOM(2);
 
             private final int mValue;
 
-            private SwipeDirectionEnabled(int value) {
+            SwipeDirectionEnabled(int value) {
                 mValue = value;
             }
 
@@ -419,7 +419,7 @@ public class UndoBarController {
      */
     public static class DefaultUndoBarUIElements implements UndoBarUIElements {
 
-        public DefaultUndoBarUIElements(){};
+        public DefaultUndoBarUIElements(){}
 
         @Override
         public int getUndoBarId() {
@@ -456,7 +456,7 @@ public class UndoBarController {
             return AnimationType.ALPHA;
         }
 
-    };
+    }
 
 
     /**

@@ -62,9 +62,9 @@ public interface CardViewWrapper {
     /**
      * Interface to listen any callbacks when expand/collapse animation starts
      */
-    public interface OnExpandListAnimatorListener {
-        public void onExpandStart(CardViewWrapper viewCard,View expandingLayout);
-        public void onCollapseStart(CardViewWrapper viewCard,View expandingLayout);
+    interface OnExpandListAnimatorListener {
+        void onExpandStart(CardViewWrapper viewCard, View expandingLayout);
+        void onCollapseStart(CardViewWrapper viewCard, View expandingLayout);
     }
 
     /**

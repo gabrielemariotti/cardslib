@@ -205,7 +205,7 @@ public class CardHeader extends BaseCard {
      * Interface to handle any callback when a item in popup menu is clicked
      */
     public interface OnClickCardHeaderPopupMenuListener {
-        public void onMenuItemClick(BaseCard card, MenuItem item);
+        void onMenuItemClick(BaseCard card, MenuItem item);
     }
 
     /**
@@ -224,14 +224,14 @@ public class CardHeader extends BaseCard {
          * @return You must return true for the menu to be displayed;
          *          if you return false it will not be shown.
          */
-        public boolean onPreparePopupMenu(BaseCard card, PopupMenu popupMenu);
+        boolean onPreparePopupMenu(BaseCard card, PopupMenu popupMenu);
     }
 
     /**
      * Interface to handle callbacks when Other Button is clicked
      */
     public interface OnClickCardHeaderOtherButtonListener {
-        public void onButtonItemClick(Card card, View view);
+        void onButtonItemClick(Card card, View view);
     }
 
 
@@ -301,11 +301,7 @@ public class CardHeader extends BaseCard {
     public void setCustomOverflowAnimation(CustomOverflowAnimation customAnimation) {
         this.mCustomOverflowAnimation = customAnimation;
 
-        if (mCustomOverflowAnimation==null){
-            mIsButtonOverflowVisible=false;
-        }else{
-            mIsButtonOverflowVisible=true;
-        }
+        mIsButtonOverflowVisible = mCustomOverflowAnimation != null;
     }
 
 
@@ -377,7 +373,7 @@ public class CardHeader extends BaseCard {
 
         //Add simple title to header
         if (view!=null){
-            TextView mTitleView=(TextView) view.findViewById(R.id.card_header_inner_simple_title);
+            TextView mTitleView= view.findViewById(R.id.card_header_inner_simple_title);
             if (mTitleView!=null)
                 mTitleView.setText(mTitle);
         }

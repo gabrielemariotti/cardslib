@@ -276,7 +276,7 @@ public class SectionedCardAdapter extends BaseAdapter {
      */
     protected View getSectionView(int position, View view, ViewGroup parent) {
 
-        TextView textView = (TextView) view.findViewById(R.id.card_section_simple_title);
+        TextView textView = view.findViewById(R.id.card_section_simple_title);
         if (textView != null)
             textView.setText(mCardSections.get(position).title);
 

@@ -41,14 +41,14 @@ public interface Dismissable {
     void setAdapter(Adapter adapter);
 
 
-    public enum SwipeDirection {
+    enum SwipeDirection {
         BOTH(0),
         LEFT(1),
         RIGHT(2);
 
         private final int mValue;
 
-        private SwipeDirection(int value) {
+        SwipeDirection(int value) {
             mValue = value;
         }
 

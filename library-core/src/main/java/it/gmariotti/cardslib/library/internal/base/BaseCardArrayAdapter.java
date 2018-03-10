@@ -82,18 +82,15 @@ public abstract class BaseCardArrayAdapter extends ArrayAdapter<Card> {
 
     @Override
     public int getItemViewType(int position) {
-        Card card = (Card) getItem(position);
+        Card card = getItem(position);
         return card.getType();
     }
 
     @Override
     public boolean isEnabled(int position) {
         //Disable card if it is not clickable or longClickable
-        Card card = (Card) getItem(position);
-        if (card.isClickable() || card.isLongClickable())
-            return true;
-        else
-            return false;
+        Card card = getItem(position);
+        return card.isClickable() || card.isLongClickable();
     }
 
     /**

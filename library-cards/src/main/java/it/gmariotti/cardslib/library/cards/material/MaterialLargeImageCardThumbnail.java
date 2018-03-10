@@ -81,7 +81,7 @@ public class MaterialLargeImageCardThumbnail extends CardThumbnail {
         }
 
         //Title over the image
-        mTitleOverImageView = (TextView) parent.findViewById(default_text_id);
+        mTitleOverImageView = parent.findViewById(default_text_id);
         buildTextOverImage();
 
     }

@@ -81,18 +81,15 @@ public abstract class BaseCardCursorAdapter extends CursorAdapter {
 
     @Override
     public int getItemViewType(int position) {
-        Card card = (Card)  getItem(position);
+        Card card = getItem(position);
         return card.getType();
     }
 
     @Override
     public boolean isEnabled(int position) {
         //Disable card if it is not clickable or longClickable
-        Card card = (Card)  getItem(position);
-        if (card.isClickable() || card.isLongClickable())
-            return true;
-        else
-            return false;
+        Card card = getItem(position);
+        return card.isClickable() || card.isLongClickable();
     }
 
     /**
@@ -108,7 +105,7 @@ public abstract class BaseCardCursorAdapter extends CursorAdapter {
     public Card getItem(int position) {
         Object obj = super.getItem(position);
         if (obj instanceof Cursor)
-            return (Card) getCardFromCursor((Cursor) obj);
+            return getCardFromCursor((Cursor) obj);
         else
             return null;
     }

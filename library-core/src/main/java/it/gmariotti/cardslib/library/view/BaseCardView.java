@@ -210,7 +210,7 @@ public class BaseCardView extends LinearLayout implements CardViewInterface {
     protected void retrieveLayoutIDs() {
 
         // Get Shadow Layout
-        mInternalShadowLayout = (CardShadowView) findViewById(R.id.card_shadow_layout);
+        mInternalShadowLayout = findViewById(R.id.card_shadow_layout);
     }
 
     //--------------------------------------------------------------------------
