@@ -115,7 +115,7 @@ public class CardGridArrayAdapter extends BaseCardArrayAdapter {
         LayoutInflater mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         //Retrieve card from items
-        mCard = (Card) getItem(position);
+        mCard = getItem(position);
         if (mCard != null) {
 
             int layout = mRowLayoutId;
@@ -130,7 +130,7 @@ public class CardGridArrayAdapter extends BaseCardArrayAdapter {
             }
 
             //Setup card
-            mCardView = (CardViewWrapper) view.findViewById(R.id.list_cardId);
+            mCardView = view.findViewById(R.id.list_cardId);
             if (mCardView != null) {
                 //It is important to set recycle value for inner layout elements
                 mCardView.setForceReplaceInnerLayout(Card.equalsInnerLayout(mCardView.getCard(),mCard));

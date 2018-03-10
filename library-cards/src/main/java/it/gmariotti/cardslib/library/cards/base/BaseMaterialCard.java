@@ -74,7 +74,7 @@ public abstract class BaseMaterialCard extends Card {
     protected View buildSupplementalActions() {
 
         if (getLayout_supplemental_actions_id() != INVALID_SUPPLEMENTAL_ACTIONS_LAYOUT) {
-            ViewStub stub = (ViewStub) ((View) getCardView()).findViewById(R.id.card_supplemental_actions_vs);
+            ViewStub stub = ((View) getCardView()).findViewById(R.id.card_supplemental_actions_vs);
             if (stub != null) {
                 stub.setLayoutResource(getLayout_supplemental_actions_id());
                 return stub.inflate();

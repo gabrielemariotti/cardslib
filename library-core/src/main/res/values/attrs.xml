@@ -42,9 +42,9 @@
     <!-- Used for ForegroundLinearLayout -->
     <!-- Refer to https://gist.github.com/chrisbanes/9091754 for original code -->
     <declare-styleable name="ForegroundLinearLayout">
-        <attr name="android:foreground" />
-        <attr name="android:foregroundInsidePadding" />
-        <attr name="android:foregroundGravity" />
+        <attr name="foreground" format="reference"/>
+        <attr name="foregroundInsidePadding" format="reference"/>
+        <attr name="foregroundGravity" format="integer" />
     </declare-styleable>
 
     <!-- Used in card with list-->

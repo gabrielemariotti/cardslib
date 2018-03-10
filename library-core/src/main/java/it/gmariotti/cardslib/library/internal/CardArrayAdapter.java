@@ -38,7 +38,6 @@ import it.gmariotti.cardslib.library.R;
 import it.gmariotti.cardslib.library.internal.base.BaseCardArrayAdapter;
 import it.gmariotti.cardslib.library.view.CardListView;
 import it.gmariotti.cardslib.library.view.base.CardViewWrapper;
-import it.gmariotti.cardslib.library.view.CardView;
 import it.gmariotti.cardslib.library.view.listener.SwipeDismissListViewTouchListener;
 import it.gmariotti.cardslib.library.view.listener.SwipeOnScrollListener;
 import it.gmariotti.cardslib.library.view.listener.UndoBarController;
@@ -141,7 +140,7 @@ public class CardArrayAdapter extends BaseCardArrayAdapter implements UndoBarCon
         LayoutInflater mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         //Retrieve card from items
-        mCard = (Card) getItem(position);
+        mCard = getItem(position);
         if (mCard != null) {
 
             int layout = mRowLayoutId;
@@ -156,7 +155,7 @@ public class CardArrayAdapter extends BaseCardArrayAdapter implements UndoBarCon
             }
 
             //Setup card
-            mCardView = (CardViewWrapper) view.findViewById(R.id.list_cardId);
+            mCardView = view.findViewById(R.id.list_cardId);
             if (mCardView != null) {
                 //It is important to set recycle value for inner layout elements
                 mCardView.setForceReplaceInnerLayout(Card.equalsInnerLayout(mCardView.getCard(),mCard));

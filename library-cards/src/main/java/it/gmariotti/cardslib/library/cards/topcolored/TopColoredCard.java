@@ -186,9 +186,9 @@ public class TopColoredCard extends BaseMaterialCard {
             ViewHolder holder = (ViewHolder) view.getTag();
             if (holder == null) {
                 holder = new ViewHolder();
-                holder.mLinearLayoutContainer = (LinearLayout) view.findViewById(R.id.card_main_inner_topcolored_layout);
-                holder.mTitleView = (TextView) view.findViewById(R.id.card_main_inner_topcolored_title);
-                holder.mSubTitleView = (TextView) view.findViewById(R.id.card_main_inner_topcolored_subtitle);
+                holder.mLinearLayoutContainer = view.findViewById(R.id.card_main_inner_topcolored_layout);
+                holder.mTitleView = view.findViewById(R.id.card_main_inner_topcolored_title);
+                holder.mSubTitleView = view.findViewById(R.id.card_main_inner_topcolored_subtitle);
                 View viewStub = ((View)getCardView()).findViewById(R.id.card_halfcolored_secondhalf);
                 if (viewStub != null) {
                     ((ViewStub)viewStub).setLayoutResource(mSecondHalfViewStubLayoutId);
@@ -250,7 +250,7 @@ public class TopColoredCard extends BaseMaterialCard {
         if (mOnSetupInnerElements != null)
             mOnSetupInnerElements.setupInnerViewElementsSecondHalf(secondHalfView);
 
-    };
+    }
 
 
     /**

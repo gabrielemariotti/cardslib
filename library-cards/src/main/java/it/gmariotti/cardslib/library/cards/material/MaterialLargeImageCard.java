@@ -67,7 +67,7 @@ public class MaterialLargeImageCard extends BaseMaterialCard {
      */
     protected CharSequence mSubTitle;
 
-    public static interface DrawableExternal{
+    public interface DrawableExternal{
         void setupInnerViewElements(ViewGroup parent, View viewImage);
     }
 
@@ -215,7 +215,7 @@ public class MaterialLargeImageCard extends BaseMaterialCard {
 
         //Add a simple subtitle
         if (view != null) {
-            TextView mTitleView = (TextView) view.findViewById(R.id.card_main_inner_simple_subtitle);
+            TextView mTitleView = view.findViewById(R.id.card_main_inner_simple_subtitle);
             if (mTitleView != null)
                 mTitleView.setText(mSubTitle);
         }

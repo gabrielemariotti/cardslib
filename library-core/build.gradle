@@ -9,8 +9,8 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 22
+        minSdkVersion 16
+        targetSdkVersion 27
         versionName project.VERSION_NAME
         versionCode Integer.parseInt(project.VERSION_CODE)
     }
@@ -19,18 +19,23 @@ android {
     lintOptions {
         abortOnError false
     }
+    buildToolsVersion '26.0.3'
 }
 
 dependencies {
     //CardView
-    compile 'com.android.support:cardview-v7:22.1.1'
+    //noinspection GradleCompatible
+    compile 'com.android.support:cardview-v7:27.1.0'
 
     //Support lib
-    compile 'com.android.support:support-v4:22.1.1'
+    compile 'com.android.support:support-v4:27.1.0'
 
     //Annotation
-    compile 'com.android.support:support-annotations:22.1.1'
+    compile 'com.android.support:support-annotations:27.1.0'
+    compile 'com.survivingwithandroid:weatherlib:1.6.0'
+    compile 'com.survivingwithandroid:weatherlib_volleyclient:1.6.0'
+    compile 'com.mcxiaoke.volley:library:1.0.6@aar'
 }
 
 // Used to update in Maven
-//apply from: '../maven_push.gradle'
+apply from: '../maven_push.gradle'

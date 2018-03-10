@@ -302,7 +302,7 @@ public abstract class CardWithList extends Card {
     @Override
     public void setupInnerViewElements(ViewGroup parent, View view) {
 
-        mListView = (LinearListView) view.findViewById(getListViewId());
+        mListView = view.findViewById(getListViewId());
         if (mListView != null) {
 
             internalSetupProgressBar(parent, view);
@@ -343,7 +343,7 @@ public abstract class CardWithList extends Card {
     @SuppressWarnings("UnusedParameters")
     private void internalSetupEmptyView(ViewGroup parent, View view) {
         if (useEmptyView) {
-            mEmptyView = (View) parent.findViewById(getEmptyViewId());
+            mEmptyView = parent.findViewById(getEmptyViewId());
             if (mEmptyView != null) {
                 if (mEmptyView instanceof ViewStub)
                     ((ViewStub) mEmptyView).setLayoutResource(getEmptyViewViewStubLayoutId());
@@ -361,7 +361,7 @@ public abstract class CardWithList extends Card {
     @SuppressWarnings("UnusedParameters")
     private void internalSetupProgressBar(ViewGroup parent, View view) {
         if (useProgressBar) {
-            mProgressView = (View) parent.findViewById(getProgressBarId());
+            mProgressView = parent.findViewById(getProgressBarId());
             mListShown=true;
             if (mProgressView != null) {
                 if (mProgressView instanceof ViewStub)
@@ -394,12 +394,12 @@ public abstract class CardWithList extends Card {
          *
          * @return
          */
-        public String getObjectId();
+        String getObjectId();
 
         /**
          * Returns the parent card
          */
-        public Card getParentCard();
+        Card getParentCard();
 
         /**
          * Register a callback to be invoked when an item in this LinearListView has
@@ -408,32 +408,32 @@ public abstract class CardWithList extends Card {
          * @return The callback to be invoked with an item in this LinearListView has
          * been clicked, or null id no callback has been set.
          */
-        public void setOnItemClickListener(OnItemClickListener onItemClickListener);
+        void setOnItemClickListener(OnItemClickListener onItemClickListener);
 
         /**
          * @return The callback to be invoked with an item in this LinearListView has
          * been clicked, or null id no callback has been set.
          */
-        public OnItemClickListener getOnItemClickListener();
+        OnItemClickListener getOnItemClickListener();
 
         /**
          * Indicates if the item is swipeable
          */
-        public boolean isSwipeable();
+        boolean isSwipeable();
 
         /**
          * Set the item as swipeable
          *
          * @param isSwipeable
          */
-        public void setSwipeable(boolean isSwipeable);
+        void setSwipeable(boolean isSwipeable);
 
         /**
          * Returns the callback to be invoked when item has been swiped
          *
          * @return listener
          */
-        public OnItemSwipeListener getOnItemSwipeListener();
+        OnItemSwipeListener getOnItemSwipeListener();
 
         /**
          * Register a callback to be invoked when an item in this LinearListView has
@@ -441,7 +441,7 @@ public abstract class CardWithList extends Card {
          *
          * @param onSwipeListener listener
          */
-        public void setOnItemSwipeListener(OnItemSwipeListener onSwipeListener);
+        void setOnItemSwipeListener(OnItemSwipeListener onSwipeListener);
 
     }
 
@@ -489,7 +489,7 @@ public abstract class CardWithList extends Card {
          *
          * @param object The object that was clicked.
          */
-        public void onItemSwipe(ListObject object,boolean dismissRight);
+        void onItemSwipe(ListObject object, boolean dismissRight);
 
     }
 
@@ -510,10 +510,7 @@ public abstract class CardWithList extends Card {
      * @param onSwipeListener listener
      */
     public void setOnSwipeListener(OnSwipeListener onSwipeListener) {
-        if (onSwipeListener != null)
-            mIsSwipeable = true;
-        else
-            mIsSwipeable = false;
+        mIsSwipeable = onSwipeListener != null;
         this.mOnSwipeListener = onSwipeListener;
     }
 
@@ -604,10 +601,7 @@ public abstract class CardWithList extends Card {
 
         @Override
         public void setOnItemSwipeListener(OnItemSwipeListener onItemSwipeListener) {
-            if (onItemSwipeListener != null)
-                mItemSwipeable = true;
-            else
-                mItemSwipeable = false;
+            mItemSwipeable = onItemSwipeListener != null;
             this.mOnItemSwipeListener = onItemSwipeListener;
         }
 
@@ -624,7 +618,7 @@ public abstract class CardWithList extends Card {
     public void setEmptyView(View emptyView) {
         mEmptyView = emptyView;
 
-        useEmptyView = emptyView != null ? true : false;
+        useEmptyView = emptyView != null;
 
         final LinearListAdapter adapter = getLinearListAdapter();
         final boolean empty = ((adapter == null) || adapter.isEmpty());

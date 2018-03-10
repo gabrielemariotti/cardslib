@@ -37,7 +37,7 @@ public interface CardUIInferface {
      * @param parent parent view
      * @return   layout view
      */
-    public View getInnerView(Context context,ViewGroup parent);
+    View getInnerView(Context context, ViewGroup parent);
 
 
     /**
@@ -46,7 +46,7 @@ public interface CardUIInferface {
      * @param parent  parent view
      * @param view  view
      */
-    public void setupInnerViewElements(ViewGroup parent,View view);
+    void setupInnerViewElements(ViewGroup parent, View view);
 
 
 }

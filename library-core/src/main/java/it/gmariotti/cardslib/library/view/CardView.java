@@ -44,8 +44,6 @@ import it.gmariotti.cardslib.library.internal.CardHeader;
 import it.gmariotti.cardslib.library.internal.CardThumbnail;
 import it.gmariotti.cardslib.library.internal.ViewToClickToExpand;
 import it.gmariotti.cardslib.library.view.base.CardViewWrapper;
-import it.gmariotti.cardslib.library.view.component.CardHeaderView;
-import it.gmariotti.cardslib.library.view.component.CardThumbnailView;
 import it.gmariotti.cardslib.library.view.listener.SwipeDismissViewTouchListener;
 
 /**
@@ -310,19 +308,19 @@ public class CardView extends BaseCardView implements CardViewWrapper {
         super.retrieveLayoutIDs();
 
         //Main Layout
-        mInternalMainCardLayout = (View) findViewById(R.id.card_main_layout);
+        mInternalMainCardLayout = findViewById(R.id.card_main_layout);
 
         //Get HeaderLayout
-        mInternalHeaderLayout = (CardHeaderView) findViewById(R.id.card_header_layout);
+        mInternalHeaderLayout = findViewById(R.id.card_header_layout);
 
         //Get ExpandHiddenView
-        mInternalExpandLayout = (View) findViewById(R.id.card_content_expand_layout);
+        mInternalExpandLayout = findViewById(R.id.card_content_expand_layout);
 
         //Get ContentLayout
-        mInternalContentLayout = (View) findViewById(R.id.card_main_content_layout);
+        mInternalContentLayout = findViewById(R.id.card_main_content_layout);
 
         //Get ThumbnailLayout
-        mInternalThumbnailLayout = (CardThumbnailView) findViewById(R.id.card_thumbnail_layout);
+        mInternalThumbnailLayout = findViewById(R.id.card_thumbnail_layout);
     }
 
     /**

@@ -399,19 +399,19 @@ public class CardViewNative extends android.support.v7.widget.CardView implement
     protected void retrieveLayoutIDs(){
 
         //Main Layout
-        mInternalMainCardLayout = (View) findViewById(R.id.card_main_layout);
+        mInternalMainCardLayout = findViewById(R.id.card_main_layout);
 
         //Get HeaderLayout
-        mInternalHeaderLayout = (CardHeaderView) findViewById(R.id.card_header_layout);
+        mInternalHeaderLayout = findViewById(R.id.card_header_layout);
 
         //Get ExpandHiddenView
-        mInternalExpandLayout = (View) findViewById(R.id.card_content_expand_layout);
+        mInternalExpandLayout = findViewById(R.id.card_content_expand_layout);
 
         //Get ContentLayout
-        mInternalContentLayout = (View) findViewById(R.id.card_main_content_layout);
+        mInternalContentLayout = findViewById(R.id.card_main_content_layout);
 
         //Get ThumbnailLayout
-        mInternalThumbnailLayout = (CardThumbnailView) findViewById(R.id.card_thumbnail_layout);
+        mInternalThumbnailLayout = findViewById(R.id.card_thumbnail_layout);
     }
 
     /**

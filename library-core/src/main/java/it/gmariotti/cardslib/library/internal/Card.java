@@ -310,7 +310,7 @@ public class Card extends BaseCard {
 
         //Add simple title to header
         if (view != null) {
-            TextView mTitleView = (TextView) view.findViewById(R.id.card_main_inner_simple_title);
+            TextView mTitleView = view.findViewById(R.id.card_main_inner_simple_title);
             if (mTitleView != null)
                 mTitleView.setText(mTitle);
         }
@@ -415,7 +415,7 @@ public class Card extends BaseCard {
      * Interface to listen for any callbacks when card is swiped.
      */
     public interface OnSwipeListener {
-        public void onSwipe(Card card);
+        void onSwipe(Card card);
     }
 
     /**
@@ -444,10 +444,7 @@ public class Card extends BaseCard {
      * @param onSwipeListener listener
      */
     public void setOnSwipeListener(OnSwipeListener onSwipeListener) {
-        if (onSwipeListener != null)
-            mIsSwipeable = true;
-        else
-            mIsSwipeable = false;
+        mIsSwipeable = onSwipeListener != null;
         this.mOnSwipeListener = onSwipeListener;
     }
 
@@ -459,14 +456,14 @@ public class Card extends BaseCard {
      * Interface to listen for any callbacks when card is swiped in a List
      */
     public interface OnUndoSwipeListListener {
-        public void onUndoSwipe(Card card);
+        void onUndoSwipe(Card card);
     }
 
     /**
      * Interface to listen for when the Undo controller hides the Undo Bar
      */
     public interface OnUndoHideSwipeListListener {
-        public void onUndoHideSwipe(Card card);
+        void onUndoHideSwipe(Card card);
     }
 
     /**
@@ -522,7 +519,7 @@ public class Card extends BaseCard {
      * Interface to listen for any callbacks when card is clicked
      */
     public interface OnCardClickListener {
-        public void onClick(Card card, View view);
+        void onClick(Card card, View view);
     }
 
     /**
@@ -541,10 +538,7 @@ public class Card extends BaseCard {
      * @param onClickListener listener
      */
     public void setOnClickListener(OnCardClickListener onClickListener) {
-        if (onClickListener != null)
-            mIsClickable = true;
-        else
-            mIsClickable = false;
+        mIsClickable = onClickListener != null;
         mOnClickListener = onClickListener;
     }
 
@@ -556,7 +550,7 @@ public class Card extends BaseCard {
      * Interface to listen for any callbacks when card is long clicked
      */
     public interface OnLongCardClickListener {
-        public boolean onLongClick(Card card, View view);
+        boolean onLongClick(Card card, View view);
     }
 
     /**
@@ -580,10 +574,7 @@ public class Card extends BaseCard {
      * @param onLongClickListener
      */
     public void setOnLongClickListener(OnLongCardClickListener onLongClickListener) {
-        if (onLongClickListener != null)
-            mIsLongClickable = true;
-        else
-            mIsLongClickable = false;
+        mIsLongClickable = onLongClickListener != null;
         mOnLongClickListener = onLongClickListener;
     }
 
@@ -595,7 +586,7 @@ public class Card extends BaseCard {
      * Interface to listen any callbacks when expand animation ends
      */
     public interface OnExpandAnimatorEndListener {
-        public void onExpandEnd(Card card);
+        void onExpandEnd(Card card);
     }
 
     /**
@@ -629,7 +620,7 @@ public class Card extends BaseCard {
      * Interface to listen any callbacks when expand animation starts
      */
     public interface OnExpandAnimatorStartListener {
-        public void onExpandStart(Card card);
+        void onExpandStart(Card card);
     }
 
     /**
@@ -667,7 +658,7 @@ public class Card extends BaseCard {
      * Interface to listen any callbacks when expand animation ends
      */
     public interface OnCollapseAnimatorEndListener {
-        public void onCollapseEnd(Card card);
+        void onCollapseEnd(Card card);
     }
 
     /**
@@ -701,7 +692,7 @@ public class Card extends BaseCard {
      * Interface to listen any callbacks when collapse animation starts
      */
     public interface OnCollapseAnimatorStartListener {
-        public void onCollapseStart(Card card);
+        void onCollapseStart(Card card);
     }
 
     /**
@@ -750,9 +741,7 @@ public class Card extends BaseCard {
      * @return <code>true</code> if card has a header
      */
     public boolean hasHeader() {
-        if (getCardHeader() != null)
-            return true;
-        else return false;
+        return getCardHeader() != null;
     }
 
     // -------------------------------------------------------------

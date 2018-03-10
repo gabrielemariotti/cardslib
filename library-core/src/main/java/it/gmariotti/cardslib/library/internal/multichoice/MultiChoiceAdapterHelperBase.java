@@ -305,10 +305,7 @@ public class MultiChoiceAdapterHelperBase implements AdapterView.OnItemLongClick
      * @return
      */
     public boolean isActionModeStarted() {
-        if (actionMode != null) {
-            return true;
-        }
-        return false;
+        return actionMode != null;
     }
 
 
@@ -328,7 +325,7 @@ public class MultiChoiceAdapterHelperBase implements AdapterView.OnItemLongClick
 
         for (int i =  checked.size()-1; i>=0; i--) {
             if (checked.valueAt(i) == true) {
-                items.add( adapter.getItem((int) checked.keyAt(i)));
+                items.add( adapter.getItem(checked.keyAt(i)));
             }
         }
 

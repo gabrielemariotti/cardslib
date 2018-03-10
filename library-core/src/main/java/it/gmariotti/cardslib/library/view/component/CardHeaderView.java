@@ -209,9 +209,9 @@ public class CardHeaderView extends FrameLayout implements CardViewInterface {
         mInternalOuterView = inflater.inflate(card_header_layout_resourceID, this, true);
 
         //Get buttons from layout
-        mImageButtonExpand = (ImageButton) findViewById(R.id.card_header_button_expand);
-        mImageButtonOverflow = (ImageButton) findViewById(R.id.card_header_button_overflow);
-        mImageButtonOther = (ImageButton) findViewById(R.id.card_header_button_other);
+        mImageButtonExpand = findViewById(R.id.card_header_button_expand);
+        mImageButtonOverflow = findViewById(R.id.card_header_button_overflow);
+        mImageButtonOther = findViewById(R.id.card_header_button_other);
 
         //Get frames
         mFrameInner = (FrameLayout) findViewById(R.id.card_header_inner_frame);
@@ -395,7 +395,7 @@ public class CardHeaderView extends FrameLayout implements CardViewInterface {
         if (mImageButtonOverflow != null) {
 
             // allow dynamic customization on popup menu
-            boolean prepareMenu = mCardHeader.getPopupMenu() > CardHeader.NO_POPUP_MENU ? true : false;
+            boolean prepareMenu = mCardHeader.getPopupMenu() > CardHeader.NO_POPUP_MENU;
             if (mCardHeader.getPopupMenuPrepareListener() != null) {
 
                 //Build the popupMenu

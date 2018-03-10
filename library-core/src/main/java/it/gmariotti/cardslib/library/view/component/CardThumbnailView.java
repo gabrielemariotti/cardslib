@@ -42,11 +42,10 @@ import java.lang.ref.WeakReference;
 import java.net.URL;
 
 import it.gmariotti.cardslib.library.Constants;
+import it.gmariotti.cardslib.library.R;
 import it.gmariotti.cardslib.library.internal.CardThumbnail;
 import it.gmariotti.cardslib.library.utils.CacheUtil;
 import it.gmariotti.cardslib.library.view.base.CardViewInterface;
-
-import it.gmariotti.cardslib.library.R;
 
 /**
  * Compound View for Thumbnail Component.
@@ -172,7 +171,7 @@ public class CardThumbnailView extends FrameLayout implements CardViewInterface 
         mInternalOuterView = inflater.inflate(card_thumbnail_layout_resourceID,this,true);
 
         //Get ImageVIew
-        mImageView= (ImageView) findViewById(R.id.card_thumbnail_image);
+        mImageView= findViewById(R.id.card_thumbnail_image);
 
 
         // Get max available VM memory, exceeding this amount will throw an
@@ -503,7 +502,7 @@ public class CardThumbnailView extends FrameLayout implements CardViewInterface 
                 addBitmapToMemoryCache(String.valueOf(params[0]), bitmap);
                 return bitmap;
             }else{
-                return (Bitmap)null;
+                return null;
             }
 
         }
@@ -558,7 +557,7 @@ public class CardThumbnailView extends FrameLayout implements CardViewInterface 
                 addBitmapToMemoryCache(String.valueOf(params[0]), bitmap);
                 return bitmap;
             }else
-                return (Bitmap) null;
+                return null;
         }
 
         // Once complete, see if ImageView is still around and set bitmap.
@@ -610,7 +609,7 @@ public class CardThumbnailView extends FrameLayout implements CardViewInterface 
                 addBitmapToMemoryCache(customSource.getTag(), bitmap);
                 return bitmap;
             }else{
-                return (Bitmap)null;
+                return null;
             }
 
         }

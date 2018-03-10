@@ -115,7 +115,7 @@ public class CardExpandableListAdapter<T> extends BaseExpandableListAdapter {
         View view = convertView;
         CardViewWrapper mCardView;
 
-        Card mCard = (Card) getGroup(groupPosition);
+        Card mCard = getGroup(groupPosition);
         if (mCard != null) {
             int layout = mGroupLayoutId;
             boolean recycle = false;
@@ -129,7 +129,7 @@ public class CardExpandableListAdapter<T> extends BaseExpandableListAdapter {
             }
 
             //Setup card
-            mCardView = (CardViewWrapper) view.findViewById(R.id.list_cardId);
+            mCardView = view.findViewById(R.id.list_cardId);
             if (mCardView != null) {
                 //It is important to set recycle value for inner layout elements
                 mCardView.setForceReplaceInnerLayout(Card.equalsInnerLayout(mCardView.getCard(), mCard));
@@ -159,7 +159,7 @@ public class CardExpandableListAdapter<T> extends BaseExpandableListAdapter {
             if (convertView == null) {
                 convertView = mInflater.inflate(mChildLayoutId, null);
             }
-            text = (TextView) convertView.findViewById(R.id.card_children_simple_title);
+            text = convertView.findViewById(R.id.card_children_simple_title);
             text.setText(children);
 
             registerClickListener(convertView, obj, groupPosition, childPosition);
